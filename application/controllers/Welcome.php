@@ -10,7 +10,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Learn CodeIgniter website, template driven
  *
  */
-//FIXME - maybe this should generate the sidebar?
 class Welcome extends Application
 {
 

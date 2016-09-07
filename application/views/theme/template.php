@@ -7,8 +7,7 @@
         <meta name="robots" content="noindex, nofollow"/>
         <title>{pagetitle}</title>
         <link rel="icon" type="image/png" href="/assets/images/ci-icon.png" />
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-			  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+		<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"/>
         <link rel="stylesheet" type="text/css" href="/assets/css/style.css"/>
         <link rel="stylesheet" type="text/css" href="/assets/css/learning.css"/>
         <link rel="stylesheet" type="text/css" href="/assets/data/custom.css"/>
@@ -71,8 +70,7 @@
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
-		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>
     </body>
 </html>
 
