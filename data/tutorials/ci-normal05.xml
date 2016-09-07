@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Tutorial 05 - Working With Libraries and Helpers
+-->
+<tutorial status="BETA">
+    <!-- Activity metadata ... override anything from the course or organizer -->
+    
+    <!-- The meat of the presentation -->
+    <slide title="Tutorial Goals" layout="normal">
+        <p>This tutorial is meant to give you some practice with extending 
+            a CodeIgniter webapp in some standard ways.</p>
+        <p>I have prepared a 
+            <a href="https://github.com/jedi-academy/starter-caboose" target="_blank">
+                starter webapp</a> – based on the "quotes" webapp you 
+            saw and fixed earlier. This webapp is complete,
+            showing the most recent quote on the homepage, and then a gallery when you
+            drill down, but it is painfully boring. We will add some ratings to the
+            individual quote presentations, and demonstrate one use of a "hook".</p>
+    </slide>
+
+    <slide title="The End Result" layout="normal">
+        <p>This is what the end result should look like, <strong>after</strong> fixing!</p>
+        <br/>
+        <img class="scale" width="500" height="176" src="/data/tutorials/pix/ci5/5-0.png"/>
+
+    </slide>
+
+    <slide title="Database Setup" layout="normal">
+        <p>You will need to setup your webapp's database, using the 
+            supplied script, <code>quotes-setup.sql</code>.
+            Please name the database "quotes", so that your webapp will
+            work without additional setup when I run it on my system.</p>
+        <p>As part of the tutorial, you will add a few columns to the
+            table, for ratings.</p>
+        <p>If you need different database configuration settings for your local system,
+            remember to put those inside <code>application/config/development/database.php</code>!</p>
+    </slide>
+
+    <slide title="The Database" layout="normal">
+        <p>The database provided contains a single table, with a single
+            field as the primary key. The model provided, <code>Quotes</code>,
+            extends MY_Model, inheriting all of the CRUD methods we need.</p>
+        <p>The quotes table has four columns:
+            <ul>
+                <li>
+                    <code>id</code> is a unique numeric identifier for a quote; it must be positive</li>
+                <li>
+                    <code>who</code> is the name of the person quoted; it cannot be blank, 
+                    and has a maximum length of 64</li>
+                <li>
+                    <code>mug</code> is the filename of the author's picture; images are
+                    stored in the <code>data</code> folder off of the document root;
+                    filenames have a maximum length of 64</li>
+                <li>
+                    <code>what</code> is is the actual quoted text, of arbitrary length</li>
+            </ul>
+        </p>
+    </slide>
+    
+    <slide title="What Needs Doing?" layout="normal">
+        <ol>
+            <li>
+                <a href="#{tag1}">Enable the supplied bolding hook</a>
+            </li>
+            <li>
+                <a href="#{tag2}">Dive into the Caboose library</a>
+            </li>
+            <li>
+                <a href="#{tag3}">Incorporate a rating widget</a>
+            </li>
+         </ol>
+    </slide>
+
+    <slide title="The Starting Point" layout="normal">
+        <div class="left">
+            <p>The webapp is functional when you start, with the homepage shown
+                to the right.</p>
+            <p>It has a simple menubar on the top, with the smiley face
+                linked back to the homepage, and the "View 'Em" menu link
+                taking you to the "viewer" page.</p>
+            <p>The quote shown is the most recently added, i.e. the one with the
+                highest ID.</p>            
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="600" height="200" src="/data/tutorials/pix/ci5/5-1.png"/>
+        </div>
+    </slide>
+
+    <slide title="And Beyond the Homepage?" layout="normal">
+        <div class="left">
+            <p>The "viewer" presents a table of the quotes on file,
+                showing the author's mugshots.
+                This is ordered from left-to-right and top-to-bottom by ID#.</p>
+            <p>Each image  is itself a link to the page that presents
+                just that one quote, implemented by the <code>quote</code> method
+                inside the <code>Viewer</code> controller, and using the 
+                <code>justone</code> view that you saw in lab 3.
+            </p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="600" height="296" src="/data/tutorials/pix/ci5/5-2.png"/>
+        </div>
+    </slide>
+
+    <slide title="And Then There Be Quotes" layout="normal">
+        <div class="left">
+            <p>The single page presentation of a quote shows all of the quote's
+                data fields, arranged somewhat pleasingly though neutral.</p>
+            <p>The <code>justone</code> view uses the template parser to
+                substitute actual data values.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="600" height="220" src="/data/tutorials/pix/ci5/5-3.png"/>
+        </div>
+    </slide>
+
+    <slide title="1. ENABLE THE SUPPLIED BOLDING HOOK" layout="normal" tag="tag1">
+        <p>We shall start gently, with a
+            <a href="http://www.codeigniter.com/userguide3/general/hooks.html" target="_blank">"hook"</a> for
+            your webapp, to bold capitalized words in the quoted text.
+        </p>
+        <p>The "hook" itself is found in <code>application/hooks/Hooks.php</code>.
+            Check it out ... I'll wait.</p>
+        <p>The hook's configuration is in <code>application/config/hooks.php</code>.
+            Go ahead - check that one out too.</p>
+        <p>So, why isn't it working already?</p>
+    </slide>
+
+    <slide title="One Teeny Step Needed" layout="normal">
+        <div class="left">
+            <p>We need to enable hooks if ours is to do anything.</p>
+            <p>In <code>application/config/config.php</code> change the value
+                of the 'enable_hooks' setting, and you should see a change
+                in the homepage, shown right - the capitalized words are bolded
+                as expected.</p>
+            <code>$config['enable_hooks'] = TRUE;</code>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="600" height="202" src="/data/tutorials/pix/ci5/5-4.png"/>
+        </div>
+    </slide>
+
+    <slide title="2. DIVE INTO THE CABOOSE LIBRARY" layout="normal" tag="tag2">
+        <div class="left">
+            <p>The <b>Caboose</b> library that I mentioned in class is an addin
+                for CodeIgniter, to manage CSS and Javascript dependencies,
+                including those for widgets for such frameworks.</p>
+            <p>
+                <b>Caboose</b> is not the only way to do this, 
+                but it presents a good example of an addin library.</p>
+            <p>I plan to spin it off into a separate package, but
+                after the school term, when I have a bit more time :)</p>
+        </div>
+        <div class="right">
+            <p>The Caboose pieces are already in the starter project,
+                with provision for a couple of widgets:</p>
+            <code>
+&#160;&#160;/libraries/Caboose.php<br/>
+&#160;&#160;/views/_components<br/>
+&#160;&#160;&#160;&#160;confirm.php, lightbox.php<br/>
+                /assets<br/>
+&#160;&#160;/css/<br/>
+&#160;&#160;&#160;&#160;jquery-lightbox-0.5.css<br/>
+&#160;&#160;/js/<br/>
+&#160;&#160;&#160;&#160;jquery.lightbox-0.5.min.js            
+            </code>
+        </div>
+    </slide>
+
+    <slide title="Enable Caboose in our webapp" layout="normal">
+        <div class="left">
+            <p>We need to load the Caboose library in order to use it.
+                Let's autoload it, in 
+                <code>application/config/autoload.php</code>.</p>
+            <br/>
+            <code>$autoload['libraries'] = array('database','parser', 'caboose');</code>
+        </div>
+        <div class="right">
+            <p>Nothing looks different, but nothing broke :)</p>
+             <img class="scale" width="600" height="202" src="/data/tutorials/pix/ci5/5-4.png"/>
+        </div>
+    </slide>
+
+    <slide title="Extract Caboose output" layout="normal">
+        <p>We want to set some view parameters from our Caboose object, inside
+            <code>core/MY_Controller</code>, as discussed in the lesson.</p>
+        <br/>
+        <img class="scale" width="646" height="217" src="/data/tutorials/pix/ci5/5-14.png"/>
+    </slide>
+
+    <slide title="Incorporate Caboose in our view template" layout="normal">
+        <div class="left">
+            <p>And we want to include the Caboose output at the appropriate
+                points in our <code>views/_template.php</code>, using substitution 
+                parameters, again as discussed in the lesson.</p>
+                <p>We don't need the original <code>link</code> and <code>script</code>
+                elements in the template, as those now come from Caboose.</p>                    
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="600" height="380" src="/data/tutorials/pix/ci5/5-15b.png"/>
+        </div>
+    </slide>
+
+    <slide title="We Have Caboose" layout="normal">
+        <div class="left">
+            <p>At this point, we have enabled the Caboose, without making
+                any requests of it.</p>
+            <p>We should also not have broken anything in doing so.
+                Our webapp should look the same as it did a short while ago...</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="600" height="213" src="/data/tutorials/pix/ci5/5-16.png"/>
+        </div>
+    </slide>
+
+    <slide title="3. ADD A VIEWER RATING WIDGET" layout="normal" tag="tag3">
+        <p>This is a fun little idea, and an excuse to explore the
+            <b>Caboose</b> widget manager mentioned in class.
+            The idea is to add a rating star widget somewhere in the
+            view fragment used to present a quote, and to track the votes
+            as part of our webapp.</p>
+        <p>A rating widget looks something like:</p>
+        <br/>
+        <img class="scale" width="229" height="39" src="/data/tutorials/pix/ci5/5-5.png"/>       
+    </slide>
+
+    <slide title="Database Mods for Voting" layout="normal">
+        <div class="left">
+            <p>We need to add two fields to our quotes table:</p>
+            <ul>
+                <li>
+                    <b>vote_total</b> - an integer to hold the total of all votes</li>
+                <li>
+                    <b>vote_count</b> - an integer to hold the number of votes cast</li>
+            </ul>
+            <p>I suggest using phpMyAdmin to do this, resulting in the 
+                table structure shown right.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="615" height="270" src="/data/tutorials/pix/ci5/5-7.png"/>
+        </div>
+    </slide>
+
+    <slide title="Get a Rating Widget" layout="normal">
+        <div class="left">
+            <p>A rating widget that I have used is 
+                <a href="http://www.jqueryscript.net/other/Flexible-Star-Rating-System-with-jQuery-jRating.html" target="_blank">jRating</a>.
+                Its original author has abandoned it, so it is now an orphan project and
+                you might be advised to find an alternative to use in your webapp.</p>   
+            <p>The jRating link above leads to the documentation for the widget,
+                which is pretty easy to follow for our purposes. The 
+                Download link lets you
+                <a href="http://www.jqueryscript.net/download/Flexible-Star-Rating-System-with-jQuery-jRating.zip">download</a>
+                a zip of the project. Do so!</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="600" height="385" src="/data/tutorials/pix/ci5/5-6b.png"/>
+        </div>
+    </slide>
+
+    <slide title="What's In the Widget?" layout="normal">
+        <div class="left">
+            <p>Extract the jRating once downloaded. When you checkout its
+                contents (shown right), you can see several files or folders of interest:</p>   
+            <ul>
+                <li>
+                    <b>icons/</b> - images used by the widget</li>
+                <li>
+                    <b>jRating.jquery.css</b> - CSS styling for the widget</li>
+                <li>
+                    <b>jRating.jquery.js</b> - the widget's Javascript source</li>
+            </ul>
+            <p>We won't need the others. <strong>The supplied php/jRating.php does
+                    not belong anywhere inside our project!</strong>
+            </p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="317" height="392" src="/data/tutorials/pix/ci5/5-8.png"/>
+        </div>
+    </slide>
+
+    <slide title="Copy the Widget Into Our Project" layout="normal">
+        <div class="left">
+            <p>Let's copy the widget pieces that we need into our project's
+                <code>assets</code> folder, and we can then tailor them.
+            </p>   
+            <ul>
+                <li>
+                    <b>icons/*</b> - the .png images go into our <code>images</code> folder</li>
+                <li>
+                    <b>jRating.jquery.css</b> - goes inside <code>css</code>
+                </li>
+                <li>
+                    <b>jRating.jquery.js</b> - goes inside <code>js</code>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="342" height="343" src="/data/tutorials/pix/ci5/5-10.png"/>
+        </div>
+    </slide>
+
+    <slide title="Fix the CSS Image References" layout="normal">
+        <p>We copied the images into our <code>assets/images</code> folder,
+            and need to reflect that in <code>jRating.jquery.css</code>, as shown below.</p>   
+        <br/>
+        <img class="scale" width="722" height="223" src="/data/tutorials/pix/ci5/5-11.png"/>
+    </slide>
+
+    <slide title="Fix the JS Image References" layout="normal">
+        <p>We need to make a similar change in <code>jRating.jquery.js</code>, 
+            as shown below.</p>   
+        <br/>
+        <img class="scale" width="803" height="150" src="/data/tutorials/pix/ci5/5-12.png"/>
+    </slide>
+
+    <slide title="Add a Rating to a Quote" layout="normal">
+        <p>The jRating documentation shows some sample HTML to
+            hold an instance of their widget...<br/>
+            <code>
+            &lt;div class="basic" data-average="12" data-id="1"&gt;&lt;/div&gt;
+            </code>
+        </p>
+        
+        <p>In our case, the data-id will be the <code>id</code> from a quote,
+            and we will need to calculate the average from the values stored in
+            our table...<br/>
+            <code>
+            &lt;div class="hollywood" data-average="{average}" data-id="{id}"&gt;&lt;/div&gt;
+            </code>
+        </p>
+        <p>Add this <code>div</code> below the paragraph holding the author,
+            in <code>views/justone.php</code>
+        </p>
+                
+        <br/>
+        <img class="scale" width="647" height="148" src="/data/tutorials/pix/ci5/5-17.png"/>
+    </slide>
+
+    <slide title="Initializing a Rating Widget" layout="normal">
+        <p>Again referring to the jRating documentaiton, we need
+            to initialize the jRating widget, binding it to a
+            component on the webpage. This will be our
+            <code>views/_components/jrating.php</code>.</p>
+        <p>We can set some options when it is initialized, 
+            including the planned target URL for the AJAX call
+            that the widget will make to record a vote.</p>
+        <p>Ours should look like:</p>
+        <code>
+            $('.{field}').jRating({<br/>
+&#160;&#160;rateMax : 5,    // highest rating<br/>
+&#160;&#160;phpPath : '/viewer/rate'	// target for the AJAX call<br/>
+            });
+        </code>
+    </slide>
+
+    <slide title="Configure Caboose for Ratings" layout="normal">
+        <p>We are finally ready to add a configuration entry
+            for our ratings widget, in <code>libraries/Caboose.php</code>.
+            We can add it to the <code>$components</code> array after the existing two
+            configuration entries...</p>
+        <code>
+            'jrating' =&gt; array(<br/>
+&#160;&#160;'css' =&gt; 'jRating.jquery.css',<br/>
+&#160;&#160;'js' =&gt; 'jRating.jquery.js',<br/>
+&#160;&#160;'template' =&gt; 'jrating'<br/>
+            ),            
+        </code>
+    </slide>
+
+    <slide title="jRating Housekeeping" layout="normal">
+        <div class="left">
+            <p>We have another bit of housekeeping to tend to - removing the
+                "demo only" blocks in the jrating's javascript file,
+                <code>assets/js/jRating.jquery.js</code>
+            </p>
+            <p>For example, the original code is shown to the right, and after trimming below.</p>
+            <br/>
+            <img class="scale" width="600" height="149" src="/data/tutorials/pix/ci5/5-17c.png"/>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="600" height="334" src="/data/tutorials/pix/ci5/5-17b.png"/>
+        </div>
+    </slide>
+
+    <slide title="Let's Invoke the Caboose!" layout="normal">
+        <div class="left">
+            <p>We show single quotations in two places: in <code>controllers/Welcome::index()</code>
+                and in <code>controllers/Viewer::quote()</code>. In both cases, 
+                we need to invoke the rating widget
+                before the <code>$this-&gt;render();</code>...</p>
+            <code>
+                $this-&gt;caboose-&gt;needed('jrating','hollywood');        
+            </code>
+            <p>And the result is...</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="600" height="207" src="/data/tutorials/pix/ci5/5-18.png"/>
+        </div>
+    </slide>
+
+    <slide title="Oops - We Need the Average" layout="normal">
+        <div class="left">
+            <p>The homepage didn't look any different. If you examine the page 
+                source, however, you will find...<br/>
+                <code>&lt;div class="hollywood" data-average="{average}" data-id="6"&gt;&lt;/div&gt;</code>
+            </p>
+            <p>We need to add a bit of logic to calculate the rating average, 
+                and to pass it on as a view parameter.</p>
+            <code>
+                $this-&gt;data['average'] = <br/>
+                ($this-&gt;data['vote_count'] &gt; 0) ? <br/>
+&#160;&#160;($this-&gt;data['vote_total'] / $this-&gt;data['vote_count']) : 0;
+            </code>
+            <p>This calculation and parameter setting should go into both
+                <code>Welcome::index()</code> and <code>Viewer::quote()</code>.
+                And the result is...</p>
+            <h2>Arghh ... the rating widget should be visible, but isn't!</h2>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="600" height="207" src="/data/tutorials/pix/ci5/5-19.png"/>
+        </div>
+    </slide>
+
+    <slide title="And We Need to Process the Rating" layout="normal">
+        <div class="left">
+            <p>We need to add the <code>rate()</code> method to our <code>Viewer</code>,
+                to handle the AJAX request from the rating widget. Without going 
+                into too much detail about it, this will look like...</p>
+        </div>
+        <div class="right">
+            <code>
+                // handle a rating<br/>
+                function rate() {<br/>
+&#160;&#160;// detect non-AJAX entry<br/>
+&#160;&#160;if (!isset($_POST['action'])) redirect("/");<br/>
+&#160;&#160;// extract parameters<br/>
+&#160;&#160;$id = intval($_POST['idBox']);<br/>
+&#160;&#160;$rate = intval($_POST['rate']);<br/>
+&#160;&#160;// update the posting<br/>
+&#160;&#160;$record = $this-&gt;quotes-&gt;get($id);<br/>
+&#160;&#160;if ($record != null) {<br/>
+&#160;&#160;&#160;&#160;$record-&gt;vote_total += $rate;<br/>
+&#160;&#160;&#160;&#160;$record-&gt;vote_count++;<br/>
+&#160;&#160;&#160;&#160;$this-&gt;quotes-&gt;update($record);<br/>
+&#160;&#160;}<br/>
+&#160;&#160;$response = 'Thanks for voting!';<br/>
+&#160;&#160;echo json_encode($response);	<br/>
+                }                
+            </code>
+        </div>
+    </slide>
+
+    <slide title="Wait, What?" layout="normal">
+        <p>Some of you wanted the detail about the approach
+            shown on the previous slide, so ... </p>
+        <p>The <code>rate()</code> method is an example of the
+            handling of an AJAX request.</p>
+        <p> That would make this a
+            "utility controller", i.e. one which is not meant
+            to return HTML. Done properly, it would be a separate
+            controller, perhaps <code>controllers/Rate</code>,
+            and what you see here as <code>rate()</code> would then be 
+            <code>index()</code>.</p>
+        <p>Done properly, its endpoint (for an AJAX request) would be
+            <code>mysite.com/rate</code>. 
+            Done this way, the endpoint is <code>mysite.com/viewer/rate</code>.</p>
+        <p>You asked for this!</p>
+    </slide>
+
+    <slide title="And The Result Is..." layout="normal">
+        <div class="left">
+            <p>The results after voting a few times...</p>
+            <br/>
+            <br/>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="600" height="214" src="/data/tutorials/pix/ci5/5-20.png"/>
+        </div>
+    </slide>
+
+</tutorial>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE organizer SYSTEM "../xml/organizer.dtd">
+<!--
+Course organizer for Comp4711
+-->
+<organizer>
+    <week num="1">
+        <topic>Introduction to MVC Webapps</topic>
+		<outcomes>1.1 (server), 3.2</outcomes>
+		<inlab>#1 Development setup</inlab>
+        <lesson name="intro00">Course Introduction</lesson>
+        <lesson name="intro01">Introduction</lesson>
+        <lesson name="intro02">Golden Rules</lesson>
+        <lab name="lab01" active="n">Development Environment</lab>
+    </week>
+    <week num="2">
+        <topic>CodeIgniter MVC Framework</topic>
+		<outcomes>1.1 (PHP), 1.2 (basics),3</outcomes>
+		<inlab>#2 Introduction to PHP</inlab>
+        <lesson name="basic01" active="n">MVC Framework Introduction</lesson>
+        <lesson name="basic01-other" active="n">Other MVC Framework Examples (optional)</lesson>
+        <github name="contacts" link="https://github.com/jedi-academy/example-contacts" active="n">Example webapp - contacts</github>
+        <lesson name="dev03" active="n">Workflow Example</lesson>
+        <lab name="lab02" active="n">Process Prep</lab>
+    </week>
+    <week num="3">
+        <topic>Controllers</topic>         
+		<outcomes>1.2 (controllers), 3</outcomes>
+		<inlab>#3 Website conversion</inlab>
+        <lesson name="basic02" active="n">Controllers</lesson>
+        <lab name="lab03" active="n">Website Conversion</lab>
+        <tutorial name="ci-basic01" active="n">Static to Trivial CI</tutorial>
+        <tutorial name="ci-basic02" active="n">Trivial CI to Basic CI</tutorial>
+        <tutorial name="ci-basic03" active="n">Basic CI to Good CI</tutorial>
+    </week>
+    <week num="4">
+        <topic>Routing</topic>         
+		<outcomes>1.2 (routing), 3</outcomes>
+		<inlab>#4 Working with controllers</inlab>
+        <lesson name="basic06" active="n">Routing</lesson>
+        <lab name="lab04" active="n">Working With Controllers</lab>
+        <tutorial name="ci-normal01" active="n">Controllers and Routing</tutorial>
+    </week>
+    <week num="5">
+        <topic>Models</topic>
+		<outcomes>1.2 (models), 3</outcomes>
+		<inlab>Assignment #1 completion</inlab>
+        <lesson name="basic03" active="n">CodeIgniter Models</lesson>
+        <lesson name="basic03-more" active="n">More About Models (optional)</lesson>
+    </week>
+    <week num="6">
+        <topic>Views</topic>
+		<outcomes>1.2 (views), 3</outcomes>
+		<inlab>#5 Models</inlab>
+        <lesson name="basic04" active="n">Views</lesson>
+        <github name="forms" link="https://github.com/jedi-academy/example-forms" active="n">Example webapp - forms</github>
+        <tutorial name="ci-normal02" active="n">Working With CodeIgniter Models</tutorial>
+        <lab name="lab05" active="n">Models</lab>
+    </week>
+    <week num="7">
+        <topic>Support Components</topic>
+		<outcomes>1.3, 3</outcomes>
+		<inlab>#6 Addins &amp; authentication</inlab>
+        <lesson name="basic05" active="n">Helpers and Addins</lesson>
+        <lesson name="midterm" active="n">Midterm Review</lesson>
+        <tutorial name="ci-normal05" active="n">Working With Addins</tutorial>
+        <lab name="lab06" active="n">Addins</lab>
+    </week>
+    <week num="8">
+        <topic>Midterm exam week</topic>
+    </week>
+    <week num="9">
+        <topic>XML &amp; JSON</topic>
+ 		<outcomes>2.1</outcomes>
+		<inlab>Assignment #2 completion</inlab>
+       <lesson name="xml01" active="n">XML Basics (Refresher)</lesson>
+        <lesson name="xml02" active="n">Constraining XML</lesson>
+        <github name="xml" link="https://github.com/jedi-academy/example-xml">XML Examples</github>
+        <lab name="lab07" active="n">XML Basics</lab>
+        <tutorial name="xml-xml01" active="n">XML - Basics &amp; Constraints (optional)</tutorial>
+    </week>
+    <week num="10">
+        <topic>XML Processing</topic>
+		<outcomes>2.1, 2.2</outcomes>
+		<inlab>#7 XML processing</inlab>
+        <lesson name="xml03" active="n">XML Processing</lesson>
+        <github name="xml" link="https://github.com/jedi-academy/example-xml" active="n">XML Examples - updated!</github>
+        <github name="simplexml" active="n">Barker Bob grills with SimpleXML</github>
+        <lab name="lab08"  active="n">XML Processing</lab>
+        <tutorial name="xml-xml02" active="n">XML Processing</tutorial>
+    </week>
+    <week num="11">
+        <topic>XML-RPC</topic>
+		<outcomes>2.1, 2.2, 2.3</outcomes>
+		<inlab>#8 XML-RPC</inlab>
+        <lesson name="advanced02" active="n">XML-RPC</lesson>
+        <github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" active="n">XML-RPC Examples</github>
+    </week>
+    <week num="12">
+        <topic>REST</topic>
+		<outcomes>2.1, 2.3</outcomes>
+		<inlab>#9 REST</inlab>
+        <lesson name="advanced03" active="n">REST</lesson>
+        <lesson name="advanced04" active="n">JSON</lesson>
+    </week>
+    <week num="13">
+        <topic>External Services</topic>
+		<outcomes>2.3</outcomes>
+		<inlab>Assignment #3 completion</inlab>
+        <lesson name="advanced01" active="n">Authentication</lesson>
+        <lab name="lab09"  active="n">Authentication</lab>
+        <tutorial name="tut-adv01" active="n">Authentication</tutorial>
+    </week>
+    <week num="14">
+        <topic>Loose Ends &amp; Review</topic>
+		<outcomes>1, 2, 3</outcomes>
+		<inlab>Review</inlab>
+        <lesson name="final" active="n">Final Exam</lesson>
+        <lesson name="future" active="n">Crystal Ball</lesson>
+    </week>
+    <week num="15">
+        <topic>Final Exam Week</topic>
+    </week>
+</organizer>

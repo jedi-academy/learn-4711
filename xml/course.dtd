@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--- Metadata for the course that this repository contains. -->
+<!ELEMENT course (code,title,subtitle?,author,email,outline?,session?,school?,site?,license,ou?,intro)>
+
+<!--- A cource code, used externally within an organization perhaps. -->
+<!ELEMENT code (#PCDATA)>
+
+<!--- Your course title. -->
+<!ELEMENT title (#PCDATA)>
+
+<!--- Your course subtitle. -->
+<!ELEMENT subtitle (#PCDATA)>
+
+<!--- Name of the primary author of this course. -->
+<!ELEMENT author (#PCDATA)>
+
+<!--- Email address for the primary contact. -->
+<!ELEMENT email (#PCDATA)>
+
+<!--- Link to a formal course outline, if available. -->
+<!ELEMENT outline (#PCDATA)>
+
+<!--- Session identifier for the course content, if appropriate. -->
+<!ELEMENT session (#PCDATA)>
+
+<!--- Name of the academic insitute, if appropriate. -->
+<!ELEMENT school (#PCDATA)>
+
+<!--- Link to the academic insitute, if appropriate. -->
+<!ELEMENT site (#PCDATA)>
+
+<!--- License under which the course is released. -->
+<!ELEMENT license (#PCDATA)>
+
+<!--- D2L reference code, if appropriate. -->
+<!ELEMENT ou (#PCDATA)>
+
+<!--- A description of the course. One parageph suggested. -->
+<!ELEMENT intro (#PCDATA|br)*>
+
+<!--- HTML line break provision. -->
+<!ELEMENT br EMPTY>
+
+<!--- 
+List of relevant resorces
+-->
+<!ELEMENT resources (resource)*>
+
+<!--- Resource identified, each with a name, link and description. -->
+<!ELEMENT resource (name,link,desc)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT link (#PCDATA)>
+<!ELEMENT desc (#PCDATA)>

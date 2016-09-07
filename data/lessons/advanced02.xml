@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Lesson 10 - Role-Based Access Control
+-->
+<lesson status="1.1">
+    <!-- Activity metadata ... override anything from the course or organizer -->
+
+    <slide title="XML-RPC" layout="normal" >
+        <p>XML-RPC is one of the fundamental distributed system
+            "glue" technologies..</p>
+        <p>It lets you make remote procedure calls, to
+            system components resident on other
+            network nodes.</p>
+    </slide>
+
+    <!-- Agenda -->
+    <slide title="Agenda" layout="normal">
+        <ol>
+            <li>
+                <a href="#{tag1}">What is XML-RPC?</a>
+            </li>
+            <li>
+                <a href="#{tag2}">How Does an XML-RPC Server Work?</a>
+            </li>
+            <li>
+                <a href="#{tag3}">XML-RPC Mechanics</a>
+            </li>
+            <li>
+                <a href="#{tag4}">XML-RPC in CodeIgniter</a>
+            </li>
+            <li>
+                <a href="#{tag5}">XML-RPC Elsewhere</a>
+            </li>
+        </ol>
+    </slide>
+
+
+    <!-- Normal slides -->
+
+    <slide title="1. WHAT IS XML-RPC?" layout="normal" tag="tag1">
+        <p>XML-RPC is one flavor of RPC...</p>
+        <ul>
+            <li>The Remote Procedure Call (RPC) model relates 
+                client-server communication to conventional procedure calls.</li>
+            <li>It views each server as implementing one or more 
+                (remote) procedures.</li>
+            <li>Like conventional procedures, remote procedures accept 
+                arguments and can return results.</li>
+            <li>Using the RPC model helps programmers focus on the 
+                application instead of the communication protocol.</li>
+        </ul>
+    </slide>
+
+    <slide title="XML-RPC Visual" layout="normal" >
+        <p>XML is used to represent data - parameters to a remote procedure,
+            as well as a returned data structure.</p>
+        <p>HTTP is the transport protocol used to exchange messages.</p>
+        <br/>
+        <img class="scale" width="527" height="270" src="/data/lessons/pix/xmlrpc.jpg"/>
+    </slide>
+
+    <slide title="XML-RPC: Definition" layout="normal" >
+        <ul>
+            <li>XML-RPC is a specification and a set of implementations that 
+                allow software running on disparate operating systems, 
+                running in different environments, to make procedure calls 
+                over the Internet.</li>
+            <li>It is remote procedure calling using HTTP as the transport 
+                and XML as the encoding. </li>
+            <li>It is designed to be as simple as possible, while allowing 
+                complex data structures to be transmitted, processed and returned. </li>
+            <li>It's been around since 1998.</li>
+        </ul>
+    </slide>
+
+    <slide title="XML-RPC Reference Implementation" layout="normal" >
+        <ul>
+            <li>Apache XML-RPC is a Java implementation of XML-RPC</li>
+            <li>It is the de facto standard</li>
+            <li>Supports asynchronous requests on client, which isn't
+                true of PHP implementations</li>
+            <li>Doesn't help us much :(</li>
+            <li>http://ws.apache.org/xmlrpc/</li>
+        </ul>
+    </slide>
+
+    <slide title="XML-RPC Support in PHP" layout="normal" >
+        <ul>
+            <li>XML-RPC library in PHP (since v4), but experimental and 
+                just functions (not OO)</li>
+            <li>XML-RPC for PHP from sourceforge.net </li>
+            <li>Multiple independent implementations</li>
+            <li>
+                <strong>CodeIgniter libraries: xmlrpc and xmlrpcs</strong>
+            </li>
+        </ul>
+    </slide>
+
+
+
+    <slide title="2. HOW DOES AN XML-RPC SERVER WORK?" layout="normal" tag="tag2">
+        <ul>
+            <li>An XML-RPC request has a target and a set of parameters (even if empty). </li>
+            <li>The target is usually of the form "cn.mn", denoting the "mn" 
+                method inside the "cn" class.</li>
+            <li>The server maintains a table of registered "services", 
+                mapping external URIs to internal objects &amp; methods. 
+                The RPC server tries to find a matching class and method, 
+                that takes method parameter types that match those in the RPC request. </li>
+            <li>Once a match is made, the method is called, 
+                and the result is encoded and sent back to the client. </li>
+        </ul>
+    </slide>
+
+    <slide title="Normal XML-RPC" layout="normal" >
+        <div class="left">
+            <p>Client: browser with Ajax, or standalone</p>
+            <p>Server: httpd</p>
+            <p>Handlers: ...</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="787" height="373" src="/data/lessons/pix/xmlrpc1.png"/>
+        </div>    
+    </slide>
+
+    <slide title="PHP XML-RPC" layout="normal" >
+        <div class="left">
+            <p>Client: browser with Ajax assumed</p>
+            <p>Server: script with helper functions</p>
+            <p>Handlers: ...</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="787" height="373" src="/data/lessons/pix/xmlrpc1.png"/>
+        </div>    
+    </slide>
+
+    <slide title="Normal XML-RPC" layout="normal" >
+        <div class="left">
+            <p>Client: browser with Ajax assumed</p>
+            <p>Server: Controller</p>
+            <p>Handlers: ...</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="787" height="373" src="/data/lessons/pix/xmlrpc1.png"/>
+        </div>    
+    </slide>
+
+
+    <slide title="3. XML-RPC MECHANICS" layout="normal" tag="tag3">
+        <p>An XML-RPC request has a target method name, and a parameters
+            data structure.</p> 
+        <p>An XML-RPC reeponse has with a returned value data structure or 
+            an error message data structure.</p>
+        <p>See <code>example-xmlrpc/data/xmlrpc.dtd</code></p>
+                 
+    </slide>
+
+    <slide title="XML-RPC Data Types" layout="normal">
+        <p>There are only a handful of data types allowed:</p>
+        <table>
+            <tr>
+                <th>XML-RPC Data Type</th>
+                <th>Java Data Type</th>
+            </tr>
+            <tr>
+                <td>int</td>
+                <td>int</td>
+            </tr>
+            <tr>
+                <td>boolean</td>
+                <td>boolean</td>
+            </tr>
+            <tr>
+                <td>string</td>
+                <td>java.lang.String</td>
+            </tr>
+            <tr>
+                <td>double</td>
+                <td>double</td>
+            </tr>
+            <tr>
+                <td>dateTime.iso8601</td>
+                <td>java.util.Date</td>
+            </tr>
+            <tr>
+                <td>struct</td>
+                <td>java.util.Hashtable</td>
+            </tr>
+            <tr>
+                <td>array</td>
+                <td>java.util.Vector</td>
+            </tr>
+            <tr>
+                <td>base64</td>
+                <td>byte[]</td>
+            </tr>
+        </table>
+    </slide>
+
+    <slide title="An XML-RPC Request" layout="normal">
+        <code>
+            <pre>
+                POST /RPC2 HTTP/1.0
+                User-Agent: Frontier/5.1.2 (WinNT)‏
+                Host: betty.userland.com
+                Content-Type: text/xml
+                Content-length: 181
+&lt;?xml version="1.0"?&gt;
+&lt;methodCall&gt;
+  &lt;methodName&gt;hello.sayHello&lt;/methodName&gt;
+  &lt;params&gt;
+    &lt;param&gt;
+      &lt;value&gt;&lt;string&gt;Fred&lt;/string&gt;&lt;/value&gt;
+    &lt;/param&gt;
+  &lt;/params&gt;
+&lt;/methodCall&gt;                  
+            </pre>
+        </code>
+    </slide>
+
+    <slide title="An XML-RPC Reply" layout="normal">
+        <code>
+            <pre>
+                HTTP/1.1 200 OK
+                Connection: close
+                Content-Length: 158
+                Content-Type: text/xml
+                Date: Fri, 17 Jul 1998 19:55:08 GMT
+                Server: UserLand Frontier/5.1.2-WinNT
+&lt;?xml version="1.0"?&gt;
+&lt;methodResponse&gt;
+  &lt;params&gt;
+    &lt;param&gt;
+      &lt;value&gt;&lt;string&gt;Hello Fred&lt;/string&gt;&lt;/value&gt;
+    &lt;/param&gt;
+  &lt;/params&gt;
+&lt;/methodResponse&gt;
+            </pre>
+        </code>
+    </slide>
+
+    <slide title="An XML-RPC Fault" layout="normal">
+        <code>
+            <pre>
+                HTTP/1.1 200 OK
+                Connection: close
+                Content-Length: 426
+                Content-Type: text/xml
+                Date: Fri, 17 Jul 1998 19:55:02 GMT
+                Server: UserLand Frontier/5.1.2-WinNT
+&lt;?xml version="1.0"?&gt;
+&lt;methodResponse&gt;
+  &lt;fault&gt;
+    &lt;value&gt;
+      &lt;struct&gt;
+        &lt;member&gt;
+          &lt;name&gt;faultCode&lt;/name&gt;         
+          &lt;value&gt;&lt;int&gt;4&lt;/int&gt;&lt;/value&gt;
+        &lt;/member&gt;
+        &lt;member&gt;
+          &lt;name&gt;faultString&lt;/name&gt;
+          &lt;value&gt;&lt;string&gt;Error&lt;/string&gt;&lt;/value&gt;
+        &lt;/member&gt;
+      &lt;/struct&gt;
+    &lt;/value&gt;
+  &lt;/fault&gt;
+&lt;/methodResponse&gt;        </pre>
+        </code>
+    </slide>
+
+    <slide title="4. XML-RPC IN CODEIGNITER" layout="normal" tag="tag4">
+        <p>A client excerpt...</p>
+        <code>
+            <pre>
+                $this-&gt;load-&gt;library('xmlrpc');
+
+                $this-&gt;xmlrpc-&gt;server('http://rpc.pingomatic.com/', 80);
+                $this-&gt;xmlrpc-&gt;method('weblogUpdates.ping');
+
+                $request = array('My Photoblog', 'http://www.my-site.com/photoblog/');
+                $this-&gt;xmlrpc-&gt;request($request);
+
+                if ( ! $this-&gt;xmlrpc-&gt;send_request())
+                {
+                echo $this-&gt;xmlrpc-&gt;display_error();
+                } else 
+                $this-&gt;xmlrpc-&gt;display_response();       </pre>
+        </code>
+    </slide>
+    
+    <slide title="A CodeIgniter XML-RPC Server" layout="normal">
+        <code>
+            <pre>
+                class Xmlrpc_server extends Controller {
+                function index(){
+                $this-&gt;load-&gt;library('xmlrpc');
+                $this-&gt;load-&gt;library('xmlrpcs');
+                $config['functions']['Greetings'] = array('function' =&gt; 'Xmlrpc_server.process');
+                $this-&gt;xmlrpcs-&gt;initialize($config);
+                $this-&gt;xmlrpcs-&gt;serve();
+                }
+
+                function process($request){
+                $parameters = $request-&gt;output_parameters();
+                $response = array(
+                array(
+                'you_said'  =&gt; $parameters['0'],
+                'i_respond' =&gt; 'Not bad at all.'),
+                'struct');
+                return $this-&gt;xmlrpc-&gt;send_response($response);
+                }
+                }       </pre>
+        </code>
+    </slide>
+
+    <slide title="CodeIgniter XML-RPC Request" layout="normal">
+        <p>The request looks like a vector of either string values or value/type 
+            array rows. Yes, this would be a positional array.</p>
+        <code>
+            <pre>
+                $request = array (
+                array('John', 'string'),
+                array('Doe', 'string'),
+                array(FALSE, 'boolean'),
+                array(12345, 'int'),
+                'Plumber'
+                );
+                $this-&gt;xmlrpc-&gt;request($request);       </pre>
+        </code>
+    </slide>
+
+    <slide title="CodeIgniter XML-RPC Response" layout="normal">
+        <p>The response is an associative array of arrays.</p>
+        <code>
+            <pre>
+                $response = array(
+                array('nickname'  =&gt; array('Smitty','string'),
+                'userid'    =&gt; array('99','string'),
+                'url'       =&gt; array('http://yoursite.com','string'),
+                'email'     =&gt; array('jsmith@yoursite.com','string'),
+                'lastname'  =&gt; array('Smith','string'),
+                'firstname' =&gt; array('John','string') ),
+                'struct');
+                return $this-&gt;xmlrpc-&gt;send_response($response);      </pre>
+        </code>
+    </slide>
+
+
+
+    <slide title="5. XML-RPC ELSEWHERE" layout="normal" tag="tag5">
+        <ul>
+            <li>XML-RPC ... 
+                Simple, cross-platform; being supplanted by “JSON” </li>
+            <li>RMI ... 
+                Java only, transparent; elegant</li>
+            <li>SOAP ... 
+                Complex, cross-platform, data type extensions; out of favor </li>
+            <li>COM &amp; DCOM ... 
+                Old Windows only, but interest reappearing
+            </li>
+            <li>REST ... 
+                The “in” protocol for now
+                Hard to pin down :(</li>
+        </ul>
+    </slide>
+
+    <slide title="A Note About XML-RPC Stubs" layout="normal" tag="tag6">
+        <p>Some non-PHP implementations have <strong>stubs</strong></p>
+        <p>A stub has the same interface as a remote object; the local object
+            is unaware that it is calling a remote method</p>
+        <p>The local stub does the marshalling, then invokes the XML-RPC layer</p>
+        <p>The remote stub is called by the remote server; it does the 
+            unmarshalling and “calls” the remote object, etc</p>
+        <p>The remote object is unaware that it is being invoked from afar</p>
+        <p>Done properly, this is transparent :)</p>
+    </slide>
+
+
+</lesson>

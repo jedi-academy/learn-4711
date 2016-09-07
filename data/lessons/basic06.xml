@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Lesson 06 - Routing
+-->
+<lesson status="beta">
+    <!-- Activity metadata ... override anything from the course or organizer -->
+
+    <!-- Agenda -->
+    <slide title="Agenda" layout="normal">
+        <ol>
+            <li>
+                <a href="#{tag6}">Routing</a>
+            </li>
+            <li>
+                <a href="#{tag7}">Hooks</a>
+            </li>
+            <li>
+                <a href="#{tag8}">Loose Ends</a>
+            </li>
+        </ol>
+    </slide>
+
+
+    <slide title="Routing" layout="normal" tag="tag6">
+        <p>Segment-based routing is the normal CodeIgniter way of resolving
+            the handling of an incoming request.</p>
+        <p>There are alternatives: wildcard routing, regular expression routing, callback
+            routing, and HTTP verb routing.</p>
+        <p>For the truly adventurous you can even remap requests on the fly.</p>
+        <p>We'll look at each of these in turn.</p>
+    </slide>
+
+    <slide title="Routing Rules" layout="normal" >
+        <p>The controller folder convention can be over-ridden by 
+            specifying 
+            <a href="http://www.codeigniter.com/userguide3/general/routing.html"
+               target="_blank">routing rules</a>, in 
+            <code>application/config/routes.php</code>
+        </p>
+        <p>An example such rule lets you change the default controller:<br/>
+            <code>$route['default_controller'] = 'welcome';</code>
+        </p>
+        <p>If you specify multiple rules, they are tested consecutively
+            until one fits.</p>
+        <p>Any reserved route rules must come before any wildcard or regular expression rules!</p>
+    </slide>
+
+    <slide title="Wildcard Routing" layout="normal">
+        <div class="left">
+            <p>A routing rule can use a "wildcard" token,
+                <code>(:num)</code> to match a numeric segment value, or
+                <code>(:any)</code> to match any segment value.
+            </p>
+            <p>Specify an expression using these as the "key" for a routing
+                rule, and specify the proper destination as the "value".</p>
+            <p>You can use the substitution token <code>$n</code>
+                to reference a URI segment in the original request.</p>
+        </div>
+        <div class="right">
+            <p>Some examples of routing rules:</p>
+            <p>
+                <code>$route['blog/joe'] = "blogs/users/34";</code>
+            </p>
+            <p>
+                <code>$route['product/(:num)'] = "catalog/product_lookup_by_id/$1";</code>
+            </p>
+            <p>
+                <code>$route['page/(:any)'] = 'welcome/page/$1';</code>
+            </p>
+            <p>
+                <code>$route['secret/(:any)/(:any)'] = 'youllneverfindme/$1/$2';</code>
+            </p>
+        </div>
+    </slide>
+
+    <slide title="Regular Expression Routing" layout="normal">
+        <p>You can also use a regular expression in a routing rule.</p>
+        <p>For instance:<br/>
+            <code>$route['products/([a-z]+)/(\d+)'] = "$1/id_$2";</code>
+            <br/>
+            would remap <code>/products/banana/25</code> 
+            to <code>/banana/id_25</code>
+        </p>
+        <p>Another example:<br/>
+            <code>$route['([a-z]+)/register'] = 'assimilate/$0';</code>
+            <br/>
+            would remap <code>/jim/register</code> 
+            to <code>/assimilate/jim</code>
+        </p>
+    </slide>
+
+    <slide title="Callback Routing" layout="normal">
+        <p>If you are using PHP &gt;= 5.3 you can use callbacks in place 
+            of the normal routing rules to process the back-references.</p>
+        <p>For instance:<br/>
+            <code>$route['products/([a-zA-Z]+)/edit/(\d+)'] = <br/>
+                function ($product_type, $id)<br/>
+                {<br/>
+&#160;&#160;return 'catalog/product_edit/' . strtolower($product_type) . '/' . $id;<br/>
+                };<br/>
+
+            </code>
+        </p>
+        <p>
+            This is code to execute, NOT a controller. In the above example, the two matched tokens
+            would be passed as the parameters  <code>$product_type</code> and 
+            <code>$id</code>.
+        </p>
+    </slide>
+
+    <slide title="HTTP Verb Routing" layout="normal">
+        <p>You can specify routing rules that apply to specific HTTP
+            request types. This would be applicable to utility and
+            service controllers.</p>
+        <p>Some examples, in a RESTful fashion:<br/>
+            <code>$route['products']['PUT'] = 'product/insert';</code>
+            <br/>
+            <code>$route['products/(:num)']['DELETE'] = 'product/delete/$1';</code>
+        </p>
+    </slide>
+
+    <slide title="Remapping On the Fly" layout="normal">
+         <div class="left">
+       <p>Separate from any routing rules, a controller itself can
+        affect the handling of an incoming request, through
+        a <code>_remap</code> method.</p>
+        <p>The _remap method lets you overwrite the normal 
+            behaviour for controller methods. If your controller has
+        this method, it is always called.</p>
+         </div>
+        <div class="right">
+        <p>An example which hides the real name of a method ...<pre><code>
+public function _remap($method, $parms=array() ) {
+    if ($method == 'work') $this->guessMeIfYouCan($parms);
+    else return call_user_func_array($method,$parms);
+}
+            </code></pre></p>
+        </div>
+    </slide>
+
+    <slide title="Remapping for Localization" layout="normal">
+         <div class="left">
+        <p>Remapping could also be used to handle of having a language code 
+            between the domain name and
+            the "normal" part of a URL, for instance
+            "https://msdn.microsoft.com/en-us/library/windows/desktop".</p>
+         <p>This way, URLs have the form <code>/idiom/class/method/parm1/...</code>,
+         where "idiom" is a language identifier.
+        </p>
+            <p>You need a routing rule to swap the idiom and the intended controller: <br/>
+            <code>$routes['(:any)/(:any)/(.+)'] = '$1/$0/$2';</code></p>
+            <p>This would redirect the example above to "/library/en-us/windows/desktop".</p>
+         </div>
+        <div class="right">
+            <p>Then, in your <code>Library</code> or base controller...<pre><code>
+public function _remap($method, $parms=array() ) {
+    $idiom = $method; // the alleged method is really an idiom
+    $this->lang->load('translations_for_this_controller',$idiom);
+    $real_method = array_shift($parms); // grab &amp; remove first
+    return call_user_func_array($real_method,$parms);
+}
+            </code></pre></p>            
+            <p>The above would handle <code>/fr/find/apple</code>
+                by calling <code>Find::apple(...)</code> with the <code>fr</code>
+                translations loaded.</p>
+            <p>See the <a href="http://www.codeigniter.com/user_guide/general/controllers.html?highlight=remap#remapping-method-calls" 
+                       target="_blank">user guide</a> for more details.</p>
+        </div>
+          
+    </slide>
+
+    <slide title="Hooks" layout="normal" tag="tag7">
+        <div class="left">
+            <p>The CodeIgniter framework, internally, performs the
+                following steps to handle a request:</p>
+            <ol>
+                <li>Apply routing rules to determine the controller
+                    and method to use</li>
+                <li>Instantiate the controller</li>
+                <li>Invoke the appropriate method, capturing output</li>
+                <li>Return the output to the browser</li>
+            </ol>
+        </div>
+        <div class="right">
+            <p>CodeIgniter provides "hooks", to let you
+                inject processing before or after each of the milestones
+                shown to the left.</p>
+            <p>Refer to the <a href="http://www.codeigniter.com/userguide3/general/hooks.html" 
+                               target="_blank">user guide</a> for the gory details
+                ... this is just a taste!</p>
+        </div>
+    </slide>
+
+    <slide title="Hook Points" layout="normal">
+        <p>The following are some of the "hook points" that you can use:</p>
+        <ul>
+            <li>pre_system</li>
+            <li>pre_controller</li>
+            <li>post_controller_constructor</li>
+            <li>post_controller</li>
+            <li>display_override</li>
+            <li>post_system</li>
+        </ul>
+        <p>Hooks are configured similarly to routes, and you can have
+            multiple hooks for the same hook point.</p>
+    </slide>
+
+    <slide title="Adding Hooks" layout="normal">
+        <p>Configure your hooks in <code>application/config/hooks</code></p>
+        <p>An example:</p>
+        <p>
+            <code>$hookie = array(<br/>
+            &#160;&#160;'class'=&gt;..., <br/>
+            &#160;&#160;'function'=&gt;..., <br/>
+            &#160;&#160;'filename'=&gt;..., <br/>
+            &#160;&#160;'filepath'=&gt;..., <br/>
+            &#160;&#160;'params'=&gt;...<br/>
+                );</code>
+        </p>
+        <p>
+            <code>$hooks[entrypoint][] = $hookie;</code>
+        </p>
+    </slide>
+
+    <slide title="Loose Ends" layout="normal" tag="tag8">
+        <p>Upcoming lessons and tutorials may address some more exotic controller issues:
+            <ul>
+                <li>Webapp error handling (avoid getting fired)</li>
+                <li>Handling AJAX requests</li>
+                <li>Handling service requests</li>
+                <li>Handling plugins for additional resources</li>
+            </ul>
+        </p>
+        <p>Caution: Before using a feature, eg. hooks or routing, RTFM!</p>
+    </slide>
+
+    <slide title="Coding Conventions" layout="normal">
+        <div class="left">
+            <p>Required:
+                <ul>
+                    <li>Class and file naming - "ucfirst"</li>
+                </ul>
+            </p>
+            <p>Allowed:
+                <ul>
+                    <li>deviations from the suggested, for good reason</li>
+                    <li>multiple classes (related) in file</li>
+                </ul>
+            </p>
+            <p>Bad ideas:
+                <ul>
+                    <li>PHP namespaces (for now), unless you know what you are doing</li>
+                </ul>
+            </p>
+        </div>
+        <div class="right">
+            <p>Suggested (for methods &amp; variables):
+                <ul>
+                    <li>words separated by underscores</li>
+                    <li>underscores in front of internal items</li>
+                    <li>Allman style braces &amp; indenting</li>
+                    <li>commenting, PHPdoc style!</li>
+                    <li>value &amp; type comparison (===)!</li>
+                    <li>don't use closing PHP tag at end of file!</li>
+                </ul>
+            </p>
+        </div>
+    </slide>
+
+
+</lesson>

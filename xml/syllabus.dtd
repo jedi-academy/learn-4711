@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--- Metadata for the course that this repository contains. -->
+<!ELEMENT syllabus (code,title,subtitle?,author,email,school?,site?,summary,outcomes)>
+
+<!--- A cource code, used externally within an organization perhaps. -->
+<!ELEMENT code (#PCDATA)>
+
+<!--- Your course title. -->
+<!ELEMENT title (#PCDATA)>
+
+<!--- Your course subtitle. -->
+<!ELEMENT subtitle (#PCDATA)>
+
+<!--- Name of the primary author of this course. -->
+<!ELEMENT author (#PCDATA)>
+
+<!--- Email address for the primary contact. -->
+<!ELEMENT email (#PCDATA)>
+
+<!--- Name of the academic insitute, if appropriate. -->
+<!ELEMENT school (#PCDATA)>
+
+<!--- Link to the academic insitute, if appropriate. -->
+<!ELEMENT site (#PCDATA)>
+
+<!--- Summary of this course, syllabus-style. -->
+<!ELEMENT summary (#PCDATA)>
+
+<!--- Course outcomes, referenced in organizer. -->
+<!ELEMENT outcomes (#PCDATA|ol)*>
+
+<!--- Order list of outcomes. -->
+<!ELEMENT ol (li)*>
+<!ELEMENT li (#PCDATA)>

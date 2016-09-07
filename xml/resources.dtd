@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--- Resources for the course that this repository contains. -->
+<!ELEMENT resources (group*)>
+
+<!--- Resource grouping. -->
+<!ELEMENT group (resource*)>
+<!ATTLIST group
+	name	CDATA	#REQUIRED
+>
+
+<!--- Resource identified, each with a name, link and description. -->
+<!ELEMENT resource (name,link,desc)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT link (#PCDATA)>
+<!ELEMENT desc (#PCDATA)>

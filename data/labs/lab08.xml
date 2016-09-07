@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Lab 07 - XML Processing
+-->
+<lab status="beta">
+    <!-- Activity metadata ... override anything from the course or organizer -->
+    
+    <!-- The meat of the presentation -->
+    <slide title="Lab Goals" layout="normal">
+        <p>The purpose of this lab is to help you practice working with
+            SimpleXML, from lesson xml03.</p>
+        <p>This lab is to be completed with the same team and repository that
+            you setup for Lab 7.</p>
+        <p>The <a href="/show/tutorial/xml-xml02" target="_blank">SimpleXML 
+                tutorial</a> is worth a read! It is a walkthrough of a webapp
+            that does similar things to what you need to do in this lab, and
+            you may want to have it open to refer to while you work through the lab.</p>
+        <p>Suggestion: you may want to skim the slideshow first,
+            before working your way through it.</p>
+        <div class="attn">#123 I will use a box like this to draw your attention
+            to a relevant slide (eg #123) in the SimpleXML tutorial.</div>
+    </slide>
+
+    <slide title="Lab Submission" layout="normal">
+        <p>Submit a readme to your Lab 8 dropbox, with a link to
+            the github repository you used for this lab.</p>
+        <p>Please make sure that your work is in the "master" branch
+            or your repository, and that any other branches have
+            been merged into it.</p>
+        <p>Due: five days after your lab, at 17:30.</p>
+    </slide>
+
+    <slide title="Lab Marking Guideline" layout="normal">
+        <ul>
+            <li>4 marks for the prescribed <code>Timetable</code> model</li>
+            <li>1 marks for the prescribed <code>Booking</code> entity model</li>
+            <li>2 marks for <code>Welcome::index</code> as prescribed</li>
+            <li>2 marks for <code>Welcome::search</code> as prescribed</li>
+            <li>1 mark for reasonable workflow</li>
+        </ul>
+            
+    </slide>
+
+    <slide title="Lab Preparation" layout="normal">
+        <p>Make sure that your XML documents and DTD are in a <code>/data</code> 
+            folder inside your project.</p>
+        <p>Incorporate your CodeIgniter starter into your project, if you have not already done so.</p>
+        <div class="attn">#4 It would be a good idea to define a DATAPATH constant.</div>
+        <div class="attn">#5 You can probably think of your timetable data as something
+            similar to the menu.xml in the example, but you would have your three facets
+            as child elements of the root element, instead of patties, cheeses
+            and toppings.</div>    
+    </slide>
+    
+    <slide title="Basic Model" layout="normal">
+        <p>Create a basic <code>Timetable</code> model for your XML data.</p>
+        <p>Choose appropriate properties to hold each of your timetable facets.</p>
+        <p>These will get populated in the next step.</p>
+        <div class="attn">#7 Your model will look like this, so far, with a $xml property,
+            and probably a property for each of your facets, each being an array intended to hold
+            bookings.</div>
+
+    </slide>
+
+    <slide title="Entity Model" layout="normal">
+        <p>Make a <code>Booking</code> entity model class, which will go inside
+            your <code>Timetable</code> model's source code file, at the end.</p>
+        <p>It should contain O-O properties to match all of the attributes and
+            nested elements in your XML booking data. These properties can
+            be public, for convenience. This is intended to be just a data
+            structure, with no methods.</p>
+        <p>It should have properties for each of the attributes of child elements
+            in your booking elements. They will get "flattened" into object
+            properties, to hide their origin.</p>
+    </slide>
+
+    <slide title="Building a Booking" layout="normal">
+        <p>You could plan to populate these individually, but it
+            might make more sense to have a SimpleXMLElement passed
+            to the <code>Booking</code> constructor, from which as much data as
+            possible can be abstracted.</p>
+        <div class="attn">#8 This is closest to the stdClass object, $record.</div>
+        <p>Instead of something like <code>
+                $record = new stdClass();
+                $record-&gt;code = (String) $patty['code'];                                                          
+                ...
+            </code>
+            you would have something like 
+            <code>
+                $record = new Booking($patty);
+            </code>
+            and you would have a Booking constructor like
+            <code>
+                function __construct($patty) {
+                $this-&gt;code = (String) $patty['code'];                                                          
+                ...
+            </code>
+        </p>
+        <p>However you choose to populate a <code>Booking</code>'s properties,
+            the values should be simple PHP data types, and *not*
+            SimpleXMLElements.</p>
+    </slide>
+
+    <slide title="Back to Your Timetable Model" layout="normal">
+        <p>You can now populate your Timetable model properties, for each facet.</p>
+        <p>For instance, <code>foreach ($this-&gt;xml-&gt;whatevercorrespondstoacolumn
+                as $time) { $this-&gt;timeslots[] = new Booking($time);}</code>
+        </p>
+        <div class="attn">#9 Your code will be simpler than the example!</div>
+
+    </slide>
+
+    <slide title="Facet Accessors" layout="normal">
+        <p>Build an accessor method for each facet, which returns an
+            array of <code>Booking</code> objects appropriate to that facet.</p>
+        <div class="attn">#10 Like the <code>patties</code> method.
+            We might need individual ones in a different webapp, but not for this lab.</div>
+    </slide>
+
+    <slide title="Basic Homepage" layout="normal">
+        <p>You can now start on your basic homepage, which should
+            report each of the three sets of bookings, one for each facet.</p>
+        <p>This will be your <code>Welcome</code> controller.</p>
+        <div class="attn">#15 Load your Timetable model in the
+            Welcome controller, or else configure it to be autoloaded.</div>
+    </slide>
+
+    <slide title="Show Your Data" layout="normal">
+        <p>Your controller's <code>index()</code> can build view parameters
+            for your revised homepage view, passing the sets of bookings for each
+            facet.</p>
+        <p>Alternately, you could use view fragments, like in previous work.</p>
+        <div class="attn">#16 It'll look like this but simpler (you don't need
+            to filter files).</div>
+    </slide>
+
+    <slide title="Present search form" layout="normal">
+        <p>Add two methods to your <code>Timetable</code> to return the data
+            needed to populate a dropdown for days of the week
+            and another for timeslots. These would each be an associative
+            array, with the keys being the codes you chose inside
+            your XML data and the values being suitable display text.</p>
+        <p>Suggestion: <code>Timetable::getTheDayCodesIWantToUseInADropdown()</code>
+            or perhaps something easier?</p>
+        <p>Add a "search" HTML form to your homepage, with two dropdowns
+            built from these.</p>
+    </slide>
+
+    <slide title="Make the Timetable Searchable" layout="normal">
+        <p>Add search methods to your <code>Timetable</code> model, one for each
+            facet. These should return an array of <code>Booking</code> objects
+            that match the selected day and timeslot according to
+            the facet they pertain to.</p>
+        <p>An example: <code>public function findAnyBookingsInATimetableCellUsingFacet1($day,$slot) {...}</code>,
+            or perhaps something simpler?</p>
+    </slide>
+
+    <slide title="Bingo" layout="normal">
+        <p>Here's the fun part: bind your search form (view) to a <code>search</code>
+            method in your <code>Welcome</code> controller.</p>
+        <p>It should search the timetable using each facet, and ...
+            if each of the facet searches returns a single <code>Booking</code>, and the
+            three <code>Booking</code>s are the same, then you can report "Bingo" and display 
+            one of them.</p>
+        <p>If the searches do not return the same <code>Booking</code>, or 
+            if they return more than,
+            then communicate that in your output, for instance "by timeslot gives ..."
+            and "by course gives ..." etc. 
+        </p>
+    </slide>
+
+    <slide title="And then..." layout="normal">
+        <p>
+            <strong>If</strong> you have complete data, and it is consistent,
+            then you should always get either a "bingo" or else nothing for a
+            given search. If your data is incomplete (for instance, you only
+            provided one or two instances of bookings for a facet), you
+            won't get a "bingo".
+        </p>
+        <p>The intent is to correctly identify inconsistent data, and not 
+            to always get a "bingo"!</p>
+        <p>The search results can be added to the homepage. In other words,
+            the homepage will show the three facets, the search form, and
+            the result of the immediately prior search (if appropriate).</p>
+    </slide>
+
+    <slide title="Tidy Up" layout="normal">
+        <p>Tidy up the presentation for your homepage, and you are done!</p>
+    </slide>
+
+
+
+</lab>

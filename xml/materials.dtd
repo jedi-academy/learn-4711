@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+These are the kinds of materials or resources provided as part of this course.
+Elminate any not needed.
+
+The material groups defined here will be used to organize the "Reference"
+page in the course webapp.
+-->
+
+<!--- We have a bunch of groups. -->
+<!ELEMENT materials (group)*>
+
+<!--- Each group contains a number of kinds of content.
+The group itself should have a unique name, used for organizing the
+Reference page. -->
+<!ELEMENT group (item)*>
+<!ATTLIST group
+    name CDATA #REQUIRED
+  >
+
+<!--- Each item is a specific kind of content found in this course.
+The group's "type" is used for generating a URL to trigger the
+appropriate presentation for that kind of content. 
+Note: A framework course might be long on tutorials and examples, while
+an academic course might be long on labs and assignments.
+Exams and/or quizzes are sorta provided for, though the handling is vague.
+-->
+<!ELEMENT item (#PCDATA)>
+<!ATTLIST item
+    type (assignment|download|dropbox|exam|example|github|lab|lesson|pdf|quiz|tutorial|video) #REQUIRED
+  >

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Lab 02 - CodeIgniter Intro
+-->
+<lab status="beta">
+    <!-- Activity metadata ... override anything from the course or organizer -->
+    
+    <!-- The meat of the presentation -->
+    <slide title="Lab Goals" layout="normal">
+        <p>The purpose of this lab was to introduce you to
+            CodeIgniter and the workflow for working with
+            webapps.
+            It looks like I have an incorrect understanding of the
+            background you bring to this lab, both in terms of concepts
+            as well as previous experience. I am revising the original lab 2,
+            splitting it over two labs.</p>
+        <p>What worked well was my walking the group through the 
+            "lab preparation", which took pretty much the entire lab
+            (rather than the 15 minutes I expected!).</p>
+        <p>Revised purpose: Process Preparation</p>
+        <p>Suggestion: you may want to skim the slideshow first,
+            before working your way through it.</p>
+    </slide>
+
+    <slide title="Lab Teams" layout="normal">
+        <p>This is a pair lab, sharing a single repository, but with each 
+            team member using
+            their own github account and computer.</p>
+        <p>If you insist on working on your own, you will need to setup a second github
+            account, and use two machines, to get the full benefit (and marks) of the lab.</p>
+    </slide>
+
+    <slide title="Lab Submission" layout="normal">
+        <p>Your lab will result in a github repository, ready for the
+            next lab (which will be the "real" conversion from a 
+            static site to a CodeIgniter webapp).
+            If you work ahead, and complete the conversion, you
+            are welcome to have that in your repository for lab 2, but I will
+            treat the resulting webapp as part of your lab 3.</p>
+                
+        <p>Submit a readme *text* file, or a submission comment, to the lab dropbox.
+            It should contain a link to your github repository. Only
+            one of these is needed, for the pair of students.</p>
+        <p>Each of the students should also submit their httpd-vhosts.conf file.</p>
+        <p>Due: three days after your lab, eg. Thursday lab period will have theirs
+            due Sunday, Jan 17, 17:30 PST</p>
+    </slide>
+
+    <slide title="Lab Preview" layout="normal">
+        <p>There are a few things to sort out before diving into the CodeIgniter 
+            lab itself (which is now lab 3) - "process":</p>
+        <ul>
+            <li>your D2L group</li>
+            <li>get github setup</li>
+            <li>clone your repo</li>
+            <li>add local domains to your system</li>
+            <li>configure your AMP setup (virtual hosting)</li>
+            <li>make a CodeIgniter starter</li>
+            <li>incorporate the starter into your repository</li>
+        </ul>
+        <p>I originally referenced some devops tutorials for these, but that proved
+            confusing. I will walk you through it, instead.</p>
+    </slide>
+
+    <slide title="Lab Prep - D2L Group" layout="normal">
+        <p>This lab is for group submission, and I have set up groups for each
+            set, with up to two members, self-enrolled.</p>
+        <p>Choose a partner for this lab. One of you should enrol in a group,
+            to claim it, and the other should join that group.</p>
+        <p>If you inadvertently end up paired with the wrong teammate,
+            let me know during lab and I can fix that.</p>
+        <p>The groups are for this lab only, and do not have to be maintained for 
+            the assignments. You will be setting up assignment teams next week.</p>
+    </slide>
+
+    <slide title="Lab Prep - Github" layout="normal">
+        <p>If you are a team of one, you will need to create a second github account
+            for yourself, and plan to use a different machine for each acocunt. 
+            We want to replicate a collaborative environment, with two developers
+            sharing a common repository.</p>
+        <p>One of you should fork the starter repository for the lab, and they
+            should then add their teammate as a collaborator, with write permission.
+            You should both be able to push code to the repo!</p>
+        <p>You are welcome to change the repo name, in its Github settings, if
+            that makes more sense to you. It will still show as a fork of the starter.</p>
+    </slide>
+
+    <slide title="Lab Prep - Cloning" layout="normal">
+        <p>Each of you will want to clone the shared repository to your development system,
+            be it your laptop or one of the lab machines.</p>
+        <p>Clone it into the *htdocs* (or equivalent) folder within your AMP stack.</p>
+        <p>The foldername can be anything meaningful to you, for instance "comp4711lab02",
+            or you can stick with "example-gallery" all the way through.</p>
+    </slide>
+
+    <slide title="Lab Prep - Post-Cloning" layout="normal">
+        <p>After cloning, you should be able to see the starter's image gallery
+            using the URL "localhost/comp4711lab02/public". This is only
+            to make sure it is in the proper place, and not what you will use for
+            development.</p>
+        <p>You do NOT want to have to use a URL like "localhost/comp4711/labs/lab02/public" -
+            that is too many folders deep!!</p>
+        <p>I trust you remembered to inject the port number you assigned
+            during AMP setup, if other than 80 ... for instance,
+            "localhost:4711/comp4711lab02/public"</p>
+    </slide>
+
+    <slide title="Lab Prep - Local Domain" layout="normal">
+        <p>We want to use domain based hosting, so that media references
+            work properly in spite of apparent folder names in an URL.
+            The apparent foloder names can confuse your browser if you use sub-sontroller methods.</p>
+        <p>For instance, "/product/buy/shoes/1" looks to the browser like it is inside the
+            website folder "product/buy/shoes", but there is no such folder. Relative image
+            references, such as "../assets/images/blah" will not work properly.</p>
+        <p>Add one or more local domain names to your <code>hosts</code> file.
+            This could be names that you remap each week as needed, for instance "comp4711.local",
+            or you could add a new domain each week, eg. "4711lab02.local", "4711lab03.local", etc.</p>
+        <p>Do this by adding a line to the end of your <code>hosts</code> file, like<br/>
+            <code>127.0.0.1 comp4711.local project.local 4711lab25.local</code>
+        </p>
+    </slide>
+
+    <slide title="Lab Prep - Virtual Hosting" layout="normal">
+        <p>Configure your Apache virtual hosting, found in <code>httpd-vhosts.conf</code>
+            inside the <code>extra</code> folder of your Apache configuration folder.</p>
+        <p>Your AMP comes with a couple of VirtualHost definitions, that are to be
+            used as examples only - they are not real, and can be deleted or commented out once done.</p>
+        <p>You want to end up with several VirtualHosts - one for the *default*, and
+            one for each local domain.</p>
+        <p>Each VirtualHost definition needs a ServerName, eg <code>comp4711.local</code>,
+            and then the DocumentRoot that domain should be mapped to (with no trailing slash), for instance
+            <code>/opt/lampstack-5.5.30-1/apache2/htdocs/comp4711lab02</code>.</p>
+        <p>The first VirtualHost defined in the config file is special - it is
+            the AMP base installation, eg. the Bitnami start page.</p>
+    </slide>
+
+    <slide title="Lab Prep - CodeIgniter Setup" layout="normal">
+        <p>Download CodeIgniter, the current release from 
+            https://github.com/bcit-ci/CodeIgniter/archive/3.0.4.zip</p>
+        <p>Extract this inside your downloads folder - you should end up with a 
+            <code>CodeIgniter-3.0.4</code> folder, containing <code>application</code>,
+            <code>system</code> and <code>user_guide</code> folders, as well as
+            an <code>index.php</code> and some other files.
+        </p>
+        <p>Move the <code>system</code> folder inside your <code>htdocs</code>,
+            and rename it to <code>system3</code>.</p>
+        <p>If you want to keep the user guide handy for local reference, move the
+            <code>user_guide</code> folder somewhere you can easily find it, for 
+            instance your desktop, and possibly renamed suitably. If you prefer to
+            read the user guide online, then just delete the <code>user_guide</code> folder.</p>
+        <p>The stuff remaining in your <code>CodeIgniter-3.0.4</code> folder will
+            be your "CodeIgniter starter" folder, for new projects. You might want
+            to rename it appropriately.</p>
+    </slide>
+
+    <slide title="Lab Prep - Prepared" layout="normal">
+        <p>Walking you through this in lab will have pretty much consumed
+            the lab time, but you are now ready for the next lab,
+            and you should be comfortable with the process.</p>
+        <p>You should have your <code>htdocs</code> folder ready to roll,
+            with the CodeIgniter <code>system3</code> framework folder inside it,
+            as well as your lab's project folder.
+        </p>
+        <p>You will have a CoeIgniter starter folder, the contents of which can 
+            be copied into a new (cloned) CodeIgniter project.</p>
+        <p>You will have a local domain defined and virtual hosting setup in
+            your Apache.</p>
+        <p>You may have the CodeIgniter user guide in a folder on your desktop 
+            for convenience.</p>
+    </slide>
+
+    <slide title="Lab Marking Guideline" layout="normal">
+        <p>This lab will be marked out of 10, as follows:</p>
+        <ul>
+            <li>Proper fork and collaborator setup of your repo (3)</li>
+            <li>Reasonable vhost configuration (3)</li>
+            <li>Correct repo content - starter repo with the CI starter integrated (3)</li>
+            <li>Consideration for your pain and suffering - no bonus marks! (1)</li>
+        </ul>
+        <p>The grading scheme above is meant to reflect the work required to result in
+            each of the final results.</p>
+    </slide>
+
+    <slide title="Disclaimer" layout="normal">
+        <p>We will not necessarily be following "best practices" throughout this lab.</p>
+        <p>Our focus is on "baby steps", that will lead to best practices over the
+            next few labs.</p>
+    </slide>
+
+</lab>

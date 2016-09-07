@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Lab 08 - Authentication
+-->
+<lab status="1.0">
+    <!-- Activity metadata ... override anything from the course or organizer -->
+    
+    <!-- The meat of the presentation -->
+    <slide title="Lab Goals" layout="normal">
+        <p>The purpose of this lab is to help you practice working with
+            simple authentication. </p>
+         <p>Your lab will be completed in a github repository.
+             This will be your (forked) <code>starter-auth</code> repo. </p>
+             <p>You may work on your own or in a pair for this lab.
+             Remember to join a group for your dropbox submission, with a link
+             to your repo.</p>
+        <p>Please make sure that your work is in the "master" branch
+            or your repository, and that any other branches have
+            been merged into it.</p>
+        <p>Due: Five days after your lab, 17:30pm</p>
+    </slide>
+
+    <slide title="Lab Marking Guideline" layout="normal">
+        <ul>
+            <li>2 marks for login form</li>
+            <li>2 marks for authentication</li>
+            <li>2 marks for authorization</li>
+            <li>2 marks for access control</li>
+            <li>2 marks for tailored menu</li>
+        </ul>
+            
+    </slide>
+
+    <slide title="Your Job" layout="normal">
+        <p>Complete tutorial "tut-adv01"</p>
+    </slide>
+
+</lab>

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Tutorial 07 - Processing XML
+-->
+<tutorial status="1.1">
+    <!-- Activity metadata ... override anything from the course or organizer -->
+    
+    <!-- The meat of the presentation -->
+    <slide title="Tutorial Goals" layout="normal">
+        <p>This tutorial is meant to give you some exposure to working with
+            SimpleXML to process an XML document.</p>
+        <p>It is just a commented walkthrough of the 
+            <a href="https://github.com/jedi-academy/example-simplexml" target="_blank">example-simplexml</a>
+            project.</p>
+    </slide>
+
+    <slide title="Homepage" layout="normal">
+        <div class="left">
+            <p>Out of the box, the homepage shows a list of all the orders in the data folder.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="736" height="298" src="/data/tutorials/pix/bbb/Screenshot-3.png"/>
+        </div>
+    </slide>
+
+    <slide title="Order Details" layout="normal">
+        <div class="left">
+            <p>Clicking on an order causes its details to be shown</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="648" height="537" src="/data/tutorials/pix/bbb/Screenshot-4.png"/>
+        </div>
+    </slide>
+
+    <slide title="What's Where" layout="normal">
+        <div class="left">
+            <p>If you check the project, nothing is autoloaded, and there is no database.</p>
+            <p>The only configuration procided for is a couple of constants, one pointing
+            at the folder containing XML data and the other defining the XML suffix.
+            These are convenience constants that came from refactoring.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="738" height="226" src="/data/tutorials/pix/bbb/Screenshot-5.png"/>
+        </div>
+    </slide>
+
+    <slide title="Menu Data" layout="normal">
+        <div class="left">
+            <p>The menu data comes from <code>/data/menu.xml</code>.</p>
+            <p>It defines all of the things that might be configured when
+            building one of Barker Bob's burgers.</p>
+            <p>These ingredient groupings are simply children of the XML document's
+            root element.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="722" height="558" src="/data/tutorials/pix/bbb/Screenshot-6.png"/>
+        </div>
+    </slide>
+
+    <slide title="Order Data" layout="normal">
+        <div class="left">
+            <p>All of the other XML files in the <code>/data</code> folder
+            are order documents, which have been conveniently named.</p>
+            <p>The contents of one of those is shown to the right.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="710" height="612" src="/data/tutorials/pix/bbb/Screenshot-7.png"/>
+        </div>
+    </slide>
+
+    <slide title="Menu Model" layout="normal">
+        <div class="left">
+            <p>One of the two models provided is the <code>Menu</code> model.</p>
+            <p>It has an <code>xml</code> property for the root element of the XML document,
+            a <code>patty_names</code> property holding an associative array to
+            populate drop-down lists, and then properties
+            for each collection of types of ingredients.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="628" height="337" src="/data/tutorials/pix/bbb/Screenshot-8.png"/>
+        </div>
+    </slide>
+
+    <slide title="Menu Model Constructor" layout="normal">
+        <div class="left">
+            <p>The Model constructor loads the <code>menu.xml</code> document, and then
+            traverses it in different ways to build the model properties.</p>
+            <p><code>patty_names</code> is built by constructing a simple
+            associative array, using the code and name of each patty. 
+            Note that the SimpleXMLElement pieces are cast as strings.</p>
+            <p>Note also that the "patty" objects in the the <code>patties</code>
+            property are objects constructed onthe fly.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="699" height="394" src="/data/tutorials/pix/bbb/Screenshot-9.png"/>
+        </div>
+    </slide>
+
+    <slide title="Menu Model Constructor Helpers" layout="normal">
+        <div class="left">
+            <p>Here are the other property constructors, all done similarly.</p>
+            <p>Sauces don't have a price, but one is included in the constructed
+            objects for consistency with the other ingredients.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="673" height="516" src="/data/tutorials/pix/bbb/Screenshot-10.png"/>
+        </div>
+    </slide>
+
+    <slide title="Menu Model Accessors" layout="normal">
+        <div class="left">
+            <p>Accessors are provided to return the array of patty names, or to
+            retrieve individual elements of the ingredient collections.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="645" height="428" src="/data/tutorials/pix/bbb/Screenshot-11.png"/>
+        </div>
+    </slide>
+
+    <slide title="Order Model" layout="normal">
+        <div class="left">
+            <p>The <code>Order</code> model encapsulates a single order.</p>
+            <p>It has an <code>xml</code> property to hold the root element of the XML document,
+            like the Menu model.</p>
+            <p>It has additional properties for order attributes, and then provides
+            for a collection of burger objects that would make up that order.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="651" height="328" src="/data/tutorials/pix/bbb/Screenshot-12.png"/>
+        </div>
+    </slide>
+
+    <slide title="Order Model Constructor" layout="normal">
+        <div class="left">
+            <p>Its constructor is similar to the Menu's, except that the order
+            properties can just be extracted from the XML root element.</p>
+            <p>The array of burgers is created by iterating over the "burger"
+            elements inside an order's XML.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="762" height="312" src="/data/tutorials/pix/bbb/Screenshot-13.png"/>
+        </div>
+    </slide>
+
+    <slide title="Order Burder Building" layout="normal">
+        <div class="left">
+            <p>The <code>cookem</code> method constructs a burger object on the fly, with some
+            iundividual properties and some that are collections (toppings &amp;
+            sauces).
+            </p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="864" height="364" src="/data/tutorials/pix/bbb/Screenshot-14.png"/>
+        </div>
+    </slide>
+
+    <slide title="Order Model Accessors" layout="normal">
+        <div class="left">
+            <p>Accessors are provided to expose an order's properties.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="464" height="476" src="/data/tutorials/pix/bbb/Screenshot-15.png"/>
+        </div>
+    </slide>
+
+    <slide title="Welcome Controller" layout="normal">
+        <div class="left">
+            <p>Nothing was autoloaded, so the <code>Welcome</code>
+            controller's constructors loads the <code>Menu</code> and <code>Order</code>
+            models.
+            </p>
+            <p>The <code>Menu</code> model will be used inside the controller
+            (<code>$this-&gt;menu</code>), but the <code>Order</code> model
+            is only loaded to get the class definition.
+            </p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="527" height="144" src="/data/tutorials/pix/bbb/Screenshot-16.png"/>
+        </div>
+    </slide>
+
+    <slide title="Welcome Index Method" layout="normal">
+        <div class="left">
+            <p>The default homepage method locates and lists all of the actual "order"
+                files, i.e. those in the <code>/data</code> folder, which have an
+                <code>xml</code> suffix, and which are not the menu.
+            </p>
+            <p>Each order file name is presented with a link to the <code>order</code>
+            method of the Welcome controller.</p>
+                
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="907" height="318" src="/data/tutorials/pix/bbb/Screenshot-17.png"/>
+        </div>
+    </slide>
+
+    <slide title="Welcome Order Method" layout="normal">
+        <div class="left">
+            <p>This method constrcuts an <code>Order</code> object from
+            the supplied filename, and then builds view parameters from it.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="776" height="458" src="/data/tutorials/pix/bbb/Screenshot-18.png"/>
+        </div>
+    </slide>
+
+    <slide title="Welcome Burp Method" layout="normal">
+        <div class="left">
+            <p>This method extracts the details of just the one burger,
+            and formats this for presentation.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="590" height="588" src="/data/tutorials/pix/bbb/Screenshot-19.png"/>
+        </div>
+    </slide>
+
+
+</tutorial>

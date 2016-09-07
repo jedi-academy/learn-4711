@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syllabus SYSTEM "../xml/syllabus.dtd">
+<!--
+Course metadata for Comp4711
+-->
+<syllabus>
+	<!-- Course metadata -->
+	<code>comp4711</code>
+	<title>Introduction to Internet Software Development</title>
+	<subtitle>COMP4711</subtitle>
+	<author>James L. Parry</author>
+	<email>jim_parry@bcit.ca</email>
+	<school>B.C. Institute of Technology</school>
+	<site>http://www.bcit.ca/cas/computing/</site>
+	
+	<summary>
+		This course is about webapp development, using best practices.
+		In small teams, the students will build a moderate MVC webapp in 
+		three phases, each building on the previous one.
+		The teams will collaborate using a shared code repository and 
+		gitflow workflow, with appropriate supporting tools.
+	</summary>
+		
+	<outcomes>
+		<ol>Build a moderate MVC web application using a suitable framework
+			<li>Setup a suitable webapp development environment</li>
+			<li>Build a basic MVC webapp</li>
+			<li>Build a moderately complex webapp</li>
+		</ol>
+		<ol>Build distributed capabilities into an MVC web application
+			<li>Use common representation protocols for distributed systems</li>
+			<li>Use common transport protocols for distributed systems</li>
+			<li>Use common application protocols for distributed systems</li>
+		</ol>
+		<ol>Demonstrate proper team collaboration for webapp development
+			<li>Use collaborative workflow to develop a webapp</li>
+			<li>Use a shared code repository to develop a webapp</li>
+		</ol>
+	</outcomes>
+	
+</syllabus>

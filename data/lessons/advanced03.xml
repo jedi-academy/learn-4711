@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Lesson 10 - Role-Based Access Control
+-->
+<lesson status="beta">
+    <!-- Activity metadata ... override anything from the course or organizer -->
+
+    <slide title="REST" layout="normal" >
+        <p>REST := REpresentational State Transfer</p>
+        <p>The current "darling" of inter-application "glue".</p>
+    </slide>
+
+    <!-- Agenda -->
+    <slide title="Agenda" layout="normal">
+        <ol>
+            <li>
+                <a href="#{tag1}">The Background</a>
+            </li>
+            <li>
+                <a href="#{tag2}">REST Philosophy</a>
+            </li>
+            <li>
+                <a href="#{tag3}">RESTful "Standards"</a>
+            </li>
+            <li>
+                <a href="#{tag4}">REST in CodeIgniter</a>
+            </li>
+            <li>
+                <a href="#{tag5}">REST Issues</a>
+            </li>
+        </ol>
+    </slide>
+
+
+    <!-- Normal slides -->
+
+    <slide title="THE BACKGROUND" layout="normal" tag="tag1">
+        <div class="left">
+            <p>You have already seen "standard glue":</p>
+            <center>
+                <p>Transport: HTTP, HTTPS, AJAX</p>
+                <p>Representation: XML, JSON, RSS</p>
+                <p>
+                    <strong>Application</strong>: RPC, SOA, <strong>REST</strong>
+                </p>
+            </center>
+        </div>
+    </slide>
+
+    <slide title="Reminder: RPC" layout="normal" >
+        <div>
+            <br/>
+            <img class="scale" width="527" height="270" src="/data/lessons/pix/r1.png"/>
+        </div>
+    </slide>
+
+    <slide title="Twist: Service Oriented Architecture (SOA)" layout="normal" >
+        <br/>
+        <img class="scale" width="501" height="449" src="/data/lessons/pix/r2.png"/>
+    </slide>
+
+    <slide title="Now for REST!" layout="normal">
+        <br/>
+        <img class="scale" width="622" height="508" src="/data/lessons/pix/r3.png"/>
+    </slide>
+
+    <slide title="THE REST PHILOSOPHY" layout="normal"  tag="tag2">
+        <div>
+            <p>REST is an architectural style or philosophy, not a standard.</p>
+            <ul>
+                <li>Map resources (not usecases) to URLs</li>
+                <li>Map CRUD usecases to HTTP types</li>
+                <li>All needed data passed (rep state)</li>
+                <li>Accept or deliver multiple formats (XML, JSON, JSONP, CSV, XHTML, text)</li>
+            </ul>
+        </div>    
+    </slide>
+
+    <slide title="REST URLs" layout="normal" >
+        <ul>
+            <li>Http-get: <code>/product</code> returns a list of products</li>
+            <li>Http-get: <code>/product/123</code> returns product 123</li>
+            <li>Http-post: <code>/product/123</code> creates product 123</li>
+            <li>Http-put: <code>/product/123</code> updates product 123</li>
+            <li>Http-delete: <code>/product/123</code> deletes product 123</li>
+        </ul>    
+    </slide>
+
+    <slide title="&quot;RESTful&quot; STANDARDS" layout="normal" tag="tag3">
+        <p>Mostly REST, with interpretation</p>
+        <p>Single vs multiple records? collection treatment?
+            <ul>
+                <li>(get) /parts {maybe have parm for pagination}</li>
+                <li>(…) /part/abc</li>
+            </ul>
+        </p>
+        <p>JSON or XML only - others unsafe</p>
+    </slide>
+
+    <slide title="REST Data Formats" layout="normal">
+        <p>Specify in HTTP header           <ul>
+                <li>Accept: application/xml</li>
+                <li>Content-Type: application/xml</li>
+                <li>Valid types: application/json, application/xml, application/xhtml+xml</li>
+            </ul>
+        </p>
+        <p>Imply in URL           <ul>
+                <li>/product/123.json</li>
+            </ul>
+        </p>
+    </slide>
+
+    <slide title="REST IN CODEIGNITER" layout="normal" tag="tag4">      
+        <ul>
+            <li>Stateless :)</li>
+            <li>URL mapping native :)</li>
+            <li>URL mapping supposed to be controllers for usecases :(</li>
+            <li>HTTP payload not easily accessed :(</li>
+            <li>HTTP type not originally supported :-/</li>
+            <li>Emitting HTTP-POST not part of CI or PHP style :((</li>
+        </ul>        
+    </slide>
+
+    <slide title="CodeIgniter Solution #1" layout="normal">
+        <p>Add-Ons...</p>
+        <ul>
+            <li>RESTclient base library as abstraction layer</li>
+            <li>RESTserver as base controller (tho awkward parms)</li>
+            <li>Curl library for low-level HTTP types, in &amp; out</li>
+            <li>Format library for multiple format support</li>
+        </ul>
+        <p>Only one choice ... there are multiple conflicting conventions or interpretations</p>
+          
+    </slide>
+
+    <slide title="CodeIgniter RESTful Client" layout="normal">
+        <p>Adapted from Phil Sturgeon's REST client, all format conversion is 
+        automatically handled by the REST layer, though you can tailor it.</p>
+        <code>
+            <pre>
+                // Load the library
+                $this->load->library('rest');
+
+                // Run some setup
+                $this->rest->initialize(array('server' => OUR_SERVER_NAME));
+
+                // use get/post/... as appropriate	
+                $answer = $this->rest->get(methodURI,parameters_array);
+
+                // need to convert &amp; pick apart the response      
+            </pre>
+        </code>
+        
+    </slide>
+
+    <slide title="CodeIgniter RESTful Server" layout="normal">
+        <p>Adapted from Phil Sturgeon's REST server, all format conversion is 
+        automatically handled by the REST layer, and incoming
+            requests are automatically mapped to the appropriate method.</p>
+        <code>
+            <pre>
+                class Service extends Rest_controller {
+
+                function index_get() {
+                    ...
+                    $this->response($assoc_array,$http_code);
+                }
+
+                function index_post() { ... }
+                function index_put() { ... }
+                function index_delete() { ... }
+
+                }            </pre>
+        </code>
+    </slide>
+
+   <slide title="CodeIgniter Solution #2" layout="normal">
+        <p>Map requests by HTTP type</p>
+        <ul>
+            <li>$route['product']['get'] = 'product/get';</li>
+            <li>$route['product']['put'] = 'product/put';</li>
+            <li>$route['product']['post'] = 'product/post';</li>
+            <li>etc ...</li>
+        </ul>
+        <p>This does not address format conversions, nor does it clarify other RFEST issues :(</p>
+          
+    </slide>
+
+    <slide title="REST ISSUES" layout="normal" tag="tag5">
+        
+            <ul>
+                <li>Anyone/everyone can claim to be RESTful!</li>
+               <li>No guidance on large data / pagination</li>
+               <li>No guidance on filtering parameters handling</li>
+               <li>“Extensions” to formats (eg “PHP”)</li>
+               <li>Some formats have issues (JSONP, CSV)</li>
+               <li>Seeing through the hype (Web 3.0000...)</li>
+            </ul>
+ 
+    </slide>
+
+    <slide title="REST - DO YOU CARE?" layout="normal" >
+        <p>“REST” displacing XML-RPC and SOAP</p>
+        <p>Social networking APIs becoming reliant on it (or company interpretations)</p>
+        <br/>
+        <p>So, yeah</p>
+    </slide>
+
+</lesson>

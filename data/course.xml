@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE course SYSTEM "../xml/course.dtd">
+<!--
+Course metadata for Comp4711
+-->
+<course>
+    <!-- Course metadata -->
+    <code>comp4711</code>
+    <title>Introduction to Internet Software Development</title>
+    <subtitle>COMP4711</subtitle>
+    <author>James L. Parry</author>
+    <email>jim_parry@bcit.ca</email>
+    <outline>http://www.bcit.ca/study/outlines/20163035498</outline>
+    <session>Fall 2016</session>
+    <school>B.C. Institute of Technology</school>
+    <site>http://www.bcit.ca/cas/computing/</site>
+    <license>MIT License</license>
+	
+	<!-- D2L specifric fields -->
+	<ou>335696</ou>
+    
+    <!-- An introduction, shown at the top of the course homepage -->
+    <intro>
+        This webapp is an ongoing experiment to leverage the course materials for 
+        COMP4711 at BCIT, making them easier for my dayschool students to
+        access, and making them more broadly accessible, for instance
+        to the CodeIgniter community.
+    </intro>
+</course>
