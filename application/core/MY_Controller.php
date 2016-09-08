@@ -12,7 +12,7 @@ class Application extends CI_Controller
 {
 
 	protected $data = array ();   // parameters for view components
-	protected $id;	  // identifier for our content
+	protected $id;   // identifier for our content
 
 	/**
 	 * Constructor.
@@ -52,17 +52,20 @@ class Application extends CI_Controller
 
 		// how about a sidebar?
 		$this->data['sidebar'] = $this->info();
-		
+
 		// finally, build the browser page!
 		$this->data['data'] = &$this->data;
 		$this->parser->parse('theme/template', $this->data);
 	}
-	
+
 	/**
 	 * Construct course info, to present in the sidebar
 	 */
-	private function info() {
-		$result = $this->parser->parse('theme/sidebar',$this->data,true);
+	private function info()
+	{
+		$data = file_get_contents(DATAPATH.'sidebar.md');
+		$result = $this->parsedown->text($data);
+		$result = $this->parser->parse_string($result, $this->data, true);
 		return $result;
 	}
 

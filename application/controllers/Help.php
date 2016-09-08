@@ -65,10 +65,12 @@ class Help extends Application
 		$course = $this->course->metadata();
 		$this->data = array_merge($this->data, (array) $course);
 
-		$this->data['materials'] = $this->format_materials($this->materials->all());
+		$source = file_get_contents(DATAPATH.'resources.md');
+		$result = $this->parsedown->text($source);
+		$this->data['stuff'] = $this->parser->parse_string($result, $this->data, true);
 
-		$this->data['pagetitle'] = $course->title.' ~ Help';
-		$this->data['pagebody'] = 'help';
+		$this->data['pagetitle'] = $course->title.' ~ Resources';
+		$this->data['pagebody'] = 'generic';
 		$this->render();
 		
 	}
@@ -79,10 +81,12 @@ class Help extends Application
 		$course = $this->course->metadata();
 		$this->data = array_merge($this->data, (array) $course);
 
-		$this->data['materials'] = $this->format_materials($this->materials->all());
+		$source = file_get_contents(DATAPATH.'syllabus.md');
+		$result = $this->parsedown->text($source);
+		$this->data['stuff'] = $this->parser->parse_string($result, $this->data, true);
 
-		$this->data['pagetitle'] = $course->title.' ~ Help';
-		$this->data['pagebody'] = 'help';
+		$this->data['pagetitle'] = $course->title.' ~ Syllabus';
+		$this->data['pagebody'] = 'generic';
 		$this->render();
 		
 	}

@@ -52,8 +52,7 @@ Project Folders
 License
 *******
 
-Please see the `license
-agreement <http://codeigniter.com/userguide3/license.html>`_
+MIT license.
 
 *********
 Resources
@@ -73,5 +72,7 @@ Acknowledgement
 This webapp was written by James Parry, Instructor in Computer Systems
 Technology at the British Columbia Institute of Technology,
 and Project Lead for CodeIgniter.
+
+The Parsedown library comes from https://github.com/erusev/parsedown, and has an MIT license.
 
 CodeIgniter is a project of B.C.I.T.
