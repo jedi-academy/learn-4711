@@ -11,7 +11,10 @@ Course organizer for Comp4711
         <lesson name="intro00">Course Introduction</lesson>
         <lesson name="intro01">Introduction</lesson>
         <lesson name="intro02">Golden Rules</lesson>
-        <lab name="lab01" active="n">Development Environment</lab>
+        <lab name="lab01">Development Environment</lab>
+        <tutorial name="setup01">XAMPP Installation</tutorial>
+        <tutorial name="setup02">Virtual Hosting Setup</tutorial>
+        <tutorial name="setup03">PHP Comparison to Java</tutorial>
     </week>
     <week num="2">
         <topic>CodeIgniter MVC Framework</topic>
