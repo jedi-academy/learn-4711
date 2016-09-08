@@ -21,22 +21,24 @@ Lab 01 - Development Setup
 
     <slide title="Lab Submission" layout="normal">
         <p>Your lab will be completed in a github repository.</p>
-        <p>Submit a readme to the lab dropbox. 
-            This readme should have a link to your github repository.
-		Also include screenshot(s) sufficient to convince me that
+        <p>Provide a link to your github repository as part of
+            your dropbox submission.
+		Include screenshot(s) sufficient to convince me that
 		you have your environment setup ... your browser window
 		accessing your student list, for instance.</p>
         <p>Due: Sunday, Sept 11, 17:30 PST</p>
     </slide>
 
     <slide title="Lab Marking Guideline" layout="normal">
-        <p>This lab will be marked out of 10 (no specific breakdown). 
-            It is more a matter of docking marks for booboos.</p>
+        <p>This lab will be marked out of 15, and I am trying a
+            D2L rubric for the first time. The rubric has five
+        criteria, with 3 levels for each, leading to a potential
+        full score of 15. Bear with me, as we are all guinea pigs
+        for this!</p>
         <p>I will be making sure that you have a project, 
             with the proper webapp structure. It can be a NetBeans 
 		project, but doesn't have to be ... in fact, the IDE you
 		use should not be apparent ;p</p>
-        <p>I expect to see comments in your source code!</p>
         <p>I will check your github commit history, to see if
             you appear to using the process properly.</p>
 
