@@ -80,6 +80,9 @@ class Organizer extends CI_Model
 						$activity->duedate = (string) $one['duedate'];
 						$activity->link = (string) $one['link'];
 						$activity->domain = (string) $one['domain'];
+						$activity->icon = (string) $one['icon'];
+						$activity->survey = (string) $one['survey'];
+						$activity->active = (string) $one['active'];					
 						return $activity;
 					}
 				}

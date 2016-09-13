@@ -98,6 +98,9 @@ a .glyphicon {
 .content {
     margin-bottom: 40px;
 }
+#content {
+    margin-top: 40px;
+}
 
 /* Features
 -------------------------------------------------- */

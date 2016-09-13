@@ -50,8 +50,9 @@ class Application extends CI_Controller
 		$layout = empty($this->data['title']) ? 'jumbotitle' : 'title';
 		$this->data['titleblock'] = $this->parser->parse('theme/'.$layout, $this->data, true);
 
-		// how about a sidebar?
+		// how about a sidebar and some news?
 		$this->data['sidebar'] = $this->info();
+		$this->data['news'] = $this->news();
 
 		// finally, build the browser page!
 		$this->data['data'] = &$this->data;
@@ -64,6 +65,17 @@ class Application extends CI_Controller
 	private function info()
 	{
 		$data = file_get_contents(DATAPATH.'sidebar.md');
+		$result = $this->parsedown->text($data);
+		$result = $this->parser->parse_string($result, $this->data, true);
+		return $result;
+	}
+
+	/**
+	 * Construct news section
+	 */
+	private function news()
+	{
+		$data = file_get_contents(DATAPATH.'news.md');
 		$result = $this->parsedown->text($data);
 		$result = $this->parser->parse_string($result, $this->data, true);
 		return $result;

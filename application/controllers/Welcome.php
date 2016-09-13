@@ -67,16 +67,25 @@ class Welcome extends Application
 					$active = ((string) $activity['active']) != 'n';
 					$duedate = (string) isset($activity['duedate']) ?
 						' (due '.$activity['duedate'].')' : '';
+					$survey = (string) $activity['survey'];
+
+					// over-rides for special icons
+					$icon = (string) isset($activity['icon']) ?
+						$activity['icon'] : $type;
+
 					$parms = array ('type'		 => $type, 'item'		 => $item,
 						'name'		 => $name, 'typed'		 => ucfirst($type),
-						'duedate'	 => $duedate, 'pdf'		 => $pdf);
+						'duedate'	 => $duedate, 'pdf'		 => $pdf,
+						'icon'		 => $icon, 'survey'	 => $survey);
+
+					if ( isset($activity['survey'])) $parms['survey'] = $this->parser->parse('theme/_survey', $parms, true);
+
 					$site = (string) isset($activity['domain']) ?
 						'http://'.$activity['domain'] : '';
 					$parms['site'] = $site;
 					$download = (string) isset($activity['pdf']) ?
 						$this->parser->parse('theme/_download', $parms, true) : '';
 					$parms['download'] = $download;
-//		    $target = ($type == 'pdf') ? 'theme/_simple_activity' : 'theme/_activity';
 					$target = $active ? 'theme/_activity' : 'theme/_almost';
 					$partial .= $this->parser->parse($target, $parms, true);
 				}
