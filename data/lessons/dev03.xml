@@ -52,10 +52,10 @@ Lesson dev02 - working with github
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="648" height="54" src="/data/tutorials/pix/2/2-1.png"/>
+            <img class="scale" width="648" height="54" src="/pix/tutorials/2/2-1.png"/>
             <br/>
             <br/>
-            <img class="scale" width="630" height="170" src="/data/tutorials/pix/2/2-2.png"/>
+            <img class="scale" width="630" height="170" src="/pix/tutorials/2/2-2.png"/>
         </div>
     </slide>
 
@@ -69,7 +69,7 @@ Lesson dev02 - working with github
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="600" height="407" src="/data/tutorials/pix/2/2-3.png"/>
+            <img class="scale" width="600" height="407" src="/pix/tutorials/2/2-3.png"/>
         </div>
     </slide>
 
@@ -83,7 +83,7 @@ Lesson dev02 - working with github
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="1008" height="461" src="/data/lessons/pix/d2/d2-1.png"/>
+            <img class="scale" width="1008" height="461" src="/pix/lessons/d2/d2-1.png"/>
         </div>
     </slide>
 
@@ -93,7 +93,7 @@ Lesson dev02 - working with github
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="1005" height="522" src="/data/lessons/pix/d2/d2-2.png"/>
+            <img class="scale" width="1005" height="522" src="/pix/lessons/d2/d2-2.png"/>
         </div>
     </slide>
 
@@ -110,7 +110,7 @@ Lesson dev02 - working with github
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="617" height="499" src="/data/lessons/pix/d2/d2-3.png"/>
+            <img class="scale" width="617" height="499" src="/pix/lessons/d2/d2-3.png"/>
         </div>
     </slide>
 
@@ -122,7 +122,7 @@ Lesson dev02 - working with github
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="1019" height="638" src="/data/lessons/pix/d2/d2-4.png"/>
+            <img class="scale" width="1019" height="638" src="/pix/lessons/d2/d2-4.png"/>
         </div>
     </slide>
 
@@ -140,9 +140,9 @@ Lesson dev02 - working with github
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="505" height="300" src="/data/lessons/pix/d2/d2-5.png"/>
+            <img class="scale" width="505" height="300" src="/pix/lessons/d2/d2-5.png"/>
             <br/>
-            <img class="scale" width="508" height="266" src="/data/lessons/pix/d2/d2-6.png"/>
+            <img class="scale" width="508" height="266" src="/pix/lessons/d2/d2-6.png"/>
         </div>
 
     </slide>
@@ -159,9 +159,9 @@ Lesson dev02 - working with github
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="507" height="314" src="/data/lessons/pix/d2/d2-7.png"/>
+            <img class="scale" width="507" height="314" src="/pix/lessons/d2/d2-7.png"/>
             <br/>
-            <img class="scale" width="450" height="133" src="/data/lessons/pix/d2/d2-8.png"/>
+            <img class="scale" width="450" height="133" src="/pix/lessons/d2/d2-8.png"/>
         </div>
     </slide>
 
@@ -181,9 +181,9 @@ Lesson dev02 - working with github
 <!--          </div>
         <div class="right">
             <br/>
-          <img class="scale" width="537" height="400" src="/data/lessons/pix/d2/d2-7.png"/>
+          <img class="scale" width="537" height="400" src="/pix/lessons/d2/d2-7.png"/>
             <br/>
-            <img class="scale" width="537" height="400" src="/data/lessons/pix/d2/d2-8.png"/>
+            <img class="scale" width="537" height="400" src="/pix/lessons/d2/d2-8.png"/>
         </div>
 -->    </slide>
 

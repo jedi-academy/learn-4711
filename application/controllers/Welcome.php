@@ -76,17 +76,38 @@ class Welcome extends Application
 					$parms = array ('type'		 => $type, 'item'		 => $item,
 						'name'		 => $name, 'typed'		 => ucfirst($type),
 						'duedate'	 => $duedate, 'pdf'		 => $pdf,
-						'icon'		 => $icon, 'survey'	 => $survey);
+						'icon'		 => $icon, 'survey'	 => $survey,
+						'ou'		 => $this->data['ou']);
 
-					if ( isset($activity['survey'])) $parms['survey'] = $this->parser->parse('theme/_survey', $parms, true);
+					// replace survey code with appropriate link
+					if (isset($activity['survey'])) $parms['survey'] = $this->parser->parse('theme/_survey', $parms, true);
 
+					// use external domain if so configured
 					$site = (string) isset($activity['domain']) ?
 						'http://'.$activity['domain'] : '';
 					$parms['site'] = $site;
+
+					// generate a download link for PDF; not sure this is needed
 					$download = (string) isset($activity['pdf']) ?
 						$this->parser->parse('theme/_download', $parms, true) : '';
 					$parms['download'] = $download;
+
+					// build the proper presentation link
+					$kind = $this->organizer->kind($type,$name);
+					$thelink = $this->parser->parse('theme/_show', $parms, true);
+					if ($kind == 'md') $thelink = $this->parser->parse('theme/_display', $parms, true);
+					if ($kind == 'pdf') $thelink = $this->parser->parse('theme/_pdf', $parms, true);
+					$parms['thelink'] = $thelink;
+					
+					// build the optional presentation links
+					$thelinks = $this->parser->parse('theme/__display', $parms, true);
+					if ($kind != 'pdf') $thelinks .= $this->parser->parse('theme/__pdf', $parms, true);
+					$parms['thelinks'] = $thelinks;
+
+					// distinguish between active or not activities
 					$target = $active ? 'theme/_activity' : 'theme/_almost';
+
+					// generate, finally, the single line for the organizer
 					$partial .= $this->parser->parse($target, $parms, true);
 				}
 			}

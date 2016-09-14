@@ -4,5 +4,5 @@
  */
 ?>
 <div class="learn-{icon}">
-	<a href="{site}/show/{type}/{name}">{typed} {name}</a> {item} {duedate} {download} {survey}
+	{thelink} {item} {duedate} {download} | {thelinks} {survey}
 </div>

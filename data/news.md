@@ -1,3 +1,9 @@
+**Online reading & survey** *(Tues Sept 13, 2:20pm)*
+I have changed the closing time of the surveys to 9pm (rather than 7pm).
+This will give more flexibility completing these, as I was later than
+planned getting them up. I can handle a later start on prep for the
+"seminar" tomorrow, based on your feedback.
+
 **Online Lessons Ready** *(Mon Sept 12, 6pm)*  
 Ok - the online lessons are finally ready. In week 2, you see them with a pointing finger
 icon on the left, and with a link to the corresponding D2L survey on the right.

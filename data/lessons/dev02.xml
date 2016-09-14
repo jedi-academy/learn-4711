@@ -37,7 +37,7 @@ Lesson 02b - Devops Workflow
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="537" height="400" src="/data/lessons/pix/2-25.png"/>
+            <img class="scale" width="537" height="400" src="/pix/lessons/2/2-25.png"/>
         </div>
     </slide>
 
@@ -52,10 +52,10 @@ Lesson 02b - Devops Workflow
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="648" height="54" src="/data/tutorials/pix/2-1.png"/>
+            <img class="scale" width="648" height="54" src="/pix/tutorials/2/2-1.png"/>
             <br/>
             <br/>
-            <img class="scale" width="630" height="170" src="/data/tutorials/pix/2-2.png"/>
+            <img class="scale" width="630" height="170" src="/pix/tutorials/2/2-2.png"/>
         </div>
     </slide>
 
@@ -72,7 +72,7 @@ Lesson 02b - Devops Workflow
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="600" height="407" src="/data/tutorials/pix/2-3.png"/>
+            <img class="scale" width="600" height="407" src="/pix/tutorials/2/2-3.png"/>
         </div>
     </slide>
 
@@ -83,7 +83,7 @@ Lesson 02b - Devops Workflow
             <p></p>
         </div>
         <div class="right">
-            <img class="scale" width="600" height="475" src="/data/tutorials/pix/2-4.png"/>
+            <img class="scale" width="600" height="475" src="/pix/tutorials/2/2-4.png"/>
         </div>
     </slide>
 
@@ -92,7 +92,7 @@ Lesson 02b - Devops Workflow
             <p>You should remember this from last week :)</p>
         </div>
         <div class="right">
-            <img class="scale" width="600" height="481" src="/data/tutorials/pix/2-5.png"/>
+            <img class="scale" width="600" height="481" src="/pix/tutorials/2/2-5.png"/>
         </div>
     </slide>
 
@@ -106,7 +106,7 @@ Lesson 02b - Devops Workflow
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="570" height="449" src="/data/lessons/pix/2-31.png"/>
+            <img class="scale" width="570" height="449" src="/pix/lessons/2/2-31.png"/>
         </div>
     </slide>
 
@@ -116,7 +116,7 @@ Lesson 02b - Devops Workflow
             <p>If you forget the checkout, things will likely get messed up :(</p>            
         </div>
         <div class="right">
-            <img class="scale" width="531" height="397" src="/data/tutorials/pix/2-6.png"/>
+            <img class="scale" width="531" height="397" src="/pix/tutorials/2/2-6.png"/>
         </div>
     </slide>
 
@@ -129,7 +129,7 @@ Lesson 02b - Devops Workflow
                 and that it has an appropriate message.</p>
         </div>
         <div class="right">
-            <img class="scale" width="600" height="516" src="/data/tutorials/pix/2-9.png"/>
+            <img class="scale" width="600" height="516" src="/pix/tutorials/2/2-9.png"/>
         </div>
     </slide>
 
@@ -149,7 +149,7 @@ Lesson 02b - Devops Workflow
             </p>
         </div>
         <div class="right">
-            <img class="scale" width="600" height="377" src="/data/tutorials/pix/2-14.png"/>
+            <img class="scale" width="600" height="377" src="/pix/tutorials/2/2-14.png"/>
         </div>
     </slide>
 
@@ -164,7 +164,7 @@ Lesson 02b - Devops Workflow
                 any merge conflicts before continuing.</p>
         </div>
         <div class="right">
-            <img class="scale" width="600" height="436" src="/data/tutorials/pix/2-10.png"/>
+            <img class="scale" width="600" height="436" src="/pix/tutorials/2/2-10.png"/>
         </div>
     </slide>
 
@@ -174,7 +174,7 @@ Lesson 02b - Devops Workflow
                 will see that github is offering to "compare &amp; pull request".</p>            
         </div>
         <div class="right">
-            <img class="scale" width="600" height="330" src="/data/tutorials/pix/2-11.png"/>
+            <img class="scale" width="600" height="330" src="/pix/tutorials/2/2-11.png"/>
         </div>
     </slide>
 
@@ -191,7 +191,7 @@ Lesson 02b - Devops Workflow
             <p>If all looks ok, click "Create pull request".</p>
         </div>
         <div class="right">
-            <img class="scale" width="600" height="412" src="/data/tutorials/pix/2-12.png"/>
+            <img class="scale" width="600" height="412" src="/pix/tutorials/2/2-12.png"/>
         </div>
     </slide>
 
@@ -203,7 +203,7 @@ Lesson 02b - Devops Workflow
                 maintainer to merge or reject your pull request.</p>
         </div>
         <div class="right">
-            <img class="scale" width="600" height="403" src="/data/tutorials/pix/2-13.png"/>
+            <img class="scale" width="600" height="403" src="/pix/tutorials/2/2-13.png"/>
         </div>
     </slide>
 

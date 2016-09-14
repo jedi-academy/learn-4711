@@ -3,14 +3,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * controllers/Show.php
+ * controllers/Display.php
  *
- * Render a slideshow using S5.
- * This would be normal activity for an XML document.
+ * Present an activity as a webpage.
+ * This would be normal handling for an MD or RST document.
  *
  * ------------------------------------------------------------------------
  */
-class Show extends Application
+class Display extends Application
 {
 
 	function __construct()
@@ -29,7 +29,7 @@ class Show extends Application
 	}
 
 	/**
-	 * Render a slideshow
+	 * Do the right thing
 	 */
 	private function work($category, $name)
 	{
@@ -47,12 +47,7 @@ class Show extends Application
 		// handle the type of activity
 		switch ($activity->type)
 		{
-			case 'lesson':
-			case 'tutorial':
-			case 'lab':
-			case 'assignment':
-				$this->slideshow($activity);
-				break;
+			// some document kinds are not rendered
 			case 'video':
 			case 'github':
 				// these shouldn't have come here, but if they did...
@@ -66,6 +61,27 @@ class Show extends Application
 				// hmm - what should we do for this?
 				redirect('/');
 				break;
+			default:
+				$kind = $this->organizer->kind($activity->type,$activity->name);
+				switch ($kind)
+				{
+					case 'md':
+						$data = file_get_contents(DATAPATH.$category.'s/'.$activity->name.'.'.$kind);
+						$result = $this->parsedown->text($data);
+						$this->data['content'] = $this->parser->parse_string($result, $this->data, true);
+						break;
+//					case 'rst':
+//						break;
+					case 'xml':
+						$this->data['content'] = $this->slideshow($activity);
+						break;
+					default:
+						// we give up ... show it as text!
+						$filename = DATAPATH.$activity->category.'s/'.$activity->name.'.'.$kind;
+						$this->data['content'] = htmlentities(file_get_contents($filename));
+				}
+				$this->template = 'theme/standalone';
+				$this->render(); // and away we go!
 		}
 	}
 
@@ -151,7 +167,7 @@ class Show extends Application
 	}
 
 	/**
-	 * Render an activity XML document as a slideshow
+	 * Build the contents of a slideshow for plain webpage rendering
 	 */
 	private function slideshow($activity)
 	{
@@ -197,7 +213,7 @@ class Show extends Application
 		$this->data['congrats'] = $this->parser->parse('show/_congrats', $this->data, true);
 
 		$this->data['pagetitle'] = $this->data['title'];
-		$this->parser->parse('show/template', $this->data);
+		return $this->parser->parse('theme/template', $this->data, true);
 	}
 
 }

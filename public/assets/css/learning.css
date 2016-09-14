@@ -26,3 +26,6 @@
 .learn-dropbox {background: url('/assets/icons/dropbox.png') left  no-repeat; background-size: auto;  padding-left: 50px; height:2em;}
 .learn-grades {background: url('/assets/icons/rate.png') left  no-repeat; background-size: auto;  padding-left: 50px; height:2em;}
 .learn-survey {background: url('/assets/icons/written.png') left  no-repeat; background-size: auto;  padding-left: 50px; height:2em;}
+.alt-show {background: url('/assets/icons/present3.png') left  no-repeat; background-size: auto;  margin-left:5px; padding-left: 30px; height:1em;}
+.alt-display {background: url('/assets/icons/document3.png') left  no-repeat; background-size: auto;  margin-left:5px; padding-left: 30px; height:1em;}
+.alt-pdf {background: url('/assets/icons/pdf3.png') left  no-repeat; background-size: auto;  margin-left:5px; padding-left: 30px; height:1em;}

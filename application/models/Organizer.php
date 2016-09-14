@@ -158,4 +158,31 @@ class Organizer extends CI_Model
 		return $tags;
 	}
 
+		/**
+	 * Find an activity, and determine what kind of thing it is
+	 */
+	public function kind($category,$name)
+	{
+		$filetype = "";
+		
+		// is it an S5 slideshow, in XML?
+		$filename = DATAPATH.$category.'s/'.$name.'.xml';
+		if (file_exists($filename)) $filetype = "xml";
+
+		// is it a Markdown file?
+		$filename = DATAPATH.$category.'s/'.$name.'.md';
+		if (file_exists($filename)) $filetype = "md";
+	
+		// is it a restructured text file?
+		$filename = DATAPATH.$category.'s/'.$name.'.rst';
+		if (file_exists($filename)) $filetype = "rst";
+		
+			// is it a PDF, ready to roll?
+		$filename = DATAPATH.$category.'s/'.$name.'.pdf';
+		if (file_exists($filename)) $filetype = "pdf";
+	
+		return $filetype;
+	}
+
+
 }

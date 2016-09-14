@@ -23,11 +23,12 @@ Course organizer for Comp4711
 		<lesson name="basic00" survey="254765" icon="dothis">Webapp Assumptions</lesson>
 		<lesson name="basic01" survey="254768" icon="dothis">MVC Framework Introduction</lesson>
 		<lesson name="dev01" survey="254779" icon="dothis">Devops Workflow Concepts</lesson>
-		<lab name="lab02" active="n">Process Prep</lab>
-		<github name="contacts" link="https://github.com/jedi-academy/example-contacts" active="n">Example webapp - contacts</github>
-		<lesson name="dev02" icon="read" active="n">Gitflow Workflow Techniques (in lab)</lesson>
-		<lesson name="dev03" icon="read" active="n">Gitflow Setup Example (in lab)</lesson>
-		<lesson name="basic01-other" icon="read" active="n">Other MVC Framework Examples (optional)</lesson>
+		<lab name="lab02">Process Prep</lab>
+		<lab name="lab02b">Process Prep in MD</lab>
+		<github name="contacts" link="https://github.com/jedi-academy/example-contacts">Example webapp - contacts</github>
+		<lesson name="dev02" icon="read">Gitflow Workflow Techniques (in lab)</lesson>
+		<lesson name="dev03" icon="read">Gitflow Setup Example (in lab)</lesson>
+		<lesson name="basic01-other" icon="read">Other MVC Framework Examples (optional)</lesson>
 	</week>
 	<week num="3">
 		<topic>CodeIgniter &amp;Controllers</topic>         

@@ -26,6 +26,7 @@ class Application extends CI_Controller
 		$this->data['title'] = 'COMP4711 - Webapp Development';
 		$this->errors = array ();
 		$this->data['datapath'] = DATAPATH;
+		$this->template = 'theme/template';
 	}
 
 	/**
@@ -44,7 +45,12 @@ class Application extends CI_Controller
 		$this->data['menubar'] = $this->parser->parse('theme/menubar', $choices, true);
 
 		$this->data['footerbar'] = $this->parser->parse('theme/menubar', $this->config->item('footer_choices'), true);
-		$this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
+
+		// render the content if needed
+		if ( ! isset($this->data['content']))
+		{
+			$this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
+		}
 
 		// title for all but the homepage
 		$layout = empty($this->data['title']) ? 'jumbotitle' : 'title';
@@ -56,7 +62,7 @@ class Application extends CI_Controller
 
 		// finally, build the browser page!
 		$this->data['data'] = &$this->data;
-		$this->parser->parse('theme/template', $this->data);
+		$this->parser->parse($this->template, $this->data);
 	}
 
 	/**
