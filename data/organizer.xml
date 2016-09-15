@@ -23,12 +23,10 @@ Course organizer for Comp4711
 		<lesson name="basic00" survey="254765" icon="dothis">Webapp Assumptions</lesson>
 		<lesson name="basic01" survey="254768" icon="dothis">MVC Framework Introduction</lesson>
 		<lesson name="dev01" survey="254779" icon="dothis">Devops Workflow Concepts</lesson>
-		<lab name="lab02">Process Prep</lab>
-		<lab name="lab02b">Process Prep in MD</lab>
-		<github name="contacts" link="https://github.com/jedi-academy/example-contacts">Example webapp - contacts</github>
+		<lab name="lab02">Collaborative Workflow</lab>
+		<github name="starter-quotes" link="https://github.com/jedi-academy/starter-quotes">Lab starter - Quotes</github>
 		<lesson name="dev02" icon="read">Gitflow Workflow Techniques (in lab)</lesson>
 		<lesson name="dev03" icon="read">Gitflow Setup Example (in lab)</lesson>
-		<lesson name="basic01-other" icon="read">Other MVC Framework Examples (optional)</lesson>
 	</week>
 	<week num="3">
 		<topic>CodeIgniter &amp;Controllers</topic>         
@@ -36,9 +34,10 @@ Course organizer for Comp4711
 		<inlab>#3 Website conversion</inlab>
 		<lesson name="basic01-ci" survey="y" active="n">CodeIgniter Introduction</lesson>
 		<lesson name="basic02" active="n">Controllers</lesson>
+		<lesson name="basic01-other" icon="read" active="n">Other MVC Framework Examples (optional)</lesson>
 		<lab name="lab03" active="n">Website Conversion</lab>
-		<github name="contacts" link="https://github.com/jedi-academy/starter-CodeIgniter">CodeIgniter starter project</github>
-		<github name="contacts" link="https://github.com/jedi-academy/starter-gallery">Lab starter - Gallery</github>
+		<github name="CodeIgniter starter" link="https://github.com/jedi-academy/CodeIgniter3.1-starter2">CodeIgniter starter project</github>
+		<github name="starter-gallery" link="https://github.com/jedi-academy/starter-gallery" active="n">Lab starter - Gallery</github>
 		<tutorial name="ci-basic01" active="n">Static to Trivial CI</tutorial>
 		<tutorial name="ci-basic02" active="n">Trivial CI to Basic CI</tutorial>
 		<tutorial name="ci-basic03" active="n">Basic CI to Good CI</tutorial>

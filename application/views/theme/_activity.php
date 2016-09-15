@@ -4,5 +4,5 @@
  */
 ?>
 <div class="learn-{icon}">
-	{thelink} {item} {duedate} {download} | {thelinks} {survey}
+	{thelink} {item} {duedate} {download} {thelinks} {survey}
 </div>
