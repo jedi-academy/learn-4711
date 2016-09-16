@@ -1,4 +1,4 @@
-**Lab 2 update** *(Fri Sept 17, 7:30am)*
+**Lab 2 update** *(Fri Sept 17, 8:00am)*
 I have added a more in-depth explanation of synching to the lab
 writeup. It does not change process or deliverables, but will
 hopefully help you understand better what/why/when you "do"
