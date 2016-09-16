@@ -65,7 +65,7 @@ is a pictorial walkthrough of a similar process.
 The second, [Gitflow Setup Example](/show/lesson/dev02), 
 specifically demonstrates the setup of a team and its repository.
 
-##Notes:Synching your repos
+##Notes:Synching your repos (Supplement)
 
 This has proved to be problematic.
 
@@ -227,6 +227,14 @@ been updated, and it hopefully will be mergeable.
 -    Create the PR ... 
 -    [CAPTAIN] you know the drill...
     
+###Just a note: 
+
+	I did not provide any instructions for invoking the random quote, doh! 
+	You can see/test the results with the URL "quotes.local/welcome/random",
+	substituting the virtual domain you are using for the lab.
+	If your .htaccess isn't working properly, you would have to use the URL
+	"quotes.local/index.php/welcome/random".
+
 ##Team Synch
 
 -    The team members should synch their develop branches with the team repo
