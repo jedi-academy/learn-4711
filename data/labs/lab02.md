@@ -2,6 +2,9 @@
 #Lab #2 - Collaborative Workflow
 COMP4711 - BCIT - Fall 2016
 
+**Edit: I added a new section, explaining the synching
+of repos in more detail.**
+
 ##Lab Goals
 
 Last week, you setup your development environment.
@@ -62,6 +65,70 @@ is a pictorial walkthrough of a similar process.
 The second, [Gitflow Setup Example](/show/lesson/dev02), 
 specifically demonstrates the setup of a team and its repository.
 
+##Notes:Synching your repos
+
+This has proved to be problematic.
+
+Consider:
+
+	[Team repo] --- [Your repo] --- [Local repo]
+
+If you make changes to your [local repo], they only get saved to [your repo] after you `commit` 
+and then `push` them to it. At that point, [your repo] is "ahead" of the [team repo].
+This will be resolved when you submit a `pull request (PR)` that is accepted and merged
+into the [team repo].
+
+More problematic is the case that other contributions have been accepted to the
+[team repo], where those changes conflict with changes you have made or are working on.
+You will not be able to submit a succesful PR for them until **you** resolve the
+conflicts, in your work.
+
+If you are working in a feature branch, based on `develop`, and the [team repo]'s
+`develop` has been updated, it is "ahead" of yours, and you need to synch repos.
+
+Locally, checkout your `develop` branch, and then merge the changes from
+the [team repo]:
+
+	git pull upstream develop
+
+If you do not have `upstream` already defined as an alias for your [team repo], 
+**you will
+need to do so**, for instance from the git bash shell:
+
+	git remote add upstream [team repo cloning url]
+
+You will then have two remote repository aliases: `origin` and `upstream`.
+You can use whatever name you want for you [team repo] alias, so long as you use the 
+same name in subsequent pull requests to synchronize your repos.
+
+If updating [your repo] from [team repo] causes conflicts, you need to resolve
+them locally, using a merge conflict resolution tool, or that capability in 
+your IDE.
+
+Once conflicts have been resolved, you can save your updated `develop` branch
+in [your repo] by pushing the changes to it ...
+
+	git add .
+	git commit -s -m "Synch with team repo"
+	git push
+
+Those changes are in your `develop` branch, but not yet visible in your feature branch.
+Make them appear by
+
+	git checkout WhateverYouCalledYourFeatureBranch
+	git merge develop
+
+If this was needed so that a PR of yours could potentially be merged, update the
+PR for your feature branch by
+
+	git add .
+	git commit -s -m "Synch changes merged"
+	git push
+
+If you or your CAPTAIN revisit the PR on github.com, it should show as having
+been updated, and it hopefully will be mergeable.
+
+#The Lab:
 
 ##Team Setup
 
@@ -133,6 +200,7 @@ specifically demonstrates the setup of a team and its repository.
 -    Commit these...
 -    Push these...
 -    Create the PR ... Oh no, it can't be merged!
+-	**Edit: if you did not get an error message, it is likely because your push did not include a changelog item!**
 -    Checkout your local develop branch
 -    Synch it to upstream
 -    Checkout your feature branch
@@ -168,6 +236,8 @@ specifically demonstrates the setup of a team and its repository.
 -    Tidy up any loose ends in the repo
 -    Merge the develop branch into the master branch, in the team repo
 -    You are ready to submit the repo link
+
+#Lab Endnotes
 
 ##Lab Marking Guideline
 
