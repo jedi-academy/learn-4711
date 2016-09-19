@@ -2,7 +2,7 @@
 <!--
 Lesson 02 - Controllers
 -->
-<lesson status="beta">
+<lesson status="v1.1">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <!-- Agenda -->
@@ -29,19 +29,19 @@ Lesson 02 - Controllers
 
     <!-- Normal slides -->
 
-    <slide title="Overview" layout="normal" tag="tag1">
+    <slide title="1. Overview" layout="normal" tag="tag1">
         <div class="left">
             <p>Controllers are a key component of the MVC design pattern.</p>
             <p>CodeIgniter controllers are found in the 
                 <code>application/controllers</code> folder.</p>
-            <p>If your webapp is extending the built-in controller with your own,
-                it will be found in 
-                <code>application/core/MY_Controller.php</code>, as you
-                saw in the example-contacts project in lesson 2.</p>
+            <p>If your webapp is extending the built-in controller with your own
+                base controller, it will be found in 
+                <code>application/core/MY_Controller</code>, as you
+                saw in the example-contacts project in the last lesson.</p>
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="276" height="290" src="/data/lessons/pix/3/3-1.png"/>
+            <img class="scale" width="276" height="290" src="/pix/lessons/3/3-1.png"/>
         </div>
     </slide>
 
@@ -58,7 +58,7 @@ Lesson 02 - Controllers
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="720" height="288" src="/data/lessons/pix/3/3-arch.png"/>
+            <img class="scale" width="720" height="288" src="/pix/lessons/3/3-arch.png"/>
         </div>
     </slide>
 
@@ -66,7 +66,7 @@ Lesson 02 - Controllers
         <div class="left">
             <p>There are three common types of controllers:</p>
             <ul>
-                <li>A <b>normal</b> controller is expected to return a webpage
+                <li>A <b>normal</b> or "regular" controller is expected to return a webpage
                     to the browser.</li>
                 <li>A <b>utility</b> controller is expected to return a file 
                     or perhaps a specially formatted data structure.</li>
@@ -76,13 +76,13 @@ Lesson 02 - Controllers
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="445" height="330" src="/data/lessons/pix/3/3-2.png"/>
+            <img class="scale" width="445" height="330" src="/pix/lessons/3/3-2.png"/>
         </div>
     </slide>
 
-    <slide title="Controller Basics" layout="normal" tag="tag2">
+    <slide title="2. Controller Basics" layout="normal" tag="tag2">
         <div class="left">
-            <p>Controllers are found in the <code>application/controllers</code> folder</p>
+            <p>Controllers are found in the <code>application/controllers</code> folder.</p>
             <p>Controllers can also be in nested subfolders underneath that.</p>
             <p>There is a default controller, <code>Welcome</code>, in any folder.
                 This default can be changed, if you like.
@@ -139,7 +139,7 @@ Lesson 02 - Controllers
         </div>
     </slide>
 
-    <slide title="Getting Input" layout="normal" tag="tag3">
+    <slide title="3. Getting Input" layout="normal" tag="tag3">
         <p>Your controller normally gets data passed as positional
             parameters in the URL.</p>
         <p>For instance, if your method looks like...<br/>
@@ -187,10 +187,10 @@ Lesson 02 - Controllers
         <p>CodeIgniter has a 
             <a href="http://www.codeigniter.com/userguide3/libraries/file_uploading.html"
                target="_blank">File uploading class
-            </a>. We will address this topic in lesson 5</p>
+            </a>. We will address this topic in a later lesson.</p>
     </slide>
 
-    <slide title="Using Stuff" layout="normal" tag="tag4">
+    <slide title="4. Using Stuff" layout="normal" tag="tag4">
         <p>"Stuff" is a highly technical term, in this context meaning
             any support component that comes with CodeIgniter or that you created.</p>
         <p>Stuff includes models, libraries, helpers, drivers,
@@ -274,17 +274,18 @@ Lesson 02 - Controllers
         <p>CodeIgniter automatically loads its 
             <a href="http://www.codeigniter.com/userguide3/libraries/config.html"
                target="_blank">configuration class</a>,
-            and injects it as a <code>config</code> property of your controller.
+            and injects it as the <code>config</code> property of your controller.
         </p>
         <p>You can retrieve configuration settings by<br/>
             <code>$this-&gt;config-&gt;item(...);</code>
         </p>
-        <p>Your configuration settings are made through key/value pairs in
+        <p>Your configuration settings are made through 
+			associative array key/value pairs in
             the different files in <code>application/config</code>.
         </p>        
     </slide>
 
-    <slide title="Producing Output" layout="normal" tag="tag5">
+    <slide title="5. Producing Output" layout="normal" tag="tag5">
         <p>Your controller can produce output by 
             <a href="http://www.codeigniter.com/userguide3/general/views.html"
                target="_blank">loading
@@ -292,14 +293,45 @@ Lesson 02 - Controllers
             folder.<br/>
             <code>$this-&gt;load-&gt;view(name[,parms[,capture]]);</code>
         </p>
+		<p>You can optionally pass parameters to the view (see next page).
+		You can ask that the result be returned as a string instead
+			of being copied to the browser, by specifying <code>true</code>
+			as the "capture" parameter.
+		</p>
         <p>This technique simply copies the contents of the named PHP
-            webpage to the output stream.</p>
+            webpage to the output stream, with conventional
+			interpretation of any PHP script inside the view file.</p>
         <p>The name of the view file can include subfolders, and *is*
             case-sensitive, unlike the names used to reference other 
             "stuff".</p>
     </slide>
 
-    <slide title="Template Parser" layout="normal">
+     <slide title="View Parameters" layout="normal">
+        <p>Parameters are passed as associative arrays<br/>
+            <code>$parms=array('name'=&gt;'Jim','code'=&gt;'123');</code>
+            <br/>
+        </p>
+        <p>Parameters can be nested...<br/>
+            <code>$parms=array(
+                'items' =&gt; array(<br/>
+                &#160;&#160;&#160;&#160;array('itemcode'=&gt;'1','desc'=&gt;'burger'),<br/>
+                &#160;&#160;&#160;&#160;array('itemcode'=&gt;'2','desc'=&gt;'fries'),<br/>
+                &#160;&#160;), );</code>
+            <br/>
+        </p>
+        <p>These would be used like...<br/>
+            <code>&lt;?php foreach ($items as $item) { ?&gt;
+&lt;p&gt;&lt;?php echo $item['itemcode']; ?&gt; means &lt;?php echo $item['desc'];?&gt;&lt;/p&gt;
+                &lt;?php } ?&gt;</code>
+            <br/>
+        </p>
+        <p>And the result for the above would look like...<br/>
+            <code> 1 means burger<br/>
+                2 means fries</code>
+            <br/>
+        </p>
+    </slide>
+   <slide title="Template Parser" layout="normal">
         <p>CodeIgniter also includes a simple template parser,
             which can do simple substitutions. It also uses view files
             from inside your <code>application/views</code>
@@ -311,7 +343,7 @@ Lesson 02 - Controllers
             fields specified inside braces (eg <code>{somefield}</code>).</p>
         <p>The template parser needs to be loaded, as a library, 
             before it can be used.</p>
-        <p>You saw this earlier, in the contacts example from lesson 2.</p>
+        <p>You saw this earlier, in the example-contacts demo app.</p>
     </slide>
 
     <slide title="Template Parser Example" layout="normal">
@@ -357,6 +389,7 @@ Lesson 02 - Controllers
                 2 means fries</code>
             <br/>
         </p>
+		<p>Contrast this with the same example using view parameters a few slides back!</p>
     </slide>
 
     <slide title="Controller, Revisited" layout="normal">

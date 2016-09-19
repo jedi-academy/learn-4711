@@ -29,18 +29,20 @@ Course organizer for Comp4711
 		<lesson name="dev03" icon="read">Gitflow Setup Example (in lab)</lesson>
 	</week>
 	<week num="3">
-		<topic>CodeIgniter &amp;Controllers</topic>         
+		<topic>CodeIgniter &amp; Controllers</topic>         
 		<outcomes>1.2 (controllers), 3</outcomes>
 		<inlab>#3 Website conversion</inlab>
-		<lesson name="basic01-ci" survey="y" active="n">CodeIgniter Introduction</lesson>
-		<lesson name="basic02" active="n">Controllers</lesson>
-		<lesson name="basic01-other" icon="read" active="n">Other MVC Framework Examples (optional)</lesson>
-		<lab name="lab03" active="n">Website Conversion</lab>
+		<lesson name="basic01-ci" survey="256024" icon="dothis">CodeIgniter Overview</lesson>
+		<lesson name="basic02" survey="256026" icon="dothis">CI Controllers</lesson>
+		<lesson name="basic01-other" icon="read">Other MVC Framework Examples (supplement)</lesson>
+		<github name="Sample Project" link="https://github.com/jedi-academy/example-contacts">Example CodeIgniter project</github>
+		<!--		<lab name="lab03">Website Conversion</lab>
+		<github name="starter-gallery" link="https://github.com/jedi-academy/starter-gallery">Lab starter - Gallery</github>
 		<github name="CodeIgniter starter" link="https://github.com/jedi-academy/CodeIgniter3.1-starter2">CodeIgniter starter project</github>
-		<github name="starter-gallery" link="https://github.com/jedi-academy/starter-gallery" active="n">Lab starter - Gallery</github>
-		<tutorial name="ci-basic01" active="n">Static to Trivial CI</tutorial>
-		<tutorial name="ci-basic02" active="n">Trivial CI to Basic CI</tutorial>
-		<tutorial name="ci-basic03" active="n">Basic CI to Good CI</tutorial>
+		<tutorial name="ci-basic01">Static to Trivial CI Website Conversion</tutorial>
+		<tutorial name="ci-basic02">Trivial CI to Basic CI Website Conversion</tutorial>
+		<tutorial name="ci-basic03">Basic CI to Good CI Website Conversion</tutorial>
+		-->
 	</week>
 	<week num="4">
 		<topic>Routing</topic>         
