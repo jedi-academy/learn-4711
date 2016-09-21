@@ -2,7 +2,7 @@
 <!--
 Tutorial 02c - Convert static site into CI webapp
 -->
-<tutorial status="beta">
+<tutorial status="v1.1">
     <!-- Activity metadata ... override anything from the course or organizer -->
     
     <!-- The meat of the presentation -->
@@ -22,42 +22,48 @@ Tutorial 02c - Convert static site into CI webapp
                 <a href="https://github.com/jedi-academy/starter-gallery" target="_blank">tutorial starter</a>
                 project, and clone it to your local system.
             </p>
-            <p>You can clone it to any folder inside your htdocs, as long as
-                you have a virtual host mapping to it for testing.
-                I will assume "comp4711.local" for this writeup.
-            If you want to change the destination folder name, that will be the "project name"
-            on the third dialog in the git clone wizard of NetBeans.</p>
+            <p>Wherever you clone this to, make sure that your virtual host mapping
+				references the project's <code>public</code> folder, and has a <code>&lt;directory&gt;</code>
+				element if needed. 
+				I show "gallery.local" or "comp4711.local" in the screenshots following,
+			depending on when I took the screenshots.</p>
+			<p>You will download a CodeIgniter starter as well, a few slides from now.
+			It, however, can be discarded once its contents have been merged with
+			your lab starter.</p>
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="600" height="382" src="/data/tutorials/pix/ci2/2-31.png"/>
+            <img class="scale" width="600" height="360" src="/pix/tutorials/ci2/2-31.png"/>
         </div>
     </slide>
 
     <slide title="What Do You Have?" layout="normal">
         <div class="left">
-            <p>I cloned mine to a "my-lab02" project/folder on my system.
-                Substitute your choice whenever I refer to my folder.</p>
-            <p>You should see a "public" folder, which contains an entire
+            <p>I cloned my gallery starter project to a "my-lab03" folder on my system,
+				and created a new NetBeans project (with existing sources) from it.</p>
+				<p>The screenshots that follow use NetBeans, but you are free to use
+					the IDE and folder of your choice. Remember to <code>git ignore</code>
+				the IDE metadata folder inside your local repository.</p>
+                <p>You should see a <code>public</code> folder, which contains an entire
                 static website.</p>            
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="332" height="262" src="/data/tutorials/pix/ci2/2-32.png"/>
+            <img class="scale" width="332" height="262" src="/pix/tutorials/ci2/2-32.png"/>
         </div>
     </slide>
 
     <slide title="What Does It Look Like?" layout="normal">
         <div class="left">
             <p>Assuming that your new project is mapped to "comp4711.local",
-                then the URL "comp4711.local/public" should give you the
+                then the URL "comp4711.local" should give you the
                 homepage of the static site, shown right.</p>  
                 <p>Don't forget to include the port you assigned to Apache in the
                 URL, if yours is other than 80.</p>          
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="600" height="306" src="/data/tutorials/pix/ci2/2-33.png"/>
+            <img class="scale" width="600" height="306" src="/pix/tutorials/ci2/2-33.png"/>
         </div>
     </slide>
 
@@ -88,84 +94,73 @@ Tutorial 02c - Convert static site into CI webapp
 
     <slide title="Copy Our CI Starter" layout="normal">
         <div class="left">
-            <p>Copy the contents of your CodeIgniter starter project (from
-                tutorial "setup04") into your project folder.</p>
+            <p>Download and extract the <a href="https://github.com/jedi-academy/CodeIgniter3.1-starter2" target="_blank">
+				CodeIgniter starter project</a>, and copy its application, public 
+				and system folders into your lab project folder. </p>
+			<p>Your file manager will ask if it is ok to merge the folders, since your
+				lab 3 project already has a public folder.
+				That is fine, as there should be no overlap between them.</p>
             <p>Now, asking for comp4711.local in your browser should
-                give you the "Welcome to CodeIgniter!" page.</p>
+                give you the "Welcome to CodeIgniter!" page, because of
+				the presence of CodeIgniter's <code>index.php</code> in
+				the document root.</p>
         </div>
         <div class="right">
-            <img class="scale" width="256" height="342" src="/data/tutorials/pix/ci2/2-34.png"/>
+            <img class="scale" width="180" height="362" src="/pix/tutorials/ci2/2-34.png"/>
         </div>
     </slide>
 
     <slide title="Create Trivial Controllers" layout="normal">
         <div class="left">
-            <p>Our static site has 3 pages, index.html, gallery.html
+            <p>Our static site has 3 pages: index.html, gallery.html
                 and about.html. We can make trivial controllers for each of these,
                 which simply load the corresponding "view".</p>
-            <p>Fix application/controllers/Welcome.php (your homepage)
-                to load the "welcome" view. Create similar controllers Gallery.php and About.php,
+				<p>Fix <code>application/controllers/Welcome.php</code> (your homepage)
+                to load the "welcome" view, instead of the "welcome_message"
+				one.</p>
+				<p>Create similar controllers Gallery.php and About.php,
                 which load the "gallery" and "about" views, respectively.</p>
+				<p>
+					<b>Note:</b> Our controller extends <code>Application</code>
+					(our base controller), though we are not using the
+					template parser. We will do that in the
+					next tutorial ... baby steps, remember?
+				</p>
         </div>
         <div class="right">
-            <img class="scale" width="416" height="182" src="/data/tutorials/pix/ci2/2-35.png"/>
+            <img class="scale" width="558" height="258" src="/pix/tutorials/ci2/2-35.png"/>
         </div>
     </slide>
     
     <slide title="Create Trivial Views" layout="normal">
         <div class="left">
             <p>We can make trivial views for each of the static pages,
-                by copying the static html files to our application/views
+				by copying the static html files to our <code>application/views</code>
                 folder, and renaming them to have a ".php" extension.
-                Note that index.html would become welcome.php.</p>     
+				Note that <code>index.html</code> would become <code>welcome.php</code>.</p>     
             <p>You may have to rename these using your file manager,
                 if your IDE won't let you change the extension.</p>      
-            <p>We no longer need the views/welcome_message.php
-                from your CI starter.</p>     
+				<p>We no longer need the <code>views/welcome_message.php</code>
+                that came with the CI starter.</p>     
         </div>
         <div class="right">
-            <img class="scale" width="318" height="478" src="/data/tutorials/pix/ci2/2-36.png"/>
-        </div>
-    </slide>
-
-    <slide title="We Now Have a Trivial Site" layout="normal">
-        <div class="left">
-            <p>Checkout your site now, using the comp4711.local URL.</p> 
-            <p>Oops, our image links are broken!</p>               
-        </div>
-        <div class="right">
-            <img class="scale" width="600" height="386" src="/data/tutorials/pix/ci2/2-37.png"/>
-        </div>
-    </slide>
-
-    <slide title="Fix Our Image Links" layout="normal">
-        <div class="left">
-            <p>Examining views/welcome.php, you can see that the image 
-                references no longer work. 
-                We can solve this by copying/moving those folders up
-                one level, alongside "applications".</p>
-            <p>A better practice is to keep your "assets" (like these)
-                in a separate folder, which could be called "public" or
-                "assets". We can address 
-                the better practice in a later refactoring.</p>
-            <p>For now, let's copy the folders up one level. </p>
-        </div>
-        <div class="right">
-            <img class="scale" width="600" height="295" src="/data/tutorials/pix/ci2/2-38.png"/>
+            <img class="scale" width="318" height="478" src="/pix/tutorials/ci2/2-36.png"/>
         </div>
     </slide>
 
     <slide title="Fix Our Menu" layout="normal">
         <div class="left">
             <p>Yay, our site *looks* better, but what about the menu? It still
-                refers to the original HTML files. Fix this by changing the menu links to refer to our CI controllers
+                refers to the original HTML files. 
+				Fix this by changing the menu links to refer to our CI controllers
                 instead. Apply this change to each of our three views.
-            These menu links will be found inside the views/template.php</p>
+				These menu links will be found inside the <code>header</code> div
+			of each view file.</p>
             <p>Notice that the homepage is referred to as just "/", and that
                 each of the other references start with a slash.</p>
         </div>
         <div class="right">
-            <img class="scale" width="505" height="108" src="/data/tutorials/pix/ci2/2-39.png"/>
+            <img class="scale" width="505" height="108" src="/pix/tutorials/ci2/2-39.png"/>
         </div>
     </slide>
 
@@ -174,11 +169,11 @@ Tutorial 02c - Convert static site into CI webapp
             <p>So far, so good ... the website looks the same as the original,
             but it has been partially transformed into a (trivial) CodeIgniter webapp.</p>
             <p>The next tutorial will take the website to the next level.</p>
-            <p>This would be an appropriate point to push your local changes
-            to your github repo.</p>
+            <p>This would be an appropriate point to commit and push your local changes
+            to your github repo. One of your teammates will complete the next tutorial.</p>
         </div>
         <div class="right">
-            <img class="scale" width="600" height="287" src="/data/tutorials/pix/ci2/2-55.png"/>
+            <img class="scale" width="600" height="287" src="/pix/tutorials/ci2/2-55.png"/>
         </div>
     </slide>
 

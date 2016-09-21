@@ -290,7 +290,7 @@ public class Orders extends CI_Model {
 		</p>
 		<p>Sample usage: <code>$this-&gt;load-&gt;view('showoff',$data);</code> or 
 		<code>$this-&gt;parser-&gt;load('showoff',$data);</code>
-		</p>;
+		</p>
 	</slide>
 
  
@@ -341,8 +341,6 @@ public class Orders extends CI_Model {
 			be simply called the "common" helper. Helper file naming follows
 			the "words separated by underscores" convention, to reinforce
 			that it is "legacy-style" PHP and not object-oriented.</p>
-			<p>Our <code>common</code> helper is only meant to be illustrative -
-			it does not add needed functionality to the demo app!</p>
 		</div>
 		<div class="right">
 			<br/>
@@ -353,7 +351,9 @@ public class Orders extends CI_Model {
 	<slide title="Helpers are &quot;Classic&quot;" layout="normal" >
 		<div class="left">
 			<p>Usage: <code>$this-&gt;load-&gt;helper('common');</code></p>
-			<p>Functions in any such loaded helpers are available everywhere</p>
+			<p>Functions in any such loaded helpers are available everywhere.</p>
+			<p>Note: Our <code>common</code> helper is only meant to be illustrative -
+			it does not add needed functionality to the demo app!</p>
 		</div>
 		<div class="right">
 			<br/>
