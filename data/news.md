@@ -1,3 +1,6 @@
+**Assignment 1** *(Thurs Sept 22, 13:15pm)*
+A draft has been posted in the organizer, and I am looking for feedback.
+
 **Week 3 Update** *(Weds Sept 21, 8:50am)*
 Survey results are available through the organizer.
 Lab 3 is ready too.

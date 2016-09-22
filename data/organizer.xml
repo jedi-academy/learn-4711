@@ -35,15 +35,16 @@ Course organizer for Comp4711
 		<inlab>#3 Website conversion</inlab>
 		<lesson name="basic01-ci" survey="256024" icon="dothis">CodeIgniter Overview</lesson>
 		<lesson name="basic02" survey="256026" icon="dothis">CI Controllers</lesson>
+		<github name="Sample Project" link="https://github.com/jedi-academy/example-contacts">Example CodeIgniter project</github>
 		<lesson name="basic01-other" icon="read">Other MVC Framework Examples (supplement)</lesson>
 		<lesson name="week03" icon="read">Survey results</lesson>
-		<github name="Sample Project" link="https://github.com/jedi-academy/example-contacts">Example CodeIgniter project</github>
 		<lab name="lab03">Website Conversion</lab>
 		<github name="starter-gallery" link="https://github.com/jedi-academy/starter-gallery">Lab starter - Gallery</github>
 		<github name="CodeIgniter starter" link="https://github.com/jedi-academy/CodeIgniter3.1-starter2">CodeIgniter starter #2</github>
 		<tutorial name="ci-basic01">Static to Trivial CI Website Conversion</tutorial>
 		<tutorial name="ci-basic02">Trivial CI to Basic CI Website Conversion</tutorial>
 		<tutorial name="ci-basic03">Basic CI to Good CI Website Conversion</tutorial>
+		<assignment name="assignment1">Basic Pantry Webapp</assignment>
 	</week>
 	<week num="4">
 		<topic>Routing</topic>         
