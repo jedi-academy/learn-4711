@@ -51,6 +51,7 @@ Course organizer for Comp4711
 		<outcomes>1.2 (routing), 3</outcomes>
 		<inlab>#4 Working with controllers</inlab>
 		<lesson name="basic06" active="n">Routing</lesson>
+		<lesson name="routing" icon="read">Routing examples from  elsewhere (optional)</lesson>
 		<lab name="lab04" active="n">Working With Controllers</lab>
 		<tutorial name="ci-normal01" active="n">Controllers and Routing</tutorial>
 	</week>

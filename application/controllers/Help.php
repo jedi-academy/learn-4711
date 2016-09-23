@@ -19,6 +19,7 @@ class Help extends Application
 	function __construct()
 	{
 		parent::__construct();
+		$this->template = 'theme/template_1';
 	}
 
 	/**

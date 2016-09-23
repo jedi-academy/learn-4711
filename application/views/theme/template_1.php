@@ -38,14 +38,6 @@
         <div id="content">
             <div class="container">
 				<div class="col-md-8">
-					<div class="panel panel-info">
-						<div class="panel-heading">
-							<h3 class="panel-title">News</h3>
-						</div>
-						<div class="panel-body">
-							{news}
-						</div>
-					</div>
 					{content}
 				</div>
 				<div class="col-md-4">
