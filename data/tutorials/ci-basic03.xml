@@ -56,6 +56,7 @@ Tutorial 02c - Convert static site into CI webapp
 				It is used on most of our pages, hence is safe to autoload in
 				our configuration. We will add the missing methods on
 				upcoming slides.</p>
+				<p>Our model should go in <code>application/models.Images.php</code></p>
 		</div>
 		<div class="right">
 			<img class="scale" width="398" height="242" src="/pix/tutorials/ci2/2-47.png"/>
@@ -129,9 +130,18 @@ Tutorial 02c - Convert static site into CI webapp
 					to generate the HTML for this, saving the result in a view
 					parameter (<code>thetable</code>) for the gallery view.
 				</p>
+		</div>
+		<div class="right">
+			<br/> 
+			<img class="scale" width="600" height="546" src="/pix/tutorials/ci2/2-50.png"/>
+		</div>
+	</slide>
+
+	<slide title="... And Then Adjust the View" layout="normal">
+		<div class="left">
 				<p>
 					<code>views/gallery</code> can then be simplified, replacing the entire table
-					HTML with {thetable}.
+					HTML with <code>{thetable}</code>.
 				</p>
 		</div>
 		<div class="right">

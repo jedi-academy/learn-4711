@@ -1,6 +1,6 @@
-**Lab3 Updated** *(Thurs Sept 22, 21:50pm)*
-I have made minor corrections to the lab writeup, and added a caution
-about Apache redirection.
+**Lab3 Updated** *(Fri Sept 23, 14:30pm)*
+Corrected slide 8 in the third tutorial, restoring an image for the Gallery controller
+that I accidentally deleted.
 
 **Lab 2 marking?** *(Thurs Sept 22, 21:15pm)*
 D2L is still having issues with the lab 2 dropboxes :(
