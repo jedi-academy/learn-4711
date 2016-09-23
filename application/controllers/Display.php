@@ -193,12 +193,12 @@ class Display extends Application {
                 $result .= $this->parser->parse('show/_slide', $parms, true);
             }
         }
-        $this->data['slides'] = $result;
+        $this->data['content'] = $result;
 
         $this->data['congrats'] = $this->parser->parse('show/_congrats', $this->data, true);
 
-        $this->data['pagetitle'] = $this->data['title'];
-        return $this->parser->parse('theme/template', $this->data, true);
+        //$this->data['pagetitle'] = $this->data['title'];
+        return $this->parser->parse('theme/template_2', $this->data, true);
     }
 
 }

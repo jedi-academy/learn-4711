@@ -24,6 +24,7 @@ class Application extends CI_Controller
 		parent::__construct();
 		$this->data = array ();
 		$this->data['title'] = 'COMP4711 - Webapp Development';
+		$this->data['coursetitle'] = 'COMP4711 - Webapp Development';
 		$this->errors = array ();
 		$this->data['datapath'] = DATAPATH;
 		$this->template = 'theme/template';
