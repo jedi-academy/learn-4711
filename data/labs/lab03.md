@@ -89,26 +89,41 @@ determine how well you followed the collaboration process.
 -    If you want to keep this separate from last week's, add a new local domain, eg "gallery.local"
 -    Map the virtual domain you will use to the "public" folder inside your local repo for this lab
 -    Restart Apache
--    Make sure that your project serves correctly, eg. using http://gallery.local
+-    Make sure that your project serves correctly, eg. using "gallery.local" or the local domain that you setup.
+
 
 ##Static to Trivial Website Conversion (FIRST MATE)
     
+**Caution**
+
+	Some of the student Apache installations in lab on Thursday were not
+	handling redirection properly - they were not injecting index.php, per
+	your public/.htaccess.
+
+	The symptom: you get a 404 trying to link to the /gallery or /about pages,
+	but the pages kinda show, without images, if you manually inject index.php
+	into the browser location field.
+
+	The fix: Modify your httpd.conf ... line 265 has "AllowOverride None" and that
+	should be "AllowOverride All", and the "LoadModule rewrite..." directive needs to
+	be uncommented. See me in lab if you have questions.
+
 -    Synchronize your repo with the team repo, if needed
--    Complete the first tutorial for this week's lab, [Static to Trivial Website Conversion](http://learn4711.local/show/tutorial/ci-basic01)
+-    Complete the first tutorial for this week's lab, [Static to Trivial Website Conversion](http://comp4711.jlparry.com/show/tutorial/ci-basic01)
 -    Commit &amp; push your feature branch (you did remember to use one, right?) and submit a pull request to the team repo
 -    [CAPTAIN] if ok, you can merge the PR
 
 ##Trivial to Basic Website Conversion (CAPTAIN)
 
 -    Synchronize your repo with the team repo, if needed
--    Complete the second tutorial for this week's lab, [Trivial to Basic Website Conversion](http://learn4711.local/show/tutorial/ci-basic02)
+-    Complete the second tutorial for this week's lab, [Trivial to Basic Website Conversion](http://comp4711.jlparry.com/show/tutorial/ci-basic02)
 -    Commit &amp; push your feature branch (you did remember to use one, right?) and submit a pull request to the team repo
 -    [CAPTAIN] if ok, you can merge the PR
 
 ##Basic to Good Website Conversion (SECOND MATE, FIRST MATE if none)
 
 -    Synchronize your repo with the team repo, if needed
--    Complete the third tutorial for this week's lab, [Basic to Good Website Conversion](http://learn4711.local/show/tutorial/ci-basic02)
+-    Complete the third tutorial for this week's lab, [Basic to Good Website Conversion](http://comp4711.jlparry.com/show/tutorial/ci-basic02)
 -    Commit &amp; push your feature branch (you did remember to use one, right?) and submit a pull request to the team repo
 -    [CAPTAIN] if ok, you can merge the PR
     
