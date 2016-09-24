@@ -50,10 +50,13 @@ Course organizer for Comp4711
 		<topic>Routing</topic>         
 		<outcomes>1.2 (routing), 3</outcomes>
 		<inlab>#4 Working with controllers</inlab>
-		<lesson name="basic06" active="n">Routing</lesson>
+		<lesson name="basic06" survey="256024" icon="dothis" active="n">Routing</lesson>
+		<lesson name="basic07" survey="256024" icon="dothis" active="n">Advanced Routing</lesson>
 		<lesson name="routing" icon="read">Routing examples from  elsewhere (optional)</lesson>
 		<lab name="lab04" active="n">Working With Controllers</lab>
+		<github name="starter-routes" link="https://github.com/jedi-academy/starter-routes" active="n">Lab starter - Routes</github>
 		<tutorial name="ci-normal01" active="n">Controllers and Routing</tutorial>
+		<lesson name="basicxx" icon="read" active="n">Coding Conventions</lesson>
 	</week>
 	<week num="5">
 		<topic>Models</topic>

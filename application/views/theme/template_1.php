@@ -62,7 +62,7 @@
                 <div class="container">
                     <div class="row">
                         <p class="text-center">
-							<a href="{outline}">{title}</a> is a course from 
+							<a href="{outline}">{coursetitle}</a> is a course from 
 							<a href="{site}">{school}</a>
                             <a href="mailto:jim_parry&commat;bcit.ca"><span class="glyphicon glyphicon-envelope"></span></a></p>
                     </div>

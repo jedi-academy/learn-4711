@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Lesson xx - Conventions
+-->
+<lesson status="v2.0">
+    <!-- Activity metadata ... override anything from the course or organizer -->
+
+    <slide title="Coding Conventions" layout="normal">
+        <p>Segment-based routing is the normal CodeIgniter way of resolving
+            the handling of an incoming request.</p>
+        <p>There are alternatives: wildcard routing, regular expression routing, callback
+            routing, and HTTP verb routing.</p>
+        <p>For the truly adventurous you can even remap requests on the fly.</p>
+        <p>We'll look at each of these in turn.</p>
+    </slide>
+
+    <slide title="Case Sensitivity" layout="normal">
+         <div class="left">
+       <p>Separate from any routing rules, a controller itself can
+        affect the handling of an incoming request, through
+        a <code>_remap</code> method.</p>
+        <p>The _remap method lets you overwrite the normal 
+            behaviour for controller methods. If your controller has
+        this method, it is always called.</p>
+         </div>
+        <div class="right">
+        <p>An example which hides the real name of a method ...<pre><code>
+public function _remap($method, $parms=array() ) {
+    if ($method == 'work') $this->guessMeIfYouCan($parms);
+    else return call_user_func_array($method,$parms);
+}
+            </code></pre></p>
+        </div>
+    </slide>
+
+    <slide title="File Naming" layout="normal">
+         <div class="left">
+        <p>Remapping could also be used to handle of having a language code 
+            between the domain name and
+            the "normal" part of a URL, for instance
+            "https://msdn.microsoft.com/en-us/library/windows/desktop".</p>
+         <p>This way, URLs have the form <code>/idiom/class/method/parm1/...</code>,
+         where "idiom" is a language identifier.
+        </p>
+            <p>You need a routing rule to swap the idiom and the intended controller: <br/>
+            <code>$routes['(:any)/(:any)/(.+)'] = '$1/$0/$2';</code></p>
+            <p>This would redirect the example above to "/library/en-us/windows/desktop".</p>
+         </div>
+        <div class="right">
+            <p>Then, in your <code>Library</code> or base controller...<pre><code>
+public function _remap($method, $parms=array() ) {
+    $idiom = $method; // the alleged method is really an idiom
+    $this->lang->load('translations_for_this_controller',$idiom);
+    $real_method = array_shift($parms); // grab &amp; remove first
+    return call_user_func_array($real_method,$parms);
+}
+            </code></pre></p>            
+            <p>The above would handle <code>/fr/find/apple</code>
+                by calling <code>Find::apple(...)</code> with the <code>fr</code>
+                translations loaded.</p>
+            <p>See the <a href="http://www.codeigniter.com/user_guide/general/controllers.html?highlight=remap#remapping-method-calls" 
+                       target="_blank">user guide</a> for more details.</p>
+        </div>
+          
+    </slide>
+
+   <slide title="Commenting" layout="normal" tag="tag9">
+            <p>Required:
+                <ul>
+                    <li>Class and file naming - "ucfirst"</li>
+                </ul>
+            </p>
+            <p>Allowed:
+                <ul>
+                    <li>deviations from the suggested, for good reason</li>
+                    <li>multiple classes (related) in file</li>
+                </ul>
+            </p>
+            <p>Bad ideas:
+                <ul>
+                    <li>PHP namespaces (for now), unless you know what you are doing</li>
+                </ul>
+            </p>
+    </slide>
+
+   <slide title="Coding Style" layout="normal" tag="tag9">
+            <p>Suggested (for methods &amp; variables):
+                <ul>
+                    <li>words separated by underscores</li>
+                    <li>underscores in front of internal items</li>
+                    <li>Allman style braces &amp; indenting</li>
+                    <li>commenting, PHPdoc style!</li>
+                    <li>value &amp; type comparison (===)!</li>
+                    <li>don't use closing PHP tag at end of file!</li>
+                </ul>
+            </p>
+        </div>
+    </slide>
+
+
+</lesson>

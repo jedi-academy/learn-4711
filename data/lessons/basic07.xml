@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Lesson 07 - Advanced Routing
+-->
+<lesson status="v2.0">
+    <!-- Activity metadata ... override anything from the course or organizer -->
+
+    <!-- Agenda -->
+    <slide title="Agenda" layout="normal">
+        <ol>
+            <li>
+                <a href="#{tag1}">Remapping</a>
+            </li>
+            <li>
+                <a href="#{tag2}">Hooks</a>
+            </li>
+            <li>
+                <a href="#{tag3}">Loose Ends</a>
+            </li>
+        </ol>
+    </slide>
+
+
+    <slide title="Advanced Routing" layout="normal">
+        <p>Segment-based routing is the normal CodeIgniter way of resolving
+            the handling of an incoming request.</p>
+        <p>There are alternatives: wildcard routing, regular expression routing, callback
+            routing, and HTTP verb routing.</p>
+        <p>For the truly adventurous you can even remap requests on the fly.</p>
+        <p>We'll look at each of these in turn.</p>
+    </slide>
+
+    <slide title="Remapping On the Fly" layout="normal" tag="tag1">
+         <div class="left">
+       <p>Separate from any routing rules, a controller itself can
+        affect the handling of an incoming request, through
+        a <code>_remap</code> method.</p>
+        <p>The _remap method lets you overwrite the normal 
+            behaviour for controller methods. If your controller has
+        this method, it is always called.</p>
+         </div>
+        <div class="right">
+        <p>An example which hides the real name of a method ...<pre><code>
+public function _remap($method, $parms=array() ) {
+    if ($method == 'work') $this->guessMeIfYouCan($parms);
+    else return call_user_func_array($method,$parms);
+}
+            </code></pre></p>
+        </div>
+    </slide>
+
+    <slide title="Remapping for Localization" layout="normal">
+         <div class="left">
+        <p>Remapping could also be used to handle of having a language code 
+            between the domain name and
+            the "normal" part of a URL, for instance
+            "https://msdn.microsoft.com/en-us/library/windows/desktop".</p>
+         <p>This way, URLs have the form <code>/idiom/class/method/parm1/...</code>,
+         where "idiom" is a language identifier.
+        </p>
+            <p>You need a routing rule to swap the idiom and the intended controller: <br/>
+            <code>$routes['(:any)/(:any)/(.+)'] = '$1/$0/$2';</code></p>
+            <p>This would redirect the example above to "/library/en-us/windows/desktop".</p>
+         </div>
+        <div class="right">
+            <p>Then, in your <code>Library</code> or base controller...<pre><code>
+public function _remap($method, $parms=array() ) {
+    $idiom = $method; // the alleged method is really an idiom
+    $this->lang->load('translations_for_this_controller',$idiom);
+    $real_method = array_shift($parms); // grab &amp; remove first
+    return call_user_func_array($real_method,$parms);
+}
+            </code></pre></p>            
+            <p>The above would handle <code>/fr/find/apple</code>
+                by calling <code>Find::apple(...)</code> with the <code>fr</code>
+                translations loaded.</p>
+            <p>See the <a href="http://www.codeigniter.com/user_guide/general/controllers.html?highlight=remap#remapping-method-calls" 
+                       target="_blank">user guide</a> for more details.</p>
+        </div>
+          
+    </slide>
+
+    <slide title="Hooks" layout="normal" tag="tag2">
+        <div class="left">
+            <p>The CodeIgniter framework, internally, performs the
+                following steps to handle a request:</p>
+            <ol>
+                <li>Apply routing rules to determine the controller
+                    and method to use</li>
+                <li>Instantiate the controller</li>
+                <li>Invoke the appropriate method, capturing output</li>
+                <li>Return the output to the browser</li>
+            </ol>
+        </div>
+        <div class="right">
+            <p>CodeIgniter provides "hooks", to let you
+                inject processing before or after each of the milestones
+                shown to the left.</p>
+            <p>Refer to the <a href="http://www.codeigniter.com/userguide3/general/hooks.html" 
+                               target="_blank">user guide</a> for the gory details
+                ... this is just a taste!</p>
+        </div>
+    </slide>
+
+    <slide title="Hook Points" layout="normal">
+        <p>The following are some of the "hook points" that you can use:</p>
+        <ul>
+            <li>pre_system</li>
+            <li>pre_controller</li>
+            <li>post_controller_constructor</li>
+            <li>post_controller</li>
+            <li>display_override</li>
+            <li>post_system</li>
+        </ul>
+        <p>Hooks are configured similarly to routes, and you can have
+            multiple hooks for the same hook point.</p>
+    </slide>
+
+    <slide title="Adding Hooks" layout="normal">
+        <p>Configure your hooks in <code>application/config/hooks</code></p>
+        <p>An example:</p>
+        <p>
+            <code>$hookie = array(<br/>
+            &#160;&#160;'class'=&gt;..., <br/>
+            &#160;&#160;'function'=&gt;..., <br/>
+            &#160;&#160;'filename'=&gt;..., <br/>
+            &#160;&#160;'filepath'=&gt;..., <br/>
+            &#160;&#160;'params'=&gt;...<br/>
+                );</code>
+        </p>
+        <p>
+            <code>$hooks[entrypoint][] = $hookie;</code>
+        </p>
+    </slide>
+
+    <slide title="Loose Ends" layout="normal" tag="tag3">
+        <p>Upcoming lessons and tutorials may address some more exotic controller issues:
+            <ul>
+                <li>Webapp error handling (avoid getting fired)</li>
+                <li>Handling AJAX requests</li>
+                <li>Handling service requests</li>
+                <li>Handling plugins for additional resources</li>
+            </ul>
+        </p>
+        <p>Caution: Before using a feature, eg. hooks or routing, RTFM!</p>
+		Misdirection, DB-driven, hooks for security, hooks for localization
+    </slide>
+
+</lesson>

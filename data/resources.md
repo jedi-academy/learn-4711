@@ -14,23 +14,23 @@
 [CodeIgniter Bug Tracker](https://github.com/bcit-ci/CodeIgniter/issues) Bugs reported as Github issues  
 
 ## Other PHP Frameworks
+[CakePHP](http://cakephp.org/)  
+[Fat-Free](https://fatfreeframework.com/home) Micro  
+[FuelPHP](http://fuelphp.com/)  
 [Laravel](http://laravel.com/)  
+[Slim](http://www.slimframework.com/) Micro  
 [Symfony](https://symfony.com/) Enterprise  
 [Yii](http://www.yiiframework.com/)  
-[CakePHP](http://cakephp.org/)  
 [Zend](http://framework.zend.com/) Enterprise   
-[Slim](http://www.slimframework.com/) Micro  
-[FuelPHP](http://fuelphp.com/)  
-[Fat-Free](https://fatfreeframework.com/home) Micro  
 
 ## Javascript Frameworks
-[Node.js](https://nodejs.org/en/) Server-side framework  
 [AngularJS](https://angularjs.org/) Client-side framework  
+[Node.js](https://nodejs.org/en/) Server-side framework  
 
 ## Java Frameworks
 [JEE](http://www.oracle.com/technetwork/java/javaee/overview/index.html) from Oracle  
-[Struts](http://struts.apache.org/) from Apache  
 [Spring](https://spring.io/) from Pivotal Software   
+[Struts](http://struts.apache.org/) from Apache  
 
 ## PHP
 [W3Schools](http://www.w3schools.com/php/default.asp) Tutorials   

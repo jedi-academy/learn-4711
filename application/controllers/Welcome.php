@@ -87,6 +87,7 @@ class Welcome extends Application {
                     $download = (string) isset($activity['pdf']) ?
                             $this->parser->parse('theme/_download', $parms, true) : '';
                     $parms['download'] = $download;
+					$parms['download'] = '';	// cripple this until PDF generation in place
 
                     // build the proper presentation link
                     $kind = $this->organizer->kind($type, $name);
@@ -95,14 +96,15 @@ class Welcome extends Application {
                         $thelink = $this->parser->parse('theme/_link', $parms, true);
                     if ($kind == 'md')
                         $thelink = $this->parser->parse('theme/_display', $parms, true);
-                    if ($kind == 'pdf')
+					if ($kind == 'pdf')
                         $thelink = $this->parser->parse('theme/_pdf', $parms, true);
                     $parms['thelink'] = $thelink;
 
                     // build the optional presentation links
                     $thelinks = $this->parser->parse('theme/__display', $parms, true);
-                    if ($kind != 'pdf')
-                        $thelinks .= $this->parser->parse('theme/__pdf', $parms, true);
+                    // cripple this until PDF generation in place
+                    //if ($kind != 'pdf')
+                    //    $thelinks .= $this->parser->parse('theme/__pdf', $parms, true);
                     $thelinks = ' | ' . $thelinks;
                     if (!empty($link))
                         $thelinks = '';
