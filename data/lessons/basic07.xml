@@ -7,6 +7,9 @@ Lesson 07 - Advanced Routing
 
     <!-- Agenda -->
     <slide title="Agenda" layout="normal">
+		The items in this lesson are not routing or its configuration, per se,
+		but they are techniques that affect the outcome from handling
+		a request.
         <ol>
             <li>
                 <a href="#{tag1}">Remapping</a>
@@ -21,16 +24,7 @@ Lesson 07 - Advanced Routing
     </slide>
 
 
-    <slide title="Advanced Routing" layout="normal">
-        <p>Segment-based routing is the normal CodeIgniter way of resolving
-            the handling of an incoming request.</p>
-        <p>There are alternatives: wildcard routing, regular expression routing, callback
-            routing, and HTTP verb routing.</p>
-        <p>For the truly adventurous you can even remap requests on the fly.</p>
-        <p>We'll look at each of these in turn.</p>
-    </slide>
-
-    <slide title="Remapping On the Fly" layout="normal" tag="tag1">
+     <slide title="1. Remapping On the Fly" layout="normal" tag="tag1">
          <div class="left">
        <p>Separate from any routing rules, a controller itself can
         affect the handling of an incoming request, through
@@ -40,27 +34,31 @@ Lesson 07 - Advanced Routing
         this method, it is always called.</p>
          </div>
         <div class="right">
-        <p>An example which hides the real name of a method ...<pre><code>
+        <p>An example which hides the real name of a method:<pre><code>
 public function _remap($method, $parms=array() ) {
     if ($method == 'work') $this->guessMeIfYouCan($parms);
     else return call_user_func_array($method,$parms);
 }
-            </code></pre></p>
+		</code></pre>
+		By the way, the <code>work</code> method would have to exist, in order
+		for routing to succeed; this remapping causes different, and perhaps
+		non-obvuous code, to be executed in its place.
+		</p>
         </div>
     </slide>
 
     <slide title="Remapping for Localization" layout="normal">
          <div class="left">
-        <p>Remapping could also be used to handle of having a language code 
+        <p>Remapping could also be used to handle having a language code 
             between the domain name and
             the "normal" part of a URL, for instance
             "https://msdn.microsoft.com/en-us/library/windows/desktop".</p>
          <p>This way, URLs have the form <code>/idiom/class/method/parm1/...</code>,
          where "idiom" is a language identifier.
         </p>
-            <p>You need a routing rule to swap the idiom and the intended controller: <br/>
+		<p>To redirect the example above to "/library/en-us/windows/desktop",
+			you need a routing rule to swap the idiom and the intended controller: <br/>
             <code>$routes['(:any)/(:any)/(.+)'] = '$1/$0/$2';</code></p>
-            <p>This would redirect the example above to "/library/en-us/windows/desktop".</p>
          </div>
         <div class="right">
             <p>Then, in your <code>Library</code> or base controller...<pre><code>
@@ -80,7 +78,7 @@ public function _remap($method, $parms=array() ) {
           
     </slide>
 
-    <slide title="Hooks" layout="normal" tag="tag2">
+    <slide title="2. Hooks" layout="normal" tag="tag2">
         <div class="left">
             <p>The CodeIgniter framework, internally, performs the
                 following steps to handle a request:</p>
@@ -133,17 +131,43 @@ public function _remap($method, $parms=array() ) {
         </p>
     </slide>
 
-    <slide title="Loose Ends" layout="normal" tag="tag3">
-        <p>Upcoming lessons and tutorials may address some more exotic controller issues:
-            <ul>
-                <li>Webapp error handling (avoid getting fired)</li>
-                <li>Handling AJAX requests</li>
-                <li>Handling service requests</li>
-                <li>Handling plugins for additional resources</li>
-            </ul>
+    <slide title="3. Loose Ends" layout="normal" tag="tag3">
+        <p>How you handle requests is ultimately an application
+			design issue. It can be complicated in a few ways, as noted below.
         </p>
-        <p>Caution: Before using a feature, eg. hooks or routing, RTFM!</p>
-		Misdirection, DB-driven, hooks for security, hooks for localization
+		<ul>
+			<li>It is *possible* to enable and use query strings
+			in URIs for CodeIgniter webapps, but it is strongly
+			discouraged ... so much so that I'm not
+			providing a link to the user guide page describing it.</li>
+			<li>Routing can be database-driven, sort of. The problem is that
+			routing is done before a controller is invoked and a database can be
+			checked. This could be handled through remapping, where a
+			request is redirected based on something retrieved from a DB.
+			It could also be done inside the normal handler for some
+				functionality, which would use the <code>redirect(...)</code>
+			function from the URL helper, perhaps after some initial
+			data-driven processing.</li>
+		</ul>
+        <p>Caution: Before using an advanced feature, RTFM!</p>
+    </slide>
+
+    <slide title="Service Routing" layout="normal">
+        <p>"Service" routing can be awkward as well...
+        </p>
+		<ul>
+			<li>A RESTful service uses HTTP verbs as part of its "routing",
+			and it expects automatic data format conversions, incoming
+			and outgoing. This is beyond conventional routing, and
+			will be discussed in its own lesson (week 12?)</li>
+			<li>Many external services, and enterprise ones as well,
+			provide a callable API to consuming processes. In such a case, it
+			is common to have "api/" as the first part of a URI,
+			but interpretation of the balance of the URI might be
+			supplier-specific. You might have to use several
+			of the routing techniques in combination.</li>
+		</ul>
+        <p>Caution: Before using an advanced feature, RTFM!</p>
     </slide>
 
 </lesson>

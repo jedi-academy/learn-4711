@@ -1,5 +1,13 @@
 # Routing Examples From Elsewhere
 
+Some students were asking for examples of how routing was done in other frameworks.
+I excerpted all of the samples following from the user guides of the different
+frameworks.
+
+Something that struck me was that they all seem to require explicit configuration
+of routing rules, unlike the "routing by convention" that is a staple feature
+of CodeIgniter.
+
 ## CakePHP
 
 Configuration:
