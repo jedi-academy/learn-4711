@@ -4,133 +4,296 @@ Lesson 06 - Routing
 -->
 <lesson status="beta">
 
-	<slide title="Routing" layout="normal">
-		<p>Routing is the process of determining how to handle an incoming
-			request. This can be done by explicit configuration, or "by
-			convention".</p>
-		<p>All frameworks support routing by configuration.
-		CodeIgniter can also handle routing by convention,
-		with controllers expected to be found inside
-			<code>application/controllers</code>
-		without additional or specific configuration.</p>
-		<p>Routing is essential to a framework. Many frameworks
-		were started by figuring out the routing first, and then
-		by designing and building components to support the
-		routing and the "controllers" that would be the result
-		of "doing" the routing.</p>
-	</slide>
+    <slide title="Routing" layout="normal">
+        <p>Routing is the <b>process</b> of determining how to handle an incoming
+            request. This can be done by explicit configuration, or "by
+            convention".</p>
+        <p>All frameworks support routing by <b>configuration</b>.
+            CodeIgniter can also handle routing by <b>convention</b>,
+            with controllers expected to be found inside
+            <code>application/controllers</code>
+            without additional or specific configuration.</p>
+        <p>Routing is essential to a framework. Many frameworks
+            were started by figuring out the routing first, and then
+            by designing and building components to support the
+            routing and the "controllers" that would be the result
+            of "doing" the routing.</p>
+    </slide>
 
-	<slide title="Apache View of URIs" layout="normal"  tag="tag1">
-		<p>Apache needs to know either what to return for a request
-			(eg. the contents of a named file) or what object to
-			execute in response to a request (eg. index.php).
-		</p>
-		<table>
-			<tr>
-				<th>URI</th>
-				<th>Object</th>
-			</tr>
-			<tr>
-				<td><code>/stuff</code></td>
-				<td>The file "stuff" in the document root</td>
-			</tr>
-			<tr>
-				<td><code>/stuff</code> with "index.php" injected</td>
-				<td>The "index.php" script in the document root</td>
-			</tr>
-			<tr>
-				<td><code>/index.php/stuff</code></td>
-				<td>The "index.php" script in the document root</td>
-			</tr>
-			<tr>
-				<td><code>/index.php?c=stuff</code></td>
-				<td>The "index.php" script in the document root</td>
-			</tr>
-		</table>
-		<p>If the file or object is not found, Apache returns a 404.</p>
-	</slide>
+    <slide title="#UrisMatter" layout="normal">
+        <p>The form of a URI matters. It means different
+            things in different contexts, as shown on the next
+            few slides.</p>
+        <p>The "generally accepted best practice" is to try to
+            configure a webapp so that URIs are "SEO-friendly".
+            That means they don't include the front controller
+            (index.php) in their name, and that anything
+            intended to identify a "resource" is part of
+            the URI and not the query string.</p>
+    </slide>
 
-	<slide title="CodeIgniter View of URIs" layout="normal"  tag="tag1">
-		<p>CodeIgniter needs to know which controller to
-			execute in response to a request (eg. Stuff.php).
-		</p>
-		<table>
-			<tr>
-				<th>URI</th>
-				<th>Object</th>
-			</tr>
-			<tr>
-				<td><code>/stuff</code></td>
-				<td>If the file "stuff" exists in the document root,
-				Apache handles the request.</td>
-			</tr>
-			<tr>
-				<td><code>/stuff</code> with "index.php" injected</td>
-				<td>Invoke the "Stuff" controller.</td>
-			</tr>
-			<tr>
-				<td><code>/index.php/stuff</code></td>
-				<td>Invoke the "Stuff" controller.</td>
-			</tr>
-			<tr>
-				<td><code>/index.php?c=stuff</code></td>
-				<td>Invoke the "Stuff" controller.
-				This assumes that query strings have been enabled.</td>
-			</tr>
-		</table>
-		<p>If the controller is not found, CodeIgniter returns a 404.</p>
-	</slide>
 
-	<slide title="SEO View of URIs" layout="normal"  tag="tag1">
-		<p>Search engines need to know the "resource" to
-			associate with a request
-		</p>
-		<table>
-			<tr>
-				<th>URI</th>
-				<th>Object</th>
-			</tr>
-			<tr>
-				<td><code>/stuff</code></td>
-				<td>"stuff"</td>
-			</tr>
-			<tr>
-				<td><code>/stuff</code> with "index.php" injected</td>
-				<td>"stuff"</td>
-			</tr>
-			<tr>
-				<td><code>/index.php/stuff</code></td>
-				<td>index.php.stuff</td>
-			</tr>
-			<tr>
-				<td><code>/index.php?c=stuff</code></td>
-				<td>index.php</td>
-			</tr>
-		</table>
-		<p>If the request returns a 404, the search engine will treat
-		the content as unavailable.</p>
-	</slide>
+    <slide title="Apache View of URIs" layout="normal"  tag="tag1">
+        <p>Apache needs to know either what to return for a request
+            (eg. the contents of a named file) or what object to
+            execute in response to a request (eg. index.php).
+        </p>
+        <table>
+            <tr>
+                <th>URI</th>
+                <th>Object</th>
+            </tr>
+            <tr>
+                <td>
+                    <code>/stuff</code>
+                </td>
+                <td>The file "stuff" in the document root</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/stuff</code> with "index.php" injected</td>
+                <td>The "index.php" script in the document root</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/index.php/stuff</code>
+                </td>
+                <td>The "index.php" script in the document root</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/index.php?c=stuff</code>
+                </td>
+                <td>The "index.php" script in the document root</td>
+            </tr>
+        </table>
+        <p>If the file or object is not found, Apache returns a 404.</p>
+        <p>With an appropriate <code>.htaccess</code>, the "index.php"
+            can be hidden from your users, yet Apache still does the right thing.</p>
+    </slide>
 
-	<slide title="CodeIgniter Routing" layout="normal">
-	</slide>
+    <slide title="CodeIgniter View of URIs" layout="normal"  tag="tag1">
+        <p>CodeIgniter needs to know which controller and method to
+            execute in response to a request (eg. Stuff::hithere.php).
+        </p>
+        <table>
+            <tr>
+                <th>URI</th>
+                <th>Object</th>
+            </tr>
+            <tr>
+                <td>
+                    <code>/stuff</code>
+                </td>
+                <td>If the file "stuff" exists in the document root,
+                    Apache handles the request.</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/stuff</code> with "index.php" injected</td>
+                <td>Invoke the "index" method of the "Stuff" controller.</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/index.php/stuff</code>
+                </td>
+                <td>Invoke the "index" method of "Stuff" controller.</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/index.php?c=stuff</code>
+                </td>
+                <td>Invoke the "index" method of "Stuff" controller.
+                    This assumes proper configuration.</td>
+            </tr>
+        </table>
+        <p>If the controller is not found, CodeIgniter returns a 404.</p>
+        <p>A specific method to invoke would be provided as the URI segment
+            following the controller one.</p>
+        <p>With appropriate convention or configuration, the "index.php"
+            can be hidden from your users, yet CodeIgniter still does the right thing.</p>
+    </slide>
 
-	<slide title="Routing Rules" layout="normal">
-	</slide>
+    <slide title="SEO View of URIs" layout="normal"  tag="tag1">
+        <p>Search engines need to know the "resource" to
+            associate with a request
+        </p>
+        <table>
+            <tr>
+                <th>URI</th>
+                <th>Object</th>
+            </tr>
+            <tr>
+                <td>
+                    <code>/stuff</code>
+                </td>
+                <td>"stuff"</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/stuff</code> with "index.php" injected</td>
+                <td>"stuff"</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/index.php/stuff</code>
+                </td>
+                <td>index.php.stuff</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/index.php?c=stuff</code>
+                </td>
+                <td>index.php</td>
+            </tr>
+        </table>
+        <p>If the request returns a 404, the search engine will treat
+            the content as unavailable.</p>
+        <p>Only if you hide "index.php" or provide appropriate
+            routing, will SEI engines associate the correct
+            "resource" with your content.</p>
+    </slide>
 
-	<slide title="Routing Targets" layout="normal">
-	</slide>
+    <slide title="CodeIgniter Routing" layout="normal">
+        <p>To do routing, CodeIgniter...</p>
+        <ol>
+            <li>splits the URI into segments</li>
+            <li>if the first segment is a folder identifier,
+                drill down into it and repeat</li>
+            <li>run through the routing rules, looking for a match</li>
+            <li>treat the first segment as a controller name; bail if not</li>
+            <li>if we have a controller, treat the second segment as a method
+            name, defaulting to "index"</li>
+            <li>if no segments, look for a default controller in
+                the "current" folder</li>
+            <li>if still not resolved, trigger a CI 404.</li>
+        </ol>
+                
+    </slide>
 
-	<slide title="HTTP Routing" layout="normal">
-	</slide>
+    <slide title="Routing Rules" layout="normal">
+        <div class="left">
+            <p>
+                Routing rules are configured in <code>application/config/routes.php</code>
+            </p>
+            <p>The rules are expressed as elements of the <code>$routes</code>
+                array, and are tested in the order they are defined.
+            In other words, define them from more specific to less specific.</p>
+            <p>Each rule uses a regular expression as its key,
+                and a "target" as its value.</p>
+            <p>The "regular expressions" do
+                not always include strange symbols :)
+                They can also use shorthand "wildcard" notation for better readabilit.</p>
+        </div>
+        <div class="right">
+            <p>Some examples of routing rules:</p>
+            <p>
+                <code>$route['blog/joe'] = "blogs/users/34";</code>
+            </p>
+            <p>
+                <code>$route['product/(:num)'] = "catalog/product_lookup_by_id/$1";</code>
+            </p>
+            <p>
+                <code>$route['page/(:any)'] = 'welcome/page/$1';</code>
+            </p>
+            <p>
+                <code>$route['secret/(:any)/(:any)'] = 'youllneverfindme/$1/$2';</code>
+            </p>
+            <p>
+                <code>$route['products/([a-z]+)/(\d+)'] = "$1/id_$2";</code>
+            </p>
+        </div>
+    </slide>
 
-	<slide title="Hooks" layout="normal">
-	</slide>
+    <slide title="Routing Targets" layout="normal">
+        <div class="left">
+            <p>The "target" of a routing rule identifies a CI
+                controller and method to execute, possibly with additional parameters
+                passed on.</p>
+            <p>The target could also be a closure, namely an anonymous function
+            defined in the rule, which would return a string result.
+            CI calls this a "callback function".</p>
+        </div>
+        <div class="right">
+            <p>Some examples of routing rules:</p>
+            <p>
+                <code>$route['blog/joe'] = "blogs/users/34";</code>
+            </p>
+            <p>
+                <code>$route['product/(:num)'] = "catalog/product_lookup_by_id/$1";</code>
+            </p>
+            <p><pre><code>
+$route['products/([a-zA-Z]+)/edit/(\d+)'] =
+    function ($product_type, $id) {
+        return 'catalog/product_edit/' . strtolower($product_type) . '/' . $id;
+    };</code></pre>
+            </p>
+            <p>
+                <code>$route['products/([a-z]+)/(\d+)'] = "$1/id_$2";</code>
+            </p>
+        </div>
+    </slide>
 
-	<slide title="Remapping" layout="normal">
-	</slide>
+    <slide title="HTTP Routing" layout="normal">
+        <p>Routing rules apply regardless of the HTTP verb used to send
+        the request.</p>
+        <p>You can specify different routing for different HTTP verbs, if
+        that makes sense for your application, by putting the
+        verb name as a second index for a rule, for instance 
+            <code>$route['products']['put'] = 'product/insert';</code>
+        </p>
+        <p>This is useful for a RESTful service, but only part of what is needed.</p>
+        <p>RESTful <b>needs</b> HTTP verb based handling, object identifiers 
+        as part of the request path, incoming and
+        outgoing content type negotiation, <b>and</b>
+        proper object state representation as the payload.</p>
+    </slide>
 
-	<slide title="Error Handling" layout="normal">
-	</slide>
+    <slide title="Hooks" layout="normal">
+        <p>Hooks let you inject logic at different points in the
+        lifecycle of request handling.</p>
+        <p>Hooks are not necessarily events, but could be implemented using that
+        technique.</p>
+        <p>Some uses of hooks:</p>
+        <ul>
+            <li>pre_controller: choose from one of several possible databases,
+            hiding this from the controller</li>
+            <li>post_controller: free up resources or cleanup session, if
+            those would normally wait for garbage collection</li>
+            <li>post_controller_constructor: build a menu selection
+            array based on time of day or some other criteria not relevant to the controller</li>
+            <li>display_override: inject glossary tooltips for words
+            in a pre-defined list</li>
+        </ul>
+    </slide>
+
+    <slide title="Remapping" layout="normal">
+        <p>Remapping gives you an opportunity to choose a method that would
+        not result from a single routing target.</p>
+        <p>Some uses of remapping:</p>
+        <ul>
+            <li>choose a method (show/display/chart) based on the discovered file type of
+            an argument (xml/md/csv), because the file type might not be part of the URI</li>
+            <li>choose a method (show/display/chart) based on a user view preference
+                stored as a session variable, eg with combobox in navbar</li>
+            <li>localization with the idiom in the URI instead of stored in a session</li>
+            <li>redirect the request to a landing "page" specific method</li>
+        </ul>
+    </slide>
+
+    <slide title="Error Handling" layout="normal">
+        <p>The '404_override' routes configuration setting is used to
+        provide logic-based handling of an apparent bad URI</p>
+        <p>Some uses of remapping:</p>
+        <ul>
+            <li>Redirect to a site search, using the "parameter" segments of
+                the URI as search terms.</li>
+            <li>Redirect to logic to log such errors appropriately,
+            or to notify someone of an issue</li>
+            <li>Redirect to some defense mechanism, which might recognize
+            attack patterns across requests</li>
+        </ul>
+    </slide>
 
 
 </lesson>
