@@ -30,7 +30,9 @@ class Help extends Application
 		$course = $this->course->metadata();
 		$this->data = array_merge($this->data, (array) $course);
 
-		$this->data['materials'] = $this->format_materials($this->materials->all());
+		$source = file_get_contents(DATAPATH.'materials.md');
+		$result = $this->parsedown->text($source);
+		$this->data['materials'] = $result;
 
 		$this->data['pagetitle'] = $course->title.' ~ Help';
 		$this->data['pagebody'] = 'help';

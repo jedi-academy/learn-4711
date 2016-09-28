@@ -90,7 +90,7 @@ Lesson 06 - Routing
 	</slide>
 
 	<slide title="Regular Expression Routing" layout="normal">
-		<p>You can also use a conventionalregular expression in a routing rule.</p>
+		<p>You can also use a conventional regular expression in a routing rule.</p>
 		<p>For instance:<br/>
 			<code>$route['products/([a-z]+)/(\d+)'] = "$1/id_$2";</code>
 			<br/>

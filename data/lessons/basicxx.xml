@@ -94,8 +94,6 @@ public function _remap($method, $parms=array() ) {
                     <li>don't use closing PHP tag at end of file!</li>
                 </ul>
             </p>
-        </div>
     </slide>
-
 
 </lesson>

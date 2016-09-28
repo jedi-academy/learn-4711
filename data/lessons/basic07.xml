@@ -42,7 +42,7 @@ public function _remap($method, $parms=array() ) {
 		</code></pre>
 		By the way, the <code>work</code> method would have to exist, in order
 		for routing to succeed; this remapping causes different, and perhaps
-		non-obvuous code, to be executed in its place.
+		non-obvious code, to be executed in its place.
 		</p>
         </div>
     </slide>
@@ -56,12 +56,37 @@ public function _remap($method, $parms=array() ) {
          <p>This way, URLs have the form <code>/idiom/class/method/parm1/...</code>,
          where "idiom" is a language identifier.
         </p>
+         </div>
+        <div class="right">
+			<p>The original URL is problematic because the language idiom
+			is in the position where a controller name would normally be found.
+			The first thing we need to do is swap the order of the first
+			two segments.</p>
 		<p>To redirect the example above to "/library/en-us/windows/desktop",
 			you need a routing rule to swap the idiom and the intended controller: <br/>
             <code>$routes['(:any)/(:any)/(.+)'] = '$1/$0/$2';</code></p>
-         </div>
+        </div>
+          
+    </slide>
+
+    <slide title="Remapping Continued" layout="normal">
+         <div class="left">
+        <p>Now that the correct controller is being called, we have to deal
+			with the issue that the segment following the controller name
+			is a language idiom, not a method name. 
+        </p>
+            <p>We can do that, in your <code>Library</code> controller or base controller, by
+			adding a <code>_remap</code> method, like that shown to the right.</p>
+            <p>That method would handle <code>/fr/find/apple</code>
+                by calling <code>Find::apple(...)</code> with the <code>fr</code>
+                translations loaded.</p>
+            <p>See the <a href="http://www.codeigniter.com/user_guide/general/controllers.html?highlight=remap#remapping-method-calls" 
+                       target="_blank">user guide</a> for more details.</p>
+        </div>
         <div class="right">
-            <p>Then, in your <code>Library</code> or base controller...<pre><code>
+				<p>
+				<pre>
+				<code>
 public function _remap($method, $parms=array() ) {
     $idiom = $method; // the alleged method is really an idiom
     $this->lang->load('translations_for_this_controller',$idiom);
@@ -69,11 +94,6 @@ public function _remap($method, $parms=array() ) {
     return call_user_func_array($real_method,$parms);
 }
             </code></pre></p>            
-            <p>The above would handle <code>/fr/find/apple</code>
-                by calling <code>Find::apple(...)</code> with the <code>fr</code>
-                translations loaded.</p>
-            <p>See the <a href="http://www.codeigniter.com/user_guide/general/controllers.html?highlight=remap#remapping-method-calls" 
-                       target="_blank">user guide</a> for more details.</p>
         </div>
           
     </slide>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Lesson 06 - Routing
+-->
+<lesson status="beta">
+
+	<slide title="Routing" layout="normal">
+		<p>Routing is the process of determining how to handle an incoming
+			request. This can be done by explicit configuration, or "by
+			convention".</p>
+		<p>All frameworks support routing by configuration.
+		CodeIgniter can also handle routing by convention,
+		with controllers expected to be found inside
+			<code>application/controllers</code>
+		without additional or specific configuration.</p>
+		<p>Routing is essential to a framework. Many frameworks
+		were started by figuring out the routing first, and then
+		by designing and building components to support the
+		routing and the "controllers" that would be the result
+		of "doing" the routing.</p>
+	</slide>
+
+	<slide title="Apache View of URIs" layout="normal"  tag="tag1">
+		<p>Apache needs to know either what to return for a request
+			(eg. the contents of a named file) or what object to
+			execute in response to a request (eg. index.php).
+		</p>
+		<table>
+			<tr>
+				<th>URI</th>
+				<th>Object</th>
+			</tr>
+			<tr>
+				<td><code>/stuff</code></td>
+				<td>The file "stuff" in the document root</td>
+			</tr>
+			<tr>
+				<td><code>/stuff</code> with "index.php" injected</td>
+				<td>The "index.php" script in the document root</td>
+			</tr>
+			<tr>
+				<td><code>/index.php/stuff</code></td>
+				<td>The "index.php" script in the document root</td>
+			</tr>
+			<tr>
+				<td><code>/index.php?c=stuff</code></td>
+				<td>The "index.php" script in the document root</td>
+			</tr>
+		</table>
+		<p>If the file or object is not found, Apache returns a 404.</p>
+	</slide>
+
+	<slide title="CodeIgniter View of URIs" layout="normal"  tag="tag1">
+		<p>CodeIgniter needs to know which controller to
+			execute in response to a request (eg. Stuff.php).
+		</p>
+		<table>
+			<tr>
+				<th>URI</th>
+				<th>Object</th>
+			</tr>
+			<tr>
+				<td><code>/stuff</code></td>
+				<td>If the file "stuff" exists in the document root,
+				Apache handles the request.</td>
+			</tr>
+			<tr>
+				<td><code>/stuff</code> with "index.php" injected</td>
+				<td>Invoke the "Stuff" controller.</td>
+			</tr>
+			<tr>
+				<td><code>/index.php/stuff</code></td>
+				<td>Invoke the "Stuff" controller.</td>
+			</tr>
+			<tr>
+				<td><code>/index.php?c=stuff</code></td>
+				<td>Invoke the "Stuff" controller.
+				This assumes that query strings have been enabled.</td>
+			</tr>
+		</table>
+		<p>If the controller is not found, CodeIgniter returns a 404.</p>
+	</slide>
+
+	<slide title="SEO View of URIs" layout="normal"  tag="tag1">
+		<p>Search engines need to know the "resource" to
+			associate with a request
+		</p>
+		<table>
+			<tr>
+				<th>URI</th>
+				<th>Object</th>
+			</tr>
+			<tr>
+				<td><code>/stuff</code></td>
+				<td>"stuff"</td>
+			</tr>
+			<tr>
+				<td><code>/stuff</code> with "index.php" injected</td>
+				<td>"stuff"</td>
+			</tr>
+			<tr>
+				<td><code>/index.php/stuff</code></td>
+				<td>index.php.stuff</td>
+			</tr>
+			<tr>
+				<td><code>/index.php?c=stuff</code></td>
+				<td>index.php</td>
+			</tr>
+		</table>
+		<p>If the request returns a 404, the search engine will treat
+		the content as unavailable.</p>
+	</slide>
+
+	<slide title="CodeIgniter Routing" layout="normal">
+	</slide>
+
+	<slide title="Routing Rules" layout="normal">
+	</slide>
+
+	<slide title="Routing Targets" layout="normal">
+	</slide>
+
+	<slide title="HTTP Routing" layout="normal">
+	</slide>
+
+	<slide title="Hooks" layout="normal">
+	</slide>
+
+	<slide title="Remapping" layout="normal">
+	</slide>
+
+	<slide title="Error Handling" layout="normal">
+	</slide>
+
+
+</lesson>
