@@ -2,7 +2,7 @@
 <!--
 Normal 01 - Working With Controllers & Routing
 -->
-<tutorial status="beta">
+<tutorial status="Good">
     <!-- Activity metadata ... override anything from the course or organizer -->
     
     <!-- The meat of the presentation -->
@@ -18,20 +18,21 @@ Normal 01 - Working With Controllers & Routing
     <slide title="Preparation" layout="normal">
         <div class="left">
             <p>I have prepared a 
-                <a href="https://github.com/jedi-academy/starter-quotes">
+                <a href="https://github.com/jedi-academy/starter-routes">
                     starter webapp</a> – a mini 
                 "content management system". 
-                It is incomplete and the pieces are not properly connected, 
-                and you need to fix these, as described following.</p>
+                It may look a bit familiar ... it looks a lot like the
+			"Quotes" project you saw two weeks ago, but it has a
+			menu built-in, and different behavior expectations :-/</p>
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="600" height="312" src="/data/tutorials/pix/ci3/3-1.png"/>
+            <img class="scale" width="600" height="312" src="/pix/tutorials/ci3/3-1.png"/>
         </div>
     </slide>
 
     <slide title="The Starter Webapp" layout="normal">
-        <p>The "Quotes" starter webapp
+        <p>The "Routes" starter webapp
             uses <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a> and 
             <a href="https://jquery.com/" target="_blank">jQuery</a>, 
             simply because they make it so easy to have a 
@@ -83,12 +84,12 @@ Normal 01 - Working With Controllers & Routing
             <tr>
                 <td>first</td>
                 <td>Navbar</td>
-                <td>Normal routing</td>
+                <td>Normal routing - convention only</td>
             </tr>
             <tr>
                 <td>last</td>
                 <td>Navbar</td>
-                <td>Normal routing</td>
+                <td>Normal routing - convention only</td>
             </tr>
             <tr>
                 <td>sleep</td>
@@ -124,13 +125,15 @@ Normal 01 - Working With Controllers & Routing
     </slide>
 
     <slide title="Suggested Process" layout="normal">
-        <p>Fix the problems in sequence, working your way down the list.</p>
         <p>For each of these, I suggest you determine the controller 
             responsible for handling the request, the method inside 
-            that controller, and then the necessary routing.</p>   
+            that controller, the folder these should be in,
+			and then the necessary routing (if needed).</p>   
         <p>How will you know if your "fix" worked?
             Clicking on an author on the homepage will lead to the featured quote
-            from him/her.</p>
+            from him/her. There is still the additional requirement
+		of using the correct component namd and location, as there
+		could be several ways to produce the desired output.</p>
     </slide>
 
     <slide title="Helpful Hint" layout="normal">
@@ -366,6 +369,8 @@ $route['dunno'] = function() {
 };                         
                         </code>
                     </pre>
+					Why does this "work", even though contrary to what I said in class?
+					Ask me if you can't figure it out!
                 </td>
             </tr>
         </table>
@@ -438,8 +443,26 @@ $route['dunno'] = function() {
         </table>
     </slide>
     <slide title="Are We Done Yet?" layout="normal">
-        <p>When you are done, nothing will <strong>look</strong> different on the homepage, but
-            the links will work properly :)</p>
+        <p>No! you are not done. There is the ninth task, adding a hook!</p>
+		<p>Appropriate language is appropriate on the Internet, right?
+			Add a display_override hook to replace all of the four letter words
+		in a displayed quote with asterisks.</p>
+		<p>The quote text will be found inside &lt;p&gt; elements with a CSS class
+		of "lead".</p>
+		<p>I recommend pair programming for this, or even trio programming, 
+			as the task is more involved than the other eight, specifically
+		how to alter the quote text appropriately!</p>
+		<p>"Four letter words" include those anywhere inside a quote,
+		but do not include any punctuation.</p>
+		<p>Before you start pulling your hair out, check the <code>jedi-academy</code>
+		on Github - there might be something helpful there.</p>
+    </slide>
+
+    <slide title="Now Are We Done?" layout="normal">
+        <p>The webapp output should look just as beautiful as it did
+		originally, *and* the links should all work. The quotes have
+		been sanitized for sensitive audiences.</p>
+		<p>So yes, we should be done :)</p>
     </slide>
 
 </tutorial>
