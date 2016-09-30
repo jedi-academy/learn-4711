@@ -33,7 +33,7 @@ p14 |	Jappadog |	buns, pork wieners, beef wieners, ketchup, mustard |	recipe ite
 p15 |	Birdhouses |	sides, backs,  bottoms, perches |	A-frame, cottage, bathouse |
 p16 |	House painter |	red, white, blue, tape, brushes |	small room, big rom, house, fence |
 p17 |	Ice cream shop |	regular cones, waffle cones, dishes, spoons, vanilla, chocolate, strawberry, sprinkles |	cone, big cone, dish |
-p18 |	Starbucks |	espresso beans, ice, whipped cream, sprinkles, syrups |	latte, frap, … | 8
+p18 |	Starbucks |	espresso beans, ice, whipped cream, sprinkles, syrups |	latte, frap, … | 8  
 p19 |	Dentist |	toothpaste, gowns, molars, incisors, grit, glue, posts |	checkup, cleaning, filling, crown, bridge |
 p20 |	Baker |	flour, butter, fillings |	cake, cookies, pies, rolls |
 p21 |	Go-karts |	frames small & large, wheels small & large, steering, tires, brakes, engines |	kid, teen, racing, princess |
@@ -41,4 +41,4 @@ p22 |	Car painter |	enamels, acrylics, stripper, rubbing compound, stripes, meta
 p23 |	Landscaper |	topsoil, peat moss, fertilizer, grass seed, rocks, pavers, organic … |	garden patch, shrub wall, greenery |
 p24 |	Sports store |	skids, bindings, socks, poles, hats, jackets |	ski kit, soccer kit, hockey kit |
 p25 |	Chemist |	all sorts |	smoke bomb, stink bomb, fertilizer, explosive |
-p26 |	Aroma therapy |	essences, oils, filler |	mountain air, spring, sleepy time |
+p26 |	Aroma therapy |	essences, oils, filler |	mountain air, spring, sleepy time | 18  
