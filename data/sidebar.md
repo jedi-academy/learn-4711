@@ -21,3 +21,6 @@ These open in the same window, unless you right-click & open them.
 [Main website](http://www.bcit.ca/)  
 [Course outline]({outline})  
 
+##Assignment Details
+[Projects](/display/assignment/assignment1projects)  
+[Assignment 1](/display/assignment/assignment1)  
