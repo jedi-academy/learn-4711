@@ -29,9 +29,11 @@ Lesson 03 - Models
         </ol>
     </slide>
 
-    <slide title="CODEIGNITER MODELS" layout="normal" tag="tag3">
+    <slide title="1. CODEIGNITER MODELS" layout="normal" tag="tag3">
         <p>CodeIgniter leans more to the data access layer flavor of model,
-            rather than the domain flavor of model.</p>
+            rather than the entity flavor of model.</p>
+			<p>A "data access layer" model is understood to represent
+			a collection of "entity" models.</p>
         <p>
             <a href="http://www.codeigniter.com/userguide3/general/models.html" target="_blank">
                 Models in CodeIgniter</a> are found in the <code>application/models</code>
@@ -54,6 +56,12 @@ Lesson 03 - Models
         <p>Once loaded, the model becomes a property of your
             controller, as in <code>$this->customers->...</code>.
         </p>
+		<p>What CI_Model gives you, inside your model classes,
+		is magic access to any of your controller properties
+			as if they were properties of your model.
+			Most notably, this includes the <code>db</code> property used to access
+			the database driver.
+		</p>
     </slide>
 
     <slide title="Implementing Models" layout="normal">
@@ -124,17 +132,17 @@ Lesson 03 - Models
 
     <slide title="Here is a Fancy Base Model!" layout="normal">
         <p>
-            <a href="/data/examples/Fancy-MY_Model.txt" target="_blank">
+            <a href="https://github.com/jedi-academy/CodeIgniter3.1-starter3/blob/master/application/core/MY_Model.php" target="_blank">
                 Here</a> is a "fancy" model. The source file includes
             an <code>Active_record</code> interface, as well as a
             <code>MY_Model</code> class.
-            You could use this as a sort of template for writing
+            You could use this as a template for writing
             adapters for other kinds of models (folders, XML, etc).</p>
         <p>As long as one of your models, extending MY_Model, is loaded
             first, the <code>Active_record</code> interface will be
             accessible to you.</p>
         <p>You could add additional models to the file, for instance 
-            <code>XML_Model</code> or <code>Folder_Model</code>,
+            <code>Xml_Model</code> or <code>Folder_Model</code>,
             each implementing <code>Active_record</code>. Note that
             this is not necessarily a "best" practice", just a 
             "possible" one, exploiting the current CodeIgniter.
@@ -174,9 +182,11 @@ Lesson 03 - Models
         <p>
             <code>echo 'Total Results: ' . $query-&gt;count_all(); </code>
         </p>
+		<p>The difference between this approach and working directly with
+		the database driver: no SQL needed.</p>
     </slide>
 
-    <slide title="COMPONENT MODELS" layout="normal" tag="tag4">
+    <slide title="2. COMPONENT MODELS" layout="normal" tag="tag4">
         <p>Component models encapsulate entities with classes that
             follow well-known conventions.</p>
         <p>The best known component model is the JavaBean, originally
@@ -208,7 +218,7 @@ Lesson 03 - Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="400" height="407" src="/data/lessons/pix/4/4-5.png"/>
+            <img class="scale" width="400" height="407" src="/pix/lessons/4/4-5.png"/>
         </div>
     </slide>
 
@@ -224,11 +234,11 @@ Lesson 03 - Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="650" height="443" src="/data/lessons/pix/4/4-6.png"/>
+            <img class="scale" width="650" height="443" src="/pix/lessons/4/4-6.png"/>
         </div>
     </slide>
 
-    <slide title="OBJECT-RELATIONAL MAPPING" layout="normal" tag="tag5">
+    <slide title="3. OBJECT-RELATIONAL MAPPING" layout="normal" tag="tag5">
         <div class="left">
             <p>
                 <a href="http://en.wikipedia.org/wiki/Object-relational_mapping" 
@@ -237,7 +247,8 @@ Lesson 03 - Models
                 data between an object model/state and a relational database 
                 model/state.
             </p>
-            <p>It is usually implemented by a tool or package which:</p>
+            <p>It is usually implemented by a tool or package which
+				does one or more of:</p>
             <ul>
                 <li>From a database schema, generates an ERD, class diagram, and then code</li>
                 <li>From a class diagram, generates code, an ERD and a schema</li>
@@ -246,7 +257,7 @@ Lesson 03 - Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="550" height="375" src="/data/lessons/pix/4/4-8.png"/>
+            <img class="scale" width="550" height="375" src="/pix/lessons/4/4-8.png"/>
         </div>
     </slide>
 
@@ -267,17 +278,24 @@ Lesson 03 - Models
     <slide title="Objects From Results" layout="normal">
         <p>When PHP returns a result set from a relational
             database query, it usually does so as an
-            iterable collection of row objects.</p>
-        <p>Each row object has properties corresponding to the table
+            iterable collection of row objects.
+			Each row object has properties corresponding to the table
             column names that the data came from.</p>
         <p>This is *not* ORM, but it may suffice for many purposes.</p>
         <p>If a row object is cast as an array, the result is an associative 
             array with the table column names as indices.</p>
-        <p>Many PHP frameworks consider the objects and/or associative 
-            arrays returned by the database layer to be a simple form of ORM.</p>
+        <p>Many developers consider the objects and/or associative 
+            arrays returned by the database layer to be a simple form of ORM.
+		CodeIgniter's perspective is that this suffices for most
+		cases, and accordingly does not include or bundle a "proper" ORM.</p>
+			<p>CodeIgniter does support a crude form of entity object
+			support, where you can specify that the object resulting from
+				a query be of a specific type. See the <a href="http://www.codeigniter.com/user_guide/database/results.html#custom-result-objects" target="_blkank">User Guide</a>
+				for more details.
+			</p>
     </slide>
 
-    <slide title="DATABASE UTILITIES" layout="normal" tag="tag6">
+    <slide title="4. DATABASE UTILITIES" layout="normal" tag="tag6">
         <p>CodeIgniter has two classes specifically to manipulate databases.</p>
         <p>The <a href="http://www.codeigniter.com/userguide3/database/forge.html" 
                   target="_blank">Database Forge</a> class 
@@ -299,7 +317,20 @@ Lesson 03 - Models
         </p>
     </slide>
 
-    <slide title="SUGGESTED MODEL CONVENTIONS" layout="normal" tag="tag7">
+    <slide title="Database Migrations" layout="normal">
+        <p>Although not considered part of the core database components,
+			CodeIgniter provides a <a href="" target="_blank">Migrations library</a>
+			to make it easier to accommodate database changes
+			across versions of your webapp.</p>
+        <p>This is commonly used to alter table definitions or to add
+			tables, with a new release of your app.              
+        </p>
+		<p>
+			It is mentioned here for completeness, but is out of scope
+			for our work.</p>
+    </slide>
+
+    <slide title="5. SUGGESTED MODEL CONVENTIONS" layout="normal" tag="tag7">
         <p>Use entity-related naming!</p>
         <p>Use the plural of an entity name for a table &amp; model name.
             An example would be the <code>Posts</code> model for
@@ -319,10 +350,10 @@ Lesson 03 - Models
             </ul>
         </p>
         <p>Avoid controllers and models with the same class name. Only one will
-            be loaded. Namespaces (coming in CI4?) address this issue.</p>
+            be loaded. Namespaces (coming in CI4) address this issue.</p>
     </slide>
 
-    <slide title="DATABASE CONFIGURATION" layout="normal" tag="tag8">
+    <slide title="6. DATABASE CONFIGURATION" layout="normal" tag="tag8">
         <div class="left">
             <p>Your database access is configured by settings in 
                 <code>application/config/database.php</code>, or
@@ -361,15 +392,14 @@ Lesson 03 - Models
             to work seemlessly when I pull your labs or
             assignments for marking. What this means:</p>
         <ul>
-            <li>Make sure your default database configuration
-                for "development" uses the username "root" with
-                no password (unless I request otherwise)</li>
-            <li>If I specify a database name, please use that,
-                as I will have a test database already setup;
-            such names are case-sensitive</li>
+            <li>Make sure your database configuration
+                is specified in a "development" subfolder of your project's,
+			configuration settings and that this subfolder is "git ignored"</li>
+            <li>Each team member then uses their own database
+			configuration</li>
                     
-            <li>Use config subfolders, not commited to your repo,
-                for any local or secure settings you need.</li>
+			<li>I will add my <code>application/config/development</code>
+			folder, with my settings, when I test your work</li>
         </ul>
     </slide>
 
@@ -379,11 +409,15 @@ Lesson 03 - Models
             dump (gzipped) of your database, including dropping
             any tables you use before creating them, and
             including the insert statements to populate
-            your database, as the file <code>setup.sql.gz</code>
+            your database, for instance as the file <code>setup.sql.gz</code>
             in either the root of your project or directly
             inside a <code>data</code> folder in your project.
             If you provide both, I will use the one in your
             project root.</p> 
+			<p>Do NOT include a CREATE DATABASE statement in your SQL!</p>
+			<p>Do NOT make any assumptions about the database name
+			that will be used when your webapp
+			is run on another system!</p>
         <p>If your webapp breaks because it
             uses the wrong database, you may be fired.<br/>
             If you don't provide a database dump, and I 

@@ -20,7 +20,7 @@ Lesson 03 - Models
 
     <!-- Normal slides -->
 
-    <slide title="MODEL PATTERNS" layout="normal" tag="tag1">
+    <slide title="1. MODEL PATTERNS" layout="normal" tag="tag1">
         <div class="left">
             <p>Models are the "model" component of the MVC design pattern.</p>
             <p>The figure to the right shows this from the perspective of
@@ -29,14 +29,14 @@ Lesson 03 - Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="383" height="328" src="/data/lessons/pix/4/4-1.png"/>
+            <img class="scale" width="383" height="328" src="/pix/lessons/4/4-1.png"/>
         </div>
     </slide>
 
     <slide title="Classic Model-View-Controller" layout="normal">
         <div class="left">
             <p>The figure to the right presents a 
-                "<a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" target="_blank"></a>classic" view of
+                '<a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" target="_blank">classic</a>' view of
                 the MVC pattern, from a programming perspective.</p>
             <p>A user interacts with a <b>view</b>, using view components
                 such as links, buttons, and form fields
@@ -48,7 +48,7 @@ Lesson 03 - Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="339" height="390" src="/data/lessons/pix/4/4-2.png"/>
+            <img class="scale" width="339" height="390" src="/pix/lessons/4/4-2.png"/>
         </div>
     </slide>
 
@@ -65,13 +65,13 @@ Lesson 03 - Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="339" height="390" src="/data/lessons/pix/4/4-2.png"/>
+            <img class="scale" width="339" height="390" src="/pix/lessons/4/4-2.png"/>
         </div>
     </slide>
 
     <slide title="Model-View-Adapter" layout="normal">
         <div class="left">
-            <p>The <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93adapter" target="_blank"></a>model-view-adapter design pattern has the controller
+            <p>The <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93adapter" target="_blank">model-view-adapter</a> design pattern has the controller
                 handle all interaction with a model, and pass data to a view
                 through parameters.</p>
             <p>The view is unaware of the source of the data it presents.</p>
@@ -81,13 +81,14 @@ Lesson 03 - Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="335" height="389" src="/data/lessons/pix/4/4-3.png"/>
+            <img class="scale" width="335" height="389" src="/pix/lessons/4/4-3.png"/>
         </div>
     </slide>
 
     <slide title="Model-View-ViewModel" layout="normal">
         <div class="left">
-            <p>The <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel" target="_blank"></a>model-view-viewmodel design pattern has an explicit
+            <p>The <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel" target="_blank">model-view-viewmodel</a>
+			design pattern has an explicit
                 component to handle the model and related events,
                 while keeping the view itself unaware of the source
                 of its data.</p>
@@ -100,11 +101,11 @@ Lesson 03 - Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="640" height="464" src="/data/lessons/pix/4/4-4.png"/>
+            <img class="scale" width="640" height="464" src="/pix/lessons/4/4-4.png"/>
         </div>
     </slide>
 
-    <slide title="KINDS OF MODELS" layout="normal" tag="tag2">
+    <slide title="2. KINDS OF MODELS" layout="normal" tag="tag2">
         <p>What is a model?</p>
         <p>1) Models represent data sources &lt;data access layer&gt;, each a "collection" of entities</p>
         <p>2) Models represent entities &lt;domain model&gt;, each an object in a "collection"</p>
@@ -116,11 +117,11 @@ Lesson 03 - Models
         <p>Domain models are awkward to enforce in PHP, without
             strong typing. They are normal in Java &amp; C#.</p>
         <p>For instance, Java supports 
-            <a href="https://docs.oracle.com/javase/tutorial/javabeans/" target="_blank"></a>JavaBeans (serializable,
+            <a href="https://docs.oracle.com/javase/tutorial/javabeans/" target="_blank">JavaBeans</a> (serializable,
             standard accessor and mutator methods) for generic
             domain models.</p>
         <p>Java also supports 
-            <a href="http://www.oracle.com/technetwork/java/javaee/ejb/index.html" target="_blank"></a>Enterprise JavaBeans, following
+            <a href="http://www.oracle.com/technetwork/java/javaee/ejb/index.html" target="_blank">Enterprise JavaBeans</a>, following
             a managed, server-side component architecture.
             These can be session based, message-based, or persistent.
         The management here is at the entity level.</p>
@@ -128,7 +129,7 @@ Lesson 03 - Models
 
     <slide title="Active Record Models" layout="normal">
         <div class="left">
-            <p>The <a href="http://www.martinfowler.com/eaaCatalog/activeRecord.html" target="_blank"></a>active record 
+            <p>The <a href="http://www.martinfowler.com/eaaCatalog/activeRecord.html" target="_blank">active record</a> 
             design pattern, common in webapps, suggests that
                 domain models have collection-centric
                 methods in addition to entity property
@@ -206,7 +207,7 @@ Lesson 03 - Models
         </div>
     </slide>
 
-    <slide title="Models Can Be Used For... ?" layout="normal">
+    <slide title="2. Models Can Be Used For... ?" layout="normal">
         <p>Models can be used to encapsulate many
             different sources of data, as you will see in the
             next few slides :)</p>
@@ -229,7 +230,7 @@ Lesson 03 - Models
         </div>
         <div class="right">
             <p>Clearly 3 models...</p>
-            <img class="scale" width="537" height="269" src="/data/lessons/pix/4/4-9.png"/>
+            <img class="scale" width="537" height="269" src="/pix/lessons/4/4-9.png"/>
         </div>
     </slide>
 
@@ -272,7 +273,7 @@ Lesson 03 - Models
         </div>
         <div class="right">
             <p>Clearly 3 models, or maybe 4, or just 2? ...</p>
-            <img class="scale" width="618" height="349" src="/data/lessons/pix/4/4-10.jpg"/>
+            <img class="scale" width="618" height="349" src="/pix/lessons/4/4-10.jpg"/>
         </div>
     </slide>
 
@@ -286,6 +287,14 @@ Lesson 03 - Models
         <p>Note that this approach could lend itself to using a DTD or 
             schema for validation of "record" structure and
             content.</p>
+			<p>You are probably wondering why the previous slide suggested
+			3, 4 or 2 models :) XML is extremely flexible, and you could
+			create four XML documents, one for each entity in the ERD.
+			You could also build that as 3 XML documents, or document types,
+			one for User, one for BillingDetail, and one for an "Instrument".
+			Or you could build this with two XML documents (models),
+			one of which dealt with User state and the other with Account
+			state, including nested elements for credit cards etc.</p>
     </slide>
 
     <slide title="Models for Folders" layout="normal">
@@ -300,7 +309,7 @@ Lesson 03 - Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="436" height="447" src="/data/lessons/pix/4/4-11.gif"/>
+            <img class="scale" width="436" height="447" src="/pix/lessons/4/4-11.gif"/>
 
         </div>
     </slide>
@@ -323,7 +332,7 @@ Lesson 03 - Models
             <p>You could use a model to encapsulate a service, mapping
                 the conventional CRUD methods to something more appropriate
                 for a service. This isn't the only way to access
-                a service, or even the best way - just one approach.</p>
+                a service, or even a good way - just one approach.</p>
             <p>Your model would need some properties to handle
                 the service configuration, for instance the endpoint
                 of a remote service.</p>            
@@ -347,6 +356,34 @@ Lesson 03 - Models
                     <code>delete($key)</code> sends a DELETE(x) to the service</li>
             </ul>
         </div>
+    </slide>
+
+    <slide title="Why oh Why?" layout="normal">
+            <p>Why would you use a model for something
+			which isn't relational?</p>
+            <p>A model for data stored as XML could
+			have the same interface as one for data stored in an RDB,
+			letting you migrate from one to the other with minimal
+			impact on your codebase.</p>            
+            <p>Using a model for an external service could make
+			the service appear to be a local database to your code,
+			letting you migrate data for operational or performance
+			improvements.</p>
+    </slide>
+
+   <slide title="Do We Have To?" layout="normal">
+			<p>Do we have to use one model class per table or stored file?</p>
+			<p>No! For instance, an RDB would use two tables to store
+			an order and the order details. You might want to create a single
+			model for this, and automatically extract order items when an
+			order was retrieved.</p>
+			<p>No again! An ERD may have two entities with a many-to-many
+			relationship. The common RDB approach to this is to create a third
+			table, for an associative entity. In your webapp models,
+			you could manage this with just two models, each of
+			which might pull or update data from the associative table
+			present in the RDB, without exposing its existence to your
+			app logic.</p>
     </slide>
 
 
