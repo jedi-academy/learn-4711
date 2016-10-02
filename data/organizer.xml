@@ -67,6 +67,7 @@ Course organizer for Comp4711
 		<lesson name="basic03" survey="257183" icon="dothis">CodeIgniter Models</lesson>
 		<lesson name="basic03-more" survey="257184" icon="dothis">Model Pattenrs</lesson>
 		<lesson name="other-models" icon="read">Model examples from  other frameworks (optional)</lesson>
+		<assignment name="assignment1faq" icon="read">Added a FAQ</assignment>
 	</week>
 	<week num="6">
 		<topic>Views</topic>
