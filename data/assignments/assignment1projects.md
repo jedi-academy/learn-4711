@@ -35,7 +35,7 @@ p16 |	House painter |	red, white, blue, tape, brushes |	small room, big rom, hou
 p17 |	Ice cream shop |	regular cones, waffle cones, dishes, spoons, vanilla, chocolate, strawberry, sprinkles |	cone, big cone, dish | 11  
 p18 |	Starbucks |	espresso beans, ice, whipped cream, sprinkles, syrups |	latte, frap, … | 8  
 p19 |	Dentist |	toothpaste, gowns, molars, incisors, grit, glue, posts |	checkup, cleaning, filling, crown, bridge |
-p20 |	Baker |	flour, butter, fillings |	cake, cookies, pies, rolls |
+p20 |	Baker |	flour, butter, fillings |	cake, cookies, pies, rolls | 3  
 p21 |	Go-karts |	frames small & large, wheels small & large, steering, tires, brakes, engines |	kid, teen, racing, princess |
 p22 |	Car painter |	enamels, acrylics, stripper, rubbing compound, stripes, metal flakes |	classic, cheapo, mild, wild |
 p23 |	Landscaper |	topsoil, peat moss, fertilizer, grass seed, rocks, pavers, organic … |	garden patch, shrub wall, greenery |
