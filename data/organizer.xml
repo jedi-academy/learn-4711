@@ -20,9 +20,9 @@ Course organizer for Comp4711
 		<topic>MVC Frameworks</topic>
 		<outcomes>1.1 (PHP), 1.2 (basics),3</outcomes>
 		<inlab>#2 Project &amp; Process Prep</inlab>
-		<lesson name="basic00" survey="254765" icon="dothis">Webapp Assumptions</lesson>
-		<lesson name="basic01" survey="254768" icon="dothis">MVC Framework Introduction</lesson>
-		<lesson name="dev01" survey="254779" icon="dothis">Devops Workflow Concepts</lesson>
+		<lesson name="basic00" icon="dothis">Webapp Assumptions</lesson>
+		<lesson name="basic01" icon="dothis">MVC Framework Introduction</lesson>
+		<lesson name="dev01" icon="dothis">Devops Workflow Concepts</lesson>
 		<lesson name="week02" icon="read">Survey results</lesson>
 		<lab name="lab02">Collaborative Workflow</lab>
 		<github name="starter-quotes" link="https://github.com/jedi-academy/starter-quotes">Lab starter - Quotes</github>
@@ -33,8 +33,8 @@ Course organizer for Comp4711
 		<topic>CodeIgniter &amp; Controllers</topic>         
 		<outcomes>1.2 (controllers), 3</outcomes>
 		<inlab>#3 Website conversion</inlab>
-		<lesson name="basic01-ci" survey="256024" icon="dothis">CodeIgniter Overview</lesson>
-		<lesson name="basic02" survey="256026" icon="dothis">CI Controllers</lesson>
+		<lesson name="basic01-ci" icon="dothis">CodeIgniter Overview</lesson>
+		<lesson name="basic02" icon="dothis">CI Controllers</lesson>
 		<github name="Sample Project" link="https://github.com/jedi-academy/example-contacts">Example CodeIgniter project</github>
 		<lesson name="basic01-other" icon="read">Other MVC Framework Examples (supplement)</lesson>
 		<lesson name="week03" icon="read">Survey results</lesson>
@@ -50,8 +50,8 @@ Course organizer for Comp4711
 		<topic>Routing</topic>         
 		<outcomes>1.2 (routing), 3</outcomes>
 		<inlab>#4 Working with controllers</inlab>
-		<lesson name="basic06" survey="256683" icon="dothis">Routing</lesson>
-		<lesson name="basic07" survey="256684" icon="dothis">Advanced Routing</lesson>
+		<lesson name="basic06" icon="dothis">Routing</lesson>
+		<lesson name="basic07" icon="dothis">Advanced Routing</lesson>
 		<lesson name="other-routing" icon="read">Routing examples from  other frameworks (optional)</lesson>
 		<lesson name="week04" icon="read">Survey results</lesson>
 		<lesson name="basic67">Routing in a Nutshell</lesson>
