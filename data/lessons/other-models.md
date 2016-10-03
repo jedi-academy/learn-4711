@@ -56,6 +56,9 @@ A sample entity usage:
 		...
 	}
 
+CakePHP has a command-line tool, <code>bake</code>, that can generate skeleton
+code for models.
+
 ## Fat-Free
 
 Fat-Free describes its Mapper as an ORM. It looks similar to CI, to me.
@@ -108,6 +111,9 @@ FuelPHP models at the table level too.
 
 FuelPHP has a built-in ORM, that looks very similar to the base model in
 my CI starter3, as far as I can tell.
+
+FuelPHP has a command-line tool, <code>oil</code>, that can generate
+skeleton code for your models.
 
 ## Laravel
 
