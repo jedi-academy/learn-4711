@@ -20,7 +20,7 @@ p1  |	Mcdonalds |	patties, cheese, lettuce, buns, special sauce, … |	big mac, 
 p2  |	McD breakfast |	eggs, muffins, sausage, bacon, cheese |	egg mcmuffin, sausage mcmuffin, BLT bagel, … |
 p3 |	MrLube |	oil, premium oil, oil filters, air filters, spark plugs |	oil change, rotate tires, tuneup |
 p4 |	Detailing shop |	wax, windex, shammies, washing detergent |	bronze, silver, gold, … |
-p5 |	F22 hanger |	aviation fuel, oil, missiles, ammo, rivets |	prep, maintenance, rearm |
+p5 |	F22 hanger |	aviation fuel, oil, missiles, ammo, rivets |	prep, maintenance, rearm | 7  
 p6 |	Bachelor |	beer, KD, chips, dingdongs, pizza pops |	breakfast, lunch, dinner, entertaining for 4, game night | 9  
 p7 |	Julia Child |	butter, red wine, white wine, chicken, filets |	JC recipes |
 p8 |	Gardener |	seeds, fertilizer, baskets, water |	weed, sow, reap, mtce |
