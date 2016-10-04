@@ -16,7 +16,7 @@ and twelve (or so) pantry inventory items.
 
 Project# | Name | Supplies | Recipes | Team
 --------- | -------------- | --------- | --- | ---
-p1  |	Mcdonalds |	patties, cheese, lettuce, buns, special sauce, … |	big mac, quarter pounder, filet of fish, fries, … |
+p1  |	Mcdonalds |	patties, cheese, lettuce, buns, special sauce, … |	big mac, quarter pounder, filet of fish, fries, … | 5 
 p2  |	McD breakfast |	eggs, muffins, sausage, bacon, cheese |	egg mcmuffin, sausage mcmuffin, BLT bagel, … |
 p3 |	MrLube |	oil, premium oil, oil filters, air filters, spark plugs |	oil change, rotate tires, tuneup |
 p4 |	Detailing shop |	wax, windex, shammies, washing detergent |	bronze, silver, gold, … |
@@ -29,7 +29,7 @@ p10 |	Carpenter |	nails, glue, 1x1s, 1x2s, 2x4s, 4x4s, stain |	chair, cabinet, b
 p11 |	Plumber |	1” pipe, 2” pipe, 3” pipe, tape, joints, clamps |	install sink, tub, toilet, sprinkler |
 p12 | 	Speedy Glass |	windshields, front windows, sealant, gasket, windex |	repair windshield, replace windshield, install tinting |
 p13 |	Hair salon |	shampoo, gel, mousse, gowns |	haircut, perm, style |
-p14 |	Jappadog |	buns, pork wieners, beef wieners, ketchup, mustard |	recipe items |
+p14 |	Jappadog |	buns, pork wieners, beef wieners, ketchup, mustard |	recipe items | 13  
 p15 |	Birdhouses |	sides, backs,  bottoms, perches |	A-frame, cottage, bathouse |
 p16 |	House painter |	red, white, blue, tape, brushes |	small room, big rom, house, fence |
 p17 |	Ice cream shop |	regular cones, waffle cones, dishes, spoons, vanilla, chocolate, strawberry, sprinkles |	cone, big cone, dish | 11  
