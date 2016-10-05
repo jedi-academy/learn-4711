@@ -41,3 +41,26 @@ and view templates if you wish to use them.
 
 You don't *have* to use the template parser. You could use a third party templating engine
 or conventional views. Just remember that PHP script in your view files will cost you marks.
+
+## I am overwhelmed. This is too much for an assignment. Where do I start?
+
+Hmmm 
+- 3 models (plus provision for logging)
+- 3 main controllers, each with a subcontroller
+- homepage controller & dashboard view
+- 3 main views, each showing a list of stuff in a model
+- 3 subordinate views, each showing one item from a model
+
+Split across four team members, that does not strike me as excessive.
+
+Where to start?
+- get your team repo together, *copying* one of the CodeIgniter starters into it
+- agree on your models and mock data - this will help you visualize what you are making
+- put your homepage in place
+- build your three controllers; they will be similar at this point
+- build or tailor your view template
+- build your 7 view fragmentss (including homepage)
+- make sure the result looks like it belongs together
+
+Follow proper gitflow workflow all the while.
+
