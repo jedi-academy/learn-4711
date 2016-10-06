@@ -1,4 +1,4 @@
-**Week 5** *(Mon Oct 3, 16:45)*   
+**Week 5** *(Wed Oct 5, 22:20)*   
 In-class presentation updated, hopefully making more sense!
 
 **Lab marking?** *(Mon Oct 3, 16:45)*  
