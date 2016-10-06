@@ -64,3 +64,8 @@ Where to start?
 
 Follow proper gitflow workflow all the while.
 
+## Rubric complete?
+
+You may notice that the assignment rubric does not address the administration
+usecase, or the logging. They will be needed as part of assignment 2, but
+I don't see them adding value to assignment 1.

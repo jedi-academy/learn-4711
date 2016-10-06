@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Models in a Nutshell
+-->
+<lesson status="beta">
+
+    <slide title="Sorry" layout="normal">
+        <div class="left">
+            <p>I was not happy with today's presentation.
+                I ran out of time preparing it, and
+                cobbled the pieces together without
+                thinking it through as well as I planned to :(</p>
+            <p>I have added suitable graphics, and a few
+                missing slides, as well as the "message" for each.
+                I hope this makes more sense :-/</p>
+        </div>
+        <div class="right">
+            <img src="/pix/lessons/nutshell/nuts12.jpg"/>
+        </div>
+    </slide>
+
+    <slide title="#ModelsMatter" layout="normal">
+        <div class="left">
+            <p>Models are our encapsulation of the data that needs
+                to be used and/or persisted in order to fulfill the
+                usecases for an application, web or otherwise.</p>
+            <ul>
+                <li>Properties (per class diagrams)</li>
+                <li>aggregation (per ERD relationships)</li>
+                <li>business logic (per usecases)</li>
+                <li>validation (per usecases)</li>
+            </ul>
+            <b>Models are unavoidable!</b>
+        </div>
+        <div class="right">
+            <img src="/pix/lessons/nutshell/nuts1.png"/>
+        </div>
+    </slide>
+
+    <slide title="Modeling Small &amp; Large" layout="normal">
+        <div class="left">
+            <p>We have models for entities
+                (components, table rows).</p>
+            <p>We have models for aggregations of entities
+                (collection, repository, table).</p>
+            <b>We have to model both of these!</b>
+        </div>
+        <div class="right">
+            <p>We need to worry about all of these:</p>
+            <img src="/pix/lessons/nutshell/nuts7.png"/>
+        </div>
+
+    </slide>
+
+
+    <slide title="Object-Relational Mapping" layout="normal"  tag="tag1">
+        <div class="left">
+            <p>Most data, like it or not, is stored in relational databases.</p>
+            <p>Most application code, like it or not, is built using O-O languages.</p>
+            <p>In the broadest sense, "ORM" refers to whatever you use
+                to bridge these two, translating  between them.</p>
+            <b>The problem is not that we have some form of ORM, but
+                that different frameworks and different cultures implement
+                so differently, yet using the same name!</b>
+        </div>
+        <div class="right">
+            <img src="/pix/lessons/nutshell/nuts3.gif"/>
+        </div>
+    </slide>
+
+    <slide title="#JobsMatter" layout="normal"  tag="tag1">
+        <div class="left">
+            <p>There are two distinct cultures at play: web and enterprise.</p>
+            <p>Most of you will either work in the enterprise world, or you will have
+                to deal with it as business "partners".</p>
+            <b>Like it or not, you need to understand the enterprise perspective!</b>
+        </div>
+        <div class="right">
+            <img src="/pix/lessons/nutshell/nuts2.jpg"/>
+        </div>
+    </slide>
+
+    <slide title="#PhpMatters?" layout="normal"  tag="tag1">
+        <div class="left">
+            <p>Web development (not just PHP) has issues
+            </p>
+            <ul>
+                <li>weak typing</li>
+                <li>scripting vs O-O</li>
+                <li>over-reliance on RDB</li>
+                <li>different term interpretations</li>
+            </ul>
+            <b>PHP isn't perfect, but its low entry barrier
+                makes it a suitable choice for most webapps!</b>
+        </div>
+        <div class="right">
+            <img src="/pix/lessons/nutshell/nuts4.jpg"/>
+        </div>
+    </slide>
+
+    <slide title="Modeling Layers" layout="normal">
+        <div class="left">
+            <p>Each of these builds on the earlier layers
+            </p>
+            <ul>
+                <li>Database driver &amp; adapters</li>
+                <li>Object model for this (data access layer)</li>
+                <li>Data Mapper (MY_Model?)</li>
+                <li>Entity models (Active Record)</li>
+                <li>Application models</li>
+            </ul>
+            <p>
+                An enterprise perspective is shown to the right.</p>
+            <b>Enterprise culture expects all of these to be implemented,
+                while web culture picks and chooses those to!</b>
+        </div>
+        <div class="right">
+            <img src="/pix/lessons/nutshell/nuts9.jpg"/>
+        </div>
+    </slide>
+    
+    <slide title="Model View Adapter?" layout="normal">
+        <div class="left">
+            <p>Model-View-Adapter is a popular variation of MVC, chosen
+                because it avoids the problem of a view being
+                notified of a model state change.</p>
+            <p>The controller, before calling a model mutator method,
+                might register an observer callback, and adjust
+                the view it returns if the model state changes.
+            </p>
+            <b>The view is unaware of the source of data, and the model is
+                unaware of what will be done with its data!</b>
+        </div>
+        <div class="right">
+            <img src="/pix/lessons/nutshell/nuts8.png"/>
+        </div>
+    </slide>
+
+    <slide title="Model View View-Model?" layout="normal">
+        <div class="left">
+            <p>Model-View-View-Model is another variation of MVC, chosen
+                because it "solves" the problem of a view being
+                notified of a model state change.</p>
+            <p>The hiccup? This choice needs client-side logic
+                (for instance AngularJS) to act as an intermediary
+                between the user interface and the "backend".
+            </p>
+            <p>The backend (us) then need to provide controller entry
+                points for the ViewModel to request data from, or to
+                provide data to, typically using AJAX.</p>
+            <b>Our webapp is simpler, because logic is moved to the
+                client, which is arguably not our problem!</b>
+        </div>
+        <div class="right">
+            <img src="/pix/lessons/nutshell/nuts6.jpg"/>
+        </div>
+    </slide>
+
+    <slide title="Model Persistance" layout="normal">
+        <div class="left">
+            <p>There were some questions about "why" XML
+                or other non-SQL "models".</p>
+            <p>The Data Mapper layer has no bias towards
+                SQL in its API. Using adapters for 
+                different persistance methods makes the
+                Data Mapper more flexible.
+            </p>
+            <p>XML, in particular, offers a closer state match
+                to object complexity, not having to store unlike
+                things in separate tables.</p>
+            <b>Where to store data becomes a deployment decision,
+                not a development one!</b>
+        </div>
+        <div class="right">
+            <p>A real-world example: <a href="https://flysystem.thephpleague.com/"
+                                         target="_blank">FlySystem</a>. While not database specific,
+                it illustrates using adapters to persist stuff in
+                a variety of different ways!</p>
+            <img src="/pix/lessons/nutshell/nuts11.png"/>
+        </div>
+    </slide>
+
+
+</lesson>

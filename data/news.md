@@ -1,7 +1,5 @@
 **Week 5** *(Mon Oct 3, 16:45)*   
-This week's online lessons have been published.
-I added comparisons of other frameworks' models and controllers, for
-your (optional) viewing pleasure.
+In-class presentation updated, hopefully making more sense!
 
 **Lab marking?** *(Mon Oct 3, 16:45)*  
 Lab 3 marking in progress.
