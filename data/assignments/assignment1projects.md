@@ -40,6 +40,6 @@ p21 |	Go-karts |	frames small & large, wheels small & large, steering, tires, br
 p22 |	Car painter |	enamels, acrylics, stripper, rubbing compound, stripes, metal flakes |	classic, cheapo, mild, wild |
 p23 |	Landscaper |	topsoil, peat moss, fertilizer, grass seed, rocks, pavers, organic … |	garden patch, shrub wall, greenery |
 p24 |	Sports store |	skids, bindings, socks, poles, hats, jackets |	ski kit, soccer kit, hockey kit |
-p25 |	Chemist |	all sorts |	smoke bomb, stink bomb, fertilizer, explosive |
+p25 |	Chemist |	all sorts |	smoke bomb, stink bomb, fertilizer, explosive | 17
 p26 |	Aroma therapy |	essences, oils, filler |	mountain air, spring, sleepy time | 18  
 p27 |	RPG Crafter |	iron ingots, diamond dust, fiery brimstone, lost souls |	magical swords, enchanted armor, wizard spells | 2  
