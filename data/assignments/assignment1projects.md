@@ -17,7 +17,7 @@ and twelve (or so) pantry inventory items.
 Project# | Name | Supplies | Recipes | Team
 --------- | -------------- | --------- | --- | ---
 p1  |	Mcdonalds |	patties, cheese, lettuce, buns, special sauce, … |	big mac, quarter pounder, filet of fish, fries, … | 5 
-p2  |	McD breakfast |	eggs, muffins, sausage, bacon, cheese |	egg mcmuffin, sausage mcmuffin, BLT bagel, … |
+p2  |	McD breakfast |	eggs, muffins, sausage, bacon, cheese |	egg mcmuffin, sausage mcmuffin, BLT bagel, … | 12 
 p3 |	MrLube |	oil, premium oil, oil filters, air filters, spark plugs |	oil change, rotate tires, tuneup |
 p4 |	Detailing shop |	wax, windex, shammies, washing detergent |	bronze, silver, gold, … |
 p5 |	F22 hanger |	aviation fuel, oil, missiles, ammo, rivets |	prep, maintenance, rearm | 7  
