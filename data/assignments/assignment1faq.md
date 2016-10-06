@@ -69,3 +69,8 @@ Follow proper gitflow workflow all the while.
 You may notice that the assignment rubric does not address the administration
 usecase, or the logging. They will be needed as part of assignment 2, but
 I don't see them adding value to assignment 1.
+
+## Any words of wisdom regarding our changelog? (It is the biggest source of merge conflicts)
+
+Practically, you could always work towards a comprehensive changelog for the assignmen, a.k.a. a "release".
+See https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst for an example.
