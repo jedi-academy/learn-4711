@@ -74,3 +74,19 @@ I don't see them adding value to assignment 1.
 
 Practically, you could always work towards a comprehensive changelog for the assignmen, a.k.a. a "release".
 See https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst for an example.
+
+## Since we are no longer required to use logs for the assignment, my group was wondering what information the dashboard on the homepage should display.
+
+Provide a summary of the "state" of your data, as can be determined by the mock models.
+This would include a valuation ($$$ worth of materials on hand, $$$ worth of stock for sale), and
+could have some counts (# of different products stocked, # of recipes known, for instance).
+
+We'll beef this up for assignment 2 :)
+
+## I know that the comp4711 assignment 1 submission is due at 5:30pm Sunday (today) but can it still be updated afterwards? Some of the set would appreciate some extra time to tidy up the code.
+
+There will be time to clean up the code for assignment 2 :-/
+
+I am expecting the repo links to be up for 5:30 Sunday, and that the "master" branch (which I will be marking) will be unmodified from that point on.
+
+You are welcome to continue working on the "develop" branch.

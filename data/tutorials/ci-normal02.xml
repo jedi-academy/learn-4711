@@ -32,7 +32,7 @@ Tutorial 04 - Working With Models
     <slide title="The End Result" layout="normal">
         <p>This is what the end result should look like, after fixing!</p>
         <br/>
-        <img class="scale" width="500" height="391" src="/data/tutorials/pix/ci4/4-1.png"/>
+        <img class="scale" width="500" height="391" src="/pix/tutorials/ci4/4-1.png"/>
 
     </slide>
 
@@ -59,7 +59,7 @@ Tutorial 04 - Working With Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="556" height="208" src="/data/tutorials/pix/ci4/4-3.png"/>
+            <img class="scale" width="556" height="208" src="/pix/tutorials/ci4/4-3.png"/>
         </div>
     </slide>
 
@@ -194,7 +194,7 @@ Tutorial 04 - Working With Models
     <slide title="The Starting Point" layout="normal">
         <p>The webapp is broken when you start, looking like this...</p>
         <br/>
-        <img class="scale" width="638" height="500" src="/data/tutorials/pix/ci4/4-step0.png"/>
+        <img class="scale" width="638" height="500" src="/pix/tutorials/ci4/4-step0.png"/>
     </slide>
 
     <slide title="1. CONFIGURATION" layout="normal">
@@ -218,7 +218,7 @@ Tutorial 04 - Working With Models
     <slide title="Post Configuration" layout="normal">
         <p>There is no apparent difference after fixing your configuration...</p>
         <br/>
-        <img class="scale" width="601" height="500" src="/data/tutorials/pix/ci4/4-step1.png"/>
+        <img class="scale" width="601" height="500" src="/pix/tutorials/ci4/4-step1.png"/>
     </slide>
 
     <slide title="2. HOMEPAGE" layout="normal">
@@ -244,7 +244,7 @@ Tutorial 04 - Working With Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="525" height="170" src="/data/tutorials/pix/ci4/4-step2a.png"/>
+            <img class="scale" width="525" height="170" src="/pix/tutorials/ci4/4-step2a.png"/>
         </div>
     </slide>
 
@@ -252,7 +252,7 @@ Tutorial 04 - Working With Models
         <p>Your homepage should now look a bit different, showing any orders.
             You might not have any orders, if you are just getting underway.</p>
         <br/>
-        <img class="scale" width="800" height="424" src="/data/tutorials/pix/ci4/4-step2b.png"/>
+        <img class="scale" width="800" height="424" src="/pix/tutorials/ci4/4-step2b.png"/>
     </slide>
 
     <slide title="Pre Step 3" layout="normal">
@@ -261,7 +261,7 @@ Tutorial 04 - Working With Models
             we need to create a new order object before we can start working with it.
         </p>
         <br/>
-        <img class="scale" width="600" height="293" src="/data/tutorials/pix/ci4/4-step3a.png"/>
+        <img class="scale" width="600" height="293" src="/pix/tutorials/ci4/4-step3a.png"/>
     </slide>
 
     <slide title="3. HANDLE A NEW ORDER" layout="normal">
@@ -296,7 +296,7 @@ Tutorial 04 - Working With Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="539" height="230" src="/data/tutorials/pix/ci4/4-step3b.png"/>
+            <img class="scale" width="539" height="230" src="/pix/tutorials/ci4/4-step3b.png"/>
         </div>
     </slide>
 
@@ -304,7 +304,7 @@ Tutorial 04 - Working With Models
         <p>That solved the redirection problem, but the order display (for our new
             order) has other issues - an undefined variable "items" :(</p>
         <br/>
-        <img class="scale" width="538" height="500" src="/data/tutorials/pix/ci4/4-step3c.png"/>
+        <img class="scale" width="538" height="500" src="/pix/tutorials/ci4/4-step3c.png"/>
     </slide>
 
     <slide title="4. HANDLE ORDER DISPLAY" layout="normal">
@@ -329,7 +329,7 @@ Tutorial 04 - Working With Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="541" height="230" src="/data/tutorials/pix/ci4/4-step3d.png"/>
+            <img class="scale" width="541" height="230" src="/pix/tutorials/ci4/4-step3d.png"/>
         </div>
     </slide>
 
@@ -347,14 +347,14 @@ Tutorial 04 - Working With Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="594" height="113" src="/data/tutorials/pix/ci4/4-step3e.png"/>
+            <img class="scale" width="594" height="113" src="/pix/tutorials/ci4/4-step3e.png"/>
         </div>
     </slide>
 
     <slide title="Now We can See" layout="normal">
         <p>Yay - we can now see the ordering display :)</p>
         <br/>
-        <img class="scale" width="603" height="400" src="/data/tutorials/pix/ci4/4-step4g.png"/>
+        <img class="scale" width="603" height="400" src="/pix/tutorials/ci4/4-step4g.png"/>
     </slide>
 
     <slide title="Order Display - Order Total" layout="normal">
@@ -372,7 +372,7 @@ Tutorial 04 - Working With Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="517" height="255" src="/data/tutorials/pix/ci4/4-step4k.png"/>
+            <img class="scale" width="517" height="255" src="/pix/tutorials/ci4/4-step4k.png"/>
         </div>
     </slide>
 
@@ -380,7 +380,7 @@ Tutorial 04 - Working With Models
         <p>Our menu display looks better now, with the current order
             total displayed as part of the page header...</p>
         <br/>
-        <img class="scale" width="609" height="400" src="/data/tutorials/pix/ci4/4-step4n.png"/>
+        <img class="scale" width="609" height="400" src="/pix/tutorials/ci4/4-step4n.png"/>
     </slide>
 
     <slide title="Order Model Needs Updating Too" layout="normal">
@@ -440,7 +440,7 @@ Tutorial 04 - Working With Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="507" height="133" src="/data/tutorials/pix/ci4/4-step5b.png"/>
+            <img class="scale" width="507" height="133" src="/pix/tutorials/ci4/4-step5b.png"/>
         </div>
     </slide>
 
@@ -471,7 +471,7 @@ Tutorial 04 - Working With Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="553" height="328" src="/data/tutorials/pix/ci4/4-step5x.png"/>
+            <img class="scale" width="553" height="328" src="/pix/tutorials/ci4/4-step5x.png"/>
         </div>
     </slide>
 
@@ -487,7 +487,7 @@ Tutorial 04 - Working With Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="606" height="400" src="/data/tutorials/pix/ci4/4-step5d.png"/>
+            <img class="scale" width="606" height="400" src="/pix/tutorials/ci4/4-step5d.png"/>
         </div>
     </slide>
 
@@ -503,7 +503,7 @@ Tutorial 04 - Working With Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="600" height="263" src="/data/tutorials/pix/ci4/4-step5e.png"/>
+            <img class="scale" width="600" height="263" src="/pix/tutorials/ci4/4-step5e.png"/>
         </div>
     </slide>
 
@@ -519,7 +519,7 @@ Tutorial 04 - Working With Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="755" height="353" src="/data/tutorials/pix/ci4/4-step5e2.png"/>
+            <img class="scale" width="755" height="353" src="/pix/tutorials/ci4/4-step5e2.png"/>
         </div>
     </slide>
 
@@ -532,7 +532,7 @@ Tutorial 04 - Working With Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="600" height="262" src="/data/tutorials/pix/ci4/4-step5f.png"/>
+            <img class="scale" width="600" height="262" src="/pix/tutorials/ci4/4-step5f.png"/>
         </div>
     </slide>
 
@@ -548,7 +548,7 @@ Tutorial 04 - Working With Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="706" height="348" src="/data/tutorials/pix/ci4/4-step6f.png"/>
+            <img class="scale" width="706" height="348" src="/pix/tutorials/ci4/4-step6f.png"/>
         </div>
     </slide>
 
@@ -563,7 +563,7 @@ Tutorial 04 - Working With Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="600" height="218" src="/data/tutorials/pix/ci4/4-step6hi.png"/>
+            <img class="scale" width="600" height="218" src="/pix/tutorials/ci4/4-step6hi.png"/>
         </div>
     </slide>
 
@@ -578,7 +578,7 @@ Tutorial 04 - Working With Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="565" height="224" src="/data/tutorials/pix/ci4/4-step7c.png"/>
+            <img class="scale" width="565" height="224" src="/pix/tutorials/ci4/4-step7c.png"/>
         </div>
     </slide>
 
@@ -596,7 +596,7 @@ Tutorial 04 - Working With Models
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="465" height="177" src="/data/tutorials/pix/ci4/4-step7d.png"/>
+            <img class="scale" width="465" height="177" src="/pix/tutorials/ci4/4-step7d.png"/>
         </div>
     </slide>
 
@@ -608,7 +608,7 @@ Tutorial 04 - Working With Models
          </div>
         <div class="right">
             <br/>
-            <img class="scale" width="600" height="318" src="/data/tutorials/pix/ci4/4-step7x.png"/>
+            <img class="scale" width="600" height="318" src="/pix/tutorials/ci4/4-step7x.png"/>
         </div>
     </slide>
 

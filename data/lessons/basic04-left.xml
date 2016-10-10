@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Views - everything else
+-->
+<lesson status="1.1">
+    <!-- Activity metadata ... override anything from the course or organizer -->
+
+    <!-- Agenda -->
+    <slide title="Agenda" layout="normal">
+        <ol>
+            <li>
+                <a href="#{tag1}">File Uploading</a>
+            </li>
+            <li>
+                <a href="#{tag2}">Markdown</a>
+            </li>
+            <li>
+                <a href="#{tag3}">Loose Ends</a>
+            </li>
+        </ol>
+    </slide>
+
+
+    <slide title="1. FILE UPLOADING" layout="normal" tag="tag1">
+        <p>File uploading is a standard expectation of a webapp.</p>
+        <p>Your HTML form will need to use POST for submission, and you
+            will need to specify an appropriate enclosure type, for
+            instance...</p>
+        <code>
+&lt;form enctype="multipart/form-data" action="/uploader" method="POST"&gt;<br/>
+&#160;&#160;Choose a file to upload: <br/>
+&#160;&#160;&lt;input name="uploadedfile" type="file" /&gt;&lt;br /&gt;<br/>
+&#160;&#160;&lt;input type="submit" value="Upload File" /&gt;<br/>
+&lt;/form&gt;            
+        </code>
+        <p>This will result in something like</p>
+        <img class="scale" width="505" height="52" src="/pix/lessons/5/5-6.png"/>
+    </slide>
+
+    <slide title="Traditional File Uploading" layout="normal">
+        <p>With traditional PHP, uploaded files are accessed through the
+            <code>$_FILES</code> superglobal.</p>
+        <ul>
+            <li>
+                <code>$_FILES["file"]["name"]</code> - the name of 
+                the uploaded file</li>
+            <li>
+                <code>$_FILES["file"]["type"]</code> - the type of the
+                uploaded file</li>
+            <li>
+                <code>$_FILES["file"]["size"]</code> - the size in bytes 
+                of the uploaded file</li>
+            <li>
+                <code>$_FILES["file"]["tmp_name"]</code> - the name of the 
+                temporary copy of the file stored on the server</li>
+            <li>
+                <code>$_FILES["file"]["error"]</code> - the error code 
+                resulting from the file upload</li>
+        </ul>
+        <p>You provide error-checking.</p>
+        <p>Handling multiple file uploads is a topic for another day.</p>
+    </slide>
+
+    <slide title="Saving An Uploaded File" layout="normal">
+        <p>PHP provides a method to move the uploaded file form the
+            system's temporary folder to a destination you specify:</p>
+        <code>move_uploaded_file($_FILES["file"]["tmp_name"],<br/>
+&#160;&#160;$target_folder . $_FILES["file"]["name"]);</code>
+        <p>You are responsible for proper file naming, for instance replacing 
+            spaces or undesirable characters with underscores.</p>
+    </slide>
+
+    <slide title="File Uploading With CodeIgniter" layout="normal">
+        <p>CodeIgniter provides a 
+            <a href="http://www.codeigniter.com/userguide3/libraries/file_uploading.html"
+               target="_blank">
+                File Uploading library</a> to make the job easier.</p>
+        <p>The user guide explanation is a bit clunky, but
+            the gist is...</p>
+        <code style="font-size:50%">
+            public function do_upload() {<br/>
+&#160;&#160;$config['upload_path']          = './uploads/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 100;<br/>
+&#160;&#160;$config['max_width']            = 1024;
+            $config['max_height']           = 768;<br/>
+&#160;&#160;$this-&gt;load-&gt;library('upload', $config);<br/>
+&#160;&#160;if ( ! $this-&gt;upload-&gt;do_upload()) {<br/>
+&#160;&#160;&#160;&#160;$error = array('error' =&gt; $this-&gt;upload-&gt;display_errors());<br/>
+&#160;&#160;&#160;&#160;$this-&gt;load-&gt;view('upload_form', $error);<br/>
+&#160;&#160;} else {<br/>
+&#160;&#160;&#160;&#160;$data = array('upload_data' =&gt; $this-&gt;upload-&gt;data());<br/>
+&#160;&#160;&#160;&#160;$this-&gt;load-&gt;view('upload_success', $data);<br/>
+&#160;&#160;}<br/>
+            }                    
+        </code>
+    </slide>
+
+    <slide title="File Uploading Widgets" layout="normal">
+        <p>Much better file upload widgets are available for your webpage
+            HTML, eg. the Jasny file 
+            uploader (shown below), for Bootstrap.</p>
+        <br/>
+        <img class="scale" width="897" height="323" src="/pix/lessons/5/5-7.png"/>
+
+    </slide>
+
+    <slide title="2. MARKDOWN" layout="normal" tag="tag2">
+        <div class="left">
+            <p>Not everyone is using HTML to construct the content pages
+                in their webapp/site. Many content authors are using
+                "markdown", which gets translated into HTML using an
+                appropriate tool. Many developers find this an
+                attractive alternative to learning or worrying about
+                HTML.</p>
+            <p>This webapp does this for some things, using 
+                <a href="http://parsedown.org" target="_blank">Parsefown</a> converted
+                into a CodeIgniter library.
+            </p>
+        </div>
+        <div class="right">
+            <p>For instance, this markdown excerpt:<br/>
+                <code>
+                    ## Do We need a database?<br/>
+
+                    The data you work with will be 
+                    "mock data" that you create...
+                </code>
+            </p>
+            <p>Renders as:</p>
+            <img class="scale" src="/pix/lessons/views/v23.png"/>
+        </div>
+    </slide>
+
+    <slide title="Combining Construction Strategies?" layout="normal">
+        <p>The "traditional" approach is marginally more efficient, with
+            one less layer of computation compared to using the template
+            parser, but you end up with PHP scriptlets mixed up with HTML
+            in your view. All iteration is done in the view, and the view
+            accesses the model. This is <b>bad</b>.</p>
+        <p>The "template parser" approach has a much cleaner view,
+            with substitution fields and no PHP. Iteration, however,
+            appears in both the controller and the view. The controller part of
+            the iteration results in building
+            an associative array of associative arrays, which is not comfortable 
+            for everyone!</p>
+        <p>The "view fragment" approach has the simplest views, but
+            at the expense of some complexity in the controller.</p>
+        <p>All of these are *legal*, but the first will cost you marks!</p>
+    </slide>
+
+     <slide title="3. LOOSE ENDS" layout="normal" tag="tag3">
+        <p>What about some of the slick forms widgets? 
+            (date pickers, smart fields, etc)</p>
+        <p>Most CSS frameworks use jQuery (or similar), 
+            and there are lots of plugins/gadgets/widgets for them.</p>
+        <p>Be patient, young padawans... this is next week's lesson</p>
+    </slide>
+
+    <slide title="Menu Item Highlighting" layout="normal">
+        <p>Menu item highlighting is CSS framework dependent.
+            Generally, add “active” class to the "current" item</p>
+        <p>The general idea is something like:</p>
+        <code>
+            foreach($menuitems as $item) {<br/>
+&#160;&#160;$active = $item-&gt;link == $this-&gt;uri-&gt;segment(0);<br/>
+&#160;&#160;$thelist .= make_menu_item($item...,$active);<br/>
+            }</code>
+    </slide>
+
+    <slide title="Image Handling" layout="normal">
+        <p>If you want to mess with images, for instance creating thumbnails, 
+            that is usually done with a library, and not necessarily as
+            part of image uploading (though it could be).
+            See libraries/simpleimage for an example.</p>
+        <p>Caution: make sure that any graphics libraries you need 
+            are part of your PHP configuration.</p>
+    </slide>
+
+    <slide title="Cross Site Scripting (XSS)!" layout="normal">
+        <p>Check the 
+            <a href="http://www.codeigniter.com/userguide3/libraries/security.html"
+               target="_blank">
+                security class</a> in CI … 
+            it is meant to block cross-site scripting attempts, 
+            or inappropriate filenames.</p>
+        <p>Another approach: use the <code>htmlentities</code> and the 
+            <code>html_entity_decode</code> PHP functions to convert 
+            applicable characters to HTML entities instead.
+            This would prevent someone from injecting a JS exploit 
+            into a text area, for instance.</p>
+    </slide>
+
+</lesson>

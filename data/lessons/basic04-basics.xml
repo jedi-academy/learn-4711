@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+View Basics
+-->
+<lesson status="1.1">
+    <!-- Activity metadata ... override anything from the course or organizer -->
+
+    <!-- Agenda -->
+    <slide title="Agenda" layout="normal">
+        <ol>
+            <li>
+                <a href="#{tag1}">Variables in Views</a>
+            </li>
+            <li>
+                <a href="#{tag2}">View Construction Strategies</a>
+            </li>
+            <li>
+                <a href="#{tag3}">View Assembly Strategies</a>
+            </li>
+            <li>
+                <a href="#{tag4}">Templating Engines?</a>
+            </li>
+        </ol>
+    </slide>
+
+
+    <!-- Normal slides -->
+
+    <slide title="1. VARIABLES IN VIEWS" layout="normal" tag="tag1">
+        <p>Views are all about presentation, driven by UI design.
+            Even if we take the perspective that "design" is not a programmer's
+            job, we still need to provide the view components with the
+            data to present.</p>
+        <p>Most developers will use a CSS/Javascript framework to
+            style the presentation nicely - integrating these into
+            a webapp may be addressed down the road.</p>
+        <p>An undeniable part of our job is to provide data
+            for any views, which is the focus of this lesson.
+        </p>
+    </slide>
+
+    <slide title="Supporting Webapp" layout="normal">
+        <div class="left">
+            <p>Everything discussed here will hopefully be represented
+                in the webapp I have put together to support this
+                week's lessons:
+                <a href="https://github.com/jedi-academy/example-views" target="_blank">example-views</a>.</p>
+            <p>Please download a copy of that to see the code
+                techniques in action.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/views/v11.png"/>
+        </div>
+    </slide>
+
+    <slide title="Supporting Webpage" layout="normal">
+        <div class="left">
+            <p>In particular, this part of the lesson, Variables in Views,
+                is supported by the #1 link on the support app homepage.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/views/v12.png"/>
+        </div>
+    </slide>
+
+    <slide title="Plain PHP" layout="normal">
+        <div class="left">
+            <p>Plain PHP can be used for output, regardless of any
+                framework.</p>
+            <p>Invoking that could be awkward, depending on how tightly
+                the framework is managing output.</p>
+            <p>The resulting view code is considered by many to be
+                "ugly", and mixing areas of concern.</p>                
+        </div>
+        <div class="right">
+            <p>Controller:<br/>
+                <code>include (VIEWPATH . "vars/p01.php");</code>
+            </p>
+            <p>View:<br/>
+                <code>&lt;p&gt;Hi there, my name is &lt;?php echo 'Jim'; ?&gt; and I want to visit &lt;?php echo 'Spuzzum'; ?&gt;!&lt;/p&gt;</code> 
+            </p>
+            <p>Result:<br/>
+                <code>Hi there, my name is Jim and I want to visit Spuzzum!</code>
+            </p>
+        </div>
+    </slide>
+
+    <slide title="PHP Variables inside a View" layout="normal">
+        <div class="left">
+            <p>Hard-coding values is not a good idea. One would normally use
+                variables.</p>
+            <p>This is shown to the right, though having the variable defined 
+                inside the view feels out of place, and we still have
+                a view source file with mixed HTML and logic!</p>
+        </div>
+        <div class="right">
+            <p>Controller:<br/>
+                <code>include (VIEWPATH . "vars/p02.php");</code>
+            </p>
+            <p>View:<br/>
+                <code>&lt;?php $name="Jim"; $target="Spuzzum"; ?&gt;<br/>
+&lt;p&gt;Hi there, my name is &lt;?php echo $name; ?&gt; and I want to visit &lt;?php echo $target; ?&gt;!&lt;/p&gt;</code> 
+            </p>
+            <p>Result:<br/>
+                <code>Hi there, my name is Jim and I want to visit Spuzzum!</code>
+            </p>
+        </div>
+    </slide>
+
+    <slide title="PHP Variables inside the controller" layout="normal">
+        <div class="left">
+            <p>It would be better to set variables like this inside
+                the controllers.</p>
+            <p>This is shown to the right.</p>
+            <p>The view still mixes HTML and logic, but the values are set externally.</p>
+            <p>Note: this only works because the variables set on the controller
+                are still in scope when the view is "included".</p>
+        </div>
+        <div class="right">
+            <p>Controller:<br/>
+                <code>&lt;?php $name="Jim"; $target="Spuzzum"; ?&gt;<br/>
+                    include (VIEWPATH . "vars/p03.php");</code>
+            </p>
+            <p>View:<br/>
+                <code>
+&lt;p&gt;Hi there, my name is &lt;?php echo $name; ?&gt; and I want to visit &lt;?php echo $target; ?&gt;!&lt;/p&gt;</code> 
+            </p>
+            <p>Result:<br/>
+                <code>Hi there, my name is Jim and I want to visit Spuzzum!</code>
+            </p>
+        </div>
+    </slide>
+
+    <slide title="Alternate Syntax for Variables" layout="normal">
+        <div class="left">
+            <p>You are free to use short-form notation, which
+                gives the views a slightly less "mixed" feeling.</p>
+        </div>
+        <div class="right">
+            <p>Controller:<br/>
+                <code>&lt;?php $name="Jim"; $target="Spuzzum"; ?&gt;<br/>
+                    include (VIEWPATH . "vars/p04.php");</code>
+            </p>
+            <p>View:<br/>
+                <code>
+&lt;p&gt;Hi there, my name is &lt;?= $name; ?&gt; and I want to visit &lt;?= $target; ?&gt;!&lt;/p&gt;</code> 
+            </p>
+            <p>Result:<br/>
+                <code>Hi there, my name is Jim and I want to visit Spuzzum!</code>
+            </p>
+        </div>
+    </slide>
+
+    <slide title="Curly Brace Syntax?" layout="normal">
+        <div class="left">
+            <p>You may have read about curly brace syntax in plain
+                PHP, but that is used to substitute data values
+                inline, inside a double-quoted string literal.</p>
+            <p>It doesn't work so well inside a view, shown right.</p>
+        </div>
+        <div class="right">
+            <p>Controller:<br/>
+                <code>&lt;?php $name="Jim"; $target="Spuzzum"; ?&gt;<br/>
+                    include (VIEWPATH . "vars/p05.php");</code>
+            </p>
+            <p>View:<br/>
+                <code>
+&lt;p&gt;Hi there, my name is &lt;?= $name; ?&gt; and I want to visit &lt;?= $target; ?&gt;!&lt;/p&gt;</code> 
+            </p>
+            <p>Result:<br/>
+                <code>Hi there, my name is {$name} and I want to visit {$target}!</code>
+            </p>
+        </div>
+    </slide>
+
+    <slide title="Using the CI View" layout="normal">
+        <div class="left">
+            <p>A framework is meant to make development easier.
+                What happens when we try to use the CI view ability,
+                rather than "including" the view source?</p>
+            <p>BOOM</p>
+            <p>The variables are out of scope, hence undefined.
+                When the view is rendered, its scope is the CI loader.</p>
+            <p>Controller:<br/>
+                <code>&lt;?php $name="Jim"; $target="Spuzzum"; ?&gt;<br/>
+                    $this-&gt;load-&gt;view("vars/p04");</code>
+            </p>
+        </div>
+        <div class="right">
+            <p>View:<br/>
+                <code>
+&lt;p&gt;Hi there, my name is &lt;?= $name; ?&gt; and I want to visit &lt;?= $target; ?&gt;!&lt;/p&gt;</code> 
+            </p>
+            <p>Result:<br/>
+                <img class="scale" src="/pix/lessons/views/v13.png"/>
+            </p>
+        </div>
+    </slide>
+
+    <slide title="Using the CI View, Really" layout="normal">
+        <div class="left">
+            <p>We need to pass the variables as view parameters.</p>
+            <p>The result works better :).</p>
+        </div>
+        <div class="right">
+            <p>Controller:<br/>
+                <code>&lt;?php $parms = ['name' =&gt; "Jim", 'target' =&gt; "Spuzzum"];<br/>
+                    $this-&gt;load-&gt;view("vars/p04",$parms);</code>
+            </p>
+            <p>View:<br/>
+                <code>
+&lt;p&gt;Hi there, my name is &lt;?= $name; ?&gt; and I want to visit &lt;?= $target; ?&gt;!&lt;/p&gt;</code> 
+            </p>
+            <p>Result:<br/>
+                <code>Hi there, my name is Jim and I want to visit Spuzzum!</code>
+            </p>
+        </div>
+    </slide>
+
+    <slide title="Using the CI Parser" layout="normal">
+        <div class="left">
+            <p>The CI template parser is supposed to let us eliminate
+                PHP altogether. Let's try it.</p>
+            <p>BOOM</p>
+            <p>Doh! We *have* to provide view parameters.</p>
+            <p>Controller:<br/>
+                <code>&lt;?php $name="Jim"; $target="Spuzzum"; ?&gt;<br/>
+                    $this-&gt;load-&gt;library('parser');<br/>
+                    $this-&gt;parser-&gt;parse("vars/p06");</code>
+            </p>
+        </div>
+        <div class="right">
+            <p>View:<br/>
+                <code>
+&lt;p&gt;Hi there, my name is &lt;?= $name; ?&gt; and I want to visit &lt;?= $target; ?&gt;!&lt;/p&gt;</code> 
+            </p>
+            <p>Result:<br/>
+                <img class="scale" src="/pix/lessons/views/v14.png"/>
+            </p>
+        </div>
+    </slide>
+
+    <slide title="Using the CI Parser, Really" layout="normal">
+        <div class="left">
+            <p>We need to pass the variables as view parameters.</p>
+            <p>We can also change the syntax for variable references,
+                and the view doesn't look like programming code any more :)</p>
+            <p>The result works better :).</p>
+            <p>Note: I show a space after the opening brace for the
+                "name" variable, as this webapp will itself do a
+                variable substitution for that field if I don't :(</p>
+        </div>
+        <div class="right">
+            <p>Controller:<br/>
+                <code>&lt;?php $parms = ['name' =&gt;> "Jim", 'target' =&gt; "Spuzzum"];<br/>
+                    $this->load->view("vars/p06",$parms);</code>
+            </p>
+            <p>View:<br/>
+                <code>
+&lt;p&gt;Hi there, my name is { name} and I want to visit {target}!&lt;/p&gt;</code> 
+            </p>
+            <p>Result:<br/>
+                <code>Hi there, my name is Jim and I want to visit Spuzzum!</code>
+            </p>
+        </div>
+    </slide>
+
+    <slide title="CI Parser with Script?" layout="normal">
+        <div class="left">
+            <p>Is it possible to (mis)use the CI template
+                parser, having PHP script inside our view?</p>
+                
+            <p>Yes, shown right. It misses the point of using
+                the template parser, and would not endear you
+                in my books!</p>
+        </div>
+        <div class="right">
+            <p>Controller:<br/>
+                <code>&lt;?php $parms = ['name' =&gt;> "Jim", 'target' =&gt; "Spuzzum"];<br/>
+                    $this->load->view("vars/p03",$parms);</code>
+            </p>
+            <p>View:<br/>
+                <code>
+&lt;p&gt;Hi there, my name is &lt;?php echo $name; ?&gt; and I want to visit &lt;?php echo $target; ?&gt;!&lt;/p&gt;</code> 
+            </p>
+            <p>Result:<br/>
+                <code>Hi there, my name is Jim and I want to visit Spuzzum!</code>
+            </p>
+        </div>
+    </slide>
+
+    <slide title="Escaping Variable Values" layout="normal">
+        <div class="left">
+            <p>Anytime your data might be user-modifiable, it is
+                a good practice to "escape" the values before
+                displaying them. This prevents cross-site scripting.</p>
+            <p>CodeIgniter 3 provides a built-in function,
+                <code>html_escape</code>, for this purpose.
+                That is shown in the example to the right.
+                What would the result be if the name wasn't escaped?
+            </p>
+            <p>CodeIgniter 4 is embracing <a href="https://github.com/zendframework/zend-escaper" target="_blank">
+                    <code>Zend\Escaper</code>
+                </a>, which provides more rigorous and context-specific "escaping".
+            </p>
+        </div>
+        <div class="right">
+            <p>Controller:<br/>
+                <code>
+                    $funkyName = '&lt;script&gt;alert("Boo")&lt;/script&gt;';<br/>
+                    $parms = ['name' =&gt; html_escape($funkyName), 'target' =&gt; "Spuzzum"];<br/>
+
+                    $this-&gt;load-&gt;library('parser');<br/>
+                    $this-&gt;parser-&gt;parse("vars/p03",$parms);
+
+                </code>
+            </p>
+            <p>View:<br/>
+                <code>
+&lt;p&gt;Hi there, my name is &lt;?php echo $name; ?&gt; and I want to visit &lt;?php echo $target; ?&gt;!&lt;/p&gt;</code> 
+            </p>
+            <p>Result:<br/>
+                <code>Hi there, my name is &lt;script&gt;alert("Boo")&lt;/script&gt; and I want to visit Spuzzum!</code>
+            </p>
+        </div>
+    </slide>
+
+    <slide title="Variables Summary" layout="normal">
+        <div class="left">
+            <p>There are many ways to use and reference variables in
+                your views. The most acceptable way, without
+                resorting to a templating engine, is to use
+                the curly brace notation inside a view intended
+                to be processed by the template parser.</p>
+            <p>This allows us, as developers, to provide view
+                parameters, without getting in the way of 
+                webpage scripters.</p>
+                
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/views/v15.png"/>
+        </div>
+    </slide>
+
+    <slide title="2. VIEW CONSTRUCTION STRATEGIES" layout="normal" tag="tag2">
+        <div class="left">
+            <p>There are a number of ways to construct more complicated
+                output for presentation, addressed in this section.</p>
+            <p>This part of the lesson is supported by the #2 link on
+                the support app homepage.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/views/v21.png"/>
+        </div>
+    </slide>
+
+    <slide title="Our Target View Excerpt" layout="normal">
+        <div class="left">
+            <p>Our views are data-driven, and we will look at several
+                strategies to assemble a view with iteration, such
+                as the table shown to the right. Each of the strategies 
+                that follow will end up with the same view in the browser - 
+                they differ in their approach server-side.</p>
+            <p>The view to the right shows a "typical" table,
+                with one row per contact.</p>
+            <p>The slides that follow
+                will focus on the different ways to construct such a view.
+                The data will come from a mock model, <code>Contacts</code>.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/views/v22.png"/>
+        </div>
+    </slide>
+
+    <slide title="Traditional View Construction" layout="normal">
+        <p>The code below is typical of the "traditional" PHP approach.</p>
+        <div class="left">
+            <p>Controller:</p>
+            <code>
+                $contacts = $this-&gt;contacts-&gt;all();<br/>
+                $parms = array('contacts' =&gt; (object)$contacts);<br/>
+                $this-&gt;load-&gt;view("cons/p02", $parms);
+            </code>
+        </div>
+        <div class="right">
+            <p>View:<code>
+                    <pre>
+&lt;table&gt;
+    &lt;tr&gt;...&lt;/tr&gt;
+    &lt;?php foreach ($contacts as $record) { ?&gt;
+        &lt;tr&gt;
+                &lt;td&gt;&lt;?= $record-&gt;id ?&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;?= $record-&gt;firstname ?&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;?= $record-&gt;lastname ?&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;?= $record-&gt;username ?&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+&lt;?php } ?&gt;
+&lt;/table&gt;                
+                    </pre>
+                </code>
+            </p>
+        </div>
+    </slide>
+
+    <slide title="View Construction Using the Template Parser" layout="normal">
+        <p>This excerpt is typical of the "template parser" approach.</p>
+        <div class="left">
+            <p>Controller:</p>
+            <code>
+                $rows = array();<br/>
+                foreach ($this->contacts->all() as $key => $value)<br/>
+		&#160;&#160;$rows[] = (array) $value; // parser works with arrays<br/>
+                $parms = array('records' => $rows); // array of arrays<br/>
+                $this->parser->parse("cons/p03", $parms);
+            </code>
+        </div>
+        <div class="right">
+            <p>View:<code>
+                    <pre>
+&lt;table&gt;
+    &lt;tr&gt;...&lt;/tr&gt;
+                        {records}
+        &lt;tr&gt;
+            &lt;td&gt;{id}&lt;/td&gt;
+            &lt;td&gt;{firstname}&lt;/td&gt;
+            &lt;td&gt;{lastname}&lt;/td&gt;
+            &lt;td&gt;{username}&lt;/td&gt;
+        &lt;/tr&gt;
+                        {/records}
+&lt;/table&gt;                
+                    </pre>
+                </code>
+            </p>
+        </div>
+    </slide>
+
+    <slide title="View Construction Using View Fragments" layout="normal">
+        <p>The code below is typical of the "view fragment approach".</p>
+        <div class="left">
+            <p>Controller...<br/>
+                <code>
+                    $result = '';<br/>      
+                    foreach ($contacts->objects() as $record)<br/>
+&#160;&#160;$result .= $this->parser->parse('cons/p04row',<br/>
+&#160;&#160;&#160;&#160;(array) $record, true);<br/>
+                    $parms['inside_stuff'] = $result;<br/>
+                    $this->parser->parse('cons/p04',$parms);                
+                </code>
+            </p>
+        </div>
+        <div class="right">
+            <p>View for the table:<br/>
+                <code>
+&lt;table...&gt;<br/>
+&#160;&#160;&lt;tr&gt;...&lt;/tr&gt;<br/>
+&#160;&#160;{inside_stuff}<br/>
+&lt;/table&gt;
+                </code>
+            </p>
+            <p>View fragment for a row:
+                <code>
+                    <br/>
+&lt;tr&gt;<br/>
+&#160;&#160;&lt;td&gt;{id}&lt;/td&gt;<br/>
+&#160;&#160;&lt;td&gt;{firstname}&lt;/td&gt;<br/>
+&#160;&#160;&lt;td&gt;{lastname}&lt;/td&gt;<br/>
+&#160;&#160;&lt;td&gt;{username}&lt;/td&gt;<br/>
+&lt;/tr&gt;
+                </code>
+            </p>
+        </div>
+    </slide>
+
+    <slide title="Comparing View Construction Strategies" layout="normal">
+        <p>The "traditional" approach is marginally more efficient, with
+            one less layer of computation compared to using the template
+            parser, but you end up with PHP scriptlets mixed up with HTML
+            in your view. All iteration is done in the view, and the view
+            accesses the model. This is <b>bad</b>.</p>
+        <p>The "template parser" approach has a much cleaner view,
+            with substitution fields and no PHP. Iteration, however,
+            appears in both the controller and the view. The controller part of
+            the iteration results in building
+            an associative array of associative arrays, which is not comfortable 
+            for everyone!</p>
+        <p>The "view fragment" approach has the simplest views, but
+            at the expense of some complexity in the controller.</p>
+        <p>All of these are *legal*, but the first will cost you marks!</p>
+    </slide>
+
+    <slide title="A Quick Note About Style" layout="normal">
+        <p>Making the output look good is separate from constructing
+            what gets presented. For example, some simple Bootstrap
+            styling can lead to the table presentation below,
+            regardless of the construction technique(s) used.</p>
+        <img class="scale" src="/pix/lessons/5/5-1.png"/>
+    </slide>
+
+    <slide title="3. VIEW ASSEMBLY STRATEGIES" layout="normal" tag="tag3">
+        <div class="left">
+            <p>View assembly refers to how you pull together your different view
+                fragments for presentation, regardless of how you constructed them.</p>
+            <p>Most assembly is visualized or planned using a wireframe layout, naming the panels in it,
+                and then setting corresponding view parameters before rendering.</p>
+            <code>$this-&gt;data['header'] = makeheader(...);<br/>
+                $this-&gt;data['menu'] = makemenu(...);<br/>
+                $this-&gt;data['content'] = makecontent(...);<br/>
+                $this-&gt;data['footer'] = makefooter(...);</code>         
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="375" height="297" src="/pix/lessons/5/5-8.gif"/>
+        </div>
+    </slide>
+
+    <slide title="Responsive Layout" layout="normal">
+        <div class="left">
+            <p>With responsive layout, you would build your view components and
+                assemble them with a desktop display in mind.</p>
+            <p>You would then use CSS, with media queries, to layout
+                the components differently for different browser window sizes,
+                or even to hide some of the panels at smaller resolution.</p>
+            <code>$this-&gt;data['menu'] = makemenu(...);<br/>
+                $this-&gt;data['submenu'] = makesubmenu(...);<br/>
+                $this-&gt;data['sidebar'] = makesidebar(...);<br/>
+                $this-&gt;data['content'] = makecontent(...);<br/>
+                $this-&gt;data['footer'] = makefooter(...);</code>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="626" height="447" src="/pix/lessons/5/5-10.png"/>
+        </div>
+    </slide>
+
+    <slide title="Multiple Layouts" layout="normal">
+        <div class="left">
+            <p>Multiple layouts are often appropriate for a site.</p>
+            <p>In such a case, you could pass the desired layout as
+                a view parameter, and inside your base controller's
+                <code>render()</code> method choose the appropriate layout template
+                to load. The layouts would share similar panel names, as
+                appropriate.</p>
+            <code>$this-&gt;data['layout'] = 'secondary';<br/>
+                $this-&gt;data['slideshow'] = makecarousel(...);<br/>
+                $this-&gt;data['content'] = makecontent(...);</code>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="736" height="552" src="/pix/lessons/5/5-11.jpg"/>
+        </div>
+    </slide>
+
+    <slide title="Layout Takeaway" layout="normal">
+        <p>Regardless of the assembly strategy, they almost
+            all rely on building standard view fragments,
+            which would then be used on a given page, or not,
+            depending on that page's layout.</p>
+        <p>On the preceding slides, I have shown methods to
+            build each fragment, eg. <code>makecarousel(...)</code>.
+            These could be implemented in several ways:</p>
+        <ul>
+            <li>These could be methods inside your controller, which
+                might then be referenced as <code>$this->makeCarousel(...);</code>.</li>
+            <li>These could be implemented inside a model (presentation format
+                neutral, of course), for instance <code>$this->gallery->makeCarousel(...);</code>                    
+            </li>
+            <li>These could be implemented through a library, which might in turn
+                call upon an external service, as in <code>$this->facebook->makeRecentPostsCarousel()</code>.
+            </li>
+        </ul>
+    </slide>
+
+    <slide title="Client-Driven Layout" layout="normal">
+        <div class="left">
+            <p>You may have seen websites where the end-user can
+                choose tiles or panels to display, and where they
+                can resize and/or re-arrange them.
+                These sites typically use Javascript frameworks
+            to perform their magic.</p>
+            <p>If you are tasked with building something like this,
+            you need to generate view fragments, each with enough
+            meta-data to let the "magic" framework do its thing
+            client-side.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/views/v24.png"/>
+        </div>
+    </slide>
+
+    <slide title="4. TEMPLATING ENGINES" layout="normal" tag="tag4">
+        <div class="left">
+            <p>The View class and Template Parser that are part of CodeIgniter
+                are simple view construction and assembly tools, intended
+                to achieve 80% of a "full" view with 20% of the effort
+                and complexity.</p>
+                <p>For those webapps which need more, or for those developers
+                who are accustomed to "full-blown" templating engines
+                from other frameworks or projects, many such packages
+                can be integrated into your CodeIgniter webapp, some
+                more easily than others :-/</p>
+        </div>
+        <div class="right">
+                <p>These engines add custom functions, plugins, conditional
+                    view component inclusion, their own iteration constructs,
+                    and/or better internationalization support. Some of the more popular ones:
+                <a href="https://laravel.com/docs/5.1/blade" target="_blank">Blade</a> (from Lavarel),
+                <a href="http://dwoo.org/" target="_blank">Dwoo</a>,
+                <a href="http://mustache.github.io/" target="_blank">Mustache</a>,
+                <a href="http://www.smarty.net/" target="_blank">Smarty</a>, and
+                <a href="http://twig.sensiolabs.org/" target="_blank">Twig</a>.
+                </p>
+            <br/>
+            <img class="scale" width="398" height="161" src="/pix/lessons/views/v25.gif"/>
+        </div>
+    </slide>
+
+</lesson>

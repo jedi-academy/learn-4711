@@ -1,8 +1,9 @@
-**Week 5** *(Wed Oct 5, 22:20)*   
-In-class presentation updated, hopefully making more sense!
+**Week 6** *(Mon Oct 10, 02:45)*   
+I am still working on the online lessons, sorry.
+I will post them as soon as possible, targetting sometime on Monday.
 
-**Lab marking?** *(Mon Oct 3, 16:45)*  
-Lab 3 marking in progress.
+**Lab marking?** *(Thu Oct 6, 20:00)*  
+Lab 4 marking in progress.
 
-**Assignment 1** *(Wed Oct 5, 9:30)*  
+**Assignment 1** *(Sun Oct 9, 14:00)*  
 Assignment FAQ updated.
