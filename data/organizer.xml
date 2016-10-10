@@ -76,9 +76,9 @@ Course organizer for Comp4711
 		<topic>Views</topic>
 		<outcomes>1.2 (views), 3</outcomes>
 		<inlab>#5 Models</inlab>
-		<lesson name="basic04-basics"  survey="xxxxxx" icon="dothis">View Basics</lesson>
-		<lesson name="basic04-forms"  survey="xxxxxx" icon="dothis">Form handling</lesson>
-		<lesson name="basic04-left" >View Leftovers</lesson>
+		<lesson name="basic04-basics"  survey="258883" icon="dothis">View Basics</lesson>
+		<lesson name="basic04-forms"  survey="258884" icon="dothis" active="n">Form handling</lesson>
+		<lesson name="basic04-left" active="n" >View Leftovers</lesson>
 		<github name="forms" link="https://github.com/jedi-academy/example-views">Examples to support "views" lessons</github>
 		<tutorial name="ci-normal02" active="n">CRUD</tutorial>
 		<lab name="lab05"  active="n">Models &amp; CRUD</lab>
