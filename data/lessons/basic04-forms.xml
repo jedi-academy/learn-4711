@@ -9,10 +9,13 @@ Views - Form Handling
     <slide title="Agenda" layout="normal">
         <ol>
             <li>
-                <a href="#{tag1}">HTML Form Handling</a>
+                <a href="#{tag1}">Generating HTML Forms</a>
             </li>
             <li>
-                <a href="#{tag2}">Data Transfer Buffer</a>
+                <a href="#{tag2}">Handling Form Submissions</a>
+            </li>
+            <li>
+                <a href="#{tag2}">Data Transfer Buffer Stratgy</a>
             </li>
         </ol>
     </slide>
