@@ -79,6 +79,7 @@ Course organizer for Comp4711
 		<lesson name="basic04-basics"  survey="258883" icon="dothis">View Basics</lesson>
 		<lesson name="week06" icon="read">Survey results</lesson>
 		<github name="forms" link="https://github.com/jedi-academy/example-views">Examples to support "views" lessons</github>
+		<lesson name="basic69">Views in a Nutshell</lesson>
 <!--		<tutorial name="ci-normal03" active="n">Making views</tutorial>-->
 		<lab name="lab05"  active="n">Kaleidoscope</lab>
 	</week>

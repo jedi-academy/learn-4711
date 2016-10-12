@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Views in a Nutshell
+-->
+<lesson status="beta">
+
+    <slide title="Views in a Nutshell" layout="normal">
+        <div class="left">
+            <b>#ViewsMatter</b>
+            <p>Websites are judged, like it or not.</p>
+            <ul>
+                <li>Content</li>
+                <li>Structure and Navigation</li>
+                <li>Visual Design</li>
+                <li>Functionality</li>
+                <li>Interactivity</li>
+                <li>Innovation</li>
+                <li>Overall Experience</li>
+            </ul>
+        </div>
+        <div class="right">
+            <b>#LifeIsTooShort</b>
+            <p>We're programmers, not designers.</p>
+            <ul>
+                <li>Work with designers</li>
+                <li>Agree on names for block element content</li>
+                <li>Use view fragments to produce them</li>
+            </ul>
+        </div>
+    </slide>
+
+    <slide title="Construction &amp; Assembly" layout="normal">
+        <div class="left">
+            <b>Construction</b>
+            <p>This refers to the creation of individual
+                components (content) that go into a particular webpage.</p>
+            <ul>
+                <li>Controller methods ... <code>$this->makeCarousel(...);</code>.</li>
+                <li>Model methods ... <code>$this->gallery->makeCarousel(...);</code></li>
+                <li>Library methods ... <code>$this->facebook->makeRecentPostsCarousel()</code>.
+                </li>
+                <li>These could even be delegated, for instance
+                    <code>$data = file_get_contents(...);
+                        $result = $this->parsedown->text($data);</code>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <b>Assembly</b>
+            <p>This refers to the arrangement, on page, of
+                the components we have constructed.</p>
+            <img class="scale" width="375" height="297" src="/pix/lessons/5/5-8.gif"/>     
+        </div>
+
+    </slide>
+
+
+    <slide title="Is it Safe?" layout="normal"  tag="tag1">
+        <p align="center">Aren't we working with CSS? What's XSS?<br/>
+            <img class="scale" src="/pix/lessons/bob/exploits_of_a_mom.png"/>
+        </p>
+    </slide>
+
+    <slide title="Who You Gonna Call?" layout="normal"  tag="tag1">
+        <p align="center">Build them all, and tailor the CSS to arrange them properly.<br/>
+            <img class="scale" src="/pix/lessons/5/5-10.png"/>
+        </p>
+    </slide>
+
+    <slide title="Who Else You Gonna Call?" layout="normal"  tag="tag1">
+        <p align="center">Finally parsing is applied to $template, instead of 'template'.<br/>
+            <img class="scale" src="/pix/lessons/5/5-11.jpg"/>
+        </p>
+    </slide>
+
+
+    <slide title="Help Me, Obiwan" layout="normal">
+        <div class="left">
+            <ul>
+                <li>http://getbootstrap.com/</li>
+                <li>https://startbootstrap.com/</li>
+                <li>http://www.cssplay.co.uk/layouts/</li>
+                <li>http://www.dynamicdrive.com/</li>
+                <li>http://jspanel.de/</li>
+            </ul>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/bob/cssmug.jpg"/>
+        </div>
+    </slide>
+
+    <slide title="What Else Do You Want to Know?" layout="normal">
+        <div class="left">
+            <ul>
+                <li>Security? (Zend\Escaper)</li>
+                <li>Templating (twig, smarty)</li>
+                <li>Authentication package (ion-auth, community-auth)</li>
+                <li>ORM (eloquent, doctrine)</li>
+                <li>non-SQL (mongodb)</li>
+            </ul>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/bob/787576-gandalf.jpg"/>
+        </div>
+    </slide>
+
+</lesson>
