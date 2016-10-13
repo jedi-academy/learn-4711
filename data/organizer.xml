@@ -82,7 +82,7 @@ Course organizer for Comp4711
 		<lesson name="basic69">Views in a Nutshell</lesson>
 		<lesson name="other-views" icon="read">View examples from  other frameworks (optional)</lesson>
 <!--		<tutorial name="ci-normal03" active="n">Making views</tutorial>-->
-		<lab name="lab05"  active="n">Kaleidoscope</lab>
+		<lab name="lab05">Kaleidoscope</lab>
 	</week>
 	<week num="7">
 		<topic>Forms Handling</topic>
