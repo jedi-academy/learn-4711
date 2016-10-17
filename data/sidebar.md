@@ -25,3 +25,4 @@ These open in the same window, unless you right-click & open them.
 [Projects](/display/assignment/assignment1projects)  
 [Assignment 1](/display/assignment/assignment1)  
 [Assignment 1 FAQ](/display/assignment/assignment1faq)  
+[Assignment 1 Gallery](/display/assignment/gallery1)  

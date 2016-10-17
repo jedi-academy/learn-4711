@@ -63,7 +63,7 @@ with the lab 5 feedback.
 
 ##Github repository
 
-To start your tream repo for this lab, 
+To start your team repo for this lab, 
 you could fork the [CI Starter 3](https://github.com/jedi-academy/CodeIgniter3.1-starter3)
  for this, and add the data and media
 from the [starter-views](https://github.com/jedi-academy/starter-views)
@@ -75,162 +75,38 @@ two repositories.
 
 ##Database
 
-You will need to create a database for this, and import the SQL dump inside
-the data folder of your repo.
+You will need to create a database for this, and import the starter's SQL dump,
+which should be inside the data folder of your repo.
 
-#Features
+<div class="alert alert-info">
+The team captain should create the team repo, all the team members should fork
+it and clone theirs locally. This will complete Job 0<br/>
+Once done, the "torch" can be passed onto one of the 
+team mates to tackle the next step.
+</div>
 
-We are going to build a simple, responsive site, with a different layout for each page.
+##Your jobs
 
-My directions here presume that we are using the 
-[Bootstrap](http://getbootstrap.com/) CSS framework,
-which you are already familiar with from COMP1536. If you would prefer to use or 
-explore a different framework to achieve the same end, 
-[Foundation](http://foundation.zurb.com/) or 
-[Kube](https://imperavi.com/kube/)
-are acceptable alternatives. If you do that, however, I am not in a position to offer assistance.
+There are three jobs to do to complete the lab. I suggest that you switch
+team members for each.
 
-##Sitemap
+- [Job 1 - Homepage Features](/display/tutorial/ci-views01)
+- [Job 2 - Hiring Page Features](/display/tutorial/ci-views02)
+- [Job 3 - Shopping Page Features](/display/tutorial/ci-views03)
 
-We are building a site with three pages, each using its own layout:
+#Wrapup
 
-- welcome, our homepage
-- hiring, for job seekers
-- shopping, for the hungry
+<div class="alert alert-info">
+Captain: assuming that everyone on the team agrees that
+you have completed the lab, prepare for submission.
 
-##Layouts
+If you have made any changes to the database structure or contents,
+make a SQL dump of your database, including the option to drop any existing
+tables. Put that in the <code>data</code> folder of your
+project, and delete the original from the starter.
 
-The views lesson showed a multiple layout image:
-
-<img class="scale" width="736" height="552" src="/pix/lessons/5/5-11.jpg"/>
-
-Basically our welcome page will  use a "home" layout,
-our hiring page will use a "secondary" layout, and
-our shopping page will use a "landing" layout.
-
-##base controller
-
-Out-of-the-box, our base controller is setup for view templating:
-
-    function render($template = 'template')
-    {
-        $this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
-        $this->parser->parse('template', $this->data);
-    }
-
-It provides for a layout, as a "template" parameter, but that is not actually
-used. Let's use the layout template parameter, and make our rendering more
-flexible by only using the 'pagebody' fragment if we haven't already
-built the content to used in a layout.
-
-    function render($template = 'template')
-    {
-        // use layout content if provided
-        if (!isset($this->data['content']))
-            $this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
-        $this->parser->parse($template, $this->data);
-    }
-
-Now we can over-ride the layout, on a page by page basis.
-
-##Basic layout template
-
-We can keep application/views/template.php as our base, or "home" layout.
-It is up to you if you wish to keep the rendering time
-message at the bottom of the page.
-
-The template needs to pull in our CSS framework pieces, and provide
-for the common elements across all the layouts, which would be
-the page header.
-
-Our template.php out-of-the-box...
-
-    <!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="utf-8">
-            <title>{pagetitle}</title>
-            <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"/>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-            <link rel="stylesheet" type="text/css" href="/assets/css/default.css"/>
-        </head>
-        <body>
-            <div id="container">
-                {content}
-                <p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. 
-                    {ci_version}</p>
-            </div>
-        </body>
-    </html>
-
-Following the [Basic template](http://getbootstrap.com/getting-started/#template)
-directions on the Bootstrap site, we need to add some links to it, resulting in
-something like
-
-    <!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="utf-8">
-            <title>{pagetitle}</title>
-            <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"/>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-            <link rel="stylesheet" type="text/css" href="/assets/css/default.css"/>
-        </head>
-        <body>
-            <div id="container">
-                {content}
-                <p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. 
-                    {ci_version}</p>
-            </div>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        </body>
-    </html>
-
-Notice that I did not include the integrity and crossorigin attributes
-mentioned on the Bootstrap site - I found that they caused issues, but
-could be omitted.
-
-Also notice that I have left the reference to our CSS intact, for noe.
-It will probably be eliminated later.
-
-##Add a navbar
-
-All our layouts have a common top element, which we want to use for
-shared navigation.
-
-Bootstrap provides a [navbar](http://getbootstrap.com/components/#navbar-default) 
-element, which is already responsive. Perfect!
-
-I suggest adding a view fragment to build one of these, so that have only
-one place to modify if we decide to make navbar changes later.
-
-Make <code>application/views/navbar.php</code>, along the lines of the Bootstrap default
-navbar, and with menu items: Home, Hiring and Shopping.
-
-The navbar fragment then gets added to the template, inside the <body>...
-
-        <body>
-            {navbar}
-            <div id="container">
-                {content}
-                ...
-
-and we need to add it as a view parameter to the layout, inside our
-base controller's render method:
-
-    function render($template = 'template')
-    {
-        $this->data['navbar'] = $this->parser->parse('navbar', $this->data);
-        ...
-
-Notice that I provide for running it through the template parser too,
-in case we want to provide variable menu data later.
-
-We are ending up with fragments inside fragments... :)
-
-##Our homepage
-
-Our homepage is intended to show the menu categories
+It is now time
+to merge the develop branch into the master branch,
+and submit a link to the dropbox!!
+</div>
 

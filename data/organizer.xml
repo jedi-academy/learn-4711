@@ -81,18 +81,20 @@ Course organizer for Comp4711
 		<github name="views" link="https://github.com/jedi-academy/example-views">Examples to support "views" lessons</github>
 		<lesson name="basic69">Views in a Nutshell</lesson>
 		<lesson name="other-views" icon="read">View examples from  other frameworks (optional)</lesson>
-<!--		<tutorial name="ci-normal03" active="n">Making views</tutorial>-->
-		<lab name="lab05">Kaleidoscope</lab>
+		<assignment name="gallery1" icon="read">Project gallery</assignment>
 	</week>
 	<week num="7">
 		<topic>Forms Handling</topic>
 		<outcomes>1.2 (views), 3</outcomes>
 		<inlab>#6 Model CRUD</inlab>
-		<lesson name="basic04-forms"  survey="258884" icon="dothis" active="n">Form handling</lesson>
-		<lesson name="basic04-left" active="n" >View Leftovers</lesson>
-		<github name="forms" link="https://github.com/jedi-academy/example-forms">Examples to support "forms" lessons</github>
-		<tutorial name="ci-normal02" active="n">CRUD</tutorial>
-		<lab name="lab06"  active="n">Models &amp; CRUD</lab>
+		<lesson name="basic04-forms"  survey="258884" icon="dothis">Form handling</lesson>
+		<lesson name="basic04-left" >View Leftovers</lesson>
+<!--		<lesson name="week07" icon="read">Survey results</lesson>
+		<lesson name="other-forms" icon="read">Form examples from  other frameworks (optional)</lesson> -->
+		<lab name="lab05">Kaleidoscope</lab>
+		<tutorial name="ci-views01">Homepage construction &amp; assembly</tutorial>
+		<tutorial name="ci-views02">Construction using markdown</tutorial>
+		<tutorial name="ci-views03">Order entry page</tutorial>
 	</week>
 	<week num="8">
 		<topic>Midterm exam week</topic>
@@ -103,8 +105,11 @@ Course organizer for Comp4711
 		<inlab>#6 Addins &amp; authentication</inlab>
 		<lesson name="basic05" active="n">Helpers and Addins</lesson>
 		<lesson name="midterm" active="n">Midterm Review</lesson>
-		<tutorial name="ci-normal05" active="n">Working With Addins</tutorial>
-		<lab name="lab07" active="n">Addins</lab>
+		<github name="forms" link="https://github.com/jedi-academy/example-forms">Examples to support "forms" lessons</github>
+		<tutorial name="ci-normal02" active="n">CRUD</tutorial>
+		<lab name="lab06"  active="n">Models &amp; CRUD</lab>
+<!--		<tutorial name="ci-normal05" active="n">Working With Addins</tutorial>
+		<lab name="lab07" active="n">Addins</lab> -->
 	</week>
 	<week num="10">
 		<topic>XML &amp; JSON</topic>
