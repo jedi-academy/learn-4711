@@ -177,11 +177,11 @@ My navbar looks like...
         </div><!-- /.container-fluid -->
     </nav>
 
-The navbar fragment then gets added to the template, inside the <code.body</code>...
+The navbar fragment then gets added to the template, inside the <code>body</code>...
 
     <body>
-        {navbar}
         <div id="container">
+            {navbar}
             {content}
             ...
 
