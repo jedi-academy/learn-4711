@@ -2,295 +2,344 @@
 <!--
 Views - Form Handling
 -->
-<lesson status="1.1">
-    <!-- Activity metadata ... override anything from the course or organizer -->
-
-    <!-- Agenda -->
-    <slide title="Agenda" layout="normal">
-        <ol>
-            <li>
-                <a href="#{tag1}">Generating HTML Forms</a>
-            </li>
-            <li>
-                <a href="#{tag2}">Handling Form Submissions</a>
-            </li>
-            <li>
-                <a href="#{tag2}">Data Transfer Buffer Stratgy</a>
-            </li>
-        </ol>
+<lesson status="2.0 beta">
+    <slide title="Golden Rules" layout="normal">
+        <ul>
+            <li>No PHP in the views</li>
+            <li>No HTML in the controllers!</li>
+            <li>Think model-view-adapter!</li>
+        </ul>
     </slide>
 
-
-    <slide title="1. HTML FORM HANDLING" layout="normal" tag="tag1">
+    <slide title="Working with HTML Forms" layout="normal" tag="tag1">
         <p>HTML form handling is really two separate issues:
             <ul>
-                <li>Handling submitted input, and</li>
-                <li>Generating the form to be completed</li>
+                <li>Generating the form to be completed, and then</li>
+                <li>Handling submitted input</li>
             </ul>
         </p>
-        <p>We will deal with some strategies for each of these issues,
-            in the above order.</p>
+        <p>There are a number of strategies that can be used for each
+            of these broad topics. This lesson will deal with creating a form,
+            and the next lesson will deal with handling submitted data.</p>
+        <p>
+            <i>This lesson lends itself more to an in-class
+                presentation, with explanation of the pros and cons of
+                each of the techniques. There is no simgle right answer
+                for all circumstances!
+                Don't get hung on on the misformatting ... the slides are cues to
+                check out specific pieces of the example webapp!!</i>
+        </p>
     </slide>
 
-    <slide title="Sample Input to Handle" layout="normal">
-        <p>Refer to the <a href="https://github.com/jedi-academy/example-forms">
-                example-forms webapp</a> for *some* actual code
-            (no guarantees that it is complete)!</p>
+    <slide title="Demo Webapp" layout="normal">
         <div class="left">
-            <p>A simple form, in pure HTML:</p>
-            <code style="font-size:50%">
-&lt;form action="/dealwithme" method="post"&gt;<br/>
-&#160;&#160;Why don't they play poker in the jungle?&lt;br&gt;<br/>
-&#160;&#160;&lt;input type="radio" name="jungle" value="treefrog"&gt; Too many tree frogs.&lt;br&gt;<br/>
-&#160;&#160;&lt;input type="radio" name="jungle" value="cheetah"&gt; Too many cheetahs.&lt;br&gt;<br/>
-&#160;&#160;&lt;input type="radio" name="jungle" value="river"&gt; Too many rivers.&lt;br&gt;&lt;br&gt;<br/>
-&#160;&#160;Check the box if you want your answer to be graded:<br/>
-&#160;&#160;&lt;input type="checkbox" name="grade" value="yes"&gt;&lt;br&gt;&lt;br&gt;<br/>
-&#160;&#160;&lt;input type="submit" name="submit" value="Submit"&gt;&lt;br&gt;<br/>
+            <p>I have made an <a href="https://github.com/jedi-academy/example-forms" target="_blank">example-forms</a>
+                repository, to demonstrate the techniques discussed this week.
+            </p>
+            <p>The homepage for it, when run as a webapp, provides links to
+                pages that support the presentations. This lesson is supported
+                by the first homepage link, "Generating HTML forms".</p>
+            <p>The numbered links on the homepage may change, as the lessons
+                evolve, but the gist is the same. Each link
+                takes you to a controller which supports a specific part
+                of the lessons.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/forms/f00.png"/>
+        </div>
+    </slide>
+
+    <slide title="Generating HTML" layout="normal">
+        <div class="left">
+            <p>This lesson is supported
+                by the first homepage link, "Generating HTML forms".</p>
+            <p>Each of the menu items, on the left side, trigger the processing
+                and creating of an HTML form, but using a different technique.
+                The results are shown to the right, and they should purposefully
+                all look pretty similar ... the difference is in the code :-/</p>
+            <p>The HTML form is intended to provide an excuse for each of the
+                common HTML form elements, and is not meant to be taken seriously!</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/forms/f01.png"/>
+        </div>
+    </slide>
+
+    <slide title="Basic Form" layout="normal">
+        <div class="left">
+            <p>You could always build a form in pure HTML, right?</p>
+            <p>It doesn't get much simpler for our code:</p>
+            <code>$this->load->view("bob/p01");</code>
+        </div>
+        <div class="right">
+            <pre>
+                <code>
+&lt;h2&gt;Build Your Coffee &lt;img src="/images/logo.png"/&gt;&lt;/h2&gt;
+&lt;form method="post" action="/generating/showme"&gt;
+    Your name: &lt;input type="text" name="name"/&gt;&lt;br/&gt;
+    Size: &lt;input type="radio" name="size" value="sm" checked&gt; Small&lt;/input&gt;
+        &lt;input type="radio" name="size" value="md"/&gt; Medium
+        &lt;input type="radio" name="size" value="lg"/&gt; Large
+        &lt;input type="radio" name="size" value="hu"/&gt; Ludicrous&lt;br/&gt;
+    Cup composition: &lt;select name="cup"&gt;
+        &lt;option value="paper"&gt;Paper&lt;/option&gt;
+        &lt;option value="steel"&gt;Stainless&lt;/option&gt;
+        &lt;option value="glaze"&gt;Porcelain&lt;/option&gt;
+&lt;/select&gt;&lt;br/&gt;
+                    ...        </code>
+            </pre>
+        </div>
+    </slide>
+
+    <slide title="Use the HTML Helper" layout="normal">
+        <div class="left">
+            <p>CodeIgniter has an 
+                <a href="http://www.codeigniter.com/user_guide/helpers/html_helper.html" target="_blank">HTML helper</a>, 
+                which could simplify the
+                view a bit, but it doesn't do much for our code.</p>
+            <pre>
+                <code>
+$this->load->helper('html');
+$parms = array(
+    'heading' => heading('Build Your Coffee ' . img("images/logo.png"), 2)
+);
+$this->parser->parse("bob/p02", $parms);
+                </code>
+            </pre>
+            <p>Note that we are now using the template parser, for substitutions.</p>
+        </div>
+        <div class="right">
+            <pre>
+                <code>
+                    {heading}
+&lt;form method="post" action="/generating/showme"&gt;
+    Your name: &lt;input type="text" name="name"/&gt;&lt;br/&gt;
+    Size: &lt;input type="radio" name="size" value="sm" checked&gt; Small&lt;/input&gt;
+	&lt;input type="radio" name="size" value="md"/&gt; Medium
+	&lt;input type="radio" name="size" value="lg"/&gt; Large
+	&lt;input type="radio" name="size" value="hu"/&gt; Ludicrous&lt;br/&gt;
+    Cup composition: &lt;select name="cup"&gt;
+            &lt;option value="paper"&gt;Paper&lt;/option&gt;
+            &lt;option value="steel"&gt;Stainless&lt;/option&gt;
+            &lt;option value="glaze"&gt;Porcelain&lt;/option&gt;
+&lt;/select&gt;&lt;br/&gt;
+                    ...        </code>
+            </pre>
+        </div>
+    </slide>
+
+    <slide title="Use the Form Helper" layout="normal">
+        <div class="left">
+            <p>CodeIgniter has a <a href="http://www.codeigniter.com/user_guide/helpers/form_helper.html" target="_blank">Form helper</a> 
+                too, which let's us
+                have a substantially simpler view (shown below),
+                at the expense of code complexity (shown right).</p>
+            <pre>
+                <code>
+{heading}
+{theform}
+                 </code>
+            </pre>
+        </div>
+        <div class="right">
+            <pre>
+                <code>
+$this->load->helper(['html', 'form']);
+$forming = form_open("/generating/showme");
+$forming .= form_label('Your name: ');
+$forming .= form_input(['name' => 'name']) . br();
+$forming .= form_label('Size: ');
+$forming .= form_radio('size', 'sm') . form_label('Small');
+$forming .= form_radio('size', 'md') . form_label('Medium');
+$forming .= form_radio('size', 'lg', true) . form_label('Large');
+$forming .= form_radio('size', 'hu') . form_label('Ludicrous') . br();
+$forming .= form_label('Cup composition: ');
+$forming .= form_dropdown('cup', ['paper' => 'Paper', 'steel' => 'Stainless', 'glaze' => 'Porcelain']) . br();
+$forming .= form_label('Options? ');
+$forming .= form_checkbox('opt1', true, true) . ' Caramel sauce';
+$forming .= form_checkbox('opt2', false, false) . ' Sprinkles';
+$forming .= form_checkbox('opt3', true, true) . ' Ketchup' . br();
+                    ...        </code>
+            </pre>
+        </div>
+    </slide>
+
+    <slide title="Adding data" layout="normal">
+        <div class="left">
+            <p>Regardless of the general strategy, we want
+                to incorporate some data. I have setup a 
+                <code>$starter</code> object to work with, in
+                all of the forms.
+            </p>
+            <p>That could be used inside a controller, as an array:</p>
+            <pre>
+                <code>
+$record = (array) $this->starter;
+$recordParms = array(
+    'name' => $record['name'], 'checked-' . $record['size'] => 'checked',
+    'select-' . $record['cup'] => 'selected',
+    'checked-opt1' => $record['opt1'] ? 'checked' : '',
+    'checked-opt2' => $record['opt2'] ? 'checked' : '',
+    'checked-opt3' => $record['opt3'] ? 'checked' : '',
+    'extra' => $record['extra'], 'message' => $record['message']
+);
+$parms = array_merge($parms, $recordParms);
+$this->parser->parse("bob/p05", $parms);                     
+                </code>
+            </pre>
+        </div>
+        <div class="right">
+            <pre>
+                <code>
+&lt;form method="post" action="/generating/showme"&gt;
+    Your name: &lt;input type="text" name="name" value="{name}"/&gt;&lt;br/&gt;
+    Size: &lt;input type="radio" name="size" value="sm" {checked-sm}/&gt; Small
+        &lt;input type="radio" name="size" value="md" {checked-md}/&gt; Medium
+        &lt;input type="radio" name="size" value="lg" {checked-lg}/&gt; Large
+        &lt;input type="radio" name="size" value="hu" {checked-hu}/&gt; Ludicrous&lt;br/&gt;
+    Cup composition: &lt;select name="cup"&gt;
+        &lt;option value="paper" {select-paper}&gt;Paper&lt;/option&gt;
+        &lt;option value="steel" {select-steel}&gt;Stainless&lt;/option&gt;
+        &lt;option value="glaze" {select-glaze}&gt;Porcelain&lt;/option&gt;
+&lt;/select&gt;&lt;br/&gt;
+                    ...        </code>
+            </pre>
+        </div>
+    </slide>
+
+    <slide title="Data in Object Form" layout="normal">
+        <div class="left">
+            <p>The data could also be used, inside our controller,
+                as an object. The view would not change</p>
+            <pre>
+                <code>
+$record = $this->starter;
+// make view parms for it
+$recordParms = array(
+    'name' => $record->name, 'checked-' . $record->size => 'checked',
+    'select-' . $record->cup => 'selected',
+    'checked-opt1' => $record->opt1 ? 'checked' : '',
+    'checked-opt2' => $record->opt2 ? 'checked' : '',
+    'checked-opt3' => $record->opt3 ? 'checked' : '',
+    'extra' => $record->extra, 'message' => $record->message
+);
+// merge our view parms and go
+$parms = array_merge($parms, $recordParms);
+$this->parser->parse("bob/p05", $parms);                     
+                </code>
+            </pre>
+        </div>
+        <div class="right">
+            <pre>
+                <code>
+&lt;form method="post" action="/generating/showme"&gt;
+    Your name: &lt;input type="text" name="name" value="{name}"/&gt;&lt;br/&gt;
+    Size: &lt;input type="radio" name="size" value="sm" {checked-sm}/&gt; Small
+        &lt;input type="radio" name="size" value="md" {checked-md}/&gt; Medium
+        &lt;input type="radio" name="size" value="lg" {checked-lg}/&gt; Large
+        &lt;input type="radio" name="size" value="hu" {checked-hu}/&gt; Ludicrous&lt;br/&gt;
+    Cup composition: &lt;select name="cup"&gt;
+        &lt;option value="paper" {select-paper}&gt;Paper&lt;/option&gt;
+        &lt;option value="steel" {select-steel}&gt;Stainless&lt;/option&gt;
+        &lt;option value="glaze" {select-glaze}&gt;Porcelain&lt;/option&gt;
+&lt;/select&gt;&lt;br/&gt;
+                    ...        </code>
+            </pre>
+        </div>
+    </slide>
+
+    <slide title="Building Fields" layout="normal">
+        <div class="left">
+            <p>What does it look like when we use the Form helper
+                to build fields to pass as view parameters?</p>
+            <pre>
+                <code>
+$record = $this->starter;
+$parms = array(
+    'heading' => heading('Build Your Coffee ' . img("images/logo.png"), 2),
+    'fname' => 'Your name: ' . form_input(['name' => 'name'], $record->name) . br(),
+    'fsize' => form_label('Size: ') .
+        form_radio('size', 'sm', 'sm'==$record->size) . form_label('Small') .
+        form_radio('size', 'md', 'md'==$record->size) . form_label('Medium') .
+        form_radio('size', 'lg', 'lg'==$record->size) . form_label('Large') .
+        form_radio('size', 'hu', 'hu'==$record->size) . form_label('Ludicrous') . br(),
+    'fcup' => form_label('Cup composition: ') . form_dropdown('cup', 
+        ['paper' => 'Paper', 'steel' => 'Stainless', 'glaze' => 'Porcelain'], $record->cup) . br(),
+    'fopt1' => form_checkbox('opt1', 'sweet', $record->opt1) . ' Caramel sauce',
+                    ...              </code>
+            </pre>
+        </div>
+        <div class="right">
+            <pre>
+                <code>
+{heading}
+
+&lt;form method="post" action="/generating/showme"&gt;
+    {fname}
+    {fsize}
+    {fcup}
+    Options? {fopt1} {fopt2} {fopt3}
+    {fextra}
+    {fmessage}
+    {fsubmit}
 &lt;/form&gt;
-            </code>
-        </div>
-        <div class="right">
-            <p>The result of the form:</p>
-            <br/>
-            <img class="scale" width="462" height="176" src="/pix/lessons/5/5-2.png"/>
+                </code>
+            </pre>
         </div>
     </slide>
 
-    <slide title="Handling Input Traditionally" layout="normal">
-        <p>The traditional PHP approach to handling form input is to use
-            the <code>$_POST</code> superglobal, which gives access
-            to the form fields. This would look something like...
-        </p>
-        <code>
-            if (!empty($_POST['grade'])) {<br/>
-&#160;&#160;if (!empty($_POST['jungle'])) {<br/>
-&#160;&#160;&#160;&#160;if ($_POST['jungle']=="cheetah") { echo "You got the right answer!"; <br/>
-&#160;&#160;&#160;&#160;} else { echo "Sorry, wrong answer."; }<br/>
-&#160;&#160;} else { echo "You did not choose an answer."; }<br/>
-            } else { echo "Your answer will not be graded.";  }            
-        </code>
-    </slide>
-
-    <slide title="Handling Input Using CodeIgniter" layout="normal">
-        <p>CodeIgniter provides an <a href="http://www.codeigniter.com/userguide3/libraries/input.html"
-                                      target="_blank">
-                Input class</a> to do the same job.
-            The advantages of using it are input filtering, and easy access to input
-            data whether it came from a form or was part of the URL.
-            This would look something like...
-        </p>
-        <code>
-            if ($this-&gt;input-&gt;post('grade') !== false) {<br/>
-&#160;&#160;if ($this-&gt;input-&gt;post('jungle') !== false) {<br/>
-&#160;&#160;&#160;&#160;if ($this-&gt;input-&gt;post('jungle')=="cheetah") { echo "You got the right answer!"; <br/>
-&#160;&#160;&#160;&#160;} else { echo "Sorry, wrong answer."; }<br/>
-&#160;&#160;} else { echo "You did not choose an answer."; }<br/>
-            } else { echo "Your answer will not be graded.";  }            
-        </code>
-    </slide>
-
-    <slide title="What About Error Handling?" layout="normal">
-        <p>CodeIgniter provides a <a href="http://www.codeigniter.com/userguide3/libraries/form_validation.html"
-                                     target="_blank">
-                Form Validation class</a> to do this.
-            A sample excerpt using this would look something like...
-        </p>
-        <code>
-            $this-&gt;form_validation-&gt;set_rules('passconf', 'Password Confirmation', 'required');<br/>
-            $this-&gt;form_validation-&gt;set_rules('email', 'Email', 'required');<br/>
-            <br/>
-            if ($this-&gt;form_validation-&gt;run() == FALSE) {
-&#160;&#160;$this-&gt;load-&gt;view('myform');<br/>
-            } else {<br/>
-&#160;&#160;                        $this-&gt;load-&gt;view('formsuccess');<br/>
-            }
-        </code>
-    </slide>
-
-    <slide title="What About Creating the Form?" layout="normal">
-        <p>An input form can be pretty simple, but ugly ... see below.</p>
+    <slide title="Use Our Own Helper" layout="normal">
         <div class="left">
-            <br/>
-            <img class="scale" width="373" height="288" src="/pix/lessons/5/5-4.png"/>
+            <p>You might feel that the form helper is a bit clunky.
+                You could always use a custom form helper...</p>
+            <pre>
+                <code>
+$record = $this->starter;
+$parms = array(
+    'heading' => heading('Build Your Coffee ' . img("images/logo.png"), 2),
+    'fname' => makeTextField('Your name: ','name', $record->name),
+    'fsize' => makeRadioButtons('Size: ', 'size', $record->size, 
+        ['sm'=>'Small', 'md'=>'Medium', 'lg'=>'Large', 'hu'=>'Ludicrous']),
+    'fcup' => makeCombobox('Cup composition: ', 'cup', $record->cup, 
+        ['paper' => 'Paper', 'steel' => 'Stainless', 'glaze' => 'Porcelain']),
+    'fopt1' => makeCheckbox('Caramel sauce', 'opt1', $record->opt1),
+    'fopt2' => makeCheckbox('Sprinkles','opt2', $record->opt2),
+...              </code>
+            </pre>
         </div>
         <div class="right">
-            <br/>
-            <img class="scale" width="815" height="139" src="/pix/lessons/5/5-3.png"/>
+            <pre>
+                <code>
+{heading}
+
+&lt;form method="post" action="/generating/showme"&gt;
+    {fname}
+    {fsize}
+    {fcup}
+    Options? {fopt1} {fopt2} {fopt3}
+    {fextra}
+    {fmessage}
+    {fsubmit}
+&lt;/form&gt;
+                </code>
+            </pre>
         </div>
     </slide>
 
-    <slide title="Styling the Form?" layout="normal">
-        <p>The form can always be styled to look better, but that can get
-            complicated, as shown below. Wait until next week's lesson :)</p>
+    <slide title="Creating Forms" layout="normal">
         <div class="left">
-            <p>Your HTML...</p>
-            <code style="font-size:50%">
-&lt;label for="name"&gt;Name&lt;/label&gt; <br/>
-&lt;input name="name" type="text" id="name" class="textfield" /&gt; <br/>
-                <br/>
-&lt;label for="phone"&gt;Phone&lt;/label&gt; <br/>
-&lt;input name="phone" type="text" id="phone" class="textfield" /&gt; <br/>
-                <br/>
-&lt;label for="email"&gt;Email Address&lt;/label&gt; <br/>
-&lt;input name="email" type="text" id="email" class="textfield" /&gt;
-            </code>
+            <p>What can we take away from all of this?</p>
+            <p>There are lots of techniques/strategies that make
+                building forms easy.</p>
+            <p>Can you guess which technique I use?</p>
         </div>
         <div class="right">
-            <p>The accompanying CSS...</p>
-            <code style="font-size:50%">
-                label {<br/>
-&#160;&#160;clear: left; float: left;<br/>
-&#160;&#160;padding: 3px 10px 2px; text-align: right; width: 180px;<br/>
-                }<br/>
-                .textfield, .textarea, .selectlist {<br/>
-&#160;&#160;font-family: Arial,Helvetica,sans-serif;<br/>
-&#160;&#160;font-size: 12px; margin: 0 0 8px; width: 250px;<br/>
-                }                
-            </code>
+            <br/>
+            <img class="scale" src="/pix/lessons/forms/f03.png"/>
         </div>
     </slide>
 
-    <slide title="Making Forms With CodeIgniter" layout="normal">
-        <p>CodeIgniter provides a <a href="http://www.codeigniter.com/userguide3/helpers/form_helper.html"
-                                     target="_blank">
-                Form Helper</a> to make this a bit easier.
-            This would look something like...
-        </p>
-        <code>
-&lt;?php<br/>
-            echo form_open('#');<br/>
-            echo form_fieldset('Personal information:');<br/>
-            $parms = array('name'=&gt;'name','size'=&gt;30);<br/>
-            echo 'Name: ' . form_input($parms) . '&lt;br/&gt;';  <br/>
-            $parms = array('name'=&gt;'email','size'=&gt;30);<br/>
-            echo 'E-mail: ' . form_input($parms) . '&lt;br/&gt;';  <br/>
-            $parms = array('name'=&gt;'born','size'=&gt;10);<br/>
-            echo 'Date of birth: ' . form_input($parms) . '&lt;br/&gt;';  <br/>
-            echo form_fieldset_close();<br/>
-            echo form_close();<br/>
-            ?&gt;<br/>
-            ...
-        </code>
-        <p>There are better ways, which we will explore next week, so don't 
-            get hung up on this as *the way* to create forms!</p>
-    </slide>
-
-    <slide title="2. DATA TRANSFER BUFFER" layout="normal" tag="tag2">
-        <p>The "data transfer buffer" design pattern says that you use a session
-            object (associative array, in our case) to hold field values for
-            form handling.</p>
-        <p>If a form was intended to hold a customer record, for instance,
-            then you might use the "record" session object to hold a
-            record's values during processing. You would update this
-            to record in-progress input, so that the user does not
-            have to re-enter a form from scratch if they make
-            a mistake and you reject their input.</p>
-    </slide>
-
-    <slide title="Data Transfer Buffer Pseudo-code" layout="normal">
-        <p>Generally speaking, the logic to apply this pattern
-            looks like...</p>
-        <div class="left">
-            <p>Form presenting:<br/>
-                <ul>
-                    <li>if no session object
-                        <ul>
-                            <li>create an empty one if adding a new record</li>
-                            <li>create one with existing data if updating</li>
-                        </ul>
-                    </li>
-                    <li>get the session object</li>
-                    <li>forward its values as view parameters</li>
-                </ul>
-            </p>
-        </div>
-        <div class="right">
-            <p>Form handling:<br/>
-                <ul>
-                    <li>retrieve the session object, and 
-                        merge the posted data into it</li>
-                    <li>validate the updated record</li>
-                    <li>if the data is valid, update your database and 
-                        destroy the session object</li>
-                    <li>if the data isn't valid, update the session object,
-                        add error messages to the session and 
-                        redisplay the form</li>
-                </ul>
-            </p>
-        </div>
-    </slide>
-
-    <slide title="Sessions" layout="normal">
-        <p>The "data transfer buffer" design pattern relies on sessions,
-            which are handled in CodeIgniter using the
-            <a href="http://www.codeigniter.com/userguide3/libraries/sessions.html"
-               target="_blank">
-                Session library</a>, which is a wrapper for PHP's
-            native sessions.</p>
-        <p>Think of a session as a container for key/value pairs,
-            like a <code>java.util.Map</code>
-        </p>
-        <p>You will want to configure the sessions properly, using
-            a database session driver. The SQL to create this is in the
-            user guide, referenced above.</p>
-        <p>Autoload your session library!</p>
-    </slide>
-
-    <slide title="Getting Session Data" layout="normal">
-        <p>Session data can be retrieved several different ways, using
-            the native provisions or using the Session library.</p>
-        <p>To retrieve a "record" stored in a session, <ul>
-                <li>
-                    <code>$record = $_SESSION['record']; // use the PHP superglobal</code>, or
-                </li>
-                <li>
-                    <code>$record = $this-&gt;session-&gt;record; // use PHP's magic getter</code>, or
-                </li>
-                <li>
-                    <code>$record = $this-&gt;session&gt;userdata('record'); // use the Session library</code>
-                </li>
-            </ul>
-        </p>
-        <p>The <code>userdata()</code> method returns NULL if the requested 
-            entry is not in the session, while the other techniques will trigger 
-            a PHP error.</p>
-    </slide>
-
-    <slide title="Setting Session Data" layout="normal">
-        <p>Session data can be set several different ways, using
-            the native provisions or using the Session library.</p>
-        <p>To store a "record" as a session property, <ul>
-                <li>
-                    <code> $_SESSION['record'] = $record; // use the PHP superglobal</code>, or
-                </li>
-                <li>
-                    <code>$this-&gt;session-&gt;record = $record;  // use PHP's magic setter</code>, or
-                </li>
-                <li>
-                    <code>$this-&gt;session&gt;set_userdata('record',$record); // use the Session library</code>
-                </li>
-            </ul>
-        </p>
-    </slide>
-
-    <slide title="Session Flashdata" layout="normal">
-        <p>The CodeIgniter Session library also supports the notion of 
-            "flashdata", which is a session property that only exists
-            until the next request. This could be a great way to hold
-            error messages, or to hold tokens used to make sure that
-            a form isn't submitted and handled twice.</p>
-        <p>Retrieve flashdata just like any other session data.</p>
-        <p>To set a flashdata property in a session, <ul>
-                <li>
-                    <code>$this-&gt;session-&gt;set_flashdata('errors', $error_messages); // use the Session library</code>, or
-                </li>
-                <li>
-                    <code>$_SESSION['errors'] = $error_messages; // save the property normally<br/>
-                        $this-&gt;session-&gt;mark_as_flash('errors'); // and flag it as flashdata</code>
-                </li>
-            </ul>
-        </p>
-    </slide>
 
 </lesson>

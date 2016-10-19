@@ -2,7 +2,7 @@
 <!--
 Views - everything else
 -->
-<lesson status="1.1">
+<lesson status="1.2">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <!-- Agenda -->
@@ -12,7 +12,7 @@ Views - everything else
                 <a href="#{tag1}">File Uploading</a>
             </li>
             <li>
-                <a href="#{tag2}">Markdown</a>
+                <a href="#{tag2}">Security (XSS)</a>
             </li>
             <li>
                 <a href="#{tag3}">Loose Ends</a>
@@ -105,51 +105,21 @@ Views - everything else
 
     </slide>
 
-    <slide title="2. MARKDOWN" layout="normal" tag="tag2">
-        <div class="left">
-            <p>Not everyone is using HTML to construct the content pages
-                in their webapp/site. Many content authors are using
-                "markdown", which gets translated into HTML using an
-                appropriate tool. Many developers find this an
-                attractive alternative to learning or worrying about
-                HTML.</p>
-            <p>This webapp does this for some things, using 
-                <a href="http://parsedown.org" target="_blank">Parsefown</a> converted
-                into a CodeIgniter library.
-            </p>
-        </div>
-        <div class="right">
-            <p>For instance, this markdown excerpt:<br/>
-                <code>
-                    ## Do We need a database?<br/>
-
-                    The data you work with will be 
-                    "mock data" that you create...
-                </code>
-            </p>
-            <p>Renders as:</p>
-            <img class="scale" src="/pix/lessons/views/v23.png"/>
-        </div>
+    <slide title="2. SECURITY (XSS)" layout="normal" tag="tag2">
+        <p>Check the 
+            <a href="http://www.codeigniter.com/userguide3/libraries/security.html"
+               target="_blank">
+                security class</a> in CI … 
+            it is meant to block cross-site scripting attempts, 
+            or inappropriate filenames.</p>
+        <p>Another approach: use the <code>htmlentities</code> and the 
+            <code>html_entity_decode</code> PHP functions to convert 
+            applicable characters to HTML entities instead.
+            This would prevent someone from injecting a JS exploit 
+            into a text area, for instance.</p>
     </slide>
 
-    <slide title="Combining Construction Strategies?" layout="normal">
-        <p>The "traditional" approach is marginally more efficient, with
-            one less layer of computation compared to using the template
-            parser, but you end up with PHP scriptlets mixed up with HTML
-            in your view. All iteration is done in the view, and the view
-            accesses the model. This is <b>bad</b>.</p>
-        <p>The "template parser" approach has a much cleaner view,
-            with substitution fields and no PHP. Iteration, however,
-            appears in both the controller and the view. The controller part of
-            the iteration results in building
-            an associative array of associative arrays, which is not comfortable 
-            for everyone!</p>
-        <p>The "view fragment" approach has the simplest views, but
-            at the expense of some complexity in the controller.</p>
-        <p>All of these are *legal*, but the first will cost you marks!</p>
-    </slide>
-
-     <slide title="3. LOOSE ENDS" layout="normal" tag="tag3">
+    <slide title="3. LOOSE ENDS" layout="normal" tag="tag3">
         <p>What about some of the slick forms widgets? 
             (date pickers, smart fields, etc)</p>
         <p>Most CSS frameworks use jQuery (or similar), 
@@ -177,18 +147,5 @@ Views - everything else
             are part of your PHP configuration.</p>
     </slide>
 
-    <slide title="Cross Site Scripting (XSS)!" layout="normal">
-        <p>Check the 
-            <a href="http://www.codeigniter.com/userguide3/libraries/security.html"
-               target="_blank">
-                security class</a> in CI … 
-            it is meant to block cross-site scripting attempts, 
-            or inappropriate filenames.</p>
-        <p>Another approach: use the <code>htmlentities</code> and the 
-            <code>html_entity_decode</code> PHP functions to convert 
-            applicable characters to HTML entities instead.
-            This would prevent someone from injecting a JS exploit 
-            into a text area, for instance.</p>
-    </slide>
 
 </lesson>

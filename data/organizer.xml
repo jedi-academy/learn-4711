@@ -87,8 +87,9 @@ Course organizer for Comp4711
 		<topic>Forms Handling</topic>
 		<outcomes>1.2 (views), 3</outcomes>
 		<inlab>#6 Model CRUD</inlab>
-		<lesson name="basic04-forms"  survey="258884" icon="dothis" active="n">Form handling</lesson>
-		<lesson name="basic04-left" active="n" >View Leftovers</lesson>
+		<lesson name="basic04-forms"  survey="258884" icon="dothis" >Creating Forms</lesson>
+		<lesson name="basic04-handling" >Handling Form Data</lesson>
+		<lesson name="basic04-leftovers"  active="n">Other Form Techniques</lesson>
 <!--		<lesson name="week07" icon="read">Survey results</lesson>
 		<lesson name="other-forms" icon="read">Form examples from  other frameworks (optional)</lesson> -->
 		<lab name="lab05">Kaleidoscope</lab>
