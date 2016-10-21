@@ -365,10 +365,7 @@ row is odd or even. That could by injecting that property into the
         $result = '';
         $oddrow = true;
         foreach ($this->categories->all() as $category) {
-            $viewparms = array(
-                'direction' => ($oddrow ? 'left' : 'right')
-            );
-            $viewparms = array_merge($viewparms,$category);
+            $category->direction = ($oddrow ? 'left' : 'right');
             $result .= $this->parser->parse('category-home', $category, true);
             $oddrow = ! $oddrow;
         }
