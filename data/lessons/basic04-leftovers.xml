@@ -12,7 +12,7 @@ Views - everything else
                 <a href="#{tag1}">File Uploading</a>
             </li>
             <li>
-                <a href="#{tag2}">Security (XSS)</a>
+                <a href="#{tag2}">Security</a>
             </li>
             <li>
                 <a href="#{tag3}">Loose Ends</a>
@@ -39,7 +39,8 @@ Views - everything else
 
     <slide title="Traditional File Uploading" layout="normal">
         <p>With traditional PHP, uploaded files are accessed through the
-            <code>$_FILES</code> superglobal.</p>
+            <code>$_FILES</code> superglobal. The <code>"file"</code>
+        index below is the input form name you used for a file to upload.</p>
         <ul>
             <li>
                 <code>$_FILES["file"]["name"]</code> - the name of 
@@ -58,7 +59,6 @@ Views - everything else
                 resulting from the file upload</li>
         </ul>
         <p>You provide error-checking.</p>
-        <p>Handling multiple file uploads is a topic for another day.</p>
     </slide>
 
     <slide title="Saving An Uploaded File" layout="normal">
@@ -68,6 +68,30 @@ Views - everything else
 &#160;&#160;$target_folder . $_FILES["file"]["name"]);</code>
         <p>You are responsible for proper file naming, for instance replacing 
             spaces or undesirable characters with underscores.</p>
+            <p>For example, if you wanted to save the file associated with
+                the input field <code>avatar</code>, into a <code>data</code>
+            folder inside your project, using the same name as
+                the original file, you might:</p>
+            <code>move_uploaded_file($_FILES['avatar']['tmp_name'], 
+            FCPATH . '../data/' . $_FILES['avatar']['name']);</code>
+    </slide>
+
+    <slide title="Uploading Multiple Files" layout="normal">
+        <p>If you want to upload multiple files, add a file input
+            element for each to your HTML form, and then server-side
+            you can cycle through the elements of the <code>$_FILES</code>
+            variable. Each of its elements will contain an associative
+            array of metadata about a single uploaded file.</p>
+        <pre><code>// Cycle through the uploaded files
+        foreach ($_FILES as $which => $metadata {
+            // $which tells us which form field this upload is for
+            // $metadata has name, type, size, etc elements
+            $file = $metatadata['tmp_name'];
+            perform_any_image_resizing_for_example($file);
+            move_uploaded_file($metadata['tmp_name'], FCPATH . '../data/' . $metadata['name']);
+        }
+        </code>
+        </pre>
     </slide>
 
     <slide title="File Uploading With CodeIgniter" layout="normal">
@@ -77,23 +101,23 @@ Views - everything else
                 File Uploading library</a> to make the job easier.</p>
         <p>The user guide explanation is a bit clunky, but
             the gist is...</p>
-        <code style="font-size:50%">
-            public function do_upload() {<br/>
-&#160;&#160;$config['upload_path']          = './uploads/';
-            $config['allowed_types']        = 'gif|jpg|png';
-            $config['max_size']             = 100;<br/>
-&#160;&#160;$config['max_width']            = 1024;
-            $config['max_height']           = 768;<br/>
-&#160;&#160;$this-&gt;load-&gt;library('upload', $config);<br/>
-&#160;&#160;if ( ! $this-&gt;upload-&gt;do_upload()) {<br/>
-&#160;&#160;&#160;&#160;$error = array('error' =&gt; $this-&gt;upload-&gt;display_errors());<br/>
-&#160;&#160;&#160;&#160;$this-&gt;load-&gt;view('upload_form', $error);<br/>
-&#160;&#160;} else {<br/>
-&#160;&#160;&#160;&#160;$data = array('upload_data' =&gt; $this-&gt;upload-&gt;data());<br/>
-&#160;&#160;&#160;&#160;$this-&gt;load-&gt;view('upload_success', $data);<br/>
-&#160;&#160;}<br/>
-            }                    
-        </code>
+        <pre><code>
+public function do_upload() {
+    $config['upload_path']          = '../uploads/';
+    $config['allowed_types']        = 'gif|jpg|jpeg|png';
+    $config['max_size']             = 100; // KB
+    $config['max_width']            = 1024;
+    $config['max_height']           = 768;
+    $this-&gt;load-&gt;library('upload', $config);
+    if ( ! $this-&gt;upload-&gt;do_upload()) {
+        $error = array('error' =&gt; $this-&gt;upload-&gt;display_errors());
+        $this-&gt;load-&gt;view('upload_form', $error);
+    } else {
+        $data = array('upload_data' =&gt; $this-&gt;upload-&gt;data());
+        $this-&gt;load-&gt;view('upload_success', $data);
+    }
+}                    
+       </code></pre>
     </slide>
 
     <slide title="File Uploading Widgets" layout="normal">
@@ -105,46 +129,162 @@ Views - everything else
 
     </slide>
 
-    <slide title="2. SECURITY (XSS)" layout="normal" tag="tag2">
-        <p>Check the 
+    <slide title="2. SECURITY" layout="normal" tag="tag2">
+        <p>Security is only important if you want to keep your job or client :-/</p>
+        <p>Server-side code (like your webapp) needs to be bulletproof!</p>
+        <p>In this context, bulletproof means that you have provided for
+            preventing or recovering from known security vulnerabilities.</p>
+        <p>You already saw the <a href="http://www.codeigniter.com/userguide3/general/common_functions.html#html_escape"
+                                  target="_blank">
+                <code>html_escape()</code>
+            </a> common function, which replaces data values with corresponding entities
+            before presentation...</p>
+        <code>html_escape($email_address)</code> or <code>html_escape($this->parms);</code>
+    </slide>
+    
+    <slide title="Security Library - XSS" layout="normal">
+        <p>CodeIgniter's 
             <a href="http://www.codeigniter.com/userguide3/libraries/security.html"
                target="_blank">
-                security class</a> in CI … 
-            it is meant to block cross-site scripting attempts, 
+                security library</a> provides methods to address two common
+            vulnerabilities: <a href="https://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank">XSS</a> and
+            <a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery" target="_blank">CSRF</a>.</p>
+        <p>The <a href="http://www.codeigniter.com/userguide3/libraries/security.html#CI_Security::xss_clean">
+                <code>xss_clean(...)</code>
+            </a> 
+            method is meant to sanitize incoming data,
+            for instance something that is intended to be stored in
+            a database for later retrieval and presentation. 
+            It is meant to block cross-site scripting attempts, 
             or inappropriate filenames.</p>
-        <p>Another approach: use the <code>htmlentities</code> and the 
-            <code>html_entity_decode</code> PHP functions to convert 
-            applicable characters to HTML entities instead.
-            This would prevent someone from injecting a JS exploit 
-            into a text area, for instance.</p>
+        <p>Example: <code>$data = $this->security->xss_clean($data);</code></p>
+        <p>If you are storing HTML directly in an RDB table, for instance for
+            a CMS-like application, you need additional measures, such as
+            restricting access to the online editing of such fields.
+            A better idea might be to store such data as XML fragments or documents,
+            and to validate those properly.</p>
     </slide>
 
-    <slide title="3. LOOSE ENDS" layout="normal" tag="tag3">
-        <p>What about some of the slick forms widgets? 
-            (date pickers, smart fields, etc)</p>
-        <p>Most CSS frameworks use jQuery (or similar), 
-            and there are lots of plugins/gadgets/widgets for them.</p>
-        <p>Be patient, young padawans... this is next week's lesson</p>
+    <slide title="Security Library - CSRF" layout="normal">
+        <div class="left">
+            <p>The Security library has 
+                <a href="http://www.codeigniter.com/userguide3/libraries/security.html#cross-site-request-forgery-csrf" target="_blank">protection 
+                    against cross-site request forgery attacks</a>,
+                with methods to generate and retrieve synchronizer tokens.</p>
+            <p>Properly configured, incoming requests will be automatically
+                verified, and a 403 returned if needed.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/bob/csrf.jpg"/>
+        </div>
+    </slide>
+
+   <slide title="3. LOOSE ENDS" layout="normal" tag="tag3">
+        <p>The following slides present some useful techniques
+        that don't fir in elsewhere.</p>
     </slide>
 
     <slide title="Menu Item Highlighting" layout="normal">
+        <div class="left">
         <p>Menu item highlighting is CSS framework dependent.
             Generally, add “active” class to the "current" item</p>
         <p>The general idea is something like:</p>
         <code>
-            foreach($menuitems as $item) {<br/>
+foreach($menuitems as $item) {<br/>
+&#160;&#160;// is this the current page?<br/>
 &#160;&#160;$active = $item-&gt;link == $this-&gt;uri-&gt;segment(0);<br/>
-&#160;&#160;$thelist .= make_menu_item($item...,$active);<br/>
-            }</code>
+&#160;&#160;// your menu maker should adjust the list item appropriately<br/>
+&#160;&#160;$thelist .= make_menu_item($item...,$active); <br/>
+}</code>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/bob/highlight.png"/>
+        </div>
     </slide>
 
     <slide title="Image Handling" layout="normal">
-        <p>If you want to mess with images, for instance creating thumbnails, 
-            that is usually done with a library, and not necessarily as
-            part of image uploading (though it could be).
-            See libraries/simpleimage for an example.</p>
-        <p>Caution: make sure that any graphics libraries you need 
-            are part of your PHP configuration.</p>
+        <div class="left">
+            <p>If you want to mess with images, for instance creating thumbnails, 
+                that is usually done with a library, and not necessarily as
+                part of image uploading (though it could be).</p>
+            <p>CodeIgniter has a pretty generic 
+                <a href="http://www.codeigniter.com/userguide3/libraries/image_lib.html" target="_blank">Image 
+                    Manipulation library</a>,
+                which supports resizing, cropping, rotation and watermarking,
+                but you might want to investigate third party
+                tools for more capabilities.</p>
+            <p>Caution: make sure that any graphics libraries you need 
+                are part of your PHP configuration.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/bob/resizing.jpg"/>
+        </div>
+    </slide>
+
+    <slide title="Email" layout="normal">
+        <div class="left">
+            <p>A common part of form handling is sending an email confirmation
+                of actions taken. CodeIgniter provides an 
+                <a href="http://www.codeigniter.com/userguide3/libraries/email.html">Email library</a> to help with
+                sending mail from an application. It is configured
+                in <code>application/config/config.php</code>.
+            If you have to provide credentials to send mail,
+                remember to keep any config files with passwords in
+                a subfolder of <code>application/config</code>,
+                the same as with database configuration.</p>
+            <p>There are lots of email issues on the CI forum, and many
+                developers recommend using a third party service, such as
+                <a href="http://swiftmailer.org/" target="_blank">SwiftMailer</a>.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/bob/smtp.png"/>
+        </div>
+    </slide>
+
+    <slide title="Scaffolding" layout="normal">
+        <div class="left">
+            <p>Some developers like the idea of "scaffolding",
+            namely generating views and forms under program
+            control, from database tables. This *could* be
+                useful for prototyping, or to keep a webapp's
+                code as simple as possible.</p>
+                <p>CodeIgniter has no provision for this, but there
+                are third party tools to address it, one
+                    example being <a href="http://www.grocerycrud.com/">GroceryCRUD</a>.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <pre><code>
+$crud = new grocery_CRUD();
+ 
+// Seriously! This is all the code you need!
+$crud->set_table('customers');
+$crud->set_subject('Customer');
+ 
+$output = $crud->render();                     
+            </code>
+            </pre>
+        </div>
+    </slide>
+
+    <slide title="Shopping Cart" layout="normal">
+        <div class="left">
+            <p>CodeIgniter has a Shopping Cart class, but it
+                is deprecated, i.e. not supported and planned to be
+                removed in the next major framework update.
+            </p>
+        <p>There is no single shopping cart package that works for everyone,
+            and you are better off looking at alternatives, such as
+        <a href="https://gocartdv.com/" target="_blank">GoCart</a>.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/bob/shopping.jpg"/>
+        </div>
     </slide>
 
 

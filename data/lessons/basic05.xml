@@ -2,26 +2,26 @@
 <!--
 Lesson 06 - Helpers & Addons
 -->
-<lesson status="final">
+<lesson status="v1.1">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <!-- Agenda -->
     <slide title="Agenda" layout="normal">
         <ol>
             <li>
-                <a href="#{tag1}">Building on CodeIgniter</a>
+                <a href="#{tag1}">Working With CodeIgniter</a>
             </li>
             <li>
-                <a href="#{tag2}">A CodeIgniter Library (Caboose)</a>
+                <a href="#{tag2}">Working With Libraries</a>
             </li>
             <li>
-                <a href="#{tag3}">A CodeIgniter Helper (formfields)</a>
+                <a href="#{tag3}">Working With Helpers</a>
             </li>
             <li>
-                <a href="#{tag4}">A CodeIgniter Package</a>
+                <a href="#{tag4}">Working With Packages</a>
             </li>
             <li>
-                <a href="#{tag5}">Package Management</a>
+                <a href="#{tag5}">Dependency Management</a>
             </li>
         </ol>
     </slide>
@@ -29,18 +29,23 @@ Lesson 06 - Helpers & Addons
 
     <!-- Normal slides -->
 
-    <slide title="1. BUILDING ON CODEIGNITER" layout="normal" tag="tag1">
-        <p>So far, your webapp has been assembled using controllers.
-            models and views. Helpers and libraries are two other
-            kinds of components you can use in a CI webapp.</p>
-        <p>CodeIgniter also has the notion of packages,
-            which are larger sets of the above kinds of comnponents.</p>
+    <slide title="1. WORKING WITH CODEIGNITER" layout="normal" tag="tag1">
+        <p>So far, your webapp has been assembled using components appropriate 
+            to your webapp's usecases. These include controllers,
+            models and views, naturally. You have also used some helpers and 
+            libraries, either built-in (such as the form validation library)
+            or added from other sources (such as the formfields helper).</p>
+        <p>In this lesson, we shall take a closer look at libraries and helpers,
+            and at some of the other ways to build on the framework
+            to make a better webapp.</p>
     </slide>
 
     <slide title="Loading Components" layout="normal">
+        <p>Building on CodeIgniter requires a good understanding of how it
+            finds and loads components.</p>
         <p>When CodeIgniter loads components, it looks
-            first in the appropriate subfolder inside
-            <code>application</code>, and then in the
+            first in the appropriate subfolder inside your
+            <code>application</code> folder, and then in the
             appropriate subfolder inside the framework's
             <code>system</code> folder.
         </p>
@@ -54,85 +59,88 @@ Lesson 06 - Helpers & Addons
             deploying on *nix!</p>
     </slide>
 
-    <slide title="Helper Basics" layout="normal">
-        <div class="left">
-            <p>Helpers are files that contain one or more procedural functions.
-                A number of them are built into CodeIgniter, as shown in the
-                folder list to the right.</p>
-            <p>Helpers can be explicitly loaded, as in
-                <code>$this->load->helper('whatever');</code>,
-                or they can be autoloaded in <code>application/config/autoload.php</code>,
-                for instance <code>$autoload['helper'] = array('url');</code>.
-                Use the name of the helper without the extension.
-            </p>
-            <p>Helper functions are not O-O, but they are simpler
-                than having classes with static methods and referring to those.</p>
-        </div>
-        <div class="right">
-            <br/>
-            <img class="scale" width="575" height="136" src="/data/lessons/pix/6/6-1.png"/>
-        </div>
+    <slide title="Loaded Components" layout="normal">
+        <p>CodeIgniter maintains a list of unique loaded
+            classes, regardless of where they came from.
+            This means that you cannot have a controller
+            and a model with the same class name, as the
+            first to be loaded will be returned whenever
+            you ask for either. This problem is addressed
+            in PHP by using namespaces and/or fully qualified
+            classnames, as in Java - that will not be properly
+            exploited in CI until version 4.</p>
+        <p>If a requested class is not in CI's loaded class list,
+            it will attempt to locate it and instantiate one.</p>
     </slide>
 
-    <slide title="Writing Helpers" layout="normal">
-        <div class="left">
-            <p>Each helper file is meant to hold a set of *related* functions.</p>
-            <p>One good practice is to ensure that helpers cannot be loaded
-                outside the context of CodeIgniter. This is done by making sure that
-                the <code>BASEPATH</code> constant is defined.</p>
-            <p>Another good practice, with functions, is to make sure they are not
-                already defined (which would trigger a PHP error). This is done
-                using the <code>function_exists</code> function built into PHP.</p>    
-        </div>
-        <div class="right">
-            <p>A typical helper excerpt...<br/>
-                <code>
-&lt;?php<br/>
-                    defined('BASEPATH') OR exit('No direct script access allowed');<br/>
-                    <br/>
-                    if ( ! function_exists('do_something_useful')) {<br/>
-&#160;&#160;function do_something_useful(...) {<br/>
-&#160;&#160;&#160;&#160;...<br/>
-&#160;&#160;}<br/>
-                    }
-                </code>
-            </p>
-        </div>
+    <slide title="Finding Components" layout="normal">
+            <p>In the case of O-O classes without inheritance, 
+                CodeIgniter will check 
+                inside <code>application/xxx</code> folder, and then in 
+                <code>system/xxx</code>, where "xxx" is the kind of
+                component you are loading.</p>
+            <p>In the case of an O-O class which extends another
+                class of yours, the superclass needs to be loaded first.</p>
+            <p>In the case of an O-O class which extends one of CI's
+                classes, CI will automatically look for the superclass
+                in the <code>system/xxx</code> folder.</p>
     </slide>
 
-    <slide title="Extending Built-In Helpers" layout="normal">
-        <div class="left">
-            <p>You can replace functions in a built-in helper, or add
-                your own to them, by "extending" the helper.</p>
-            <p>Create a helper named the same as the one you
-                want to enahnce, but with the subclass prefix (<code>MY_</code>),
-                and in your application/helpers folder.</p>
-            <p>It will automatically be loaded before the built-in
-                helper, and any functions you define will be used in
-                preference to the built-in ones.</p>
-        </div>
-        <div class="right">
-            <p>In application/helpers/MY_foo_helper.php: <br/>
-                <code>
-                    function a() {...}<br/>
-                    function b() {...}</code>
+    <slide title="Extending Core CI Components" layout="normal">
+            <p>CodeIgniter provides its own way to extend framework
+                components. In the case of 
+                <a href="http://www.codeigniter.com/user_guide/general/core_classes.html">"core" components</a>,
+                your extensions go inside <code>application/core</code>,
+                as you have seen with our base controller and base model.
             </p>
-            <p>In system/helpers/foo_helper.php: <br/>
-                <code>
-                    function a() {...}<br/>
-                    function c() {...}</code>
+            <p>If you are replacing a core component with one of
+            your own, it needs to be named with the "CI_" prefix.
+                For example, <code>CI_Security</code> replaces the
+                built-in "Security" component, automatically.
             </p>
-            <p>In your controller using "foo": <br/>
-                <code>
-                    $this->load->helper('foo');</code>
-                <br/>
-                functions a and b come from your code, while function c comes from the built-in.
+            <p>If you are extending a core component, with over-riding
+            methods, yours would use the "MY_" prefix and it would
+            extend the built-in one with the "CI_" prefix.
+                For example, <code>MY_Security</code> would extend
+                <code>CI_Security</code>, and would be expected to
+                over-ride one or more methods.
             </p>
-
-        </div>
+            <p>
+                <strong>Do NOT modify source code inside the <code>system</code> folder!</strong>
+            </p>
     </slide>
 
-    <slide title="Library Basics" layout="normal">
+    <slide title="Extending Non-Core CI Components" layout="normal">
+            <p>Non-core CodeIgniter components can be 
+                <a href="http://www.codeigniter.com/user_guide/general/creating_libraries.html">extended similarly</a> to
+                core components, except using the <code>application/libraries</code>
+                folder.
+            </p>
+            <p>If you are replacing a CI component with one of
+            your own, it needs to be named with the "CI_" prefix.
+                For example, <code>CI_Pagination</code> replaces the
+                built-in "Pagination" component, automatically.
+            </p>
+            <p>If you are extending a CI component, with over-riding
+            methods, yours would use the "MY_" prefix and it would
+            extend the built-in one with the "CI_" prefix.
+                For example, <code>MY_Pagination</code> would extend
+                <code>CI_Pagination</code>, and would be expected to
+                over-ride one or more methods.
+            </p>
+            <p>
+                The cool thing here is that you still refer to the CI component name.
+                For example, <code>$this->load->library('pagination')</code>
+                will automatically load <code>application/libraries/MY_Pagination</code>,
+                <code>application/libraries/CI_Pagination</code>, or
+                <code>system/libraries/CI_Pagination</code>, as appropriate :)
+            </p>
+            <p>
+                <strong>Do NOT modify source code inside the <code>system</code> folder!</strong>
+            </p>
+    </slide>
+
+    <slide title="2. Working With Libraries" layout="normal" tag="tag2">
         <div class="left">
             <p>Libraries are files that contain class definitions - 
                 usually one per file.</p>
@@ -142,20 +150,21 @@ Lesson 06 - Helpers & Addons
                 for instance <code>$autoload['libraries'] = array('parser');</code>.
             </p>
             <p>Library functions are O-O.</p>
+            <p>The image to the right shows the libraries built-in to CodeIgniter.
+            Some of the names show in blue - those use app-configured drivers
+            to do their thing using different tools, such as file or database
+            persistence for sessions.</p>
+                
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="580" height="154" src="/data/lessons/pix/6/6-2.png"/>
+            <img class="scale" width="580" height="154" src="/pix/lessons/6/6-2.png"/>
         </div>
     </slide>
 
     <slide title="Writing Libraries" layout="normal">
         <div class="left">
             <p>Each library is meant to hold a single useful class.</p>
-            <p>One good practice is to ensure that libraries cannot be loaded
-                outside the context of CodeIgniter. This is done by making sure that
-                the <code>BASEPATH</code> constant is defined - part
-                of the framework's bootstrap logic already.</p>
             <p>You don't have to worry about libraries being loaded twice -
                 the CodeIgniter loader takes care of that.</p>    
         </div>
@@ -163,8 +172,6 @@ Lesson 06 - Helpers & Addons
             <p>A typical library excerpt...<br/>
                 <code>
 &lt;?php<br/>
-                    defined('BASEPATH') OR exit('No direct script access allowed');<br/>
-                    <br/>
                     class Whatever {<br/>
 &#160;&#160;function do_something_useful(...) {<br/>
 &#160;&#160;&#160;&#160;...<br/>
@@ -176,19 +183,6 @@ Lesson 06 - Helpers & Addons
     </slide>
 
     <slide title="Extending Built-In Libraries" layout="normal">
-        <div class="left">
-            <p>You can extend a built-in library, replacing or adding
-                methods in an "O-O" fashion.
-                Create a library named the same as the one you
-                want to enahnce, but with the subclass prefix (<code>MY_</code>),
-                and in your application/libraries folder.</p>
-            <p>It will automatically be loaded whenever you use the CI loader
-                to pull in the "original" one.</p>
-            <p>If the source file contains other classes, they can
-                be instantiated or extended in your logic, after loading.
-                You've seen this with <code>Welcome extends Application</code>.</p>
-        </div>
-        <div class="right">
             <p>In application/libraries/MY_Foo.php: <br/>
                 <code>
                     class MY_Foo extends CI_Foo {
@@ -210,76 +204,19 @@ Lesson 06 - Helpers & Addons
                 Your controller will end up with a "foo" instance
                 injected as a property, namely <code>$this->foo</code>
             </p>
-
-        </div>
     </slide>
 
-    <slide title="Package Basics" layout="normal">
-        <div class="left">
-            <p>Packages are collections of related components organized 
-                in a file hierarchy similarly to <code>application/</code>.</p>
-            <p>Packages are not "loaded", in the conventional sense - their
-                folders are added to the appropriate list of folders to search
-                when the CI loader is invoked.
-                Packages can be explicitly specified, as in
-                <code>$this->load->add_package_path(APPPATH.'third_party', '/some_package');</code>,
-                or they can be autoloaded in <code>application/config/autoload.php</code>,
-                for instance <code>$autoload['packages'] = array(APPPATH.'third_party', '/some_package');</code>.
-            </p>
-        </div>
-        <div class="right">
-            <p>Packages contain most things that might be in an app, with one
-                glaring exception ... can you spot it?</p>
-            <code>
-                /application/third_party/some_package/<br/>
-                <br/>
-                config/<br/>
-                helpers/<br/>
-                language/<br/>
-                libraries/<br/>
-                models/<br/>
-                views/
-            </code>
-        </div>
-    </slide>
-
-    <slide title="Writing Packages" layout="normal">
-        <div class="left">
-            <p>The components in a package are written and referenced "normally".
-                They become "visible" when the package's path is added to
-                the loader.</p>
-            <p>Package paths are pre-pended to the list of folders to search,
-                in the order that you add them, i.e. LIFO.</p>
-            <p>"Normal" component loading rules apply inside a package too.</p>    
-        </div>
-        <div class="right">
-            <p>Packages are meant to be self-contained.</p>
-            <p>Packages will often come from outside projects.</p>
-            <p>Naming collisions are possible, and not properly dealt with -
-                namespaces in a future CodeIgniter will fix that.</p>
-        </div>
-    </slide>
-
-    <slide title="Extending Built-In Packages?" layout="normal">
-        <p>No packages are built-in to CodeIgniter.</p>
-        <p>There are not a lot of good examples, at the moment.</p>
-        <p>A suggested best practice is to "install" a package by
-            creating a folder for it, inside <code>application/third_party</code>,
-            and crafting a "composer" file to manage pulling and
-            updating the files that comprise it, from an external site.</p>
-        <p>Treat this notion of packages as CodeIgniter-specific.</p>
-    </slide>
-
-    <slide title="2. A CODEIGNITER LIBRARY (CABOOSE)" layout="normal" tag="tag2">
+    <slide title="Csboose - a Sample CodeIgniter Library" layout="normal" tag="tag2">
         <p>
-            <i>An <b>example</b> library, to help your understanding.</i>
+            <i>Here is an <b>example</b> library, to help your understanding.</i>
         </p>
-        <br/>
         <p>Plain HTML doesn't cut it in your views :(</p>
         <p>CSS frameworks improve presentation substantially :)</p>
         <p>But ... they involve CSS, Javascript &amp; often initialization</p>
         <p>
             <b>Caboose</b> is a library that manages these frameworks &amp; widgets</p>
+            <p>For reference, you can find it inside a previous
+            <a href="https://github.com/jedi-academy/starter-caboose-winter2016">github repository</a></p>
     </slide>
 
     <slide title="Frameworks &amp; Widgets" layout="normal">
@@ -416,11 +353,78 @@ Lesson 06 - Helpers & Addons
             let us bundle related classes, configuration and views?</p>
     </slide>
 
+    <slide title="3. Working With Helpers" layout="normal" tag="tag3">
+        <div class="left">
+            <p>Helpers are files that contain one or more procedural functions.
+                A number of them are built into CodeIgniter, as shown to the right.</p>
+            <p>Helpers can be explicitly loaded, as in
+                <code>$this->load->helper('whatever');</code>,
+                or they can be autoloaded in <code>application/config/autoload.php</code>,
+                for instance <code>$autoload['helper'] = array('url');</code>.
+                Use the name of the helper without the extension.
+            </p>
+            <p>Helper functions are not O-O, but they are simpler
+                than having classes with static methods and referring to those.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="575" height="136" src="/pix/lessons/6/6-1.png"/>
+        </div>
+    </slide>
 
-    <slide title="3. A CODEIGNITER HELPER (FORMFIELDS)" layout="normal" tag="tag3">
+    <slide title="Writing Helpers" layout="normal">
+        <div class="left">
+            <p>Each helper file is meant to hold a set of *related* functions.</p>
+            <p>One good practice is to ensure that helpers cannot be loaded
+                outside the context of CodeIgniter. This is done by making sure that
+                the <code>BASEPATH</code> constant is defined.</p>
+            <p>Another good practice, with functions, is to make sure they are not
+                already defined (which would trigger a PHP error). This is done
+                using the <code>function_exists</code> function built into PHP.</p>    
+        </div>
+        <div class="right">
+            <p>A typical helper excerpt...<br/>
+                <code>
+&lt;?php<br/>
+                    defined('BASEPATH') OR exit('No direct script access allowed');<br/>
+                    <br/>
+                    if ( ! function_exists('do_something_useful')) {<br/>
+&#160;&#160;function do_something_useful(...) {<br/>
+&#160;&#160;&#160;&#160;...<br/>
+&#160;&#160;}<br/>
+                    }
+                </code>
+            </p>
+        </div>
+    </slide>
+
+    <slide title="Extending Built-In Helpers" layout="normal">
+             <p>In application/helpers/MY_foo_helper.php: <br/>
+                <code>
+                    function a() {...}<br/>
+                    function b() {...}</code>
+            </p>
+            <p>In system/helpers/foo_helper.php: <br/>
+                <code>
+                    function a() {...}<br/>
+                    function c() {...}</code>
+            </p>
+            <p>In your controller using "foo": <br/>
+                <code>
+                    $this->load->helper('foo');</code>
+                <br/>
+                functions a and b come from your code, while function c comes from the built-in.
+            </p>
+    </slide>
+
+    <slide title="Formfields - a Sample CodeIgniter Helper" layout="normal" tag="tag3">
         <p>The <b>Formfields</b> helper is a collection of functions, 
             and corresponding view fragments, 
             to deal with the styling of HTML form fields.</p>
+            <p>You saw this helper last week, and it is also inside
+the 
+            <a href="https://github.com/jedi-academy/starter-caboose-winter2016">github repository</a>
+            mentioned for the Caboose library.</p>
         <p>Each function builds a standard array of view parameters, and 
             then invokes the template parser to style the form field for 
             the CSS/JS framework(s) you are using.</p>
@@ -429,56 +433,6 @@ Lesson 06 - Helpers & Addons
             Further, should you wish to switch CSS or Javascript 
             frameworks, all you have to do is update your set
             of view fragments :)</p>
-    </slide>
-
-    <slide title="Sample Formfields Function " layout="normal">
-        <div class="left">
-            <p>To the right is a typical function from the Formfields helper.
-                It looks complicted for just a text field, but includes
-                a number of standard parameters used in the field styling,
-                such as standard help text.</p>
-            <p>The end result looks something like...</p>
-            <br/>
-            <img class="scale" width="530" height="75" src="/data/lessons/pix/6/6-5.png"/>
-        </div>
-        <div class="right">
-            <code>
-                function makeTextField($label, $name, $value, ...) {<br/>
-&#160;&#160;$CI = &amp;get_instance();<br/>
-&#160;&#160;$parms = array(<br/>
-&#160;&#160;&#160;&#160;'label' =&gt; $label,<br/>
-&#160;&#160;&#160;&#160;'name' =&gt; $name,<br/>
-&#160;&#160;&#160;&#160;'value' =&gt; htmlentities($value,ENT_COMPAT,'UTF-8'),<br/>
-&#160;&#160;&#160;&#160;'explain' =&gt; $explain,<br/>
-&#160;&#160;&#160;&#160;'maxlen' =&gt; $maxlen,<br/>
-&#160;&#160;&#160;&#160;'size' =&gt; $size,<br/>
-&#160;&#160;&#160;&#160;'disabled' =&gt; ($disabled?'disabled="disabled"':'')<br/>
-&#160;&#160;);<br/>
-&#160;&#160;return $CI-&gt;parser-&gt;parse('_fields/textfield', $parms, true);<br/>
-                }                
-            </code>
-        </div>
-    </slide>
-
-    <slide title="Sample Formfields View Fragment " layout="normal">
-        <div class="left">
-            <p>To the right is a view fragment that might correspond to
-                the function on the previous slide.</p>
-            <p>It looks ugly, but only because of the Bootstrap styling.</p>
-        </div>
-        <div class="right">
-            <code>
-&lt;div class="control-group"&gt;<br/>
-&#160;&#160;&lt;label class="control-label" for="{name}"&gt;{label}&lt;/label&gt;<br/>
-&#160;&#160;&lt;div class="controls"&gt;<br/>
-&#160;&#160;&#160;&#160;&lt;input type="text" id="{name}" name="{name}" <br/>
-&#160;&#160;&#160;&#160;&#160;&#160; value="{value}" maxLength="{maxlen}"<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;style="width:{size}em;height:2em" {disabled}/&gt;<br/>
-&#160;&#160;&#160;&#160;&lt;br/&gt;&lt;small&gt;&lt;em&gt;{explain}&lt;/em&gt;&lt;/small&gt;<br/>
-&#160;&#160;&lt;/div&gt;<br/>
-&lt;/div&gt;
-            </code>
-        </div>
     </slide>
 
     <slide title="Formfields Usage" layout="normal">
@@ -514,68 +468,70 @@ Lesson 06 - Helpers & Addons
         <p>Add function/view fragment pairs to suit your application</p>
     </slide>
 
-    <slide title="Formfields Helper - Show Me!" layout="normal">
-        <p>Ok - here is the HTML for a file uploading widget. 
-            You might switch to outline view to see it better! ;p</p>
-        <code>
-&lt;div class="control-group"&gt;<br/>
-&#160;&#160;&lt;label class="control-label" for="{name}"&gt;{label}&lt;/label&gt;<br/>
-&#160;&#160;&lt;div class="controls"&gt;<br/>
-&#160;&#160;&#160;&#160;&lt;div class="fileupload fileupload-new" data-provides="fileupload"&gt;<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&lt;div class="fileupload-new thumbnail" style="width: 120px; height: 80px;"&gt;&lt;img src="http://www.placehold.it/50x50/EFEFEF/AAAAAA" /&gt;&lt;/div&gt;<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&lt;div class="fileupload-preview fileupload-exists thumbnail" style="width: 120px; height: 80px;"&gt;&lt;/div&gt;<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&lt;span class="btn btn-file"&gt;<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;span class="fileupload-new"&gt;Select file&lt;/span&gt;<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;span class="fileupload-exists"&gt;Change&lt;/span&gt;<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;input type="file" name="{name}"/&gt;<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&lt;/span&gt;<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&lt;a href="#" class="btn fileupload-exists" data-dismiss="fileupload"&gt;Remove&lt;/a&gt;<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&lt;br/&gt;&lt;small&gt;&lt;em&gt;{explain}&lt;/em&gt;&lt;/small&gt;<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&lt;br/&gt;Any file selected above will be uploaded when you submit this form.&lt;br/&gt;<br/>
-&#160;&#160;&#160;&#160;&lt;/div&gt;<br/>
-&#160;&#160;&lt;/div&gt;<br/>
-&lt;/div&gt;                
-        </code>
+   <slide title="4. Working With Packages" layout="normal" tag="tag4">
+             <p>Packages are collections of related components organized 
+                in a file hierarchy similarly to <code>application/</code>.</p>
+            <p>Packages are not "loaded", in the conventional sense - their
+                folders are added to the appropriate list of folders to search
+                when the CI loader is invoked.
+                Packages can be explicitly specified, as in</p>
+                <code>$this->load->add_package_path(APPPATH.'third_party', '/some_package');</code>
+                <p>or they can be autoloaded in <code>application/config/autoload.php</code>,
+                for instance </p>
+                <code>$autoload['packages'] = array(APPPATH.'third_party', '/some_package');</code>.
     </slide>
 
-    <slide title="Formfields Helper - And...?" layout="normal">
-        <div class="left">
-            <p>Make a simple image uploader function for that...</p>
+   <slide title="Package Folder Structure" layout="normal">
+             <p>Packages contain most things that might be in an app, with one
+                glaring exception ... can you spot it?</p>
             <code>
-                function makeImageUploader($label, $name,$explain="") {<br/>
-&#160;&#160;$CI = &amp;get_instance();<br/>
-&#160;&#160;$parms = array(<br/>
-&#160;&#160;&#160;&#160;'label' =&gt; $label,<br/>
-&#160;&#160;&#160;&#160;'name' =&gt; $name,<br/>
-&#160;&#160;&#160;&#160;'explain' =&gt; $explain<br/>
-&#160;&#160;);<br/>
-&#160;&#160;return $CI-&gt;parser-&gt;parse('_fields/image_upload', $parms, true);<br/>
-                }                
+                /application/third_party/some_package/<br/>
+                <br/>
+                config/<br/>
+                helpers/<br/>
+                language/<br/>
+                libraries/<br/>
+                models/<br/>
+                views/
             </code>
+    </slide>
+
+    <slide title="Writing Packages" layout="normal">
+        <div class="left">
+            <p>The components in a package are written and referenced "normally".
+                They become "visible" when the package's path is added to
+                the loader.</p>
+            <p>Package paths are pre-pended to the list of folders to search,
+                in the order that you add them, i.e. LIFO.</p>
+            <p>"Normal" component loading rules apply inside a package too.</p>    
         </div>
         <div class="right">
-            <p>And the controller code ends up like...</p>
-            <code>$this-&gt;data['simpler'] = makeImageUploader($label,$name,'Any file...');</code>
-            <p>And the view like...</p>
-            <code>{simpler}</code>
+            <p>Packages are meant to be self-contained.</p>
+            <p>Packages will often come from outside projects.</p>
+            <p>Naming collisions are possible, and not properly dealt with -
+                namespaces in a future CodeIgniter will fix that.</p>
         </div>
     </slide>
 
-    <slide title="4. A CODEIGNITER PACKAGE" layout="normal" tag="tag4">
-        <p>To make one of the helpers or libraries into a package, 
-            set it up in its own folder, inside <code>application/third_party</code>, 
-            and autoload it.</p>
+    <slide title="Extending Built-In Packages?" layout="normal">
+        <p>No packages are built-in to CodeIgniter.</p>
+        <p>There are not a lot of good examples, at the moment.</p>
+        <p>A suggested best practice is to "install" a package by
+            creating a folder for it, inside <code>application/third_party</code>,
+            and copying the packages files and subfolder structure there.</p>
+        <p>Treat this notion of packages as CodeIgniter-specific.</p>
     </slide>
 
-    <slide title="Caboose as a Package" layout="normal">
+
+   <slide title="Caboose as a Package" layout="normal">
         <div class="left">
             <code>
-                /caboose<br/>
+                /application/third_party/caboose<br/>
 &#160;&#160;/config/caboose.php<br/>
 &#160;&#160;/libraries/caboose.php<br/>
 &#160;&#160;/views/_components<br/>
 &#160;&#160;&#160;&#160;Confirm.php, date.php, ...<br/>
-                /assets<br/>
+                /public/assets<br/>
 &#160;&#160;/css/<br/>
 &#160;&#160;&#160;&#160;bootstrap.css,datepicker.css,jquery.css,...<br/>
 &#160;&#160;&#160;&#160;style.css<br/>
@@ -585,14 +541,14 @@ Lesson 06 - Helpers & Addons
             </code>
         </div>
         <div class="right">
-            <code>$autoload['packages'] = array('third_party/caboose',...);</code>
+            <code>$autoload['packages'] = array(APPPATH.'third_party/caboose',...);</code>
         </div>
     </slide>
 
     <slide title="Formfields Helper as a Package" layout="normal">
         <div class="left">
             <code>
-                /formfields<br/>
+                /application/third_party/formfields<br/>
 &#160;&#160;/config/formfields.php<br/>
 &#160;&#160;/helpers/formfields_helper.php<br/>
 &#160;&#160;/views/_fields/<br/>
@@ -600,12 +556,12 @@ Lesson 06 - Helpers & Addons
             </code>
         </div>
         <div class="right">
-            <code>$autoload['packages'] = array('third_party/formfields',...);</code>
+            <code>$autoload['packages'] = array(APPPATH.'third_party/formfields',...);</code>
         </div>
     </slide>
 
 
-    <slide title="5. PACKAGE MANAGEMENT" layout="normal" tag="tag5">
+    <slide title="5. DEPENDENCY MANAGEMENT" layout="normal" tag="tag5">
         <div class="left">
         <p>
             <a href="https://getcomposer.org/" target="_blank">Composer</a>
@@ -634,6 +590,20 @@ Lesson 06 - Helpers & Addons
 </code>
         </div>
  
+    </slide>
+
+    <slide title="Using Composer in Your Webapp" layout="normal">
+        <p>To use Composer inside a CodeIgniter app automatically,
+            indicate so inside your <code>application/config/config.php</code>.
+        </p>
+        <ul>
+            <li>
+                <code>$config['composer_autoload'] = TRUE;</code> or
+            </li>
+            <li>
+                <code>$config['composer_autoload'] = '/path/to/vendor/autoload.php';</code>
+            </li>
+        </ul>
     </slide>
 
     <slide title="Gimme More!" layout="normal">
