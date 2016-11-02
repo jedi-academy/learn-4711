@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Views in a Nutshell
+-->
+<lesson status="beta">
+
+    <slide title="Addins in a Nutshell" layout="normal">
+        <p>PHP can be object-oriented or just scripts, with functions.</p>
+        <p>CodeIgniter refers to classes as "libraries" and to functions as "helpers".</p>
+        <p>CodeIgniter comes with a bunch of both.</p>
+        <p>If you don't like them, extend them ... standard O-O with method over-riding.</p>
+        <p>PHP does not support method overloading ... use parameter lists with defaults instead.</p>
+    </slide>
+
+    <slide title="Packaging" layout="normal">
+        <p>PHP has no notion of "packages".</p>
+        <p>The PHP manual groups related classes and functions
+            together, in the <a href="http://ca3.php.net/manual/en/funcref.php" target="_blank">function reference</a> section.
+            Some of these are referred to as "modules".</p>
+        <p>CodeIgniter has a specific notion of a "package", namely
+            a starting point for locating source files, following
+            its standard subfolder naming within.</p>
+        <p>Composer is a very common dependency manager,
+            with the notion of a "package" as something that
+            can be managed by Composer. Such packages
+            are normally found on packagist.org.
+            Composer packages do not necessarily contain source code.</p>
+    </slide>
+
+    <slide title="Useful Stuff" layout="normal">
+        <p>If you build useful functions, you can use stock
+            PHP to "include" or "require" them.</p>
+        <p>CodeIgniter adds the notion of these being in a standard
+            place within a project.</p>
+        <p>If you build useful classes, you can use stock
+            PHP to "include" or "require" them.</p>
+        <p>CodeIgniter adds the notion of these being in a standard
+            place within a project, and it treats some of them specially
+            (eg injecting properties).</p>
+        <p>CodeIgniter (or any framework) tries to provide useful
+            abstractions and conventions, to make webapp development easier.</p>
+        <p>Because of conflicting and/or confusing terms, the CodeIgniter 
+            "core team" tends to refer to useful stuff as "addins",
+            regardless of their flavor or origin :-/</p>
+    </slide>
+
+
+</lesson>

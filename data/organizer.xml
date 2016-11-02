@@ -106,6 +106,8 @@ Course organizer for Comp4711
 		<inlab>#6 Addins &amp; authentication</inlab>
 		<lesson name="basic05"  survey="260150" icon="dothis" >Building on CodeIgniter</lesson>
 		<lesson name="basic04-leftovers">Other Form Techniques</lesson>
+		<lesson name="week09" icon="read">Survey results</lesson>
+		<lesson name="basic70">Addins in a Nutshell</lesson>
 <!--		<assignment name="assignment2" active="n">Functional Pantry Webapp</assignment>
 		<lab name="lab06" active="n">Models &amp; CRUD</lab>
 		<tutorial name="ci-normal02" active="n">CRUD</tutorial>
