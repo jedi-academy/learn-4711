@@ -108,11 +108,11 @@ Course organizer for Comp4711
 		<lesson name="basic04-leftovers">Other Form Techniques</lesson>
 		<lesson name="week09" icon="read">Survey results</lesson>
 		<lesson name="basic70">Addins in a Nutshell</lesson>
-<!--		<assignment name="assignment2" active="n">Functional Pantry Webapp</assignment>
-		<lab name="lab06" active="n">Models &amp; CRUD</lab>
-		<tutorial name="ci-normal02" active="n">CRUD</tutorial>
-		<tutorial name="ci-normal05" active="n">Working With Addins</tutorial>
-		<lab name="lab07" active="n">Addins</lab> -->
+		<lab name="lab06">Building Out Our Diner</lab>
+		<tutorial name="ci-fun01">Add roles &amp; Caboose</tutorial>
+		<tutorial name="ci-fun02" active="n">Add CRUD &amp; an Entity Model</tutorial>
+		<tutorial name="ci-fun03" active="n">Handle Sales Orders</tutorial>
+<!--		<assignment name="assignment2" active="n">Functional Pantry Webapp</assignment> -->
 	</week>
 	<week num="10">
 		<topic>XML &amp; JSON</topic>

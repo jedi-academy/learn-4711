@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Tutorial functional #1 - add roles & caboose
+-->
+<tutorial status="beta">
+    
+    <!-- The meat of the presentation -->
+    <slide title="Tutorial Goals" layout="normal">
+        <p>This tutorial will walk you through setting up some user roles
+        for the diner webapp. This will involve enabling sessions,
+        and is a great excuse for integrating the "Caboose" package.</p>
+        <p>This tutorial is Job #1 of 3 for COMP4711 Lab 6, Fall 2016.</p>
+    </slide>
+
+    <slide title="Preparation" layout="normal">
+        <p>You have a github repository already from lab 5.
+            I have prepared a 
+            <a href="https://github.com/jedi-academy/starter-diner" target="_blank">
+                starter webapp</a> for this lab, in case yours is messed up. 
+                Even if you have your own repo, grab the <code>data/starter.sql</code>
+                script for your repo, and import it using your MySQL tool
+                of choice.</p>
+    </slide>
+
+    <slide title="The End Result" layout="normal">
+        <div class="left">
+            <p>Our starting point:</p>
+            <br/>
+            <img class="scale" src="/pix/tutorials/fun/01.png"/>
+        </div>
+        <div class="right">
+            <p>The result after completing this tutorial:</p>
+            <img class="scale" src="/pix/tutorials/fun/99.png"/>
+        </div>
+    </slide>
+
+    <slide title="1.1 Session Setup" layout="normal">
+         <div class="left">
+       <p>We want to add user roles to our webapp, and to use a session to 
+            remember the role that the current user has.</p>
+        <p>If you imported the starter SQL script into MySQL, you will
+            have a <code>ci_sessions</code> table in your database.
+        </p>
+        <p>We need to enable sessions in our app, and to configure
+        them to use the new table.</p>
+        <p>After making the changes to the right, verify that your app loads
+        exactly the way it did before the changes.</p>
+        </div>
+        <div class="right">
+            <p>
+                <code>application/config/config.php</code> changes:
+            </p>
+            <pre><code>$config['sess_driver'] = 'database';
+$config['sess_save_path'] = 'ci_sessions';</code></pre>
+            <p>
+                <code>application/config/autoload.php</code> changes:
+            </p>
+            <pre><code>$autoload['libraries'] = array(..., 'session');</code></pre>
+        </div>
+    </slide>
+
+    <slide title="1.2 Install Caboose" layout="normal">
+        <div class="left">
+            <p>In preparation for later parts in the lab, we can
+            simplify our templates by using the 
+                <a href="https://github.com/jedi-academy/package-caboose">Caboose package</a>
+            that I talked about in class.</p>
+            <p>It is not a production-ready package, but
+                just enough of a package to be useful for our lab.</p>
+                <p>Download that repo, and "install" Caboose by
+                merging its source folders into your project.</p>
+            <p>Before enabling Caboose, make sure that the folders are in the proper place.</p>
+        </div>
+        <div class="right">
+            <p>Before: <img src="/pix/tutorials/fun/02.png"/></p>
+            <p>After: <img src="/pix/tutorials/fun/03.png"/></p>
+        </div>
+    </slide>
+
+    <slide title="Enable Caboose" layout="normal">
+        <p>The Caboose package is enabled by adding its path to the 
+            packages list in <code>applicaiton/config/autoload.php</code>:
+        </p>
+             <pre><code>$autoload['packages'] = array(APPPATH . 'third_party/caboose/');</code></pre>
+             <p>Enhance your <code>applicaiton/core/MY_Controller::render()</code>
+             to have Caboose do its thing...</p>
+             <pre><code>    function render() {
+        ...
+
+        // integrate any needed CSS framework &amp; components
+        $this->data['caboose_styles'] = $this->caboose->styles();
+        $this->data['caboose_scripts'] = $this->caboose->scripts();
+        $this->data['caboose_trailings'] = $this->caboose->trailings();
+
+        $this->parser->parse('_template', $this->data);
+    }
+</code></pre>
+             <p>Once enabled, verify that nothing in your webapp broke.</p>
+    </slide>
+
+    <slide title="1.3 Simplify Templates" layout="normal">
+        <p>We have 3 templates at the moment, and they pull in bootstrap and jquery from a CDN.
+        That is great as long as we are online, and our DNS is resolving properly
+        (another story). Let's fix them to take advantage of the Caboose package.</p>
+        <p>Modify each of the three templates you have to use the Caboose view parameters
+        instead of hard-coded references.</p>
+        <p>Before:<pre><code>        &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/&gt;
+        &lt;link rel="stylesheet" type="text/css" href="/assets/css/default.css"/&gt;
+     &lt;/head&gt;
+    &lt;body&gt;
+	...
+        &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;
+        &lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"&gt;&lt;/script&gt;
+</code></pre></p>
+    </slide>
+
+    <slide title="Template After Simplifying" layout="normal">
+        <p>After:<pre><code>        &lt;head&gt;
+            ...
+            {caboose_styles}
+        &lt;/head&gt;
+        &lt;body ...&gt;
+            ...
+            {caboose_scripts}
+            {caboose_trailings}
+        &lt;/body&gt;
+</code></pre></p>
+        <p>Make sure that nothing broke :)</p>
+    </slide>
+
+    <slide title="1.4 Add User Role to Navbar" layout="normal">
+         <p>We want to store the user role in our session table,
+         and show the current role in the navbar, to the right.</p> 
+        <p>We can extract the user role from the session, if there,
+        and provide it as a view parameter. This would be done inside our
+        base constructor</p>
+        <p>Add a bit of logic to the base controller constructor:</p>
+        <pre><code>		// get the user role
+		$this->data['userrole'] = $this->session->userdata('userrole');
+		if ($this->data['userrole'] == NULL) $this->data['userrole'] = '?';
+</code></pre>
+    </slide>
+
+    <slide title="Fix the Navbar" layout="normal">
+         <p>Per the Bootstrap docs, we can add an entry to our
+             <code>views/navbar.php</code>...</p>
+        <pre><code>&lt;p class="navbar-text navbar-right"&gt;Role: {userrole}&lt;/p&gt;
+		&lt;/div&gt;&lt;!-- /.navbar-collapse --&gt;
+</code></pre>
+<p>And you should now see the role (Question mark if not set)...</p>
+            <img src="/pix/tutorials/fun/04.png"/>
+    </slide>
+
+    <slide title="1.5 Add Menu Item To Toggle Roles" layout="normal">
+        <p>Let's add a menu item to the navbar, linking to a new controller
+        which will toggle the user role. This is not the most "proper" way
+        of handling user roles - it would be normally set based on
+        user authentication, and from a property of the logged-in
+        user.</p>
+        <p>The navbar change is straight-forward, adding a line to
+        <code>views/navbar.php</code>...</p>
+        <pre><code>&lt;li&gt;&lt;a href="/toggle"&gt;Toggle Role&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+<p>The item will show in the navbar, but clicking on it will give a 404
+until we get the controller there.</p>
+    </slide>
+
+    <slide title="Add The Toggle Controller" layout="normal">
+        <p>Out controller will be super simple ... 
+        test the userrole session variable, adjust it,
+        and save it.</p>
+        <p>So, <code>application/controllers/Toggle.php</code>:</p>
+        <pre><code>class Toggle extends Application {
+	public function index()	{
+		$origin = $_SERVER['HTTP_REFERER'];
+		$role = $this->session->userdata('userrole');
+		if ($role == 'user') $role = 'admin';
+		else $role = 'user';
+		$this->session->set_userdata('userrole', $role);
+		redirect($origin);
+	}
+}</code></pre>
+<p>Try it. How do you know it is working?</p>
+    </slide>
+
+    <slide title="1.6 Add Admin Page" layout="normal">
+        <p>As preparation for the next job in the lab, let's
+        add a mainteannce page, which is supposed to be
+        admin-accessible only. Again, this is not the
+        "most proper" way of handling such a restriction,
+        but it suits our purposes for now.</p>
+        <p>Add a navbar item for a "crud" controller.</p>
+        <p>Add a Crud controller, where the content is
+        set to a message appropriate to the user role.</p>
+    </slide>
+
+
+
+    <slide title="Are We Done Yet?" layout="normal">
+        <div class="left">
+            <p>This completes the first part of Lab 6.</p>
+            <p>We have added user roles and integrated the Caboose package,
+            and are ready to dive into some CRUD and some ordering
+            functionality :)</p>
+         </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/tutorials/fun/99.png"/>
+        </div>
+    </slide>
+
+</tutorial>
