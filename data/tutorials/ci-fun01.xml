@@ -50,8 +50,9 @@ Tutorial functional #1 - add roles & caboose
             <p>
                 <code>application/config/config.php</code> changes:
             </p>
-            <pre><code>$config['sess_driver'] = 'database';
-$config['sess_save_path'] = 'ci_sessions';</code></pre>
+            <pre><code><b>$config['sess_driver'] = 'database';</b>
+...
+<b>$config['sess_save_path'] = 'ci_sessions';</b></code></pre>
             <p>
                 <code>application/config/autoload.php</code> changes:
             </p>
@@ -79,20 +80,20 @@ $config['sess_save_path'] = 'ci_sessions';</code></pre>
 
     <slide title="Enable Caboose" layout="normal">
         <p>The Caboose package is enabled by adding its path to the 
-            packages list in <code>applicaiton/config/autoload.php</code>:
+            packages list in <code>application/config/autoload.php</code>:
         </p>
              <pre><code>$autoload['packages'] = array(APPPATH . 'third_party/caboose/');</code></pre>
-             <p>Enhance your <code>applicaiton/core/MY_Controller::render()</code>
+             <p>Enhance your <code>application/core/MY_Controller::render()</code>
              to have Caboose do its thing...</p>
              <pre><code>    function render() {
         ...
 
-        // integrate any needed CSS framework &amp; components
+        <b>// integrate any needed CSS framework &amp; components
         $this->data['caboose_styles'] = $this->caboose->styles();
         $this->data['caboose_scripts'] = $this->caboose->scripts();
-        $this->data['caboose_trailings'] = $this->caboose->trailings();
+        $this->data['caboose_trailings'] = $this->caboose->trailings();</b>
 
-        $this->parser->parse('_template', $this->data);
+        $this->parser->parse($template, $this->data);
     }
 </code></pre>
              <p>Once enabled, verify that nothing in your webapp broke.</p>
@@ -104,25 +105,25 @@ $config['sess_save_path'] = 'ci_sessions';</code></pre>
         (another story). Let's fix them to take advantage of the Caboose package.</p>
         <p>Modify each of the three templates you have to use the Caboose view parameters
         instead of hard-coded references.</p>
-        <p>Before:<pre><code>        &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/&gt;
+        <p>Before:<pre><code>        <b>&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/&gt;</b>
         &lt;link rel="stylesheet" type="text/css" href="/assets/css/default.css"/&gt;
      &lt;/head&gt;
     &lt;body&gt;
 	...
-        &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;
-        &lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"&gt;&lt;/script&gt;
+        <b>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;
+        &lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"&gt;&lt;/script&gt;</b>
 </code></pre></p>
     </slide>
 
     <slide title="Template After Simplifying" layout="normal">
         <p>After:<pre><code>        &lt;head&gt;
             ...
-            {caboose_styles}
+            <b>{caboose_styles}</b>
         &lt;/head&gt;
         &lt;body ...&gt;
             ...
-            {caboose_scripts}
-            {caboose_trailings}
+            <b>{caboose_scripts}
+            {caboose_trailings}</b>
         &lt;/body&gt;
 </code></pre></p>
         <p>Make sure that nothing broke :)</p>
@@ -135,17 +136,17 @@ $config['sess_save_path'] = 'ci_sessions';</code></pre>
         and provide it as a view parameter. This would be done inside our
         base constructor</p>
         <p>Add a bit of logic to the base controller constructor:</p>
-        <pre><code>		// get the user role
+        <pre><code>		<b>// get the user role
 		$this->data['userrole'] = $this->session->userdata('userrole');
-		if ($this->data['userrole'] == NULL) $this->data['userrole'] = '?';
+		if ($this->data['userrole'] == NULL) $this->data['userrole'] = '?';</b>
 </code></pre>
     </slide>
 
     <slide title="Fix the Navbar" layout="normal">
          <p>Per the Bootstrap docs, we can add an entry to our
              <code>views/navbar.php</code>...</p>
-        <pre><code>&lt;p class="navbar-text navbar-right"&gt;Role: {userrole}&lt;/p&gt;
-		&lt;/div&gt;&lt;!-- /.navbar-collapse --&gt;
+        <pre><code>     <b>&lt;p class="navbar-text navbar-right"&gt;Role: {userrole}&lt;/p&gt;</b>
+&lt;/div&gt;&lt;!-- /.navbar-collapse --&gt;
 </code></pre>
 <p>And you should now see the role (Question mark if not set)...</p>
             <img src="/pix/tutorials/fun/04.png"/>
@@ -159,7 +160,8 @@ $config['sess_save_path'] = 'ci_sessions';</code></pre>
         user.</p>
         <p>The navbar change is straight-forward, adding a line to
         <code>views/navbar.php</code>...</p>
-        <pre><code>&lt;li&gt;&lt;a href="/toggle"&gt;Toggle Role&lt;/a&gt;&lt;/li&gt;
+        <pre><code>...
+<b>&lt;li&gt;&lt;a href="/toggle"&gt;Toggle Role&lt;/a&gt;&lt;/li&gt;</b>
 </code></pre>
 <p>The item will show in the navbar, but clicking on it will give a 404
 until we get the controller there.</p>
@@ -170,7 +172,7 @@ until we get the controller there.</p>
         test the userrole session variable, adjust it,
         and save it.</p>
         <p>So, <code>application/controllers/Toggle.php</code>:</p>
-        <pre><code>class Toggle extends Application {
+        <pre><code><b>class Toggle extends Application {
 	public function index()	{
 		$origin = $_SERVER['HTTP_REFERER'];
 		$role = $this->session->userdata('userrole');
@@ -179,7 +181,7 @@ until we get the controller there.</p>
 		$this->session->set_userdata('userrole', $role);
 		redirect($origin);
 	}
-}</code></pre>
+}</b></code></pre>
 <p>Try it. How do you know it is working?</p>
     </slide>
 
@@ -190,7 +192,8 @@ until we get the controller there.</p>
         "most proper" way of handling such a restriction,
         but it suits our purposes for now.</p>
         <p>Add a navbar item for a "crud" controller.</p>
-        <p>Add a Crud controller, where the content is
+        <p>Add a Crud controller, where the "content"
+        view parameter is
         set to a message appropriate to the user role.</p>
     </slide>
 
