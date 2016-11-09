@@ -116,8 +116,6 @@ Course organizer for Comp4711
 		<lesson name="data01"  survey="261164" icon="dothis">X M L</lesson>
 		<lesson name="data02"  survey="261165" icon="dothis" >J S O N</lesson>
 		<github name="xml" link="https://github.com/jedi-academy/example-xml">XML Examples</github>
-		<lesson name="xml01">XML Basics (Optional Refresher)</lesson>
-		<lesson name="xml02">Constraining XML (Optional)</lesson>
 		<lab name="lab07" active="n">Continuing Our Diner Build-out</lab>
 		<tutorial name="ci-fun02" active="n">Add CRUD &amp; and Entity Model</tutorial>
 <!--		<tutorial name="xml-xml01">XML - Basics &amp; Constraints (optional)</tutorial>
@@ -158,5 +156,10 @@ Course organizer for Comp4711
 	</week>
 	<week num="15">
 		<topic>Final Exam Week</topic>
+	</week>
+	<week num="xx">
+		<topic>Optional bits FYI</topic>
+		<lesson name="xml01">XML Basics (Optional Refresher)</lesson>
+		<lesson name="xml02">Constraining XML (Optional)</lesson>
 	</week>
 </organizer>
