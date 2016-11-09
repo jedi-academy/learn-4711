@@ -332,7 +332,7 @@ $doc-&gt;load('abc.xml');</code></pre>
         </ul>
     </slide>
 
-    <slide title="5. WHY XML MATTERS" layout="normal" >
+    <slide title="5. WHY XML MATTERS" layout="normal" tag="tag5">
         <p>XML rocks because:</p>
         <ul>
             <li>Backbone of distributed systems</li>

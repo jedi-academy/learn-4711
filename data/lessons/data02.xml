@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+JSON Basics
+-->
+<lesson status="2.0">
+
+    <slide title="J S O N" layout="normal" >
+        <div class="left">
+            <p>
+                <strong>J S O N</strong> - JavaScript Object Notation -
+                is one of the representational "glue" technologies for
+                building webapps, particularly distributed ones.</p>
+            <p>It provides a rich data structure, and plays
+                nicely with client-side (AJAX) service requests.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/x/x01.jpg"/>
+        </div>
+    </slide>
+
+    <!-- Agenda -->
+    <slide title="Agenda" layout="normal">
+        <ol>
+            <li>
+                <a href="#{tag1}">Data Represention with JSON</a>
+            </li>
+            <li>
+                <a href="#{tag2}">Constraining JSON Data</a>
+            </li>
+            <li>
+                <a href="#{tag3}">JSON Strategies</a>
+            </li>
+             <li>
+                <a href="#{tag4}">Why JSON Matters</a>
+            </li>
+        </ol>
+    </slide>
+
+
+    <!-- Normal slides -->
+
+    <slide title="1. DATA REPRESENTATION WITH JSON" layout="normal" tag="tag1">
+        <div class="left">
+            <p>JSON provides a technique to represent data structures.</p>
+            <p>The 
+                <a href="https://github.com/jedi-academy/example-xml" target="_blank">example-xml</a>
+                Github repository has equivalent JSON data to match the XML "orders" data.
+            </p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/x/xmlpic.png"/>          
+        </div>
+    </slide>
+
+    <slide title="JSON vs HTML?" layout="normal">
+        <div class="left">
+            <p>HTML and JSON came from the same brpwser world,
+                but that is the extent of the association between them.
+                The two conventions bear no resembance to each other.</p>
+            <p>JSON data is created and manipulated by Javascript code,
+                and is not meant to convey any document structure
+                or presentation choices.</p>
+            <p>JSON looks most like a PHP associative array
+                (server-side), with as much semantic meaning.</p>                    
+        </div>
+        <div class="right">
+            <p>JSON object: <code>{ "code": "burger", "qty": "1", "price": "5.00" }</code></p>        
+            <p>PHP array: <code>[ "code" => "burger", "qty" => 1, "price" => 5.00 }</code></p>
+            <p>These excerpts are in or derived from "order" files inside the <code>orders</code> 
+                folder in the examples repo.</p>
+        </div>
+    </slide>
+
+    <slide title="JSON vs RDB" layout="normal" >
+        <div class="left">
+            <p>JSON supports a rich, tree-like model for data.
+                Data relationships that would require separate
+                tables in the RDB world can be managed through
+                a single JSON document.</p>
+            <p>JSON is document-centric rather than record-centric, and
+                would normally be discussed in the context of a non-relational database.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/x/slide_23.jpg"/>          
+        </div>
+    </slide>
+
+   <slide title="JSON in MongoDB" layout="normal" >
+        <div class="left">
+            <p>MongoDB use JSON documents in order to store records, 
+                just as tables and rows store records in a relational database.</p> 
+                <p>Looking a bit deeper, MongoDB represents JSON documents in 
+                binary-encoded format called BSON behind the scenes. 
+                BSON extends the JSON model to provide additional data types 
+                and to be efficient for encoding and decoding within different languages.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/x/mongodb-model.png"/>          
+        </div>
+    </slide>
+
+
+
+    <slide title="JSON vs JSON" layout="normal" >
+        <div class="left">
+            <p>It sounds like JSON has some attraction for data representation.</p>
+            <p>But wait, there are many ways to structure a JSON document
+                to represent the same data :(</p>
+            <p>Bottom line: they are all right?</p>
+        </div>
+        <div class="right">
+            <p>Data in MongoDB has a flexible schema. 
+                Unlike SQL databases, where you must determine and declare a 
+                table's schema before inserting data, 
+                MongoDB's collections do not enforce document structure. </p>
+                <p>This flexibility facilitates the mapping of documents to an entity or an object. 
+                Each document can match the data fields of the represented entity, 
+                even if the data has substantial variation. 
+                In practice, however, the documents in a collection share a similar structure.</p>
+         </div>
+    </slide>
+
+    <slide title="2. CONSTRAINING JSON DATA" layout="normal" tag="tag2">
+        <div class="left">
+        <p>JSON itself is typeless, like PHP. The "type" of a property is
+        whatever is assigned to it.</p>
+        <p>There is a proposal for a JSON Schema, but it is a draft.</p>
+        <p>The json-schema organization has a tool you can use in the meantime.</p>
+       </div>
+        <div class="right">
+            <p>MongoDB provides the capability to validate documents during 
+                updates and insertions. Validation rules are specified on a 
+                per-collection basis using the validator option, which takes 
+                a document that specifies the validation rules or expressions.</p>
+                <pre><code>validator: { $or:
+      [
+         { phone: { $type: "string" } },
+         { email: { $regex: /@mongodb\.com$/ } },
+         { status: { $in: [ "Unknown", "Incomplete" ] } }
+      ]
+   }</code></pre>
+         </div>
+    </slide>
+
+    <slide title="3. JSON STRATEGIES" layout="normal" tag="tag3">
+        <div class="left">
+            <p>The opening slide for this lesson showed "Magic" between
+                a client and a server. JSON *isn't* that magic, but it is
+                used for data representation within much of that "Magic",
+                specifically between the user's browser and your webapp.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/x/x08.png"/>          
+        </div>
+    </slide>
+
+    <slide title="JSON as the Payload" layout="normal" >
+        <p>Many services use JSON formatted data structures as the payload
+            of an HTTP message.</p>
+        <ul>
+            <li>AJAX</li>
+            <li>RESTful services (one payload option)</li>
+        </ul>
+    </slide>
+
+   <slide title="JSON for Configuration" layout="normal" >
+        <p>Some services and frameworks use JSON formatted configuration files,
+            eliminating the need for an RDB, and being more "friendly"
+            than XML.</p>
+    </slide>
+
+    <slide title="4. WHY JSON MATTERS" layout="normal" tag="tag4">
+        <p>JSON rocks because:</p>
+        <ul>
+            <li>It is simple and has multiple platform support</li>
+            <li>Rich data structures</li>
+            <li>Its notation is "modern"</li>
+            <li>On employers' skills sought list</li>
+        </ul>
+    </slide>
+
+</lesson>

@@ -64,8 +64,8 @@ Course organizer for Comp4711
 		<topic>Models</topic>
 		<outcomes>1.2 (models), 3</outcomes>
 		<inlab>Assignment #1 completion</inlab>
-		<lesson name="basic03" survey="257183" icon="dothis">CodeIgniter Models</lesson>
-		<lesson name="basic03-more" survey="257184" icon="dothis">Model Pattenrs</lesson>
+		<lesson name="basic03" icon="dothis">CodeIgniter Models</lesson>
+		<lesson name="basic03-more" icon="dothis">Model Pattenrs</lesson>
 		<lesson name="week05" icon="read">Survey results</lesson>
 		<lesson name="basic68">Models in a Nutshell</lesson>
 		<lesson name="other-models" icon="read">Model examples from  other frameworks (optional)</lesson>
@@ -76,7 +76,7 @@ Course organizer for Comp4711
 		<topic>Views</topic>
 		<outcomes>1.2 (views), 3</outcomes>
 		<inlab>#5 Views</inlab>
-		<lesson name="basic04-basics"  survey="258883" icon="dothis">View Basics</lesson>
+		<lesson name="basic04-basics"  icon="dothis">View Basics</lesson>
 		<lesson name="week06" icon="read">Survey results</lesson>
 		<github name="views" link="https://github.com/jedi-academy/example-views">Examples to support "views" lessons</github>
 		<lesson name="basic69">Views in a Nutshell</lesson>
@@ -87,7 +87,7 @@ Course organizer for Comp4711
 		<topic>Forms Handling</topic>
 		<outcomes>1.2 (views), 3</outcomes>
 		<inlab>#6 Model CRUD</inlab>
-		<lesson name="basic04-forms"  survey="258884" icon="dothis" >Creating Forms</lesson>
+		<lesson name="basic04-forms"  icon="dothis" >Creating Forms</lesson>
 		<lesson name="basic04-handling" >Handling Form Data</lesson>
 		<lesson name="week07" icon="read">Survey results</lesson>
 		<lesson name="other-forms" icon="read">Form examples from  other frameworks (optional)</lesson> 
@@ -103,7 +103,7 @@ Course organizer for Comp4711
 	<week num="9">
 		<topic>Building on CodeIgniter</topic>
 		<outcomes>1.3, 3</outcomes>
-		<lesson name="basic05"  survey="260150" icon="dothis" >Building on CodeIgniter</lesson>
+		<lesson name="basic05"  icon="dothis" >Building on CodeIgniter</lesson>
 		<lesson name="basic04-leftovers">Other Form Techniques</lesson>
 		<lesson name="week09" icon="read">Survey results</lesson>
 		<lesson name="basic70">Addins in a Nutshell</lesson>
@@ -114,7 +114,7 @@ Course organizer for Comp4711
 		<topic>XML &amp; JSON</topic>
 		<outcomes>2.1</outcomes>
 		<lesson name="data01"  survey="261164" icon="dothis">X M L</lesson>
-		<lesson name="data02"  survey="261165" icon="dothis" active="n">J S O N</lesson>
+		<lesson name="data02"  survey="261165" icon="dothis" >J S O N</lesson>
 		<github name="xml" link="https://github.com/jedi-academy/example-xml">XML Examples</github>
 		<lesson name="xml01">XML Basics (Optional Refresher)</lesson>
 		<lesson name="xml02">Constraining XML (Optional)</lesson>
