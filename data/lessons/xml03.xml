@@ -55,7 +55,7 @@ Lesson 09- Processing XML
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="600" height="409" src="/data/lessons/pix/9-08.png"/>
+            <img class="scale" width="600" height="409" src="/pix/lessons/9-08.png"/>
         </div>    
     </slide>
 
@@ -71,7 +71,7 @@ Lesson 09- Processing XML
         </div>
         <div class="right">
             <p>Sample DOM tree for an HTML document:</p>
-            <img class="scale" width="428" height="443" src="/data/lessons/pix/9-05.png"/>
+            <img class="scale" width="428" height="443" src="/pix/lessons/9-05.png"/>
         </div>    
     </slide>
 
@@ -88,7 +88,7 @@ Lesson 09- Processing XML
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="640" height="440" src="/data/lessons/pix/9-03.png"/>
+            <img class="scale" width="640" height="440" src="/pix/lessons/9-03.png"/>
         </div>    
     </slide>
 
@@ -143,7 +143,7 @@ Lesson 09- Processing XML
             <p>These are interfaces, and prescribe behaviours.</p>
         </div>
         <div class="right">
-            <img class="scale" width="472" height="600" src="/data/lessons/pix/9-04.png"/>
+            <img class="scale" width="472" height="600" src="/pix/lessons/9-04.png"/>
         </div>    
     </slide>
 
@@ -154,7 +154,7 @@ Lesson 09- Processing XML
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="566" height="357" src="/data/lessons/pix/9-06.png"/>
+            <img class="scale" width="566" height="357" src="/pix/lessons/9-06.png"/>
         </div>    
     </slide>
 
@@ -269,7 +269,7 @@ Lesson 09- Processing XML
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="600" height="399" src="/data/lessons/pix/9-09-northwestern.edu.png"/>
+            <img class="scale" width="600" height="399" src="/pix/lessons/9-09-northwestern.edu.png"/>
         </div>    
     </slide>
 
@@ -286,9 +286,9 @@ Lesson 09- Processing XML
             </ul>
         </div>
         <div class="right">
-            <img class="scale" width="450" height="485" src="/data/lessons/pix/9-10-Java_Duke_learning.png"/>
+            <img class="scale" width="450" height="485" src="/pix/lessons/9-10-Java_Duke_learning.png"/>
         </div>    
-        <img src="/data/lessons/pix/sample-only.png" height="112"
+        <img src="/pix/lessons/sample-only.png" height="112"
                  style="position:fixed;top:0px;right:0px;z-index:999"/>
     </slide>
 

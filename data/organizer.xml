@@ -103,48 +103,46 @@ Course organizer for Comp4711
 	<week num="9">
 		<topic>Building on CodeIgniter</topic>
 		<outcomes>1.3, 3</outcomes>
-		<inlab>#6 Addins &amp; authentication</inlab>
 		<lesson name="basic05"  survey="260150" icon="dothis" >Building on CodeIgniter</lesson>
 		<lesson name="basic04-leftovers">Other Form Techniques</lesson>
 		<lesson name="week09" icon="read">Survey results</lesson>
 		<lesson name="basic70">Addins in a Nutshell</lesson>
 		<lab name="lab06">Building Out Our Diner</lab>
 		<tutorial name="ci-fun01">Add roles &amp; Caboose</tutorial>
-		<tutorial name="ci-fun02" active="n">Add CRUD &amp; an Entity Model</tutorial>
-		<tutorial name="ci-fun03" active="n">Handle Sales Orders</tutorial>
-<!--		<assignment name="assignment2" active="n">Functional Pantry Webapp</assignment> -->
 	</week>
 	<week num="10">
 		<topic>XML &amp; JSON</topic>
 		<outcomes>2.1</outcomes>
-		<inlab>Assignment #2 completion</inlab>
-		<lesson name="xml01" active="n">XML Basics (Refresher)</lesson>
-		<lesson name="xml02" active="n">Constraining XML</lesson>
+		<lesson name="data01"  survey="261164" icon="dothis">X M L</lesson>
+		<lesson name="data02"  survey="261165" icon="dothis" active="n">J S O N</lesson>
 		<github name="xml" link="https://github.com/jedi-academy/example-xml">XML Examples</github>
-		<tutorial name="xml-xml01" active="n">XML - Basics &amp; Constraints (optional)</tutorial>
+		<lesson name="xml01">XML Basics (Optional Refresher)</lesson>
+		<lesson name="xml02">Constraining XML (Optional)</lesson>
+		<lab name="lab07" active="n">Continuing Our Diner Build-out</lab>
+		<tutorial name="ci-fun02" active="n">Add CRUD &amp; and Entity Model</tutorial>
+<!--		<tutorial name="xml-xml01">XML - Basics &amp; Constraints (optional)</tutorial>
+		<assignment name="assignment2">Functional Pantry Webapp</assignment> -->
 	</week>
 	<week num="11">
 		<topic>XML Processing</topic>
 		<outcomes>2.1, 2.2</outcomes>
-		<inlab>#7 XML processing</inlab>
 		<lesson name="xml03" active="n">XML Processing</lesson>
-		<github name="xml" link="https://github.com/jedi-academy/example-xml" active="n">XML Examples - updated!</github>
-		<github name="simplexml" active="n">Barker Bob grills with SimpleXML</github>
+		<lab name="lab08" active="n">Finishing Our Diner Build-out</lab>
+		<tutorial name="ci-fun03" active="n">Handle Sales Orders</tutorial>
+<!--		<github name="simplexml" active="n">Barker Bob grills with SimpleXML</github>
 		<lab name="lab08"  active="n">XML Basics &amp;Processing</lab>
-		<tutorial name="xml-xml02" active="n">XML Processing</tutorial>
+		<tutorial name="xml-xml02" active="n">XML Processing</tutorial>-->
 	</week>
 	<week num="12">
 		<topic>XML-RPC</topic>
 		<outcomes>2.1, 2.2, 2.3</outcomes>
-		<inlab>#8 XML-RPC</inlab>
 		<lesson name="advanced02" active="n">XML-RPC</lesson>
-		<github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" active="n">XML-RPC Examples</github>
-		<lab name="lab09"  active="n">XML-RPC</lab>
+<!--		<github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" active="n">XML-RPC Examples</github>
+		<lab name="lab09"  active="n">XML-RPC</lab>-->
 	</week>
 	<week num="13">
 		<topic>REST</topic>
 		<outcomes>2.1, 2.3</outcomes>
-		<inlab>#9 REST</inlab>
 		<lesson name="advanced03" active="n">REST</lesson>
 		<lesson name="advanced04" active="n">JSON</lesson>
 		<lab name="lab10"  active="n">REST</lab>
@@ -152,7 +150,6 @@ Course organizer for Comp4711
 	<week num="14">
 		<topic>External Services? Loose Ends &amp; Review?</topic>
 		<outcomes>2.3</outcomes>
-		<inlab>Assignment #3 completion</inlab>
 		<lesson name="advanced01" active="n">Authentication</lesson>
 		<tutorial name="tut-adv01" active="n">Authentication</tutorial>
 		<inlab>Review</inlab>

@@ -2,7 +2,7 @@
 <!--
 Lesson 08 - Constraining XML 
 -->
-<lesson status="1.1">
+<lesson status="1.2">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <slide title="XML Documents..." layout="normal" >
@@ -34,7 +34,7 @@ Lesson 08 - Constraining XML
 
     <!-- Normal slides -->
 
-    <slide title="DOCUMENT TYPES" layout="normal" tag="tag1">
+    <slide title="1. DOCUMENT TYPES" layout="normal" tag="tag1">
         <ul>
             <li>A Document Type Definition (DTD) describes the intended
                 structure and rules for an XML document.</li>
@@ -127,7 +127,7 @@ Lesson 08 - Constraining XML
         </div>
     </slide>
 
-    <slide title="DTD MECHANICS" layout="normal" tag="tag2">
+    <slide title="2. DTD MECHANICS" layout="normal" tag="tag2">
         <ul>
             <li>A DTD contains directives for elements and attribute lists.</li>
             <li>Collectively, these provide rules for the order,
@@ -270,7 +270,7 @@ Lesson 08 - Constraining XML
     </slide>
 
 
-    <slide title="XML VALIDATION" layout="normal" tag="tag3">
+    <slide title="3. XML VALIDATION" layout="normal" tag="tag3">
         <ul>
             <li>A DTD can be validated inside NetBeans, by right-clicking
                 inside its editor panel and choosing "Check DTD".</li>
@@ -312,7 +312,7 @@ Lesson 08 - Constraining XML
         </code>
     </slide>
 
-    <slide title="OTHER TECHNIQUES" layout="normal" tag="tag4">
+    <slide title="4. OTHER TECHNIQUES" layout="normal" tag="tag4">
         <ul>
             <li>DTDs are simple, widespread, and limited.</li>
             <li>They are generally considered obsolete, being replaced by schemas.</li>
@@ -338,7 +338,7 @@ Lesson 08 - Constraining XML
     &lt;/xs:simpleType&gt;
                
         </code>
-        <img src="/data/lessons/pix/sample-only.png" height="112"
+        <img src="/pix/lessons/sample-only.png" height="112"
                  style="position:fixed;top:0px;right:0px;z-index:999"/>
     </slide>
 
@@ -358,7 +358,7 @@ Lesson 08 - Constraining XML
 &#160;&#160;&lt;/oneOrMore&gt; <br/>
 &lt;/element&gt;                
         </code>
-        <img src="/data/lessons/pix/sample-only.png" height="112"
+        <img src="/pix/lessons/sample-only.png" height="112"
                  style="position:fixed;top:0px;right:0px;z-index:999"/>
     </slide>
 

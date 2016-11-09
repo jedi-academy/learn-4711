@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Lesson 07 - XML Basics
+XML Basics (Refresher)
 -->
-<lesson status="1.1">
+<lesson status="1.2">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <slide title="XML BASICS (Refresher)" layout="normal" >
@@ -10,14 +10,13 @@ Lesson 07 - XML Basics
             <p>
                 <strong>X M L</strong> stands for eXtensible Markup Language</p>
             <p>Used for storing object or data structure state.</p>
-            <p>Remember ACIT1620!</p>
         </div>
         <div class="right">
             <p>Visualizing XML: elements (dots) may have children (below), 
                 may have text values (blue),
                 and may have set of attributes (red)</p>
             <br/>
-            <img class="scale" width="308" height="296" src="/data/lessons/pix/7-1.png"/>
+            <img class="scale" width="308" height="296" src="/pix/lessons/7-1.png"/>
           
         </div>
     </slide>
@@ -46,7 +45,7 @@ Lesson 07 - XML Basics
 
     <!-- Normal slides -->
 
-    <slide title="WHAT IS XML?" layout="normal" tag="tag1">
+    <slide title="1. WHAT IS XML?" layout="normal" tag="tag1">
         <ul>
             <li>Way of digitally representing data structures</li>
             <li>Adds tags to text data so that it can be processed by 
@@ -136,7 +135,7 @@ Lesson 07 - XML Basics
         </div>
     </slide>
 
-    <slide title="XML STRUCTURE" layout="normal" tag="tag2">
+    <slide title="2. XML STRUCTURE" layout="normal" tag="tag2">
         <p>There are three ways to look at the structure of an XML document:</p>
         <ul>
             <li>Tree structure, conceptually</li>
@@ -198,7 +197,7 @@ Lesson 07 - XML Basics
     </slide>
 
 
-    <slide title="ENTITIES" layout="normal" tag="tag3">
+    <slide title="3. ENTITIES" layout="normal" tag="tag3">
         <ul>
             <li>An abbreviation or short form for some text</li>
             <li>Allow a document to be broken up into multiple storage objects or files (external)‏</li>
@@ -285,7 +284,7 @@ Lesson 07 - XML Basics
         </div>
     </slide>
 
-    <slide title="ATTRIBUTES" layout="normal" tag="tag4">
+    <slide title="4. ATTRIBUTES" layout="normal" tag="tag4">
         <ul>
             <li>An attribute is a name followed by an equal sign then an attribute value</li>
             <li>Allows an author to attach extra information to the elements in a document</li>
@@ -340,7 +339,7 @@ Lesson 07 - XML Basics
         </code>    
     </slide>
 
-    <slide title="XML STRATEGIES" layout="normal" tag="tag5">
+    <slide title="5. XML STRATEGIES" layout="normal" tag="tag5">
         <ul>
             <li>Goals to shoot for:<ul>
                     <li>Logical or intuitive</li>

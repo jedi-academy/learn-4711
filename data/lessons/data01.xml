@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+XML Basics
+-->
+<lesson status="2.0">
+
+    <slide title="X M L" layout="normal" >
+        <div class="left">
+            <p>
+                <strong>X M L</strong> - eXtensible Markup Language -
+            is one of the representational "glue" technologies for
+            building webapps, particularly distributed ones.</p>
+            <p>It provides a rich data structure, validation and
+            transformation tools, and is the underlying
+            data representation for many 
+            internet accessible services.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/x/x01.jpg"/>
+        </div>
+    </slide>
+
+    <!-- Agenda -->
+    <slide title="Agenda" layout="normal">
+        <ol>
+            <li>
+                <a href="#{tag1}">Data Represention with XML</a>
+            </li>
+            <li>
+                <a href="#{tag2}">Constraining XML Data</a>
+            </li>
+            <li>
+                <a href="#{tag3}">XML Strategies</a>
+            </li>
+            <li>
+                <a href="#{tag4}">XML Tools</a>
+            </li>
+            <li>
+                <a href="#{tag5}">Why XML Matters</a>
+            </li>
+        </ol>
+    </slide>
+
+
+    <!-- Normal slides -->
+
+    <slide title="1. DATA REPRESENTATION WITH XML" layout="normal" tag="tag1">
+        <div class="left">
+            <p>XML provides conventions for marking up text to
+            denote a tree-like structure of nested
+            values, each of which might also have attributes.</p>
+            <p>There is an 
+                <a href="https://github.com/jedi-academy/example-xml" target="_blank">example-xml</a>
+                Github repository with sample XML data.
+            </p>
+         </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/x/xmlpic.png"/>          
+        </div>
+    </slide>
+
+    <slide title="XML vs HTML" layout="normal">
+        <div class="left">
+            <p>HTML and XML came from the same roots, and
+                appear very similar to each other.</p>
+                <p>HTML uses a pre-defined set of allowed element
+                names, and attributes for many of the elements.</p>
+                <p>XHTML is in between HTML and XML, but still 
+                closer to HTML.</p>
+                <p>XML adds semantic meaning.</p>                    
+        </div>
+        <div class="right">
+            <p>HTML excerpt: <code>&lt;p&gt;Customer: George</code></p>        
+            <p>XHTML excerpt: <code>&lt;p&gt;Customer: George&gt;/p&gt;</code></p>
+            <p>XML excerpt: <code>&lt;customer&gt;George&lt;/customer&gt;</code></p>
+            <p>These excerpts come from "order" files inside the <code>orders</code> 
+            folder in the examples repo.</p>
+        </div>
+    </slide>
+
+    <slide title="HTML vs HTML" layout="normal">
+        <div class="left">
+            <p>There is an HTML standard, but the browser
+                developers have chosen to extend it,
+                with vendor-specific attributes and with
+                different liberal interpretation of closing
+                element tags.</p>
+            <p>Not an issue with XML, which addresses data representaiton
+                and not presentation.</p>
+        </div>
+        <div class="right">
+            <p>Html excerpt which "deals" with IE: <pre><code>&lt;!--[if IE]&gt;
+    &lt;marquee&gt;Jim's Rockin' Joint&lt;/marquee&gt;
+&lt;![endif]--&gt;
+</code></pre></p>        
+            <p>To be fair, HTML has evolved so that most vendor-specific
+            stuff is handled through CSS, per the CSS spec or per "CSS hacks".
+            The HTML *can be* relatively clean.</p>
+        </div>
+    </slide>
+
+    <slide title="HTML vs CSS" layout="normal">
+        <div class="left">
+            <p>Most CSS frameworks require that HTML pages make
+                extensive use of the <code>class</code> or
+                <code>id</code> attributes, attached to webpage
+                elements.</p>
+            <p>The browser result looks good, but the CSS
+            additions to the HTML don't add to the semantic value :(</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/x/x12.png"/>          
+        </div>
+    </slide>
+
+    <slide title="XML vs RDB" layout="normal" >
+        <div class="left">
+            <p>XML supports a rich, tree-like model for data.</p>
+            <p>Data relationships that would require separate
+            tables in the RDB world can be managed through
+            a single XML document.</p>
+            <p>An RDB solution for our order...</p>
+            <pre><code>INSERT INTO `Orders` (`num`, `date`, `status`, `total`, `customer`) VALUES
+(12345, '20161109-1335PST', 'A', '7.00', 'George');
+INSERT INTO `Orderitems` (`order`, `item`, `price`, `quantity`, `size`) VALUES
+(12345, 'burger', 5.00, 1, ''),
+(12345, 'fries', 2.00, 1, 'medium');
+</code></pre>
+        </div>
+        <div class="right">
+            <p>The RDB solution might be more cryptic if customer and item
+                codes were used instead of names...</p>
+            <pre><code>INSERT INTO `Orders` (`num`, `date`, `status`, `total`, `customer`) VALUES
+(12345, '20161109-1335PST', 'A', '7.00', 27);
+INSERT INTO `Orderitems` (`order`, `line`, `item`, `quantity`, `size`) VALUES
+(12345, 1, 25, 1, ''),
+(12345, 2, 6, 1, 'medium');
+</code></pre>
+        </div>
+    </slide>
+
+    <slide title="XML vs XML" layout="normal" >
+        <div class="left">
+            <p>It sounds like XML has some attraction for data representation.</p>
+        <p>But wait, there are many ways to structure an XML document
+        to represent the same data :(</p>
+            <p>An XML document could be attribute-centric...</p>
+            <pre><code>&lt;order id="12346" customer="Andre" date="20161109-1335PST"&gt;
+    &lt;item code="burger" qty="1" price="5.00"/&gt;
+    &lt;item code="fries" qty="1" size="medium" price="2.00"/&gt;
+&lt;/order&gt;
+</code></pre>
+        </div>
+        <div class="right">
+            <p>Or an XML document could be element-centric...</p>
+            <pre><code>&lt;order&gt;
+        &lt;id&gt;12347&lt;/id&gt;
+        &lt;customer&gt;Vladimir&lt;/customer&gt;
+        &lt;date&gt;20161109-1335PST&lt;/date&gt;
+        &lt;details&gt;
+            &lt;item&gt;
+                &lt;line&gt;1&lt;/line&gt;
+                &lt;code&gt;burger&lt;/code&gt;
+                &lt;quantity&gt;1&lt;/quantity&gt;
+                &lt;price&gt;5.00&lt;/price&gt;
+            &lt;/item&gt;
+            &lt;item&gt;...&lt;/item&gt;
+        &lt;/details&gt;
+    &lt;/order&gt;
+</code></pre>
+<p>And, of course, it could be anything in between.</p>
+        </div>
+    </slide>
+
+   <slide title="2. CONSTRAINING XML DATA" layout="normal" tag="tag2">
+        <p>XML suits data representation better than HTML, because
+        of the structure and element names, that add semantic meaning
+        or intent.</p>
+        <p>An XML document is "well-formed" if it satisfies a few rules:</p>
+        <ul>
+            <li>it has a root element</li>
+            <li>all elements have a matching closing tag or are self-closing</li>
+            <li>all elements are strictly properly nested</li>
+        </ul>
+        <p>An XML document is "valid" if it is well-formed and conforms
+        to a constraining document. Two types of these are
+        document type definitions and schemas.</p>
+    </slide>
+
+    <slide title="Constraining XML with a DTD" layout="normal" >
+        <div class="left">
+        <p>A Document Type Definition (DTD) can be used to constrain
+        the structure and some simple content constraints for an XML document.
+            In the example repo, <code>order-dtd.xml</code> is meant to be
+            validated against <code>order.dtd</code>.
+        </p>
+        <p>One way to validate is inside your server-side code...</p>
+        <pre><code>$doc = new DOMDocument();
+$doc-&gt;validateOnParse = true;
+$doc-&gt;load('abc.xml');</code></pre>
+        
+        </div>
+        <div class="right">
+            <pre><code>&lt;!ELEMENT order (customer,date,total,details)&gt;
+&lt;!ATTLIST order id CDATA #REQUIRED&gt;
+
+&lt;!ELEMENT customer (#PCDATA)&gt;
+&lt;!ELEMENT date (#PCDATA)&gt;
+&lt;!ELEMENT total (#PCDATA)&gt;
+
+&lt;!ELEMENT details (item)*&gt;
+&lt;!ELEMENT item EMPTY&gt;
+&lt;!ATTLIST item
+    code CDATA #IMPLIED
+    qty CDATA #IMPLIED
+    price CDATA #IMPLIED
+    size CDATA #IMPLIED
+  &gt;</code></pre>
+        </div>
+    </slide>
+
+    <slide title="DTD Shortcomings" layout="normal" >
+        <p>DTDs are simple, and have been around for years,
+        but are far from perfect:</p>
+        <ul>
+            <li>no data types</li>
+            <li>enumerated attribute values, but awkward</li>
+            <li>minimal element cardinality (none, one or some)</li>
+            <li>element contents are "text"</li>
+            <li>non-standard syntax</li>
+            <li>can be over-ridden by internal DTD subset</li>
+        </ul>
+    </slide>
+
+    <slide title="Constraining XML with a Schema" layout="normal" >
+        <div class="left">
+        <p>A Schema can be used to constrain
+        the structure and some relatively complex constraints for an XML document.
+            In the example repo, <code>order-schema.xml</code> is meant to be
+            validated against <code>order.xsd</code>.
+        </p>
+        <p>Schemas are very powerful, but very complicated. 
+        An excerpt is shown to the right, but I will talk to the
+        slide during lecture.</p>
+        <p>We will address validation next week!</p>
+        </div>
+        <div class="right">
+            <pre><code>    &lt;xs:simpleType name="Tsize"&gt;
+        &lt;xs:restriction base="xs:string"&gt;    
+            &lt;xs:enumeration value="small"/&gt;
+            &lt;xs:enumeration value="medium"/&gt;
+            &lt;xs:enumeration value="large"/&gt;
+        &lt;/xs:restriction&gt;    
+    &lt;/xs:simpleType&gt;
+</code></pre>
+        </div>
+    </slide>
+
+    <slide title="Schema Shortcomings" layout="normal" >
+        <p>XML Schemas are more complex than DTDs, but more powerful.
+            They have been around for years too, and were at the
+            height of their popularity during the Simple Object Access Protocol (SOAP)
+            ascendency, in the 2000s.</p>
+            <p>On the plus side:</p>
+        <ul>
+            <li>extensible and user-defined data types</li>
+            <li>enumerated attribute values, more flexible than DTDs</li>
+            <li>rich notion of data constraints</li>
+        </ul>
+            <p>On the minus side:</p>
+        <ul>
+            <li>complex and hard to learn</li>
+            <li>verbose</li>
+        </ul>
+    </slide>
+    
+    <slide title="3. XML STRATEGIES" layout="normal" tag="tag3">
+        <p>The opening slide for this lesson showed "Magic" between
+        a client and a server. XML *isn't* that magic, but it is
+        used for data representation within much of that "Magic".</p>
+           <br/>
+            <img class="scale" src="/pix/lessons/x/x06.png"/>          
+    </slide>
+
+    <slide title="XML as the Payload" layout="normal" >
+        <p>Many services use XML formatted data structures as the payload
+        of an HTTP message.</p>
+        <ul>
+            <li>RSS</li>
+            <li>Cisco IP phone services (weather, news, etc)</li>
+            <li>RESTful services (one payload option)</li>
+        </ul>
+    </slide>
+
+    <slide title="XML as Payload Wrapper" layout="normal" >
+        <p>Many services use XML formatted data wrapper structures,
+            to hold the payload of a service request or response.
+        </p>
+        <ul>
+            <li>SOAP web services</li>
+            <li>XML-RPC</li>
+            <li>Service Oriented Architecture (web, REST, micro)</li>
+        </ul>
+    </slide>
+
+    <slide title="XML for Configuration" layout="normal" >
+        <p>Many services use XML formatted configuration files,
+            eliminating the need for an RDB.</p>
+        <ul>
+            <li>WSDL describes SOAP services</li>
+            <li>Spring configuration for Java</li>
+            <li>Web app descriptors for JEE</li>
+            <li>RDF configuration, for web services</li>
+        </ul>
+    </slide>
+
+    <slide title="4. XML TOOLS" layout="normal" tag="tag4">
+        <p>There are a number of tools common in the XML world...</p>
+        <ul>
+            <li>Extensible stylesheets (XSL) can be used to transform XML data,
+            for instance into HTML for reporting</li>
+            <li>Formatting Object Processors (FOP) take specially formatted XSL output
+            and create PDF documents</li>
+            <li>Enterprise Service Bus is an integration architecture,
+            with support for a number of services</li>
+            <li>XPath is a specification for traversing Document Object
+            Models (DOMs), with packages implemented for most
+            programming languages</li>
+        </ul>
+    </slide>
+
+    <slide title="5. WHY XML MATTERS" layout="normal" >
+        <p>XML rocks because:</p>
+        <ul>
+            <li>Backbone of distributed systems</li>
+            <li>Used for enterprise services</li>
+            <li>Rich, verifiable data structures</li>
+            <li>Its DOM model and processing have become mainstream patterns</li>
+            <li>Still on employers' skills sought list</li>
+        </ul>
+    </slide>
+
+</lesson>
