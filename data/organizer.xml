@@ -116,8 +116,8 @@ Course organizer for Comp4711
 		<lesson name="data01"  survey="261164" icon="dothis">X M L</lesson>
 		<lesson name="data02"  survey="261165" icon="dothis" >J S O N</lesson>
 		<github name="xml" link="https://github.com/jedi-academy/example-xml">XML Examples</github>
-		<lab name="lab07" active="n">Continuing Our Diner Build-out</lab>
-		<tutorial name="ci-fun02" active="n">Add CRUD &amp; and Entity Model</tutorial>
+		<lab name="lab07">Continuing Our Diner Build-out</lab>
+		<tutorial name="ci-fun02">Add Menu Item CRUD</tutorial>
 <!--		<tutorial name="xml-xml01">XML - Basics &amp; Constraints (optional)</tutorial>
 		<assignment name="assignment2">Functional Pantry Webapp</assignment> -->
 	</week>

@@ -1,16 +1,16 @@
-#Lab #7 - Finishing Our Diner Buildout
+#Lab #7 - Continuing Our Diner Buildout
 COMP4711 - BCIT - Fall 2016
 
 ##Lab Goals
 
-The purpose of this lab is to finish the "build out" our diner webapp,
-by adding some role-based CRUD and making the ordering functional.
+The purpose of this lab is to continue the "build out" our diner webapp,
+by adding some role-based CRUD for menu item maintenance.
 These will give us an excuse to incorporate some outside components,
 
-The lab will build on the last one (lab 6). If your lab 5 is good, then continue 
+The lab will build on the last one (lab 6). If your lab 6 is good, then continue 
 to use it. If you are not happy with it, you may use the
-[diner starter](https://github.com/jedi-academy/starter-diner), 
-which is the state yours should have ended up in last week,
+[diner II starter](https://github.com/jedi-academy/starter-diner2), 
+which is the state yours should have ended up in at the end of the last lab.
 
 We will continue to use gitflow workflow. That means proper branching (master/develop), 
 completing new work in feature branches, and good commit comments.
@@ -24,8 +24,8 @@ See me in lab if this applies to you.
 
 ##Lab Submission
 
-Your lab will result in a github repository for your team, as well as one for each team
-member.
+This lab will result in a github repository for your team, as well as one for each team
+member. You are welcome to use the same repository as last lab, if you are building on it.
 
 Submit a readme *text* file, or a submission comment, to the lab dropbox. 
 It should contain a link to your **team**'s github repository. 
@@ -35,11 +35,11 @@ team member repos.
 
 Due: in theory, this should be completed during the lab period,
 but some teams will need a bit more time.  
-I have set the deadline to this Sunday at 17:30.
+I have set the deadline to this coming Sunday at 17:30.
 
 ##Lab Marking Guideline
 
-A marking rubric will be attached to the lab 6 dropboxes, similar to our
+A marking rubric will be attached to the lab 7 dropboxes, similar to our
 earlier labs. The labs will be weighted equally in the marks worksheet,
 even if some of them have different raw scores because of their rubric.
 
@@ -52,39 +52,31 @@ Make sure that you **merge your develop branch into your master** at the end of 
 
 ##Github repository
 
-In your github repo, make sure that everything has been merged into your
+In your starting Github repo, make sure that everything has been merged into your
 *master* branch before starting this lab, so that your *develop* branch
 is "clean".
 
 ##Database
 
-You have a database already, but we need to fix a couple of things in it.
-The *diner-starter* mentioned above has a <code>data/starter.sql</code>
-file, which you want to import into the database you used last lab.
-It will ensure proper capitalization of table names, and it will add
-a table that we can use for session management.
+Use the same database as last lab.
 
-<div class="alert alert-info">
-The team captain should create the team repo, all the team members should fork
-it and clone theirs locally. This will complete Job 0<br/>
-Once done, the "torch" can be passed onto one of the 
-team mates to tackle the next step.
-</div>
+##Starting Point
+
+Your repository from last week should have a user role (stored in a session),
+a controller to toggle the role between "user" and "admin", and a menu
+maintenance controller, which displays an appropriate message depending on the user role.
+
+Your project will have the Caboose package integrated & configured, and your template
+is using Bootstrap for styling.
 
 ##Your jobs
 
-There are three jobs to do to complete the lab. I suggest that you switch
-team members for each.
+The big job this lab is setting up CRUD for the menu items, with a model to support that.
 
-- [Job 1 - Setup & add roles](/display/tutorial/ci-fun01)
-- Job 2 - CRUD & an entity model
-- Job 3 - Handle sales orders
+The steps for that are found in the [CRUD tutorial](/display/tutorial/ci-fun02).
+I used markdown format for the tutorial on purpose, for better readability of code sections.
 
-Update: I am deferring jobs 2 & 3 until next week.
-I want to make sure I get the writeups done properly.
-You get a break this week :)
-
-#Wrapup
+#Wrapup (Are We Done Yet?)
 
 <div class="alert alert-info">
 Captain: assuming that everyone on the team agrees that
