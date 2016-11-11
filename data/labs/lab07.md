@@ -69,11 +69,17 @@ maintenance controller, which displays an appropriate message depending on the u
 Your project will have the Caboose package integrated & configured, and your template
 is using Bootstrap for styling.
 
+**Note** - assuming that your "master" branch is uptodate as of the last assignment,
+work in the "develop" branch for this lab, until you get
+your last lab feedback. Then you can merge the "develop" into the "master" 
+branch, for submitting for this lab.
+
 ##Your jobs
 
 The big job this lab is setting up CRUD for the menu items, with a model to support that.
 
-The steps for that are found in the [CRUD tutorial](/display/tutorial/ci-fun02).
+The steps for that are found in [CRUD tutorial - part A](/display/tutorial/ci-fun02)
+and [CRUD tutorial - part B](/display/tutorial/ci-fun02b).
 I used markdown format for the tutorial on purpose, for better readability of code sections.
 
 #Wrapup (Are We Done Yet?)
