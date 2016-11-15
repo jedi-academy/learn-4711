@@ -113,8 +113,8 @@ Course organizer for Comp4711
 	<week num="10">
 		<topic>XML &amp; JSON</topic>
 		<outcomes>2.1</outcomes>
-		<lesson name="data01"  survey="261164" icon="dothis">X M L</lesson>
-		<lesson name="data02"  survey="261165" icon="dothis" >J S O N</lesson>
+		<lesson name="data01" icon="dothis">X M L</lesson>
+		<lesson name="data02"  icon="dothis" >J S O N</lesson>
 		<github name="xml" link="https://github.com/jedi-academy/example-xml">XML Examples</github>
 		<lab name="lab07">Continuing Our Diner Build-out</lab>
 		<tutorial name="ci-fun02">Add Menu Item CRUD (Part A)</tutorial>
@@ -125,19 +125,9 @@ Course organizer for Comp4711
 	<week num="11">
 		<topic>XML Processing</topic>
 		<outcomes>2.1, 2.2</outcomes>
-		<lesson name="xml03" active="n">XML Processing</lesson>
-		<lab name="lab08" active="n">Finishing Our Diner Build-out</lab>
-		<tutorial name="ci-fun03" active="n">Handle Sales Orders</tutorial>
-<!--		<github name="simplexml" active="n">Barker Bob grills with SimpleXML</github>
-		<lab name="lab08"  active="n">XML Basics &amp;Processing</lab>
-		<tutorial name="xml-xml02" active="n">XML Processing</tutorial>-->
-	</week>
-	<week num="12">
-		<topic>XML-RPC</topic>
-		<outcomes>2.1, 2.2, 2.3</outcomes>
-		<lesson name="advanced02" active="n">XML-RPC</lesson>
-<!--		<github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" active="n">XML-RPC Examples</github>
-		<lab name="lab09"  active="n">XML-RPC</lab>-->
+		<lesson name="xml03" survey="261688" icon="dothis">Processing XML</lesson>
+		<lab name="lab08"  active="n">Finishing Our Diner Build-out</lab>
+		<tutorial name="xml-xml02" active="n">Handle Sales Orders With XML</tutorial>
 	</week>
 	<week num="13">
 		<topic>REST</topic>
@@ -145,6 +135,13 @@ Course organizer for Comp4711
 		<lesson name="advanced03" active="n">REST</lesson>
 		<lesson name="advanced04" active="n">JSON</lesson>
 		<lab name="lab10"  active="n">REST</lab>
+	</week>
+	<week num="12">
+		<topic>XML-RPC</topic>
+		<outcomes>2.1, 2.2, 2.3</outcomes>
+		<lesson name="advanced02" active="n">XML-RPC</lesson>
+<!--		<github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" active="n">XML-RPC Examples</github>
+		<lab name="lab09"  active="n">XML-RPC</lab>-->
 	</week>
 	<week num="14">
 		<topic>External Services? Loose Ends &amp; Review?</topic>

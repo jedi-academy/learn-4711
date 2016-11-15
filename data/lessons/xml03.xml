@@ -2,12 +2,13 @@
 <!--
 Lesson 09- Processing XML 
 -->
-<lesson status="1.2">
+<lesson status="1.3">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <slide title="XML ..." layout="normal" >
-        <p>XML documents are loaded into an in-memory tree
-            structure, the DOM.</p>
+        <p>What do you do with XML?
+            XML documents are loaded into an in-memory tree
+            structure, called the Document Object Model (DOM).</p>
         <p>The tree needs to be navigated, and we need
             to access or manipulate the value and/or attributes
             of an element, as well as possibly its children.</p>
@@ -84,7 +85,7 @@ Lesson 09- Processing XML
                 <li>DOM Level 3 (2004) added xpath and serializing as XML</li>
                 <li>DOM Level 4 (2014) is in progress, eg TreeWalker</li>
             </ul>
-            <p>What else? XML Schema, XSLT, XLink, xml:id, XInclude, XPointer, XForms</p>
+            <p>There are related standards: XML Schema, XSLT, XLink, xml:id, XInclude, XPointer, XForms</p>
         </div>
         <div class="right">
             <br/>
@@ -94,12 +95,13 @@ Lesson 09- Processing XML
 
     <slide title="Nodes Versus Elements" layout="normal" >
         <div class="left">
-            <p>Nodes:</p>
+            <p>Nodes (Navigation):</p>
             <ul>
                 <li>"Identity"
                     <ul>
                         <li>Name of the node</li>
-                        <li>Some nodes don't really have name</li>
+                        <li>Ohoh - some nodes don't really have a name,
+                        eg. #text nodes</li>
                     </ul>
                 </li>
                 <li>State
@@ -115,7 +117,7 @@ Lesson 09- Processing XML
             </ul>
         </div>
         <div class="right">
-            <p>Elements:</p>
+            <p>Elements (Semantics):</p>
             <ul>
                 <li>"Identity"
                     <ul>
@@ -151,6 +153,8 @@ Lesson 09- Processing XML
         <div class="left">
             <p>The DOM API can be extended to handle
                 different kinds of related documents.</p>
+                <p>A possible extension, to be more HTML-centric,
+                is shown to the right.</p>
         </div>
         <div class="right">
             <br/>
