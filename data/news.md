@@ -1,6 +1,7 @@
-**Week 10** *(Mon Nov 14, 17:30)*   
-Yay - we appear to be back!  
-Week 11 online lesson has been posted.
+**Week 10** *(Wed Nov 16, xx:00)*   
+Week 10 survey summary, and responses, posted.  
+Week 11 survey summary, and responses, posted.  
+Working on this week's lab.
 
 **Assignments** *(Wed Nov 9, 09:30)*  
 Assignment 1 marking continues.  

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Data representation Converting
+-->
+<lesson status="beta">
+    <!-- Activity metadata ... override anything from the course or organizer -->
+
+    <slide title="JSON - WHATZIT?" layout="normal" tag="tag1">
+        <div class="left">
+            <p>We are looking at "standard glue":</p>
+            <center>
+                <p>Transport: HTTP, HTTPS, <strong>AJAX</strong></p>
+                <p>Representation: XML, <strong>JSON</strong>, RSS</p>
+                <p>
+                    Application: RPC, SOA, REST
+                </p>
+            </center>
+        </div>
+    </slide>
+
+    <slide title="JSON..." layout="normal" >
+            <ul>
+                <li>JSON := JavaScript Object Notation</li>
+               <li>Open standard for human-readable data exchange</li>
+               <li>Used for simple data structures and associative arrays (called objects)</li>
+               <li>
+                   <em>
+                       <a href="http://json-schema.org/" target="_blank">JSON Schema</a> exists, 
+                       with additional data types, but not W3C/IETF blessed (only a draft)</em>
+               </li>
+            </ul>
+     </slide>
+
+    <slide title="JSON Defined" layout="normal" >
+        <br/>
+        <img class="scale" width="598" height="133" src="/pix/lessons/j1.png"/><br/>
+        <img class="scale" width="598" height="133" src="/pix/lessons/j2.png"/><br/>
+        <img class="scale" width="598" height="278" src="/pix/lessons/j3.png"/>
+    </slide>
+
+   <slide title="JSON Example" layout="normal" >
+       <code>
+           <pre>
+{	
+"firstName": "John",
+"lastName" : "Smith",
+"age"      : 25,
+"address"  :     {
+         "streetAddress": "21 2nd Street",
+         "city"         : "New York",
+         "state"        : "NY",
+         "postalCode"   : "10021"
+     },
+"phoneNumber":     [
+         { "type"  : "home",
+           "number": "212 555-1234"
+         },
+         { "type"  : "fax",
+           "number": "646 555-4567"
+         }
+     ]
+ }               
+           </pre>
+       </code>
+   </slide>
+
+
+
+    <slide title="CONVERTING TO/FROM JSON" layout="normal" tag="tag2">
+       <br/>
+        <img class="scale" width="899" height="340" src="/pix/lessons/j10.png"/>
+    </slide>
+
+     <slide title="JSON On Its Own" layout="normal">
+      <br/>
+        <img class="scale" width="911" height="402" src="/pix/lessons/j11.png"/>
+    </slide>
+
+     <slide title="JSON &lt;-&gt; Object" layout="normal">
+      <br/>
+        <img class="scale" width="910" height="491" src="/pix/lessons/j12.png"/>
+    </slide>
+
+     <slide title="JSON &lt;-&gt; Array" layout="normal" >
+      <br/>
+        <img class="scale" width="903" height="468" src="/pix/lessons/j13.png"/>
+   </slide>
+
+     <slide title="XML -&gt; JSON" layout="normal" >
+      <br/>
+        <img class="scale" width="906" height="354" src="/pix/lessons/j14.png"/>
+    </slide>
+
+     <slide title="JSON -&gt; XML" layout="normal" >
+      <br/>
+        <img class="scale" width="853" height="197" src="/pix/lessons/j15.png"/>
+    </slide>
+
+     <slide title="XML -&gt; Object?" layout="normal" >
+      <br/>
+        <img class="scale" width="891" height="382" src="/pix/lessons/j16.png"/>
+    </slide>
+
+     <slide title="XML -&gt; Array" layout="normal" >
+      <br/>
+        <img class="scale" width="888" height="363" src="/pix/lessons/j17.png"/>
+    </slide>
+
+     <slide title="XML &lt;-&gt; Array" layout="normal" >
+        <div class="left">
+            <p>No easy way, especially with attributes.</p>
+            <p>Suggestion: <a href="http://www.lalit.org/lab/convert-xml-to-array-in-php-xml2array/" 
+                              target="_blank">Separate class or library</a>
+            </p>
+            <p>Handles attributes :)</p>
+            <p>Works with PHP-DOM</p>
+            <p>May not be compatible with other converters :(</p>
+         </div>
+        <div class="right">
+            <p><code>$array = XML2Array::createArray($xml);</code></p>
+            <p><code>$xmldoc = Array2XML::createXML('root_node_name',$php_array);</code></p>
+        </div>
+   </slide>
+
+</lesson>
