@@ -129,7 +129,7 @@ Course organizer for Comp4711
 		<lesson name="xml03" survey="261688" icon="dothis">Processing XML</lesson>
 		<lesson name="week11" icon="read">Survey results</lesson>
 		<github name="example-simplexml" link="https://github.com/jedi-academy/example-simplexml-winter2016">SimpleXML Examples</github>
-		<lab name="lab08"  active="n">Finishing Our Diner Build-out</lab>
+		<lab name="lab08">Finishing Our Diner Build-out</lab>
 		<tutorial name="xml-xml02" active="n">Handle Sales Orders With XML</tutorial>
 	</week>
 	<week num="13">
