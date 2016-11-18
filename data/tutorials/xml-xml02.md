@@ -242,7 +242,7 @@ We don't know if this works yet ... time to test it.
 Our menu is shown as the images of each menu item available, organized
 into columns by category. This is managed by the <code>views/menuitem-shop</code> view
 fragment, and the individual menu items are passed to the view fragment
-in <code>Shopping::kepShopping()</code>.
+in <code>Shopping::keep_shopping()</code>.
 
 The view fragment right now should look like:
 
@@ -301,7 +301,7 @@ We can add that to <code>Shopping::add()</code>:
 
 		$this->session->set_userdata('order',(array)$order);
 
-That may vbe an improvement, but there is no visible difference after making this change.
+That may be an improvement, but there is no visible difference after making this change.
 Did we actually add anything??
 
 ##7. Show Order Receipt
@@ -480,9 +480,6 @@ Note: you may find that you get a permission error trying to save
 the order file inside your <code>data</code> folder, and you
 may have to make the folder writeable :-/
 
-==========================================================================  
-Completed above this line, editing & polishing below it :)
-
 ##10. Fix the Order Summary
 
 After saving an order, the only way we can find out if it worked is by checking
@@ -520,6 +517,69 @@ of the file to the constructor...
 		}
 	}
 
+Before we dive into our controller, we should plan how we are going to
+preent the order summary. I suggest changing <code>views/summary.php</code>
+to provide for iterating over order lines that we will need to create.
+
+    <h1>Orders Processed So Far</h1>
+
+    <table class="table">
+            <tr><th>Order #</th><th>Date/time</th><th>Amount</th></tr>
+    {orders}
+        <tr>
+                <td>{number}</td>
+                <td>{datetime}</td>
+                <td>{total}</td>
+        </tr>
+    {/orders}
+    </table>
+
+    <a class="btn btn-default" role="button" href="/shopping/neworder">Start a New Order</a>
+
+This is perfect, well except for having any data :-/
+<img class="scale" src="/pix/tutorials/x2/77.png"/>       
+
+Now we can beef up the <code>Shopping::summarize()</code>, to provide
+the data to report. From the planned view,
+we know we need to build an associative array of arrays.
+
+	public function summarize() {
+		// identify all of the order files
+		$this->load->helper('directory');
+        $candidates = directory_map('../data/');
+		$parms = array();
+        foreach ($candidates as $filename) {
+		   if (substr($filename,0,5) == 'order') {
+			   // restore that order object
+			   $order = new Order ('../data/' . $filename);
+			// setup view parameters
+			   $parms[] = array(
+				   'number' => $order->number,
+				   'datetime' => $order->datetime,
+				   'total' => $order->total()
+					   );
+		    }
+	    }
+		$this->data['orders'] = $parms;
+		$this->data['pagebody'] = 'summary';
+		$this->render('template');  // use the default template
+	}
+	
+
+Ohoh - I planned to add a <code>total()</code> method to the <code>Order</code>
+class, but forgot to do so. That would be...
+
+	public function total() {
+		$total = 0;
+		foreach($this->items as $key => $value) {
+			$menu = $this->menu->get($key);
+			$total += $value * $menu->price;
+		}
+		return $total;
+	}	
+
+That's more like it!
+<img class="scale" src="/pix/tutorials/x2/78.png"/>       
 
 ##11. Examine an Old Order?
 
@@ -527,6 +587,29 @@ It would be nice to see the details of a processed order, for confirmation.
 Let's add a link to the line for each order displayed in the summary,
 and have that trigger a recreated receipt for that order.
 
+Modify the summary view fragment, embedding the order # in a link...
+
+    <tr>
+            <td><a href="/shopping/examine/{number}">{number}</a></td>
+            <td>{datetime}</td>
+            <td>{total}</td>
+    </tr>
+
+Add an <code>examine</code> method to your shopping controller...
+
+    public function examine($which) {
+        $order = new Order ('../data/order' . $which . '.xml');
+        $stuff = $order->receipt();
+        $this->data['content'] = $this->parsedown->parse($stuff);
+        $this->render();
+    }
+	
+
+And ...
+<img class="scale" src="/pix/tutorials/x2/79.png"/>       
+
+The change to have the order # show up, like it does, is not in the above;
+that is something for you to figure out! :)
 
 ##12. Are We Safe?
 
@@ -535,4 +618,4 @@ We can only add to an order, and not remove items if we change our mind,
 but we are functional, and the orders are stored in and retrieved from
 XML documents :)
 
-Steps 10 & 11 above are still being edited, so we're not done yet.
+I was pleasantly surprised at how small a role XML played, but it "feels right".

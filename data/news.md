@@ -1,7 +1,7 @@
-**Week 10** *(Wed Nov 16, 13:00)*   
+**Week 11** *(Thu Nov 17, 18:00)*   
 Week 10 survey summary, and responses, posted.  
 Week 11 survey summary, and responses, posted.  
-Working on this week's lab.
+This week's lab posted. The tutorial has been updated too :)
 
 **Survey** (Wed Nov 16 13:00)
 
