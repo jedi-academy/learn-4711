@@ -2,19 +2,14 @@
 <!--
 Lesson 10 - Role-Based Access Control
 -->
-<lesson status="beta">
+<lesson status="2.0">
     <!-- Activity metadata ... override anything from the course or organizer -->
-
-    <slide title="REST" layout="normal" >
-        <p>REST := REpresentational State Transfer</p>
-        <p>The current "darling" of inter-application "glue".</p>
-    </slide>
 
     <!-- Agenda -->
     <slide title="Agenda" layout="normal">
         <ol>
             <li>
-                <a href="#{tag1}">The Background</a>
+                <a href="#{tag1}">Client-Server Architecture</a>
             </li>
             <li>
                 <a href="#{tag2}">REST Philosophy</a>
@@ -34,83 +29,240 @@ Lesson 10 - Role-Based Access Control
 
     <!-- Normal slides -->
 
-    <slide title="THE BACKGROUND" layout="normal" tag="tag1">
+    <slide title="1. CLIENT-SERVER ARCHITECTURE" layout="normal" tag="tag1">
         <div class="left">
-            <p>You have already seen "standard glue":</p>
+            <p>A distributed system is one in which the components are
+                conceptually or literally on different servers.</p>
+                <p>These can be arranged formally or informally.</p>
+            <br/>
+            <img class="scale" src="/pix/lessons/y/01.png"/>
+        </div>
+        <div class="right">
+            <p>A more formal arrangement affords the opportunity for
+            more rigorous security between external and internal
+            components, which will influence connection
+            technology choices.</p>
+            <img class="scale" src="/pix/lessons/y/02.gif"/>
+        </div>
+    </slide>
+    
+    <slide title="Client-Server Connections" layout="normal" >
+        <div class="left">
+            <p>The components are connected to each other
+                on several levels, using choices of one or more conventions at each
+                level, a.k.a. "glue":</p>
             <center>
                 <p>Transport: HTTP, HTTPS, AJAX</p>
                 <p>Representation: XML, JSON, RSS</p>
-                <p>
-                    <strong>Application</strong>: RPC, SOA, <strong>REST</strong>
-                </p>
+                <p>Application: RPC, SOA, REST</p>
             </center>
         </div>
+        <div class="right">
+            <p>When two components are connected, one is usually consuming
+            data or a service provided by or managed by another.</p>
+            <img class="scale" src="/pix/lessons/y/03.png"/>
+            <p>Of course, a component can be both a client (for some
+            services) and a server (for other services).</p>
+         </div>
     </slide>
 
-    <slide title="Reminder: RPC" layout="normal" >
-        <div>
+    <slide title="Remote Procedure Calls (RPC)" layout="normal" >
+        <div class="left">
             <br/>
-            <img class="scale" width="527" height="270" src="/data/lessons/pix/r1.png"/>
+            <img class="scale" src="/pix/lessons/r1.png"/>
+        </div>
+        <div class="right">
+            <p>With a conventional Remote Procedure Call technique,
+            like XML-RPC, arguments for a remote procedure are
+            converted into a transportable data format, and sent to the RPC
+            server. The data structure is dictated by the remote method's signature.</p>
+            <p> The arguments are extracted remotely, and passed to
+            the appropriate method of the handling object there.
+                The reverse process is used to return results or
+            an error/fault message.</p>
         </div>
     </slide>
 
-    <slide title="Twist: Service Oriented Architecture (SOA)" layout="normal" >
-        <br/>
-        <img class="scale" width="501" height="449" src="/data/lessons/pix/r2.png"/>
+    <slide title="Service Oriented Architecture (SOA)" layout="normal" >
+        <div class="left">
+            <br/>
+            <img class="scale" src="/pix/lessons/r2.png"/>
+        </div>
+        <div class="right">
+            <p>A Service Oriented Architecture (SOA) technique is similar to RPC,
+                except that a server needs to register with a naming service, and the
+                client needs to consult the naming service to locate
+                a suitable server to send requests to.</p>
+            <p>Arguments for a remote service, and the response, are
+                converted into a transportable data format, and exchanged between client
+                and server using one of several delivery methods. The data structure is dictated by the configuration
+                provided to the naming service, for both client and server.</p>
+        </div>
     </slide>
 
-    <slide title="Now for REST!" layout="normal">
-        <br/>
-        <img class="scale" width="622" height="508" src="/data/lessons/pix/r3.png"/>
+    <slide title="Representational State Transfer (REST)" layout="normal">
+        <div class="left">
+            <br/>
+            <img class="scale" src="/pix/lessons/y/11.png"/>
+        </div>
+        <div class="right">
+            <p>REST  is the current "darling" of inter-application "glue".</p>
+            <p>It provides for flexible transport protocols, flexible data representation
+                formats, and guidelines for expected client and server behavior.</p>
+            <p>There is, alas, still a lot of room for interpretation, and this
+                is more often called "RESTful".</p>
+        </div>           
     </slide>
 
-    <slide title="THE REST PHILOSOPHY" layout="normal"  tag="tag2">
+    <slide title="Microservices" layout="normal">
+        <div class="left">
+            <br/>
+            <img class="scale" src="/pix/lessons/y/04.png"/>
+        </div>
+        <div class="right">
+            <p>Microservices are an emerging trend, particularly with
+                cloud computing platforms.</p>
+            <p>The notion is to have multiple fine-grained servers
+                rather than fewer coarse-grained servers. The microservices
+                are meant to be small, easy to replace, and independently deployable.</p>
+            <p>Caution (from Wikipedia): there is no industry consensus yet 
+                regarding the properties of microservices, and
+                an official definition is missing as well. </p>
+        </div>           
+    </slide>
+
+
+    <slide title="2. REST PHILOSOPHY" layout="normal"  tag="tag2">
         <div>
             <p>REST is an architectural style or philosophy, not a standard.</p>
             <ul>
                 <li>Map resources (not usecases) to URLs</li>
                 <li>Map CRUD usecases to HTTP types</li>
-                <li>All needed data passed (rep state)</li>
+                <li>Pass all needed data (representational state)</li>
                 <li>Accept or deliver multiple formats (XML, JSON, JSONP, CSV, XHTML, text)</li>
             </ul>
         </div>    
     </slide>
 
     <slide title="REST URLs" layout="normal" >
-        <ul>
-            <li>Http-get: <code>/product</code> returns a list of products</li>
-            <li>Http-get: <code>/product/123</code> returns product 123</li>
-            <li>Http-post: <code>/product/123</code> creates product 123</li>
-            <li>Http-put: <code>/product/123</code> updates product 123</li>
-            <li>Http-delete: <code>/product/123</code> deletes product 123</li>
-        </ul>    
-    </slide>
-
-    <slide title="&quot;RESTful&quot; STANDARDS" layout="normal" tag="tag3">
-        <p>Mostly REST, with interpretation</p>
-        <p>Single vs multiple records? collection treatment?
+        <div class="left">
+            <p>A REST endpoint is intended to identify a resource, and
+                the intended action is denoted by the type of HTTP
+                request sent.</p>
+            <img class="scale" src="/pix/lessons/y/12.png"/>
+        </div>
+        <div class="right">
+            <p>An example, where any data would be part of the HTTP
+                message payload:</p>
             <ul>
-                <li>(get) /parts {maybe have parm for pagination}</li>
-                <li>(…) /part/abc</li>
-            </ul>
-        </p>
-        <p>JSON or XML only - others unsafe</p>
+                <li>Http-get: <code>/product</code> returns a list of products</li>
+                <li>Http-get: <code>/product/123</code> returns product 123</li>
+                <li>Http-post: <code>/product/123</code> creates product 123</li>
+                <li>Http-put: <code>/product/123</code> updates product 123</li>
+                <li>Http-delete: <code>/product/123</code> deletes product 123</li>
+            </ul>    
+        </div>           
     </slide>
 
-    <slide title="REST Data Formats" layout="normal">
-        <p>Specify in HTTP header           <ul>
-                <li>Accept: application/xml</li>
-                <li>Content-Type: application/xml</li>
-                <li>Valid types: application/json, application/xml, application/xhtml+xml</li>
-            </ul>
+    <slide title="REST Implementation" layout="normal" >
+        <div class="left">
+            <p>A REST client needs to convert a local object into an acceptable
+                data format, and to then emit the kind of HTTP request appropriate 
+                to the intended action.</p> 
+            <p>A REST server needs to convert an incoming object state representation
+                into a local object, and to dispatch the request to
+                an appropriate handling object/method based on the HTTP request type.</p>
+        </div>
+        <div class="right">
+            <p>In the diagram below, "Trip Management" provides a REST server
+                endpoint for users on smartphones, and it has a REST client
+                which sends requests to the "Passenger Management" REST server
+                endpoint.</p>       
+            <img class="scale" src="/pix/lessons/y/13.png"/>
+        </div>       
+    </slide>
+
+    <slide title="3. &quot;RESTful&quot; STANDARDS" layout="normal" tag="tag3">
+        <p>This sounds wonderful, no? What could possibly go wrong?</p>
+        <p>The biggest problem is that there is no REST standard.</p>
+        <p>Different developers, large and small, have chosen to interpret
+        the REST philosophy differently or only partially, with confusing
+        and/or conflicting implementations and expectations.</p>
+        <p>The industry consensus is, that conforming to two or more
+        of the REST principles, fully or partially, entitles you
+        to claim to be "RESTful".</p>
+        <p>Examples follow :)</p>
+    </slide>
+
+    <slide title="RESTful Routing" layout="normal">
+        <p>Some have chosen to elaborate on REST URLs,
+        adding parameters or using the plural vs singular
+        of a resource name.</p>
+           <img class="scale" src="/pix/lessons/y/14.jpg"/>
+     </slide>
+
+    <slide title="RESTful Pagination" layout="normal">
+        <p>REST doesn't provide guidance for pagination through
+        large data sets.</p>
+        <p>Some developers have chosen to add pagination parameters
+        (eg ?page=x).</p>
+        <p>Some developers have chosen to provide a "Load more results" button,
+        or to automatically load more results as you scroll to the
+        bottom of a webpage. These hide how the pagination
+        is being handled.</p>
+    </slide>
+
+    <slide title="RESTful Data Formats" layout="normal">
+        <p>Some developers have chosen to allow only JSON
+        data to be exchanged. Lookup JSON-REST (hehe).</p>
+        <p>Most developers have chosen to handle only JSON
+        or XML data exchange, considering the other formats
+        unsafe (JSONP) or not well supported (CSV).</p>
+    </slide>
+
+    <slide title="RESTful Endpoints" layout="normal">
+        <p>Some developers have chosen subdomains for their
+        endpoints, which suits microservices. An example would
+            be <code>tickets.movies.com</code>
         </p>
-        <p>Imply in URL           <ul>
-                <li>/product/123.json</li>
-            </ul>
+        <p>Other developers have chosen a subordinate
+        URI segment as a REST endpoint, eg <code>movies.com/tickets</code>.
+        Sadly, some developers understand this to mean that the "tickets"
+        REST service is a form of "HMVC" :-/</p>
+        <p>Some developers have chosen multiple endpoints for what is
+            intended to be a single REST service, eg. <code>movies.com/ticket</code> and
+            <code>movies.com/tickets</code>
         </p>
     </slide>
 
-    <slide title="REST IN CODEIGNITER" layout="normal" tag="tag4">      
+    <slide title="RESTful Content Negotiation" layout="normal">
+        <p>The desired data format could be specified in your HTTP request header, like
+            <code>Accept: application/xml</code>, and similarly your provided data
+            <code>Content-Type: application/xml</code>. 
+        Valid types: application/json, application/xml, application/xhtml+xml</p>
+        <p>The desired data format could be implied in your request URL, like
+            <code>/product/123.json</code>
+        </p>
+        <p>The desired data format could be implied as a query parameter,
+            like <code>/product/123?format=json</code>
+        </p>
+        <p>Some REST libraries allow any of these!</p>
+        <p>REST does not provide enough guidance.</p>
+    </slide>
+
+   <slide title="RESTful Confusion" layout="normal" >
+        <div class="left">
+            <p>Oh dear, this isn't very helpful!</p>
+            <p>Nope.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/y/19.jpg"/>
+        </div>       
+    </slide>
+
+
+    <slide title="4. REST IN CODEIGNITER" layout="normal" tag="tag4">      
         <ul>
             <li>Stateless :)</li>
             <li>URL mapping native :)</li>
@@ -129,7 +281,7 @@ Lesson 10 - Role-Based Access Control
             <li>Curl library for low-level HTTP types, in &amp; out</li>
             <li>Format library for multiple format support</li>
         </ul>
-        <p>Only one choice ... there are multiple conflicting conventions or interpretations</p>
+        <p>This is only one choice ... there are multiple conflicting conventions or interpretations</p>
           
     </slide>
 
@@ -182,11 +334,13 @@ Lesson 10 - Role-Based Access Control
             <li>$route['product']['post'] = 'product/post';</li>
             <li>etc ...</li>
         </ul>
-        <p>This does not address format conversions, nor does it clarify other RFEST issues :(</p>
+        <p>This does not address format conversions, nor does it clarify other REST issues :(</p>
+        <p>You would still need to deal with data format conversions, and you would
+        need to provide sets of HTTP-verb based routing rules for each "service".</p>
           
     </slide>
 
-    <slide title="REST ISSUES" layout="normal" tag="tag5">
+    <slide title="5. REST ISSUES" layout="normal" tag="tag5">
         
             <ul>
                 <li>Anyone/everyone can claim to be RESTful!</li>
@@ -201,7 +355,7 @@ Lesson 10 - Role-Based Access Control
 
     <slide title="REST - DO YOU CARE?" layout="normal" >
         <p>“REST” displacing XML-RPC and SOAP</p>
-        <p>Social networking APIs becoming reliant on it (or company interpretations)</p>
+        <p>Social networking APIs becoming reliant on it (or company interpretations of it)</p>
         <br/>
         <p>So, yeah</p>
     </slide>

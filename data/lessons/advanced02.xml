@@ -56,7 +56,7 @@ Lesson 10 - Role-Based Access Control
             as well as a returned data structure.</p>
         <p>HTTP is the transport protocol used to exchange messages.</p>
         <br/>
-        <img class="scale" width="527" height="270" src="/data/lessons/pix/xmlrpc.jpg"/>
+        <img class="scale" width="527" height="270" src="/pix/lessons/xmlrpc.jpg"/>
     </slide>
 
     <slide title="XML-RPC: Definition" layout="normal" >
@@ -120,7 +120,7 @@ Lesson 10 - Role-Based Access Control
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="787" height="373" src="/data/lessons/pix/xmlrpc1.png"/>
+            <img class="scale" width="787" height="373" src="/pix/lessons/xmlrpc1.png"/>
         </div>    
     </slide>
 
@@ -132,7 +132,7 @@ Lesson 10 - Role-Based Access Control
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="787" height="373" src="/data/lessons/pix/xmlrpc1.png"/>
+            <img class="scale" width="787" height="373" src="/pix/lessons/xmlrpc1.png"/>
         </div>    
     </slide>
 
@@ -144,7 +144,7 @@ Lesson 10 - Role-Based Access Control
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="787" height="373" src="/data/lessons/pix/xmlrpc1.png"/>
+            <img class="scale" width="787" height="373" src="/pix/lessons/xmlrpc1.png"/>
         </div>    
     </slide>
 

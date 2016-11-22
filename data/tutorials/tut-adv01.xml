@@ -34,7 +34,7 @@ Tutorial 08 - Authentication
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="600" height="261" src="/data/tutorials/pix/8/8-1.png"/>
+            <img class="scale" width="600" height="261" src="/pix/tutorials/8/8-1.png"/>
         </div>    
     </slide>
 
@@ -46,7 +46,7 @@ Tutorial 08 - Authentication
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="600" height="271" src="/data/tutorials/pix/8/8-0.png"/>
+            <img class="scale" width="600" height="271" src="/pix/tutorials/8/8-0.png"/>
         </div>    
     </slide>
 
@@ -91,7 +91,7 @@ Tutorial 08 - Authentication
             <p>When run, your webapp should look no different than before.
                 Most importantly, it should not break!</p>
             <br/>
-            <img class="scale" width="600" height="261" src="/data/tutorials/pix/8/8-1.png"/>
+            <img class="scale" width="600" height="261" src="/pix/tutorials/8/8-1.png"/>
         </div>
     </slide>
 
@@ -144,7 +144,7 @@ Tutorial 08 - Authentication
             <p>When run, your webapp should now show a session ID in the right
                 of the footer. Reload the page to make sure it doesn't change.</p>
             <br/>
-            <img class="scale" width="600" height="191" src="/data/tutorials/pix/8/8-2.png"/>
+            <img class="scale" width="600" height="191" src="/pix/tutorials/8/8-2.png"/>
             <p>Once you have confirmed that your sessions are loading, you can
                 remove this testing code.</p>
         </div>
@@ -175,7 +175,7 @@ Tutorial 08 - Authentication
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="681" height="266" src="/data/tutorials/pix/8/8-3.png"/>
+            <img class="scale" width="681" height="266" src="/pix/tutorials/8/8-3.png"/>
         </div>
     </slide>
 
@@ -249,7 +249,7 @@ Tutorial 08 - Authentication
             the virtual host domain name you have used.</p>
         <p>You should get something like:</p>
         <br/>
-        <img class="scale" width="600" height="229" src="/data/tutorials/pix/8/8-4.png"/>
+        <img class="scale" width="600" height="229" src="/pix/tutorials/8/8-4.png"/>
     </slide>
 
     <slide title="Handle the Login Form" layout="normal">
@@ -295,7 +295,7 @@ Tutorial 08 - Authentication
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="648" height="231" src="/data/tutorials/pix/8/8-6.png"/>
+            <img class="scale" width="648" height="231" src="/pix/tutorials/8/8-6.png"/>
         </div>
     </slide>
 

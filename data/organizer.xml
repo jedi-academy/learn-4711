@@ -126,21 +126,21 @@ Course organizer for Comp4711
 	<week num="11">
 		<topic>XML Processing</topic>
 		<outcomes>2.1, 2.2</outcomes>
-		<lesson name="xml03" survey="261688" icon="dothis">Processing XML</lesson>
+		<lesson name="xml03" icon="dothis">Processing XML</lesson>
 		<lesson name="week11" icon="read">Survey results</lesson>
 		<github name="example-simplexml" link="https://github.com/jedi-academy/example-simplexml-winter2016">SimpleXML Examples</github>
 		<lab name="lab08">Finishing Our Diner Build-out</lab>
 		<tutorial name="xml-xml02">Handle Sales Orders With XML</tutorial>
 	</week>
-	<week num="13">
+	<week num="12">
 		<topic>REST</topic>
 		<outcomes>2.1, 2.3</outcomes>
-		<lesson name="advanced03" active="n">REST</lesson>
-		<lesson name="advanced04" active="n">JSON</lesson>
-		<lab name="lab10"  active="n">REST</lab>
+		<lesson name="advanced03" survey="262279" icon="dothis">REST</lesson>
+		<lesson name="advanced04" >AJAX</lesson>
+		<lab name="lab09" active="n">REST</lab>
 	</week>
-	<week num="12">
-		<topic>XML-RPC</topic>
+	<week num="13">
+		<topic>XML-RPC?</topic>
 		<outcomes>2.1, 2.2, 2.3</outcomes>
 		<lesson name="advanced02" active="n">XML-RPC</lesson>
 <!--		<github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" active="n">XML-RPC Examples</github>
@@ -149,8 +149,6 @@ Course organizer for Comp4711
 	<week num="14">
 		<topic>External Services? Loose Ends &amp; Review?</topic>
 		<outcomes>2.3</outcomes>
-		<lesson name="advanced01" active="n">Authentication</lesson>
-		<tutorial name="tut-adv01" active="n">Authentication</tutorial>
 		<inlab>Review</inlab>
 		<lesson name="final" active="n">Final Exam</lesson>
 		<lesson name="future" active="n">Crystal Ball</lesson>
@@ -163,5 +161,7 @@ Course organizer for Comp4711
 		<lesson name="xml01">XML Basics (Optional Refresher)</lesson>
 		<lesson name="xml02">Constraining XML (Optional)</lesson>
 		<lesson name="xml04" icon="read">Data Representation Conversions</lesson>
+		<lesson name="advanced01" icon="read">Authentication</lesson>
+		<tutorial name="tut-adv01">Authentication</tutorial>
 	</week>
 </organizer>

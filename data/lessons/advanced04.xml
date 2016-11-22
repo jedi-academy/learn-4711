@@ -1,26 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Lesson 10 - Role-Based Access Control
+AJAX
 -->
-<lesson status="beta">
+<lesson status="1.2">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
-    <slide title="JSON &amp;.AJAX" layout="normal" >
-       <p>JSON := JavaScript Object Notation</p>
-        <p>The current "darling" of representational "glue".</p>
-        <p>AJAX := Asynchronous Javascript And Xml</p>
-        <p>Fancy name given to client-side service calling.</p>
-    </slide>
-
-    <!-- Agenda -->
     <slide title="Agenda" layout="normal">
         <ol>
-            <li>
-                <a href="#{tag1}">JSON - Whatzit?</a>
-            </li>
-            <li>
-                <a href="#{tag2}">Converting to/from JSON</a>
-            </li>
             <li>
                 <a href="#{tag3}">AJAX - Whatzit?</a>
             </li>
@@ -34,143 +20,6 @@ Lesson 10 - Role-Based Access Control
     </slide>
 
 
-    <!-- Normal slides -->
-
-    <slide title="JSON - WHATZIT?" layout="normal" tag="tag1">
-        <div class="left">
-            <p>We are looking at "standard glue":</p>
-            <center>
-                <p>Transport: HTTP, HTTPS, <strong>AJAX</strong></p>
-                <p>Representation: XML, <strong>JSON</strong>, RSS</p>
-                <p>
-                    Application: RPC, SOA, REST
-                </p>
-            </center>
-        </div>
-    </slide>
-
-    <slide title="JSON..." layout="normal" >
-            <ul>
-                <li>JSON := JavaScript Object Notation</li>
-               <li>Open standard for human-readable data exchange</li>
-               <li>Used for simple data structures and associative arrays (called objects)</li>
-               <li>
-                   <em>
-                       <a href="http://json-schema.org/" target="_blank">JSON Schema</a> exists, 
-                       with additional data types, but not W3C/IETF blessed (only a draft)</em>
-               </li>
-            </ul>
-     </slide>
-
-    <slide title="JSON Defined" layout="normal" >
-        <br/>
-        <img class="scale" width="598" height="133" src="/data/lessons/pix/j1.png"/><br/>
-        <img class="scale" width="598" height="133" src="/data/lessons/pix/j2.png"/><br/>
-        <img class="scale" width="598" height="278" src="/data/lessons/pix/j3.png"/>
-    </slide>
-
-   <slide title="JSON Example" layout="normal" >
-       <code>
-           <pre>
-{	
-"firstName": "John",
-"lastName" : "Smith",
-"age"      : 25,
-"address"  :     {
-         "streetAddress": "21 2nd Street",
-         "city"         : "New York",
-         "state"        : "NY",
-         "postalCode"   : "10021"
-     },
-"phoneNumber":     [
-         { "type"  : "home",
-           "number": "212 555-1234"
-         },
-         { "type"  : "fax",
-           "number": "646 555-4567"
-         }
-     ]
- }               
-           </pre>
-       </code>
-   </slide>
-
-
-
-    <slide title="CONVERTING TO/FROM JSON" layout="normal" tag="tag2">
-       <br/>
-        <img class="scale" width="899" height="340" src="/data/lessons/pix/j10.png"/>
-    </slide>
-
-     <slide title="JSON On Its Own" layout="normal">
-      <br/>
-        <img class="scale" width="911" height="402" src="/data/lessons/pix/j11.png"/>
-    </slide>
-
-     <slide title="JSON &lt;-&gt; Object" layout="normal">
-      <br/>
-        <img class="scale" width="910" height="491" src="/data/lessons/pix/j12.png"/>
-    </slide>
-
-     <slide title="JSON &lt;-&gt; Array" layout="normal" >
-      <br/>
-        <img class="scale" width="903" height="468" src="/data/lessons/pix/j13.png"/>
-   </slide>
-
-     <slide title="XML -&gt; JSON" layout="normal" >
-      <br/>
-        <img class="scale" width="906" height="354" src="/data/lessons/pix/j14.png"/>
-    </slide>
-
-     <slide title="JSON -&gt; XML" layout="normal" >
-      <br/>
-        <img class="scale" width="853" height="197" src="/data/lessons/pix/j15.png"/>
-    </slide>
-
-     <slide title="XML -&gt; Object?" layout="normal" >
-      <br/>
-        <img class="scale" width="891" height="382" src="/data/lessons/pix/j16.png"/>
-    </slide>
-
-     <slide title="XML -&gt; Array" layout="normal" >
-      <br/>
-        <img class="scale" width="888" height="363" src="/data/lessons/pix/j17.png"/>
-    </slide>
-
-     <slide title="XML &lt;-&gt; Array" layout="normal" >
-        <div class="left">
-            <p>No easy way, especially with attributes.</p>
-            <p>Suggestion: <a href="http://www.lalit.org/lab/convert-xml-to-array-in-php-xml2array/" 
-                              target="_blank">Separate class or library</a>
-            </p>
-            <p>Handles attributes :)</p>
-            <p>Works with PHP-DOM</p>
-            <p>May not be compatible with other converters :(</p>
-         </div>
-        <div class="right">
-            <p><code>$array = XML2Array::createArray($xml);</code></p>
-            <p><code>$xmldoc = Array2XML::createXML('root_node_name',$php_array);</code></p>
-        </div>
-   </slide>
-
-     <slide title="JSONP Caution" layout="normal" >
-         <p>JSONP (JSON with padding) is the convention of wrapping a JSON payload inside a function call</p>
-         <p>JSON: 
-<code>{"Name": "Foo", "Id": 1234, "Rank": 7}</code></p>
-         <p>JSONP: 
-<code>parseResponse({"Name": "Foo", "Id": 1234, "Rank": 7});</code></p>
-         <p>Typical usage (script injection):<br/>
-<code><pre>
-&lt;script type="text/javascript"    	     <br/>
-   src="http://example.com/Users/1234?jsonp=parseResponse"&gt;<br/>
-&lt;/script&gt;
-</pre>
-</code>
-         </p>
-         <p>Considered dangerous because of XSS</p>
-    </slide>
-
-
     <slide title="AJAX - WHATZIT?" layout="normal" tag="tag3">
         <ul>
             <li>Asynchronous (content loading)‏</li>
@@ -178,13 +27,16 @@ Lesson 10 - Role-Based Access Control
             <li>And</li>
             <li>XML (request handling)‏</li>
         </ul>
+        <p>We care because AJAX is often used for client-side
+        REST requests.</p>
+        <p>Some observations follow.</p>
     </slide>
 
     <slide title="AJAX - Really?" layout="normal">
         <ul>
             <li>Set of cross-platform conventions and techniques to load data 
                 browser-side, without interfering with the display and 
-                behaviour of the existing page‏</li>
+                behavior of the existing page‏</li>
             <li>Relies on Javascript &amp; the DOM, assumes XHTML &amp; CSS used‏</li>
             <li>XMLHttpRequest object in browser</li>
         </ul>
@@ -192,7 +44,7 @@ Lesson 10 - Role-Based Access Control
 
     <slide title="HTTP Transport with AJAX" layout="normal" >
       <br/>
-        <img class="scale" width="475" height="455" src="/data/lessons/pix/j4.png"/>
+        <img class="scale" width="475" height="455" src="/pix/lessons/j4.png"/>
     </slide>
 
     <slide title="XmlHttpRequest" layout="normal">
@@ -215,7 +67,9 @@ Javascript enabled</li>
     </slide>
 
     <slide title="AJAX WITH CODEIGNTIER" layout="normal" tag="tag6">
-        <p>Hard to distinguish an incoming AJAX request</p>
+        <p>Hard to distinguish an incoming AJAX request ...
+            <code>$this-&gt;input-&gt;is_ajax_request()</code>
+        can be spoofed.</p>
         <p>Follow conventions, return "AJAX" object, not HTML page -
         designate a controller or sub-controller as one intended to handle
         an AJAX request.</p>

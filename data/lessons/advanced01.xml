@@ -59,7 +59,7 @@ Lesson 10 - Role-Based Access Control
         </div>
         <div class="right">
             <br/>
-            <img class="scale" width="426" height="407" src="/data/lessons/pix/10/10-1.png"/>
+            <img class="scale" width="426" height="407" src="/pix/lessons/10/10-1.png"/>
         </div>    
     </slide>
 
@@ -73,7 +73,7 @@ Lesson 10 - Role-Based Access Control
                 <li>OpenID</li>
             </ul>
             <br/>
-            <img class="scale" width="284" height="175" src="/data/lessons/pix/10/10-16.png"/>
+            <img class="scale" width="284" height="175" src="/pix/lessons/10/10-16.png"/>
         </div>
         <div class="right">
             <p>Federations of trust</p>
@@ -83,13 +83,13 @@ Lesson 10 - Role-Based Access Control
                 <li>OpenID ...</li>
             </ul>
             <br/>
-            <img class="scale" width="287" height="160" src="/data/lessons/pix/10/10-17.png"/>
+            <img class="scale" width="287" height="160" src="/pix/lessons/10/10-17.png"/>
         </div>    
     </slide>
 
     <slide title="Typical Framework" layout="normal" >
         <br/>
-        <img class="scale" width="500" height="329" src="/data/lessons/pix/10/10-2.png"/>
+        <img class="scale" width="500" height="329" src="/pix/lessons/10/10-2.png"/>
     </slide>
 
 
@@ -106,26 +106,26 @@ Lesson 10 - Role-Based Access Control
     <slide title="Authentication Choices" layout="normal" >
         <div class="left">
             <p>Knowledge-based</p>
-            <img class="scale" width="443" height="190" src="/data/lessons/pix/10/10-3.png"/>
+            <img class="scale" width="443" height="190" src="/pix/lessons/10/10-3.png"/>
             <p>Client-generated OTP</p>
-            <img class="scale" width="442" height="189" src="/data/lessons/pix/10/10-5.png"/>
+            <img class="scale" width="442" height="189" src="/pix/lessons/10/10-5.png"/>
         </div>
         <div class="right">
             <p>Server-Generated OTP</p>
-            <img class="scale" width="443" height="190" src="/data/lessons/pix/10/10-4.png"/>
+            <img class="scale" width="443" height="190" src="/pix/lessons/10/10-4.png"/>
             <p>Out-of-band</p>
-            <img class="scale" width="443" height="188" src="/data/lessons/pix/10/10-6.png"/>
+            <img class="scale" width="443" height="188" src="/pix/lessons/10/10-6.png"/>
         </div>    
     </slide>
 
     <slide title="Authorization Choices" layout="normal" >
         <div class="left">
-            <img class="scale" width="400" height="244" src="/data/lessons/pix/10/10-8.png"/>
+            <img class="scale" width="400" height="244" src="/pix/lessons/10/10-8.png"/>
             <p></p>
-            <img class="scale" width="400" height="240" src="/data/lessons/pix/10/10-10.png"/>
+            <img class="scale" width="400" height="240" src="/pix/lessons/10/10-10.png"/>
         </div>
         <div class="right">
-            <img class="scale" width="400" height="364" src="/data/lessons/pix/10/10-9.png"/>
+            <img class="scale" width="400" height="364" src="/pix/lessons/10/10-9.png"/>
             <p>Boils down to access control list (ACL) or user capability list (UCL)</p>
         </div>    
     </slide>
@@ -149,13 +149,13 @@ Lesson 10 - Role-Based Access Control
             <li>Roll your own - as part of base controller</li>
         </ul>
         <br/>
-        <img class="scale" width="697" height="205" src="/data/lessons/pix/10/10-11.png"/>
+        <img class="scale" width="697" height="205" src="/pix/lessons/10/10-11.png"/>
     </slide>
 
     <slide title="Popular Technology Choices" layout="normal">
         <p>Third party tool which does one or both of...</p>
         <p></p>
-        <img class="scale" width="512" height="447" src="/data/lessons/pix/10/10-12.png"/>
+        <img class="scale" width="512" height="447" src="/pix/lessons/10/10-12.png"/>
     </slide>
 
     <slide title="4. CODEIGNITER AUTHENTICATION" layout="normal" tag="tag4">
@@ -293,7 +293,7 @@ Lesson 10 - Role-Based Access Control
         <p>Restrict access based on role</p>
         <p>Do this per controller</p>
         <br/>
-        <img class="scale" width="550" height="202" src="/data/lessons/pix/10/10-13.png"/>
+        <img class="scale" width="550" height="202" src="/pix/lessons/10/10-13.png"/>
     </slide>
 
     <slide title="Access Control Pseudocode" layout="normal">
