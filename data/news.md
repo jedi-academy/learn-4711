@@ -1,5 +1,6 @@
-**Week 12** *(Mon Nov 21, 15:00)*   
-Lesson for this week posted, and survey for them activated.
+**Week 12** *(Tue Nov 22, 03:00)*   
+Lesson for this week posted, and survey for it activated (open until 23:20 btw).
+I will get the REST example repos in shape later today.
 
 **Survey** (Wed Nov 16 13:00)
 I have posted a new survey on D2L, [Planning Ahead](https://learn.bcit.ca//d2l/lms/survey/user/attempt/survey_start_frame.d2l?si=261919&ou=335696)  
