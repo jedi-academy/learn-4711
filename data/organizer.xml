@@ -138,7 +138,8 @@ Course organizer for Comp4711
 		<lesson name="advanced03" survey="262279" icon="dothis">REST</lesson>
 		<lesson name="advanced04" >AJAX</lesson>
 		<lesson name="week12" icon="read">Survey results</lesson>
-		<lab name="lab09" active="n">REST</lab>
+		<lab name="lab09">REST</lab>
+		<tutorial name="tut-adv02">Decoupling Our Diner</tutorial>
 	</week>
 	<week num="13">
 		<topic>XML-RPC?</topic>
