@@ -1,20 +1,10 @@
-##Ohoh - there is a problem with my tutorial Step 5
-
-Following the steps leads to...
-
-    {"status":false,"error":"Unknown method."}
-
-I will get to the bottom of this ASAP and post a correction/update.
-Sorry!
-
-Continue with the lab in the meantime ... I suspect there will
-be a fix to retrofit.
-
-
-**Week 12** *(Thu Nov 24, 14:30)*   
+**Week 12** *(Fri Nov 25, 03:00)*   
 Lesson for this week posted, as was the survey summary.  
 REST example repos updated.  
-Lab 9 (last one!) posted; updated with more screenshots.
+Lab 9 (last one!) posted..
+
+Fixed the tutorial for this week, by adding better explanation to the package-restful
+readme file, and to the tutorial writeup.
 
 **Survey** (Wed Nov 16 13:00)
 I have posted a new survey on D2L, [Planning Ahead](https://learn.bcit.ca//d2l/lms/survey/user/attempt/survey_start_frame.d2l?si=261919&ou=335696)  
