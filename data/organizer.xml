@@ -140,6 +140,7 @@ Course organizer for Comp4711
 		<lesson name="week12" icon="read">Survey results</lesson>
 		<lab name="lab09">REST</lab>
 		<tutorial name="tut-adv02">Decoupling Our Diner</tutorial>
+		<assignment name="assignment2">Functional Pantry Webapp</assignment>
 	</week>
 	<week num="13">
 		<topic>XML-RPC?</topic>
