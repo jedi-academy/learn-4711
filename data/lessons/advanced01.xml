@@ -2,7 +2,7 @@
 <!--
 Lesson 10 - Role-Based Access Control
 -->
-<lesson status="1.0">
+<lesson status="1.1">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <slide title="Role-Based Access Control..." layout="normal" >
@@ -198,9 +198,7 @@ Lesson 10 - Role-Based Access Control
                 and you might want validation logic in your model.</p>
             <p>Passwords are stored hashed (you might need to increase the 
                 length of the password field) using...
-                <a href="http://php.net/manual/en/function.hash.php" target="_blank">hash(ALGO,$plaintext)</a>,
-                <a href="http://php.net/manual/en/function.password-hash.php" target="_blank">password_hash($plaintext,ALGO)</a> (for PHP 5.5+), or
-                <a href="http://php.net/manual/en/function.crypt.php" target="_blank">crypt($plaintext)</a>.
+                <a href="http://php.net/manual/en/function.password-hash.php" target="_blank">password_hash($plaintext,ALGO)</a>.
                 See the <a href="http://php.net/manual/en/faq.passwords.php" target="_blank">password hashing</a> FAQ.
             </p>
         </div>    
@@ -361,6 +359,14 @@ Lesson 10 - Role-Based Access Control
                 an image to Instagram, repost that on "your" Facebook wall, with
                 caption or comments, and then tweet it to your faithful
                 followers</li>
+        </ul>
+    </slide>
+
+    <slide title="Common CodeIgniter Authentication Addins" layout="normal">
+        <p>These are some of the more authentication addins for CodeIgniter 3:</p>
+        <ul>
+            <li><a href="http://community-auth.com/" target="_blank">Community Auth</a></li>
+            <li><a href="https://github.com/benedmunds/CodeIgniter-Ion-Auth" target="_blank">Ion Auth 2</a></li>
         </ul>
     </slide>
 

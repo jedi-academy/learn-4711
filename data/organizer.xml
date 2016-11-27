@@ -135,7 +135,7 @@ Course organizer for Comp4711
 	<week num="12">
 		<topic>REST</topic>
 		<outcomes>2.1, 2.3</outcomes>
-		<lesson name="advanced03" survey="262279" icon="dothis">REST</lesson>
+		<lesson name="advanced03" icon="dothis">REST</lesson>
 		<lesson name="advanced04" >AJAX</lesson>
 		<lesson name="week12" icon="read">Survey results</lesson>
 		<lab name="lab09">REST</lab>
@@ -143,11 +143,10 @@ Course organizer for Comp4711
 		<assignment name="assignment2">Functional Pantry Webapp</assignment>
 	</week>
 	<week num="13">
-		<topic>XML-RPC?</topic>
+		<topic>Authentication</topic>
 		<outcomes>2.1, 2.2, 2.3</outcomes>
-		<lesson name="advanced02" active="n">XML-RPC</lesson>
-<!--		<github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" active="n">XML-RPC Examples</github>
-		<lab name="lab09"  active="n">XML-RPC</lab>-->
+		<lesson name="advanced01" survey="262768" icon="dothis">Authentication</lesson>
+		<tutorial name="tut-adv01">Authentication</tutorial>
 	</week>
 	<week num="14">
 		<topic>External Services? Loose Ends &amp; Review?</topic>
@@ -164,7 +163,7 @@ Course organizer for Comp4711
 		<lesson name="xml01">XML Basics (Optional Refresher)</lesson>
 		<lesson name="xml02">Constraining XML (Optional)</lesson>
 		<lesson name="xml04" icon="read">Data Representation Conversions</lesson>
-		<lesson name="advanced01" icon="read">Authentication</lesson>
-		<tutorial name="tut-adv01">Authentication</tutorial>
+		<lesson name="advanced02" active="n">XML-RPC</lesson>
+		<github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" active="n">XML-RPC Examples</github>
 	</week>
 </organizer>

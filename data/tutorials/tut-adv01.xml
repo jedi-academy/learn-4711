@@ -96,7 +96,7 @@ Tutorial 08 - Authentication
     </slide>
 
     <slide title="Configure Sessions" layout="normal" >
-        <p>Create a <code>ci_sessions</code> table, using the <code>data/sessions.sql</code> script.</p>
+        <p>Create a <code>ci_sessions</code> table, using the <code>data/secrets.sql</code> script.</p>
         <p>Configure the sessions by modifying <code>config/config</code>:<ul>
                 <li>enable database usage for your sessions<br/>
                     <code>$config['sess_driver'] = 'database';<br/>
@@ -135,7 +135,7 @@ Tutorial 08 - Authentication
                     </li>
                     <li>add a substitution variable to the footer in your
                         views/_template<br/>
-                        <code>Copyright &amp;copy; 2015,  <a href="mailto:someone@somewhere.com">Me</a>. {sessionid}</code>
+                        <code>Copyright &amp;copy; 2016,  <a href="mailto:someone@somewhere.com">Me</a>. {sessionid}</code>
                     </li>
                 </ul>                
             </p>
@@ -153,8 +153,8 @@ Tutorial 08 - Authentication
     <slide title="Add a Users Table" layout="normal" >
         <div class="left">
             <p>We also need a users table, to validate against.</p>
-            <p>Let's keep it simple, per the lesson. I have provided a <code>data/users.sql</code>
-                script that you can use.</p>
+            <p>Let's keep it simple, per the lesson. The SQL script
+                provided already sets up the "users" table.</p>
             <p>Using phpMyadmin, import that to your database and insert two records:
                 <ul>
                     <li>id: dd, username: donald, password: duck, role: user</li>
