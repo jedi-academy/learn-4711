@@ -1,12 +1,13 @@
-**Week 13** *(Sun Nov 27, 09:30)*   
-Lesson for this week posted and survey enabled until 22:00 Tue eve.
+**Week 13** *(Wed Nov 30, 00:20)*   
+Lesson for this week posted.  
+Survey results posted too.
 
 Set 4R: I will be 40 minutes late for lab this Thurs - giving a presentation to the Deans.
 
 **Survey** (Tue Nov 29 11:00)
 I have posted a new survey on D2L, [Planning Ahead](https://learn.bcit.ca//d2l/lms/survey/user/attempt/survey_start_frame.d2l?si=261919&ou=335696)  
 It is anonymous, and solicits feedback about the course hub and flipped learning, for this and for other courses.
-It is open until 13:00 Nov 30th - I will share results with you in class. 17 of 55 have completed it so far.
+It is open until 13:00 Nov 30th - I will share results with you in class. 19 of 55 have completed it so far.
 
 **Assignments** *(Thu Nov 24, 15:30)*  
 Assignment 1 marking continues.  
