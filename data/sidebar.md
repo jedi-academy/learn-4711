@@ -27,3 +27,4 @@ These open in the same window, unless you right-click & open them.
 [Assignment 1 FAQ](/display/assignment/assignment1faq)  
 [Assignment 1 Gallery](/display/assignment/gallery1)  
 [Assignment 2](/display/assignment/assignment2)  
+[Assignment 2 FAQ](/display/assignment/assignment2faq)  

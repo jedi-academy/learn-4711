@@ -150,11 +150,12 @@ Course organizer for Comp4711
 		<tutorial name="tut-adv01">Authentication</tutorial>
 	</week>
 	<week num="14">
-		<topic>External Services? Loose Ends &amp; Review?</topic>
+		<topic>Review &amp; Loose Ends</topic>
 		<outcomes>2.3</outcomes>
 		<inlab>Review</inlab>
-		<lesson name="final" active="n">Final Exam</lesson>
-		<lesson name="future" active="n">Crystal Ball</lesson>
+		<lesson name="final" >Final Exam Review</lesson>
+		<lesson name="future">Crystal Ball</lesson>
+		<assignment name="assignment2faq" icon="read">Added a FAQ for assignment 2</assignment>
 	</week>
 	<week num="15">
 		<topic>Final Exam Week</topic>
@@ -164,7 +165,9 @@ Course organizer for Comp4711
 		<lesson name="xml01">XML Basics (Optional Refresher)</lesson>
 		<lesson name="xml02">Constraining XML (Optional)</lesson>
 		<lesson name="xml04" icon="read">Data Representation Conversions</lesson>
-		<lesson name="advanced02" active="n">XML-RPC</lesson>
+		<lesson name="advanced02">XML-RPC</lesson>
 		<github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" active="n">XML-RPC Examples</github>
+		<lesson name="social1" active="n">Social Networking (optional, coming)</lesson>
+		<lesson name="social2" active="n">Social Integration (optional, coming)</lesson>
 	</week>
 </organizer>

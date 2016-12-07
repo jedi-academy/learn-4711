@@ -2,13 +2,14 @@
 <!--
 Lesson 11a - Exam Review
 -->
-<lesson status="beta">
+<lesson status="2016fall">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <!-- Agenda -->
     <slide title="Agenda" layout="normal">
         <p>The final exam from last term was previously posted in the "content" 
             area on D2L, as an example for you.</p>
+        <p>Two big things are addressed in this lesson:</p>
         <ol>
             <li>
                 <a href="#{tag1}">Final Exam Essentials</a>
@@ -22,15 +23,21 @@ Lesson 11a - Exam Review
 
     <!-- Normal slides -->
 
-    <slide title="FINAL EXAM ESSENTIALS" layout="normal" tag="tag1">
+    <slide title="1. FINAL EXAM ESSENTIALS" layout="normal" tag="tag1">
         <ul>
-            <li>Date? Weds Apr 20</li>
+            <li>Date? Fri Dec 16</li>
             <li>When? 15:30 - 17:30</li>
-            <li>Where? NE1-239/242</li>
+            <li>Where? SW1-1205</li>
             <li>How Long? Two hours</li>
             <li>How long minimum? 60 minutes</li>
             <li>Aids: None</li>
         </ul>
+        <p>The exam, and its solution, will be posted in the content section on D2L,
+            once I get home on exam day - 18:30ish. 
+            Raise any concerns with the
+            questions or the answers by email, before Saturday morning.
+            I will go through your questions, and amend the solution if
+            appropriate, before getting down to exam marking late Saturday morning.</p>
     </slide>
 
     <slide title="Stress Points" layout="normal">
@@ -45,46 +52,56 @@ Lesson 11a - Exam Review
 
     <slide title="What Will the Exam Cover?" layout="normal">
         <div class="left">
-            <li>MVC frameworks ... 10%</li>
-            <li>CodeIgniter … 10%</li>
-            <li>Workflow process ... 15%</li>
-             <li>XML-RPC ... 10%</li>
-            <li>REST &amp; JSON ... 5%</li>
-       </div>
+            <p>MVC Webapp</p>
+            <ul>
+                <li>Webapp dev environment ... 5%</li>
+                <li>Basic MVC app... 20%</li>
+                <li>Moderate MVC app … 15%</li>
+            </ul>
+            <p>Distributed Webapp</p>
+            <ul>
+                <li>XML &amp; JSON... 10%</li>
+                <li>REST ... 10%</li>
+                <li>Integration ... 10%</li>
+            </ul>
+        </div>
         <div class="right">
-            <li>XML ... 10%</li>
-            <li>DTDs … 10%</li>
-            <li>SimpleXML ... 20%</li>
-            <li>RBAC ... 10%</li>
+            <p>Collaboration</p>
+            <ul>
+                <li>Workflow process ... 15%</li>
+                <li>Team repositories ... 15%</li>
+            </ul>
+            <br/>
+            <p>
+                <em>These are guidelines only, and not a guarantee of an exact
+                    marks breakdown!</em>
+            </p>
         </div>
     </slide>
 
     <slide title="What Format Will the Exam Have?" layout="normal">
         <p>Last term's breakdown shown in square brackets</p>
         <ul>
-            <li>Multiple choice @1 ... 40-60 [45]</li>
-            <li>Completion @2 ... 10-15 [11]</li>
-            <li>Short answer @ 3 ... 10-15 [11]</li>
+            <li>Multiple choice @1 ... 40-60 [60]</li>
+            <li>Completion @2 ... 10-15 [8]</li>
+            <li>Short answer @ 3 ... 10-15 [8]</li>
             <li>100 marks in total</li>
         </ul>
     </slide>
 
-    <slide title="MATERIAL REVIEW" layout="normal" tag="tag2">
-        <p>This exam review uses the same format as that for the midterm:
+    <slide title="2. MATERIAL REVIEW" layout="normal" tag="tag2">
+        <p>This exam review is meant to provide
             a mental organizer for the important
-            material.</p>
+            material. This has proved to work well in previous terms.</p>
         <p>For any given topic, the organizer consists of a
             practical explanation/definition of the topic, 
             followed by the key concepts and then the key
             techniques relevant to that topic.</p>
         <p>The final exam is comprehensive, i..e addressing
-            all of the material covered in the course. 
-            In the case of topics addressed on the midterm,
-            the areas that will be emphasized on the final exam
-            are shown italicized.</p>
+            all of the material covered in the course.</p>
     </slide>
 
-    <slide title="MVC Frameworks" layout="normal">
+    <slide title="A. MVC Webapp" layout="normal">
         <p>
             <em>Structured webapps</em>
         </p>
@@ -92,14 +109,10 @@ Lesson 11a - Exam Review
             <p>
                 <b>Concepts:</b>
                 <ul>
-                    <li>MVC separation</li>
                     <li>Design patterns</li>
-                    <li>
-                        <em>Loading classes</em>
-                    </li>
-                    <li>
-                        <em>Routing requests</em>
-                    </li>
+                    <li>Toolkit</li>
+                    <li>Framework</li>
+                    <li>DRY</li>
                 </ul>
             </p>
         </div>
@@ -107,39 +120,26 @@ Lesson 11a - Exam Review
             <p>
                 <b>Techniques:</b>
                 <ul>
-                    <li>Classes</li>
-                    <li>Helpers</li>
-                    <li>Htaccess, virtual hosting</li>
-                    <li>
-                        <em>Cross-platform!</em>
-                    </li>
-                    <li>
-                        <em>Github</em>
-                    </li>
+                    <li>O-O design</li>
+                    <li>XAMPP</li>
+                    <li>CodeIgniter 3</li>
+                    <li>Project starter(s)</li>
                 </ul>
             </p>   
         </div>
     </slide>
 
-    <slide title="CodeIgniter Framework" layout="normal">
+    <slide title="A.1 Webapp Dev Environment" layout="normal">
         <p>
-            <em>One PHP MVC framework</em>
+            <em>Your toolkit</em>
         </p>
         <div class="left">
             <p>
                 <b>Concepts:</b>
                 <ul>
-                    <li>Lightweight</li>
-                    <li>
-                        <em>Controllers, models, views</em>
-                    </li>
-                    <li>
-                        <em>Data resource encapsulation</em>
-                    </li>
-                    <li>
-                        <em>Libraries, helpers</em>
-                    </li>
-                    <li>Core, hooks, routes</li>
+                    <li>Web stack</li>
+                    <li>Environments - development, testing, production</li>
+                    <li>Framework</li>
                 </ul>
             </p>
         </div>
@@ -147,28 +147,213 @@ Lesson 11a - Exam Review
             <p>
                 <b>Techniques:</b>
                 <ul>
-                    <li>Naming discipline</li>
-                    <li>Base controller</li>
-                    <li>
-                        <em>Sessions, Authentication</em>
-                    </li>
-                    <li>View templates</li>
+                    <li>XAMPP</li>
+                    <li>Virtual Hosting</li>
+                    <li>CodeIgniter</li>
+                    <li>Cross platform</li>
                 </ul>
             </p>   
         </div>
     </slide>
-
-    <slide title="Workflow Process" layout="normal">
+    <slide title="A.2 Basic MVC App" layout="normal">
         <p>
-            <em>Software development collaboration</em>
+            <em>Fundamentals</em>
+        </p>
+        <div class="left">
+            <p>
+                <b>Concepts:</b>
+                <ul>
+                    <li>MVC separation - handling, presentation, collections</li>
+                    <li>Design patterns - front controller, adapters</li>
+                    <li>Loading classes - system, core, app</li>
+                    <li>Routing requests - convention, segments</li>
+                    <li>Data resource encapsulation</li>
+                </ul>
+            </p>
+        </div>
+        <div class="right">
+            <p>
+                <b>Techniques:</b>
+                <ul>
+                    <li>CodeIgniter super object</li>
+                    <li>CI Controller, Model, view</li>
+                    <li>CI Loader &amp; rules</li>
+                    <li>CI libraries &amp; helpers</li>
+                    <li>Base controller</li>
+                    <li>Mock data or RDB</li>
+                    <li>Database driver &amp; query builder</li>
+                </ul>
+            </p>   
+        </div>
+    </slide>
+    <slide title="A.3 Moderate MVC App" layout="normal">
+        <p>
+            <em>Exploit or build on the framework</em>
+        </p>
+        <div class="left">
+            <p>
+                <b>Concepts:</b>
+                <ul>
+                    <li>Libraries - built-in &amp; extending</li>
+                    <li>Packages</li>
+                    <li>Data transfer objects</li>
+                    <li>Hooks &amp; routing rules</li>
+                </ul>
+            </p>
+        </div>
+        <div class="right">
+            <p>
+                <b>Techniques:</b>
+                <ul>
+                    <li>Template parser</li>
+                    <li>View templating</li>
+                    <li>Sessions</li>
+                    <li>Base model, enhanced base controller</li>
+                    <li>Authentication</li>
+                </ul>
+            </p>   
+        </div>
+    </slide>
+    <slide title="B. Distributed Webapp" layout="normal">
+        <p>
+            <em>Spread the load</em>
+        </p>
+        <div class="left">
+            <p>
+                <b>Concepts:</b>
+                <ul>
+                    <li>Client-server pattern</li>
+                    <li>Transport glue</li>
+                    <li>Representation glue</li>
+                    <li>Application glue</li>
+                </ul>
+            </p>
+        </div>
+        <div class="right">
+            <p>
+                <b>Techniques:</b>
+                <ul>
+                    <li>Client-server components (toolkit)</li>
+                    <li>Wise choices</li>
+                </ul>
+            </p>   
+        </div>
+    </slide>
+    <slide title="B.1 Representation" layout="normal">
+        <p>
+            <em>Share or exchange data</em>
+        </p>
+        <div class="left">
+            <p>
+                <b>Concepts:</b>
+                <ul>
+                    <li>Data typing</li>
+                    <li>Data validation</li>
+                    <li>Object-relational mapping</li>
+                </ul>
+            </p>
+        </div>
+        <div class="right">
+            <p>
+                <b>Techniques:</b>
+                <ul>
+                    <li>XML - tree, processing</li>
+                    <li>JSON</li>
+                    <li>RDB?</li>
+                </ul>
+            </p>   
+        </div>
+    </slide>
+    <slide title="B.2 Distributed Glue" layout="normal">
+        <p>
+            <em>Connect the pieces</em>
+        </p>
+        <div class="left">
+            <p>
+                <b>Concepts:</b>
+                <ul>
+                    <li>Client-server pattern</li>
+                    <li>Multi-layer architecture</li>
+                    <li>RPC</li>
+                    <li>REST - philosophy &amp; HTTP verbs</li>
+                </ul>
+            </p>
+        </div>
+        <div class="right">
+            <p>
+                <b>Techniques:</b>
+                <ul>
+                    <li>Marshalling, unmarshalling</li>
+                    <li>XML-RPC...</li>
+                    <li>RESTful - XML, JSON</li>
+                    <li>Error or exception propagation...</li>
+                    <li>Content negotiation...</li>
+                </ul>
+            </p>   
+        </div>
+    </slide>
+    <slide title="B.3 Integration" layout="normal">
+        <p>
+            <em>Play securely</em>
+        </p>
+        <div class="left">
+            <p>
+                <b>Concepts:</b>
+                <ul>
+                    <li>Dependencies</li>
+                    <li>Authentication - identity</li>
+                    <li>Authorization - RBAC</li>
+                    <li>Trust &amp; syndicates</li>
+                </ul>
+            </p>
+        </div>
+        <div class="right">
+            <p>
+                <b>Techniques:</b>
+                <ul>
+                    <li>Programmatic vs declarative</li>
+                    <li>Users, roles - stored in session</li>
+                    <li>Base controller vs hook...</li>
+                    <li>3rd party – Oauth, OpenID...</li>
+                </ul>
+            </p>   
+        </div>
+    </slide>
+    <slide title="C. Collaboration" layout="normal">
+        <p>
+            <em>Play nice together</em>
         </p>
         <div class="left">
             <p>
                 <b>Concepts:</b>
                 <ul>
                     <li>Agile development</li>
+                    <li>Devops</li>
+                    <li>Provenance...</li>
+                </ul>
+            </p>
+        </div>
+        <div class="right">
+            <p>
+                <b>Techniques:</b>
+                <ul>
+                    <li>Devops</li>
+                    <li>Tools &amp; conventions...</li>
+                    <li>Docker, Vagrant...</li>
+                </ul>
+            </p>   
+        </div>
+    </slide>
+    <slide title="C.1 Workflow Process" layout="normal">
+        <p>
+            <em>Work like a pro</em>
+        </p>
+        <div class="left">
+            <p>
+                <b>Concepts:</b>
+                <ul>
                     <li>gitflow workflow</li>
-                    <li>github repositories</li>
+                    <li>Shared repositories</li>
                 </ul>
             </p>
         </div>
@@ -184,18 +369,16 @@ Lesson 11a - Exam Review
             </p>   
         </div>
     </slide>
-
-    <slide title="XML-RPC" layout="normal">
+    <slide title="C.2 Team Repositories" layout="normal">
         <p>
-            <em>Remote procedure call foundation</em>
+            <em>Don't trip over each other</em>
         </p>
         <div class="left">
             <p>
                 <b>Concepts:</b>
                 <ul>
-                    <li>Application glue</li>
-                    <li>Translation</li>
-                    <li>Messaging</li>
+                    <li>Team repositories</li>
+                    <li>Individual repositories</li>
                 </ul>
             </p>
         </div>
@@ -203,149 +386,14 @@ Lesson 11a - Exam Review
             <p>
                 <b>Techniques:</b>
                 <ul>
-                    <li>Marshalling, unmarshalling</li>
-                    <li>xmlrpc library, both sides</li>
-                    <li>xmlrpcs library, server-side</li>
+                    <li>Forking, cloning</li>
+                    <li>Master/develop branches</li>
+                    <li>Feature branches</li>
+                    <li>Synching</li>
                 </ul>
             </p>   
         </div>
     </slide>
 
-    <slide title="REST &amp; JSON" layout="normal">
-        <p>
-            <em>Representational State Transfer</em>
-        </p>
-        <div class="left">
-            <p>
-                <b>Concepts:</b>
-                <ul>
-                    <li>Philosophy, not a standard</li>
-                    <li>HTTP verbs</li>
-                    <li>content negotiation</li>
-                </ul>
-            </p>
-        </div>
-        <div class="right">
-            <p>
-                <b>Techniques:</b>
-                <ul>
-                    <li>XML data</li>
-                    <li>JSON data</li>
-                    <li>success vs error response</li>
-                </ul>
-            </p>   
-        </div>
-    </slide>
-
-    <slide title="XML" layout="normal">
-        <p>
-            <em>Rich data structure/model</em>
-        </p>
-        <div class="left">
-            <p>
-                <b>Concepts:</b>
-                <ul>
-                    <li>Value, attributes &amp; child elements</li>
-                    <li>Structured as a tree</li>
-                    <li>Marked up text</li>
-                    <li>Cross platform</li>
-                </ul>
-            </p>
-        </div>
-        <div class="right">
-            <p>
-                <b>Techniques:</b>
-                <ul>
-                    <li>Syntax</li>
-                    <li>Checking &amp; validation</li>
-                    <li>Design: elements vs attributes</li>
-                    <li>State representation</li>
-                </ul>
-            </p>   
-        </div>
-    </slide>
-
-    <slide title="DTDs" layout="normal">
-        <p>
-            <em>XML document constraints</em>
-        </p>
-        <div class="left">
-            <p>
-                <b>Concepts:</b>
-                <ul>
-                    <li>XML structure</li>
-                    <li>XML element &amp; attribute constraints</li>
-                    <li>Templates</li>
-                </ul>
-            </p>
-        </div>
-        <div class="right">
-            <p>
-                <b>Techniques:</b>
-                <ul>
-                    <li>DTD files</li>
-                    <li>Binding XML to one</li>
-                    <li>Validation</li>
-                </ul>
-            </p>   
-        </div>
-    </slide>
-
-    <slide title="SimpleXML" layout="normal">
-        <p>
-            <em>XML DOM Processing</em>
-        </p>
-        <div class="left">
-            <p>
-                <b>Concepts:</b>
-                <ul>
-                    <li>Elements vs nodes</li>
-                    <li>Traversal</li>
-                    <li>Terminology</li>
-                    <li>W3C DOM</li>
-                </ul>
-            </p>
-        </div>
-        <div class="right">
-            <p>
-                <b>Techniques:</b>
-                <ul>
-                    <li>DOM processing</li>
-                    <li>SimpleXML resource wrapper</li>
-                    <li>PHPDOM</li>
-                    <li>Treating as an object</li>
-                    <li>Treating as an array</li>
-                    <li>Iterable</li>
-                </ul>
-            </p>   
-        </div>
-    </slide>
-
-    <slide title="RBAC" layout="normal">
-        <p>
-            <em>Role-based access control</em>
-        </p>
-        <div class="left">
-            <p>
-                <b>Concepts:</b>
-                <ul>
-                    <li>Authentication</li>
-                    <li>Authorization</li>
-                    <li>Trust &amp; syndicate</li>
-                </ul>
-            </p>
-        </div>
-        <div class="right">
-            <p>
-                <b>Techniques:</b>
-                <ul>
-                    <li>Programmatic vs declarative</li>
-                    <li>Users, roles - stored in session</li>
-                    <li>Base controller vs hook</li>
-                    <li>3rd party – Oauth, OpenID</li>
-                </ul>
-            </p>   
-        </div>
-    </slide>
 
 </lesson>
