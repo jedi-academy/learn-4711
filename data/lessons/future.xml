@@ -2,7 +2,7 @@
 <!--
 Lesson 11 - Crystal Ball
 -->
-<lesson status="beta">
+<lesson status="2016fall">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <slide title="Jim's Crystal Ball" layout="normal" >
@@ -41,7 +41,7 @@ Lesson 11 - Crystal Ball
             <ul>
                 <li>XML for intra-app data transfer +3 <br/>yup</li>
                 <li>XML for inter-app integration +3 <br/>yup + JSON</li>
-                <li>XML for data representation +1.5 <br/>yup? (CMS, momgodb)</li>
+                <li>XML for data representation +1.5 <br/>yup? (CMS, mongodb)</li>
                 <li>Markup languages galore +2 <br/>nope -> -1 (JSON)</li>
             </ul>
         </div>

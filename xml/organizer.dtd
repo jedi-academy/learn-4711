@@ -32,7 +32,8 @@ The domain attribute specifies an external domain where this item is hosted. -->
     name CDATA #REQUIRED
     pdf CDATA #IMPLIED
     domain CDATA    #IMPLIED
-	active (y|n) "y" 
+    active (y|n) "y" 
+    icon CDATA #IMPLIED
   >
 
 <!--- A tutorial contains a description of that tutorial.
@@ -45,7 +46,8 @@ The domain attribute specifies an external domain where this item is hosted. -->
     name CDATA #IMPLIED
     pdf CDATA #IMPLIED
     domain CDATA    #IMPLIED
-	active (y|n) "y" 
+    active (y|n) "y" 
+    icon CDATA #IMPLIED
   >
 
 <!--- A lab contains a description of that lab.
@@ -60,8 +62,9 @@ The domain attribute specifies an external domain where this item is hosted. -->
     duedate CDATA #IMPLIED
     pdf CDATA #IMPLIED
     domain CDATA    #IMPLIED
-	active (y|n) "y" 
-  >
+    active (y|n) "y" 
+    icon CDATA #IMPLIED
+>
 
 <!--- A github element contains a description of the repo linked to.
 Attributes include the type (for formatting), the name (identifier), and an
@@ -73,7 +76,8 @@ The domain attribute specifies an external domain where this item is hosted. -->
     name CDATA #IMPLIED
     link CDATA #IMPLIED
     domain CDATA    #IMPLIED
-	active (y|n) "y" 
+    active (y|n) "y" 
+    icon CDATA #IMPLIED
   >
 
 <!--- An assignment contains a description of that assignment.
@@ -88,7 +92,8 @@ The domain attribute specifies an external domain where this item is hosted. -->
     duedate CDATA #IMPLIED
     pdf CDATA #IMPLIED
     domain CDATA    #IMPLIED
-	active (y|n) "y" 
+    active (y|n) "y" 
+    icon CDATA #IMPLIED
   >
 
 <!--- An example contains a description of that example.
@@ -100,5 +105,6 @@ The domain attribute specifies an external domain where this item is hosted. -->
     type CDATA "example"
     name CDATA #IMPLIED
     domain CDATA    #IMPLIED
-	active (y|n) "y" 
+    active (y|n) "y" 
+    icon CDATA #IMPLIED
   >

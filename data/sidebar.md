@@ -1,8 +1,8 @@
 ## Course Instructor
 Jim Parry  
 <jim_parry@bcit.ca>   
-Office hours Wed 10:30-12:20, Thu 10:30-12:20
-SW2-124
+Office hours Tue 12:30-14:20, Wed 11:30-13:20 and Thu 12:30-13:20
+in SW2-124
 
 
 ## Desire2Learn LMS
@@ -22,8 +22,10 @@ These open in the same window, unless you right-click & open them.
 [Course outline]({outline})  
 
 ##Assignment Details
-[Projects](/display/assignment/assignment1projects)  
+<!-- [Projects](/display/assignment/assignment1projects)  
 [Assignment 1](/display/assignment/assignment1)  
 [Assignment 1 FAQ](/display/assignment/assignment1faq)  
 [Assignment 1 Gallery](/display/assignment/gallery1)  
 [Assignment 2](/display/assignment/assignment2)  
+[Assignment 2 FAQ](/display/assignment/assignment2faq)  
+-->
