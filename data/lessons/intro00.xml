@@ -2,136 +2,134 @@
 <!--
 Lesson 00 - In-class Only Introduction
 -->
-<lesson status="v1.1">
-	<!-- Activity metadata ... override anything from the course or organizer -->
+<lesson status="v1.2">
+    <!-- Activity metadata ... override anything from the course or organizer -->
     
-	<!-- The meat of the presentation -->
-	<slide title="Your Instructor" layout="normal">
-		<ul>
-			<li>Jim Parry</li>
-			<li>Day job: BCIT instructor</li>
-			<li>Off campus: webapp developer</li>
-			<li>Full-time: CI geek, Java not so much any more</li>
-			<li>Project Lead, CodeIgniter</li>
-			<li>Office &amp; phone: SW2-124, email instead</li>
-			<li>Email: jim_parry@bcit.ca</li>
-		</ul>
-	</slide>
+    <!-- The meat of the presentation -->
+    <slide title="Your Instructor" layout="normal">
+        <ul>
+            <li>Jim Parry</li>
+            <li>Day job: BCIT instructor</li>
+            <li>Off campus: webapp developer</li>
+            <li>Full-time: CI geek, Java not so much any more</li>
+            <li>Project Lead, CodeIgniter</li>
+            <li>Office &amp; phone: SW2-124, email instead</li>
+            <li>Email: jim_parry@bcit.ca</li>
+        </ul>
+    </slide>
 
-	<slide title="Changes This Year ..." layout="normal">
-		<p>A few things are changing this term, as a result of some 
-			Learning Initiative workshops and
-			redevelopment over the first half of this year. These have led to some
-			rethinking of COMP4711 and how it is presented and delivered...</p>
-		<ul>
-			<li>Backwards Design</li>
-			<li>Flipped Learning</li>
-			<li>Flipped LMS</li>
-		</ul>
-	</slide>
+    <slide title="Changes This Year ..." layout="normal">
+        <p>A few things are changing this term, as a result of some 
+            Learning Initiative workshops and
+            redevelopment during the first half of 2016. These have led to some
+            rethinking of COMP4711 and how it is presented and delivered...</p>
+        <p>These changes were started last term, and continue to be refined this term.</p>
+        <ul>
+            <li>Backwards Design</li>
+            <li>Flipped Learning</li>
+            <li>Flipped LMS</li>
+            <li>"Authentic" assessment</li>
+            <li>Rigorous workflow</li>
+        </ul>
+    </slide>
 
-	<slide title="Backwards Design" layout="normal">
-		<p>It all starts with the "story" behind the course, and what I want
-			you to get out of it ... 
-			what you see as the "course goals" in the course outline.</p>        
-		<p>Working backwards:</p>
-		<ul>
-			<li>The "story" incorporates the "big picture", and stated as well
-				as unstated learning outcomes.</li>
-			<li>From this, determine the real-world "evidence", and how an 
-				employer would assess your abilities.</li>
-			<li>These lead to a clearer expression of the learning outcomes</li>
-			<li>... which need suitable assessments (assignments, exams, etc)</li>
-			<li>... and which lead to a sequence of instruction</li>
-		</ul>
-	</slide>
+    <slide title="Backwards Design" layout="normal">
+        <p>It all starts with the "story" behind the course, and what I want
+            you to get out of it ... 
+            what you see as the "course goals" in the course outline.</p>        
+        <p>Working backwards:</p>
+        <ul>
+            <li>The "story" incorporates the "big picture", and stated as well
+                as unstated learning outcomes.</li>
+            <li>From this, determine the real-world "evidence", and how an 
+                employer would assess your abilities.</li>
+            <li>These lead to a clearer expression of the learning outcomes</li>
+            <li>... which need suitable assessments (assignments, exams, etc)</li>
+            <li>... and which lead to a sequence of instruction</li>
+        </ul>
+    </slide>
 
-	<slide title="Course Outcomes" layout="normal">
-		<p>See the "course goals" section in the course outline.</p>
-		<ol>
-			<li>Build a moderate MVC web application using a suitable framework</li>
-			<li>Build distributed capabilities into an MVC web application</li>
-			<li>Demonstrate proper team collaboration for webapp development</li>
-		</ol>
-	</slide>
+    <slide title="Course Outcomes" layout="normal">
+        <p>See the "course goals" section in the course outline.</p>
+        <ol>
+            <li>Build a moderate MVC web application using a suitable framework</li>
+            <li>Build distributed capabilities into an MVC web application</li>
+            <li>Demonstrate proper team collaboration for webapp development</li>
+        </ol>
+    </slide>
 
-	<slide title="Flipped Learning" layout="normal">
-		<p>Weekly readings will be assigned, starting with the second week, 
-			following a "flipped" learning model. </p> 
-		<p>You are to read these lessons and answer a quiz/questionnaire, 
-			by the evening before that week's "lecture". 
-			The "lecture" will address unclear topics, per your feedback, 
-			and discuss issues relevant to that week's topics/outcomes.
-		</p>
-		<p>Yes, you do the "lesson" on your own, and the "homework" during lab.</p>
+    <slide title="Flipped Learning" layout="normal">
+        <p>Weekly readings will be assigned, starting with the second week, 
+            following somewhat of a "flipped" learning model. </p> 
+        <p>You are to read these lessons and answer a D2L survey, 
+            by the evening before that week's lecture. 
+            This gives me a chance to adjust the lecture, 
+            and to address issues important to you.
+        </p>
+        <p>This is not a fully "flipped" model, which would have the lectures
+            totally online, and which would have face-to-face sessions be seminars only.</p>
 			
-	</slide>
+    </slide>
 
-	<slide title="Flipped LMS" layout="normal">
-		<p>Desire2Learn (D2L) is a very comprehensive Learning Management System (LMS).</p>
-		<p>It is both flexible and inflexible at the same time, and expects content
-			to be re-expressed inside its awkward &amp; clunky confines.</p>
-		<p>A flipped LMS, on the other hand, lives independently of D2L, and is
-			whatever suits the tech-savvyness of the instructor. These are typically
-			open-source, flat file driven, and stored/collaborated on, using
-			an online repository.</p>
-	</slide>
+    <slide title="Flipped LMS" layout="normal">
+        <p>Desire2Learn (D2L) is a very comprehensive Learning Management System (LMS).</p>
+        <p>It is both flexible and inflexible at the same time, and expects content
+            to be re-expressed inside its awkward &amp; clunky confines.</p>
+        <p>A flipped LMS, on the other hand, lives independently of D2L, and is
+            whatever suits the tech-savvyness of the instructor. These are typically
+            open-source, flat file driven, and stored/collaborated on, using
+            an online repository.</p>
+    </slide>
 
-	<slide title="Our Course Hub" layout="normal">
-		<h2>
-			<a href="http://comp4711.jlparry.com" target="_blank">COMP4711 
-				Course Hub</a>
-		</h2>
-		<ul>
-			<li>
-				<a href="http://www.bcit.ca/study/outlines/20163035498" target="_blank">
-					Course outline</a> on BCIT site</li>
-			<li>Organizer, lessons, tutorials, and lab/assignment writeups all on our course hub.</li>
-			<li>Material can be viewed as slideshow, webpage, or downloaded as PDF.</li>
-			<li>Code examples or starter projects all shared as 
-				<a href="https://github.com/jedi-academy" target="_blank">Github 
-					repositories</a>, to be forked.</li>
-			<li>Labs/walkthroughs done individually or in pairs, on github; 
-				readme (with a link to your repo) is all that is submitted to a 
-				D2L dropbox, with a deep link to the dropbox on the course hub.</li>
-			<li>Assignments done in teams, on github; readme (with links) 
-				is submitted to D2L dropbox</li>
-			<li>Labs start: this week (Thurs)</li>
-		</ul>
-	</slide>
+    <slide title="Our Course Hub" layout="normal">
+        <h2>
+            <a href="https://comp4711.jlparry.com" target="_blank">COMP4711 
+                Course Hub</a>
+        </h2>
+        <ul>
+            <li>
+                <a href="{outline}" target="_blank">
+                    Course outline</a> on BCIT site</li>
+            <li>Organizer, lessons, tutorials, and lab/assignment writeups all on our course hub.</li>
+            <li>Material can be viewed as slideshow or webpage, and maybe downloaded as PDF.</li>
+            <li>Code examples or starter projects all shared as 
+                <a href="https://github.com/jedi-academy" target="_blank">Github 
+                    repositories</a>, to be forked/downloaded.</li>
+            <li>Labs/walkthroughs done individually or in pairs, on github; 
+                readme (with a link to your repo) is all that is submitted to a 
+                D2L dropbox, with a deep link to the dropbox on the course hub.</li>
+            <li>Assignments done in teams, on github; readme (with links) 
+                is submitted to D2L dropbox</li>
+            <li>Labs start: this week (after lecture)</li>
+        </ul>
+    </slide>
 
-	<slide title="Grading" layout="normal">
-		<ul>
-			<li>10%: Quizzes &amp; participation</li>
-			<li>30%: 9 labs</li>
-			<li>40%: 3 assignments</li>
-			<li>20%: Final exam, comprehensive</li>
-		</ul>
-		<p>Attendance expected, missing more than 2 labs =&gt; U</p>
-		<p>Labs: individual or varying pairs, rubric-based assessment</p>
-		<p>Assignments: teams of 2-5, each building on the previous,
-			rubric-based assessment</p>
-	</slide>
+    <slide title="Grading" layout="normal">
+        <ul>
+            <li>10%: Surveys &amp; lab participation</li>
+            <li>30%: 9 labs</li>
+            <li>40%: 3 assignments</li>
+            <li>20%: Final exam, comprehensive</li>
+        </ul>
+        <p>Attendance expected, missing more than 2 labs =&gt; U</p>
+        <p>Labs: individual or varying pairs, rubric-based assessment</p>
+        <p>Assignments: teams of 2-5, each building on the previous,
+            rubric-based assessment</p>
+    </slide>
 
-	<slide title="You ..." layout="normal">
-		<p>Per the dayschool <a href="http://www.bcit.ca/study/outlines/20163035498" target="_blank">course outline</a>:</p>
-		<ul>            
-			<li>Required proficiency: programming, Java (COMP2526) or C (COMP2510)</li>
-		</ul>
-		<p>Per the dayschool <a href="http://www.bcit.ca/study/programs/550rdiplt#courses" target="_blank">program matrix</a>:</p>
-		<ul>
-			<li>Somewhat proficient: O-O programming, O-O analysis and design (patterns!)</li>
-			<li>Assumed: English, computer literacy, basic math, basic relational database, 
-				basic networks, basic algorithms, basic HTML/CSS</li>
-			<li>Motivated, committed</li>
-			<li>Bonus: PHP, github, FOSS</li>
-		</ul>
-	</slide>
-
-	<slide title="$64 Question" layout="normal">
-		<h2>CodeIgniter 3 or CodeIgniter 4??</h2>
-		<p>CodeIgniter 3: stable, production version, thousands of developers and sites</p>
-		<p>CodeIgniter 4: under development, pre-release, bleeding edge</p>
-	</slide>
+    <slide title="You ..." layout="normal">
+        <p>Per the dayschool <a href="{outline}" target="_blank">course outline</a>:</p>
+        <ul>            
+            <li>Required proficiency: programming, Java (COMP2526) or C (COMP2510)</li>
+        </ul>
+        <p>Per the dayschool <a href="http://www.bcit.ca/study/programs/550rdiplt#courses" target="_blank">program matrix</a>:</p>
+        <ul>
+            <li>Somewhat proficient: O-O programming, O-O analysis and design (patterns!)</li>
+            <li>Assumed: English, computer literacy, basic math, basic relational database, 
+                basic networks, basic algorithms, basic HTML/CSS</li>
+            <li>Motivated, committed</li>
+            <li>Bonus: PHP, github, FOSS</li>
+        </ul>
+    </slide>
 
 </lesson>

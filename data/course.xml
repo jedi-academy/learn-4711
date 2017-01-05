@@ -10,7 +10,7 @@ Course metadata for Comp4711
     <subtitle>COMP4711</subtitle>
     <author>James L. Parry</author>
     <email>jim_parry@bcit.ca</email>
-    <outline>http://www.bcit.ca/study/outlines/20163035498</outline>
+    <outline>http://www.bcit.ca/study/outlines/20171047992</outline>
     <session>Winter 2017</session>
     <school>B.C. Institute of Technology</school>
     <site>http://www.bcit.ca/cas/computing/</site>
@@ -26,4 +26,5 @@ Course metadata for Comp4711
         access, and making them more broadly accessible, for instance
         to the CodeIgniter community.
     </intro>
+    <popup></popup>
 </course>

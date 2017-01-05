@@ -11,7 +11,7 @@ in SW2-124
 [Groups](https://learn.bcit.ca/d2l/lms/group/user_group_list.d2l?ou={ou})  
 [Quizzes](https://learn.bcit.ca/d2l/lms/quizzing/user/quizzes_list.d2l?ou={ou})  
 [Grades](https://learn.bcit.ca/d2l/lms/grades/index.d2l?ou={ou})  
-These open in the same window, unless you right-click & open them.
+These open in the same window, unless you right-click & open them differently.
 
 ## BCIT
 [Desire2Learn](https://learn.bcit.ca/)  

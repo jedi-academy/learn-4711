@@ -34,6 +34,7 @@ The domain attribute specifies an external domain where this item is hosted. -->
     domain CDATA    #IMPLIED
     active (y|n) "y" 
     icon CDATA #IMPLIED
+    survey CDATA #IMPLIED
   >
 
 <!--- A tutorial contains a description of that tutorial.

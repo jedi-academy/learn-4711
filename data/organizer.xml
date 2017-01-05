@@ -8,9 +8,9 @@ Course organizer for Comp4711
 		<topic>Introduction to MVC Webapps</topic>
 		<outcomes>1.1 (server), 3.2</outcomes>
 		<inlab>#1 Development setup</inlab>
-		<lesson name="intro00" active="n">Course Introduction</lesson>
-		<lesson name="intro01" active="n">Introduction</lesson>
-		<lesson name="intro02" active="n">Golden Rules</lesson>
+		<lesson name="intro00">Course Introduction</lesson>
+		<lesson name="intro01" >Introduction</lesson>
+		<lesson name="intro02" icon="read" >Golden Rules</lesson>
 		<lab name="lab01" active="n">Development Environment</lab>
 		<tutorial name="setup01" active="n">XAMPP Installation</tutorial>
 		<tutorial name="setup02" active="n">Virtual Hosting Setup</tutorial>
@@ -55,10 +55,8 @@ Course organizer for Comp4711
 		<lesson name="other-routing" icon="read" active="n">Routing examples from  other frameworks (optional)</lesson>
 		<lesson name="week04" icon="read" active="n">Survey results</lesson>
 		<lesson name="basic67" active="n">Routing in a Nutshell</lesson>
-		<lab name="lab04" active="n">Working With Controllers</lab>
-		<github name="starter-routes" link="https://github.com/jedi-academy/starter-routes" active="n">Lab starter - Routes</github>
-		<tutorial name="ci-normal01" active="n">Controllers and Routing</tutorial>
 		<assignment name="assignment1projects" active="n">Eligible Pantries to Choose From</assignment>
+		<assignment name="assignment1faq" icon="read" active="n">Added a FAQ</assignment>
 	</week>
 	<week num="5">
 		<topic>Models</topic>
@@ -70,7 +68,9 @@ Course organizer for Comp4711
 		<lesson name="basic68" active="n">Models in a Nutshell</lesson>
 		<lesson name="other-models" icon="read" active="n">Model examples from  other frameworks (optional)</lesson>
 		<lesson name="other-controllers" icon="read" active="n">Controller examples from other frameworks (optional)</lesson>
-		<assignment name="assignment1faq" icon="read" active="n">Added a FAQ</assignment>
+		<lab name="lab04" active="n">Working With Controllers</lab>
+		<github name="starter-routes" link="https://github.com/jedi-academy/starter-routes" active="n">Lab starter - Routes</github>
+		<tutorial name="ci-normal01" active="n">Controllers and Routing</tutorial>
 	</week>
 	<week num="6">
 		<topic>Views</topic>
@@ -82,8 +82,15 @@ Course organizer for Comp4711
 		<lesson name="basic69" active="n">Views in a Nutshell</lesson>
 		<lesson name="other-views" icon="read" active="n">View examples from  other frameworks (optional)</lesson>
 		<assignment name="gallery1" icon="read" active="n">Project gallery</assignment>
+		<lab name="lab05" active="n">Kaleidoscope</lab>
+		<tutorial name="ci-views01" active="n">Homepage construction &amp; assembly</tutorial>
+		<tutorial name="ci-views02" active="n">Construction using markdown</tutorial>
+		<tutorial name="ci-views03" active="n">Order entry page</tutorial>
 	</week>
 	<week num="7">
+		<topic>Midterm exam week</topic>
+	</week>
+	<week num="8">
 		<topic>Forms Handling</topic>
 		<outcomes>1.2 (views), 3</outcomes>
 		<inlab>#6 Model CRUD</inlab>
@@ -92,13 +99,8 @@ Course organizer for Comp4711
 		<lesson name="week07" icon="read" active="n">Survey results</lesson>
 		<lesson name="other-forms" icon="read" active="n">Form examples from  other frameworks (optional)</lesson> 
 		<github name="forms" link="https://github.com/jedi-academy/example-forms" active="n">Examples to support "forms" lessons</github>
-		<lab name="lab05" active="n">Kaleidoscope</lab>
-		<tutorial name="ci-views01" active="n">Homepage construction &amp; assembly</tutorial>
-		<tutorial name="ci-views02" active="n">Construction using markdown</tutorial>
-		<tutorial name="ci-views03" active="n">Order entry page</tutorial>
-	</week>
-	<week num="8">
-		<topic>Midterm exam week</topic>
+		<lab name="lab06" active="n">Building Out Our Diner</lab>
+		<tutorial name="ci-fun01" active="n">Add roles &amp; Caboose</tutorial>
 	</week>
 	<week num="9">
 		<topic>Building on CodeIgniter</topic>
@@ -107,11 +109,9 @@ Course organizer for Comp4711
 		<lesson name="basic04-leftovers" active="n">Other Form Techniques</lesson>
 		<lesson name="week09" icon="read" active="n">Survey results</lesson>
 		<lesson name="basic70" active="n">Addins in a Nutshell</lesson>
-		<lab name="lab06" active="n">Building Out Our Diner</lab>
-		<tutorial name="ci-fun01" active="n">Add roles &amp; Caboose</tutorial>
 	</week>
 	<week num="10">
-		<topic>XML &amp; JSON</topic>
+		<topic>Representation Glue - XML &amp; JSON</topic>
 		<outcomes>2.1</outcomes>
 		<lesson name="data01" icon="dothis" active="n">X M L</lesson>
 		<lesson name="data02"  icon="dothis"  active="n">J S O N</lesson>
@@ -124,7 +124,7 @@ Course organizer for Comp4711
 		<assignment name="assignment2">Functional Pantry Webapp</assignment> -->
 	</week>
 	<week num="11">
-		<topic>XML Processing</topic>
+		<topic>Transport Glue - HTTP</topic>
 		<outcomes>2.1, 2.2</outcomes>
 		<lesson name="xml03" icon="dothis" active="n">Processing XML</lesson>
 		<lesson name="week11" icon="read" active="n">Survey results</lesson>
@@ -133,7 +133,7 @@ Course organizer for Comp4711
 		<tutorial name="xml-xml02" active="n">Handle Sales Orders With XML</tutorial>
 	</week>
 	<week num="12">
-		<topic>REST</topic>
+		<topic>Application Glue - REST</topic>
 		<outcomes>2.1, 2.3</outcomes>
 		<lesson name="advanced03" icon="dothis" active="n">REST</lesson>
 		<lesson name="advanced04"  active="n">AJAX</lesson>
@@ -143,19 +143,12 @@ Course organizer for Comp4711
 		<assignment name="assignment2" active="n">Functional Pantry Webapp</assignment>
 	</week>
 	<week num="13">
-		<topic>Authentication</topic>
+		<topic>Authentication &amp; Review</topic>
 		<outcomes>2.1, 2.2, 2.3</outcomes>
 		<lesson name="advanced01" survey="262768" icon="dothis" active="n">Authentication</lesson>
+		<lesson name="final"  active="n">Final Exam Review</lesson>
 		<lesson name="week13" icon="read" active="n">Survey results</lesson>
 		<tutorial name="tut-adv01" active="n">Authentication</tutorial>
-	</week>
-	<week num="14">
-		<topic>Review &amp; Loose Ends</topic>
-		<outcomes>2.3</outcomes>
-		<inlab>Review</inlab>
-		<lesson name="final"  active="n">Final Exam Review</lesson>
-		<lesson name="future" active="n">Crystal Ball</lesson>
-		<assignment name="assignment2faq" icon="read" active="n">Added a FAQ for assignment 2</assignment>
 	</week>
 	<week num="15">
 		<topic>Final Exam Week</topic>

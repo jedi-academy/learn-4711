@@ -4,14 +4,14 @@
 School: School of Computing and Academic Studies  
 Program: Computer Systems Technology  
 Course Credits: 3  
-Start Date: Sept 6, 2016  
-End Date: Dec 16, 2016  
-Total Hours: 45  
-Total Weeks: 15  
+Start Date: Jan 9, 2017  
+End Date: Apr 21, 2017  
+Total Hours: 42  
+Total Weeks: 14  
 Hours/Weeks: 3  
 Delivery Type: Lecture  
 Prerequisites: COMP 2510 or COMP 2526  
-CRN: 35498  
+CRN: 47992  
 
 ## Course description
 This course provides the students with an opportunity to develop a software application 
@@ -41,11 +41,11 @@ The teams will collaborate using a shared code repository and gitflow workflow, 
 ## Course learning outcomes / competencies
 Upon successful completion of this course, the student will be able to:  
  1  Construct an MVC web application using a suitable framework.  
- 2  Construct a valid and well-formed XML document., and constrain it with a DTD.  
+ 2  Construct a valid and well-formed XML document, and constrain it with a DTD.  
  3  Process XML data using DOM.  
 
 ## Evaluation criteria
-Quizzes & participation - 10% ... Readings & attendance (motivation)  
+Quizzes & participation - 10% ... Readings & lab attendance (motivation)  
 Labs - 30% ... 9 walkthrough labs (guidance)  
 Assignments - 40% ... 3 assignments (practice)  
 Final exam - 20% ... Multiple choice & short answer (assessment)
@@ -75,25 +75,25 @@ Students who miss class for an acceptable reason will be excused from attendance
 ## Course schedule
 **Week & Material Covered**  
 1 Introduction to MVC  Webapps  
-2 CodeIgniter MVC  Framework  
-3 Controllers  
+2 MVC Frameworks  
+3 CodeIgniter & Controllers  
 4 Routing  
 5 Models   
 6 Views   
-7 Support components  
-8 Midterm exam week  
-9 XML & JSON  
-10 XML Processing  
-11 XML-RPC  
-12 REST  
-13 External services  
-14 Loose Ends & Review  
+7 Midterm exam week  
+8 Forms Handling  
+9 Building on CodeIgniter  
+10 Representation Glue - XML & JSON 
+11 Transport Glue - HTTP  
+12 Application Glue - REST  
+13 Authentication  
+14 Final Exam Week  
 
 This course does not have a midterm. Students may request an individual or team interview with the instructor.  
 Refer to the organizer on the course hub home page for more detailed schedule information.  
 
 ## Assignments
-1 – Basic webapp - End of week 5  
+1 – Basic webapp - End of week 4  
 2 – Moderate webapp- End of week 9  
 3 – Distributed webapp- End of week 13  
 
