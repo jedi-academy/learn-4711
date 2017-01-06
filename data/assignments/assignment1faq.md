@@ -1,5 +1,9 @@
 #Assignment #1 - FAQ
-COMP4711 - BCIT - Fall 2016
+COMP4711 - BCIT - Winter 2017
+
+This page has some Q&A from last term, that I thought would still apply.
+It will be filled with all sorts
+of current term goodness once you start asking questions :)
 
 ## How much do we have to build?
 
@@ -18,11 +22,11 @@ have to link anywhere for this assignment.
 Make sure you provide for presenting all your data,
 and that your models provide for all the data you want to present.
 
-## Do We need a database?
+## Do we need a database?
 
 The data you work with will be 
 "mock data" that you create.
-There should be no relational database used for this assignment.
+There should be **no relational database** used for this assignment.
 I want to defer that until we have addressed models and views
 in class and lab.
 
@@ -31,6 +35,8 @@ I was looking at jedi-academy and saw CodeIgniter3.1-starter3 repository. Do we 
 or do we just download a template from CodeIgniter site?
 
 I suggest you create an empty team repo, and *download* either the CI starter2 or starter3 to add to it, like you did for lab 3.
+
+I do not recommend forking any of the CI starters, but *if* you do, remember to rename them!
 
 You only need starter2 for assignment 1, but you will find starter3 adds MY_Model, which I expect you will want in assignment 3.
 
@@ -42,50 +48,14 @@ and view templates if you wish to use them.
 You don't *have* to use the template parser. You could use a third party templating engine
 or conventional views. Just remember that PHP script in your view files will cost you marks.
 
-## I am overwhelmed. This is too much for an assignment. Where do I start?
-
-Hmmm 
-- 3 models (plus provision for logging)
-- 3 main controllers, each with a subcontroller
-- homepage controller & dashboard view
-- 3 main views, each showing a list of stuff in a model
-- 3 subordinate views, each showing one item from a model
-
-Split across four team members, that does not strike me as excessive.
-
-Where to start?
-- get your team repo together, *copying* one of the CodeIgniter starters into it
-- agree on your models and mock data - this will help you visualize what you are making
-- put your homepage in place
-- build your three controllers; they will be similar at this point
-- build or tailor your view template
-- build your 7 view fragmentss (including homepage)
-- make sure the result looks like it belongs together
-
-Follow proper gitflow workflow all the while.
-
-## Rubric complete?
-
-You may notice that the assignment rubric does not address the administration
-usecase, or the logging. They will be needed as part of assignment 2, but
-I don't see them adding value to assignment 1.
-
-## Any words of wisdom regarding our changelog? (It is the biggest source of merge conflicts)
-
-Practically, you could always work towards a comprehensive changelog for the assignmen, a.k.a. a "release".
-See https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst for an example.
-
-## Since we are no longer required to use logs for the assignment, my group was wondering what information the dashboard on the homepage should display.
-
-Provide a summary of the "state" of your data, as can be determined by the mock models.
-This would include a valuation ($$$ worth of materials on hand, $$$ worth of stock for sale), and
-could have some counts (# of different products stocked, # of recipes known, for instance).
-
-We'll beef this up for assignment 2 :)
-
-## I know that the comp4711 assignment 1 submission is due at 5:30pm Sunday (today) but can it still be updated afterwards? Some of the set would appreciate some extra time to tidy up the code.
+## How strict are the deadlines?
+I know that the comp4711 assignment 1 submission is due at 5:30pm Sunday (today) but can it still be updated afterwards? 
+Some of the set would appreciate some extra time to tidy up the code.
 
 There will be time to clean up the code for assignment 2 :-/
+
+If you want to keep updating the "master" branch of your repo, it will only
+cost you 10% per day or portion thereof, after the deadline, that has changes.
 
 I am expecting the repo links to be up for 5:30 Sunday, and that the "master" branch (which I will be marking) will be unmodified from that point on.
 

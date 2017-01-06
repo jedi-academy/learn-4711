@@ -1,5 +1,5 @@
-#Assignment #1 - Basic Pantry Webapp
-COMP4711 - BCIT - Fall 2016
+#Assignment #1 - Bot Factory Webapp
+COMP4711 - BCIT - Winter 2017
 
 ##Assignments Overview
 

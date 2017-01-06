@@ -2,7 +2,7 @@
 <!--
 Lesson 01b - Golden Rules
 -->
-<lesson status="final">
+<lesson status="1.1">
     <!-- Activity metadata ... override anything from the course or organizer -->
     
     <!-- The meat of the presentation -->
@@ -19,9 +19,9 @@ Lesson 01b - Golden Rules
         <ul>
             <li>Server-side development cannot afford sloppiness</li>
             <li>Penalties<ul>
-                    <li>Your code breaks (PHP error displayed) → you're fired (2 marks off)</li>
+                    <li>Your code breaks (PHP error displayed) → you're fired (20% or 2 marks off)</li>
                     <li>Break a major rule → you're fired (ditto)</li>
-                    <li>Break a lesser rule → you're demoted (1 mark off)</li>
+                    <li>Break a lesser rule → you're demoted (10% or 1 mark off)</li>
                 </ul>
             </li>
             <li>No excuses</li>
@@ -30,24 +30,16 @@ Lesson 01b - Golden Rules
 
     <slide title="Cross Platform" layout="normal">
         <ul>
-            <li>The webapp world is not just Windows … 64% *nix
+            <li>The webapp world is not just Windows … 67% *nix
                 <ul>
                     <li>Hard-coded paths → you're fired</li>
                     <li>Windows path separators → you're fired</li>
                 </ul>
             </li>
-            <li>The webapp world is not just IIS …
-                <ul>
-                    <li>65% Apache</li>
-                </ul>
-            </li>
-            <li>The web is not just Java … 
-                <ul>
-                    <li>77% PHP, 22% ASP, 4% Java</li>
-                    <li>~75% of the top 100 websites are built using PHP</li>
-                </ul>
-            </li>
+            <li>The webapp world is not just IIS … 45% Apache, 19% Nginx, 10% IIS</li>
+            <li>The web is not just Java … 82% PHP, 15% ASP, 3% Java</li>
         </ul>
+        <p><em>Sources: https://w3techs.com/ and https://news.netcraft.com/archives/2016/12/21/december-2016-web-server-survey.html</em></p>
     </slide>
 
     <slide title="Controllers" layout="normal">

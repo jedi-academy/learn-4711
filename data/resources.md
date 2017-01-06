@@ -10,7 +10,7 @@
 ## CodeIgniter
 [CodeIgniter 3](http://www.codeigniter.com) The webapp framework we will use  
 [CodeIgniter Forums](http://forum.codeigniter.com) Support for the CI framework  
-[CodeIgniter IRC Channel](http://webchat.freenode.net/?channels=%23codeigniter&amp;uio=d4%22) Support for the CI framework<  
+[CodeIgniter IRC Channel](http://webchat.freenode.net/?channels=%23codeigniter&amp;uio=d4%22) Support for the CI framework  
 [CodeIgniter Bug Tracker](https://github.com/bcit-ci/CodeIgniter/issues) Bugs reported as Github issues  
 
 ## Other PHP Frameworks
@@ -40,3 +40,4 @@
 [GIT](http://git-scm.com/downloads) Your GIT client and/or plugin  
 [GitKraken](https://www.gitkraken.com/) The new kid on the block  
 [SourceTree](https://www.sourcetreeapp.com/) GIT IDE for Windows or Mac  
+[GitHub Education](https://education.github.com/)  They even have a GitHub [cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf)

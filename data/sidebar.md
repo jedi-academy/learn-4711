@@ -22,9 +22,10 @@ These open in the same window, unless you right-click & open them differently.
 [Course outline]({outline})  
 
 ##Assignment Details
-<!-- [Projects](/display/assignment/assignment1projects)  
+[Project Teams](/display/assignment/assignment1projects)  
 [Assignment 1](/display/assignment/assignment1)  
 [Assignment 1 FAQ](/display/assignment/assignment1faq)  
+<!-- 
 [Assignment 1 Gallery](/display/assignment/gallery1)  
 [Assignment 2](/display/assignment/assignment2)  
 [Assignment 2 FAQ](/display/assignment/assignment2faq)  

@@ -155,7 +155,7 @@ Tutorial 01b - Virtual Hosting Setup
         </div>
     </slide>
 
-    <slide title="Virtual Host Mapping Settings" layout="normal">
+    <slide title="What the VHOST Settings Mean" layout="normal">
         <div class="left">
             <p>ServerAdmin is bogus for our purposes.</p>
             <p>DocumentRoot identifies our webapp folder.
@@ -163,7 +163,9 @@ Tutorial 01b - Virtual Hosting Setup
                 Note the Unix style folder separators.</p>
             <p>ServerName is the local domain name.</p>
             <p>The log file directives let you collect
-                error and access messages for each webapp.</p>
+                error and access messages separately for each webapp.
+            It is a good idea to have their name match the
+            virtual host name.</p>
         </div>
         <div class="right">
             <pre>
