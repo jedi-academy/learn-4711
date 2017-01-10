@@ -11,7 +11,6 @@ in SW2-124
 [Groups](https://learn.bcit.ca/d2l/lms/group/user_group_list.d2l?ou={ou})  
 [Quizzes](https://learn.bcit.ca/d2l/lms/quizzing/user/quizzes_list.d2l?ou={ou})  
 [Grades](https://learn.bcit.ca/d2l/lms/grades/index.d2l?ou={ou})  
-These open in the same window, unless you right-click & open them differently.
 
 ## BCIT
 [Desire2Learn](https://learn.bcit.ca/)  
@@ -19,9 +18,10 @@ These open in the same window, unless you right-click & open them differently.
 [Contacts](http://www.bcit.ca/contacts/)  
 [Calendar](http://www.bcit.ca/calendar/)  
 [Main website](http://www.bcit.ca/)  
-[Course outline]({outline})  
 
-##Assignment Details
+##Course Related
+[Course outline]({outline})  
+[Slack team](https://comp4711.slack.com)
 <!-- 
 [Project Teams](/display/assignment/assignment1projects)  
 [Assignment 1](/display/assignment/assignment1)  
@@ -30,3 +30,5 @@ These open in the same window, unless you right-click & open them differently.
 [Assignment 2](/display/assignment/assignment2)  
 [Assignment 2 FAQ](/display/assignment/assignment2faq)  
 -->
+
+Links above open in the same window, unless you right-click & open them differently.
