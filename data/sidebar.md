@@ -21,7 +21,7 @@ in SW2-124
 
 ##Course Related
 [Course outline]({outline})  
-[Slack team](https://comp4711.slack.com)
+[Slack team](https://comp4711.slack.com) - for notifications & FAQ
 <!-- 
 [Project Teams](/display/assignment/assignment1projects)  
 [Assignment 1](/display/assignment/assignment1)  
