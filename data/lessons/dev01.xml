@@ -87,7 +87,7 @@ Lesson 02b - Devops Workflow
         </div>
     </slide>
 
-    <slide title="Gitflow Workflow" layout="normal">
+    <slide title="Gitflow Workflow Checklist" layout="normal">
         <div class="left">
             <ol>
                 <li>Fork a github project</li>
@@ -114,6 +114,20 @@ Lesson 02b - Devops Workflow
             workflow used for each of your projects, and you need to learn
             how to overcome common issues (like merge conflicts)
             in your environment.</p>
+    </slide>
+ 
+    <slide title="Gitflow Gotchas" layout="normal">
+        <p>Gitflow is not the only workflow possible, and it is not
+        without problems...</p>
+        <ul>
+            <li>Merge conflicts - when two people update the same stuff</li>
+            <li>Synchronization - when your project gets hopelessly out of
+            synch with the team's</li>
+            <li>Unhelpful commit messages - what/who broke something</li>
+            <li>Unhelpful pull request descriptions - has something already been done</li>
+            <li>Misusing issues - premature closing</li>
+            <li>Properly attributing work done - not just for marks</li>
+        </ul>
     </slide>
  
 </lesson>

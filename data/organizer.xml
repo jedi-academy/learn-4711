@@ -18,12 +18,10 @@ Course organizer for Comp4711
 		<topic>MVC Frameworks</topic>
 		<outcomes>1.1 (PHP), 1.2 (basics),3</outcomes>
 		<inlab>#2 Project &amp; Process Prep</inlab>
-		<lesson name="basic00" icon="dothis" active="n">Webapp Assumptions</lesson>
-		<lesson name="basic01" icon="dothis" active="n">MVC Framework Introduction</lesson>
-		<lesson name="dev01" icon="dothis" active="n">Devops Workflow Concepts</lesson>
-		<lesson name="week02" icon="read" active="n">Survey results</lesson>
+		<lesson name="basic01" icon="dothis" survey="266866">MVC Frameworks</lesson>
+		<lesson name="dev01" icon="dothis"  survey="266867">Devops Workflow Concepts</lesson>
+		<lesson name="week02" icon="read" active="n">Survey results (TBD)</lesson>
 		<lab name="lab02" active="n">Collaborative Workflow</lab>
-		<github name="starter-quotes" link="https://github.com/jedi-academy/starter-quotes" active="n">Lab starter - Quotes</github>
 		<lesson name="dev02" icon="read" active="n">Gitflow Workflow Techniques (in lab)</lesson>
 		<lesson name="dev03" icon="read" active="n">Gitflow Setup Example (in lab)</lesson>
 	</week>

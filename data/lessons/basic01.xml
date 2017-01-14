@@ -27,20 +27,58 @@ Lesson 02 - MVC Framework Introduction
     </slide>
 
 
-    <!-- Normal slides -->
-
     <slide title="Setup" layout="normal">
-        <h1>Setup</h1>
         <p>This lesson mentions source code files from
             the <a href="https://github.com/comp4711/example-contacts" target="_blank">
                 Example Contacts
-            </a> demo webapp. Please download that project first, and extract
+            </a> demo webapp. You can "play along" by downloading that project first, and extract
             it locally, so that you can refer to the source files during the lesson.
         </p>
     </slide>
 
+    <!-- Normal slides -->
+
+    <slide title="Web Tier Basics" layout="normal" tag="{tag0}">
+        <p>The simplest view of a web server is that it is a web-tier contoller,
+            responsible for handling incoming HTTP requests.</p>
+        <p>Some of these requests are for publically visible files, and those 
+            can be just "returned" to the web client.</p>
+        <p>Other requests involve application logic, and the web server
+            would then determine which application component(s) to request
+            service from, and format the results of that for presentation
+            to the web client.</p>
+        <div class="center">
+            <img class="scale" width="658" height="173"  src="/pix/lessons/1-1.png"/>
+        </div>
+    </slide>
+
+    <slide title="Web Server Basics" layout="normal">
+        <div class="left">
+            <p>A richer view of a web server suggests that it is itself a framework.</p>
+            <p>Incoming requests are encapsulated, as are the responses.</p>
+            <p>Developers use a framework running on the web server.
+                It provides an API for developers to build web components,
+                and to access data stored locally or on its own server.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="483" height="320" src="/pix/lessons/1-2.png"/>
+        </div>
+    </slide>
+
+    <slide title="Fundamental Pattern" layout="normal">
+        <div class="center">
+            <img class="scale" width="696" height="600" src="/pix/lessons/1-3.png"/>
+        </div>
+    </slide>
+
+    <slide title="Approach Evolution" layout="normal">
+        <div class="center">
+            <img class="scale" width="590" height="642" src="/pix/lessons/1-4.png"/>
+        </div>
+    </slide>
+
     <slide title="Frameworks" layout="normal" tag="tag1">
-        <h1>Frameworks</h1>
         <p>An MVC framework is one with conventions
             and pre-built components that encourage or enforce
             good programming practices.</p>
@@ -116,38 +154,38 @@ Lesson 02 - MVC Framework Introduction
         </table>
     </slide>
 
-	<slide title="CodeIgniter Architecture" layout="normal">
-		<div class="left">
-			<p>CodeIgniter routing involves request lifecycle "hooks", 
-				with security rules, before identifying the right controller.</p>
-			<p> The controller then uses other components, like helpers, 
-				models, libraries, etc, to build what is passed to a view.</p>
-			<p>Many such components are built into CI, and the webapp
-				developer would normally build their own by using or extending these.</p>
-		</div>
-		<div class="right">
-			<img class="scale" width="697" height="205" src="/pix/lessons/1-6.png"/>
-		</div>
-	</slide>
+    <slide title="CodeIgniter Architecture" layout="normal">
+        <div class="left">
+            <p>CodeIgniter "routes" incoming requests, identifying the
+                appropriate controller to handle each one.</p>
+            <p>The controller then uses other CI components, like helpers, 
+                models, libraries, etc, to build what is passed to a view.</p>
+            <p>Many such components are built into CI, and a
+                developer would normally build their webapp by using or extending these.</p>
+        </div>
+        <div class="right">
+            <img class="scale" width="697" height="205" src="/pix/lessons/1-6.png"/>
+        </div>
+    </slide>
 
-	<slide title="CodeIgniter Examples" layout="normal">
-		<div class="left">
-			<p>The <a href="http://www.codeigniter.com/">CodeIgniter website</a> itself is (not surprisingly) implemented using CodeIgniter,
-				and it is <a href="https://github.com/bcit-ci/codeigniter-website">open-sourced</a>:)</p>
-			<p>Many major corporations have used CodeIgniter, whether internally or public-facing: 
-				Uber, Apple, Telus</p>
-			<p>Some other sites built with CodeIgniter, in no specific order:
-				https://www.daniweb.com/,
-				http://www.fsw.edu/, 
-				http://creditflux.com/,
-				http://www.la-commanderie.be/
-			</p>
+    <slide title="CodeIgniter Examples" layout="normal">
+        <div class="left">
+            <p>The <a href="http://www.codeigniter.com/">CodeIgniter website</a> itself is (not surprisingly) implemented using CodeIgniter,
+                and it is <a href="https://github.com/bcit-ci/codeigniter-website">open-sourced</a>:)</p>
+            <p>Many major corporations have used CodeIgniter, whether internally or public-facing: 
+                Uber, Apple, Telus</p>
+            <p>Some other sites built with CodeIgniter, in no specific order:
+                https://www.daniweb.com/,
+                http://www.fsw.edu/, 
+                http://creditflux.com/,
+                http://www.la-commanderie.be/
+            </p>
             
-		</div>
-		<div class="right">
-			<img class="scale" width="600" height="458" src="/pix/lessons/1-8.png"/>
-		</div>
-	</slide>
+        </div>
+        <div class="right">
+            <img class="scale" width="600" height="458" src="/pix/lessons/1-8.png"/>
+        </div>
+    </slide>
 
  
 </lesson>
