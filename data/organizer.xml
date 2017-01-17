@@ -20,10 +20,10 @@ Course organizer for Comp4711
 		<inlab>#2 Project &amp; Process Prep</inlab>
 		<lesson name="basic01" icon="dothis" survey="266866">MVC Frameworks</lesson>
 		<lesson name="dev01" icon="dothis"  survey="266867">Devops Workflow Concepts</lesson>
-		<lesson name="week02" icon="read" active="n">Survey results (TBD)</lesson>
-		<lab name="lab02" active="n">Collaborative Workflow</lab>
-		<lesson name="dev02" icon="read" active="n">Gitflow Workflow Techniques (in lab)</lesson>
-		<lesson name="dev03" icon="read" active="n">Gitflow Setup Example (in lab)</lesson>
+		<lesson name="week02" icon="read">Survey results</lesson>
+		<lab name="lab02">Collaborative Workflow</lab>
+		<lesson name="dev02" icon="read">Gitflow Workflow Techniques (in lab)</lesson>
+		<lesson name="dev03" icon="read">Gitflow Setup Example (in lab)</lesson>
 	</week>
 	<week num="3">
 		<topic>CodeIgniter &amp; Controllers</topic>         
@@ -153,6 +153,8 @@ Course organizer for Comp4711
 		<topic>REFERENCE</topic>
 		<lesson name="intro02" icon="read" >Golden Rules</lesson>
 		<tutorial name="setup03">PHP Comparison to Java</tutorial>
+                <lesson name="dev04" icon="read" >Gitting Good</lesson>		
+                <lesson name="faq" icon="read" >FAQ</lesson>		
 	</week>
 	<week num="xx">
 		<topic>Supplementary Reading FYI</topic>

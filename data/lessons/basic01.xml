@@ -39,7 +39,8 @@ Lesson 02 - MVC Framework Introduction
     <!-- Normal slides -->
 
     <slide title="Web Tier Basics" layout="normal" tag="{tag0}">
-        <p>The simplest view of a web server is that it is a web-tier contoller,
+        <p>The simplest view of a web server is that it is a "black box"
+            web-tier contoller,
             responsible for handling incoming HTTP requests.</p>
         <p>Some of these requests are for publically visible files, and those 
             can be just "returned" to the web client.</p>
@@ -67,13 +68,35 @@ Lesson 02 - MVC Framework Introduction
     </slide>
 
     <slide title="Fundamental Pattern" layout="normal">
-        <div class="center">
+        <div class="left">
+            <p>A model is a component acting as a data or
+            database abstraction/adapter. It should be
+            the *only* way you access data.</p>
+            <p>A view is a component to present data, i.e.
+            to create HTML, PDF, or whatever is appropriate.
+            It could be an object, or it could be handled
+            by a script with embedded logic snippets.</p>
+            <p>A controller handles usecases, "wiring"
+            together models and views as needed.</p>
+        </div>
+        <div class="right">
             <img class="scale" width="696" height="600" src="/pix/lessons/1-3.png"/>
         </div>
     </slide>
 
     <slide title="Approach Evolution" layout="normal">
-        <div class="center">
+        <div class="left">
+            <p>In the beginning (30 years ago), web "pages" were handled individually.
+            Developers used HTML generator tools to create each "page".</p>
+            <p>Modern practice (10 years ago?) has evolved to the front
+            controller, a single entry point. It bootstraps a framework,
+            which then makes routing decisions appropriately.</p>
+            <p>Some frameworks act as a front controller through
+            their server socket handling, constructing suitable
+            objects before passing control to the nominal handlers
+            (eg JSP).</p>
+        </div>
+        <div class="right">
             <img class="scale" width="590" height="642" src="/pix/lessons/1-4.png"/>
         </div>
     </slide>
@@ -81,12 +104,17 @@ Lesson 02 - MVC Framework Introduction
     <slide title="Frameworks" layout="normal" tag="tag1">
         <p>An MVC framework is one with conventions
             and pre-built components that encourage or enforce
-            good programming practices.</p>
+            good programming practices. These frameworks are
+        usually server-side, though some have client-side Javascript
+        components too.</p>
         <p>CodeIgniter is one such framework.</p>
         <p>Others include CakePHP, Fat-Free, FuelPHP, Kohana, Laravel, Symfony2, Yii and Zend</p>
+        <p>Choose a framework according to its fit with your development
+        practices (design patterns), bundled or easily-incorporated components,
+        and ease of integration with your organization's other IT.</p>
     </slide>
 
-    <slide title="Design Pattern Driven!" layout="normal">
+    <slide title="Design Pattern Driven! ***" layout="normal">
         <div class="left">
             <p>Model-View-Controller is a design pattern.</p>
             <p>It is an "industry-accepted best practice",
@@ -112,7 +140,7 @@ Lesson 02 - MVC Framework Introduction
         </div>
     </slide>
 
-    <slide title="Categorizing MVC Frameworks" layout="normal">
+    <slide title="Categorizing MVC Frameworks **" layout="normal">
         <p>Frameworks come in all sizes.</p>
         <p>They differ in philosophy, scope, management tools
         &amp; included plugins.</p>
@@ -162,6 +190,10 @@ Lesson 02 - MVC Framework Introduction
                 models, libraries, etc, to build what is passed to a view.</p>
             <p>Many such components are built into CI, and a
                 developer would normally build their webapp by using or extending these.</p>
+                <p>The diagram to the right is a depiction of the architecture,
+                and it will be elaborated on over the next six or seven lessons.
+                In the meantime, it is a useful visualization of how any
+                such framework could be reasonably architected.</p>
         </div>
         <div class="right">
             <img class="scale" width="697" height="205" src="/pix/lessons/1-6.png"/>
@@ -187,5 +219,21 @@ Lesson 02 - MVC Framework Introduction
         </div>
     </slide>
 
- 
+     <slide title="Other Frameworks" layout="normal">
+        <p>Is there life outside CodeIgniter?</p>
+        <p>Absolutely ... there are a number of frameworks, for a multitude of programming language.
+            The following are open-source, from github alone, based on a search for web frameworks.</p>
+        <ul>
+            <li>3,845 JavaScript</li>
+            <li>2,248 PHP</li>
+            <li>2,156 Java</li>
+            <li>1,943 Python</li>
+            <li>980 CSS</li>
+            <li>933 HTML</li>
+            <li>781 Ruby</li>
+            <li>629 C#</li>
+            <li>555 Go</li>
+            <li>228 Scala</li>
+        </ul>
+    </slide>
 </lesson>

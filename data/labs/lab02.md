@@ -1,16 +1,14 @@
 
 #Lab #2 - Collaborative Workflow
-COMP4711 - BCIT - Fall 2016
-
-**Edit: I added a new section, explaining the synching
-of repos in more detail.**
+COMP4711 - BCIT - Winter 2017
 
 ##Lab Goals
 
 Last week, you setup your development environment.
 This week, building on that experience, you will be practicing collaborative workflow.
 
-I have setup a starter repository for you to work from, and this lab will walk you through
+I have setup a **[starter repository](https://github.com/jedi-academy/starter-quotes)**
+ for you to work from, and this lab will walk you through
 setting up a collaborative team and getting underway.
 
 ##Lab Teams
@@ -53,19 +51,22 @@ to accommodate all sets.
 I have set the deadline to this Sunday at 17:30, making allowance for hiccups,
 and will adjust future deadlines based on our experiences with this lab.
 
-##Lab Preview
+##Lab Preview/Prep
 
-There are two readings linked to in the organizer, that will help orient you
+There are two readings linked to in the organizer for this week, that will help orient you
 to what we will be doing in lab. They are not exact copies of what we will do, but
 similar.
 
-The first, [Gitflow Workflow Techniques](/show/lesson/dev02), 
+The first, **[Gitflow Workflow Techniques](/show/lesson/dev02)**, 
 is a pictorial walkthrough of a similar process. 
 
-The second, [Gitflow Setup Example](/show/lesson/dev02), 
+The second, **[Gitflow Setup Example](/show/lesson/dev02)**, 
 specifically demonstrates the setup of a team and its repository.
 
-##Notes:Synching your repos (Supplement)
+There is a third reading, **[Gitting Good]()**, in the reference section in the
+organizer, that will help you with Git naming.
+
+#Notes: Synching your repos 
 
 This has proved to be problematic.
 
@@ -200,7 +201,7 @@ been updated, and it hopefully will be mergeable.
 -    Commit these...
 -    Push these...
 -    Create the PR ... Oh no, it can't be merged!
--	**Edit: if you did not get an error message, it is likely because your push did not include a changelog item!**
+-	**If you did not get an error message, it is likely because your push did not include a changelog item!**
 -    Checkout your local develop branch
 -    Synch it to upstream
 -    Checkout your feature branch
