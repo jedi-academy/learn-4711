@@ -8,3 +8,8 @@ There are two simple lessons for this week, each addressing a cornerstone of the
 I have updated the lecture based on your feedback, flagging or updating the less clear areas.
 
 This week's lab has also been vetted.
+
+**Week 2** *(Wed Jan 18, 12:30)*  
+
+**Email Caution** ... if you send an email from inside D2L, it cannot be responded to.
+D2L is a notification only service, which tries to look like an email service.

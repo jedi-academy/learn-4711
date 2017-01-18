@@ -63,7 +63,7 @@ is a pictorial walkthrough of a similar process.
 The second, **[Gitflow Setup Example](/show/lesson/dev02)**, 
 specifically demonstrates the setup of a team and its repository.
 
-There is a third reading, **[Gitting Good]()**, in the reference section in the
+There is a third reading, **[Gitting Good](/display/lesson/dev04)**, in the reference section in the
 organizer, that will help you with Git naming.
 
 #Notes: Synching your repos 
