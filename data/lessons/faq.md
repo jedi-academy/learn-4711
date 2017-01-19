@@ -1,11 +1,9 @@
 #FAQ - Frequently Asked Questions
-COMP4711 - BCIT - Fall 2016
+COMP4711 - BCIT - Winter 2017
 
 This FAQ addresses the most common problems encountered
 trying to develop webapps as part of this course.
 
-It will contain helpful information, honest, but only once I have time
-to flesh it out.
 
 ##Cross-platform issues
 
@@ -142,8 +140,26 @@ This really only suits models, so perhaps not so useful.
 
 This a tool for usecase or scenario testing.
 
-*** Use the PHP debugger
+### Use the PHP debugger
 
 Integrated into your IDE, lets you step through your app like the Java debuggers.
 Works locally, but there might be server-side extensions.
 Might need XDebug installed.
+
+##Repo Hiccups
+
+### Does your IDE metadata appear in your repo?
+
+You should git ignore the IDE metadata folder(s). That would be <code>nbproject</code>
+in NetBeans, or <code>.idea</code> using PHPstorm. You need to do this before making
+a commit that would include them, or else they will be a pain to git ignore later.
+
+### Why don't my conttributions get counted correctly?
+
+If you see one or two commits with the proper avatar, and the rest have the avatar grayed out,
+you need to make sure that your "signing name" matches your github user name.
+
+Alternately, you could GPG-sign your commits, though that is not expected yet.
+
+If you set your signing user name & email globally, you wont have to change it for
+each project.
