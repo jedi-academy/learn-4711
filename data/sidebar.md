@@ -25,6 +25,7 @@ in SW2-124
 [Course repo](https://github.com/jedi-academy/learn-4711) - open-sourced, for those who want to look "under the hood"  
 [FAQ](/display/lesson/faq)  
 
+
 <!-- 
 [Project Teams](/display/assignment/assignment1projects)  
 [Assignment 1](/display/assignment/assignment1)  
