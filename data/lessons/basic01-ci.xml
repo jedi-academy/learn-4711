@@ -2,389 +2,426 @@
 <!--
 Lesson 02 - MVC Framework Introduction
 -->
-<lesson status="v1.1">
-	<!-- Activity metadata ... override anything from the course or organizer -->
+<lesson status="v1.2">
+    <!-- Activity metadata ... override anything from the course or organizer -->
 
-	<!-- Agenda -->
-	<slide title="Agenda" layout="normal">
-		<p>We talked about MVC frameworks in general last week.
-			This lesson provides a closer look at CodeIgniter.</p>
-		<ol>
-			<li>
-				<a href="#{tag1}">Project Files</a>
-			</li>
-			<li>
-				<a href="#{tag2}">Models</a>
-			</li>
-			<li>
-				<a href="#{tag3}">Controllers</a>
-			</li>
-			<li>
-				<a href="#{tag4}">Views</a>
-			</li>
-			<li>
-				<a href="#{tag5}">Support Components</a>
-			</li>
-			<li>
-				<a href="#{tag6}">Your CI Webapp!</a>
-			</li>
-		</ol>
-	</slide>
-
-
-	<!-- Normal slides -->
-
-	<slide title="Setup" layout="normal">
-		<h1>Setup</h1>
-		<p>This lesson mentions source code files from
-			the <a href="https://github.com/jedi-academy/example-contacts" target="_blank">
-				Example Contacts
-			</a> demo webapp. Please download that project first, and extract
-			it locally, so that you can refer to the source files during the lesson.
-		</p>
-		<p>If you want to run the demo app on your system, you will need to
-			setup a MySQL database, <code>comp4711</code>, using the SQL script inside the
-			project at <code>data/contacts.sql</code>. You would also have to specify
-			your mysql password in the database configuration file, 
-			<code>application/config/database.php</code>.</p>
-		<p>Disclaimer: the demo webapp is not useful as a webapp - it is
-			only intended to illustrate the different pieces of a
-			CodeIgniter webapp!</p>
-	</slide>
-
-	<slide title="1. Project Files" layout="normal" tag="tag1">
-		<div class="left">
-			<p>A CodeIgniter project contains application logic
-				(inside <code>application</code>), the framework code
-				(inside <code>system</code>), and public-facing
-				files (inside <code>public</code>, which
-				is the intended "document root").
-				Nothing outside the <code>public</code> folder is
-				directly accessible, and a small webapp could contain
-				data in a separate folder too.
-			</p>
-			<p>Inside <code>public</code> are two important files:
-				<ul>
-					<li>
-						<code>index.php</code> *is* the
-						front controller, i.e. entry point.</li>
-					<li>
-						<code>.htaccess</code>is an Apache configuration file, to
-						eliminate the need to explicitly have "index.php" in
-						URLs.
-					</li>
-				</ul>
-			</p>
-		</div>
-		<div class="right">
-			<br/>
-			<img class="scale" width="249" height="361" src="/pix/lessons/2/2-2.png"/>
-		</div>
-	</slide>
-
-	<slide title="Class Loader" layout="normal">
-		<p>CodeIgniter has its own class loader.</p>
-		<p>It uses the folder structure to locate classes (per MVC)</p>
-		<pre>
-			<code>
-				$this->load->model('customers');
-				$this->customers->get(...);
-			</code>
-		</pre>
-		<p>The loader enforces naming conventions too.
-			For instance, you will find that class source files
-			follow the "UCfirst" convention.</p>
-	</slide>
-
-	<slide title="Routing" layout="normal">
-		<p>CodeIgniter normally routes requests to controllers by
-			convention, i.e. using the URI segment and looking in the controllers
-			folder. Other frameworks often handle routing a bit differently.</p>
-		<p>The framework will determine the appropriate controller class
-			and method to execute, to satisfy the incoming request.</p>
-		<p>CodeIgniter will inject references to the framework
-			components, as properties of your controller, as well
-			as references to your app components as you load them. 
-			You may have noticed this on the previous slide, with <code>$this->load</code>
-			and <code>$this->customers</code>.
-		</p>
-	</slide>
-
-	<slide title="2. Models" layout="normal" tag="tag2">
-		<div class="left">
-			<p>One of the cornerstones of MVC, <strong>models</strong> encapsulate data sources or entities.</p>
-			<p>Each model is a class that wraps a data source.</p>
-			<p>A data source could be an RDB table, or an aggregation such as
-				orders with item details. It could even be connected to the
-				server's file system.</p>
-			<p>CodeIgniter models are collections, rather than component
-				models for single entities. CodeIgniter encourages the Active Record design
-				pattern (which says you build CRUD methods into models),
-				but doesn't require it.</p>
-		</div>
-		<div class="right">
-			<br/>
-			<img class="scale" width="279" height="386" src="/pix/lessons/2/2-6.png"/>
-		</div>
-	</slide>
-
-	<slide title="Query Builder" layout="normal">
-		<div class="left">
-			<p>CodeIgniter comes with a QueryBuilder library,
-				to make it easier to access your databases.</p>
-				<p>An example is shown to the right. The specific
-				database engine has been abstracted, so your
-				logic works with different data stores.</p>
-		</div>
-		<div class="right">
-			<pre>
-				<code>
-$this-&gt;db-&gt;select('*')-&gt;from('my_table')
-	-&gt;group_start()
-	-&gt;where('a', 'a')
-	-&gt;or_group_start()
-	-&gt;where('b', 'b')
-	-&gt;where('c', 'c')
-	-&gt;group_end()
-	-&gt;group_end()
-	-&gt;where('d', 'd')
-	-&gt;get();                
-				</code>
-			</pre>
-		</div>
-	</slide>
-
-	<slide title="Model Classes" layout="normal">
-		<div class="left">
-			<p>In CodeIgniter, models are classes that extend CI_Model.</p>
-			<p>Each data source, eg. RDB table, usually has its own model.</p>
-			<p>A common practice is to use a "heavy model" philosophy,
-			where the bulk of business logic is inside model classes,
-			in addition to data retrieval and storage.</p>
-		</div>
-		<div class="right">
-			<pre>
-				<code>
-public class Orders extends CI_Model {
-	public function add_item($code, $quantity) {...}
-	public function calc_total() {...}
-}
-				</code>
-			</pre>
-		</div>
-	</slide>
-
-	<slide title="Base Model" layout="normal">
-		<p>You can provide your own base model, with
-			common methods. See <code>application/core/MY_Model</code> in the example webapp.
-			The <code>application/core</code> folder holds any classes you make that
-			build on those built into the framework, and you can configure the prefix (<code>MY_</code>)
-			that you use.</p>
-		<p>This could be used to provide a simple object-relational map.</p>
-		<p>Sample properties: $_tableName, $_keyField</p>
-		<p>Sample methods: create() get($key), add($record), 
-			update($record), delete($key), exists($key)</p>
-			<p>The result is that a simple model, with basic CRUD methods only,
-				becomes as simple as that in the demo, <code>application/models/Contacts</code>
-			</p>
-	</slide>
-
- 
-	<slide title="3. Controllers" layout="normal" tag="tag3">
-		<div class="left">
-			<p>Another cornerstone of MVC, <strong>controllers</strong> handle incoming requests.</p>
-			<p>A Controller serves as an intermediary between the Model, 
-				the View, and any other resources needed to process an 
-				HTTP request and generate a web page.</p>
-				<p>Our demo app only has the one controller, <code>application/controllers/Welcome</code></p>
-		</div>
-		<div class="right">
-			<br/>
-			<img class="scale" width="240" height="164" src="/pix/lessons/2/2-8.png"/>
-		</div>
-	</slide>
-
-	<slide title="CI Controllers" layout="normal">
-		<div class="left">
-			<p>In CI, controllers are classes that extend CI_Controller, or 
-				your base controller with common functionality.</p>
-				<p>Our base controller implements view templating, through its <code>render()</code> method</p>
-				<p>See <code>application/core/MY_Controller</code></p>
-		</div>
-		<div class="right">
-			<br/>
-			<img class="scale" width="240" height="174" src="/pix/lessons/2/2-9.png"/>
-		</div>
-	</slide>
-
-	<slide title="App Controllers" layout="normal">
-		<p>Each of your webapp controllers builds on your base controller.</p>
-		<p>Normally, each usecase has its own controller.</p>
-		<p>Additionally, controllers or subcontrollers are used for services.</p>
-		<p>An upcoming lesson will explore controllers in more detail!</p>
-	</slide>
-
-	<slide title="Controller Methods" layout="normal">
-		<p>URLs are segment based, with the pattern "example.com/class/function/parm1/parm2".</p>
-		<p>The <code>index()</code> method is the default handler function, while other public
-			methods are treated as sub-controllers.</p>
-		<p>Parameters are passed positionally.</p>
-		<p>An example: given the URI "/products/shoes/sandals/123", the segments could
-			be interpreted as the controller (Products), method inside it (shoes), and
-			then two parameters passed to that method (sandals and 123).</p>
-		<p>Confusion is possible ...
-			"application/controllers/business/work" could refer to the "work" method
-			inside the Business controller, or it
-			could refer to the Work controller inside the business subfolder
-			with the controllers!</p>
-	</slide>
+    <!-- Agenda -->
+    <slide title="Agenda" layout="normal">
+        <p>We talked about MVC frameworks in general last week.
+            This lesson provides a closer look at CodeIgniter.</p>
+        <ol>
+            <li>
+                <a href="#{tag1}">Project Files</a>
+            </li>
+            <li>
+                <a href="#{tag2}">Models</a>
+            </li>
+            <li>
+                <a href="#{tag3}">Controllers</a>
+            </li>
+            <li>
+                <a href="#{tag4}">Views</a>
+            </li>
+            <li>
+                <a href="#{tag5}">Support Components</a>
+            </li>
+            <li>
+                <a href="#{tag6}">Your CI Webapp!</a>
+            </li>
+        </ol>
+    </slide>
 
 
-	<slide title="4. Views" layout="normal" tag="tag4">
-		<div class="left">
-			<p>The final cornerstone of MVC, <strong>views</strong> are the components that deal with presentation,
-				typically for a web browser.
-			Views generate the information presented to a user, 
-				for instance a web page.</p>
-				<p>Views are stored inside the application, inside
-					<code>application/views</code>, because they are intended
-					to have logic in them. If an app has a pure HTML view
-					fragment, it could go inside <code>public</code>, and it would
-					keep its <code>html</code> filename extension.
-				</p>
-		</div>
-		<div class="right">
-			<br/>
-			<img class="scale" width="234" height="336" src="/pix/lessons/2/2-10.png"/>
-		</div>
-	</slide>
+    <!-- Normal slides -->
 
-	<slide title="View Templates" layout="normal">
-		<p>A normal practice is to build a view template, 
-			which wraps the "real" webpage body, whose name is 
-			passed as a parameter; this is managed by the base controller.</p>
-		<p>Such a template is meant to provide a consistent layout across
-			a number (perhaps all) of pages in your webapp, with
-			placeholders for the pieces appropriate to a given page.</p>
-		<p>CI has a "template parser" built-in, which lets us 
-			eliminate most PHP script from a view.</p>
-			<p>See <code>application/views/_template</code></p>
-	</slide>
+    <slide title="Setup" layout="normal">
+        <p>This lesson mentions source code files from
+            the <a href="https://github.com/jedi-academy/example-contacts" target="_blank">
+                Example Contacts
+            </a> demo webapp. Please download that project first, and extract
+            it locally, so that you can refer to the source files during the lesson.
+        </p>
+        <p>If you want to run the demo app on your system, you will need to
+            setup a MySQL database, <code>comp4711</code>, using the SQL script inside the
+            project at <code>data/contacts.sql</code>. You would also have to specify
+            your mysql password in the database configuration file, 
+            <code>application/config/database.php</code>.</p>
+        <p>Disclaimer: the demo webapp is not useful as a webapp - it is
+            only intended to illustrate the different pieces of a
+            CodeIgniter webapp!</p>
+    </slide>
 
-	<slide title="View Fragments" layout="normal">
-		<p>Each of your view fragments would then be stored in its own file, 
-			using the substitution fields for passed parameters.</p>
-		<p>A view fragment provides a portion or piece of a complete
-			page. It is typically well-formed - a complete &lt;div&gt;
-			with any nested content.</p>
-		<p>Substitution fields are enclosed in braces inside your view file.</p>
-		<p>See <code>application/views/homepage</code></p>
-	</slide>
+    <slide title="1. Project Files" layout="normal" tag="tag1">
+        <div class="left">
+            <p>A CodeIgniter project contains application logic
+                (inside <code>application</code>), the framework code
+                (inside <code>system</code>), and public-facing
+                files (inside <code>public</code>, which
+                is the intended "document root").
+                Nothing outside the <code>public</code> folder is
+                directly accessible, and a small webapp could contain
+                data in a separate folder too.
+            </p>
+            <p>Inside <code>public</code> are two important files:
+                <ul>
+                    <li>
+                        <code>index.php</code> *is* the
+                        front controller, i.e. entry point.</li>
+                    <li>
+                        <code>.htaccess</code>is an Apache configuration file, to
+                        eliminate the need to explicitly have "index.php" in
+                        URLs.
+                    </li>
+                </ul>
+            </p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="249" height="361" src="/pix/lessons/2/2-2.png"/>
+        </div>
+    </slide>
 
-	<slide title="View Usage" layout="normal">
-		<p>Javascript libraries are not well-supported in CI; 
-			you can use them, but effectively client-side.</p>
-		<p>Do use CSS to control the appearance.</p>
-		<p>Both CSS &amp; Javascript files would be inside your
-			<code>public</code> folder, possibly inside appropriate subfolders.
-		</p>
-		<p>Sample usage: <code>$this-&gt;load-&gt;view('showoff',$data);</code> or 
-		<code>$this-&gt;parser-&gt;load('showoff',$data);</code>
-		</p>
-	</slide>
+    <slide title="Class Loader" layout="normal">
+        <p>CodeIgniter has its own class loader.</p>
+        <p>It uses the folder structure to locate classes (per MVC)</p>
+        <pre><code>
+    $this->load->model('customers');
+    $this->customers->get(...);
+            </code></pre>
+        <p>CI applies naming and folder conventions to locate components, by default. 
+            There is nothing to prevent you from loading classes explicitly, eg 
+            <code>$customer = new \MyTeam\Models\Entities\Customer</code></p>
+            <p>The loader enforces naming conventions too.
+            For instance, you will find that classes and their source files 
+            are expected to follow the "UCfirst" convention.</p>
+    </slide>
+
+    <slide title="Routing" layout="normal">
+        <p>CodeIgniter normally routes requests to controllers by
+            convention, i.e. using the URI segment and looking in the controllers
+            folder. Other frameworks often handle routing a bit differently.</p>
+        <p>The framework will determine the appropriate controller class
+            and method to execute, to satisfy the incoming request.</p>
+        <p>What about other frameworks? Some use convention, some require explicit routing rules. 
+            Some allow closure (anonymous functions) for the handling code part of the routing configuration.</p>
+    </slide>
+
+    <slide title="2. Models" layout="normal" tag="tag2">
+        <div class="left">
+            <p>One of the cornerstones of MVC, <strong>models</strong> encapsulate data sources or entities.
+            Each model is a class that "wraps" a data source.</p>
+            <p>A data source could be an RDB table, or an aggregation such as
+                orders with item details. It could even be connected to the
+                server's file system.</p>
+            <p>CodeIgniter models are collections, rather than component
+                models for single entities. CodeIgniter encourages the Active Record design
+                pattern (which says you build CRUD methods into models),
+                but doesn't require it.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="279" height="386" src="/pix/lessons/2/2-6.png"/>
+        </div>
+    </slide>
+
+    <slide title="Query Builder" layout="normal">
+        <div class="left">
+            <p>CodeIgniter comes with a QueryBuilder library,
+                to make it easier to access your databases.</p>
+            <p>An example is shown to the right. The specific
+                database engine has been abstracted, so your
+                logic works with different data stores.</p>
+        </div>
+        <div class="right">
+            <pre>
+                <code>
+                    $this-&gt;db-&gt;select('*')-&gt;from('my_table')
+                    -&gt;group_start()
+                    -&gt;where('a', 'a')
+                    -&gt;or_group_start()
+                    -&gt;where('b', 'b')
+                    -&gt;where('c', 'c')
+                    -&gt;group_end()
+                    -&gt;group_end()
+                    -&gt;where('d', 'd')
+                    -&gt;get();                
+                </code>
+            </pre>
+        </div>
+    </slide>
+
+    <slide title="Model Classes" layout="normal">
+        <div class="left">
+            <p>In CodeIgniter, models are classes that extend CI_Model.</p>
+            <p>Each data source, eg. RDB table, usually has its own model.</p>
+            <p>A common practice is to use a "heavy model" philosophy,
+                where the bulk of business logic is inside model classes,
+                in addition to data retrieval and storage.</p>
+        </div>
+        <div class="right">
+            <pre>
+                <code>
+    public class Orders extends CI_Model {
+        public function add_item($code, $quantity) {...}
+        public function calc_total() {...}
+    }
+                </code>
+            </pre>
+        </div>
+    </slide>
+
+    <slide title="Base Model" layout="normal">
+        <p>You can provide your own base model, with
+            common methods. See <code>application/core/MY_Model</code> in the example webapp.
+            The <code>application/core</code> folder holds any classes you make that
+            build on those built into the framework, and you can configure the prefix (<code>MY_</code>)
+            that you use.</p>
+        <p>This could be used to provide a simple object-relational map.</p>
+        <p>Sample properties: $_tableName, $_keyField</p>
+        <p>Sample methods: create() get($key), add($record), 
+            update($record), delete($key), exists($key)</p>
+        <p>The result is that a simple model, with basic CRUD methods only,
+            becomes as simple as that in the demo, <code>application/models/Contacts</code>
+        </p>
+    </slide>
+
+    <slide title="Entities vs Collections" layout="normal">
+        <p>Entity-level modeling deals with single entities, 
+            and has nothing to do with persistance.</p>
+            <p> Aggregation level modeling deals with sets of entities, and their persistance.</p>
+            <p> An example:<code><pre>
+$customer = $customers->get('John'); // get an entity from the collection
+$customer->setPhone('555-1234'); // change something in the entity
+$customers->update($customer); // save the entity back in the collection 
+            </pre></code>
+            </p>
+    </slide>
 
  
-	<slide title="5. Support Components" layout="normal" tag="tag5">
-		<p>An MVC framework comes with a number of pre-built 
-			classes or scripts to make your webapp development
-			easier and more consistent.</p>
-			<p>These are collectively referred to as <strong>support components</strong></p>
-			<p>CodeIgniter distinguishes between "libraries" (conventional O-O
-			classes) and "helpers" (conventional &amp; global PHP scripts).</p>
-	</slide>
+    <slide title="3. Controllers" layout="normal" tag="tag3">
+        <div class="left">
+            <p>Another cornerstone of MVC, <strong>controllers</strong> handle incoming requests.</p>
+            <p>A Controller serves as an intermediary between the Model, 
+                the View, and any other resources needed to process an 
+                HTTP request and generate a web page.</p>
+            <p>Our demo app only has the one controller, <code>application/controllers/Welcome</code></p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="240" height="164" src="/pix/lessons/2/2-8.png"/>
+        </div>
+    </slide>
 
-	<slide title="Libraries" layout="normal" >
-		<div class="left">
-			<p>Any classes that you would like to use can be put into 
-				the <code>application/libraries</code> folder</p>
-				<p>Usage: <code>$this-&gt;load-&gt;library('whatever');</code></p>
-			<p>Examples: third party classes, possibly component or entity
-				models (similar to JavaBeans)</p>
-				<p>The image to the right shows the libraries built into CodeIgniter.
-				Some of those, like the Shopping Cart and Javascript libraries,
-				have been deprecated, and should not be used.</p>
-		</div>
-		<div class="right">
-			<br/>
-			<img class="scale" width="264" height="600" src="/pix/lessons/2/2-11.png"/>
-		</div>
-	</slide>
+    <slide title="CI Controllers" layout="normal">
+        <div class="left">
+            <p>In CI, controllers are classes that extend CI_Controller, or 
+                your base controller with common functionality.</p>
+            <p>A BASE component is one with properties and logic that you want to use with all such components. 
+                You would extend it instead of the basic one that comes with a framework.
+                Our base controller implements view templating, through its <code>render()</code> method</p>
+            <p>See <code>application/core/MY_Controller</code></p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="240" height="174" src="/pix/lessons/2/2-9.png"/>
+        </div>
+    </slide>
 
-	<slide title="Example Library: Product" layout="normal">
-		<p>As an example, <code>application/libraries/Product</code>
-		could be used as an object model for entities stored in an XML 
-			document or RDB table</p>
-			<p>
-				<code>application/models/Products</code> would be the aggregation of these.</p>
-		<p>The reasoning behind such a strategy would be to keep
-			entity-level logic separate from the aggregation and persistance logic.
-			This is just one way to handle this situation.</p>
-	</slide>
+    <slide title="App Controllers" layout="normal">
+        <p>Each of your webapp controllers builds on your base controller.</p>
+        <p>Normally, each usecase has its own controller.</p>
+        <p>Additionally, controllers or subcontrollers are used for services.</p>
+        <p>An upcoming lesson will explore controllers in more detail!</p>
+    </slide>
 
-	<slide title="Helpers" layout="normal" >
-		<div class="left">
-			<p>Put your commonly used functions inside a "helper" script</p>
-			<p>Our demo app comes with one, to illustrate what this might look
-				like ... <code>application/helpers/common_helper</code>.
-			</p>
-			<p>The "_helper" suffix is a CodeIgniter convention, and this would
-			be simply called the "common" helper. Helper file naming follows
-			the "words separated by underscores" convention, to reinforce
-			that it is "legacy-style" PHP and not object-oriented.</p>
-		</div>
-		<div class="right">
-			<br/>
-			<img class="scale" width="255" height="246" src="/pix/lessons/2/2-12.png"/>
-		</div>
-	</slide>
+    <slide title="Controller Methods" layout="normal">
+        <p>URLs are segment based, with the pattern "example.com/class/function/parm1/parm2".</p>
+        <p>The <code>index()</code> method is the default handler function, while other public
+            methods are treated as sub-controllers.</p>
+        <p>Parameters are passed positionally.</p>
+        <p>An example: given the URI "/products/shoes/sandals/123", the segments could
+            be interpreted as the controller (Products), method inside it (shoes), and
+            then two parameters passed to that method (sandals and 123).</p>
+        <p>Confusion is possible ...
+            "application/controllers/business/work" could refer to the "work" method
+            inside the Business controller, or it
+            could refer to the Work controller inside the business subfolder
+            with the controllers!</p>
+    </slide>
 
-	<slide title="Helpers are &quot;Classic&quot;" layout="normal" >
-		<div class="left">
-			<p>Usage: <code>$this-&gt;load-&gt;helper('common');</code></p>
-			<p>Functions in any such loaded helpers are available everywhere.</p>
-			<p>Note: Our <code>common</code> helper is only meant to be illustrative -
-			it does not add needed functionality to the demo app!</p>
-		</div>
-		<div class="right">
-			<br/>
-			<img class="scale" width="336" height="592" src="/pix/lessons/2/2-13.png"/>
-		</div>
-	</slide>
+    <slide title="Property Injection" layout="normal">
+        <p>CodeIgniter will inject references to the framework
+            components, as properties of your controller, as well
+            as references to your app components as you load them. 
+            You may have noticed this on an earlier slide, with <code>$this->load</code>
+            and <code>$this->customers</code>.
+        </p>
+    </slide>
 
-	<slide title="6. Your CodeIgniter Webapp" layout="normal" tag="tag6">
-		<div class="left">
-			<p>Your webapp, including any support components, can
-			be extensively configured.</p>
-			<p>CodeIgniter provides an <code>application/config</code> folder to 
-				let you customize your web app</p>
-		</div>
-		<div class="right">
-			<br/>
-			<img class="scale" width="234" height="334" src="/pix/lessons/2/2-14.png"/>
-		</div>
-	</slide>
 
-	<slide title="Configuration Practices" layout="normal">
-		<p>If needed, your front controller <code>index.php</code> needs to be
-		modified to correct reference your <code>system</code> folder.
-		This has already been done in the demo app.</p>
-		<p>The configuration files you are mostly likely to change:</p>
-		<ul>
-			<li><code>autoload</code> – specify components to load with each request</li>
-			<li><code>config</code> – specify application parameters</li>
-			<li><code>database</code> – specify RDB parameters</li>
-			<li><code>routes</code> – specify default controller</li>
-		</ul>
-	</slide>
+    <slide title="4. Views" layout="normal" tag="tag4">
+        <div class="left">
+            <p>The final cornerstone of MVC, <strong>views</strong> are the components that deal with presentation,
+                typically for a web browser.
+                Views generate the information presented to a user, 
+                for instance a web page.</p>
+            <p>Views are stored inside the application, inside
+                <code>application/views</code>, because they are intended
+                to have logic in them. If an app has a pure HTML view
+                fragment, it could go inside <code>public</code>, and it would
+                keep its <code>html</code> filename extension.
+            </p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="234" height="336" src="/pix/lessons/2/2-10.png"/>
+        </div>
+    </slide>
+
+    <slide title="View Templates" layout="normal">
+        <p>A normal practice is to build a view template, 
+            which wraps the "real" webpage body, whose name is 
+            passed as a parameter; this is managed by the base controller.</p>
+        <p>Such a template is meant to provide a consistent layout across
+            a number (perhaps all) of pages in your webapp, with
+            placeholders for the pieces appropriate to a given page.</p>
+        <p>CI has a "template parser" built-in, which lets us 
+            eliminate most PHP script from a view.</p>
+        <p>See <code>application/views/_template</code></p>
+    </slide>
+
+    <slide title="View Fragments" layout="normal">
+        <p>Each of your view fragments would then be stored in its own file, 
+            using the substitution fields for passed parameters.</p>
+        <p>A view fragment provides a portion or piece of a complete
+            page. It is typically well-formed - a complete &lt;div&gt;
+            with any nested content.
+            You could think of a view fragment as a panel in a mashup</p>
+        <p>Substitution fields are enclosed in braces inside your view file.</p>
+        <p>See <code>application/views/homepage</code></p>
+    </slide>
+
+    <slide title="View Usage" layout="normal">
+        <p>Javascript libraries are not well-supported in CI; 
+            you can use them, but effectively client-side.</p>
+        <p>Do use CSS to control the appearance.</p>
+        <p>Both CSS &amp; Javascript files would be inside your
+            <code>public</code> folder, possibly inside appropriate subfolders.
+        </p>
+        <p>Sample usage: <code>$this-&gt;load-&gt;view('showoff',$data);</code> or 
+            <code>$this-&gt;parser-&gt;parse('showoff',$data);</code>
+        </p>
+    </slide>
+
+    <slide title="Views vs View Templating" layout="normal">
+        <p>A "conventional" view approach: <code>$this->load->view(...)</code> 
+        processes a PHP script, after making any view parameters accessible as local variables.</p>
+        <p>A "view templating" approach: <code>$this->render()</code> 
+        invokes the base controller's "render" method, which uses the template parser 
+        to assemble the "meat" of an HTML page, and then injects that into a view "template" file.</p>
+        <p>Most developers choose *one* of plain views, the template parser, or an 
+            external templating engine for all their HTML output. 
+            Some choose different renderers for different parts of their app.</p>
+    </slide>
+ 
+    <slide title="5. Support Components" layout="normal" tag="tag5">
+        <p>An MVC framework comes with a number of pre-built 
+            classes or scripts to make your webapp development
+            easier and more consistent.</p>
+        <p>These are collectively referred to as <strong>support components</strong></p>
+        <p>CodeIgniter distinguishes between "libraries" (conventional O-O
+            classes) and "helpers" (conventional &amp; global PHP scripts).</p>
+    </slide>
+
+    <slide title="Libraries" layout="normal" >
+        <div class="left">
+            <p>Any classes that you would like to use can be put into 
+                the <code>application/libraries</code> folder</p>
+            <p>Usage: <code>$this-&gt;load-&gt;library('whatever');</code></p>
+            <p>Examples: third party classes, possibly component or entity
+                models (similar to JavaBeans)</p>
+            <p>The image to the right shows the libraries built into CodeIgniter.
+                Some of those, like the Shopping Cart and Javascript libraries,
+                have been deprecated, and should not be used.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="264" height="600" src="/pix/lessons/2/2-11.png"/>
+        </div>
+    </slide>
+
+    <slide title="Example Library: Product" layout="normal">
+        <p>As an example, <code>application/libraries/Product</code>
+            could be used as an object model for entities stored in an XML 
+            document or RDB table</p>
+        <p>
+            <code>application/models/Products</code> would be the aggregation of these.</p>
+        <p>The reasoning behind such a strategy would be to keep
+            entity-level logic separate from the aggregation and persistance logic.
+            This is just one way to handle this situation.</p>
+    </slide>
+
+    <slide title="Helpers" layout="normal" >
+        <div class="left">
+            <p>Put your commonly used functions inside a "helper" script</p>
+            <p>Our demo app comes with one, to illustrate what this might look
+                like ... <code>application/helpers/common_helper</code>.
+            </p>
+            <p>The "_helper" suffix is a CodeIgniter convention, and this would
+                be simply called the "common" helper. Helper file naming follows
+                the "words separated by underscores" convention, to reinforce
+                that it is "legacy-style" PHP and not object-oriented.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="255" height="246" src="/pix/lessons/2/2-12.png"/>
+        </div>
+    </slide>
+
+    <slide title="Helpers are &quot;Classic&quot;" layout="normal" >
+        <div class="left">
+            <p>Usage: <code>$this-&gt;load-&gt;helper('common');</code></p>
+            <p>Functions in any such loaded helpers are available everywhere.</p>
+            <p>Note: Our <code>common</code> helper is only meant to be illustrative -
+                it does not add needed functionality to the demo app!</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="336" height="592" src="/pix/lessons/2/2-13.png"/>
+        </div>
+    </slide>
+
+    <slide title="6. Your CodeIgniter Webapp" layout="normal" tag="tag6">
+        <div class="left">
+            <p>Your webapp, including any support components, can
+                be extensively configured.</p>
+            <p>CodeIgniter provides an <code>application/config</code> folder to 
+                let you customize your web app</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="234" height="334" src="/pix/lessons/2/2-14.png"/>
+        </div>
+    </slide>
+
+    <slide title="Configuration Practices" layout="normal">
+        <p>If needed, your front controller <code>index.php</code> needs to be
+            modified to correct reference your <code>system</code> folder.
+            This has already been done in the demo app.</p>
+            <p>CI provides separate configuration files for each of its components 
+                or component groups. Some frameworks have a single configuration 
+                file with sections for different components or groups.</p>
+        <p>The configuration files you are mostly likely to change:</p>
+        <ul>
+            <li>
+                <code>autoload</code> – specify components to load with each request</li>
+            <li>
+                <code>config</code> – specify application parameters</li>
+            <li>
+                <code>database</code> – specify RDB parameters</li>
+            <li>
+                <code>routes</code> – specify default controller</li>
+        </ul>
+    </slide>
 
 </lesson>

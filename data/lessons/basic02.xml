@@ -2,7 +2,7 @@
 <!--
 Lesson 02 - Controllers
 -->
-<lesson status="v1.1">
+<lesson status="v1.2">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <!-- Agenda -->
@@ -71,7 +71,8 @@ Lesson 02 - Controllers
                 <li>A <b>utility</b> controller is expected to return a file 
                     or perhaps a specially formatted data structure.</li>
                 <li>A <b>service</b> controller is expected to implement the
-                    server side of some distributed system protocol (eg. REST).</li>
+                    server side of some distributed system protocol (eg. REST).
+                Many service controllers are RESTful, but not all</li>
             </ul>
         </div>
         <div class="right">
@@ -389,12 +390,11 @@ Lesson 02 - Controllers
                 2 means fries</code>
             <br/>
         </p>
-		<p>Contrast this with the same example using view parameters a few slides back!</p>
     </slide>
 
     <slide title="Controller, Revisited" layout="normal">
         <p>So, putting the previous slides together gives the
-            following steps for each controller's handling method:
+            following steps (checklist?) for each controller's handling method:
         </p>
         <ol>
             <li>Load any needed components</li>

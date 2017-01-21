@@ -18,8 +18,8 @@ Course organizer for Comp4711
 		<topic>MVC Frameworks</topic>
 		<outcomes>1.1 (PHP), 1.2 (basics),3</outcomes>
 		<inlab>#2 Project &amp; Process Prep</inlab>
-		<lesson name="basic01" icon="dothis" survey="266866">MVC Frameworks</lesson>
-		<lesson name="dev01" icon="dothis"  survey="266867">Devops Workflow Concepts</lesson>
+		<lesson name="basic01" icon="dothis">MVC Frameworks</lesson>
+		<lesson name="dev01" icon="dothis">Devops Workflow Concepts</lesson>
 		<lesson name="week02" icon="read">Survey results</lesson>
 		<lab name="lab02">Collaborative Workflow</lab>
 		<lesson name="dev02" icon="read">Gitflow Workflow Techniques (in lab)</lesson>
@@ -30,14 +30,11 @@ Course organizer for Comp4711
 		<topic>CodeIgniter &amp; Controllers</topic>         
 		<outcomes>1.2 (controllers), 3</outcomes>
 		<inlab>#3 Website conversion</inlab>
-		<lesson name="basic01-ci" icon="dothis" active="n">CodeIgniter Overview</lesson>
-		<lesson name="basic02" icon="dothis" active="n">CI Controllers</lesson>
-		<github name="Sample Project" link="https://github.com/jedi-academy/example-contacts" active="n">Example CodeIgniter project</github>
-		<lesson name="basic01-other" icon="read" active="n">Other MVC Framework Examples (supplement)</lesson>
-		<lesson name="week03" icon="read" active="n">Survey results</lesson>
+		<lesson name="basic01-ci" icon="dothis"  survey="266868">CodeIgniter Overview</lesson>
+		<lesson name="basic02" icon="dothis"  survey="266869" >CI Controllers</lesson>
+		<lesson name="basic01-other" icon="read" >Other MVC Framework Examples (supplement)</lesson>
+		<lesson name="week03" icon="read"  active="n">Survey results (TBD)</lesson>
 		<lab name="lab03" active="n">Website Conversion</lab>
-		<github name="starter-gallery" link="https://github.com/jedi-academy/starter-gallery" active="n">Lab starter - Gallery</github>
-		<github name="CodeIgniter starter" link="https://github.com/jedi-academy/CodeIgniter3.1-starter2" active="n">CodeIgniter starter #2</github>
 		<tutorial name="ci-basic01" active="n">Static to Trivial CI Website Conversion</tutorial>
 		<tutorial name="ci-basic02" active="n">Trivial CI to Basic CI Website Conversion</tutorial>
 		<tutorial name="ci-basic03" active="n">Basic CI to Good CI Website Conversion</tutorial>
