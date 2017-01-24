@@ -43,6 +43,6 @@
 [GitHub Education](https://education.github.com/)  They even have a GitHub [cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf)
 
 ## Cheat Sheets
-[Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-[Git](https://www.git-tower.com/blog/git-cheat-sheet/)
-[Git command list](https://git-scm.com/docs)
+[Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)  
+[Git](https://www.git-tower.com/blog/git-cheat-sheet/)  
+[Git command list](https://git-scm.com/docs)  

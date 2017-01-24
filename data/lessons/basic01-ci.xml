@@ -278,7 +278,7 @@ $customers->update($customer); // save the entity back in the collection
         </div>
     </slide>
 
-    <slide title="View Templates" layout="normal">
+    <slide title="View Templates **" layout="normal">
         <p>A normal practice is to build a view template, 
             which wraps the "real" webpage body, whose name is 
             passed as a parameter; this is managed by the base controller.</p>
@@ -290,7 +290,7 @@ $customers->update($customer); // save the entity back in the collection
         <p>See <code>application/views/_template</code></p>
     </slide>
 
-    <slide title="View Fragments" layout="normal">
+    <slide title="View Fragments **" layout="normal">
         <p>Each of your view fragments would then be stored in its own file, 
             using the substitution fields for passed parameters.</p>
         <p>A view fragment provides a portion or piece of a complete
@@ -406,7 +406,7 @@ $customers->update($customer); // save the entity back in the collection
 
     <slide title="Configuration Practices" layout="normal">
         <p>If needed, your front controller <code>index.php</code> needs to be
-            modified to correct reference your <code>system</code> folder.
+            modified to correctly reference your <code>system</code> folder.
             This has already been done in the demo app.</p>
             <p>CI provides separate configuration files for each of its components 
                 or component groups. Some frameworks have a single configuration 

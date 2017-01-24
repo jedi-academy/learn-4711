@@ -33,7 +33,7 @@ Course organizer for Comp4711
 		<lesson name="basic01-ci" icon="dothis"  survey="266868">CodeIgniter Overview</lesson>
 		<lesson name="basic02" icon="dothis"  survey="266869" >CI Controllers</lesson>
 		<lesson name="basic01-other" icon="read" >Other MVC Framework Examples (supplement)</lesson>
-		<lesson name="week03" icon="read"  active="n">Survey results (TBD)</lesson>
+		<lesson name="week03" icon="read" >Survey results</lesson>
 		<lab name="lab03" active="n">Website Conversion</lab>
 		<tutorial name="ci-basic01" active="n">Static to Trivial CI Website Conversion</tutorial>
 		<tutorial name="ci-basic02" active="n">Trivial CI to Basic CI Website Conversion</tutorial>

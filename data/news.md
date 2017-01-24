@@ -1,7 +1,8 @@
-**Week 3** *(Sat Jan 21, 08:40)*  
-This week's presentations are up, and the surveys enabled.
+**Week 3** *(Tue Jan 24, 12:20)*  
+The survey summary has been posted. See you in class!
 
-Don't forget that D2L may be unavailable from 6pm Sat Jan21 until 8am Sun Jan 22.
+**Labs** *(Tue Jan 24, 12:20)*  
+Lab 1 marking is complete. Lab 2 marking has begun.  
 
 **Email Caution** ... if you send an email from inside D2L, it cannot be responded to.
 D2L is a notification only service, which tries to look like an email service.

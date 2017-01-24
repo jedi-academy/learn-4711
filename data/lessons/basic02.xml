@@ -62,7 +62,7 @@ Lesson 02 - Controllers
         </div>
     </slide>
 
-    <slide title="Types of Controllers" layout="normal">
+    <slide title="Types of Controllers **" layout="normal">
         <div class="left">
             <p>There are three common types of controllers:</p>
             <ul>
@@ -81,7 +81,7 @@ Lesson 02 - Controllers
         </div>
     </slide>
 
-    <slide title="2. Controller Basics" layout="normal" tag="tag2">
+    <slide title="2. Controller Basics **" layout="normal" tag="tag2">
         <div class="left">
             <p>Controllers are found in the <code>application/controllers</code> folder.</p>
             <p>Controllers can also be in nested subfolders underneath that.</p>
@@ -107,7 +107,7 @@ Lesson 02 - Controllers
         </div>
     </slide>
 
-    <slide title="Segment Based Naming" layout="normal">
+    <slide title="Segment Based Naming **" layout="normal">
         <div class="left">
             <p>URLs are segment based.</p>
             <p>For instance, the URL <code>example.com/class/function/parm1/parm2</code>
@@ -140,7 +140,7 @@ Lesson 02 - Controllers
         </div>
     </slide>
 
-    <slide title="3. Getting Input" layout="normal" tag="tag3">
+    <slide title="3. Getting Input **" layout="normal" tag="tag3">
         <p>Your controller normally gets data passed as positional
             parameters in the URL.</p>
         <p>For instance, if your method looks like...<br/>
@@ -156,7 +156,7 @@ Lesson 02 - Controllers
         </p>
     </slide>
 
-    <slide title="Getting Input From a Form" layout="normal">
+    <slide title="Getting Input From a Form **" layout="normal">
         <p>If you are processing an HTML form, then the
             form fields are accessed inside your handling method
             by using the <a href="http://www.codeigniter.com/userguide3/libraries/input.html"
@@ -312,24 +312,14 @@ Lesson 02 - Controllers
             <code>$parms=array('name'=&gt;'Jim','code'=&gt;'123');</code>
             <br/>
         </p>
-        <p>Parameters can be nested...<br/>
-            <code>$parms=array(
-                'items' =&gt; array(<br/>
-                &#160;&#160;&#160;&#160;array('itemcode'=&gt;'1','desc'=&gt;'burger'),<br/>
-                &#160;&#160;&#160;&#160;array('itemcode'=&gt;'2','desc'=&gt;'fries'),<br/>
-                &#160;&#160;), );</code>
-            <br/>
+        <p>Parameters can be nested...
+<code><pre>$parms=array('items' =&gt; [ ['itemcode'=&gt;'1','desc'=&gt;'burger'], ['itemcode'=&gt;'2','desc'=&gt;'fries'] .';']);</pre></code>
         </p>
-        <p>These would be used like...<br/>
-            <code>&lt;?php foreach ($items as $item) { ?&gt;
-&lt;p&gt;&lt;?php echo $item['itemcode']; ?&gt; means &lt;?php echo $item['desc'];?&gt;&lt;/p&gt;
-                &lt;?php } ?&gt;</code>
-            <br/>
+        <p>These would be used like...
+<code><pre>&lt;?php foreach ($items as $item) { echo $item['itemcode'] . ' means ' . $item['desc']; } </pre></code>
         </p>
-        <p>And the result for the above would look like...<br/>
-            <code> 1 means burger<br/>
-                2 means fries</code>
-            <br/>
+        <p>And the result for the above would look like...
+            <code> 1 means burger; 2 means fries;</code>
         </p>
     </slide>
    <slide title="Template Parser" layout="normal">
