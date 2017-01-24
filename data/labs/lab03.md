@@ -1,6 +1,6 @@
 
 #Lab #3 - Website Conversion
-COMP4711 - BCIT - Fall 2016
+COMP4711 - BCIT - Winter 2017
 
 ##Lab Goals
 
@@ -47,9 +47,7 @@ member.
 Submit a readme *text* file, or a submission comment, to the lab dropbox. 
 It should contain a link to your **team**'s github repository. 
 
-Due: in theory, this should be completed during the lab period,
-but some teams will need a bit more time.  
-I have set the deadline to this Sunday at 17:30.
+Due: this Sunday at 17:30.
 
 ##Lab Marking Guideline
 
@@ -75,8 +73,9 @@ determine how well you followed the collaboration process.
 ##Team Repository Setup (CAPTAIN)
 
 -    Create a github organization for your team
--    Fork the lab starter repo into that organization, using a name of your choice
--	Add a changelog file to the project root, and insist that team members update it with their contributions
+-    Fork the lab starter repo into that organization, using a **different** name of your choice
+-   Add a changelog file to the project root, and insist that team members update it with their contributions
+-   I suggest a changelog like the one in the starter. Look at it on github, not just in your IDE locally    
 -    Create a new branch "develop"
 -    Make "develop" the default branch
 
@@ -94,24 +93,11 @@ determine how well you followed the collaboration process.
 
 ##Static to Trivial Website Conversion (FIRST MATE)
     
-**Caution**
-
-	Some of the student Apache installations in lab on Thursday were not
-	handling redirection properly - they were not injecting index.php, per
-	your public/.htaccess.
-
-	The symptom: you get a 404 trying to link to the /gallery or /about pages,
-	but the pages kinda show, without images, if you manually inject index.php
-	into the browser location field.
-
-	The fix: Modify your httpd.conf ... line 265 has "AllowOverride None" and that
-	should be "AllowOverride All", and the "LoadModule rewrite..." directive needs to
-	be uncommented. See me in lab if you have questions.
-
 -    Synchronize your repo with the team repo, if needed
 -    Complete the first tutorial for this week's lab, [Static to Trivial Website Conversion](http://comp4711.jlparry.com/show/tutorial/ci-basic01)
 -    Commit &amp; push your feature branch (you did remember to use one, right?) and submit a pull request to the team repo
 -    [CAPTAIN] if ok, you can merge the PR
+-   Make sure that the contribution is being properly attributed.
 
 ##Trivial to Basic Website Conversion (CAPTAIN)
 
@@ -119,13 +105,15 @@ determine how well you followed the collaboration process.
 -    Complete the second tutorial for this week's lab, [Trivial to Basic Website Conversion](http://comp4711.jlparry.com/show/tutorial/ci-basic02)
 -    Commit &amp; push your feature branch (you did remember to use one, right?) and submit a pull request to the team repo
 -    [CAPTAIN] if ok, you can merge the PR
+-   Make sure that the contribution is being properly attributed.
 
 ##Basic to Good Website Conversion (SECOND MATE, FIRST MATE if none)
 
 -    Synchronize your repo with the team repo, if needed
--    Complete the third tutorial for this week's lab, [Basic to Good Website Conversion](http://comp4711.jlparry.com/show/tutorial/ci-basic02)
+-    Complete the third tutorial for this week's lab, [Basic to Good Website Conversion](http://comp4711.jlparry.com/show/tutorial/ci-basic03)
 -    Commit &amp; push your feature branch (you did remember to use one, right?) and submit a pull request to the team repo
 -    [CAPTAIN] if ok, you can merge the PR
+-   Make sure that the contribution is being properly attributed.
     
 ##Lab Conclusion (CAPTAIN)
 

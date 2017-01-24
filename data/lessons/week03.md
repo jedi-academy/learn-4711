@@ -3,7 +3,7 @@
 Responses for each of the two surveys follow, with the number of similar
 responses denoted by a value after the question, if appropriate.
 
-There were xx responders.
+There were 46 responders.
 
 I have interpreted and aggregated results, in hopefully an appropriate fashion.
 
