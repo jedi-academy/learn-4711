@@ -31,7 +31,6 @@ Course organizer for Comp4711
 		<outcomes>1.2 (controllers), 3</outcomes>
 		<inlab>#3 Website conversion</inlab>
 		<lesson name="basic01-ci" icon="dothis"  survey="266868">CodeIgniter Overview</lesson>
-		<lesson name="basic02" icon="dothis"  survey="266869" >CI Controllers</lesson>
 		<lesson name="week03" icon="read" >Survey results</lesson>
 		<lab name="lab03">Website Conversion</lab>
 		<tutorial name="ci-basic01">Static to Trivial CI Website Conversion</tutorial>
@@ -43,11 +42,12 @@ Course organizer for Comp4711
 		<topic>Routing</topic>         
 		<outcomes>1.2 (routing), 3</outcomes>
 		<inlab>#4 Working with controllers</inlab>
+		<lesson name="basic02" icon="dothis"  survey="266869" >CI Controllers</lesson>
 		<lesson name="basic06" icon="dothis" active="n">Routing</lesson>
-		<lesson name="basic07" icon="dothis" active="n">Advanced Routing</lesson>
+		<lesson name="basic07" icon="read" active="n">Advanced Routing</lesson>
+		<lesson name="week03b" icon="read" >Survey results for controllers (last week)</lesson>
 		<lesson name="week04" icon="read" active="n">Survey results</lesson>
 		<lesson name="basic67" active="n">Routing in a Nutshell</lesson>
-		<assignment name="assignment1projects" active="n">The assignment teams</assignment>
 		<assignment name="assignment1faq" icon="read" active="n">Assignment 1 FAQ</assignment>
 	</week>
 	<week num="5">
@@ -147,6 +147,7 @@ Course organizer for Comp4711
 		<tutorial name="setup03">PHP Comparison to Java</tutorial>
                 <lesson name="dev04" icon="read" >Gitting Good</lesson>		
                 <lesson name="faq" icon="read" >FAQ</lesson>		
+                <lesson name="marking" icon="read" >Marking Process</lesson>		
 	</week>
 	<week num="yy">
 		<topic>Other Frameworks (FYI)</topic>

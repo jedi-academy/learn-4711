@@ -70,6 +70,21 @@ determine how well you followed the collaboration process.
 -    The MATE(s) should join the same group
 -    If the group membership gets messed up, see me to fix it
 
+##Signing Setup (All)
+
+Signing your commits is a good idea, for proper attribution. 
+Unfortunately, the attribution isn't counted as a contribution unless your user 
+name for signing matches your github user name. Beware!
+
+The best practice is [GPG signing your commits](https://bcit-ci.github.io/CodeIgniter4/contributing/signing.html), 
+though not all IDEs support that. If yours doesn't, then you might have to do commits 
+inside your git bash shell, with the "-S" option. You can still submit PRs through your IDE.
+
+I suggest setting up your GPG signing now, and using it for all github commits!
+
+If properly setup, any commits from you will show a "Verified" badge on the right-hand
+side of the commit history, beside your commits.
+
 ##Team Repository Setup (CAPTAIN)
 
 -    Create a github organization for your team

@@ -20,12 +20,31 @@ Tutorial 02c - Convert static site into CI webapp
 		<div class="left">
 			<p>We already have a SQL script in the <code>setup</code> folder of our starter.
 				How convenient! It's like someone planned to use a database eventually :-/</p>
-			<p>The first step is to create a database, and import the <code>setup/images.sql</code>
-				script to create a table we can then use. This can be done using phpMyAdmin,
-				or by using the database browser inside NetBeans or your IDE.</p>
-			<p>In <code>config/autoload.php</code>, we should add the database library, 
-				and in <code>config/database</code>.php you should adjust your settings for your
-				system.</p>
+			<p>The first step is to create a database.</p>
+                        <p>Using phpMyadmin (for instance), create a database with that name (`comp4711` or `picassos`),
+select it, and then use the phpmyadmin "import" command, choosing
+"data/contacts.sql" as the data source.</p>
+			<p>Alternately, you could do the same thing inside NetBeans, 
+                            though a bit more awkward. Select the "Services" tab, to the right of the "Projects"
+                            and "Files" tabs in the left panel. You will see a *Databases* item.
+                        You may have to register your MYSQL instance, but can then open a JDBC connection
+                        to MYSQL, "create database xxx" as a SQL command, and then copy/paste
+                        the contacts.sql script into a SQL execution window and run it.</p>
+		</div>
+		<div class="right">
+		</div>
+	</slide>
+
+	<slide title="Configure Our App For the Database" layout="normal">
+		<div class="left">
+			<p>Once the database has been created and populated,
+                        we need to configure our app to connect to this database,
+                        and we need to make sure that the database driver is loaded.</p>
+			<p>The databse connection is specified in 
+                            <code>config/database</code>.php, where you adjust the settings for your
+				system.  The database name to use would be the one
+                        you created on the previous slide, eg "comp4711" or "picassos",</p>
+			<p>The database driver can be pre-loaded In <code>config/autoload.php</code>.</p>
 		</div>
 		<div class="right">
 			<img class="scale" width="365" height="432" src="/pix/tutorials/ci2/2-46.png"/>

@@ -6,7 +6,7 @@ COMP4711 - BCIT - Winter 2017
 The purpose of the assignments, collectively, is to let you apply the techniques 
 from the lessons and tutorials.
 In teams of up to five, you will be building a small but complete webapp, 
-in our case to manage the stocking and consumption of items stored in a "pantry". 
+in our case to manage a simple robot factory. 
 
 This will be done in three stages, with specific expectations for each stage. 
 Each stage will be a separate assignment, building on top of the
@@ -18,7 +18,32 @@ The techniques for applying these will be the subject of upcoming lessons and tu
 
 The purpose of this assignment #1 is to get the basic pieces of your webapp 
 in the correct places expected for a CodeIgniter webapp.
+It is to use a mock database (i.e. mock data for any tables), and present
+mock views (no business logic expected), just like in lab 3.
 
+##Backstory
+
+[Umbrella Corporation](http://residentevil.wikia.com/wiki/Umbrella_Corporation) is trying 
+to improve its public image, after an "industrial accident" at its 
+[Raccoon City](http://residentevil.wikia.com/wiki/Raccoon_City) research & development facility.
+The corporation has embarked on a new project, building cute household robots.
+Efforts are coordinated at their new Panda Research Center.
+
+Umbrella Corp is outsourcing robot assembly to a number of plants worldwide.
+Each team will be building the webapp to support one of these.
+
+Robots come in three pieces - top (with head and manipulator appendages), torso
+(for essential fluids and computational components) and bottom (with propulsion
+mechanisms). There are three lines of robots - household, butler and companion
+bots, each of which might have several models.
+
+Each plant has an inventory of robot pieces, specializes in making one piece for 
+a designated robot model, and can ship unneeded pieces or assembled robots
+to Umbrella's Panda center, for credit.
+
+Each robot piece, or assembled robot, has a Certificate of Authenticity (CA), issued by Umbrella
+Corp. When a plant buys parts from the research center, each comes with its own CA.
+When a plant sells parts or robots, they surrender the CA(s) for each of the pieces.
 
 ##Assignment Teams
 
@@ -38,7 +63,7 @@ Under-contributing members will will receive a lower mark.
 ##Workflow
 
 You are to use gitflow workflow, with proper forking and branching, and
-with signed-off-by commits by team members. 
+with GPG-signed commits by team members. 
 Team members should use the same github account for all their
 work, so that contribution breakdown can be determined.
 
@@ -64,16 +89,16 @@ Your assignment will result in a github repository for your team, as well as one
 member.
 
 Submit a readme *text* file, or a submission comment, to the lab dropbox. 
-It should contain a link to your **team**'s github repository. 
+It should contain a link to your **team**'s github repository only. 
 I don't need links to the member repositories, as they can be determined
 from the team one. No screenshots are needed, either, as functionality
 will be determined by deploying the webapp on my test system.
 
-Deadline: the end of week 5, i.e. 17:30 Sunday Oct 9th.
+Deadline: the end of week 4, i.e. 17:30 Sunday Feb 5th.
 
 ##Assignment Marking Guideline
 
-A marking rubric has been attached to the assignment dropboxes, similar to 
+A marking rubric will be attached to the assignment dropboxes, similar to 
 those used for labs. The assignments will be weighted equally in the marks worksheet,
 even if some of them have different raw scores because of their rubric.
 
@@ -82,40 +107,25 @@ even if some of them have different raw scores because of their rubric.
 Your webapp doesn't have to be "world-class" or even necessarily "real", 
 but it needs sufficient complexity to be dynamic, personalized and scaleable/integrated.
 
-The theme this term is a "pantry". Each of the teams will have a separate "business",
-which makes and sells appropriate goods or services.
-The business can be thought of as having a "pantry", in which raw materials
-are stored, and "recipes" to make/deliver goods/services.
+The theme this term is a "robot plant", as outlined in the Backstory earlier. 
+Each of the teams will have a separate "business",
+which keeps track of the robot pieces or assembled bots in their plant.
 
-<img src="/pix/assignments/COMP4711ProjectTemplate.png"/>
-
-The image above is a crude attempt to depict this, but probably breaks
-any number of database design or UML diagramming conventions.
-
-The intent ... you have a "pantry" of supplies, from which you make stuff according
-to "recipes", and those are sold as "stock".
-
-There are a number of candidate "pantry" businesses to choose from.
-Each will be associated with **one** team, based on requests to my 
-email address (first come, first served).
+You are free to name your plant or team, just not offensively.
 
 ##Your Data
 
-I show three potential data sources for your webapp:
+There are three kinds of data to keep track of:
 
-- **Supplies** - the raw materials that you might keep in a pantry . With sample
-values in brackets ... these will have a code
-of some sort (pickles), a description (Schwarz's spicy dill pickles), 
-a receiving unit (case of 12 jars), a receiving cost ($ per unit), 
-a stocking unit  (jars of 64 pickles each), and quantities on hand. You will need
-to deal with partial units (eg an open jar).
-- **Recipes** - the list of raw materials that go into the creation of one
-product for sale or one service offered. With sample values in brackets ...
-a recipe code (Legendary Burger), a description (single patty, original burger),
-and the recipe ingredients (1 patty, 1 bun, 2 oz triple-O sauce, 1 pickle).
-- **Stock** - the assembled goods or services ready to sell. Again with sample
-values ... a recipe code (Legendary Burger), a description (single patty, original burger),
-a selling price ($5.49), quantity on hand if pre-made.
+- **Parts** - the individual robot pieces you have on hand. Each will have a unique
+identifier, a code
+of some sort (eg A3), and a certificate of Authenticity. From the piece's code,
+you can determine the robot line and model, and which kind of piece this is.
+- **Robots** - the list of assembled robots you have on hand, that you haven't
+shipped to the research center yet. Each will need a unique identifier, and
+composition information (the identifiers of the pieces that make us this robot).
+- **History** - a record of your activity since the plant was opened or
+reopened. This would include purchases, assemblies, and shipments.
 
 You might choose to model these as one table, or many tables. You might decide to eliminate
 duplicate fields. You might decide to use a flat file to store these, instead
@@ -204,7 +214,7 @@ That doesn't mean your site's appearance should be ugly or cringe-worthy -
 there are many freely available website templates online.
 
 It would be appropriate to have some design, with visual elements appropriate
-to your "business". Menu item images, for instance will be added in the next
+to your "business". Menu item images, for instance, might be added in the next
 assignment
 
 What I will be looking for is consistency. It should look like the
@@ -237,8 +247,7 @@ You can use the base controller from the CI starter, just like in lab 3.
 You will have three main models, with mock data. These will probably only have a couple
 of methods each at the moment: one to retrieve all the data and one to
 retrieve a specific record.
-You might have models for the transaction logs, or you might choose to
-implement those using a logging class.
+
 
 You will have a view template, and possibly view fragments for the header, footer
 and navbar (if not part of the header). Yes, this implies a consistent
@@ -272,7 +281,7 @@ That means clearly written and formatted code, properly commented.
 This applies specifically to classes, which at this stage will be
 your controllers and models.
 
-Your views should have no PHP in them, apart from possibly comments.
+Your views should have no PHP in them.
 
 Remember the golden rules!!! (Can't stress this enough, obviously)
 
