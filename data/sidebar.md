@@ -25,10 +25,10 @@ in SW2-124
 [Course repo](https://github.com/jedi-academy/learn-4711) - open-sourced, for those who want to look "under the hood"  
 [FAQ](/display/lesson/faq)  
 
+<!-- 
 [Assignment 1](/display/assignment/assignment1)  
 [Assignment 1 FAQ](/display/assignment/assignment1faq)  
 
-<!-- 
 [Project Teams](/display/assignment/assignment1projects)  
 [Assignment 1 Gallery](/display/assignment/gallery1)  
 [Assignment 2](/display/assignment/assignment2)  

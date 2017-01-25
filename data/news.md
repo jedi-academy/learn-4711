@@ -1,4 +1,4 @@
-**Week 3** *(Tue Jan 24, 09:30)*  
+**Week 3** *(Wed Jan 25, 08:30)*  
 - The survey summary has been posted. See you in class!
 - I have moved all of the other framework extracts to their own section in the
 organizer, and enabled them.
@@ -7,7 +7,7 @@ You might find it interesting :-/
 - I have moved the 'Controllers" lesson to next week, since we did
 not address it this week. The "Routing" lesson(s) may need adjusting too.
 
-**Labs** *(Tue Jan 24, 09:10)*  
+**Labs** *(Wed Jan 25, 08, 09:10)*  
 - Lab 1 marking is complete. 
 - Lab 2 marking has begun.  
 - Lab 3 has been posted. In fact, it has been updated - fixed a couple of typos
