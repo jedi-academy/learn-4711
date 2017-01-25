@@ -7,11 +7,20 @@ You might find it interesting :-/
 - I have moved the 'Controllers" lesson to next week, since we did
 not address it this week. The "Routing" lesson(s) may need adjusting too.
 
-**Labs** *(Wed Jan 25, 08, 09:10)*  
+**Labs** *(Wed Jan 25, 08, 11:40)*  
 - Lab 1 marking is complete. 
 - Lab 2 marking has begun.  
 - Lab 3 has been posted. In fact, it has been updated - fixed a couple of typos
 and elaborated a bit on signing and setting up your MYSQL database 
+  
+**GPG Signing** Some of the students are experiencing signing issues - "gpg failed to sign...".  
+- Workaround: Until we get that resolved, you may use signed-off by messages, but make sure that 
+your username matches your git login. 
+- Caution: Be careful that your local and global user 
+names and email are the same! 
+- Solution? Some of the students were using out-of-date versions of gittool,
+and I suggest upgrading to the most recent. Not sure if that will solve
+all the problems ... will update this.
 
 **Email Cautions** 
 - If you send an email from inside D2L, it cannot be responded to.
