@@ -30,8 +30,8 @@ Course organizer for Comp4711
 		<topic>CodeIgniter &amp; Controllers</topic>         
 		<outcomes>1.2 (controllers), 3</outcomes>
 		<inlab>#3 Website conversion</inlab>
-		<lesson name="basic01-ci" icon="dothis"  survey="266868">CodeIgniter Overview</lesson>
-		<lesson name="week03" icon="read" >Survey results</lesson>
+		<lesson name="basic01-ci" icon="dothis">CodeIgniter Overview</lesson>
+		<lesson name="week03" icon="read" >Survey results - overview</lesson>
 		<lab name="lab03">Website Conversion</lab>
 		<tutorial name="ci-basic01">Static to Trivial CI Website Conversion</tutorial>
 		<tutorial name="ci-basic02">Trivial CI to Basic CI Website Conversion</tutorial>
@@ -42,12 +42,14 @@ Course organizer for Comp4711
 		<topic>Routing</topic>         
 		<outcomes>1.2 (routing), 3</outcomes>
 		<inlab>#4 Working with controllers</inlab>
-		<lesson name="basic02" icon="dothis"  survey="266869" >CI Controllers</lesson>
-		<lesson name="basic06" icon="dothis" active="n">Routing</lesson>
-		<lesson name="basic07" icon="read" active="n">Advanced Routing</lesson>
-		<lesson name="week03b" icon="read" >Survey results for controllers (last week)</lesson>
-		<lesson name="week04" icon="read" active="n">Survey results</lesson>
-		<lesson name="basic67" active="n">Routing in a Nutshell</lesson>
+		<lesson name="basic02">CI Controllers</lesson>
+		<lesson name="week03b" icon="read" >Survey results - controllers (last week)</lesson>
+		<lesson name="basic06" icon="dothis"  survey="266870">Routing</lesson>
+		<lesson name="basic07" icon="read">Advanced Routing</lesson>
+		<lesson name="week04" icon="read">Survey results - routing (TBD)</lesson>
+		<lab name="lab04" active="n">Working With Controllers</lab>
+		<github name="starter-routes" link="https://github.com/jedi-academy/starter-routes" active="n">Lab starter - Routes</github>
+		<tutorial name="ci-normal01" active="n">Controllers and Routing</tutorial>
 		<assignment name="assignment1faq" icon="read" active="n">Assignment 1 FAQ</assignment>
 	</week>
 	<week num="5">
@@ -58,9 +60,6 @@ Course organizer for Comp4711
 		<lesson name="basic03-more" icon="dothis" active="n">Model Pattenrs</lesson>
 		<lesson name="week05" icon="read" active="n">Survey results</lesson>
 		<lesson name="basic68" active="n">Models in a Nutshell</lesson>
-		<lab name="lab04" active="n">Working With Controllers</lab>
-		<github name="starter-routes" link="https://github.com/jedi-academy/starter-routes" active="n">Lab starter - Routes</github>
-		<tutorial name="ci-normal01" active="n">Controllers and Routing</tutorial>
 	</week>
 	<week num="6">
 		<topic>Views</topic>

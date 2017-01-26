@@ -2,7 +2,7 @@
 <!--
 Lesson 07 - Advanced Routing
 -->
-<lesson status="v2.0">
+<lesson status="v2.1">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <!-- Agenda -->
@@ -11,20 +11,72 @@ Lesson 07 - Advanced Routing
 		but they are techniques that affect the outcome from handling
 		a request.
         <ol>
-            <li>
-                <a href="#{tag1}">Remapping</a>
+             <li>
+                <a href="#{tag1}">Hooks</a>
             </li>
             <li>
-                <a href="#{tag2}">Hooks</a>
+                <a href="#{tag2}">Remapping</a>
             </li>
-            <li>
+           <li>
                 <a href="#{tag3}">Loose Ends</a>
             </li>
         </ol>
     </slide>
 
+    <slide title="1. Hooks" layout="normal" tag="tag1">
+        <p>Hooks let you inject logic at different points in the
+        lifecycle of request handling.</p>
+        <p>Hooks are not necessarily events, but could be implemented using that
+        technique.</p>
+     </slide>
+     
+    <slide title="Hook Points" layout="normal">
+        <p>The following are the "hook points" that you can use in CodeIgniter:</p>
+        <ul>
+            <li>pre_system</li>
+            <li>pre_controller</li>
+            <li>post_controller_constructor</li>
+            <li>post_controller</li>
+            <li>display_override</li>
+            <li>post_system</li>
+        </ul>
+        <p>Hooks are configured similarly to routes, and you can have
+            multiple hooks for the same hook point.</p>
+    </slide>
 
-     <slide title="1. Remapping On the Fly" layout="normal" tag="tag1">
+    <slide title="Adding Hooks" layout="normal">
+        <p>Configure your hooks in <code>application/config/hooks</code></p>
+        <p>An example:</p>
+        <p>
+            <code>$hookie = array(<br/>
+            &#160;&#160;'class'=&gt;..., <br/>
+            &#160;&#160;'function'=&gt;..., <br/>
+            &#160;&#160;'filename'=&gt;..., <br/>
+            &#160;&#160;'filepath'=&gt;..., <br/>
+            &#160;&#160;'params'=&gt;...<br/>
+                );</code>
+        </p>
+        <p>
+            <code>$hooks[entrypoint][] = $hookie;</code>
+        </p>
+        <p>"entrypoint" would be one of the "hook points", eg. "post_system".</p>
+    </slide>
+
+    <slide title="Uses for Hooks" layout="normal">
+        <p>Some uses of hooks:</p>
+        <ul>
+            <li>pre_controller: choose from one of several possible databases,
+            hiding this from the controller</li>
+            <li>post_controller: free up resources or cleanup session, if
+            those would normally wait for garbage collection</li>
+            <li>post_controller_constructor: build a menu selection
+            array based on time of day or some other criteria not relevant to the controller</li>
+            <li>display_override: inject glossary tooltips for words
+            in a pre-defined list</li>
+        </ul>
+    </slide>
+
+     <slide title="2. Remapping On the Fly" layout="normal" tag="tag2">
          <div class="left">
        <p>Separate from any routing rules, a controller itself can
         affect the handling of an incoming request, through
@@ -96,59 +148,6 @@ public function _remap($method, $parms=array() ) {
             </code></pre></p>            
         </div>
           
-    </slide>
-
-    <slide title="2. Hooks" layout="normal" tag="tag2">
-        <div class="left">
-            <p>The CodeIgniter framework, internally, performs the
-                following steps to handle a request:</p>
-            <ol>
-                <li>Apply routing rules to determine the controller
-                    and method to use</li>
-                <li>Instantiate the controller</li>
-                <li>Invoke the appropriate method, capturing output</li>
-                <li>Return the output to the browser</li>
-            </ol>
-        </div>
-        <div class="right">
-            <p>CodeIgniter provides "hooks", to let you
-                inject processing before or after each of the milestones
-                shown to the left.</p>
-            <p>Refer to the <a href="http://www.codeigniter.com/userguide3/general/hooks.html" 
-                               target="_blank">user guide</a> for the gory details
-                ... this is just a taste!</p>
-        </div>
-    </slide>
-
-    <slide title="Hook Points" layout="normal">
-        <p>The following are some of the "hook points" that you can use:</p>
-        <ul>
-            <li>pre_system</li>
-            <li>pre_controller</li>
-            <li>post_controller_constructor</li>
-            <li>post_controller</li>
-            <li>display_override</li>
-            <li>post_system</li>
-        </ul>
-        <p>Hooks are configured similarly to routes, and you can have
-            multiple hooks for the same hook point.</p>
-    </slide>
-
-    <slide title="Adding Hooks" layout="normal">
-        <p>Configure your hooks in <code>application/config/hooks</code></p>
-        <p>An example:</p>
-        <p>
-            <code>$hookie = array(<br/>
-            &#160;&#160;'class'=&gt;..., <br/>
-            &#160;&#160;'function'=&gt;..., <br/>
-            &#160;&#160;'filename'=&gt;..., <br/>
-            &#160;&#160;'filepath'=&gt;..., <br/>
-            &#160;&#160;'params'=&gt;...<br/>
-                );</code>
-        </p>
-        <p>
-            <code>$hooks[entrypoint][] = $hookie;</code>
-        </p>
     </slide>
 
     <slide title="3. Loose Ends" layout="normal" tag="tag3">

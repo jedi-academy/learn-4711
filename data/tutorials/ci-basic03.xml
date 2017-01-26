@@ -23,7 +23,7 @@ Tutorial 02c - Convert static site into CI webapp
 			<p>The first step is to create a database.</p>
                         <p>Using phpMyadmin (for instance), create a database with that name (`comp4711` or `picassos`),
 select it, and then use the phpmyadmin "import" command, choosing
-"data/contacts.sql" as the data source.</p>
+"data/images.sql" as the data source.</p>
 			<p>Alternately, you could do the same thing inside NetBeans, 
                             though a bit more awkward. Select the "Services" tab, to the right of the "Projects"
                             and "Files" tabs in the left panel. You will see a *Databases* item.

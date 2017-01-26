@@ -4,6 +4,17 @@ COMP4711 - BCIT - Winter 2017
 This FAQ addresses the most common problems encountered
 trying to develop webapps as part of this course.
 
+##Email Cautions
+
+If you send an email from inside D2L, it cannot be responded to.
+D2L is a notification only service, which tries to look like an email service.
+Use your & my real email addresses instead.
+
+If you encounter a problem with your lab, and I ask you to email
+me a zip of the project folder (so we don't mess up your repo) and of
+your Apache config, the institute email server is likely to remove the zip
+attachments, for security :( Workaround - make them, put them in a dropbox, and
+include the dropbox link in your email.
 
 ##Cross-platform issues
 
@@ -154,7 +165,7 @@ You should git ignore the IDE metadata folder(s). That would be <code>nbproject<
 in NetBeans, or <code>.idea</code> using PHPstorm. You need to do this before making
 a commit that would include them, or else they will be a pain to git ignore later.
 
-### Why don't my conttributions get counted correctly?
+### Why don't my contributions get counted correctly?
 
 If you see one or two commits with the proper avatar, and the rest have the avatar grayed out,
 you need to make sure that your "signing name" matches your github user name.
