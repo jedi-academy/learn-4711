@@ -22,8 +22,7 @@ in SW2-124
 ##Course Related
 [Course outline]({outline})  
 [Slack team](https://comp4711.slack.com) - for notifications & FAQ  
-[Course repo](https://github.com/jedi-academy/learn-4711) - open-sourced, for those who want to look "under the hood"  
-[FAQ](/display/lesson/faq)  
+[Course repo](https://github.com/jedi-academy/learn-4711) - open-sourced, for those who want to look "under the hood"    
 
 <!-- 
 [Assignment 1](/display/assignment/assignment1)  
