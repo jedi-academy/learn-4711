@@ -3,156 +3,108 @@
 Responses for each of the surveys follow, with the number of similar
 responses denoted by a value in brackets, if appropriate.
 
-There were 22-25 responders.
+There were 48 responders.
 
 I have interpreted and aggregated results, in hopefully an appropriate fashion.
 
 ##WEEK 4 – BASIC ROUTING
 			
-###What do *you* think the most important takeaways are from this lesson?			
-
-- Basic routing and functions	(12)
-- Routing rules	(7)
-- Callback routing	(2)
-- HTTP verb routing	(2)
-- Ability to customizing routing paths	
-- codigniter handles lots of this already	
-- controller that connects routing between different pages	
-- dealing with github	
-- Default controller	
-- different routing techniques allows flexable routing	
-- error routing	
-- How controllers handle requests	
-- How to override controller convention with routing rules.	
-- how to use	
-- Regular expressions	
-- Routing can get really complicated	
-- Routing controller	
-- routing is the process of determining how to handle incoming request	
-- Routing process	
-- Routing with closures	
-- Routing with controllers	
-- The routing syntax and capabilities	
-- The way default routes are handled if no matches are found in the application/controllers.	
-- Using regular expressions to redirect a page that fits it's general criteria.	
-- We can identify http request verbs, but this is not RESTful (yet)	
-- You're able to use regex and call functions directly through routing as well as handling page missing/error 404 stuff.	
-
-There were some off topic ones too:		
-- MVC pattern	
-- nooooooooooo i hate regex	
-- paper handout	
-- e-book instructions	
-- team work	
-	
 ###What are topics from the lesson that *you* feel need more or better explanation?			
 
-- RESTful	(4)
-- regex routing	(3)
-- Callback routing	(2)
-- HTTP verb routing	(2)
-- conventionalregular	
-- Default controller	
-- Do you need to add routes for a controller index function? In Laravell we would reference the controller in routes, and then it would know about the index function and the other basic crud functions in the controller.	
-- Does routing take the top entry as a priority or are all the entries treated equally?	
-- Error routing	
-- More understanding PHP	
-- Perhaps a little more about using arguments in routing, or just some different examples to help understand.	
-- Real understanding MVC pattern deeply	
-- Routing rules. Specifically multiple routing rules and  how they are handled.	
-- Some intruductions are vague	
-- various controller configuration	
-- what are back references?	
-- what are closures?	
-- Why are the examples on slide 8 not RESTful? It'll be nice to know why now instead of wk12 so maybe I can read ahead.	
-- Why use call-backs instead of going to an end-point directly?	
-- why you would use one routing convention compared to another	
-	
+- callback routing	8  _In lecture._
+- HTTP Routing	5  _In lecture_
+- Routing Rules	4 _In lecture_
+- RESTful	3  
+_Week 12. Preview: REST requires HTTP verb based treatment of requests,
+content negotiation, and complete state transfer.
+RESTful is most of this, but with implementer interpretation._
+- Wildcard Routing	3  _In lecture_
+- Are the routing rules just a massive switch statement directing where to go / get resources?	2  
+_No, but they could be thought of that way._
+- CodeIgniter Routing	2  _In lecture_
+- Controller's relationship with routing	2  
+_Routing is the process of choosing a controller._
+- Regex routing	2  _In lecture_
+- Remapping	2  _Actually in different lesson ... can override the method
+chosen by routiung._
+- 404 page	_Routing rule can prescribe your own custom handler for 404s._
+- Apache view of URIs	_In lecture_
+- by convention VS by configuration - in simple words?	  
+_By convention: choose the controller to use simply because of its location
+in the application's controllers folder. By configuration: provide
+a routing rule that would result in a different choice._
+- Can we go a bit more in depth on regular expressions? I remember them causing a lot of difficulty for people in the past.	 
+_Out of scope_
+- CodeIgniter Routing - real example?	_Hmm, other than the ones in the slides? not sure..._
+- Could you give an example of URI in the grand scope of things?	2   
+*Fundamentally, any "web address". See https://en.wikipedia.org/wiki/Uniform_Resource_Identifier*
+- Couldn't we just state where the controller was instead of using routing?	 
+_Routing **is** stating where the controller is._
+- Difference between CodeIgniter view of URIs and SEO's	  
+_SEO identifies resource paths, and one with index.php is different from one without.
+CI is looking to identify application controllers, regardless of index.php._
+- Drivers and what they do	_Not a controller or router ... ask out-of-band._
+- Error routing	 _Simple way to override 404 handling._
+- For me I think the different between view and view templating	 _Off topic._
+- how can we use the MVC ourselves to create simple project from scratch	 
+_Off-topic, but: follow O-O usecase realization ... make models for your data sources, controllers
+for your usecases and subusecases, and "views" for the presentation._
+- how routing algorithms/regexs work.  upon looking at the examples I am not completely sure how the route is broken down and translated into the uri	 
+_In lecture_
+- how to hide index.php from users	_.htaccess (Apache) or equivalent._
+- Is the index.php hidden automatically by codeigniter	 _Not in CI3, but yes in CI4. It is in our CI starters, however._
+- Libraries	_Off topic, but think classes._
+- more on default controllers	 _If no controller can be determined for a routing rule,
+look instead for the "default controller" in the folder the routing ended in._
+- PHP	_Off topic. If you have PHP questions, see me during office hours or ask me in lab._
+- Reminder of RESTful API principles?	_See above_
+- route target	_Controller/method_
+- routing	_In lecture_
+- SEO	*Search engine optimization ... see https://en.wikipedia.org/wiki/Search_engine_optimization*
+- Slide six mentions "SEI", but I haven't a clue that it means (even after googling)	_Oops. fixed._
+- The conditions to use entites or controllers	_Unclear question._
+- the mvc codeigniter part	_???_
+- WEB	_??? What is your question?_
+- What are all the major benefits from routing?	  _Benefits? routing just **is**. This is like asking what the benefits of breathing are to humans.  
+If your question is why use routing instead of "convention", I will address that in lecture.
+The best example I might use personally would be part of remapping for localization, in the
+"Advanced Routing" lesson._
+- when do we use the different uri's	 _UX design issue._
+- why dont they include the front controller	 _Front controller can confuse/muddy SEO._
+- wildcard token	_In lecture_
 
 ###Are there other, related, questions that you would like addressed in class?			
 
-- more examples for routing rules	(2)
-- Ajax	
-- Are there any other routings in CI?	
-- does routing other than callback routing has to call method from a controller?	
-- how to create a framework by our self	
-- maybe give a demo on the basic routing conventions	
-- Need to update introduction	
-- spelling mistake slide 5 (no space)	
-- What are the differences between restful and not restful?	
-- What happens after the routing rule rewrites the URL? (how does it know what controller/function to call)	
-- What happens if the regular expression fails to match?	
-- what's the most efficient way?	
-- Why Survey only on Tuesday?	
-
-			
-###Do you have comments or suggestions about the flipped learning process?			
-
-- actual demonstration in CI would be appreciated
-- Better to give some more days to check up survey. Because, we have 8 classes on Tueday and we have no class for 4711 in the day.
-- I would like some real-world examples of when we might need to alter routing. Ideally also when we should not alter it.
-- Lecture is not useful. Lecture time could be better utilize to show us examples if the answers to these online questions were to be posted. .
-- May we have access to previous term's slides for future weeks? I know you want to edit them to fit flipped learning, but I'm just checking if its a possiblity.
-- take examples in the class
-
-
-##WEEK 4 – ADVANCED ROUTING
-			
-###What do *you* think the most important takeaways are from this lesson?			
-
-- Hooks and their capabilities	(12)
-- Remapping	(8)
-- Before using an advanced feature, RTFM!	(2)
-- query strings shouldn't be used	(2)
-- Remapping can be used for localization.	(2)
-- Service routing	(2)
-- The steps that CI takes when a request is made.	(2)
-- Why use remapping and hooking.	2
-- advanced routing can handle all kinds of requests	
-- Being able to parse URL on the fly and feed them to methods	
-- Loose ends	
-- server routing	
-- You are able to perform processing before or after certain hook milestones.	
-			
-###What are topics from the lesson that *you* feel need more or better explanation?			
-
-- Service Routing	(3)
-- Usage of hooks and why they're useful.	(3)
-- Expand on remaps	
-- hooks are events?	
-- Hooks. What are some good practices when using one?	
-- How hooks work	
-- Loose ends	
-- more coding examples on "hooks"	
-- Regarding API calls, you wrote "but interpretation of the balance of the URI might be supplier-specific". Can you elaborate?	
-- Remapping For Localization	
-- remapping on the fly	
-- Remapping on the fly	
-- server routing	
-- What are some examples of hook points in use?	
-- What is RESTful?	
-- What would be a good use for Hooks? An example of what extra processing you could do would be helpful.	
-- Why are query strings in the URI discouraged?	
-- Why is it so discouraged to use query strings in URIs for codeigniter? Is it because of the possiblity of someone altering it and doing harm to your database?	
-
-			
-###Are there other, related, questions that you would like addressed in class?			
-
-- Can you show us some examples of a basic hook?
-- demo on the advanced routing techniques?
-- how CI service routing is different from other frameworks
-- More details on database loose end
-- Router and switch
-- Slide 3 didn't properly fit on my page and I had to change the view in order to see all the text on the side.
-- What are the advantages of using multiple calls to the same hook
-- what is RTFM?
-- Why are query strings not recommended?
-- Why is it bad to use query strings in URIs for CodeIgniter webapps
-
-			
-###Do you have comments or suggestions about the flipped learning process?			
-
-- Could you release the survey earlier? The slides were out early this week, since Sunday, but we could not do the survey until Tuesday.
-- examples
-- The only thing I miss about the traditional model is the lecture. While there is definitely some value in going over the survey feedback during lecture, I feel there should also be time reserved for the lesson itself.
-- little more detail on wildcard
+- The use of the heavy models or heavy controllers in web desgin	3  _Off topic_
+- Basic routing and functions	2  _See above_
+- Does routing increase or have no effect on security?	2  
+_You could argue that routing can lend some security through obscurity, but I don't think that is a strong point.
+There are many other things you can do that would have a much bigger impact on security, for instance
+cleansing input or escaping output._
+- Exampes of routing rules	2 _In lecture_
+- a more in depth look at how codeigniter handles routing.	 _In lecture_
+- Ajax	_Coming in week 12_
+- Are the ways of routing fairly generic across the field? Or is there a particular routing mechanism that's used by most?	   
+_All the frameworks support routing by configuration, with similar kinds of rules, albeit
+very different expression of those.  
+None seem to offer routing by convention.  
+See the routing examples in the other frameworks section of the organizer._
+- Can you give more examples on routing rules and regular expression?	_In lecture_
+- Could you talk futher about RESTful service and how its implemented in CI?	_Not until week 12_
+- Difference between URI and URL?	_I am not an expert. See earlier reference. The two are often used interchangeably._
+- How are the different views of URIs going to affect the way we program it?	_That should make no difference to us._
+- How does git stash work?	_Off topic_
+- Is it better practice to set up a web app so that it uses routing by convention or configuration?	_Sure_
+- Is it possible to set up codeIgniter to handle errors besides 404? (IE: 403 Forbidden or 429 Too many Requests?)	  
+_Yes, through an addin. I do not have a reference handy._
+- It is better to do routing by wildcard or regular expression?	 _Er, wildcards are part of regular expressions._
+- Over-riding with routing rules.	_Unclear question._
+- the details and format about the web configration	_Off topic. Ask me during office hour or in lab._
+- The routing rules are configured in application/config/routhes.php.  
+Are there any other ways to express the rules other than elements of an array (a different container perhaps)? 
+And if so are there any benefits to using different types of containers?	 
+_Not in CI3, but in CI4. "Containers"...?_
+- What are helpers?	_Off topic. See previous weeks._
+- what does codeigniter works		_Off topic. See previous weeks._
+- What does it mean to have  ' "index.php" injected'?	_The URL is "rewritten" to include index.php as the first segment._
+- what if i wanted to add a custom 404 page?	_Modify the error pages inside views/errors"_

@@ -46,7 +46,7 @@ Course organizer for Comp4711
 		<lesson name="week03b" icon="read" >Survey results - controllers (last week)</lesson>
 		<lesson name="basic06" icon="dothis"  survey="266870">Routing</lesson>
 		<lesson name="basic07" icon="read">Advanced Routing</lesson>
-		<lesson name="week04" icon="read">Survey results - routing (TBD)</lesson>
+		<lesson name="week04" icon="read">Survey results - routing</lesson>
 		<lab name="lab04" active="n">Working With Controllers</lab>
 		<github name="starter-routes" link="https://github.com/jedi-academy/starter-routes" active="n">Lab starter - Routes</github>
 		<tutorial name="ci-normal01" active="n">Controllers and Routing</tutorial>

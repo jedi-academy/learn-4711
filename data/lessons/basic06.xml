@@ -165,7 +165,7 @@ Lesson 06 - Routing
         <p>If the request returns a 404, the search engine will treat
             the content as unavailable.</p>
         <p>Only if you hide "index.php" or provide appropriate
-            routing, will SEI engines associate the correct
+            routing, will SEO engines associate the correct
             "resource" with your content.</p>
     </slide>
 
@@ -237,7 +237,7 @@ Lesson 06 - Routing
         </div>
     </slide>
 
-	<slide title="Wildcard Routing" layout="normal">
+	<slide title="Wildcard Routing **" layout="normal">
 		<div class="left">
 			<p>A routing rule can use a "wildcard" token,
 				<code>(:num)</code> to match a numeric segment value, or
@@ -265,7 +265,7 @@ Lesson 06 - Routing
 		</div>
 	</slide>
 
-	<slide title="Regular Expression Routing" layout="normal">
+	<slide title="Regular Expression Routing **" layout="normal">
 		<p>You can also use a conventional regular expression in a routing rule.</p>
 		<p>For instance:<br/>
 			<code>$route['products/([a-z]+)/(\d+)'] = "$1/id_$2";</code>
@@ -304,7 +304,7 @@ Lesson 06 - Routing
         </div>
     </slide>
 
-    <slide title="HTTP Routing" layout="normal">
+    <slide title="HTTP Routing **" layout="normal">
         <p>Routing rules apply regardless of the HTTP verb used to send
         the request.</p>
         <p>You can specify different routing for different HTTP verbs, if
@@ -320,7 +320,7 @@ Lesson 06 - Routing
     </slide>
 
 
-	<slide title="Callback Routing" layout="normal">
+	<slide title="Callback Routing **" layout="normal">
 		<p>You can use closures in place 
 			of the normal routing rules to process the back-references.
 		CodeIgniter calls this "callback routing".</p>
