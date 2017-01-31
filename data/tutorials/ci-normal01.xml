@@ -8,7 +8,8 @@ Normal 01 - Working With Controllers & Routing
     <!-- The meat of the presentation -->
     <slide title="Tutorial Goals" layout="normal">
         <p>This tutorial will walk you through some common controller and
-            routing challenges.</p>
+            routing challenges. You should not have to change any model classes
+        or view files!</p>
         <p>The goal is to fix the broken starter webapp, as directed.</p>
         <p>That can't be so hard, can it? &lt;-- said with a straight face.</p>
         <p>Suggestion: you may want to skim the slideshow first,
@@ -36,7 +37,9 @@ Normal 01 - Working With Controllers & Routing
             uses <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a> and 
             <a href="https://jquery.com/" target="_blank">jQuery</a>, 
             simply because they make it so easy to have a 
-            not-ugly-though-the-same-as-everyone-else's looking site.</p>
+            not-ugly-though-the-same-as-everyone-else's looking site.
+        Copies are bundled with the project, to make it easy.
+        They are out-of-date, but that is not our problem now.</p>
         <p>The  Quotes webapp looks beautiful, I have to admit, but none 
             of the links work, apart from the logo taking you back 
             to the homepage :(</p>
@@ -62,7 +65,7 @@ Normal 01 - Working With Controllers & Routing
             controller, or method in a controller, which extracts the 
             relevant quote data from the model, 
             and builds the view parameters for <code>justone</code> to present it.</p>
-        <p>Solve the logic for the first broken link that you fix, 
+        <p>Solve the controller and routing logic for the first broken link that you fix, 
             and you can re-use the technique for all the others.</p>
         <p>The logic? Inside the appropriate method of the appropriate controller,
             the handling of a request should be to retrieve the appropriate
@@ -79,47 +82,68 @@ Normal 01 - Working With Controllers & Routing
             <tr>
                 <th>Link</th>
                 <th>Location</th>
+                <th>Controller Strategy</th>
                 <th>Routing Strategy</th>
             </tr>
             <tr>
                 <td>first</td>
                 <td>Navbar</td>
+                <td>Conventional</td>
                 <td>Normal routing - convention only</td>
             </tr>
             <tr>
                 <td>last</td>
                 <td>Navbar</td>
+                <td>Subcontroller</td>
                 <td>Normal routing - convention only</td>
             </tr>
             <tr>
                 <td>sleep</td>
                 <td>Homepage</td>
+                <td>Default conventional controller</td>
                 <td>Wildcard routing</td>
             </tr>
             <tr>
                 <td>lock/em/up</td>
                 <td>Homepage</td>
+                <td>Subcontroller</td>
                 <td>Wildcard routing</td>
             </tr>
             <tr>
                 <td>show/3</td>
                 <td>Homepage</td>
+                <td>Subcontroller</td>
                 <td>Wildcard routing</td>
             </tr>
             <tr>
                 <td>dunno</td>
                 <td>Homepage</td>
+                <td>Utility controller</td>
                 <td>Callback routing</td>
             </tr>
             <tr>
                 <td>wise/bingo</td>
                 <td>Homepage</td>
+                <td>Controller</td>
                 <td>Regular expression routing</td>
             </tr>
             <tr>
                 <td>comp4711/wisdom</td>
                 <td>Homepage</td>
+                <td>Subcontroller</td>
                 <td>Regular expression routing</td>
+            </tr>
+            <tr>
+                <td>Default controller</td>
+                <td>Homepage</td>
+                <td>Controller</td>
+                <td>Routing config</td>
+            </tr>
+            <tr>
+                <td>Error handler</td>
+                <td>n/a</td>
+                <td>Subcontroller</td>
+                <td>Routing config</td>
             </tr>
         </table>
     </slide>
@@ -132,7 +156,7 @@ Normal 01 - Working With Controllers & Routing
         <p>How will you know if your "fix" worked?
             Clicking on an author on the homepage will lead to the featured quote
             from him/her. There is still the additional requirement
-		of using the correct component namd and location, as there
+		of using the correct component name and location, as there
 		could be several ways to produce the desired output.</p>
     </slide>
 
@@ -159,7 +183,7 @@ Normal 01 - Working With Controllers & Routing
         <table style="font-size:80%; padding: 10px; text-align:left">
             <tr>
                 <th>Link</th>
-                <td>first</td>
+                <td>/first</td>
             </tr>
             <tr>
                 <th>Location</th>
@@ -192,7 +216,7 @@ Normal 01 - Working With Controllers & Routing
         <table style="font-size:80%; padding: 10px; text-align:left">
             <tr>
                 <th>Link</th>
-                <td>last</td>
+                <td>/last</td>
             </tr>
             <tr>
                 <th>Location</th>
@@ -225,7 +249,7 @@ Normal 01 - Working With Controllers & Routing
         <table style="font-size:80%; padding: 10px; text-align:left">
             <tr>
                 <th>Link</th>
-                <td>sleep</td>
+                <td>/sleep</td>
             </tr>
             <tr>
                 <th>Location</th>
@@ -258,7 +282,7 @@ Normal 01 - Working With Controllers & Routing
         <table style="font-size:80%; padding: 10px; text-align:left">
             <tr>
                 <th>Link</th>
-                <td>lock/em/up</td>
+                <td>/lock/em/up</td>
             </tr>
             <tr>
                 <th>Location</th>
@@ -293,7 +317,7 @@ Normal 01 - Working With Controllers & Routing
         <table style="font-size:80%; padding: 10px; text-align:left">
             <tr>
                 <th>Link</th>
-                <td>show/3</td>
+                <td>/show/3</td>
             </tr>
             <tr>
                 <th>Location</th>
@@ -309,17 +333,17 @@ Normal 01 - Working With Controllers & Routing
             </tr>
            <tr>
                 <th>Required</th>
-                <td>Routing rule, leading to first/gimme/3),
+                <td>Routing rule, leading to first/gimme/#),
                     i.e. the "gimme" method inside the "First" controller,
                     with that method defined to take a parameter</td>
             </tr>
            <tr>
                 <th>How to Fix It</th>
-                <td>Remapped using wildcard (show / digit</td>
+                <td>Remapped using wildcard (show / digit)</td>
             </tr>
             <tr>
                 <th>Hint</th>
-                <td>application/controllers/First::gimme(id)</td>
+                <td>application/controllers/First::gimme($id)</td>
             </tr>
         </table>
     </slide>
@@ -328,7 +352,7 @@ Normal 01 - Working With Controllers & Routing
         <table style="font-size:80%; padding: 10px; text-align:left">
             <tr>
                 <th>Link</th>
-                <td>dunno</td>
+                <td>/dunno</td>
             </tr>
             <tr>
                 <th>Location</th>
@@ -360,8 +384,8 @@ Normal 01 - Working With Controllers & Routing
                     like ...<pre>
                         <code>
 $route['dunno'] = function() {
-	$source = './data/surprise.jpg'; // an image you provide
-	// set the mime type for that image
+	$source = './data/surprise.jpg'; // an image you provide, outside of "oublic"!
+	// set the mime type for that image (jpeg, png, etc)
 	header("Content-type: image/jpeg"); 
 	header('Content-Disposition: inline');
 	readfile($source); // dish it
@@ -380,7 +404,7 @@ $route['dunno'] = function() {
         <table style="font-size:80%; padding: 10px; text-align:left">
             <tr>
                 <th>Link</th>
-                <td>wise/bingo</td>
+                <td>/wise/bingo</td>
             </tr>
             <tr>
                 <th>Location</th>
@@ -414,7 +438,7 @@ $route['dunno'] = function() {
         <table style="font-size:80%; padding: 10px; text-align:left">
             <tr>
                 <th>Link</th>
-                <td>comp4711/wisdom</td>
+                <td>/comp4711/wisdom</td>
             </tr>
             <tr>
                 <th>Location</th>
@@ -442,27 +466,80 @@ $route['dunno'] = function() {
             </tr>
         </table>
     </slide>
-    <slide title="Are We Done Yet?" layout="normal">
-        <p>No! you are not done. There is the ninth task, adding a hook!</p>
-		<p>Appropriate language is appropriate on the Internet, right?
-			Add a display_override hook to replace all of the four letter words
-		in a displayed quote with asterisks.</p>
-		<p>The quote text will be found inside &lt;p&gt; elements with a CSS class
-		of "lead".</p>
-		<p>I recommend pair programming for this, or even trio programming, 
-			as the task is more involved than the other eight, specifically
-		how to alter the quote text appropriately!</p>
-		<p>"Four letter words" include those anywhere inside a quote,
-		but do not include any punctuation.</p>
-		<p>Before you start pulling your hair out, check the <code>jedi-academy</code>
-		on Github - there might be something helpful there.</p>
+
+     <slide title="#9 Default Controller" layout="normal">
+        <table style="font-size:80%; padding: 10px; text-align:left">
+            <tr>
+                <th>Link</th>
+                <td>/</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>n/a</td>
+            </tr>
+            <tr>
+                <th>Expected result</th>
+                <td>Homepage we started with</td>
+            </tr>
+            <tr>
+                <th>Routing Strategy</th>
+                <td>Configuration setting</td>
+            </tr>
+          <tr>
+                <th>Required</th>
+                <td>Use the <code>Hogwarts</code> controller as default</td>
+            </tr>
+            <tr>
+                <th>How to Fix It</th>
+                <td>Routing rule, specifying new default controller</td>
+            </tr>
+            <tr>
+                <th>Hint</th>
+                <td>Rename controllers/Welcome, and make sure all links work as expected</td>
+            </tr>
+        </table>
     </slide>
 
-    <slide title="Now Are We Done?" layout="normal">
+     <slide title="#10 Error Controller" layout="normal">
+        <table style="font-size:80%; padding: 10px; text-align:left">
+            <tr>
+                <th>Link</th>
+                <td>/anything-invalid</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>n/a</td>
+            </tr>
+            <tr>
+                <th>Expected result</th>
+                <td>Show a random quote if a bogus one is requested</td>
+            </tr>
+            <tr>
+                <th>Routing Strategy</th>
+                <td>Configuration setting</td>
+            </tr>
+          <tr>
+                <th>Required</th>
+                <td>Routing rule to map 404s to the random() method inside your default controller</td>
+            </tr>
+            <tr>
+                <th>How to Fix It</th>
+                <td>Routing rule, specifying error controller</td>
+            </tr>
+            <tr>
+                <th>Hint</th>
+                <td>You added this controller functionality in lab 2.</td>
+            </tr>
+        </table>
+    </slide>
+
+    <slide title="Are We Done Yet?" layout="normal">
         <p>The webapp output should look just as beautiful as it did
-		originally, *and* the links should all work. The quotes have
-		been sanitized for sensitive audiences.</p>
+		originally, *and* the links should all work. </p>
 		<p>So yes, we should be done :)</p>
+                <p>I suggest a quick check to make sure that
+                case sensitivy will not be an issue for you ...
+                properly named classes and resources.</p>
     </slide>
 
 </tutorial>

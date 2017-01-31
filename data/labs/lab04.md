@@ -1,20 +1,20 @@
 
 #Lab #4 - Working With Controllers & Routing
-COMP4711 - BCIT - Fall 2016
+COMP4711 - BCIT - Winter 2017
 
 ##Lab Goals
 
 The purpose of this lab is to help you explore and practice some of the controller 
-and routing techniques for CodeIgniter.
-
+strategies and routing techniques for CodeIgniter. 
 The lab will result in fixing eight broken links in a starter webapp, using 
-the routing techniques discussed in class, and in adding a "hook".
+the routing techniques discussed in class; and changing
+two default berhaviors.
 
-We will continue to use gitflow workflow, with the new twist of simple
-issue tracking.
+We will continue to use gitflow workflow, with the new twists of 
+GPG signing and simple issue tracking.
 
 I have setup a [starter repository](https://github.com/jedi-academy/starter-routes) 
-for you to work from. Each of the nine tasks will be completed independently.
+for you to work from. Each of the ten tasks will be completed independently.
 
 ##Lab Teams
 
@@ -29,8 +29,8 @@ If you miss the lab, you will end up being a defacto team of one, completing
 the tasks yourself before the submission deadline.
 This will let you earn some of the lab marks, but none of those for collaboration.
 
-Team members will each have a role to play. The nine tasks need to be split amongst
-you, with each team member completing three tasks (if a team of 3) or at most 4 tasks
+Team members will each have a role to play. The tasks need to be split amongst
+you, with each team member completing at most four tasks (if a team of 3) or five tasks
 (if a team of 2).
 - One member will be the creator and maintainer of the team repo - he/she will be designated the CAPTAIN
 - The other members of the team will be contributors - designated as MATES
@@ -45,7 +45,8 @@ Your lab will result in a github repository for your team, as well as one for ea
 member.
 
 Submit a readme *text* file, or a submission comment, to the lab dropbox. 
-It should contain a link to your **team**'s github repository. 
+It should contain a link to your **team**'s github repository
+(not its cloning URL). 
 
 Due: in theory, this should be completed during the lab period,
 but some teams will need a bit more time.  
@@ -75,11 +76,13 @@ history; to determine how well you followed the collaboration process.
 ##Team Repository Setup (CAPTAIN)
 
 -    Create a github organization for your team
--    Fork the lab starter repo into that organization, using a name of your choice
+-    Fork the lab starter repo into that organization, using a name of your choice,
+which is **not** the same as the starter
 -	Add your team mates as collaborators, but **not** with admin rights for the repository
 -	 It is up to you if you wish to use a changelog
 -    Create a new branch "develop"
--    Make "develop" the default branch
+-    Make "develop" the default branch- If you want to use a changelog,
+so so now, including any pushing & pulling, before anyone forks the team repo.
 
 ##Preparation (All)
 
@@ -90,17 +93,21 @@ fork it, read what Github has to say about
 ##Setup Project Tasks (CAPTAIN)
 
 -	Make sure that "issues" are enabled for your team repository, on the repository settings page
--	Add nine issues to your team repository, one for each task in the lab
+-	Add ten issues to your team repository, one for each task in the lab
 -	Do not assign these to anyone
 
 ##Member Repository Setup (All)
 
--    Configure your git client to use signing for this project too, if not already setup globally
+-    Configure your git client to use signing for this project too, if not already setup globally.
+Some IDEs may not support GPG-signing, and you may have to do your commits from the
+git bash shell.
+-   Make sure that you can GPG-sign commits! If not sure, create a dummy repository that you
+can push bogus commits to, for testing. It can be deleted afterwards.
 -    Fork the team repository to your personal github account (including the CAPTAIN)
 -    Clone your repository locally, using a name/location of your choice
--    If using an IDE, "git ignore" the IDE's metadata folder, so you don't inflict it on your teammates.
+-    If using an IDE (other than NetBeans), "git ignore" the IDE's metadata folder, so you don't inflict it on your teammates.
 -    If you want to keep this separate from last week's, add a new local domain, eg "routes.local"
--    Map the virtual domain you will use to the "public" folder inside your local repo for this lab
+-    Map the virtual domain you will use to the "public" subfolder inside your local project folder for this lab
 -    Restart Apache
 -    Make sure that your project serves correctly, eg. using "routes.local" or the local domain that you setup.
 
@@ -109,13 +116,25 @@ fork it, read what Github has to say about
 
 -	In the team repository, select the "issues" page.
 -	Choose the next unassigned issue, and assign it to yourself
--	Complete that task locally
--	When convinced you have it right, synchronize your develop branch and commit the changes
-in your feature branch
+-	Complete that task locally, using a new properly named feature branch.
+-	When convinced you have it right, **synchronize your local develop branch** with
+the team repo 
+-   Commit the changes in your feature branch.
+Add the wordage "closes #123" in your commit message if this one
+commit totally addresses the issue (123 would be the appropriate issue #).
 -	Push your feature branch to your repo
 -	Create a pull request to the team repo for this, making sure you include 
-"closes #123" in the PR description, where "123" is the issues # you completed
--	The issue will be automatically closed if/when the PR is merged
+"closes #123" in the PR title or description (where "123" is the issues # you completed)
+if the PR includes several commits that were needed to resolve the issue.
+The issue will be automatically closed if/when the PR is merged
+-   If your PR has problems, fix them in your local branch for it, and re-commit
+and re-push to your repo. The PR will be automatically updated.
+- Whenever a PR is accepted/merged, that will probably necessitate resynching
+for any open branches. You may have to synch your develop branch, and then
+"git pull develop" to merge those same changes into your feature branch.
+-   Note: you can work on multiple lab tasks at the same time, even if earlier
+work hasn't been merged. This is one of the intended aspects of branching
+workflow.
 -	Repeat until you have completed the requisite number of tasks or until there
 are no remaining issues open
     

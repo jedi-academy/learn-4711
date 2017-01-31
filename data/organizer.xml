@@ -36,7 +36,6 @@ Course organizer for Comp4711
 		<tutorial name="ci-basic01">Static to Trivial CI Website Conversion</tutorial>
 		<tutorial name="ci-basic02">Trivial CI to Basic CI Website Conversion</tutorial>
 		<tutorial name="ci-basic03">Basic CI to Good CI Website Conversion</tutorial>
-		<assignment name="assignment1" active="n">Basic Webapp</assignment>
 	</week>
 	<week num="4">
 		<topic>Routing</topic>         
@@ -47,10 +46,10 @@ Course organizer for Comp4711
 		<lesson name="basic06" icon="dothis"  survey="266870">Routing</lesson>
 		<lesson name="basic07" icon="read">Advanced Routing</lesson>
 		<lesson name="week04" icon="read">Survey results - routing</lesson>
-		<lab name="lab04" active="n">Working With Controllers</lab>
-		<github name="starter-routes" link="https://github.com/jedi-academy/starter-routes" active="n">Lab starter - Routes</github>
-		<tutorial name="ci-normal01" active="n">Controllers and Routing</tutorial>
-		<assignment name="assignment1faq" icon="read" active="n">Assignment 1 FAQ</assignment>
+		<lab name="lab04">Working With Controllers &amp; Routing</lab>
+		<tutorial name="ci-normal01">Controllers and Routing</tutorial>
+<!--		<assignment name="assignment1" active="n">Basic Webapp</assignment>
+		<assignment name="assignment1faq" icon="read" active="n">Assignment 1 FAQ</assignment> -->
 	</week>
 	<week num="5">
 		<topic>Models</topic>
