@@ -7,4 +7,4 @@ before tackling the first assignment.
 **Labs** *(Tue Jan 30, 11:00)*  
 - Lab 2 marking continues.  
 - Lab 3 marking is in the queue.
-- Lab 4 is ready for you :)
+- Lab 4 is ready for you :) _Corrected typos in the lab writeup!_
