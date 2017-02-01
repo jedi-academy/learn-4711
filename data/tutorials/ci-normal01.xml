@@ -376,7 +376,7 @@ Normal 01 - Working With Controllers & Routing
                 <td>Surprise! have a callback function that
                 sets a suitable mime-type header and then returns
                 a random SFW image that you have added to the
-                data folder</td>
+                data folder. </td>
             </tr>
             <tr>
                 <th>Hint</th>
@@ -384,7 +384,7 @@ Normal 01 - Working With Controllers & Routing
                     like ...<pre>
                         <code>
 $route['dunno'] = function() {
-	$source = './data/surprise.jpg'; // an image you provide, outside of "oublic"!
+	$source = '../data/surprise.jpg'; // an image you provide, outside of "oublic"!
 	// set the mime type for that image (jpeg, png, etc)
 	header("Content-type: image/jpeg"); 
 	header('Content-Disposition: inline');
@@ -393,13 +393,20 @@ $route['dunno'] = function() {
 };                         
                         </code>
                     </pre>
-					Why does this "work", even though contrary to what I said in class?
-					Ask me if you can't figure it out!
                 </td>
             </tr>
         </table>
     </slide>
 
+    <slide title="#6 Notes..." layout="normal">
+        <p>Why does this "work", even though contrary to what I said in class?
+                    Ask me if you can't figure it out!</p>
+                    <p>And, yes, the <code>data</code> folder is outside of <code>public</code>,
+                    at the same folder level as <code>application</code> and
+                    <code>public</code>!</p>
+        
+    </slide>
+    
      <slide title="#7 Bingo" layout="normal">
         <table style="font-size:80%; padding: 10px; text-align:left">
             <tr>

@@ -62,7 +62,7 @@ Lesson 02 - Controllers
         </div>
     </slide>
 
-    <slide title="Types of Controllers **" layout="normal">
+    <slide title="Types of Controllers" layout="normal">
         <div class="left">
             <p>There are three common types of controllers:</p>
             <ul>
@@ -81,10 +81,10 @@ Lesson 02 - Controllers
         </div>
     </slide>
 
-    <slide title="2. Controller Basics **" layout="normal" tag="tag2">
+    <slide title="2. Controller Basics" layout="normal" tag="tag2">
         <div class="left">
-            <p>Controllers are found in the <code>application/controllers</code> folder.</p>
-            <p>Controllers can also be in nested subfolders underneath that.</p>
+            <p>Controllers are found in the <code>application/controllers</code> folder.
+            Controllers can also be in nested subfolders underneath that.</p>
             <p>There is a default controller, <code>Welcome</code>, in any folder.
                 This default can be changed, if you like.
                 See the User Guide pages on <a href="http://www.codeigniter.com/userguide3/general/controllers.html" 
@@ -102,12 +102,12 @@ Lesson 02 - Controllers
             </p>
             <p>If "orders" was a subfolder, then the URL 
                 <code>comp4711.local/orders</code> would be a reference
-                to the <code>application/orders/Welcome</code> controller.
+                to the <code>application/controllers/orders/Welcome</code> controller.
             </p>
         </div>
     </slide>
 
-    <slide title="Segment Based Naming **" layout="normal">
+    <slide title="Segment Based Naming" layout="normal">
         <div class="left">
             <p>URLs are segment based.</p>
             <p>For instance, the URL <code>example.com/class/function/parm1/parm2</code>
