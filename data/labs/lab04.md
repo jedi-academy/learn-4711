@@ -16,6 +16,9 @@ GPG signing and simple issue tracking.
 I have setup a [starter repository](https://github.com/jedi-academy/starter-routes) 
 for you to work from. Each of the ten tasks will be completed independently.
 
+Your mission is to complete the [controller and routing tutorial](/show/tutorial/ci-normal01), 
+using the starter repo.
+
 ##Lab Teams
 
 This week, we want teams of three (two in a pinch, if appropriate for the
@@ -35,9 +38,7 @@ you, with each team member completing at most four tasks (if a team of 3) or fiv
 - One member will be the creator and maintainer of the team repo - he/she will be designated the CAPTAIN
 - The other members of the team will be contributors - designated as MATES
 
-The lab tasks are meant to be done individually, though the hook task
-would benefit from pair programming, i.e. with 
-one person "driving", and the other(s) "navigating". 
+The lab tasks are meant to be done individually.
 
 ##Lab Submission
 
