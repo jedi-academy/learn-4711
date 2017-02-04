@@ -43,22 +43,22 @@ Course organizer for Comp4711
 		<inlab>#4 Working with controllers</inlab>
 		<lesson name="basic02">CI Controllers</lesson>
 		<lesson name="week03b" icon="read" >Survey results - controllers (last week)</lesson>
-		<lesson name="basic06" icon="dothis"  survey="266870">Routing</lesson>
+		<lesson name="basic06" icon="dothis">Routing</lesson>
 		<lesson name="basic07" icon="read">Advanced Routing</lesson>
 		<lesson name="week04" icon="read">Survey results - routing</lesson>
 		<lab name="lab04">Working With Controllers &amp; Routing</lab>
 		<tutorial name="ci-normal01">Controllers and Routing</tutorial>
-<!--		<assignment name="assignment1" active="n">Basic Webapp</assignment>
-		<assignment name="assignment1faq" icon="read" active="n">Assignment 1 FAQ</assignment> -->
 	</week>
 	<week num="5">
 		<topic>Models</topic>
 		<outcomes>1.2 (models), 3</outcomes>
 		<inlab>Assignment #1 completion</inlab>
-		<lesson name="basic03" icon="dothis" active="n">CodeIgniter Models</lesson>
-		<lesson name="basic03-more" icon="dothis" active="n">Model Pattenrs</lesson>
-		<lesson name="week05" icon="read" active="n">Survey results</lesson>
+		<lesson name="basic03" icon="dothis"  survey="266872">CodeIgniter Models</lesson>
+		<lesson name="basic03-more" icon="dothis" survey="266873">Model Pattenrs</lesson>
+		<lesson name="week05" icon="read" active="n">Survey results (TBD)</lesson>
 		<lesson name="basic68" active="n">Models in a Nutshell</lesson>
+		<assignment name="assignment1" active="n">Basic Webapp</assignment>
+		<assignment name="assignment1faq" icon="read" active="n" >Assignment 1 FAQ</assignment> 
 	</week>
 	<week num="6">
 		<topic>Views</topic>

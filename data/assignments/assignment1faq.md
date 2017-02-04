@@ -10,12 +10,13 @@ I want to defer that until we have addressed models and views
 in class and lab.
 
 ## Is there a repository that you fork from to start the project?  
+No.
 
 I suggest you create an empty team repo, and *download* either the CI starter2 or starter3 to add to it, like you did for lab 3.
 
 I do not recommend forking any of the CI starters, but *if* you do, remember to rename them!
 
-You only need starter2 for assignment 1, but you will find starter3 adds MY_Model, which I expect you will want in assignment 3.
+You only need starter2 for assignment 1, but you will find starter3 adds MY_Model, which I expect you will want in assignment 2.
 
 The CodeIgniter site just provides the raw framework, not a template or suitable starter.
 If you already started your project with that, you will need to refactor your project so that

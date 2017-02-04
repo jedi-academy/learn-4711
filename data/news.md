@@ -1,10 +1,8 @@
-**Week 4** *(Tue Jan 30, 08:30)*  
-- Survey results posted & lesson adjusted. 
-- I have decided to swap the order of Lab 4 and Assignment 1. I would
-like you to hear the controller and routing lessons, and to do the routing lab,
-before tackling the first assignment.
+**Week 5** *(Sat Feb 04, 08:00)*  
+- Readings & surveys posted; the surveys close Monday 9pm
 
-**Labs** *(Tue Jan 30, 11:00)*  
+**Labs** *(Sat Feb 04, 08:00)*  
 - Lab 2 marking continues.  
 - Lab 3 marking is in the queue.
-- Lab 4 is ready for you :) _Corrected typos in the lab writeup!_
+- Lab 4 has concluded.
+- No lab this week - assignment 1 instead

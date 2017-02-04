@@ -2,22 +2,7 @@
 <!--
 Models in a Nutshell
 -->
-<lesson status="beta">
-
-    <slide title="Sorry" layout="normal">
-        <div class="left">
-            <p>I was not happy with today's presentation.
-                I ran out of time preparing it, and
-                cobbled the pieces together without
-                thinking it through as well as I planned to :(</p>
-            <p>I have added suitable graphics, and a few
-                missing slides, as well as the "message" for each.
-                I hope this makes more sense :-/</p>
-        </div>
-        <div class="right">
-            <img src="/pix/lessons/nutshell/nuts12.jpg"/>
-        </div>
-    </slide>
+<lesson status="v1.1">
 
     <slide title="#ModelsMatter" layout="normal">
         <div class="left">
@@ -30,7 +15,7 @@ Models in a Nutshell
                 <li>business logic (per usecases)</li>
                 <li>validation (per usecases)</li>
             </ul>
-            <b>Models are unavoidable!</b>
+            <p><strong>Models are unavoidable!</strong></p>
         </div>
         <div class="right">
             <img src="/pix/lessons/nutshell/nuts1.png"/>
@@ -61,7 +46,7 @@ Models in a Nutshell
                 to bridge these two, translating  between them.</p>
             <b>The problem is not that we have some form of ORM, but
                 that different frameworks and different cultures implement
-                so differently, yet using the same name!</b>
+                this so differently, yet using the same name!</b>
         </div>
         <div class="right">
             <img src="/pix/lessons/nutshell/nuts3.gif"/>
@@ -90,8 +75,9 @@ Models in a Nutshell
                 <li>over-reliance on RDB</li>
                 <li>different term interpretations</li>
             </ul>
-            <b>PHP isn't perfect, but its low entry barrier
-                makes it a suitable choice for most webapps!</b>
+            <p><strong>PHP isn't perfect, but its low entry barrier
+                makes it a suitable choice for most webapps!</strong></p>
+
         </div>
         <div class="right">
             <img src="/pix/lessons/nutshell/nuts4.jpg"/>

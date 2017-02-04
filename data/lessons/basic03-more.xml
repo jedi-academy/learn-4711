@@ -2,7 +2,7 @@
 <!--
 Lesson 03 - Models
 -->
-<lesson status="final">
+<lesson status="v1.1">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <!-- Agenda -->
@@ -114,7 +114,7 @@ Lesson 03 - Models
     </slide>
 
     <slide title="Domain Models" layout="normal">
-        <p>Domain models are awkward to enforce in PHP, without
+        <p>Domain or entity models are awkward to enforce in PHP, without
             strong typing. They are normal in Java &amp; C#.</p>
         <p>For instance, Java supports 
             <a href="https://docs.oracle.com/javase/tutorial/javabeans/" target="_blank">JavaBeans</a> (serializable,
@@ -131,37 +131,27 @@ Lesson 03 - Models
         <div class="left">
             <p>The <a href="http://www.martinfowler.com/eaaCatalog/activeRecord.html" target="_blank">active record</a> 
             design pattern, common in webapps, suggests that
-                domain models have collection-centric
+                entity models have collection-centric
                 methods in addition to entity property
                 accessor/mutators. This leads to model methods like...</p>
                 <ul>
                     <li>
-                        <code>add($record)</code> – add a new record to the collection</li>
+                        <code>save()</code> – has the corresponding collection
+                    persist this record appropriately</li>
                     <li>
-                        <code>get($key)</code> – retrieve a keyed record</li>
-                    <li>
-                        <code>update($record)</code> – replace a record</li>
-                    <li>
-                        <code>delete($key)</code> – delete a record</li>
+                        <code>delete()</code> – has the corresponding collection
+                    remove this record from it</li>
                 </ul>
         </div>
         <div class="right">
-            <p>Some additional methods common to active record models:
-                <ul>
-                    <li>
-                        <code>create()</code> – return a suitable empty object</li>
-                    <li>
-                        <code>all()</code> – return all records</li>
-                    <li>
-                        <code>some(...)</code> – return some of the records</li>
-                    <li>
-                        <code>size()</code> – return the number of records</li>
-                </ul>
+            <p>Yes, this means additional housekeeping logic inside
+                such a model, and that the collection model needs to
+                return instances of this.
             </p>
         </div>
     </slide>
 
-    <slide title="Active Record in Practice" layout="normal">
+    <slide title="Record Properties in Practice" layout="normal">
         <div class="left">
             <p>Given how easy it is to inject or eliminate
                 properties in PHP objects, many developers
@@ -181,31 +171,6 @@ Lesson 03 - Models
         </div>
     </slide>
 
-    <slide title="Active Record in Practice /2" layout="normal">
-        <div class="left">
-            <p>If adding collection centric methods to a
-                "conventional" domain model, it is a good idea
-                for your model to have collection-specific
-                properties too, for instance the name of a
-                database table and the fieldname used as
-                a primary key.</p>
-            <p>Regardless of any accessors or CRUD methods
-                you might have, make sure your model provides
-                suitable methods for extracting whatever
-                data your controllers need to pass on to a view!</p>
-        </div>
-        <div class="right">
-            <p>This means having properties for the table name
-                that a model is bound to, or for the XML document
-                used to record state.</p>
-            <p>Data extraction methods,not related to a domain
-                model, could be something like <code>findNewestBlogEntry()</code>
-                or <code>processOrder($items)</code>
-            </p>
-            <p>Note that these suggestions run counter to many "purist"
-                perspectives ... PHP tends to be more relaxed!</p>
-        </div>
-    </slide>
 
     <slide title="2. Models Can Be Used For... ?" layout="normal">
         <p>Models can be used to encapsulate many
@@ -284,17 +249,17 @@ Lesson 03 - Models
             of the attribute or nested child element to use as a
             "primary key".
         </p>
-        <p>Note that this approach could lend itself to using a DTD or 
+        <p>Note that this approach could lend itself to using a  
             schema for validation of "record" structure and
             content.</p>
-			<p>You are probably wondering why the previous slide suggested
-			3, 4 or 2 models :) XML is extremely flexible, and you could
-			create four XML documents, one for each entity in the ERD.
-			You could also build that as 3 XML documents, or document types,
-			one for User, one for BillingDetail, and one for an "Instrument".
-			Or you could build this with two XML documents (models),
-			one of which dealt with User state and the other with Account
-			state, including nested elements for credit cards etc.</p>
+        <p>You might be wondering why the previous slide suggested
+            3, 4 or 2 models :) XML is extremely flexible, and you could
+            create four XML documents, one for each entity in the ERD.
+            You could also build that as 3 XML documents, or document types,
+            one for User, one for BillingDetail, and one for an "Instrument".
+            Or you could build this with two XML documents (models),
+            one of which dealt with User state and the other with Account
+            state, including nested elements for credit cards etc.</p>
     </slide>
 
     <slide title="Models for Folders" layout="normal">

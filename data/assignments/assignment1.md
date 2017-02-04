@@ -3,6 +3,7 @@ COMP4711 - BCIT - Winter 2017
 
 ##Assignments Overview
 
+<img src="/pix/assignments/umbrellacorporation3.png" class="pull-left"/>
 The purpose of the assignments, collectively, is to let you apply the techniques 
 from the lessons and tutorials.
 In teams of up to five, you will be building a small but complete webapp, 
@@ -23,6 +24,7 @@ mock views (no business logic expected), just like in lab 3.
 
 ##Backstory
 
+<img src="/pix/assignments/panda.jpg" class="pull-left"/>
 [Umbrella Corporation](http://residentevil.wikia.com/wiki/Umbrella_Corporation) is trying 
 to improve its public image, after an "industrial accident" at its 
 [Raccoon City](http://residentevil.wikia.com/wiki/Raccoon_City) research & development facility.
@@ -39,7 +41,7 @@ bots, each of which might have several models.
 
 Each plant has an inventory of robot pieces, specializes in making one piece for 
 a designated robot model, and can ship unneeded pieces or assembled robots
-to Umbrella's Panda center, for credit.
+to Umbrella's Panda Research Center, for credit.
 
 Each robot piece, or assembled robot, has a Certificate of Authenticity (CA), issued by Umbrella
 Corp. When a plant buys parts from the research center, each comes with its own CA.
@@ -64,8 +66,6 @@ Under-contributing members will will receive a lower mark.
 
 You are to use gitflow workflow, with proper forking and branching, and
 with GPG-signed commits by team members. 
-Team members should use the same github account for all their
-work, so that contribution breakdown can be determined.
 
 Contributions to the team repository should be by pull request only.
 
@@ -102,7 +102,7 @@ A marking rubric will be attached to the assignment dropboxes, similar to
 those used for labs. The assignments will be weighted equally in the marks worksheet,
 even if some of them have different raw scores because of their rubric.
 
-#Your Webapp
+#Your Webapp Features
 
 Your webapp doesn't have to be "world-class" or even necessarily "real", 
 but it needs sufficient complexity to be dynamic, personalized and scaleable/integrated.
@@ -118,31 +118,28 @@ You are free to name your plant or team, just not offensively.
 There are three kinds of data to keep track of:
 
 - **Parts** - the individual robot pieces you have on hand. Each will have a unique
-identifier, a code
-of some sort (eg A3), and a certificate of Authenticity. From the piece's code,
+identifier, a robot part code (eg A3), a Certificate of Authenticity (CA) code, 
+and date & time built. 
+From the piece's code,
 you can determine the robot line and model, and which kind of piece this is.
 - **Robots** - the list of assembled robots you have on hand, that you haven't
 shipped to the research center yet. Each will need a unique identifier, and
 composition information (the identifiers of the pieces that make us this robot).
 - **History** - a record of your activity since the plant was opened or
-reopened. This would include purchases, assemblies, and shipments.
+reopened. This would include purchases, assemblies, and shipments; and the date & 
+time of each transaction.
 
-You might choose to model these as one table, or many tables. You might decide to eliminate
+You might choose to model these as one "table", or many "tables". You might decide to eliminate
 duplicate fields. You might decide to use a flat file to store these, instead
-of a database table. Your call.
+of a database table. Your call. For this assignment, "storage" is a moot point, 
+as you are to provide mock data in your model classes.
 
-I think it might be an idea to keep the data separate, as assignment #3 will see the
-webapp split into at least two webapps, simulating a distributed system.
-
-You will need to provide for a transaction history or histories too, perhaps several files with appropriate fields.
-You want to track supplies receipts & issues, recipe production, and stock sales.
 
 Do NOT use a relational database for this assignment. Instead, build mock
 data, the same as was done in the starter-quotes repository you used in week 2.
 
-You want to have a half-dozen or so menu items and recipes, and 6-12 kinds of
-items stocked in your pantry. The pantry items should be driven by the recipes.
-You are welcome to have more, but that is not required.
+You want to have a half-dozen or so items for each of your models,
+so that the webapp gives a sense of how the working version might look. 
 
 ##Your Usecases
 
