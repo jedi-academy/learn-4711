@@ -5,69 +5,8 @@ responses denoted by a value in brackets, if appropriate.
 
 There were 32-34 responders.
 
-I have interpreted and aggregated some of the results, in hopefully an appropriate fashion.
-It was hard, because there were a lot of answers, covering a lot of different
-interpretations - that suggests I could do a better job
-of preparing the online lesson, so it is more focused.
-
 ##WEEK 5 – MODELS
 			
-###What do *you* think the most important takeaways are from this lesson?			
-
-- Base models	6
-- Object-relational mapping	6
-- CI model conventions (name, extends, oading it before using it....)	3
-- Database utilities and configuration	3
-- query builder can be used for an O-O approach to db queries	3
-- CodeIgniter is uses data access layer models	2
-- Implementing Models, usage of base models, and CI_Model	2
-- Migrations	2
-- Models loaded can access controller properties	2
-- MVC overview	2
-- Active record models	
-- CI has two classes for manipulating databasees	
-- CI_model gives access to controller properties inside the model	
-- Collaboration	
-- Component model	
-- Configuration of our database files	
-- creating models	
-- CRUD methods	
-- Database drivers	
-- Database migrations/use	
-- Database queries and manipulation inside models	
-- Database relationship with models	
-- Different ways to work with a database in CI	
-- Extending CI core classes	
-- General Conventions	
-- Github	
-- How models work with db drivers and how to build queries.	
-- How to configure different environments and setup a database to work in that environment.	
-- how to implement base models	
-- implementing database	
-- Intro to the Object Relational DB model.	
-- Javabeans	
-- Learning how the database works	
-- Methods to get data from a database.	
-- model best practices	
-- Model concepts (Javabeans, ORM)	
-- Model for database connection or mock data	
-- Model functions concist mainly of CRUD	
-- model structure	
-- Models help us to work with the database along side the code	
-- Modling comventions	
-- Queries	
-- RDB models	
-- Some of the best practices or conventions with using these tools	
-- the issues with MVC	
-- The role of the model and how the framework can make using a database simpler	
-- The rules and conventions needed for our future "submissions"	
-- The usage of models and how to initialize models for use with our CI project.	
-- to understand how to use deal with entity model	
-- usage of db driver vs query builder and how they involve with database to make our lifes easier	
-- using codeignitor models	
-- Using models in CI	
-- What a model is, how it is used, how to extend other models, how to design functions for a model.	
-	
 ###What are topics from the lesson that *you* feel need more or better explanation?			
 
 - Component Models	5
@@ -112,74 +51,7 @@ of preparing the online lesson, so it is more focused.
 - Will we be using ERDs in our labs or assignment ?	
 
 			
-###Do you have comments or suggestions about the flipped learning process?			
-
-- example demonstration during lab session is helpful
-- i like it
-- Last lecture much better!!
-- More groupwork collaboration
-- More illustrations paired with the lecture notes.
-- No - but the assignment criteria is MUCH too complicated compared to what we have learned in lectures and labs.
-- Some lessons in the lecture is significantly better than no lessons in lecture, please continue it
-- The examples were good, hopefully they will be sufficicnt to help me implement them.
-
-
 ##WEEK 5 – MODEL PATTERNS
-			
-###What do *you* think the most important takeaways are from this lesson?			
-
-- the various design patterns used in MVC	8
-- Active record design pattern	4
-- Active Record is collection method orientated	
-- Benefits of models	
-- code igniter models	
-- component models	
-- CRUD	
-- Disadvantages of classic MVC	
-- examples were good	
-- Explaining MVC	
-- Good explanations on WHY a model should be used	
-- how M V C should be linked	
-- How models works with web apps	
-- How to pass data between models and views	
-- in PHP, it is common practice to use entity properties directly, rather than providing get/set methods	
-- JavaBeans	
-- Looking into different types of Model.	
-- Looking into different types of MVC Design Patterns.	
-- model adapter	
-- Model represent entities collection and dat sources	
-- model view	
-- model-view-adapther pattern	
-- Model-view-presenter	
-- Model-view-viewmodel	
-- Models are great for code reusability and flexibility. They can seperate and protect code and be easily transferable between systems	
-- Models are the "model" component of the MVC design pattern, and are used to represent data sources or entities	
-- Models can be used for more than just representing data relational database tables	
-- Models can handle RDB tables without resorting to a model for every table	
-- Models for services	
-- models for XML, tables, services, folders	
-- Models represent data sources <data access layer>, each a "collection" of entities	
-- Models represent entities <domain model>, each an object in a "collection"	
-- MVC	
-- MVC	
-- MVC and web	
-- ORM	
-- RESTful services, all the methods shown on page 19	
-- The different things a model can encapsulate	
-- The different uses of model	
-- the different ways a model can be utilized	
-- The purpose of using models	
-- The usage of the MVC pattern with relation to PHP's advantages and disadvantages.	
-- The use of our Model classes in in comparison to the RDB in table use.	
-- Tools and patterns to deal with the shortcomings of PHP as a language.	
-- using a model for an external service can make the service appear as a local db to your code	
-- Using models for external services can make it appear as a local database to your code which can allow for operational or performance improvements	
-- What models can be used for and why they are used for such things	
-- What models can be used for in applications.	
-- What the models are and what they do.	
-- Why use a model for something that isn't a relational database	
-- wrapper functionality allows to not actually have a db	
-- you can use a model to map crud methods to files or services	
 			
 ###What are topics from the lesson that *you* feel need more or better explanation?			
 
@@ -218,10 +90,3 @@ of preparing the online lesson, so it is more focused.
 - What are the differences when use models for tables, folders, XML, and services?
 - Which one the MVC pattern should we be using?
 - XML
-
-			
-###Do you have comments or suggestions about the flipped learning process?			
-
-- Demo of different models
-- Most of this slide is theory. I feel like these kinds of surveys should come after the lab so that we have had the chance to better investigate the models, and play with them to get a better understanding for better feedback.
-- thorough explanation and examples

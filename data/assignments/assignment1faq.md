@@ -9,6 +9,9 @@ There should be **no relational database** used for this assignment.
 I want to defer that until we have addressed models and views
 in class and lab.
 
+Put even stronger, my marking script will not setup a database for your app
+to use!
+
 ## Is there a repository that you fork from to start the project?  
 No.
 

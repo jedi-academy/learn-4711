@@ -57,8 +57,8 @@ Course organizer for Comp4711
 		<lesson name="basic03-more" icon="dothis" survey="266873">Model Pattenrs</lesson>
 		<lesson name="week05" icon="read" active="n">Survey results (TBD)</lesson>
 		<lesson name="basic68" active="n">Models in a Nutshell</lesson>
-		<assignment name="assignment1" active="n">Basic Webapp</assignment>
-		<assignment name="assignment1faq" icon="read" active="n" >Assignment 1 FAQ</assignment> 
+		<assignment name="assignment1">Basic Webapp</assignment>
+		<assignment name="assignment1faq" icon="read" >Assignment 1 FAQ</assignment> 
 	</week>
 	<week num="6">
 		<topic>Views</topic>
