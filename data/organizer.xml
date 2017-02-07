@@ -55,8 +55,8 @@ Course organizer for Comp4711
 		<inlab>Assignment #1 completion</inlab>
 		<lesson name="basic03" icon="dothis"  survey="266872">CodeIgniter Models</lesson>
 		<lesson name="basic03-more" icon="dothis" survey="266873">Model Pattenrs</lesson>
-		<lesson name="week05" icon="read" active="n">Survey results (TBD)</lesson>
-		<lesson name="basic68" active="n">Models in a Nutshell</lesson>
+		<lesson name="week05" icon="read">Survey results - models</lesson>
+		<lesson name="basic68">Models in a Nutshell</lesson>
 		<assignment name="assignment1">Basic Webapp</assignment>
 		<assignment name="assignment1faq" icon="read" >Assignment 1 FAQ</assignment> 
 	</week>
@@ -65,14 +65,14 @@ Course organizer for Comp4711
 		<outcomes>1.2 (views), 3</outcomes>
 		<inlab>#5 Views</inlab>
 		<lesson name="basic04-basics"  icon="dothis" active="n">View Basics</lesson>
-		<lesson name="week06" icon="read" active="n">Survey results</lesson>
+<!--		<lesson name="week06" icon="read" active="n">Survey results</lesson>
 		<github name="views" link="https://github.com/jedi-academy/example-views" active="n">Examples to support "views" lessons</github>
 		<lesson name="basic69" active="n">Views in a Nutshell</lesson>
 		<assignment name="gallery1" icon="read" active="n">Project gallery</assignment>
 		<lab name="lab05" active="n">Kaleidoscope</lab>
 		<tutorial name="ci-views01" active="n">Homepage construction &amp; assembly</tutorial>
 		<tutorial name="ci-views02" active="n">Construction using markdown</tutorial>
-		<tutorial name="ci-views03" active="n">Order entry page</tutorial>
+		<tutorial name="ci-views03" active="n">Order entry page</tutorial>-->
 	</week>
 	<week num="7">
 		<topic>Midterm exam week</topic>
@@ -83,30 +83,30 @@ Course organizer for Comp4711
 		<inlab>#6 Model CRUD</inlab>
 		<lesson name="basic04-forms"  icon="dothis"  active="n">Creating Forms</lesson>
 		<lesson name="basic04-handling"  active="n">Handling Form Data</lesson>
-		<lesson name="week07" icon="read" active="n">Survey results</lesson>
+<!--		<lesson name="week07" icon="read" active="n">Survey results</lesson>
 		<github name="forms" link="https://github.com/jedi-academy/example-forms" active="n">Examples to support "forms" lessons</github>
 		<lab name="lab06" active="n">Building Out Our Diner</lab>
-		<tutorial name="ci-fun01" active="n">Add roles &amp; Caboose</tutorial>
+		<tutorial name="ci-fun01" active="n">Add roles &amp; Caboose</tutorial>-->
 	</week>
 	<week num="9">
 		<topic>Building on CodeIgniter</topic>
 		<outcomes>1.3, 3</outcomes>
 		<lesson name="basic05"  icon="dothis"  active="n">Building on CodeIgniter</lesson>
 		<lesson name="basic04-leftovers" active="n">Other Form Techniques</lesson>
-		<lesson name="week09" icon="read" active="n">Survey results</lesson>
-		<lesson name="basic70" active="n">Addins in a Nutshell</lesson>
+<!--		<lesson name="week09" icon="read" active="n">Survey results</lesson>
+		<lesson name="basic70" active="n">Addins in a Nutshell</lesson>-->
 	</week>
 	<week num="10">
 		<topic>Representation Glue - XML &amp; JSON</topic>
 		<outcomes>2.1</outcomes>
 		<lesson name="data01" icon="dothis" active="n">X M L</lesson>
 		<lesson name="data02"  icon="dothis"  active="n">J S O N</lesson>
-		<github name="xml" link="https://github.com/jedi-academy/example-xml" active="n">XML Examples</github>
+<!--		<github name="xml" link="https://github.com/jedi-academy/example-xml" active="n">XML Examples</github>
 		<lesson name="week10" icon="read" active="n">Survey results</lesson>
 		<lab name="lab07" active="n">Continuing Our Diner Build-out</lab>
 		<tutorial name="ci-fun02" active="n">Add Menu Item CRUD (Part A)</tutorial>
 		<tutorial name="ci-fun02b" active="n">Add Menu Item CRUD (Part B)</tutorial>
-<!--		<tutorial name="xml-xml01">XML - Basics &amp; Constraints (optional)</tutorial>
+		<tutorial name="xml-xml01">XML - Basics &amp; Constraints (optional)</tutorial>
 		<assignment name="assignment2">Functional Pantry Webapp</assignment> -->
 	</week>
 	<week num="11">
@@ -114,27 +114,27 @@ Course organizer for Comp4711
 		<outcomes>2.1, 2.2</outcomes>
 		<lesson name="xml03" icon="dothis" active="n">Processing XML</lesson>
 		<lesson name="week11" icon="read" active="n">Survey results</lesson>
-		<github name="example-simplexml" link="https://github.com/jedi-academy/example-simplexml-winter2016" active="n">SimpleXML Examples</github>
+<!--		<github name="example-simplexml" link="https://github.com/jedi-academy/example-simplexml-winter2016" active="n">SimpleXML Examples</github>
 		<lab name="lab08" active="n">Finishing Our Diner Build-out</lab>
-		<tutorial name="xml-xml02" active="n">Handle Sales Orders With XML</tutorial>
+		<tutorial name="xml-xml02" active="n">Handle Sales Orders With XML</tutorial>-->
 	</week>
 	<week num="12">
 		<topic>Application Glue - REST</topic>
 		<outcomes>2.1, 2.3</outcomes>
 		<lesson name="advanced03" icon="dothis" active="n">REST</lesson>
 		<lesson name="advanced04"  active="n">AJAX</lesson>
-		<lesson name="week12" icon="read" active="n">Survey results</lesson>
+<!--		<lesson name="week12" icon="read" active="n">Survey results</lesson>
 		<lab name="lab09" active="n">REST</lab>
 		<tutorial name="tut-adv02" active="n">Decoupling Our Diner</tutorial>
-		<assignment name="assignment2" active="n">Functional Pantry Webapp</assignment>
+		<assignment name="assignment2" active="n">Functional Pantry Webapp</assignment>-->
 	</week>
 	<week num="13">
 		<topic>Authentication &amp; Review</topic>
 		<outcomes>2.1, 2.2, 2.3</outcomes>
 		<lesson name="advanced01" survey="262768" icon="dothis" active="n">Authentication</lesson>
 		<lesson name="final"  active="n">Final Exam Review</lesson>
-		<lesson name="week13" icon="read" active="n">Survey results</lesson>
-		<tutorial name="tut-adv01" active="n">Authentication</tutorial>
+<!--		<lesson name="week13" icon="read" active="n">Survey results</lesson>
+		<tutorial name="tut-adv01" active="n">Authentication</tutorial>-->
 	</week>
 	<week num="15">
 		<topic>Final Exam Week</topic>

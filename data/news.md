@@ -1,5 +1,5 @@
-**Week 5** *(Mon Feb 06, 13:45)*  
-- Readings & surveys posted; the surveys close Monday 9pm
+**Week 5** *(Tue Feb 07, 08:30)*  
+- Survey processed, and a new presentation added :-/
 - Assignment 1 posted. Reading it over before lab would be a good idea.
 It is a lengthy writeup, as I have erred on the side of caution and completeness.
 This assignment isn't super huge, but it is important :-/

@@ -385,10 +385,10 @@ Lesson 03 - Models
             <li>
                 <code>application/config/database.php</code> should be unchanged</li>
             <li>
-                <code>application/config/developmnent/database.php</code> should
+                <code>application/config/development/database.php</code> should
                 hold your database configuration settings</li>
             <li>
-                <code>application/config/developmnent</code> is "git ignored"</li>
+                <code>application/config/development</code> is "git ignored"</li>
             <li>Each team member then uses their own database
                 configuration</li>                    
             <li>I will add my <code>application/config/development</code>
