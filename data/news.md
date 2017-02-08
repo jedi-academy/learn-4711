@@ -1,9 +1,10 @@
-**Week 5** *(Tue Feb 07, 08:30)*  
+**Week 5** *(Tue Feb 07, 21:00)*  
 - Survey processed, and a new presentation added :-/
 - Assignment 1 posted. Reading it over before lab would be a good idea.
 It is a lengthy writeup, as I have erred on the side of caution and completeness.
 This assignment isn't super huge, but it is important :-/
 My server for this will be up in the next day or two :)
+- Updated the assignment 1 FAQ
 
 **Labs** *(Sat Feb 04, 08:00)*  
 - Lab 2 marking continues.  

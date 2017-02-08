@@ -29,3 +29,11 @@ and view templates if you wish to use them.
 You don't *have* to use the template parser. You could use a third party templating engine
 or conventional views. Just remember that PHP script in your view files will cost you marks.
 
+## Where can we get "inspiration" from?
+
+Lab 2 might provide better inspiration for this assignment.
+
+-   Its homepage could prove handy for your "parts page"
+-   Its quotes model is an example of a mock table model
+-   Its view templating is a good example of what would be appropriate for your views
+
