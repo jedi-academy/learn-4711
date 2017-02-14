@@ -65,14 +65,14 @@ Course organizer for Comp4711
 		<outcomes>1.2 (views), 3</outcomes>
 		<inlab>#5 Views</inlab>
 		<lesson name="basic04-basics"  icon="dothis"  survey="266874">View Basics</lesson>
-<!--		<lesson name="week06" icon="read" active="n">Survey results</lesson>
-		<github name="views" link="https://github.com/jedi-academy/example-views" active="n">Examples to support "views" lessons</github> 
+		<lesson name="week06" icon="read" >Survey results</lesson>
+		<github name="views" link="https://github.com/jedi-academy/example-views" >Examples to support "views" lessons</github> 
 		<lesson name="basic69">Views in a Nutshell</lesson>
-		<assignment name="gallery1" icon="read" active="n">Project gallery</assignment>
-		<lab name="lab05" active="n">Kaleidoscope</lab>
-		<tutorial name="ci-views01" active="n">Homepage construction &amp; assembly</tutorial>
-		<tutorial name="ci-views02" active="n">Construction using markdown</tutorial>
-		<tutorial name="ci-views03" active="n">Order entry page</tutorial>-->
+<!--		<assignment name="gallery1" icon="read" active="n">Project gallery</assignment>-->
+		<lab name="lab05" >Kaleidoscope</lab>
+		<tutorial name="ci-views01" >Homepage construction &amp; assembly</tutorial>
+		<tutorial name="ci-views02" >Construction using markdown</tutorial>
+		<tutorial name="ci-views03" >Order entry page</tutorial>
 	</week>
 	<week num="7">
 		<topic>Midterm exam week</topic>

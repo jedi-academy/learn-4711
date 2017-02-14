@@ -3,7 +3,7 @@
 Responses for the survey ready on time follow, with the number of similar
 responses shown to the right of a response.
 	
-There were 32 responders.	
+There were 31 responders.	
 	
 I have interpreted and aggregated some of the results, in hopefully an appropriate fashion.
 It was hard, because there were a lot of answers, covering a lot of different
@@ -12,172 +12,132 @@ of preparing the online lesson, so it is more focused.
 	
 ##WEEK 6 – VIEW BASICS	
 	
-###What do *you* think the most important takeaways are from this lesson?	
-	
-- **Template parser and view fragments**	10
-- proper ways to pass parameters to view cleanly	8
-- **Separation of concerns – Logic should not be in views.**	5
-- view construction using the template parser	5
-- View construction	4
-- It's better to have php variables inside the controller as supposed to inside the view	3
-- **The differences between the traditional , template parser , and view fragment approaches.**	3
-- View Assembly Strategies	3
-- CI syntax when using variables in views	2
-- CI view ability	2
-- Learning responsive layout	2  
-_Interesting - I added this reminder from COMP1536 for completeness_
-- Templating engine	2
-- CI has options for layout, and can integrate popular packages into CI webapp.	
-- Client side doesn't see the PHP	
-- code example	
-- Compare PHP view syntax and CI view syntax	
-- Controllers and Views used in conjunction is very powerful and has a lot of functionality	
-- Controllers can make creating responsive layouts really easy	
-- Escaping regular expresions is hell	
-- how to properly build a view	
-- HTML handling	
-- layouts	
-- That the CI framework has a template engine which helps make the view code more readable than in-line PHP.	
-- The annoying/roundabout method is the better method	
-- Traditional view construction is bad	
-- Understanding CI views	
-- Use html_escape to escape variable values	
-- view and the different approaches	
-- View Construction & Assembly	
-- View data output	
-- You are able to pass variables into views that can be used to display data.	
-- You can create layouts that can be used as a template for views.	
-	
-	
 ###What are topics from the lesson that *you* feel need more or better explanation?	
-	
-- Escaping values, cross-site scripting	5  
-**_This gets complicated. I will address it briefly in class, and may select
-Zend\Escaper as the third party addin to integrate, when that comes up in lab._**  
-_You might find the [CodeIgniter 4 security guidelines](https://bcit-ci.github.io/CodeIgniter4/concepts/security.html) interesting :)_
-- View Construction Approaches	4  
-_What more would you like to know?_
-- Multiple Layouts	3  
-_I will add this to one of the labs_
-- Many images are broken	2
-_Oops - I didn't realize that, and have fixed it._  
-**I am setting up a continuous deployment server, driven by git pushes/merges**
-- pros and cons of curly brace syntax	2  
-_Braces **are** the way to denote a substitution variable for the parser_
-- View assembly strategies	2  
-_Plan separate internal methods for each "panel" in your layout, regardless of the strategy you plan to use.  
-Plan separate suncontrollers for those "panels" that you plan to reload using AJAX._
-- Can we take a closer look at parser logic?  
-_Not sure what you are getting at here_
-- ci parser	
-- For a responsive layout, although it is mainly done through CSS/JS, would this affect the php code that interacts with the view?  
-_See the answer above about "panels"_
-- How Parsers work, benefits and usual uses?  
+
+- Client-Driven Layouts	3  
+_Managed client-side, using JS.
+You can "support" this situation if you provide multiple endpoints
+(eg subcontrollers) that each movable panel might be bound to._
+- Multiple Layout, provide example	2  
+_The [Vancouver Sun](http://vancouversun.com/) has different layouts even on the homepage. Generally,
+one layout for a [section](http://vancouversun.com/category/news/local-news),
+a different layout for [stories](http://vancouversun.com/news/local-news/burger-king-b-c-judge-awards-46000-to-cook-fired-for-taking-food),
+yet another one for [classifieds](http://classifieds.vancouversun.com/) and so on!_
+- CI View/Parser	 
+_The `view` handler is a method inside `Loader`. It uses PHP's `extract` method
+to import the view parameters (associative array) into the local
+symbol table, then "processes" a view source file.  
+The `Parser` reads a view source file, then performs string substitutions
+based on the parameters passed as an associative array._  
 _A "parser" substitutes values for variables denoted specially.  
 A templating engine adds one or more of: logic constructs, extensions for other tools,
 layout support, etc._
-- How the parser recognises the curly braces and asocciated them with PHP	
-_It could be a "lexical" parser, which applies a formal grammar to do this, or
-it could be a "simple" parser, which uses substring replacement or regular expressions to
-find variables to substitute (the CI approach)_
-- liked to exaples with the exact location/code that I should refer  
-_If I understand your response, not gonna happen.
-Instead, I am trying to setup the example repos so they match the presentation,
-making it easy for you to find the exact code that matches a slide._
-- Responsive layout  
-_This is client-side stuff, and not in our scope.
-We can make it easier to support with judicious use of "panels"._
-- route	  
-_Not clear how to interpret your response_
-- Scoping of variables in PHP, just to cement it	  
-_Basically the same as Java, except that properties and/or methods can be
-"injected" into PHP objects, adding otherwise-out-of-scope variables.  
-PHP "includes" have the same scope as the context they are used in.  
-$this->load->view(...) uses variables that are in the scope of the CI Loader.  
-$this->parser->parse(...) uses variables that are in the scope of the CI Parser.  
-That is why we pass view parameters in an associative array ... the loader or parser
-extract them into variables that are then in scope._
-- template parser	
-- The way you personally would go about things	  
-**Myself, I use the template parser all the time, with internal and external methods
-per "panel".  
-You can see this in the CI website repo, or the learning hub repo**
-- Using the CI Parser	
-- view fregment	
-- What is the boilerplate setup needed for the template engine to be loaded and used.	  
-_"Boilerplate setup"? you can autoload the 'parser' library, or load it inside
-your base controller's constructor, or wherever you want to use it._
-- Why would webapp do variable substitution if you used {name} in the view instead of { name} (slide 13)	  
-_My slide content is run through the template parser, and my base controller already defines
-a "name" variable as a view parameter. The {name} substitution is inadvertent, but
-I haven't figured out a way to escape the curly braces in this context.  
-A better solution would be to have more specific names in my base controller,
-to avoid the possibility of name conflicts._
-- Would a view file ever be saved as ".html" or are they always saved as ".php"?  
-_If a "view" is pure HTML, it could be stored as ".html", but it owuld go in the "public"
-folder, and you would not use the CI view or parser with it.  
-If a view is intended to be processed within CI, then it is saved as ".php"
-inside the "application/views" folder somewhere.	_
+- Comparing View Construction Strategies	_Lecture_
+- Does the view have to know the name of the params? Is there a universal param that I could access instead?	 
+_You craft the view with parameters in mind, and make sure that the controller passes those on.
+In other words, the presentation should drive the naming of expected parameters._
+
+- escaping variable value	 
+_Good practice: escape anything that came from a user or outside, and which hasn't
+been vetted senseless. Also escape potentially dangerous stuff, in case you
+do something wrong.  
+Minimum "escaping": replace HTML/JS delimiters with entity codes._  
+**_This gets complicated. I will address it briefly in class, and may select
+Zend\Escaper as a third party addin to integrate, when that comes up in lab._**  
+_You might find the [CodeIgniter 4 security guidelines](https://bcit-ci.github.io/CodeIgniter4/concepts/security.html) interesting :)_
+
+- How is the View Adapter and View View-Model working	 
+_(Last week) The View Adapter pattern says that any model-extracted data is passed
+to a view as parameters, so the view is unaware of its origin.  
+The View-View-Model pattern says that you use a "widget" (panel, component,
+div, etc), which has JS code associated with it. The JS is responsible for
+building a model of data presented by that widget, and for updaitng it as needed
+from remote sources. The view is unaware of the origin or the processing.
+Super simple example, without involving an entire JS framework:
+a type-ahead box (eg Google search or email addressee composition)._
+- how pass library table to view	 
+_I don't understand the question. Libraries are not passed to a view.
+A two dimensional associative array could be passed as a view parameter,
+with the expectation that the view might format that as a table, if appropriate._
+- how to create a template view	  _Lecture/lab_
+- How to pass data from a view to controller	 
+_Views pass data to controllers either through an HTML form or by providing
+a link the user can click on, with data embedded in the link (URI segments
+or query parameters)._
+- how to safely sanitize user input data from a view	_Automatic_
+- Implementing Models	_Lab_
+- Model View  Adapter	_See above_
+- OBJECT-RELATIONAL MAPPING	 _Last week? See me if not clear_
+- Reponsive Layout.provide an actualy Example	 
+_Hmmm. The course hub is responsive - view it at different browser window
+sizes. The magic pretty much all happens in the responsive CSS/JS framework._
+- Target View Excerpt	 
+_I was referring just to the table, which might be part of a more complete view.
+By definition, that would make the table an excerpt._
+- Template Parser & Client-Driven Layout	 
+_These are two different topics. See above re client-driven layout.  
+The endpoint for a movable panel could be created using the template
+parser, or indeed any view construction strategy._
+- templating engines	_Out of scope, some examples in the
+"other frameworks" section of the course organizer._
+- Using A Base Model	_(Last week) Should be clearer after this week's lab._
+- Using templates	_Lab_
+- View assembly strategies	_Lecture/lab_  
+_Plan separate internal methods for each "panel" in your layout, regardless of the strategy you plan to use.  
+Plan separate suncontrollers for those "panels" that you plan to reload using AJAX._
+- View Construction Strategies	_Lecture/lab_
+- View Construction Using View Fragments	_Lecture/lab_
+
 	
 ###Are there other, related, questions that you would like addressed in class?	
 	
-- some picture links are broken?	3
-- Can we link multiple generated view to create a multiple layouts?	  
-_"link"? If panels are generated independently, then those could be pulled together
-or used/not used in different layouts._
-- For curly brace syntax, there are times where you need {foo}{/foo} in order to access $this->data['foo'], is there a workaround or a more efficient way	  
-_That is simply the syntax for what CI's parser calls "variable pairs".  
-Any view parameter whose value is itself an associative array is meant to be referenced like that.  
-The workaround is in the assembly strategies: view fragments!_
-- How come sometimes you need to array_merge $this->data	  
-_That is just a shorter notation, to merge the associative fields from a database record, for instance, all at once,
-rather than having individual assignment statements for each._
-- images were not loading and the form survey didnt work	
-- responsive layout design	  
-_Off topic. This was addressed in COMP1536.  
-See CSS framework user guides (eg Bootstrap) for further info_
-- the relationship between model, view, layout	  
-_"Models" are data sources used by controllers; views or layouts don't see them.  
-"View" is simply what is sent to the browser.  
-"Layout" refers to whatever techniques you might use to organize the elements that should make up a view._
-- What is "cross-site scripting"	  
-See above, or "https://en.wikipedia.org/wiki/Cross-site_scripting". 
-- When will the other survey be available?	  
-_Not in time to worry about._
-- Which syntax is the best in CI?	  
-**_yes._**
-- why is blade better than code igniter's template parser?	  
-_Good question. Why is a Cadillac better than a Kia?  
-Everyone has their own preference._
-	
-###Do you have comments or suggestions about the flipped learning process?	
-	
-- Cannot see images	8
-- I prefer the traditional lecture style	2
-- Code on page 25 is offscreen to the bottom in slides view	  
-_The "code" was simply to illustrate that you would somehow have methods
-that were obviously connected to whatever "panels" you plan to use
-in your different layouts._
+- about some database build in php  _Lab_
+- Can we use any framework for views?  
+_Hmm - your question can e interpreted several ways...  
+Outside this course - absolutely. There are many more powerful than CI's built-ins.  
+Within this course - absolutely, **if** that can be done without PHP in the view
+files, and **if** you are familiar with a templatihng engine you wish to use.  
+If your question is instead whether all the frameworks have views, yes. See
+the "other frameworks" section in the organizer._
+- hope we can see specific example of assignments to help understand requirements.  
+_If you are asking for working assignments as a guide, that is not likely.
+I try not to reuse assignments, which means that each term is different.
+That is part of the reason I try to make the assignment writeups as detailed
+as possible._
+- Is it better to not have any PHP on a view?   
+_Absolutely. "4 out of 5" dentists would agree. Seriously, most of the web
+developers I know agree with the separation of concern, while a minority
+believe that "real programmers" only use raw PHP :-/_
+- Is it good or bad to include php code in the view instead of the controller?  
+_PHP is required in the controller. See immediately above too._
+- Responsive layout is done with a desktop display in mind. What would we use if we were developing specifcally for a mobile version of the site?  
+_Er, most responsive layouts are done with a mobile display in mind, and the
+desktop is an afterthought. See [Bootstrap](http://getbootstrap.com/)._
+- security loopholes of a view  _See above re security_
+- Should we be using any of these view-rendering methodologies to inject small, focused JS scritps, or should those scripts be kept in a "scripts" folder to be loaded with the temaplate/index.php view?  
+_We have ways ... coming in week 9._
+- some library table or other library method can make view  
+_Any PHP code can `echo`, which results in output to the browser.
+Strictly speaking, that could be construed part of a "view".
+In my books, you would be "fired" for doing that._
+- The diffrenet symbol about the modeling how to use them and the meaning of them  
+_Unclear question. If refering to the ERD connectors and symbols, that is out of our
+scope ... part of COMP2714._
+- View Construction using View Fragments vs View Construction Using the Template Parser, cons and pros  _Lecture_
+- What is the CI parser?  _See above_
+- what other tool/framewrok would you recommand for something similar like bootstrap  _Lecture_
+- Where can I find packages to integrate into my CodeIgnihter ?  
+_The CI forum, wiki, lmgtfy.com. A curated and categorized list of addons is
+planned for the CI website, but we don't have the resources to do that at the moment._
+- Which packages do you find extremely useful?  
+_Personally, I prefer to keep my code lean, not relying on external packages if possible.
+There are a few I find indispensible: Bootstrap, erusev.com's markdown processor,
+Phil Sturgeon's REST client/server (originally).  
+I am very impressed with Redactor (on-page editor)_
+- WHy doesnt curly brace syntax work so well with PHP inside view?  
+_My problem is that the curly braces trigger variable substitutions by PHP
+, when I just want them to be "data" on my slide.
+Using markdown, I can {get} away {without} the problem :)_
+- would you recommend hardcoding the width and height for CSS and people want responsive on any device.  
+_Don't reinvent the wheel - use a responsive CSS framework! No hardcoded width/height - CSS classes instead_
 
-- especially, while doing assignment, someparts are hard to figured out. Assignments' ongoing is faster than lectures. Hope to make it even.	  
-_Not sure what you are getting at here._
-- Flipped learning overall makes classtime feel like a waste. I'd much rather recieve in depth instruction than do something I could just as easily do on my own time.	
-_Hmmm - the intent is that flipped learning provides more opportunity to have
-unclear things explained, with the basics addressed on your own time.  
-How can this be made to work better?_
-- Have the content up earlier, and in working condition. The images aren't loading. The deadline for the surveys is in 5 hours and the second survey is not readily available on the website.	
-_Agreed, but not so easily done ... there is a lot of work to enhance and/or
-restructure material (even if existing in a similar format), with supporting examples.  
-I am trying hard to make the lessons timely, but still have room for improvement.  
-Images not loading ... addressed above.  
-Second survey ... addressed in the News at the top of the course hub._
-- Having the course material on the website is nice, but I still think having PDF/PPT files to reference and read is still much better, since you can maintain a consistent format for both students and the instructor.    I have personally downloaded previous terms material to keep a local copy on my devices.	  
-_The "display" icon/link, on the right of organizer entries, provides an easier-to-read format.  
-I plan to add the ability to generate PDFs, but have not had a chance to work on that.  
-I do not have plans to provide PDF downloads for all the material - the course hub repo (current) can always be forked/cloned._
-- I wish there was more code examples regarding the view construction approach. Since, you said all your example was "legal" so I can assume that  there are other alternatives that you might prefer? Wish we could have went over those.	
-- Is the extra angled bracket a typo in "<?php $parms = ['name' =>> "Jim", 'target' => "Spuzzum"];"?	
-- Maybe more indepth explaination of the php code examples shown in the slides.	
-- more demo	
-
-##Change of plans - based on the feedback, I will address view construction/assembly in class, and defer form handling to next week!
