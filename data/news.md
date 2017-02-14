@@ -1,5 +1,5 @@
-**Week 6** *(Mon Feb 13, 11:15)*  
-- Week 6 reading posted; survey closes 9pm Monday
+**Week 6** *(Tue Feb 14, 12:00)*  
+- Today's presentation updated
 - deployment testing looking good, finally - now for a web interface for you
 
 **Labs** *(Sat Feb 11, 09:15)*  
