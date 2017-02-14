@@ -80,9 +80,11 @@ team members for each.
 - [Job 1 - Database and models](/display/tutorial/ci-todo01)
 - [Job 2 - Homepage Features](/display/tutorial/ci-todo02)
 - [Job 3 - Ordered List Page Features](/display/tutorial/ci-todo03)
-- [Job 4 - Maintenance Page Features](/display/tutorial/ci-todo04)
+- Job 4 - Maintenance Page Features -- deferred to next week
 - [Job 5 - Help Wanted Page Features](/display/tutorial/ci-todo05)
 
+Note: not doing job 4, the "Maintenance" link in the navbar will five a 404.
+If that bothers you, make an `Mtce` controller with a dummy view :-/
 #Wrapup
 
 <div class="alert alert-info">
