@@ -89,10 +89,14 @@ with sensitive information. Remember to `git ignore` this folder, so that its co
 are not pushed to your repo or team repo. If you want to deplot your webapp, folders
 like this may need to be copied to the server separately from the rest of the app.
 
+<div class="alert alert-info">
 What I often do is modify `public/index.php` to test the server name my app is running as,
 and set the environment to "development" id the server name contains ".local", and
 to "production" if the server name contains ".com".
 You can also specify an Apache environment variable, `CI_ENV`, to specify the environment to use.
+
+You don't have to either of these for this lab - just pointing out best practices.
+</div>
 
 #E. Now we can configure our database access in CI 
 
