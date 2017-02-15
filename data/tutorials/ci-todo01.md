@@ -96,7 +96,7 @@ You can also specify an Apache environment variable, `CI_ENV`, to specify the en
 
 #E. Now we can configure our database access in CI 
 
-Copy `application/config/database.php` to `application/config/development/cdatabase.php` - we will work with the latter.
+Copy `application/config/database.php` to `application/config/development/database.php` - we will work with the latter.
 
 Specify your local settings...
 
@@ -123,7 +123,7 @@ There are six tables, and we will one model for each of them. The project starte
 contains the base model that I showed you in class, which will make our life much easier.
 
 I suggest naming the models after the tables. The first one, for instance, will be
-`application/models.Flags.php` ...
+`application/models/Flags.php` ...
 
     class Flags extends MY_Model {
 
