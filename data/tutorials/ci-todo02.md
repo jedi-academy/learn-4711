@@ -136,7 +136,7 @@ And we should put that inside a repeating group...
     {display_tasks}
     <tr>
         <td>{id}</td>
-        <td>{name}</td>
+        <td>{task}</td>
         <td>{priority}</td>
     </tr>
     {/display_tasks}
