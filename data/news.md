@@ -1,8 +1,7 @@
-**Week 6** *(Tue Feb 14, 15:45)*  
+**Week 6** *(Wed Feb 15, 01:30)*  
 - Today's presentation updated
 - deployment testing looking good, finally - now for a web interface for you
-- Lab 5 is up, but with hiccups in Step 4. I will correct that this evening, sorry!
-The steps do have to be completed in order, after all :(
+- Lab 5 is up, and "Job 3" for it has been fixed :)
 
 **Labs** *(Sat Feb 11, 09:15)*  
 - Lab 2 marking continues.  

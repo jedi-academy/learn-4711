@@ -53,8 +53,10 @@ our original `Welcome`, but named `Views` to match the navbar link.
 
     }
 
-If you provide empty `by_priority.php` and `by_category.php` view files,
+If you provide empty `views/by_priority.php` and `views/by_category.php` view files,
 the page will render without errors, but without any task lists.
+
+#C. Fix another base controller hiccup
 
 Let's add a simple title to each of these ordered views, so we can get a 
 better feel for the layout.
@@ -77,10 +79,10 @@ Fix this, and... ??
 
 <img class="scale" src="/pix/tutorials/todo/54.png"/>
 
-The two bits of text should be side by side. Well, I am going to defer solving that,
-and work further with the panels that go inside the two column layout.
+The two bits of text should be side by side, but I had issues with the CSS
+styling for that, and we'll have to live with stacked.
 
-Having two panels, effectively, is a natural case for having
+Having two panels in the layout is a natural case for having
 each panel rendered by a separate method in our controller.
 We have already extracted the complete list of tasks, and can pass that
 as a parameter to avoid extra work.
@@ -90,13 +92,13 @@ as a parameter to avoid extra work.
 
 Now we have two smaller, but similar problems to solve.
 
-#C. Flesh out the prioritized view
+#D. Flesh out the prioritized view
 
 We can exploit the table we used on the homepage, to adjust the panel
 views to suit our purpose. For instance, the `by_priority.php` view
 would look like
 
-    <h3>Tasks by Category</h3>
+    <h3>Tasks by Priority</h3>
     <table class="table">
         <tr>
             <th>Id</th>
@@ -121,10 +123,153 @@ Here's a start:
         return $this->parser->parse('by_priority',$parms,true);
     }
 
-*****************************************************
-I ran out of time here, and will continue elaborating this evening.
+<div class="alert alert-info">
+The prioritized task panel is coming up full width, and I cannot see why :(
+I am moving on - life is too short! Perhaps one of you can see what I am doing wrong.
+</div>
 
-COMP4G: I suggest returning to this job once it is fixed.
+We need to extract the outstanding tasks, order tham by 
+priority, and pass those as a view parameter.
+
+Extracting the undone tasks is similar to what you saw in `Welcome`..
+
+    function makePrioritizedPanel($tasks)
+    {
+        // extract the undone tasks
+        foreach ($tasks as $task)
+        {
+            if ($task->status != 2)
+                $undone[] = $task;
+        }
+        ...
+
+For sorting these, we can use a [user-defined sort function](http://ca3.php.net/manual/en/function.usort.php),
+the "PHP way". This function behaves similar to `compareTo` in Java, and it
+is defined outside of the class braces. So, at the bottom of our Views class, below the last
+brace:
+
+    // return -1, 0, or 1 of $a's priority is higher, equal to, or lower than $b's
+    function orderByPriority($a, $b)
+    {
+        if ($a->priority > $b->priority)
+            return -1;
+        elseif ($a->priority < $b->priority)
+            return 1;
+        else
+            return 0;
+    }
+
+inside `makePrioritizedPanel`, we can now perform this sort...
+
+    // order them by priority
+    usort($undone, "orderByPriority");
+
+and we should replace the priority code with the appropriate name...
+
+    // substitute the priority name
+    foreach ($undone as $task)
+        $task->priority = $this->priorities->get($task->priority)->name;
+
+The objects need to be converted to associative arrays, to use as view parameters...
+
+    // convert the array of task objects into an array of associative objects		
+    foreach ($undone as $task)
+        $converted[] = (array) $task;
+
+and we are finally ready to pass those to the template parser as a parameter.
+
+        // and then pass them on
+        $parms = ['display_tasks' => $converted];
+        return $this->parser->parse('by_priority', $parms, true);
+    }
+
+Long-winded, to be sure, but I hope it makes more sense now that the code
+you have seen over the last few weeks :) Your results should look something like:
+
+<img class="scale" src="/pix/tutorials/todo/55.png"/>
+
+#E. Flesh out the categorized view
+
+The categorized task panel can be handled very similarly, but let's put the logic
+inside out `Tasks` model, so you can see the difference.
+
+Remember how the `makePrioritized` method was getting a bit long? Here is the 
+`makeCategorizedPanel` method, with the bulk of the logic inside a model...
+
+    function makeCategorizedPanel($tasks)
+    {
+        $parms = ['display_tasks' => $this->tasks->getCategorizedTasks()];
+        return $this->parser->parse('by_category', $parms, true);
+    }
+
+Hmmm - we don't even need the `$tasks` parameter, since we are calling the
+`$this->tasks` model instead.
+
+We will need to add a method inside `models/Tasks.php`...
+
+    function getCategorizedTasks()
+    {
+        // extract the undone tasks
+        foreach ($this->all() as $task)
+        {
+            if ($task->status != 2)
+                $undone[] = $task;
+        }
+
+        // substitute the category name, for sorting
+        foreach ($undone as $task)
+            $task->group = $this->groups->get($task->group)->name;
+
+        // order them by category
+        usort($undone, "orderByCategory");
+
+
+        // convert the array of task objects into an array of associative objects		
+        foreach ($undone as $task)
+            $converted[] = (array) $task;
+
+	return $converted;
+    }
+
+The `Tasks` model will need its own sorting function after the class definition...
+
+    // return -1, 0, or 1 of $a's category name is earlier, equal to, or later than $b's
+    function orderByCategory($a, $b)
+    {
+        if ($a->group < $b->group)
+            return -1;
+        elseif ($a->group > $b->group)
+            return 1;
+        else
+            return 0;
+    }
+
+And the `by_category.php` view, while very similar to the prioritized one, will need
+to be tailored for this panel...
+
+    <h3>Tasks by Category</h3>
+
+    <table class="table">
+            <tr>
+                    <th>Id</th>
+                    <th>Task</th>
+                    <th>Category</th>
+            </tr>
+            {display_tasks}
+            <tr>
+                <td>{id}</td>
+                <td>{task}</td>
+       		<td>{group}</td>
+            </tr>
+            {/display_tasks}	
+    </table>
+
+Did it work? Did you get something like this...?
+
+<img class="scale" src="/pix/tutorials/todo/56.png"/>
+
+Decide for yourself where it makes most sense to perform data filtering
+and conversion!
 
 <div class="alert alert-info">
 Synch, commit, push, merge, synch ... you know the drill.
