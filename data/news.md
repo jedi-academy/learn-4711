@@ -1,4 +1,4 @@
-**Week 6** *(Wed Feb 15, 01:30)*  
+**Week 6** *(Wed Feb 15, 09:30)*  
 - Today's presentation updated
 - deployment testing looking good, finally - now for a web interface for you
 - Lab 5 is up, and "Job 3" for it has been fixed :)
