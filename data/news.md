@@ -3,6 +3,7 @@
 - deployment testing looking good, finally - now for a web interface for you
 - Lab 5 is up, and "Job 3" for it has been fixed :)
 
+**Week 6** *(Thu Feb 16, 09:30)*  
 **OH NO** My Job3 tutorial has Bootstrap 3 styling, but my starter comes with Bootstrap 2.
 That is why my two ordered columns do not show up side-by-side.
 
