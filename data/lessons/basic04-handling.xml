@@ -34,7 +34,8 @@ Views - Form Handling
         <div class="left">
             <p>The <a href="https://github.com/jedi-academy/example-forms" target="_blank">example-forms</a>
                 repository is used for this lesson, specifically the
-            "handling" link on the homepage.</p>
+            "handling" link on the homepage, which invokes the
+            <code>Handling</code> controller.</p>
         </div>
         <div class="right">
             <br/>
@@ -42,7 +43,7 @@ Views - Form Handling
         </div>
     </slide>
 
-    <slide title="Sample Data to Handle" layout="normal">
+    <slide title="Sample Data to Handle (basics)" layout="normal">
         <div class="left">
             <p>The webapp includes a sample "record",
             built in the handling constructor.</p>
@@ -76,8 +77,8 @@ $this->starter = $starter;
             <img class="scale" src="/pix/lessons/forms/f05.png"/>
         </div>
     </slide>
-
-    <slide title="Handling Input Traditionally" layout="normal">
+ 
+    <slide title="Handling Input Traditionally (q01)" layout="normal">
         <p>The traditional PHP approach to handling form input is to use
             the <code>$_POST</code> superglobal, which gives access
             to the form fields. This would look something like...
@@ -95,7 +96,7 @@ $record->message = $_POST['message'];
         </code></pre>
     </slide>
 
-    <slide title="Handling Input Using CodeIgniter" layout="normal">
+    <slide title="Handling Input Using CodeIgniter q02" layout="normal">
         <p>CodeIgniter provides an <a href="http://www.codeigniter.com/userguide3/libraries/input.html"
                                       target="_blank">
                 Input class</a> to do the same job.</p>
@@ -116,7 +117,7 @@ $record->message = $this->input->post('message');
         </code></pre>
     </slide>
 
-    <slide title="2. ERROR HANDLING" layout="normal" tag="tag2">
+    <slide title="2. ERROR HANDLING (q03)" layout="normal" tag="tag2">
         <div class="left">
             <p>You should not trust submitted data.</p>
             <p>At a minimum, you need some basic error handling.
@@ -140,7 +141,7 @@ if ((!empty($record->message)) &amp;&amp; (strlen($record->message) &lt; 10))
         </div>
     </slide>
 
-    <slide title="Displaying errors">
+    <slide title="Displaying errors (q03)">
         <div class="left">
         <p>Displaying errors becomes part of the normal output.</p>
         <p>It would be nice to format them, perhaps color-coded.
@@ -165,7 +166,7 @@ if (!empty($errors)) {
         </div>
     </slide>
     
-    <slide title="CodeIgniter's Form Validation">
+    <slide title="CodeIgniter's Form Validation (q04)">
         <p>CodeIgniter provides a <a href="http://www.codeigniter.com/userguide3/libraries/form_validation.html"
                                      target="_blank">
                 Form Validation class</a> for this purpose.
@@ -288,7 +289,7 @@ $config['sess_regenerate_destroy'] = FALSE;
             </ul>
         </p>
     </slide>
-    <slide title="4. DATA TRANSFER BUFFER" layout="normal" tag="tag4">
+    <slide title="4. DATA TRANSFER BUFFER (p05/q05)" layout="normal" tag="tag4">
         <p>The <a href="https://en.wikipedia.org/wiki/Data_transfer_object">data transfer buffer</a> 
             design pattern says that you use a session
             object to hold field values for

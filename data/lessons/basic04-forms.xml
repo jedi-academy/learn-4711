@@ -53,7 +53,9 @@ Views - Form Handling
     <slide title="Generating HTML" layout="normal">
         <div class="left">
             <p>This lesson is supported
-                by the first homepage link, "Generating HTML forms".</p>
+                by the first homepage link, "Generating HTML forms",
+                which is implemented by the <code>Generating</code> controller.
+            </p>
             <p>Each of the menu items, on the left side, trigger the processing
                 and creating of an HTML form, but using a different technique.
                 The results are shown to the right, and they should purposefully
@@ -67,7 +69,7 @@ Views - Form Handling
         </div>
     </slide>
 
-    <slide title="Basic Form" layout="normal">
+    <slide title="Basic Form (p01)" layout="normal">
         <div class="left">
             <p>You could always build a form in pure HTML, right?</p>
             <p>It doesn't get much simpler for our code:</p>
@@ -93,7 +95,7 @@ Views - Form Handling
         </div>
     </slide>
 
-    <slide title="Use the HTML Helper" layout="normal">
+    <slide title="Use the HTML Helper (p02)" layout="normal">
         <div class="left">
             <p>CodeIgniter has an 
                 <a href="http://www.codeigniter.com/user_guide/helpers/html_helper.html" target="_blank">HTML helper</a>, 
@@ -130,7 +132,7 @@ $this->parser->parse("bob/p02", $parms);
         </div>
     </slide>
 
-    <slide title="Use the Form Helper" layout="normal">
+    <slide title="Use the Form Helper (p03/p04)" layout="normal">
         <div class="left">
             <p>CodeIgniter has a <a href="http://www.codeigniter.com/user_guide/helpers/form_helper.html" target="_blank">Form helper</a> 
                 too, which let's us
@@ -166,14 +168,13 @@ $forming .= form_checkbox('opt3', true, true) . ' Ketchup' . br();
         </div>
     </slide>
 
-    <slide title="Adding data" layout="normal">
+    <slide title="Adding data (p05)" layout="normal">
         <div class="left">
             <p>Regardless of the general strategy, we want
                 to incorporate some data. I have setup a 
                 <code>$starter</code> object to work with, in
                 all of the forms.
-            </p>
-            <p>That could be used inside a controller, as an array:</p>
+            That could be used inside a controller, as an array:</p>
             <pre>
                 <code>
 $record = (array) $this->starter;
@@ -209,7 +210,7 @@ $this->parser->parse("bob/p05", $parms);
         </div>
     </slide>
 
-    <slide title="Data in Object Form" layout="normal">
+    <slide title="Data in Object Form (p06)" layout="normal">
         <div class="left">
             <p>The data could also be used, inside our controller,
                 as an object. The view would not change</p>
@@ -250,7 +251,7 @@ $this->parser->parse("bob/p05", $parms);
         </div>
     </slide>
 
-    <slide title="Building Fields" layout="normal">
+    <slide title="Building Fields (p07)" layout="normal">
         <div class="left">
             <p>What does it look like when we use the Form helper
                 to build fields to pass as view parameters?</p>
@@ -290,10 +291,11 @@ $parms = array(
         </div>
     </slide>
 
-    <slide title="Use Our Own Helper" layout="normal">
+    <slide title="Use Our Own Helper (p08)" layout="normal">
         <div class="left">
             <p>You might feel that the form helper is a bit clunky.
-                You could always use a custom form helper...</p>
+                You could always use a custom form helper
+                (addressed in more detail next week)...</p>
             <pre>
                 <code>
 $record = $this->starter;
