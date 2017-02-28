@@ -60,8 +60,8 @@ is "clean".
 There are three jobs to do to complete the lab. I suggest that you switch
 team members for each.
 
-- [Job 4 - Maintenance list](/display/tutorial/ci-todo4)
-- [Job 6 - Pagination](/display/tutorial/ci-todo6)
+- [Job 4 - Maintenance list](/display/tutorial/ci-todo04)
+- [Job 6 - Pagination](/display/tutorial/ci-todo06)
 - [Job 7 - User roles](/display/tutorial/ci-todo07)
 - Job 8 - Item maintenance ... next week, the easy way
 
