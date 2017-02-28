@@ -2,13 +2,19 @@
 <!--
 Views - Form Handling
 -->
-<lesson status="2.0 beta">
+<lesson status="2.1">
     <slide title="Golden Rules" layout="normal">
         <ul>
             <li>No PHP in the views</li>
             <li>No HTML in the controllers!</li>
             <li>Think model-view-adapter!</li>
         </ul>
+        <p>
+            <em>These support "separation of concerns".<br/>
+        These are not CodeIgniter-specific. They apply to multiple
+        frameworks and languages.<br/>
+        <strong>This is a "web thing"!</strong></em>
+        </p>
     </slide>
 
     <slide title="Working with HTML Forms" layout="normal" tag="tag1">
@@ -24,7 +30,7 @@ Views - Form Handling
         <p>
             <i>This lesson lends itself more to an in-class
                 presentation, with explanation of the pros and cons of
-                each of the techniques. There is no simgle right answer
+                each of the techniques. There is no single right answer
                 for all circumstances!
                 Don't get hung on on the misformatting ... the slides are cues to
                 check out specific pieces of the example webapp!!</i>

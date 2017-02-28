@@ -1,5 +1,6 @@
-**Week 8** *(Sat Feb 25, 09:00)*  
-- Forms presentation(s) posted. Survey closes 21:00 Monday.
+**Week 8** *(Tue Feb 28, too early)*  
+- Forms presentation(s) posted. 
+- Surveys processed, and presentations updated.
 
 **Deployment Server** *(Mon Feb 27, 16:00)*  
 The deployment server is ready, though there may be bugs :-/  

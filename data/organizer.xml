@@ -84,10 +84,12 @@ Course organizer for Comp4711
 		<inlab>#6 Model CRUD</inlab>
 		<lesson name="basic04-forms" icon="dothis">Creating Forms</lesson>
 		<lesson name="basic04-handling" icon="dothis" survey="266876">Handling Form Data</lesson>
-<!--		<lesson name="week08" icon="read" active="n">Survey results</lesson>
-		<lab name="lab06" active="n">Building Out Our Diner</lab>
+		<lesson name="week08" icon="read">Survey results</lesson>
+<!--		<lab name="lab06">Building Out Our TODO List</lab>
 		<tutorial name="ci-todo04" >Flexible List Page Features</tutorial>
-		<tutorial name="ci-fun01" active="n">Add roles &amp; Caboose</tutorial>-->
+		<tutorial name="ci-fun01">Add roles &amp; Caboose</tutorial>
+		<tutorial name="ci-fun02">Add TODO Item CRUD (Part A)</tutorial>
+		<tutorial name="ci-fun03">Add Menu Item CRUD (Part B)</tutorial>-->
 	</week>
 	<week num="9">
 		<topic>Building on CodeIgniter</topic>
@@ -105,8 +107,6 @@ Course organizer for Comp4711
 <!--		<github name="xml" link="https://github.com/jedi-academy/example-xml" active="n">XML Examples</github>
 		<lesson name="week10" icon="read" active="n">Survey results</lesson>
 		<lab name="lab07" active="n">Continuing Our Diner Build-out</lab>
-		<tutorial name="ci-fun02" active="n">Add Menu Item CRUD (Part A)</tutorial>
-		<tutorial name="ci-fun02b" active="n">Add Menu Item CRUD (Part B)</tutorial>
 		<tutorial name="xml-xml01">XML - Basics &amp; Constraints (optional)</tutorial>
 		<assignment name="assignment2">Functional Pantry Webapp</assignment> -->
 	</week>

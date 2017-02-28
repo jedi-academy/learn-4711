@@ -2,13 +2,21 @@
 <!--
 Views - Form Handling
 -->
-<lesson status="2.0 beta">
+<lesson status="2.1">
     <slide title="Golden Rule" layout="normal">
         <ul>
             <li>Never! trust! outside! data!</li>
             <li>Never! trust! outside! data!</li>
             <li>Never! trust! outside! data!</li>
         </ul>
+        <p>
+            <em>Server-side code needs to be bullet-proof.
+                The consequences of failure are potentially catestrophic.<br/>
+                This is not CodeIgniter-specific. It applies to every
+                framework and language.<br/>
+                <strong>This is a "web thing"!</strong>
+            </em>
+        </p>
     </slide>
 
     <!-- Agenda -->
@@ -34,8 +42,8 @@ Views - Form Handling
         <div class="left">
             <p>The <a href="https://github.com/jedi-academy/example-forms" target="_blank">example-forms</a>
                 repository is used for this lesson, specifically the
-            "handling" link on the homepage, which invokes the
-            <code>Handling</code> controller.</p>
+                "handling" link on the homepage, which invokes the
+                <code>Handling</code> controller.</p>
         </div>
         <div class="right">
             <br/>
@@ -46,22 +54,23 @@ Views - Form Handling
     <slide title="Sample Data to Handle (basics)" layout="normal">
         <div class="left">
             <p>The webapp includes a sample "record",
-            built in the handling constructor.</p>
+                built in the handling constructor.</p>
         </div>
         <div class="right">
-            <pre><code>
-// a record object to work with
-$starter = new stdClass();
-$starter->name = 'George';
-$starter->size = 'lg';
-$starter->cup = 'steel';
-$starter->opt1 = true;
-$starter->opt2 = false;
-$starter->opt3 = true;
-$starter->extra = 1;
-$starter->message = 'Shaken, not stirred';
-$this->starter = $starter;
-            </code>
+            <pre>
+                <code>
+                    // a record object to work with
+                    $starter = new stdClass();
+                    $starter->name = 'George';
+                    $starter->size = 'lg';
+                    $starter->cup = 'steel';
+                    $starter->opt1 = true;
+                    $starter->opt2 = false;
+                    $starter->opt3 = true;
+                    $starter->extra = 1;
+                    $starter->message = 'Shaken, not stirred';
+                    $this->starter = $starter;
+                </code>
             </pre>        
         </div>
     </slide>
@@ -69,8 +78,8 @@ $this->starter = $starter;
     <slide title="Sample Handling Output" layout="normal">
         <div class="left">
             <p>Each subcontroller processes the data
-            using a different technique, with results
-            displayed in the right panel.</p>
+                using a different technique, with results
+                displayed in the right panel.</p>
         </div>
         <div class="right">
             <br/>
@@ -83,82 +92,90 @@ $this->starter = $starter;
             the <code>$_POST</code> superglobal, which gives access
             to the form fields. This would look something like...
         </p>
-        <pre><code>
-$record = new stdClass();
-$record->name = $_POST['name'];
-$record->size = $_POST['size'];
-$record->cup = $_POST['cup'];
-$record->opt1 = isset($_POST['opt1']) ? true : false;
-$record->opt2 = isset($_POST['opt2']) ? true : false;
-$record->opt3 = isset($_POST['opt3']) ? true : false;
-$record->extra = $_POST['extra'];
-$record->message = $_POST['message'];
-        </code></pre>
+        <pre>
+            <code>
+                $record = new stdClass();
+                $record->name = $_POST['name'];
+                $record->size = $_POST['size'];
+                $record->cup = $_POST['cup'];
+                $record->opt1 = isset($_POST['opt1']) ? true : false;
+                $record->opt2 = isset($_POST['opt2']) ? true : false;
+                $record->opt3 = isset($_POST['opt3']) ? true : false;
+                $record->extra = $_POST['extra'];
+                $record->message = $_POST['message'];
+            </code>
+        </pre>
     </slide>
 
-    <slide title="Handling Input Using CodeIgniter q02" layout="normal">
+    <slide title="Handling Input Using CodeIgniter (q02)" layout="normal">
         <p>CodeIgniter provides an <a href="http://www.codeigniter.com/userguide3/libraries/input.html"
                                       target="_blank">
                 Input class</a> to do the same job.</p>
-            <p>The advantages of using it are input filtering, and easy access to input
+        <p>The advantages of using it are input filtering, and easy access to input
             data whether it came from a form or was part of the URL.
             This would look something like...
         </p>
-        <pre><code>
-$record = new stdClass();
-$record->name = $this->input->post('name');
-$record->size = $this->input->post('size');
-$record->cup = $this->input->post('cup');
-$record->opt1 = $this->input->post('opt1');
-$record->opt2 = $this->input->post('opt2');
-$record->opt3 = $this->input->post('opt3');
-$record->extra = $this->input->post('extra');
-$record->message = $this->input->post('message');
-        </code></pre>
+        <pre>
+            <code>
+                $record = new stdClass();
+                $record->name = $this->input->post('name');
+                $record->size = $this->input->post('size');
+                $record->cup = $this->input->post('cup');
+                $record->opt1 = $this->input->post('opt1');
+                $record->opt2 = $this->input->post('opt2');
+                $record->opt3 = $this->input->post('opt3');
+                $record->extra = $this->input->post('extra');
+                $record->message = $this->input->post('message');
+            </code>
+        </pre>
     </slide>
 
     <slide title="2. ERROR HANDLING (q03)" layout="normal" tag="tag2">
         <div class="left">
             <p>You should not trust submitted data.</p>
             <p>At a minimum, you need some basic error handling.
-            The sample code to the right builds an array of error messages.</p>
+                The sample code to the right builds an array of error messages.</p>
             <p>The intent is that nothing gets persisted unless there
-            are no errors.</p>
+                are no errors.</p>
         </div>
         <div class="right">
-        <pre><code>
-$errors = array();
-if (empty($record->name))
-        $errors[] = 'You have to provide a name';
-// purposeful error:
-if (!in_array($record->size, ['sm', 'md', 'large', 'hu']))
-        $errors[] = 'Incorrect size';
-if (!($record->opt1 || $record->opt2 || $record->opt3))
-        $errors[] = 'Must pick at least one option';
-if ((!empty($record->message)) &amp;&amp; (strlen($record->message) &lt; 10))
-        $errors[] = 'Message, if provided, must be longer than 10 chars';
-        </code></pre>
+            <pre>
+                <code>
+                    $errors = array();
+                    if (empty($record->name))
+                    $errors[] = 'You have to provide a name';
+                    // purposeful error:
+                    if (!in_array($record->size, ['sm', 'md', 'large', 'hu']))
+                    $errors[] = 'Incorrect size';
+                    if (!($record->opt1 || $record->opt2 || $record->opt3))
+                    $errors[] = 'Must pick at least one option';
+                    if ((!empty($record->message)) &amp;&amp; (strlen($record->message) &lt; 10))
+                    $errors[] = 'Message, if provided, must be longer than 10 chars';
+                </code>
+            </pre>
         </div>
     </slide>
 
     <slide title="Displaying errors (q03)">
         <div class="left">
-        <p>Displaying errors becomes part of the normal output.</p>
-        <p>It would be nice to format them, perhaps color-coded.
-        and/or attached somehow to the
-        offending fields. Not part of this lesson!</p>
-        <pre><code>
-$booboos = '';
-if (!empty($errors)) {
-    $booboos = heading('Errors detected', 2);
-    if (is_array($errors))         {
-        foreach ($errors as $error)
-            $booboos .= $error . br();
-    } else {
-        $booboos .= $errors;
-    }
-}
-        </code></pre>
+            <p>Displaying errors becomes part of the normal output.</p>
+            <p>It would be nice to format them, perhaps color-coded.
+                and/or attached somehow to the
+                offending fields. Not part of this lesson!</p>
+            <pre>
+                <code>
+                    $booboos = '';
+                    if (!empty($errors)) {
+                    $booboos = heading('Errors detected', 2);
+                    if (is_array($errors))         {
+                    foreach ($errors as $error)
+                    $booboos .= $error . br();
+                    } else {
+                    $booboos .= $errors;
+                    }
+                    }
+                </code>
+            </pre>
         </div>
         <div class="right">
             <br/>
@@ -172,18 +189,22 @@ if (!empty($errors)) {
                 Form Validation class</a> for this purpose.
             You set up rules, and then invoke the validator.
         </p>
-        <pre><code>
-$errors = array();
+        <pre>
+            <code>
+                $errors = array();
 
-$this->form_validation->set_rules('name', 'Customer name', 'required');
-$this->form_validation->set_rules('size', 'Drink size', 'in_list[sm,md,large,hu]');
-$this->form_validation->set_rules('opt1', 'Options', 'callback_need1');
+                $this->form_validation->set_rules('name', 'Customer name', 'required');
+                $this->form_validation->set_rules('size', 'Drink size', 'in_list[sm,md,large,hu]');
+                $this->form_validation->set_rules('opt1', 'Options', 'callback_need1');
 
-if ($this->form_validation->run() == TRUE) {
-        $this->showme('No validation errors');
-        return;
-}
-        </code></pre>
+                if ($this->form_validation->run() == TRUE) {
+                $this->showme('No validation errors');
+                return;
+                }
+            </code>
+        </pre>
+        <p>Note: a common practice is to provide such rules in the model
+            that would apply to the data.</p>
     </slide>
 
     <slide title="Form Validation Callbacks">
@@ -191,47 +212,68 @@ if ($this->form_validation->run() == TRUE) {
             can be configured for the validator, or if you
             want a rule to consider more than one field, 
             you can write your own rules, like the one below.
+            It would be used for the third rule on the preceding slide.
         </p>
-        <pre><code>
-function need1($str) {
-    $record = $this->record;
-    if (!($record->opt1 || $record->opt2 || $record->opt3))         {
-        $this->form_validation->set_message('need1', 'Must pick at least one option');
-        return false;
-    } else
-        return true;
-}
-        </code></pre>
+        <pre>
+            <code>
+                function need1($str) {
+                $record = $this->record;
+                if (!($record->opt1 || $record->opt2 || $record->opt3))         {
+                $this->form_validation->set_message('need1', 'Must pick at least one option');
+                return false;
+                } else
+                return true;
+                }
+            </code>
+        </pre>
     </slide>
     
     <slide title="3. SESSIONS" layout="normal" tag="tag3">
         <div class="left">
-        <p>The "data transfer buffer" design pattern relies on sessions,
-            which are handled in CodeIgniter using the
-            <a href="http://www.codeigniter.com/userguide3/libraries/sessions.html"
-               target="_blank">
-                Session library</a>, which is a wrapper for PHP's
-            native sessions.</p>
-        <p>Think of a session as a container for key/value pairs,
-            like a <code>java.util.Map</code>
-        </p>
-        <p>Autoload your session library!</p>
+            <p>The "data transfer buffer" design pattern relies on sessions,
+                which are handled in CodeIgniter using the
+                <a href="http://www.codeigniter.com/userguide3/libraries/sessions.html"
+                   target="_blank">
+                    Session library</a>, which is a wrapper for PHP's
+                native sessions.</p>
+            <p>Think of a session as a container for key/value pairs,
+                like a <code>java.util.Map</code>
+            </p>
+            <p>Autoload your session library!</p>
         </div>
         <div class="right">
             <p>You will want to configure the sessions properly, using
                 either a file system or a database session driver. 
                 If using a database, the SQL to create this is in the
                 user guide, referenced above.</p>
-        <pre><code>
-$config['sess_driver'] = 'files';
-$config['sess_cookie_name'] = 'ci_session';
-$config['sess_expiration'] = 7200;
-$config['sess_save_path'] = BASEPATH . '../writeable';
-$config['sess_match_ip'] = FALSE;
-$config['sess_time_to_update'] = 300;
-$config['sess_regenerate_destroy'] = FALSE;
-        </code></pre>
+            <pre>
+                <code>
+                    $config['sess_driver'] = 'files';
+                    $config['sess_cookie_name'] = 'ci_session';
+                    $config['sess_expiration'] = 7200;
+                    $config['sess_save_path'] = BASEPATH . '../writeable';
+                    $config['sess_match_ip'] = FALSE;
+                    $config['sess_time_to_update'] = 300;
+                    $config['sess_regenerate_destroy'] = FALSE;
+                </code>
+            </pre>
         </div>
+    </slide>
+
+    <slide title="A Bit More About Sessions" layout="normal">
+        <p>A cookie is a key/value pair stored by the user's browser.<br/>
+            A session value is a key/value pair stored server-side.<br/>
+            Sessions are a standard component of web frameworks or engines.</p>
+        <p>Each session has a unique identifier, usually stored as a cookie,
+            but awkwardly possible to encode in URLs.<br/>
+            Sessions persist according to your configuration ... minutes, days, etc.<br/>
+            Session keys are strings; session values are anything serializable (this
+            excludes "resources" in PHP).</p>
+        <p>PHP sessions are stored in files, an RDB table, or a caching database.</p>
+        <p>
+            <strong>Sessions are "how" you store stuff in a stateless environment.</strong>
+        </p>
+        <p>Of course, session management has security provisions.</p>
     </slide>
 
     <slide title="Getting Session Data" layout="normal">
@@ -251,7 +293,8 @@ $config['sess_regenerate_destroy'] = FALSE;
         </p>
         <p>The <code>userdata()</code> method returns NULL if the requested 
             entry is not in the session, while the other techniques will trigger 
-            a PHP error.</p>
+            a PHP error if the key doesn't exist.</p>
+        <p>Direct access to $_SESSION is faster; CI provides some convenience.</p>
     </slide>
 
     <slide title="Setting Session Data" layout="normal">
@@ -269,12 +312,13 @@ $config['sess_regenerate_destroy'] = FALSE;
                 </li>
             </ul>
         </p>
+        <p>Direct access to $_SESSION is faster; CI provides some convenience.</p>
     </slide>
 
     <slide title="Session Flashdata" layout="normal">
         <p>The CodeIgniter Session library also supports the notion of 
-            "flashdata", which is a session property that only exists
-            until the next request. This could be a great way to hold
+            "flashdata", which is a session property that is <strong>only retained
+                until the next request</strong>. This could be a great way to hold
             error messages, or to hold tokens used to make sure that
             a form isn't submitted and handled twice.</p>
         <p>Retrieve flashdata just like any other session data.</p>
@@ -288,6 +332,7 @@ $config['sess_regenerate_destroy'] = FALSE;
                 </li>
             </ul>
         </p>
+        <p>This is a CodeIgniter-only notion, not native PHP sessions.</p>
     </slide>
     <slide title="4. DATA TRANSFER BUFFER (p05/q05)" layout="normal" tag="tag4">
         <p>The <a href="https://en.wikipedia.org/wiki/Data_transfer_object">data transfer buffer</a> 
@@ -300,12 +345,15 @@ $config['sess_regenerate_destroy'] = FALSE;
             to record in-progress input, so that the user does not
             have to re-enter a form from scratch if they make
             a mistake and you reject their input.</p>
-            <p>This is a core 
-                <a href="http://martinfowler.com/eaaCatalog/dataTransferObject.html">enterprise 
-                    design pattern</a>,
+        <p>This is a core 
+            <a href="http://martinfowler.com/eaaCatalog/dataTransferObject.html">enterprise 
+                design pattern</a>,
             originally from Borland's 
-                    <a href="https://en.wikipedia.org/wiki/Object_Pascal">ObjectPascal</a>, but
+            <a href="https://en.wikipedia.org/wiki/Object_Pascal">ObjectPascal</a>, but
             mainstream once it was embraced by Java :-/</p>
+        <p>This is *not* a framework component, but a *cookbook* technique
+            for handling forms, using sessions in a stateless environment
+            and in-memory structures in a stateful one.</p>
     </slide>
 
     <slide title="Data Transfer Buffer Pseudo-code" layout="normal">
@@ -339,6 +387,13 @@ $config['sess_regenerate_destroy'] = FALSE;
                 </ul>
             </p>
         </div>
+    </slide>
+
+    <slide title="Data Transfer Buffer Example" layout="normal">
+        <p>In-class demo from the <a href="https://github.com/jedi-academy/umbrella" target="_blank">deployment server</a>
+            repository :)</p>
+        <p>The Vault controller in this app demonstrates use of the data transfer buffer, 
+            form validation, and error handling :)</p>
     </slide>
 
 
