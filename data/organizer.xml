@@ -81,23 +81,22 @@ Course organizer for Comp4711
 	<week num="8">
 		<topic>Forms Handling</topic>
 		<outcomes>1.2 (views), 3</outcomes>
-		<inlab>#6 Model CRUD</inlab>
+		<inlab>#6 Model CRUD Prep</inlab>
 		<lesson name="basic04-forms" icon="dothis">Creating Forms</lesson>
 		<lesson name="basic04-handling" icon="dothis" survey="266876">Handling Form Data</lesson>
 		<lesson name="week08" icon="read">Survey results</lesson>
-<!--		<lab name="lab06">Building Out Our TODO List</lab>
-		<tutorial name="ci-todo04" >Flexible List Page Features</tutorial>
-		<tutorial name="ci-fun01">Add roles &amp; Caboose</tutorial>
-		<tutorial name="ci-fun02">Add TODO Item CRUD (Part A)</tutorial>
-		<tutorial name="ci-fun03">Add Menu Item CRUD (Part B)</tutorial>-->
+		<lab name="lab06">Building Out Our TODO List</lab>
+		<tutorial name="ci-todo04" >Maintenance List</tutorial>
+		<tutorial name="ci-todo06">Pagination</tutorial>
+		<tutorial name="ci-todo07">User Roles</tutorial>
 	</week>
 	<week num="9">
 		<topic>Building on CodeIgniter</topic>
 		<outcomes>1.3, 3</outcomes>
 		<lesson name="basic05"  icon="dothis"  active="n">Building on CodeIgniter</lesson>
-		<lesson name="basic04-leftovers" active="n">Other Form Techniques</lesson>
 <!--		<lesson name="week09" icon="read" active="n">Survey results</lesson>
 		<lesson name="basic70" active="n">Addins in a Nutshell</lesson>-->
+<!--		<tutorial name="ci-todo08">Item Maintenance</tutorial>-->
 	</week>
 	<week num="10">
 		<topic>Representation Glue - XML &amp; JSON</topic>
@@ -165,6 +164,7 @@ Course organizer for Comp4711
 	</week>
 	<week num="xx">
 		<topic>Supplementary Reading FYI</topic>
+		<lesson name="basic04-leftovers"  icon="read">Other Form Techniques</lesson>
 		<lesson name="xml01" active="n">XML Basics (Optional Refresher)</lesson>
 		<lesson name="xml02" active="n">Constraining XML (Optional)</lesson>
 		<lesson name="xml04" icon="read" active="n">Data Representation Conversions</lesson>
