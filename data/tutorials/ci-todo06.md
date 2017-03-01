@@ -2,12 +2,7 @@
 
 _Part of COMP4711 Lab 6, Winter 2017_
 
-<div class="alert alert-info">
-This assumes that you have completed lab 5, or that you are working with the second starter repo.
-</div>
-
-
-#Job 4 - Pagination
+#Job 6 - Pagination
 
 So far, our maintenance item list is presentable as is, because it is small.
 This will change as the work load piles up :-/
@@ -118,7 +113,61 @@ Do you see what's coming? Our `index` method can be simplified even further:
 
 ##6.3 Pagination navigation
 
+For the pagination navigation mentioned at the beginning of this tutorial, we just need to 
+calculate the correct starting page number for each of the four links,
+and then build & style a navbar for these.
 
+The pagination navbar can come pretty much from the Bootstrap docs.
+Let's make ours `views/itemnav.php` ...
+
+    <ul class="nav nav-pills">
+            <li><a href="/mtce/page/{first}">First</a></li>
+            <li><a href="/mtce/page/{previous}">Previous</a></li>
+            <li><a href="/mtce/page/{next}">Next</a></li>
+            <li><a href="/mtce/page/{last}">Last</a></li>
+    </ul>
+
+We can add this to the top of our `itemlist` view ...
+
+    {pagination}
+    <table class="table">
+            <tr>
+                    <th>Id</th>
+                    <th>Task</th>
+                    <th>Status</th>
+            </tr>
+            {display_tasks}
+    </table>
+
+Now all we have to do is calculate the appropriate page numbers, and
+create the view parameter for this.
+
+We should add a method inside `Mtce` to do this.
+
+	// Build the pagination navbar
+	private function pagenav($num) {
+		$lastpage = ceil($this->tasks->size() / $this->items_per_page);
+		$parms = array(
+			'first' => 1,
+			'previous' => (max($num-1,1)),
+			'next' => min($num+1,$lastpage),
+			'last' => $lastpage
+		);
+		return $this->parser->parse('itemnav',$parms,true);
+	}
+
+
+And we can then insert a call to that method inside our `page` method...
+
+                ...
+		$this->data['pagination'] = $this->pagenav($num);
+		$this->show_page($tasks);
+	}
+
+You should now see a functional pagination navbar at the top of the maintenance
+item list :)
+
+<img class="scale" src="/pix/tutorials/todo/62.png"/>
 
 <div class="alert alert-info">
 Synch, commit, push, merge, synch ... you know the drill.

@@ -60,10 +60,17 @@ is "clean".
 There are four jobs to do to complete the lab. I suggest that you switch
 team members for each.
 
+<<<<<<< HEAD
 - [Job 4 - Maintenance list](/display/tutorial/ci-todo4)
 - [Job 6 - Pagination](/display/tutorial/ci-todo6)
 - [Job 7 - User roles](/display/tutorial/ci-todo07)
 - [Job 8 - Item maintenance](/display/tutorial/ci-todo08)
+=======
+- [Job 4 - Maintenance list](/display/tutorial/ci-todo04)
+- [Job 6 - Pagination](/display/tutorial/ci-todo06)
+- [Job 7 - User roles](/display/tutorial/ci-todo07)
+- Job 8 - Item maintenance ... next week, the easy way
+>>>>>>> 8e784036ef5f2b01bd7a6bf3818371a75992c9d1
 
 Yes, the job #'s seem strange, but they carry on from lab 5 :-/
 
