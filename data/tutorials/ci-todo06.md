@@ -20,7 +20,7 @@ Let's roll our own :)
 
 ##6.1 Pagination basics
 
-We need to specify how many items go on a page. This could be a property in our
+We need to specify how many items go on a page. This should be a property in our
 `Mtce` controller, set at the top of the class body. 
 
 	private $items_per_page = 10;
@@ -67,6 +67,8 @@ which takes the tasks to display as a parameter...
 The `show_page` method is private, so that it cannot be directly referenced
 from the browser.
 
+You can test your webapp now.
+
 So far, there is no apparent difference in the output. We need to refactor a bit
 so that we extract only the tasks of interest.
 
@@ -110,6 +112,8 @@ Do you see what's coming? Our `index` method can be simplified even further:
 	{
 		$this->page(1);
 	}
+
+Everything should still work, with the output being pretty much the same as before.
 
 ##6.3 Pagination navigation
 

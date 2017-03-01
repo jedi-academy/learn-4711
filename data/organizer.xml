@@ -145,6 +145,7 @@ Course organizer for Comp4711
 		<tutorial name="setup03">PHP Comparison to Java</tutorial>
                 <lesson name="dev04" icon="read" >Gitting Good</lesson>		
                 <lesson name="marking" icon="read" >Marking Process</lesson>		
+                <lesson name="webhooks" icon="read" >Webhooks for deployment testing</lesson>		
 	</week>
 	<week num="zz">
 		<topic>FAQ</topic>

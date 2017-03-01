@@ -23,7 +23,8 @@ and a separate view fragment for each item. We will build the item views (rows)
 one at a time inside our controller, and pass the result as a view parameter
 to the list view.
 
-Let's tackle the view assembly first.
+Let's tackle the view assembly first. You won't be able to properly test the changes 
+until mentioned, as they are inter-related.
 
 Copy `views/by_category.php` to `views\itemlist.php'. It is a good starting point.
 
@@ -72,7 +73,7 @@ drawing on the code in `Views` as an example, but simplifying.
 
     }
 
-The result after making these changes:
+Now you can test the changes. The result after making these changes:
 <img class="scale" src="/pix/tutorials/todo/61.png"/>
 
 ##4.2 Individual item view fragments
@@ -80,6 +81,8 @@ The result after making these changes:
 Instead of using the "variable pair", we want to build the table
 row for each item inside our controller, so that we can choose
 different presentation later.
+
+Again, you won't be able to test the next three changes until they have all been made.
 
 Extract the table row part of `itemlist` and save it in a new view, `views/oneitem.php`...
 
@@ -119,6 +122,7 @@ the actual output for those tasks instead, in our controller...
     $this->data['pagebody'] = 'itemlist';
     $this->render();
 
+Now you can test your app again.
 There is no change in the output, but it is being constructed differently.
 
 This change will let us choose a different item view template if
