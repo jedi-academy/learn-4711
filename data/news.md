@@ -3,6 +3,10 @@
 - Surveys processed, and presentations updated.
 - Lab 6 posted
 
+- Lab 6 note: SQL dump not needed, as no DB changes were made this lab.
+This is the last alert message in the lab 6 writeup.
+
+
 **Deployment Server** *(Tue Feb 28, 16:20)*  
 The deployment server is ready, though there may be bugs :-/  
 I have sent emails to each of the team captains who requested
@@ -10,8 +14,6 @@ a token.
 Of course, if you sent me your request using D2L email, which
 I previously warned you would not work, then you will have not
 received my reply :(
-
-Successful deployments: strawberry
 
 **Labs** *(Thu Feb 16, 01:15)*  
 - Lab 3 marking is in in progress

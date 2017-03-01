@@ -86,16 +86,9 @@ Course organizer for Comp4711
 		<lesson name="basic04-handling" icon="dothis" survey="266876">Handling Form Data</lesson>
 		<lesson name="week08" icon="read">Survey results</lesson>
 		<lab name="lab06">Building Out Our TODO List</lab>
-<<<<<<< HEAD
-		<tutorial name="ci-todo04" >Flexible List Page Features</tutorial>
-		<tutorial name="ci-fun01">Add roles &amp; Caboose</tutorial>
-		<tutorial name="ci-fun02">Add TODO Item CRUD (Part A)</tutorial>
-		<tutorial name="ci-fun03">Add Menu Item CRUD (Part B)</tutorial>
-=======
 		<tutorial name="ci-todo04" >Maintenance List</tutorial>
 		<tutorial name="ci-todo06">Pagination</tutorial>
 		<tutorial name="ci-todo07">User Roles</tutorial>
->>>>>>> 8e784036ef5f2b01bd7a6bf3818371a75992c9d1
 	</week>
 	<week num="9">
 		<topic>Building on CodeIgniter</topic>

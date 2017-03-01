@@ -60,17 +60,10 @@ is "clean".
 There are four jobs to do to complete the lab. I suggest that you switch
 team members for each.
 
-<<<<<<< HEAD
-- [Job 4 - Maintenance list](/display/tutorial/ci-todo4)
-- [Job 6 - Pagination](/display/tutorial/ci-todo6)
-- [Job 7 - User roles](/display/tutorial/ci-todo07)
-- [Job 8 - Item maintenance](/display/tutorial/ci-todo08)
-=======
 - [Job 4 - Maintenance list](/display/tutorial/ci-todo04)
 - [Job 6 - Pagination](/display/tutorial/ci-todo06)
 - [Job 7 - User roles](/display/tutorial/ci-todo07)
 - Job 8 - Item maintenance ... next week, the easy way
->>>>>>> 8e784036ef5f2b01bd7a6bf3818371a75992c9d1
 
 Yes, the job #'s seem strange, but they carry on from lab 5 :-/
 
@@ -80,9 +73,7 @@ Yes, the job #'s seem strange, but they carry on from lab 5 :-/
 Captain: assuming that everyone on the team agrees that
 you have completed the lab, prepare for submission.
 
-Make a SQL dump of your database, with the option to drop any existing
-tables. Put that in the <code>data</code> folder of your
-project, and delete the original starter SQL from that folder.
+Note: SQL dump not needed, as no DB changes were made this lab.
 
 It is now time
 to merge the develop branch into the master branch,
