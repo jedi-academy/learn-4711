@@ -83,7 +83,7 @@ Course organizer for Comp4711
 		<outcomes>1.2 (views), 3</outcomes>
 		<inlab>#6 Model CRUD Prep</inlab>
 		<lesson name="basic04-forms" icon="dothis">Creating Forms</lesson>
-		<lesson name="basic04-handling" icon="dothis" survey="266876">Handling Form Data</lesson>
+		<lesson name="basic04-handling" icon="dothis">Handling Form Data</lesson>
 		<lesson name="week08" icon="read">Survey results</lesson>
 		<lab name="lab06">Building Out Our TODO List</lab>
 		<tutorial name="ci-todo04" >Maintenance List</tutorial>
@@ -93,9 +93,9 @@ Course organizer for Comp4711
 	<week num="9">
 		<topic>Building on CodeIgniter</topic>
 		<outcomes>1.3, 3</outcomes>
-		<lesson name="basic05"  icon="dothis"  active="n">Building on CodeIgniter</lesson>
-<!--		<lesson name="week09" icon="read" active="n">Survey results</lesson>
-		<lesson name="basic70" active="n">Addins in a Nutshell</lesson>-->
+		<lesson name="basic05"  icon="dothis" survey="266877">Building on CodeIgniter</lesson>
+		<!--<lesson name="week09" icon="read">Survey results</lesson>-->
+<!--		<lesson name="basic70">Addins in a Nutshell</lesson>-->
 <!--		<tutorial name="ci-todo08">Item Maintenance</tutorial>-->
 	</week>
 	<week num="10">

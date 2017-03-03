@@ -74,70 +74,70 @@ Lesson 06 - Helpers & Addons
     </slide>
 
     <slide title="Finding Components" layout="normal">
-            <p>In the case of O-O classes without inheritance, 
-                CodeIgniter will check 
-                inside <code>application/xxx</code> folder, and then in 
-                <code>system/xxx</code>, where "xxx" is the kind of
-                component you are loading.</p>
-            <p>In the case of an O-O class which extends another
-                class of yours, the superclass needs to be loaded first.</p>
-            <p>In the case of an O-O class which extends one of CI's
-                classes, CI will automatically look for the superclass
-                in the <code>system/xxx</code> folder.</p>
+        <p>In the case of O-O classes without inheritance, 
+            CodeIgniter will check 
+            inside <code>application/xxx</code> folder, and then in 
+            <code>system/xxx</code>, where "xxx" is the kind of
+            component you are loading.</p>
+        <p>In the case of an O-O class which extends another
+            class of yours, the superclass needs to be loaded first.</p>
+        <p>In the case of an O-O class which extends one of CI's
+            classes, CI will automatically look for the superclass
+            in the <code>system/xxx</code> folder.</p>
     </slide>
 
     <slide title="Extending Core CI Components" layout="normal">
-            <p>CodeIgniter provides its own way to extend framework
-                components. In the case of 
-                <a href="http://www.codeigniter.com/user_guide/general/core_classes.html">"core" components</a>,
-                your extensions go inside <code>application/core</code>,
-                as you have seen with our base controller and base model.
-            </p>
-            <p>If you are replacing a core component with one of
+        <p>CodeIgniter provides its own way to extend framework
+            components. In the case of 
+            <a href="http://www.codeigniter.com/user_guide/general/core_classes.html">"core" components</a>,
+            your extensions go inside <code>application/core</code>,
+            as you have seen with our base controller and base model.
+        </p>
+        <p>If you are replacing a core component with one of
             your own, it needs to be named with the "CI_" prefix.
-                For example, <code>CI_Security</code> replaces the
-                built-in "Security" component, automatically.
-            </p>
-            <p>If you are extending a core component, with over-riding
+            For example, <code>CI_Security</code> replaces the
+            built-in "Security" component, automatically.
+        </p>
+        <p>If you are extending a core component, with over-riding
             methods, yours would use the "MY_" prefix and it would
             extend the built-in one with the "CI_" prefix.
-                For example, <code>MY_Security</code> would extend
-                <code>CI_Security</code>, and would be expected to
-                over-ride one or more methods.
-            </p>
-            <p>
-                <strong>Do NOT modify source code inside the <code>system</code> folder!</strong>
-            </p>
+            For example, <code>MY_Security</code> would extend
+            <code>CI_Security</code>, and would be expected to
+            over-ride one or more methods.
+        </p>
+        <p>
+            <strong>Do NOT modify source code inside the <code>system</code> folder!</strong>
+        </p>
     </slide>
 
     <slide title="Extending Non-Core CI Components" layout="normal">
-            <p>Non-core CodeIgniter components can be 
-                <a href="http://www.codeigniter.com/user_guide/general/creating_libraries.html">extended similarly</a> to
-                core components, except using the <code>application/libraries</code>
-                folder.
-            </p>
-            <p>If you are replacing a CI component with one of
+        <p>Non-core CodeIgniter components can be 
+            <a href="http://www.codeigniter.com/user_guide/general/creating_libraries.html">extended similarly</a> to
+            core components, except using the <code>application/libraries</code>
+            folder.
+        </p>
+        <p>If you are replacing a CI component with one of
             your own, it needs to be named with the "CI_" prefix.
-                For example, <code>CI_Pagination</code> replaces the
-                built-in "Pagination" component, automatically.
-            </p>
-            <p>If you are extending a CI component, with over-riding
+            For example, <code>CI_Pagination</code> replaces the
+            built-in "Pagination" component, automatically.
+        </p>
+        <p>If you are extending a CI component, with over-riding
             methods, yours would use the "MY_" prefix and it would
             extend the built-in one with the "CI_" prefix.
-                For example, <code>MY_Pagination</code> would extend
-                <code>CI_Pagination</code>, and would be expected to
-                over-ride one or more methods.
-            </p>
-            <p>
-                The cool thing here is that you still refer to the CI component name.
-                For example, <code>$this->load->library('pagination')</code>
-                will automatically load <code>application/libraries/MY_Pagination</code>,
-                <code>application/libraries/CI_Pagination</code>, or
-                <code>system/libraries/CI_Pagination</code>, as appropriate :)
-            </p>
-            <p>
-                <strong>Do NOT modify source code inside the <code>system</code> folder!</strong>
-            </p>
+            For example, <code>MY_Pagination</code> would extend
+            <code>CI_Pagination</code>, and would be expected to
+            over-ride one or more methods.
+        </p>
+        <p>
+            The cool thing here is that you still refer to the CI component name.
+            For example, <code>$this->load->library('pagination')</code>
+            will automatically load <code>application/libraries/MY_Pagination</code>,
+            <code>application/libraries/CI_Pagination</code>, or
+            <code>system/libraries/CI_Pagination</code>, as appropriate :)
+        </p>
+        <p>
+            <strong>Do NOT modify source code inside the <code>system</code> folder!</strong>
+        </p>
     </slide>
 
     <slide title="2. Working With Libraries" layout="normal" tag="tag2">
@@ -151,9 +151,9 @@ Lesson 06 - Helpers & Addons
             </p>
             <p>Library functions are O-O.</p>
             <p>The image to the right shows the libraries built-in to CodeIgniter.
-            Some of the names show in blue - those use app-configured drivers
-            to do their thing using different tools, such as file or database
-            persistence for sessions.</p>
+                Some of the names show in blue - those use app-configured drivers
+                to do their thing using different tools, such as file or database
+                persistence for sessions.</p>
                 
         </div>
         <div class="right">
@@ -183,27 +183,27 @@ Lesson 06 - Helpers & Addons
     </slide>
 
     <slide title="Extending Built-In Libraries" layout="normal">
-            <p>In application/libraries/MY_Foo.php: <br/>
-                <code>
-                    class MY_Foo extends CI_Foo {
+        <p>In application/libraries/MY_Foo.php: <br/>
+            <code>
+                class MY_Foo extends CI_Foo {
 &#160;&#160;function a() {...}<br/>
 &#160;&#160;function b() {...}
-                    }</code>
+                }</code>
                     
-            </p>
-            <p>In system/libraries/Foo.php: <br/>
-                <code>
-                    class CI_Foo {<br/>
-                    }
-                </code>
-            </p>
-            <p>In your controller using "foo": <br/>
-                <code>
-                    $this->load->library('foo');</code>
-                <br/>
-                Your controller will end up with a "foo" instance
-                injected as a property, namely <code>$this->foo</code>
-            </p>
+        </p>
+        <p>In system/libraries/Foo.php: <br/>
+            <code>
+                class CI_Foo {<br/>
+                }
+            </code>
+        </p>
+        <p>In your controller using "foo": <br/>
+            <code>
+                $this->load->library('foo');</code>
+            <br/>
+            Your controller will end up with a "foo" instance
+            injected as a property, namely <code>$this->foo</code>
+        </p>
     </slide>
 
     <slide title="Caboose - a Sample CodeIgniter Library" layout="normal" tag="tag2">
@@ -215,8 +215,9 @@ Lesson 06 - Helpers & Addons
         <p>But ... they involve CSS, Javascript &amp; often initialization</p>
         <p>
             <b>Caboose</b> is a library that manages these frameworks &amp; widgets</p>
-            <p>For reference, you can find it inside a previous
-            <a href="https://github.com/jedi-academy/starter-caboose-winter2016">github repository</a></p>
+        <p>For reference, you can find it inside a previous
+            <a href="https://github.com/jedi-academy/starter-caboose-winter2016">github repository</a>
+        </p>
     </slide>
 
     <slide title="Frameworks &amp; Widgets" layout="normal">
@@ -399,30 +400,30 @@ Lesson 06 - Helpers & Addons
     </slide>
 
     <slide title="Extending Built-In Helpers" layout="normal">
-             <p>In application/helpers/MY_foo_helper.php: <br/>
-                <code>
-                    function a() {...}<br/>
-                    function b() {...}</code>
-            </p>
-            <p>In system/helpers/foo_helper.php: <br/>
-                <code>
-                    function a() {...}<br/>
-                    function c() {...}</code>
-            </p>
-            <p>In your controller using "foo": <br/>
-                <code>
-                    $this->load->helper('foo');</code>
-                <br/>
-                functions a and b come from your code, while function c comes from the built-in.
-            </p>
+        <p>In application/helpers/MY_foo_helper.php: <br/>
+            <code>
+                function a() {...}<br/>
+                function b() {...}</code>
+        </p>
+        <p>In system/helpers/foo_helper.php: <br/>
+            <code>
+                function a() {...}<br/>
+                function c() {...}</code>
+        </p>
+        <p>In your controller using "foo": <br/>
+            <code>
+                $this->load->helper('foo');</code>
+            <br/>
+            functions a and b come from your code, while function c comes from the built-in.
+        </p>
     </slide>
 
     <slide title="Formfields - a Sample CodeIgniter Helper" layout="normal" tag="tag3">
         <p>The <b>Formfields</b> helper is a collection of functions, 
             and corresponding view fragments, 
             to deal with the styling of HTML form fields.</p>
-            <p>You saw this helper last week, and it is also inside
-the 
+        <p>You saw this helper last week, and it is also inside
+            the 
             <a href="https://github.com/jedi-academy/starter-caboose-winter2016">github repository</a>
             mentioned for the Caboose library.</p>
         <p>Each function builds a standard array of view parameters, and 
@@ -468,32 +469,32 @@ the
         <p>Add function/view fragment pairs to suit your application</p>
     </slide>
 
-   <slide title="4. Working With Packages" layout="normal" tag="tag4">
-             <p>Packages are collections of related components organized 
-                in a file hierarchy similarly to <code>application/</code>.</p>
-            <p>Packages are not "loaded", in the conventional sense - their
-                folders are added to the appropriate list of folders to search
-                when the CI loader is invoked.
-                Packages can be explicitly specified, as in</p>
-                <code>$this->load->add_package_path(APPPATH.'third_party', '/some_package');</code>
-                <p>or they can be autoloaded in <code>application/config/autoload.php</code>,
-                for instance </p>
-                <code>$autoload['packages'] = array(APPPATH.'third_party', '/some_package');</code>.
+    <slide title="4. Working With Packages" layout="normal" tag="tag4">
+        <p>Packages are collections of related components organized 
+            in a file hierarchy similarly to <code>application/</code>.</p>
+        <p>Packages are not "loaded", in the conventional sense - their
+            folders are added to the appropriate list of folders to search
+            when the CI loader is invoked.
+            Packages can be explicitly specified, as in</p>
+        <code>$this->load->add_package_path(APPPATH.'third_party', '/some_package');</code>
+        <p>or they can be autoloaded in <code>application/config/autoload.php</code>,
+            for instance </p>
+        <code>$autoload['packages'] = array(APPPATH.'third_party', '/some_package');</code>.
     </slide>
 
-   <slide title="Package Folder Structure" layout="normal">
-             <p>Packages contain most things that might be in an app, with one
-                glaring exception ... can you spot it?</p>
-            <code>
-                /application/third_party/some_package/<br/>
-                <br/>
-                config/<br/>
-                helpers/<br/>
-                language/<br/>
-                libraries/<br/>
-                models/<br/>
-                views/
-            </code>
+    <slide title="Package Folder Structure" layout="normal">
+        <p>Packages contain most things that might be in an app, with one
+            glaring exception ... can you spot it?</p>
+        <code>
+            /application/third_party/some_package/<br/>
+            <br/>
+            config/<br/>
+            helpers/<br/>
+            language/<br/>
+            libraries/<br/>
+            models/<br/>
+            views/
+        </code>
     </slide>
 
     <slide title="Writing Packages" layout="normal">
@@ -523,58 +524,32 @@ the
     </slide>
 
 
-   <slide title="Caboose as a Package" layout="normal">
+    <slide title="Caboose as a Package" layout="normal">
         <div class="left">
-            <code>
-                /application/third_party/caboose<br/>
-&#160;&#160;/config/caboose.php<br/>
-&#160;&#160;/libraries/caboose.php<br/>
-&#160;&#160;/views/_components<br/>
-&#160;&#160;&#160;&#160;Confirm.php, date.php, ...<br/>
-                /public/assets<br/>
-&#160;&#160;/css/<br/>
-&#160;&#160;&#160;&#160;bootstrap.css,datepicker.css,jquery.css,...<br/>
-&#160;&#160;&#160;&#160;style.css<br/>
-&#160;&#160;/images/glyph...<br/>
-&#160;&#160;/js/<br/>
-&#160;&#160;&#160;&#160;bootstrap.js,jquery.js,redactor.js            
-            </code>
+            <p>Hmmmmmmmm - the 
+                <a href="https://github.com/jedi-academy/starter-caboose-winter2016">Caboose package</a>.
+                It even includes the formfield helper :)
+            </p>
         </div>
         <div class="right">
             <code>$autoload['packages'] = array(APPPATH.'third_party/caboose',...);</code>
         </div>
     </slide>
 
-    <slide title="Formfields Helper as a Package" layout="normal">
-        <div class="left">
-            <code>
-                /application/third_party/formfields<br/>
-&#160;&#160;/config/formfields.php<br/>
-&#160;&#160;/helpers/formfields_helper.php<br/>
-&#160;&#160;/views/_fields/<br/>
-&#160;&#160;&#160;&#160;checkbox, date, textfield, ...
-            </code>
-        </div>
-        <div class="right">
-            <code>$autoload['packages'] = array(APPPATH.'third_party/formfields',...);</code>
-        </div>
-    </slide>
-
-
     <slide title="5. DEPENDENCY MANAGEMENT" layout="normal" tag="tag5">
         <div class="left">
-        <p>
-            <a href="https://getcomposer.org/" target="_blank">Composer</a>
-            is the de facto standard for managing package dependencies.</p>
-        <p>CodeIgniter supports Composer and its autoloading. Describe your webapp dependencies
-            in a <code>composer.json</code> file in your document root, like that shown to the
-            right.</p>
-        <p>Incorporate third party plugins by running composer from the command line
-        or through your IDE</p>
+            <p>
+                <a href="https://getcomposer.org/" target="_blank">Composer</a>
+                is the de facto standard for managing package dependencies.</p>
+            <p>CodeIgniter supports Composer and its autoloading. Describe your webapp dependencies
+                in a <code>composer.json</code> file in your document root, like that shown to the
+                right.</p>
+            <p>Incorporate third party plugins by running composer from the command line
+                or through your IDE</p>
         </div>
         <div class="right">
             <code>
-{<br/>
+                {<br/>
 &#160;&#160;"description": "The CodeIgniter Website",<br/>
 &#160;&#160;"homepage": "http://codeigniter.com",<br/>
 &#160;&#160;"name": "bcit-ci/codeigniter-website",<br/>
@@ -586,8 +561,8 @@ the
 &#160;&#160;&#160;&#160;"php": ">=5.3.2",<br/>
 &#160;&#160;&#160;&#160;"knplabs/github-api": "~1.5"<br/>
 &#160;&#160;}<br/>
-}
-</code>
+                }
+            </code>
         </div>
  
     </slide>
