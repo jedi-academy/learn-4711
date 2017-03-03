@@ -1,4 +1,4 @@
-**Week 8** *(Tue Feb 28, 14:15)*  
+**Week 8** *(Thu Mar 2, 17:10)*  
 - Forms presentation(s) posted. 
 - Surveys processed, and presentations updated.
 - Lab 6 posted, and refined.
@@ -7,6 +7,18 @@
 This is the last alert message in the lab 6 writeup.
 I cannot change the rubric, as it is already in use, but you will not be
 penalized for not doing a SQL dump.
+
+- **Session errors when running on Windows?**  
+Apache on Windows may run as the user "None" on your system, depending
+on the version of xAMPP that you setup. This user does not have
+proper permissions to your **tmp** folder, giving an error message
+when you try to change the user role.
+
+The role changes, and is in fact stored, but you have to live with the error
+message for now, unless "chmod 777 tmp", from your bash shell inside your
+project folder, works.
+
+I will add moving the session storage to a database table for the next lab :-/
 
 **Deployment Server** *(Tue Feb 28, 16:20)*  
 The deployment server is ready, though there may be bugs :-/  
