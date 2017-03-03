@@ -1,6 +1,15 @@
 **Week 8** *(Fri Mar 3, 13:00)*  
 - Week 9 reading & survey posted.
 
+- **Session errors when running on Windows?**  
+Apache on Windows may run as the user "None" on your system, depending
+on the version of xAMPP that you setup. This user does not have
+proper permissions to your **tmp** folder, giving an error message
+when you try to change the user role.  
+The role changes, and is in fact stored, but you have to live with the error
+message for now, unless "chmod 777 tmp", from your bash shell inside your
+project folder, works.  
+I will add moving the session storage to a database table for the next lab :-/
 
 **Deployment Server** *(Fri Mar 3, 13:00)*  
 - The [test deployment server](http://umbrella.jlparry.com/) seems to be working well.; 
