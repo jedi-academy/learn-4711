@@ -1,15 +1,5 @@
-**Week 8** *(Fri Mar 3, 13:00)*  
+**Week 9** *(Mon Mar 6, 11:45)*  
 - Week 9 reading & survey posted.
-
-- **Session errors when running on Windows?**  
-Apache on Windows may run as the user "None" on your system, depending
-on the version of xAMPP that you setup. This user does not have
-proper permissions to your **tmp** folder, giving an error message
-when you try to change the user role.  
-The role changes, and is in fact stored, but you have to live with the error
-message for now, unless "chmod 777 tmp", from your bash shell inside your
-project folder, works.  
-I will add moving the session storage to a database table for the next lab :-/
 
 **Deployment Server** *(Fri Mar 3, 13:00)*  
 - The [test deployment server](http://umbrella.jlparry.com/) seems to be working well.; 
@@ -22,8 +12,9 @@ in the "Reference" section of the course hub organizer,
 for any who need help with setting up their webhook.
 
 
-**Labs** *(Fri Mar 3, 13:00)*  
-- Lab 3 marking is in in progress, slowly but surely  
-- Lab 4 marking is in the queue.  
-- Assignment 1 is in the queue.
+**Labs** *(Mon Mar 6, 11:45)*  
+- Lab 3 marking completed
+- Lab 4 marking is in progress
+- Assignment 1 is in progress
 - Lab 5 marking is in the queue.
+- Lab 6 marking is in the queue.
