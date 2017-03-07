@@ -2,7 +2,7 @@
 <!--
 Views in a Nutshell
 -->
-<lesson status="beta">
+<lesson status="1.1">
 
     <slide title="Addins in a Nutshell" layout="normal">
         <p>PHP can be object-oriented or just scripts, with functions.</p>
@@ -10,6 +10,26 @@ Views in a Nutshell
         <p>CodeIgniter comes with a bunch of both.</p>
         <p>If you don't like them, extend them ... standard O-O with method over-riding.</p>
         <p>PHP does not support method overloading ... use parameter lists with defaults instead.</p>
+    </slide>
+
+    <slide title="Build or Buy" layout="normal">
+        <p>When building an application, you identify the functional
+            requirements, and make design decisions on how
+            best to group the pieces to solve these.</p>
+        <ul>
+            
+            <li>If you find a useful component elsewhere,
+                best practice suggests it is better to "buy" it
+                rather than re-invent the wheel;
+                a "component" could include related parts</li>
+            <li>If you find a mostly useful component elsewhere,
+                you might "buy" it and tailor it</li>
+            <li>If you can't find it, or you decide that tailoring
+                it isn't practical, then you build it</li>
+        </ul>
+        <p>This has *nothing* to do with CodeIgniter, or indeed
+            any framework or programming language - it is
+            standard "software sense".</p>
     </slide>
 
     <slide title="Packaging" layout="normal">
@@ -27,14 +47,45 @@ Views in a Nutshell
             Composer packages do not necessarily contain source code.</p>
     </slide>
 
+    <slide title="Caboose" layout="normal">
+        <p>"Caboose" is an EXAMPLE CodeIgniter package.</p>
+        <p>It is useful, containing all the app components
+            needed to do its job.</p>
+        <p>Its job is to manage webpage "widget" inclusions,
+            namely onpage elements which use or exploit one or more
+            CSS or Javascript frameworks.</p>
+        <p>It provides a layer of abstraction for such a
+            framework, and only includes their links
+            or Javascript tailoring on those webpages that
+            use them.</p>
+        <p>It is **not** a dependency manager - you need other
+            ways to "get" any external pieces into your project
+            and in the right place.</p>
+    </slide>
+
+    <slide title="Composer" layout="normal">
+        <p>"Composer" is a dependency manager.</p>
+        <p>Its job is to pull third party components
+            into your project automatically, if they
+            have been updated.</p>
+        <p>It has nothing to do with your application
+            logic, or the widgets that you might want to use
+            - it just makes sure that the third-party
+            code is there for you.</p>
+        <p></p>
+        <p>It is **not** a framework package - you still need
+            to add logic or view pieces that actually
+            use any external pieces that it brought in.</p>
+    </slide>
+
     <slide title="Useful Stuff" layout="normal">
-        <p>If you build useful functions, you can use stock
-            PHP to "include" or "require" them.</p>
-        <p>CodeIgniter adds the notion of these being in a standard
+        <p>If you build useful functions, you *can* use stock
+            PHP to "include" or "require" them.<br/>
+            CodeIgniter adds the notion of these being in a standard
             place within a project.</p>
-        <p>If you build useful classes, you can use stock
-            PHP to "include" or "require" them.</p>
-        <p>CodeIgniter adds the notion of these being in a standard
+        <p>If you build useful classes, you *can* use stock
+            PHP to "include" or "require" them.<br/>
+            CodeIgniter adds the notion of these being in a standard
             place within a project, and it treats some of them specially
             (eg injecting properties).</p>
         <p>CodeIgniter (or any framework) tries to provide useful

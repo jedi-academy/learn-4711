@@ -1,5 +1,6 @@
 **Week 9** *(Mon Mar 6, 11:45)*  
 - Week 9 reading & survey posted.
+- Lab 7 posted
 
 **Deployment Server** *(Fri Mar 3, 13:00)*  
 - The [test deployment server](http://umbrella.jlparry.com/) seems to be working well.; 
@@ -15,6 +16,6 @@ for any who need help with setting up their webhook.
 **Labs** *(Mon Mar 6, 11:45)*  
 - Lab 3 marking completed
 - Lab 4 marking is in progress
-- Assignment 1 is in progress
+- Assignment 1 marking is in progress
 - Lab 5 marking is in the queue.
 - Lab 6 marking is in the queue.
