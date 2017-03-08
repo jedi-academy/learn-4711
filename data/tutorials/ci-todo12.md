@@ -154,6 +154,7 @@ This isn't complete ... that is coming as Job 11b!
 <div class="alert alert-info">
 Oops - I forgot to fix the handling logic so that it would
 either add or update a task, depending on the task id.
+The correction is included above :-/
 </div>
 
 Try it :) Add a couple of todo tasks, and edit another couple :)
