@@ -1,5 +1,5 @@
-**Week 9** *(Tue Mar 7, 21:10)*  
-- Week 9 reading & survey posted.
+**Week 9** *(Wed Mar 8, 00:25)*  
+- Week 9 survey results updated with answers.
 - Lab 7 updated, with typos corrected and Job 12 fixed :)
 
 **Deployment Server** *(Fri Mar 3, 13:00)*  
