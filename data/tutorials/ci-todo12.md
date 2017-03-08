@@ -135,8 +135,15 @@ This isn't complete ... that is coming as Job 11b!
 		// validate away
 		if ($this->form_validation->run())
 		{
-			$this->tasks->update($task);
-			$this->alert('Task ' . $task->id . ' updated', 'success');
+			if (empty($task->id))
+			{
+				$this->tasks->add($task);
+				$this->alert('Task ' . $task->id . ' added', 'success');
+			} else
+			{
+				$this->tasks->update($task);
+				$this->alert('Task ' . $task->id . ' updated', 'success');
+			}
 		} else
 		{
 			$this->alert('<strong>Validation errors!<strong><br>' . validation_errors(), 'danger');
@@ -144,7 +151,13 @@ This isn't complete ... that is coming as Job 11b!
 		$this->showit();
 	}
 
+<div class="alert alert-info">
+Oops - I forgot to fix the handling logic so that it would
+either add or update a task, depending on the task id.
+</div>
+
 Try it :) Add a couple of todo tasks, and edit another couple :)
+
 
 ##12.6 Handle canceling
 
