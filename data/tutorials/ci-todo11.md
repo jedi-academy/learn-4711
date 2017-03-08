@@ -16,6 +16,9 @@ the edit function for that item
 - Delete will be deferred to the editing, i.e. only allow deleting an item
 if the full item details are displayed.
 
+NOTE: If you haven't already done so, change the links in `views/_menubar.php`
+so that the roles are capitalized, eg "/roles/actor/Owner".
+
 ##11.1 New item button
 
 We can add a new item link  to the right of the pagination nav by editing
