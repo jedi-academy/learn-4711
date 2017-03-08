@@ -14,9 +14,12 @@ comes in the following jobs.
 
 ##9.1 Install the package
 
-Download the package from its repo, and extract it into `application/third_party/caboose` 
-inside your project, such that its readme file is located at 
-`application/third_party/caboose/README.md`.
+Download the package from its repo, and extract it to somewhere usable, outside your project. From wherever
+you extracted it to, you can then
+- copy the `application` folder into your project root; this will add `caboose` to your `applicaiton/third_party` folder
+- copy the `public` folder into your project root; thie will add some "asset" files, and possibly replace some as well,
+in your `public` folder.
+- copy the README.md file into  `application/third_party/caboose`, if you would like it for later reference.
 
 ##9.2 Inform CodeIgniter about the package
 
