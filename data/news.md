@@ -1,6 +1,6 @@
-**Week 9** *(Wed Mar 8, 00:25)*  
+**Week 9** *(Wed Mar 8, 13:25)*  
 - Week 9 survey results updated with answers.
-- Lab 7 updated, with typos corrected and Job 12 fixed :)
+- Fixed a few more typos & clarified directions :)
 
 **Deployment Server** *(Fri Mar 3, 13:00)*  
 - The [test deployment server](http://umbrella.jlparry.com/) seems to be working well.; 
