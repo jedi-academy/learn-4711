@@ -106,7 +106,15 @@ Here's what that would look like:
 		$this->render();
 	}
 
+And the `views/itemedit.php` would be something like...
 
+	<h1>Task # {id}</h1>
+	<form role="form" action="/mtce/submit" method="post">
+		{ftask}
+		{fpriotiry}
+		{zsubmit}
+	</form>
+	
 This isn't complete ... that is coming as Job 11b!
 
 ##12.5 Handle form submission
