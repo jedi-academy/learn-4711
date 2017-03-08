@@ -30,10 +30,11 @@ parameter.
 Adding this to the pagination is then a small tweak, which I show here in the
 `page` method, just before its end ...
 
-		$role = $this->session->userdata('userrole');
-		if ($role == ROLE_OWNER) 
-			$this->data['pagination'] .= $this->parser->parse('itemadd',[], true);
-		$this->show_page($tasks);
+    // INSERT next three lines
+    $role = $this->session->userdata('userrole');
+    if ($role == ROLE_OWNER) 
+            $this->data['pagination'] .= $this->parser->parse('itemadd',[], true);
+    $this->show_page($tasks);
 
 We don't really need to use the template parser, but it is consistent.
 
@@ -56,14 +57,16 @@ difference being that the ID should be shown as a link to `Mtce::edit`.
 Copy `oneitem` to `oneitemx` & fix it:
 
     <tr>
+        <!-- MODIFY the next line -->
 	<td><a href="/mtce/edit/{id}"><input type="button" value="{id}"/></a></td>
 	<td>{task}</td>
 	<td>{status}</td>
     </tr>
 
-Modify `Myce::show_page` to choose the correct view fragment to style 
+Modify `Mtce::show_page` to choose the correct view fragment to style 
 the task list row...
 
+    // INSERT the next three lines. The fourth is already there
     if ($role == ROLE_OWNER)
             $result .= $this->parser->parse('oneitemx', (array) $task, true);
     else

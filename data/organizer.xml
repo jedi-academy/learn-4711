@@ -98,10 +98,11 @@ Course organizer for Comp4711
         <lesson name="basic70">Addins in a Nutshell</lesson>
         <lab name="lab07">Completing Our TODO List Build Out.</lab>
         <tutorial name="ci-todo08">Use RDB for sessions</tutorial>
-       <tutorial name="ci-todo09">Install the Caboose Package</tutorial>
+        <tutorial name="ci-todo09">Install the Caboose Package</tutorial>
         <tutorial name="ci-todo10">Provide for Completing Work</tutorial>
         <tutorial name="ci-todo11">Role-specific Maintenance List</tutorial>
         <tutorial name="ci-todo12">Todo Item Maintenance (finally)</tutorial>
+        <tutorial name="ci-todo11b">Polish the Item Maintenance</tutorial>
     </week>
     <week num="10">
         <topic>Representation Glue - XML &amp; JSON</topic>

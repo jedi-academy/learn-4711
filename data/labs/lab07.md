@@ -79,8 +79,9 @@ The third & fourth rely on the first two, and the fifth relies on the fourth job
 - [Job 10 - Beef up the Homepage](/display/tutorial/ci-todo10)
 - [Job 11 - Beef up the maintenance page](/display/tutorial/ci-todo11)
 - [Job 12 - Add item maintenance (finally)](/display/tutorial/ci-todo12)
+- [Job 11b - Polish the item maintenance](/display/tutorial/ci-todo11b)
 
-**Note**: Job 12 was still a work in progress when this was published.
+Job 11b makes Job 11 comparable to the others :)
 
 #Wrapup (Are We Done Yet?)
 
@@ -92,6 +93,10 @@ Make a SQL dump of your database, with the option to drop any existing
 tables. Put that in the <code>data</code> folder of your
 project, and delete the original starter SQL from that folder.
 The first job in this lab will help you with that.
+
+Make sure that your source code is formatted with proper indentation, for
+improved readability. In NetBeans, this would be done by `alt-shift-F`
+with a source file open and selected.
 
 It is now time
 to merge the develop branch into the master branch,

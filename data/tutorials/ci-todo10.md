@@ -21,12 +21,12 @@ We will do this for the "by priority" list.
 You can do the same for the "by category" list if
 you choose.
 
-In `application/views/_by_priority.php` add an opening `form`
+In `application/views/by_priority.php` ADD an opening `form`
 element before the `table`:
 
     <form method='POST' action='{completer}'>
 
-and add a `submit` button and closing `form` tag after the
+and ADD a `submit` button and closing `form` tag after the
 end of the `table`:
 
 	<input type='submit' value='Complete checked tasks'/>
@@ -40,9 +40,10 @@ checkboxes and submit button only show for a user with the
 We can set this parameter inside `Views::makePrioritizedPanel()`,
 just before returning the rendered view fragment...
 
-		$role = $this->session->userdata('userrole');
-		$parms['completer'] = ($role == ROLE_OWNER) ? '/views/complete' : '#';
-		return $this->parser->parse('by_priority', $parms, true);
+    // INSERT the next two lines
+    $role = $this->session->userdata('userrole');
+    $parms['completer'] = ($role == ROLE_OWNER) ? '/views/complete' : '#';
+    return $this->parser->parse('by_priority', $parms, true);
 
 It defaults to a hash sign (no action) unless the user is "logged in"
 as an owner.
@@ -54,8 +55,9 @@ don't match the role name constants we had defined. Oops.
 
 Fix this by changing the relevant `_menubar` lines:
 
-		  <li><a href="/roles/actor/Guest">Guest</a></li>
-		  <li><a href="/roles/actor/Owner">Owner</a></li>
+        <!-- MODIFY these lines in your _menubar fragment -->
+        <li><a href="/roles/actor/Guest">Guest</a></li>
+        <li><a href="/roles/actor/Owner">Owner</a></li>
 
 
 ##10.2 Start completion handling
@@ -71,16 +73,17 @@ and change the status of the associated task items to "complete".
 We could do this with a suitable method inside the `Views` controller,
 per the substitution parameter in the previous step ...
 
-	// complete flagged items
-	function complete() {
-		// loop over the post fields, looking for flagged tasks
-		foreach($this->input->post() as $key=>$value) {
-			if (substr($key,0,4) == 'task') {
-				// find the associated task
-			}
-		}
-		$this->index();
-	}
+    // complete flagged items
+    function complete() {
+            // loop over the post fields, looking for flagged tasks
+            foreach($this->input->post() as $key=>$value) {
+                    if (substr($key,0,4) == 'task') {
+                            // find the associated task
+                            // MORE COMING HERE
+                    }
+            }
+            $this->index();
+    }
 
 ##10.3 Add checkboxes
 
@@ -91,16 +94,17 @@ Let's add a column for them, in the `by_priority` view.
 
 We can provide an empty column for this in the table headings...
 
-			<th>Id</th>
-			<th></th>
-			<th>Task</th>
+    <th>Id</th>
+    <th></th>   <!-- INSERT this line -->
+    <th>Task</th>
 
 and then we can add a checkbox control, using "raw HTML",
 with provision to name it appropriately.
 
-			<td>{id}</td>
-			<td><input type='checkbox' name='task{id}'/></td>
-			<td>{task}</td>
+    <td>{id}</td>
+    <!-- INSERT the line below -->
+    <td><input type='checkbox' name='task{id}'/></td>
+    <td>{task}</td>
 
 Our task list now shows completion checkboxes, as well as the link
 to the completion handling method (which is only enabled
@@ -112,11 +116,12 @@ for the owner).
 
 Inside our completion handler,we can flesh out the `complete()` method...
 
-				// find the associated task
-				$taskid = substr($key,4);
-				$task = $this->tasks->get($taskid);
-				$task->status = 2; // complete
-				$this->tasks->update($task);
+    // find the associated task
+    // THIS is the "more coming" mentioned above
+    $taskid = substr($key,4);
+    $task = $this->tasks->get($taskid);
+    $task->status = 2; // complete
+    $this->tasks->update($task);
 
 We can now complete tasks, if we are the owner :)
 Non-owner requests are ignored.
@@ -127,8 +132,8 @@ What if a guest entered the completion URL manually?
 Let's add a couple of lines of code, at the beginning of
 `complete()`, to block that kind of hack ...
 
-		$role = $this->session->userdata('userrole');
-		if ($role != ROLE_OWNER) redirect('/work');
+    $role = $this->session->userdata('userrole');
+    if ($role != ROLE_OWNER) redirect('/views');
 
 If you want to make sure you have ended up at the same point as the above directions, here is
 the complete `complete` method :-/

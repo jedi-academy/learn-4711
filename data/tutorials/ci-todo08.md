@@ -36,11 +36,13 @@ copy & paste the DDL from the user guide, into the SQL tab of phpMyAdmin.
 Inside `application/config/config.php`, the session configuration is specified
 in a block starting about line 380. We need to change two of the settings.
 
-Specify that we want to store session data in an RDB:
+Specify that we want to store session data in an RDB, by *modifying*
+the relevant line:
 
     $config['sess_driver'] = 'database';
 
-And specify the name of the table we created for this purpose:
+And specify the name of the table we created for this purpose, again
+by *modifying* the existing setting line:
 
     $config['sess_save_path'] = 'ci_sessions';
 
@@ -64,13 +66,13 @@ Choose the "Custom" radio button to see the available options.
 
 <img class="scale" src="/pix/tutorials/todo/72.png"/>
 
-In the "Output" section, you can choose "gzipped" compression for a smaller
-dump file, but you won't be able to open it using an editor. 
-I recommend only doing this if you have a large database.
+In the "Output" section, I recommend that you **do not** choose "gzipped" compression,
+as it caused issues for a number of teams in lab. Use the compression
+option "None".
 
 <img class="scale" src="/pix/tutorials/todo/73.png"/>
 
-In the "Object creation options" section, do select the "Add DROP TABLE..."
+In the "Object creation options" section, **do select** the "Add DROP TABLE..."
 statement, so that the dump will replace tables when imported on another
 system.
 
@@ -95,6 +97,10 @@ they are using, in the left sidebar of phpMyAdmin, then select the "Import"
 tab of phpMyAdmin, to trigger importing the SQL dump into it.
 
 Any existing tables with the same name will be replaced, and any new tables added.
+
+Caution: some of the teams get an "invalid charset" error when they try to import
+the SQL dump. In that case, you may find that you need to drop all of your existing tables inside
+your `todo` database before importing the SQL dump.
 
 If you delete a table, and then do a SQL dump, importing the SQL dump
 on another system will not delete the table there. You need to inform

@@ -24,8 +24,12 @@ Then add the package path to your `application/config/autoload.php`, tailoring
 the appropriate lines:
     
     $autoload['packages'] = array(APPPATH.'third_party/caboose/');
-    $autoload['libraries'] = array(...,'caboose');
-    $autoload['helper'] = array('formfields',...);
+    $autoload['libraries'] = array(...,'caboose'); // ADD caboose to the list
+    $autoload['helper'] = array('formfields',...); // ADD formfields to the list
+
+I repeat, **modify** the existing lines that you find in your `config.php`
+file. If it has two or more lines setting the same configuraiton setting,
+the last one encountered will replace all the others.
 
 ##9.3 Configure the Caboose package
 
@@ -47,10 +51,12 @@ view parameters before invoking the parser on the template file...
     function render() {
         ...
 
+        // INSERT THE NEXT FOUR LINES
         // integrate any needed CSS framework & components
         $this->data['caboose_styles'] = $this->caboose->styles();
         $this->data['caboose_scripts'] = $this->caboose->scripts();
         $this->data['caboose_trailings'] = $this->caboose->trailings();
+        // THE ABOVE FOUR LINES GET INSERTED
 
         $this->parser->parse(...);
     }
@@ -113,7 +119,7 @@ The intended use of this is to build a view substitution parameter, `alerts`,
 holding any messages formatted using this view fragment.
 
 Provide for the substitution parameter, and a corresponding status flag,
-by adding a couple of lines at the end of your base controller's
+by ADDing a couple of lines at the end of your base controller's
 constructor.
 
 		$this->data['alerts'] = '';
@@ -125,7 +131,7 @@ The view substitution parameter should be added to both `template.php` and `temp
 just under the `pagetitle` substitution reference...
 
                 <h1>{pagetitle}</h1>
-		{alerts}
+		{alerts}    <!-- ADD this line -->
 
 Finally, here is a suitable method that we can add to our base controller,
 that we would call anytime we wanted an error or success message
