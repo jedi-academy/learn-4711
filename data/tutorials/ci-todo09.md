@@ -16,7 +16,8 @@ comes in the following jobs.
 
 Download the package from its repo, and extract it to somewhere usable, outside your project. From wherever
 you extracted it to, you can then
-- copy the `application` folder into your project root; this will add `caboose` to your `applicaiton/third_party` folder
+- copy the `application` folder into your project root; this will add `caboose` to your `applicaiton/third_party` folder;
+make sure you do a **merge** copy and not a **replace** copy!
 - copy the `public` folder into your project root; thie will add some "asset" files, and possibly replace some as well,
 in your `public` folder.
 - copy the README.md file into  `application/third_party/caboose`, if you would like it for later reference.
