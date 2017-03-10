@@ -1,19 +1,27 @@
-#Assignment #2 - Functional & Distributed Pantry Webapp
-COMP4711 - BCIT - Fall 2016
+#Assignment #2 - Functional Bot Factory Webapp
+COMP4711 - BCIT - Winter 2017
 
-##Assignments Overview
+#DRAFT DRAFT DRAFT
 
-The assignments were originally planned to be done in three phases,
-but phase two was combined with phase 3 because of lab experience I
-thought you should have before tackling it. The original phase 3 scope
-has been scaled back as a result, and the last two phases combined into this
-assignment.
+<div class="alert alert-warning">
+This is a draft of assignment 2. Please email me any questions, or ask on
+slack. I expect to make final adjustments and finalize this Friday Mar 10th.
+</div>
 
-##Goals for This Assignment
 
-The purpose of this assignment #2 is to apply the techniques we have practiced
-in lab, to build a "good" CodeIgniter webapp, distributed over two apps.
+##Assignment Overview & Goals
 
+The purpose of the assignments, collectively, is to let you apply the techniques 
+from the lessons and tutorials.
+As previously decribed, you are building a small but complete webapp, 
+to manage a simple robot factory. 
+Refer to assignment one for business logic descriptions.
+
+The purpose of this assignment (#2) is to add functionality to the mockup pieces
+from assignment #1, using a real (not mock) database and connecting to the
+[Panada Research Center](https://umbrella.jlparry.com/) (PRC) for live data.
+
+#Process
 
 ##Assignment Teams
 
@@ -25,166 +33,231 @@ Under-contributing members will will receive a lower mark.
 
 ##Workflow
 
-You are to use gitflow workflow, with proper forking and branching. 
-Team members should use the same github account for all their
-work, so that contribution breakdown can be determined.
+Continue to use gitflow workflow, with proper branching and GPG-signed commits.
 
-Contributions to the team repository should be by pull request only.
+##Testing & Deployment
 
-I encourage you to use issue tracking for work planning and for problems you spot in a teammate's 
-code. This will make it easier for all of you to know how close to "done"
-you are.
+The [test & deployment server](/display/lesson/webhooks) is available for those groups
+who wish to test their code in a "production" environment.
+This is optional, for your benefit, and does not contribute to marks.
 
-All work should be done in your "develop" branch.
-Before the deadline, the CAPTAIN should merge "develop" into "master",
-and tag the master as a release, i.e. version 2.0.
+If you do use it, your running (or not) webapp will be visible to everyone.
+You can see what other teams are doing, and vice-versa.
 
-If you create design or other documentation that would contribute to
-the project, save it in the "docs" folder of your team repository.
-
-My marking assistant script will pull your repositorys' **master** branch,
-and only it, for grading. 
+<div class="alert alert-danger">
+Avoid the test deployment server for now, until I confirm
+that the database setup has been tested.
+</div>
 
 ##Assignment Submission
 
-Your assignment will result in two github repositories for your team, as well as one for each team
-member.
+Your assignment will result in a team repository on Github.
+Your dropbox submission should be or include a link to your team's repository
+(not its cloning URL).
 
-Submit a readme *text* file, or a submission comment, to the lab dropbox. 
-It should contain a link to your two **team**'s github repositories. 
-I don't need links to the member repositories, as they can be determined
-from the team one. No screenshots are needed, either, as functionality
-will be determined by deploying the webapp on my test system.
-
-Due date: Sunday Dec 4, 23:30.
+Due date: Sunday Mar 24, 17:30.
 
 ##Assignment Marking Guideline
 
 A marking rubric will be attached to the assignment dropboxes, similar to 
-those used for labs. Assignment 2 will be weighted more than assignment 1,
-because of the difference in work expected for proper completion.
-The planned ratio is 3:2, i.e. A#1 will be 40% of your assignment grade
-and A#2 will be 60%. 
+those used for labs. 
 
-#Your Webapp
+##Changelog
 
-Your webapp doesn't have to be "world-class" or even necessarily "real", 
-but it needs sufficient complexity to be dynamic, personalized and scaleable/integrated.
+Do provide a changelog, showing the components that are different for this
+assignment compared to the previous one. Group the components by component
+type (controllers, models, etc).
 
-You have a target scenario for your webapp, form assignment 1, and a theme
-and layout that you should stick with, unless otherwise suggested by me.
+#Features
+
+From assignment 1, you have a target theme, layout and planned MVC components.
+You should stick with those, unless otherwise suggested by me in the assignment 1 feedback.
+
+The subsections here address your data, and then each of your usecases (pages).
 
 ##Your Data
 
 You have provided mock data for assignment 1. 
 Put this into appropriate tables in a MySQL database for assignment 2.
-That would include tables for supplies, recipes, and stock/menu, stemming
-from your scenario and assignment 1. You will need a session table too, 
-and possibly others, depending on your design choices.
 
-Your webapp will be split in two, with the supplies management done by your
-"backend" webapp. It is the only app that should have supplies in the database, and conversely
-that app should not have any of the other tables needed for your front-end.
+It is up to you how you wish to track "history" - that could be one table,
+or it could be separate history tables for each kind of activity.
 
-You will need to provide for a transaction history or histories too, perhaps several files with appropriate fields.
-You want to track supplies receipts & issues, recipe production, and stock sales.
+The "live" data to use will be retrieved from the [Umbrella server](https://umbrella.jlparry.com), 
+per directions that follow.
 
-You want to have a half-dozen or so menu items and recipes, and 6-12 kinds of
-items stocked in your pantry. The pantry items should be driven by the recipes.
-You are welcome to have more, but that is not required.
+The SQL dump in your repository should be a known starting point, suitable for test data.
+The mock data from assignment 1 could be good for this.
 
-##Your Usecases
+##User Roles
 
-Let's go with three user roles: admin, user and guest.
-Guests can use the sales page of your front-end.
-Users can do anything except maintenance.
-Admins can do anything including maintenance.
+I suggest a dropdown to switch between user roles, as with labs 5-7.
 
-In addition to a homepage for your webapp, you should have a page (or more)
-for each of these roles/usecases.
+You do not need authentication for this assignment.
 
-For assignment 1, you made an **administrator** page, providing for "editing" all of the data tables.
-The form fields were not active, nor connected to logic.
+##Homepage (dashboard)
 
-For assignment 2, the maintenance forms should be handled.
-That will mean validation rules in your front-end,
-and persistance in the appropriate table (or backend, for supplies).
+Your homepage contains a dashboard of sorts.
 
-Similarly, the **receiving, production & sales** pages can now be made "live".
+The page data should now be provided or calculated from your database.
 
-Your **homepage** dashboard can be made "real" too, and give
-an indication of the current or recent activity in your "shop".
+This page is accessible to any user role (a.k.a. "Guest").
 
-##Webapp Sitemap
+##Parts page
 
-Your frontend webapp would suit having a primary navbar with five items: one for the
-homepage and one for each of the usecases.
+Previous: The **parts** page (for the "Worker" role) should show all the parts currently on hand, ordered
+reasonably (piece type?) in a grid with images.
+Show the model & line as either a tooltip for the image, or underneath each.
 
-Some of the usecases will involve additional pages. You could handle that with a
-secondary navbar, or with a hierarchical structure (drill down, "back" to return).
+Clicking on a part should show the complete data you have for that part, including
+CA, date made or acquired, etc. This would suit a subcontoller and
+secondary page for just one piece.
 
-If you want to add an "about" page, feel free to do so. This is not expected.
-If you do have one, I suggest clear wording to inform the user that this
-is an academic project, and not related to or endorsed by any similar
-business from the real world.
+Add a "Build more parts" button or link to the page, which would be handled by:
 
-##Your Presentation
+- request any newly built parts for this factory, from the Panda Resarch
+center's `/api/build` endpoint. That service will return an array
+of parts certificates, in JSON format
+- add each of these to your parts table
+- Update the appropriate history table(s)
 
-Your webapp will be evaluated on its functionality, not on how good it looks. 
-It is better to have a consistent design, with elements appropriate to the 
-purpose, than it is to have a pretty design. 
-Your "job" is to design and implement the back-end of such a site. 
-That doesn't mean your site's appearance should be ugly or cringe-worthy - 
-there are many freely available website templates online.
+<div class="alert alert-warning">
+Service being tested.
+</div>
 
-It would be appropriate to have some design, with visual elements appropriate
-to your "business". Menu item images, for instance will be added in the next
-assignment
+Add a "Buy parts" button or link to the page, which would be handled by:
 
-What I will be looking for is consistency. It should look like the
-different parts of the site, which will likely be built by different
-team members, share a similar look & feel!
+- request a box of random parts for you to use, from the Panda Resarch
+center's `/api/box` endpoint. That service will return an array
+of parts certificates, in JSON format
+- PRC will deduct the purchase price from your cash balance
+- add each of these to your parts table
+- Update the appropriate history table(s)
 
-Feel free to use any CSS/javascript frameworks you are familiar or comfortable 
-with, subject to the constraints described next.
+<div class="alert alert-warning">
+Service being tested.
+</div>
+
+##Assembly page
+
+Previous: The **assembly** page (for the "Supervisor" role) lets a user select the pieces that 
+they would like combined to make a complete bot, the pieces that they
+consider unwanted and would like to return, or the assembled bot(s) that they
+would like to ship to head office.
+
+Provide a way to select the set of parts needed to construct a complete bot.
+
+Add an "Assemble it" button or link, which would be handled by:
+
+- validate the selected parts, to make sure there is one of each needed for a complete bot
+- add a record to your "robots" table, with the chosen parts
+- remove the parts from the "parts" table
+- update the history table(s)
+
+Optional: For added fun & excitement, you are welcome to add some "AI" to this page,
+for instance suggesting a combination of parts that would result in the
+highest selling price.
+
+##History page
+
+Previous: The **history** page (for bosses) should show a list of your plant's history
+transactions. 
+
+This list should now be paginated. You can use 20/25 records per page,
+or provide for that being something the "Boss" can configure.
+
+The history list should provide for flexible ordering, by date/time or by robot model.
+I suggest a dropdown for this, although links could work just as well.
+
+The list should be filterable, by robot series or robot model.
+You could use a dropdown for these, or provide radio buttons or checkboxes 
+to select the output. A dropdown would result in a "cleaner" UI.
+
+##Manage page
+
+This is for the "Boss" role :)
+
+There are several features appropriate for this page, handled by tabs or perhaps
+by separate panels:
+
+- Provide a button or link to "Reboot" your plant. It should send a message to the
+Panda Research Center's `/rebootme`, and get an `Ok` response or a self-explanatory error message.
+On successful "reboot", empty your inventory & history - you are starting from scratch
+again, with the appropriate starting balance for a new plant.
+
+- Provide a mini-form for registering with the PRC. You will need your plant name, which
+can be saved as a configuration setting inside your app, and your secret token, which
+should not be stored anywhere inside your app or repo. The target could be the  PRC's
+`/registerme` endpoint, or it could be to a subcontroller inside your app which
+dealt with any response from PRC.
+
+- If you use a control table to save key/value pairs for configuring or managing
+your app, provide a way to display/edit these. For instance, 
+this could include settings that influence any AI
+you have for suggesting bots to build, or it could include the base URL
+for the PRC, to avoid hard-coding it.
+
+- Finally, here is where you can sell assembled bot to the PRC. Present a list
+of the ones you have built, with suitable links to sell them to the PRC one at a time,
+namely `/buyme/part1/part2/part3`, where parts 1 through 3 are the tokens
+for the three parts that make up your bot. The server will respond with `Ok` or `Nak`
+with a self-explanatory error message. If "Ok", you can remove the bot from your database.
+The PRC will automatically credit your account balance.
+
+<div class="alert alert-warning">
+Services being tested.
+</div>
+
+##Debugging
+
+How do you determine if your app's view of the world matches reality?
+
+There are a few PRC server endpoints that you might find helpful:
+
+-`/verify/token` will return the data known about a part, identified
+by its token
+
+-`/scoop/plant` will return the data known about a plant, identified by
+its name; if the plant is not
+specified, it default to the one associated with your PRC session
+
+`/myjob/plant` will return the part a plant is building; if the plant is not
+specified, it default to the one associated with your PRC session
+
+-`/goodbye` will destroy your session on the PRC server, and your plant will then need
+to "register" again (through the "Manage" page)
+
+<div class="alert alert-warning">
+Services being tested.
+</div>
+
+The first two of these endpoints will work from anywhere, while the last two
+may have to run on the same machine as your server.
+
+You could make testing easier by building these into your "Boss" page,
+possibly with a textfield to prompt for a token or plant.
+
+##Webapp Navigation
+
+Your frontend webapp would suit having a primary navbar with now five/six items: 
+one for the
+homepage and one for each of the usecases, including the new "Manage" page.
+
+Optional: If you want a bit more of a challenge, change the navbar to show only
+the pages accessible to the current user role.
 
 ##Webapp Constraints
 
-There shall be no PHP in your view source files.
+Same as before...
 
-You are welcome to use a third party templating engine, but without PHP in your view.
-
-Remember the golden rules, especially case sensitivity!
-
-##Webapp Components
-
-You are probably stressing out by this point ... just how much do we
-have to build for this bleep-bleep assignment?
-
-You will have some configuration, probably config/autoload and config/config.
-
-You will need all the controllers from assignment 1, with modifications
-to make them functional and buletproof.
-
-You will also need a second project, with a REST controller to manage
-supplies.
+- There shall be no PHP in your view source files.
+- You are welcome to use a third party templating engine, but without PHP in your view.
+- Remember the golden rules, especially case sensitivity!
 
 ##Your Code
 
-You are programmers, and you want to be professional. Code like it.
-
-That means clearly written and formatted code, properly commented.
-This applies specifically to classes, which at this stage will be
-your controllers and models.
-
-Your views should have no PHP in them, apart from possibly comments.
-
-Remember the golden rules!!! (Can't stress this enough, obviously)
+Just a reminder: code like professionals :)
 
 ##Parting Notes
 
 I will maintain an FAQ on the course hub, as needed.
-
-I am also working on the automatic deployer, so you can test your project on
-a live Linux server. I will provide details on that as soon as possible.
-

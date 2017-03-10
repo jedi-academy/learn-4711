@@ -103,6 +103,8 @@ Course organizer for Comp4711
         <tutorial name="ci-todo11">Role-specific Maintenance List</tutorial>
         <tutorial name="ci-todo12">Todo Item Maintenance (finally)</tutorial>
         <tutorial name="ci-todo11b">Polish the Item Maintenance</tutorial>
+        <assignment name="assignment2">Functional Bot Factory</assignment>
+        <assignment name="assignment2faq" icon="read" >Assignment 2 FAQ</assignment> 
     </week>
     <week num="10">
         <topic>Representation Glue - XML &amp; JSON</topic>

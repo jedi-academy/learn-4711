@@ -24,14 +24,10 @@ in SW2-124
 [Slack team](https://comp4711.slack.com) - for notifications & FAQ  
 [Course repo](https://github.com/jedi-academy/learn-4711) - open-sourced, for those who want to look "under the hood"    
 
-<!-- 
+##Assignments
 [Assignment 1](/display/assignment/assignment1)  
 [Assignment 1 FAQ](/display/assignment/assignment1faq)  
-
-[Project Teams](/display/assignment/assignment1projects)  
-[Assignment 1 Gallery](/display/assignment/gallery1)  
 [Assignment 2](/display/assignment/assignment2)  
 [Assignment 2 FAQ](/display/assignment/assignment2faq)  
--->
 
 Links above open in the same window, unless you right-click & open them differently.
