@@ -1,14 +1,6 @@
 #Assignment #2 - Functional Bot Factory Webapp
 COMP4711 - BCIT - Winter 2017
 
-#DRAFT DRAFT DRAFT
-
-<div class="alert alert-warning">
-This is a draft of assignment 2. Please email me any questions, or ask on
-slack. I expect to make final adjustments and finalize this Friday Mar 10th.
-</div>
-
-
 ##Assignment Overview & Goals
 
 The purpose of the assignments, collectively, is to let you apply the techniques 
@@ -19,7 +11,7 @@ Refer to assignment one for business logic descriptions.
 
 The purpose of this assignment (#2) is to add functionality to the mockup pieces
 from assignment #1, using a real (not mock) database and connecting to the
-[Panada Research Center](https://umbrella.jlparry.com/) (PRC) for live data.
+[Panda Research Center](https://umbrella.jlparry.com/) (PRC) for live data.
 
 #Process
 
@@ -91,7 +83,7 @@ The mock data from assignment 1 could be good for this.
 
 ##User Roles
 
-I suggest a dropdown to switch between user roles, as with labs 5-7.
+I suggest a menu dropdown to switch between user roles, as with labs 5-7.
 
 You do not need authentication for this assignment.
 
@@ -187,9 +179,10 @@ again, with the appropriate starting balance for a new plant.
 
 - Provide a mini-form for registering with the PRC. You will need your plant name, which
 can be saved as a configuration setting inside your app, and your secret token, which
-should not be stored anywhere inside your app or repo. The target could be the  PRC's
-`/registerme` endpoint, or it could be to a subcontroller inside your app which
-dealt with any response from PRC.
+should not be stored anywhere inside your app or repo. Send a message to  PRC's
+`/registerme/team/token` endpoint; it will return an appropriate message.
+Substitute your team name and token, of course.  
+This will establish a session on PRC. If yours closes, you will need to re-register.
 
 - If you use a control table to save key/value pairs for configuring or managing
 your app, provide a way to display/edit these. For instance, 
@@ -214,17 +207,19 @@ How do you determine if your app's view of the world matches reality?
 
 There are a few PRC server endpoints that you might find helpful:
 
--`/verify/token` will return the data known about a part, identified
+- `/whoami` will return who the PRC thinks you are
+
+- `/verify/token` will return the data known about a part, identified
 by its token
 
--`/scoop/plant` will return the data known about a plant, identified by
+- `/scoop/plant` will return the data known about a plant, identified by
 its name; if the plant is not
 specified, it default to the one associated with your PRC session
 
-`/myjob/plant` will return the part a plant is building; if the plant is not
+- `/myjob/plant` will return the part a plant is building; if the plant is not
 specified, it default to the one associated with your PRC session
 
--`/goodbye` will destroy your session on the PRC server, and your plant will then need
+- `/goodbye` will destroy your session on the PRC server, and your plant will then need
 to "register" again (through the "Manage" page)
 
 <div class="alert alert-warning">

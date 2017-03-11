@@ -2,8 +2,8 @@
 - Week 9 survey results updated with answers.
 - Lab 7: Fixed a few more typos & clarified directions :)
 
-**Assignment 2** *(Thu Mar 9, 23:00)*
-- Draft published. See the sidebar
+**Assignment 2** *(Sat Mar 10, 01:40)*
+- Assignment published; PRC services being tested. See the sidebar
 
 **Deployment Server** *(Thu Mar 9, 23:00)*  
 - The [test deployment server](http://deployer.jlparry.com/) seems to be working well.
