@@ -10,8 +10,8 @@
 - I am currently enhancing the deployment to include database setup from your SQL script
 - Usage: see the ["Webhooks" writeup](/display/lesson/webhooks) 
 
-**Labs** *(Thu Mar 9, 23:00)*  
-- Lab 4 marking is progressing nicely & should be completed in the next day or so
+**Labs** *(Sun Mar 12, 01:00)*  
+- Lab 4 marking is complete
 - Assignment 1 marking is in progress; target completion this weekend
 - Lab 5 marking is in the queue.
 - Lab 6 marking is in the queue.
