@@ -93,7 +93,7 @@ Course organizer for Comp4711
     <week num="9">
         <topic>Building on CodeIgniter</topic>
         <outcomes>1.3, 3</outcomes>
-        <lesson name="basic05"  icon="dothis" survey="266877">Building on CodeIgniter</lesson>
+        <lesson name="basic05"  icon="dothis">Building on CodeIgniter</lesson>
         <lesson name="week09" icon="read">Survey results</lesson>
         <lesson name="basic70">Addins in a Nutshell</lesson>
         <lab name="lab07">Completing Our TODO List Build Out.</lab>
@@ -109,10 +109,12 @@ Course organizer for Comp4711
     <week num="10">
         <topic>Representation Glue - XML &amp; JSON</topic>
         <outcomes>2.1</outcomes>
-        <lesson name="data01" icon="dothis" active="n">X M L</lesson>
-        <lesson name="data02"  icon="dothis"  active="n">J S O N</lesson>
-        <!--		<github name="xml" link="https://github.com/jedi-academy/example-xml" active="n">XML Examples</github>
-        <lesson name="week10" icon="read" active="n">Survey results</lesson>
+        <lesson name="data01" icon="dothis" >X M L</lesson>
+        <lesson name="data02"  icon="dothis" survey="266878" >J S O N</lesson>
+        <github name="xml" link="https://github.com/jedi-academy/example-xml">XML Examples</github>
+        <github name="dataglue" link="https://github.com/jedi-academy/example-glue-data">Processing XML &amp; JSON (W.I.P.)</github>
+        <lesson name="data03"  active="n" >Representational glue</lesson>
+        <!--        <lesson name="week10" icon="read" active="n">Survey results</lesson>
         <lab name="lab07" active="n">Continuing Our Diner Build-out</lab>
         <tutorial name="xml-xml01">XML - Basics &amp; Constraints (optional)</tutorial>
         <assignment name="assignment2">Functional Pantry Webapp</assignment> -->

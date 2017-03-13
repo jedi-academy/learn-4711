@@ -2,7 +2,7 @@
 <!--
 XML Basics
 -->
-<lesson status="2.0">
+<lesson status="2.1">
 
     <slide title="X M L" layout="normal" >
         <div class="left">
@@ -73,7 +73,7 @@ XML Basics
         </div>
         <div class="right">
             <p>HTML excerpt: <code>&lt;p&gt;Customer: George</code></p>        
-            <p>XHTML excerpt: <code>&lt;p&gt;Customer: George&gt;/p&gt;</code></p>
+            <p>XHTML excerpt: <code>&lt;p&gt;Customer: George&lt;/p&gt;</code></p>
             <p>XML excerpt: <code>&lt;customer&gt;George&lt;/customer&gt;</code></p>
             <p>These excerpts come from "order" files inside the <code>orders</code> 
             folder in the examples repo.</p>
@@ -87,7 +87,7 @@ XML Basics
                 with vendor-specific attributes and with
                 different liberal interpretation of closing
                 element tags.</p>
-            <p>Not an issue with XML, which addresses data representaiton
+            <p>Not an issue with XML, which addresses data representation
                 and not presentation.</p>
         </div>
         <div class="right">
@@ -122,7 +122,7 @@ XML Basics
             <p>Data relationships that would require separate
             tables in the RDB world can be managed through
             a single XML document.</p>
-            <p>An RDB solution for our order...</p>
+            <p>An RDB solution for an order...</p>
             <pre><code>INSERT INTO `Orders` (`num`, `date`, `status`, `total`, `customer`) VALUES
 (12345, '20161109-1335PST', 'A', '7.00', 'George');
 INSERT INTO `Orderitems` (`order`, `item`, `price`, `quantity`, `size`) VALUES
@@ -243,9 +243,8 @@ $doc-&gt;load('abc.xml');</code></pre>
             validated against <code>order.xsd</code>.
         </p>
         <p>Schemas are very powerful, but very complicated. 
-        An excerpt is shown to the right, but I will talk to the
-        slide during lecture.</p>
-        <p>We will address validation next week!</p>
+        An excerpt is shown to the right, and I may talk more about schemas
+            during lecture, if warranted.</p>
         </div>
         <div class="right">
             <pre><code>    &lt;xs:simpleType name="Tsize"&gt;
@@ -280,14 +279,18 @@ $doc-&gt;load('abc.xml');</code></pre>
     <slide title="3. XML STRATEGIES" layout="normal" tag="tag3">
         <p>The opening slide for this lesson showed "Magic" between
         a client and a server. XML *isn't* that magic, but it is
-        used for data representation within much of that "Magic".</p>
+        used for data representation within much of that "Magic". 
+        It would be used during
+        message exchanges bewteen components in the
+        "sistributed system layer" below.</p>
            <br/>
             <img class="scale" src="/pix/lessons/x/x06.png"/>          
     </slide>
 
     <slide title="XML as the Payload" layout="normal" >
         <p>Many services use XML formatted data structures as the payload
-        of an HTTP message.</p>
+        of an HTTP message. This means that the services explicitly
+        return an XML document or fragment *as* the response.</p>
         <ul>
             <li>RSS</li>
             <li>Cisco IP phone services (weather, news, etc)</li>
@@ -298,6 +301,9 @@ $doc-&gt;load('abc.xml');</code></pre>
     <slide title="XML as Payload Wrapper" layout="normal" >
         <p>Many services use XML formatted data wrapper structures,
             to hold the payload of a service request or response.
+            The payload itself may not be represented using XML,
+            but the reponse as a whole is, and the payload would
+            be extracted from it.
         </p>
         <ul>
             <li>SOAP web services</li>
@@ -321,7 +327,8 @@ $doc-&gt;load('abc.xml');</code></pre>
         <p>There are a number of tools common in the XML world...</p>
         <ul>
             <li>Extensible stylesheets (XSL) can be used to transform XML data,
-            for instance into HTML for reporting</li>
+            for instance into HTML for reporting, without *needing*
+            a program to oversee the process</li>
             <li>Formatting Object Processors (FOP) take specially formatted XSL output
             and create PDF documents</li>
             <li>Enterprise Service Bus is an integration architecture,

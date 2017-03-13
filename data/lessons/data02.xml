@@ -2,7 +2,7 @@
 <!--
 JSON Basics
 -->
-<lesson status="2.0">
+<lesson status="2.1">
 
     <slide title="J S O N" layout="normal" >
         <div class="left">
@@ -44,8 +44,9 @@ JSON Basics
         <div class="left">
             <p>JSON provides a technique to represent data structures.</p>
             <p>The 
-                <a href="https://github.com/jedi-academy/example-xml" target="_blank">example-xml</a>
-                Github repository has equivalent JSON data to match the XML "orders" data.
+                <a href="https://github.com/jedi-academy/example-data" target="_blank">example-data</a>
+                Github repository has JSON and XML representations of todo list items,
+                like we have worked with in the last few labs.
             </p>
         </div>
         <div class="right">
@@ -56,7 +57,7 @@ JSON Basics
 
     <slide title="JSON vs HTML?" layout="normal">
         <div class="left">
-            <p>HTML and JSON came from the same brpwser world,
+            <p>HTML and JSON came from the same browser world,
                 but that is the extent of the association between them.
                 The two conventions bear no resembance to each other.</p>
             <p>JSON data is created and manipulated by Javascript code,
@@ -68,8 +69,6 @@ JSON Basics
         <div class="right">
             <p>JSON object: <code>{ "code": "burger", "qty": "1", "price": "5.00" }</code></p>        
             <p>PHP array: <code>[ "code" => "burger", "qty" => 1, "price" => 5.00 }</code></p>
-            <p>These excerpts are in or derived from "order" files inside the <code>orders</code> 
-                folder in the examples repo.</p>
         </div>
     </slide>
 
@@ -111,6 +110,8 @@ JSON Basics
             <p>But wait, there are many ways to structure a JSON document
                 to represent the same data :(</p>
             <p>Bottom line: they are all right?</p>
+            <p>In practice, you need a mapping of JSON elements to a
+            suitable or corresponding object structure (class?).</p>
         </div>
         <div class="right">
             <p>Data in MongoDB has a flexible schema. 
@@ -129,12 +130,14 @@ JSON Basics
         <p>JSON itself is typeless, like PHP. The "type" of a property is
         whatever is assigned to it.</p>
         <p>There is a proposal for a JSON Schema, but it is a draft.</p>
-        <p>The json-schema organization has a tool you can use in the meantime.</p>
+        <p>The <a href="http://json-schema.org/">json-schema organization</a> 
+        has a tool you can use in the meantime. You need to remember
+        that it is not a standard.</p>
        </div>
         <div class="right">
             <p>MongoDB provides the capability to validate documents during 
                 updates and insertions. Validation rules are specified on a 
-                per-collection basis using the validator option, which takes 
+                per-collection basis using the "validator" option, which takes 
                 a document that specifies the validation rules or expressions.</p>
                 <pre><code>validator: { $or:
       [
@@ -152,6 +155,11 @@ JSON Basics
                 a client and a server. JSON *isn't* that magic, but it is
                 used for data representation within much of that "Magic",
                 specifically between the user's browser and your webapp.</p>
+                <p>It is also possible to have a thin translation layer
+                in front of services, to transform incoming requests
+                into JSON notation or to transform responses into
+                JSON notation for intended consumption using
+                AJAX-enabled code client-side.</p>
         </div>
         <div class="right">
             <br/>
@@ -160,7 +168,8 @@ JSON Basics
     </slide>
 
     <slide title="JSON as the Payload" layout="normal" >
-        <p>Many services use JSON formatted data structures as the payload
+        <p>Many services explicitly use JSON formatted data structures as 
+            *one* way to format the payload or response
             of an HTTP message.</p>
         <ul>
             <li>AJAX</li>
