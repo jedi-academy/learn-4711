@@ -3,12 +3,9 @@
 & JSON
 - No lab in week 10 - work on assignment 2
 
-**Assignment 2** *(Tue Mar 14, 07:00)*
+**Assignment 2** *(Mon Mar 20, 14:30)*
 - Assignment published; PRC services being tested. See the sidebar
-- Not clear if I will complete the PRC server or the deplyment server upgrades,
-before going out of town Tues.
-If you are inclined to work during the break, I would get your database setup,
-and make sure your case sensitivity is correct.
+
 
 **Deployment Server** *(Thu Mar 9, 23:00)*  
 - The [test deployment server](http://deployer.jlparry.com/) seems to be working well.
@@ -19,3 +16,9 @@ and make sure your case sensitivity is correct.
 - Assignment 1 marking is in progress; will resume next week
 - Lab 5 marking is in the queue.
 - Lab 6 marking is in the queue.
+
+**Important**  
+Some of you have been deleting your team repos or organizations as you move
+forward through labs. This is not a good practice, until you have
+received the lab/assignment feedback for them, as the repos need to
+be accessible for me to check them!
