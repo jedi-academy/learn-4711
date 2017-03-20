@@ -47,7 +47,7 @@ Your assignment will result in a team repository on Github.
 Your dropbox submission should be or include a link to your team's repository
 (not its cloning URL).
 
-Due date: Sunday Mar 24, 17:30.
+Due date: Sunday Mar 26, 17:30.
 
 ##Assignment Marking Guideline
 
