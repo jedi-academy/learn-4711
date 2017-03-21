@@ -2,8 +2,17 @@
 - Week 10 readings posted
 - No lab in week 10 - work on assignment 2
 
-**Assignment 2** *(Mon Mar 13, 14:30)*
+**Assignment 2** *(Tue Mar 21, 13:15)*
 - Assignment published; PRC services being tested. See the sidebar
+- My server pieces needed for your assignment 2 are still being
+debugged, and are not ready for prime time yet. I have decided to put
+off the due date for 1 week, so that you have adequate time to work on the 
+assignment and get help as needed.  
+My lab originally planned for next week will instead be a demo/example
+for you to consult, or perhaps partly incorporated in what will
+be the last lab, #8, in week 12.  
+I will review assignment 1 with each team during lab this week, offering suggestions
+for needed corrections or improvements.
 
 
 **Deployment Server** *(Thu Mar 9, 23:00)*  
