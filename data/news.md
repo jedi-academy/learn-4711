@@ -1,9 +1,8 @@
-**Week 10** *(Mon Mar 13, 13:30)*  
-- Week 10 readings posted; joint survey to be done after reading both XML
-& JSON
+**Week 10** *(Tue Mar 21, 02:00)*  
+- Week 10 readings posted
 - No lab in week 10 - work on assignment 2
 
-**Assignment 2** *(Mon Mar 20, 14:30)*
+**Assignment 2** *(Mon Mar 13, 14:30)*
 - Assignment published; PRC services being tested. See the sidebar
 
 

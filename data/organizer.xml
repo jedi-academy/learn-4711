@@ -111,13 +111,9 @@ Course organizer for Comp4711
         <outcomes>2.1</outcomes>
         <lesson name="data01" icon="dothis" >X M L</lesson>
         <lesson name="data02"  icon="dothis" survey="266878" >J S O N</lesson>
+        <lesson name="week10" icon="read">Survey results</lesson>
         <github name="xml" link="https://github.com/jedi-academy/example-xml">XML Examples</github>
         <github name="dataglue" link="https://github.com/jedi-academy/example-glue-data">Processing XML &amp; JSON (W.I.P.)</github>
-        <lesson name="data03"  active="n" >Representational glue</lesson>
-        <!--        <lesson name="week10" icon="read" active="n">Survey results</lesson>
-        <lab name="lab07" active="n">Continuing Our Diner Build-out</lab>
-        <tutorial name="xml-xml01">XML - Basics &amp; Constraints (optional)</tutorial>
-        <assignment name="assignment2">Functional Pantry Webapp</assignment> -->
     </week>
     <week num="11">
         <topic>Transport Glue - HTTP</topic>
