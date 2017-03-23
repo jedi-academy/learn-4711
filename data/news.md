@@ -4,6 +4,15 @@
 
 **Assignment 2** *(Thu Mar 23, 11:00)*
 - Assignment published; PRC services being tested. See the sidebar
+- My server pieces needed for your assignment 2 are still being
+debugged, and are not ready for prime time yet. I have decided to put
+off the due date for 1 week, so that you have adequate time to work on the 
+assignment and get help as needed.  
+My lab originally planned for next week will instead be a demo/example
+for you to consult, or perhaps partly incorporated in what will
+be the last lab, #8, in week 12.  
+I will review assignment 1 with each team during lab this week, offering suggestions
+for needed corrections or improvements.
 - Added a note to the assignment writeup asking you to refer
 to the online API guide, which I am in the process
 of revising for clarity and completeness!
