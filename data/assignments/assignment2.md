@@ -1,6 +1,11 @@
 #Assignment #2 - Functional Bot Factory Webapp
 COMP4711 - BCIT - Winter 2017
 
+<div class="alert alert-success">
+Refer to the "online" [PRC API Guide](http://umbrella.jlparry.com/help) for the most proper
+and most recently updated API guide for the umbrella server!
+</div>
+
 ##Assignment Overview & Goals
 
 The purpose of the assignments, collectively, is to let you apply the techniques 

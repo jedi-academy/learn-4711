@@ -1,6 +1,112 @@
 #Assignment #2 - FAQ
 COMP4711 - BCIT - Winter 2017
 
+## Class naming
+
+A number of teams have asked for guidance regarding class names, and I have seen
+some strange practices, so here goes ...
+
+- A controller for "work" does not have to be named `Work_controller`. It is legal,
+but you would then provide a routing along the lines of `work => work_controller`.
+Better would be to name it `Work`, but you need to make sure (with CI3) that
+there are no class name collisions between controllers, models & libraries.
+- You do not need a routing for every controller, which is a normal practice
+with some other frameworks.
+- The CI convention is UCfirst, meaning that the first letter of a class name
+(and its source file) is capitalized, and the rest are lowercase. If a class name
+is meant to contain several words, they would be separated by underscores. An
+example would be `Work_my_butt_off`, instead of `WorkMyButtOff` (Java style).
+- In spite of the above, it **is** possible to get away with mixed case controller
+names, such as `WorkMyButtOff`, if you provide a routing for it, eg
+`workmybuttoff => WorkMyButtOff/index`. This doesn't conform to the CI style
+guide, but it does work.
+- Usecase realization suggests that controller classes be named after their
+usecase, i.e. using a verb, and that model classes be named after their entity,
+eg `Parts` for a collection of `Part` objects.  
+I am guilty of breaking this rule, with the URL naming I specified in the assignment
+writeup, and will try to fix this.
+- REST principles suggest that a model be named after an entity collection, eg
+`Parts`, and that the service endpoint (controller) related to CRUD for such entities be
+named after the singular of the entity, eg `Part`, with methods implied by
+the HTTP verb used in an HTTP message to the service.
+- Yes, there are conflicts in the above, and no way to have your naming keep
+"everyone" happy, but that's life!
+
+##Bot factory transactions
+
+The "transactions" that would be part of your app's history, because they have
+financial implications:
+
+- buying a box of parts (10), from PRC ... cost to you
+- returning/recycling parts (1 or more), surrendering them to PRC ... income for you
+- building your factory's pieces, from PRC ... no cost, but increases your income potential
+- selling/shipping an assembled bot, to PRC ... income for you
+- buying/selling a part from/to another factory ... coming in assignment 3
+
+Showing a bot assembly as a transaction is ok too.
+
+It's up to you if you want to show details, eg specific parts, but they would be identified
+by the parts' CA codes, not your internal "key". If showing them in a transaction,
+showing the part type is ok too.
+
+##Parts treatment
+
+You have an inventory of parts, which you can use to assemble robots, or which you can
+return/recycle to PRC for some small consideration.
+
+When a part is "consumed" as part of building a robot, it is no longer available
+for building other bots or for recycling. This can be handled by removing
+it from your inventory table, or by leaving it in the inventory table
+but flagging it is unavailable. If you choose the latter strategy, you will
+need to reflect the status in your parts list, and not include any such
+parts in the candidate list on your assembly page.
+
+##Bot assembly
+
+A common mistake I have noticed is identifying the parts that make up a bot
+by their part type, eg this bot has an A1, a B3, and a Z2. This is not helpful, because
+you need to provide the CA codes for any pieces used in a bot, when you
+sell/ship that bot to PRC.
+
+The CA code is a unique identifier for a part, recognized and managed by PRC.
+
+##Token confusion
+
+You have a login for the [PRC server](http://umbrella.jlparry.com/).
+This is effectively a username (your team name) and password (your super
+secret access token).
+
+The API for your app to request service from the PRC also mentions a token,
+currently passed as a query parameter (`build?token=xxx`). This is an API
+key, and I will modify the API guide to reflect this.
+
+Sending an API key as a query parameter is not the "correct" way to do this,
+but it is expedient for assignment 2. In assignment 3, we will use a better
+technique, so that the API key is not as exposed.
+
+##Results from PRC?
+
+What exactly do you get back from a PRC request, that you can work with?
+
+The easiest way to see this is to "try it".
+
+I have setup a "server-test" app, in the bot factory tables on PRC, for me
+to test PRC functionality. It is still a work in progress, but has a [browser
+interface](http://server-test.jlparry.com/) that you can use to see what 
+comes back from each PRC endpoint.
+
+You can also check out its [repo ](https://github.com/jim-parry/server-test),
+to see how the code works.
+
+NOTE: I cannot update my repo at the moment (getting an error when I try)
+and my app deployment is flaky as a result.
+I am aware of this, and working on it.
+
+<div class="alert alert-info">
+Heads up: I am going to see if I can simplify the PRC endpoints, with
+better naming and clarity, and clearer description of the API key.
+This will result in some API changes over the next couple of days!
+</div>
 ## Case sensitivity?
 
 Yes, you need to worry about case sensitivity!
