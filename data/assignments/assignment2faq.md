@@ -103,10 +103,10 @@ and my app deployment is flaky as a result.
 I am aware of this, and working on it.
 
 <div class="alert alert-info">
-Heads up: I am going to see if I can simplify the PRC endpoints, with
-better naming and clarity, and clearer description of the API key.
-This will result in some API changes over the next couple of days!
+Endpoints simplified :)
+See [API guide](http://umbrella.jlparry.com/help)!!
 </div>
+
 ## Case sensitivity?
 
 Yes, you need to worry about case sensitivity!

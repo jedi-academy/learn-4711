@@ -118,10 +118,6 @@ of parts certificates, in JSON format
 - add each of these to your parts table
 - Update the appropriate history table(s)
 
-<div class="alert alert-warning">
-Service being tested.
-</div>
-
 Add a "Buy parts" button or link to the page, which would be handled by:
 
 - request a box of random parts for you to use, from the Panda Resarch
@@ -130,10 +126,6 @@ of parts certificates, in JSON format
 - PRC will deduct the purchase price from your cash balance
 - add each of these to your parts table
 - Update the appropriate history table(s)
-
-<div class="alert alert-warning">
-Service being tested.
-</div>
 
 ##Assembly page
 
@@ -202,10 +194,6 @@ for the three parts that make up your bot. The server will respond with `Ok` or 
 with a self-explanatory error message. If "Ok", you can remove the bot from your database.
 The PRC will automatically credit your account balance.
 
-<div class="alert alert-warning">
-Services being tested.
-</div>
-
 ##Debugging
 
 How do you determine if your app's view of the world matches reality?
@@ -226,10 +214,6 @@ specified, it default to the one associated with your PRC session
 
 - `/goodbye` will destroy your session on the PRC server, and your plant will then need
 to "register" again (through the "Manage" page)
-
-<div class="alert alert-warning">
-Services being tested.
-</div>
 
 The first two of these endpoints will work from anywhere, while the last two
 may have to run on the same machine as your server.

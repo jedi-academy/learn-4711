@@ -1,32 +1,29 @@
-**Week 10** *(Tue Mar 21, 02:00)*  
-- Week 10 readings posted
-- No lab in week 10 - work on assignment 2
+**Week 11** *(Sat Mar 25, 11:45)*  
+- Sorry, but the week 11 reading will be late ... probably not ready
+until Sunday evening. The topic is complicated, and I am struggling
+with making it suitably simple, for our purposes.
 
-**Assignment 2** *(Thu Mar 23, 11:00)*
-- Assignment published; PRC services being tested. See the sidebar
-- My server pieces needed for your assignment 2 are still being
-debugged, and are not ready for prime time yet. I have decided to put
-off the due date for 1 week, so that you have adequate time to work on the 
-assignment and get help as needed.  
-My lab originally planned for next week will instead be a demo/example
-for you to consult, or perhaps partly incorporated in what will
-be the last lab, #8, in week 12.  
-I will review assignment 1 with each team during lab this week, offering suggestions
-for needed corrections or improvements.
-- Added a note to the assignment writeup asking you to refer
-to the online API guide, which I am in the process
-of revising for clarity and completeness!
-- I am also adding more points to the Assignment 2 FAQ, based on
-observations from assignment 1.
+**Assignment 2** *(Sat Mar 25, 11:45)*
+- The PRc services have been implemented :)
+- The [server-test]() app is in place, but it is having issues
+connecting to the PRC server running on the same box, in a different
+sub-domain. If you want to play with it, you will have to download
+and run it from your system (after adjusting the config/database.php for your
+system).
+- Assignment 1 has been reviewed with each team, with suggestions.
+At some point over the weekend, I plan to go through the
+repositories and review your process. At that point, I can complete and publish the
+dropbox feedback.
 
-**Deployment Server** *(Thu Mar 9, 11:00)*  
-- The [test deployment server](http://deployer.jlparry.com/) seems to be working well.
+**Deployment Server** *(Sat Mar 25, 11:45)*  
+- The [test deployment server](http://deployer.jlparry.com/) seems to be sorta working.
+I need to tweak the deployment script so that it recreates your deployment folder,
+rather than just trying to "git pull" into it & update it.
 - I am currently enhancing the deployment to include database setup from your SQL script
 - Usage: see the ["Webhooks" writeup](/display/lesson/webhooks) 
 
-**Labs** *(Thu Mar 23, 11:00)*  
-- Assignment 1 marking is in progress ... reviewing features with teams in lab,
-still have one more pass for "process" (repo) items before publishing
+**Labs** *(Sat Mar 25, 11:45)*  
+- Assignment 1 marking is in progress ... process review in progress, before publishing
 - Lab 5 marking is in the queue.
 - Lab 6 marking is in the queue.
 - Lab 7 marking is in the queue.
