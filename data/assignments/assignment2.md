@@ -4,6 +4,8 @@ COMP4711 - BCIT - Winter 2017
 <div class="alert alert-success">
 Refer to the "online" [PRC API Guide](http://umbrella.jlparry.com/help) for the most proper
 and most recently updated API guide for the umbrella server!
+
+I have updated the relevant references in this document to reflect the changes.
 </div>
 
 ##Assignment Overview & Goals
@@ -113,7 +115,7 @@ secondary page for just one piece.
 Add a "Build more parts" button or link to the page, which would be handled by:
 
 - request any newly built parts for this factory, from the Panda Resarch
-center's `/api/build` endpoint. That service will return an array
+center's `/work/mybuilds` endpoint. That service will return an array
 of parts certificates, in JSON format
 - add each of these to your parts table
 - Update the appropriate history table(s)
@@ -121,7 +123,7 @@ of parts certificates, in JSON format
 Add a "Buy parts" button or link to the page, which would be handled by:
 
 - request a box of random parts for you to use, from the Panda Resarch
-center's `/api/box` endpoint. That service will return an array
+center's `/work/buybox` endpoint. That service will return an array
 of parts certificates, in JSON format
 - PRC will deduct the purchase price from your cash balance
 - add each of these to your parts table
@@ -170,14 +172,14 @@ There are several features appropriate for this page, handled by tabs or perhaps
 by separate panels:
 
 - Provide a button or link to "Reboot" your plant. It should send a message to the
-Panda Research Center's `/rebootme`, and get an `Ok` response or a self-explanatory error message.
+Panda Research Center's `/work/rebootme`, and get an `Ok` response or a self-explanatory error message.
 On successful "reboot", empty your inventory & history - you are starting from scratch
 again, with the appropriate starting balance for a new plant.
 
 - Provide a mini-form for registering with the PRC. You will need your plant name, which
 can be saved as a configuration setting inside your app, and your secret token, which
 should not be stored anywhere inside your app or repo. Send a message to  PRC's
-`/registerme/team/token` endpoint; it will return an appropriate message.
+`/work/registerme/team/token` endpoint; it will return an appropriate message.
 Substitute your team name and token, of course.  
 This will establish a session on PRC. If yours closes, you will need to re-register.
 
@@ -189,7 +191,7 @@ for the PRC, to avoid hard-coding it.
 
 - Finally, here is where you can sell assembled bot to the PRC. Present a list
 of the ones you have built, with suitable links to sell them to the PRC one at a time,
-namely `/buyme/part1/part2/part3`, where parts 1 through 3 are the tokens
+namely `/work/buymybot/part1/part2/part3`, where parts 1 through 3 are the tokens
 for the three parts that make up your bot. The server will respond with `Ok` or `Nak`
 with a self-explanatory error message. If "Ok", you can remove the bot from your database.
 The PRC will automatically credit your account balance.
@@ -200,19 +202,19 @@ How do you determine if your app's view of the world matches reality?
 
 There are a few PRC server endpoints that you might find helpful:
 
-- `/whoami` will return who the PRC thinks you are
+- `/info/whoami` will return who the PRC thinks you are
 
-- `/verify/token` will return the data known about a part, identified
+- `/info/verify/token` will return the data known about a part, identified
 by its token
 
-- `/scoop/plant` will return the data known about a plant, identified by
+- `/info/scoop/plant` will return the data known about a plant, identified by
 its name; if the plant is not
 specified, it default to the one associated with your PRC session
 
-- `/myjob/plant` will return the part a plant is building; if the plant is not
+- `/info/job/plant` will return the part a plant is building; if the plant is not
 specified, it default to the one associated with your PRC session
 
-- `/goodbye` will destroy your session on the PRC server, and your plant will then need
+- `/work/goodbye` will destroy your session on the PRC server, and your plant will then need
 to "register" again (through the "Manage" page)
 
 The first two of these endpoints will work from anywhere, while the last two

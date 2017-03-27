@@ -1,10 +1,15 @@
-**Week 11** *(Sat Mar 25, 11:45)*  
+**Week 11** *(Mon Mar 27, 11:30)*  
 - Sorry, but the week 11 reading will be late ... probably not ready
 until Sunday evening. The topic is complicated, and I am struggling
 with making it suitably simple, for our purposes.
+- Update: still working on the presentation/reading. Given the lateness,
+I will not hold it against you if you do not complete the survey.
+Once the lesson is ready, I will post an update on slack, with
+a closing time for what will be an optional survey for this week.
 
-**Assignment 2** *(Sat Mar 25, 11:45)*
-- The PRc services have been implemented :)
+**Assignment 2** *(Mon Mar 27, 12:30)*
+- The PRC services have been implemented :) I have updated the assignment 2
+writeup to reflect the changed endpoints.
 - The [server-test]() app is in place, but it is having issues
 connecting to the PRC server running on the same box, in a different
 sub-domain. If you want to play with it, you will have to download
@@ -14,6 +19,7 @@ system).
 At some point over the weekend, I plan to go through the
 repositories and review your process. At that point, I can complete and publish the
 dropbox feedback.
+- I have updated the assignment 2 writeup with the correct service endpoints.
 
 **Deployment Server** *(Sat Mar 25, 11:45)*  
 - The [test deployment server](http://deployer.jlparry.com/) seems to be sorta working.
