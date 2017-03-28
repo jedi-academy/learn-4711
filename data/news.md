@@ -19,7 +19,8 @@ system).
 At some point over the weekend, I plan to go through the
 repositories and review your process. At that point, I can complete and publish the
 dropbox feedback.
-- I have updated the assignment 2 writeup with the correct service endpoints.
+- I have updated the assignment 2 writeup with the correct service endpoints. 
+- I have started updating the FAQ with student questions (and answers).
 
 **Deployment Server** *(Sat Mar 25, 11:45)*  
 - The [test deployment server](http://deployer.jlparry.com/) seems to be sorta working.
