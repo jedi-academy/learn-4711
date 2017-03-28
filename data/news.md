@@ -1,11 +1,7 @@
-**Week 11** *(Mon Mar 27, 11:30)*  
-- Sorry, but the week 11 reading will be late ... probably not ready
-until Sunday evening. The topic is complicated, and I am struggling
-with making it suitably simple, for our purposes.
-- Update: still working on the presentation/reading. Given the lateness,
-I will not hold it against you if you do not complete the survey.
-Once the lesson is ready, I will post an update on slack, with
-a closing time for what will be an optional survey for this week.
+**Week 11** *(Tue Mar 28, 11:45)*  
+- I have today's presentation. There are some slides that I plan to talk
+to, to explain the problems we face.  
+No survey this week _-/
 
 **Assignment 2** *(Mon Mar 27, 12:30)*
 - The PRC services have been implemented :) I have updated the assignment 2

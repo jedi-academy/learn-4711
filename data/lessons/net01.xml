@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+JSON Basics
+-->
+<lesson status="beta">
+
+    <slide title="Transport Glue" layout="normal" >
+        <div class="left">
+            <p>
+                <strong>Transport Glue</strong> - refers to "glue" technology
+                choices for
+                messaging between distributed application
+                components.</p>
+            <p>It provides a messaging base for "application glue" (next week),
+                which relies on "representation glue" (last week) to send
+                appropriately formatted data structures as message
+                payloads.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/net/Wrapper.gif"/>
+        </div>
+    </slide>
+
+    <!-- Agenda -->
+    <slide title="Agenda" layout="normal">
+        <ol>
+            <li>
+                <a href="#{tag1}">Internet Protocol Suite</a>
+            </li>
+            <li>
+                <a href="#{tag2}">HyperText Transport Protocol (HTTP)</a>
+            </li>
+            <li>
+                <a href="#{tag3}">HTTP Payloads</a>
+            </li>
+        </ol>
+    </slide>
+
+
+    <!-- Normal slides -->
+
+    <slide title="1. INTERNET PROTOCOL SUITE" layout="normal" tag="tag1">
+        <div class="left">
+            <p>The Internet protocol suite is a simplfied view of the multi-layer
+                OSI networking model.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/net/protocolStack.png"/>          
+        </div>
+    </slide>
+
+    <slide title="Socket Programming" layout="normal">
+        <div class="left">
+            <p>The protocol suite relies on the notion of
+                server sockets, listening for incoming requests,
+                and worker sockets, with which a client
+                exchanges messages.</p>
+            <p>The intent is that a protocol daemon
+                (application layer) create a server socket,
+                and use the transport layer protocol
+                to exchange messages.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/net/scheme.png"/>          
+        </div>
+    </slide>
+
+    <slide title="Socket Messages" layout="normal">
+        <div class="left">
+            <p>Messages are exchanged between socket endpoints.</p>
+            <p>Some protocols provide for two-way messaging,
+            with a persisten connection, while others provide
+            for a single response to each request, with
+            the sockets being closed thereafter.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/net/IC30189.gif"/>          
+        </div>
+    </slide>
+
+    <slide title="Transport Layer" layout="normal" >
+        <div class="left">
+            <p>There are a number of choices for the transport layer
+                protocol...</p>
+            <ul>
+                <li>Transmission control protocol (TCP) - the most common</li>
+                <li>User datagram protocol (UDP)</li>
+                <li>Sockets direct protocol (SDP)</li>
+            </ul>
+            <p>These would not be implemented using PHP, but they can
+                be *used* through PHP code.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/net/tcp-ip.gif"/>          
+        </div>
+    </slide>
+
+    <slide title="Application Layer" layout="normal" >
+        <div class="left">
+            <p>There are a number of choices for the application layer
+                protocol...</p>
+            <ul>
+                <li>HTTP - the most common</li>
+                <li>FTP</li>
+                <li>SMTP</li>
+                <li>Websockets</li>
+            </ul>
+            <p>Herein comes the hiccup - our PHP code is invoked
+                by our web server, and is already in the context of HTTP.
+                We need tricks to use other protocols.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/net/oreilly.png"/>          
+        </div>
+    </slide>
+
+ 
+
+
+    <slide title="Being Different" layout="normal" >
+        <div class="left">
+            <p>The "normal" way to handle non-HTTP protocols in PHP
+                is to have a separate protocol daemon listening
+                on a different port than your HTTP daemon.
+                You would then use an adapter (package), which
+                could reroute requests to the other protocol
+                handler, or perhaps act as a proxy for the other
+                service, with full access to your app and its data.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/net/rathchet-php_websockets.gif"/>          
+        </div>
+    </slide>
+
+    <slide title="2. HYPERTEXT TRANSPORT PROTOCOL (HTTP)" layout="normal" tag="tag2">
+        <div class="left">
+            <p>HTTP is the assumed application layer protocol,
+                in the PHP world.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/net/HTTP.png"/>          
+        </div>
+    </slide>
+
+    <slide title="HTTP Verbs" layout="normal">
+            <p>HTTP prescribes a number of methods (verbs).</p>
+            <ul>
+                <li>GET: requests a representation of the specified resource.</li>
+                <li>HEAD: same as a GET request, but without the response body.</li>
+                <li>POST: provide a new entity.</li>
+                <li>PUT: provide an updated entity.</li>
+                <li>DELETE: deletes the specified resource.</li>
+                <li>TRACE: echoes the received request. </li>
+                <li>OPTIONS: returns the supported HTTP methods.</li>
+                <li>CONNECT: converts the request connection to a transparent TCP/IP tunnel, eg for SSL</li>
+                <li>PATCH: applies partial modifications to a resource.</li>
+            </ul>
+    </slide>
+
+    <slide title="HTTP Request" layout="normal">
+         <div class="left">
+           <p>HTTP requests have a standard format...</p>
+           <p>Warning: not all HTTP verbs support or require a payload (message body)</p>
+         </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/net/httprequest.png"/>          
+        </div>
+   </slide>
+
+    <slide title="HTTP Response" layout="normal">
+         <div class="left">
+           <p>HTTP responses have a standard format...</p>
+         </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/net/httpresponse.png"/>          
+        </div>
+   </slide>
+
+    <slide title="3. HTTP PAYLOADS" layout="normal" tag="tag3">
+        <div class="left">
+            <p>How hard can this be?</p>
+            <p>An HTTP GET has key-value pairs in the URI itself,
+            or we can use segments for those in CI.</p>
+            <p>An HTTP POST or PATCH contains key-value pairs as the payload.
+            **Maybe**</p>
+            <p>HTTP HEAD, DELETE and OPTIONS do not have a payload.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/net/figure_001.jpg"/>          
+        </div>
+    </slide>
+
+    <slide title="HTTP Payloads, Really" layout="normal" >
+        <p>What's wrong with this picture?</p>
+        <ul>
+            <li> The payload for an HTTP POST/PUT/PATCH is just
+            a string (stream). What you get may not be what
+            you expect!</li>
+            <li>PHP easily emits HTTP GETs, but not the other
+            verbs (see cURL, Guzzle, Unirest for solutions)</li>
+            <li>PHP assumes incoming GET or POST messages only,
+            although we can route incoming requests by HTTP verb type. 
+            Everything you need has already parsed into $_GET
+            and $_POST. We need the raw input :(</li>
+        </ul>
+    </slide>
+
+    <slide title="Content Type - Normal" layout="normal" >
+        <h2>application/x-www-form-urlencoded</h2>
+        <pre>
+POST /path HTTP/1.1
+Host: www.myhostname.com
+User-Agent: Mozilla/5.0 [...etc...]
+Accept: text/html,application/xhtml+xml, [...etc...]
+Accept-Language: en-gb,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 41
+
+field1=value1&amp;field2=value2&amp;field3=value3            
+        </pre>
+    </slide>
+
+   <slide title="Content Type - Multipart" layout="normal" >
+        <h2>multipart/form-data</h2>
+        <pre>
+POST /foo HTTP/1.1 ...
+Content-Length: 68137
+Content-Type: multipart/form-data; boundary=---------------------------974767299852498929531610575
+Content-Disposition: form-data; name="description"
+
+---------------------------974767299852498929531610575
+
+some text
+
+---------------------------974767299852498929531610575
+Content-Disposition: form-data; name="myFile"; filename="foo.txt" 
+Content-Type: text/plain 
+
+(content of the uploaded file foo.txt)
+
+---------------------------974767299852498929531610575        </pre>
+    </slide>
+
+   <slide title="Content Type - Custom" layout="normal" >
+        <h2>unspecified</h2>
+        <pre>
+POST /foo HTTP/1.1
+Content-Length: 1234
+            
+{ "name":"Jim", "state":"confused" }            
+        </pre>
+   </slide>
+
+</lesson>

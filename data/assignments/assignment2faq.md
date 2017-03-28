@@ -1,6 +1,28 @@
 #Assignment #2 - FAQ
 COMP4711 - BCIT - Winter 2017
 
+## Robot series vs model vs line
+
+>History list ... it should have purchases, does that mean purchases of parts? Like when we use the /buybox?
+
+Yes. In assignment 3, purchases will include any parts you buy from another factory, but
+for now it is only the aprts you buy.
+
+>I'm still a little confused on what the filter and order is supposed to do.
+
+The filtering would show only those parts for a butler bot (for instance), but possibly ordered
+by part type (top, torso, bottom)
+
+>When you're ordering by robot model, does that also show only assembled robots? 
+
+No - the parts that would come from the same model, i.e. which could be used to make a more valuable bot.
+
+>Is a robot series and robot line the same thing?
+
+Yes. I should have been more consistent with my wording, sorry.
+The line or series are determined by the first letter in a robot part code ...
+I use the "series" table to keep track of these inside my "umbrella" app.
+
 ##History list clarification
 
 Question... the writeup says 

@@ -118,7 +118,7 @@ Course organizer for Comp4711
     <week num="11">
         <topic>Transport Glue - HTTP</topic>
         <outcomes>2.1, 2.2</outcomes>
-        <lesson name="data03" icon="dothis" active="n">Transport Glue</lesson>
+        <lesson name="net01" icon="dothis">Transport Glue</lesson>
         <!--<lesson name="week11" icon="read" active="n">Survey results</lesson>
         		<github name="example-simplexml" link="https://github.com/jedi-academy/example-simplexml-winter2016" active="n">SimpleXML Examples</github>
         <lab name="lab08" active="n">Finishing Our Diner Build-out</lab>
@@ -177,7 +177,7 @@ Course organizer for Comp4711
         <lesson name="xml04" icon="read" active="n">Data Representation Conversions</lesson>
         <lesson name="advanced02" active="n">XML-RPC</lesson>
         <github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" active="n">XML-RPC Examples</github>
-        <lesson name="social1" active="n">Social Networking (optional, coming)</lesson>
-        <lesson name="social2" active="n">Social Integration (optional, coming)</lesson>
+<!--        <lesson name="social1" active="n">Social Networking (optional, coming)</lesson>
+        <lesson name="social2" active="n">Social Integration (optional, coming)</lesson> -->
     </week>
 </organizer>
