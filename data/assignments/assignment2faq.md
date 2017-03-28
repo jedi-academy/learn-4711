@@ -1,6 +1,21 @@
 #Assignment #2 - FAQ
 COMP4711 - BCIT - Winter 2017
 
+##History list clarification
+
+Question... the writeup says 
+>The history list should provide for flexible ordering, by date/time or by robot model. I suggest a dropdown for this, although links could work just as well.
+>The list should be filterable, by robot series or robot model. You could use a dropdown for these, or provide radio buttons or checkboxes to select the output. A dropdown would result in a "cleaner" UI.
+>
+>Is robot model and robot line supposed to be stored in the history table? Or something else similar?
+>We currently have your history model you gave us which is : ...
+
+The history list in my umbrella server is only to support the "recent transactions" panel on my dashboard, which is cost/income oriented.  
+The history filterable by robot series or model is parts-oriented.
+
+I think you would be better served by using your parts table as a starter, or a combination.  
+If you have modified your parts table to include an "available" flag, then it should be usable for this. If not, I suggest a separate table for all parts, past & present.
+
 ## Class naming
 
 A number of teams have asked for guidance regarding class names, and I have seen
