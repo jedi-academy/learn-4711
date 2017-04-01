@@ -1,6 +1,94 @@
 #Assignment #2 - FAQ
 COMP4711 - BCIT - Winter 2017
 
+##Marking Philosophy & Commentary
+
+I don't think you should stress so much over marks for work - 
+consider the "bigger picture" instead, namely what you are learning
+that will serve you well after graduation.
+
+Many BCIT students (not just CST) are obsessed with grades...
+- will that be on the exam (if not, filter out)
+- what can I do to get a better or perfect mark?
+- arguing over 1 mark out of 100 (trying to wear the instructor down until they give in?)
+- I was physically present during lectures ... isn't that worth a pass or a "C"?
+
+Other BCIT students (including many in CST) are here to "learn"
+- how can I do something better?
+- what are industry practices with/for something?
+- what do you think about ...?
+
+My lab and assignment marking rubrics are intended to support the latter kind of student,
+with a "small slap on the wrist" (1 mark off) for something that could be done better,
+and a "bigger slap on the wrist" (2 marks off) for something that is wrong or a
+"show stopper".
+
+You may have noticed that I have only penalized submissions two marks out of the total
+for a submission, for serious things like your app not being platform-neutral,
+even though I said in the "golden rules" that such a thing would cost 20% of the mark
+for that grade item.
+
+I try not to issue deductions for the same thing in subsequent labs/assignments, if
+you haven't received feedback for the earlier infraction. I don't always get it
+right (I am human), and severe infractions will receive a penalty each time
+they happen.
+
+FYI, the first assignment had an average mark of 86%, with a median of 88%.
+The lowest mark was 71% and the highest was 96%.
+This tells me that some of the teams need more nudging than others, but none
+of the teams are going to fail the course because of a specific assignment.
+
+I prefer the Julia Child style of feedback to the Gordon Ramsay one :-/
+
+##History Expectations
+
+>Hello Jim, Could you assist me in knowing exactly the history columns you expect to see for assignment 2?
+
+>seeing as almost every group got it wrong and is lost in this regard, and the details given to us in both assignments pertaining to this area is lacking and vague defining only records of "transactions" which could mean anything. ive seen too many peoples records and they are all over the place.
+
+>it would be apreciated to know what your expectations are so we dont lose marks. 
+
+There isn't a specific expectation, other than something that makes sense for the activities 
+that your factory does (per the API) and which supports the reporting you want to
+provide - pagination, ordering (by datetime or bot model), and filtering (by bot series or model).
+
+None of the data/tables in my umbrella server or server-test apps does exactly this. They provide raw
+data that you need to assimilate in the manner you would find most useful. 
+That could be a single table with additional fields, or that could be two (or even more) tables with
+different fields. 
+
+If you want to have a single history table, then the results from buying a box of parts would be
+translated into ten records in that table. If you want to have a history table that is more activity-oriented,
+then it will need to provide for up to 10 parts (the ones received), or perhaps 3 parts (recycled or consumed
+as part of building a robot). 
+
+In either of the above cases (and those are only two examples),
+you would be well-served to determine the series and model that a part belongs to. 
+The model is simply the first letter of the part. The series is determined
+from that, according to which range of models it falls into. 
+In my case, I chose to address that in the umbrella server by having 
+a "series" table, which is probably overkill.
+
+The series codes that I used (which you could too, or not) are 0 for motley, 11 for basic household,
+13 for butler bots, and 26 for companion bots. Those very-specific codes were chosen using
+my scientific dartboard, as along as the numbers increased with each throw, in the sequence shown.
+You won't find any parts intended for a motley bot - that "series" results from assembling a bot
+with pieces from different series.
+
+I don't intend for a specific history/transaction table(s) layout - that is up to you and what you want to
+do with the data. The umbrella server provides the data it does, and the intent
+is that your app translate it into whatever is needed to conform
+to your data design, without inventing unsupported data (such as a part color).
+
+An aside: if **I** were building a bot factory site, "for real", I would use XML fragments
+to model "transactions" and/or "activity",
+possibly through a document database or as a column in an RDB. Each fragment would have a hierarchical structure 
+suited to the kind of transaction it is. One of my original ideas late fall, preparing
+for this instance of the course, was to have such an XML structure as part of assignment 3.
+That, however, is inappropriate for the scope of assignment 3 (REST client and server), and
+XML has been de-emphasized in the course, to the point where you haven't been shown how to properly
+handle it. I do not expect any of the assignments, current or future, to use XML.
+
 ## Robot series vs model vs line
 
 >History list ... it should have purchases, does that mean purchases of parts? Like when we use the /buybox?
