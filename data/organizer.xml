@@ -110,7 +110,7 @@ Course organizer for Comp4711
         <topic>Representation Glue - XML &amp; JSON</topic>
         <outcomes>2.1</outcomes>
         <lesson name="data01" icon="dothis" >X M L</lesson>
-        <lesson name="data02"  icon="dothis" survey="266878" >J S O N</lesson>
+        <lesson name="data02"  icon="dothis" >J S O N</lesson>
         <lesson name="week10" icon="read">Survey results</lesson>
         <github name="xml" link="https://github.com/jedi-academy/example-xml">XML Examples</github>
         <github name="dataglue" link="https://github.com/jedi-academy/example-glue-data">Processing XML &amp; JSON (W.I.P.)</github>
@@ -127,8 +127,7 @@ Course organizer for Comp4711
     <week num="12">
         <topic>Application Glue - REST</topic>
         <outcomes>2.1, 2.3</outcomes>
-        <lesson name="advanced03" icon="dothis" active="n">REST</lesson>
-        <lesson name="advanced04"  active="n">AJAX</lesson>
+        <lesson name="advanced03" icon="dothis" survey="266882">REST</lesson>
         <!--		<lesson name="week12" icon="read" active="n">Survey results</lesson>
         <lab name="lab09" active="n">REST</lab>
         <tutorial name="tut-adv02" active="n">Decoupling Our Diner</tutorial>
@@ -172,11 +171,12 @@ Course organizer for Comp4711
     <week num="xx">
         <topic>Supplementary Reading FYI</topic>
         <lesson name="basic04-leftovers"  icon="read">Other Form Techniques</lesson>
-        <lesson name="xml01" active="n">XML Basics (Optional Refresher)</lesson>
-        <lesson name="xml02" active="n">Constraining XML (Optional)</lesson>
-        <lesson name="xml04" icon="read" active="n">Data Representation Conversions</lesson>
-        <lesson name="advanced02" active="n">XML-RPC</lesson>
-        <github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" active="n">XML-RPC Examples</github>
+        <lesson name="xml01"  icon="read">XML Basics (Optional Refresher)</lesson>
+        <lesson name="xml02"  icon="read">Constraining XML (Optional)</lesson>
+        <lesson name="xml04" icon="read">Data Representation Conversions</lesson>
+        <lesson name="advanced02"  icon="read">XML-RPC</lesson>
+        <github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" >XML-RPC Examples</github>
+        <lesson name="advanced04" icon="read">AJAX</lesson>
 <!--        <lesson name="social1" active="n">Social Networking (optional, coming)</lesson>
         <lesson name="social2" active="n">Social Integration (optional, coming)</lesson> -->
     </week>

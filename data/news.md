@@ -1,5 +1,6 @@
-**Week 12** *(Sat Apr 1, 15:30)*  
-- In progress. Should be posted Sat or Sun evening.
+**Week 12** *(Sun Apr 2, 09:00)*  
+- Lesson posted. Survey closes Mon 21:00.
+- Working on the example repos
 
 **Assignment 2** *(Sat Apr 1, 15:40)*
 - Assignment 2 FAQ updated (not an April Fool's joke)
