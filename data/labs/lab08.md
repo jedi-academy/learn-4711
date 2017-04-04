@@ -3,7 +3,7 @@ COMP4711 - BCIT - Winter 2017
 
 ##Lab Goals
 
-The purpose of this lab is to take a working webapp, "our" diner, and split it into two
+The purpose of this lab is to take a working webapp, ["our" diner](https://github.com/jedi-academy/starter-standalone), and split it into two
 parts which talk to each other using RESTful distributed system techniques.
 
 We will continue to use gitflow workflow. That means proper branching (master/develop), 
