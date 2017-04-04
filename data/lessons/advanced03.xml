@@ -2,7 +2,7 @@
 <!--
 Lesson 10 - Role-Based Access Control
 -->
-<lesson status="2.0">
+<lesson status="2.1">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <!-- Agenda -->
@@ -351,6 +351,27 @@ Lesson 10 - Role-Based Access Control
                <li>Seeing through the hype (Web 3.0000...)</li>
             </ul>
  
+    </slide>
+
+   <slide title="REST Misuses" layout="normal">
+        <p>These are the common misuses I see with RESTful services:</p>
+        <ul>
+            <li>REST controllers (endpoints) may identify a resource
+            (eg Users) or they may identify a service (eg GeoLocation)</li>
+            <li>If (mis)used for a service API, it is typical
+            to use HTTP verbs to denote changes or not, and/or the scope
+            of changes, upon successful handling of the request</li>
+            <li>Many services provide for data to be passed as key/value
+            pairs (POST-style), and they claim to be RESTful if those
+            key/value pairs can be JSON or XML encoded</li>
+            <li>Many services interpret the "state transfer" as only needing
+            anything that has changed, 
+                i.e. more PATCH-oriented than POST-oriented.</li>                
+            <li>In the cases above, if the endpoints map to an API,
+            and only GET and POST are supported, but the data format
+            is flexible, does this make the service RESTish?
+            and would then "resource controllers" be truly RESTful?</li>
+        </ul>
     </slide>
 
     <slide title="REST - DO YOU CARE?" layout="normal" >
