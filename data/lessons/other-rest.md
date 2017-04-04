@@ -130,3 +130,41 @@ Zend uses "method" routing to map requests to actions according to the HTTP verb
     ]);
 
 This does not appear to be a full REST implementation.
+
+
+## Facebook
+
+Facebook is not an MVC framework, but their request handling is interesting,
+nonetheless.
+
+Using their "Graph API", they define endpoints per usecases, and provide
+for RESTful data conversions...
+
+    POST graph.facebook.com
+      /me/feed?
+        message="Hello, World."&amp;
+        access_token={your-access-token}
+
+Some of their requests use funky URI parameters:
+
+    GET graph.facebook.com
+      /{photo-id}?
+        fields=comments.order(reverse_chronological)
+
+This doesn't look very restful to me.
+
+## Google APIs
+
+Google has so many APIs it is confusing.
+
+Just looking at an excerpt from their blogger API...
+
+    blogger.pages.delete	Delete a page by ID.
+    blogger.pages.get	Gets one blog page by ID.
+    blogger.pages.insert	Add a page.
+
+It looks like they are defining endpoints per REST, with parameters including your access
+token and possibly resource ID passed as GET/POST parameters.
+
+Confusing :(
+
