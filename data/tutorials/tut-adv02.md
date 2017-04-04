@@ -1,5 +1,5 @@
 #Tutorial tut-adv02 - Decoupling Our Diner
-COMP4711 - BCIT - Fall 2016
+COMP4711 - BCIT - Fall 2016/Winter 2017
 
 ##Planning
 
