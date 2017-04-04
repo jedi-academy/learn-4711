@@ -50,13 +50,6 @@ One thing that will make life easier: let's keep any menu item pictures in the
 front-ends, each with a potentially different user experience, which needs
 UI/UX specific pictures. Yeah.
 
-##Danger - danger - danger
-
-I misinterpreted the parameter passing to our REST controller (it has been
-a couple of years since I worked with it). I have added some explanation
-to the <code>package-restful</code> readme, and adjusted the tutorial
-accordingly.
-
 ##1. Backend Database Setup
 
 In the backend database, drop all but the <code>Menu</code> table.

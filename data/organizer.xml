@@ -128,10 +128,9 @@ Course organizer for Comp4711
         <topic>Application Glue - REST</topic>
         <outcomes>2.1, 2.3</outcomes>
         <lesson name="advanced03" icon="dothis" survey="266882">REST</lesson>
-        <!--		<lesson name="week12" icon="read" active="n">Survey results</lesson>
-        <lab name="lab09" active="n">REST</lab>
-        <tutorial name="tut-adv02" active="n">Decoupling Our Diner</tutorial>
-        <assignment name="assignment2" active="n">Functional Pantry Webapp</assignment>-->
+        <lesson name="week12" icon="read">Survey results</lesson>
+        <lab name="lab08">REST</lab>
+        <tutorial name="tut-adv02">Decoupling Our Diner</tutorial>
     </week>
     <week num="13">
         <topic>Authentication &amp; Review</topic>

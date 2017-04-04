@@ -1,6 +1,6 @@
-**Week 12** *(Sun Apr 2, 09:00)*  
-- Lesson posted. Survey closes Mon 21:00.
-- Working on the example repos
+**Week 12** *(Tue Apr 4, 11:30)*  
+- Lesson posted. 
+- Example repos mostly ready
 
 **Assignment 2** *(Sat Apr 1, 15:40)*
 - Assignment 2 FAQ updated (not an April Fool's joke)
@@ -17,11 +17,11 @@ rather than just trying to "git pull" into it & update it.
 - I am currently enhancing the deployment to include database setup from your SQL script
 - Usage: see the ["Webhooks" writeup](/display/lesson/webhooks) 
 
-**Labs** *(Wed Mar 29, 12:00)*  
-- Assignment 1 marking completed
+**Labs** *(Wed Apr 4, 11:30)*  
 - Lab 5 marking is in progress.
 - Lab 6 marking is in the queue.
 - Lab 7 marking is in the queue.
+- Assignment 2 marking is in the queue.
 
 **Important**  
 Some of you have been deleting your team repos or organizations as you move
