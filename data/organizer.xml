@@ -166,7 +166,8 @@ Course organizer for Comp4711
         <lesson name="other-controllers" icon="read" >Controller examples from other frameworks</lesson>
         <lesson name="other-views" icon="read" >View examples from  other frameworks</lesson>
         <lesson name="other-forms" icon="read" >Form examples from  other frameworks</lesson> 
-    </week>
+         <lesson name="other-rest" icon="read" >REST examples from  other frameworks</lesson> 
+   </week>
     <week num="xx">
         <topic>Supplementary Reading FYI</topic>
         <lesson name="basic04-leftovers"  icon="read">Other Form Techniques</lesson>

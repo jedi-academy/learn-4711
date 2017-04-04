@@ -1,6 +1,7 @@
-**Week 12** *(Tue Apr 4, 11:30)*  
+**Week 12** *(Tue Apr 4, 13:15)*  
 - Lesson posted. 
 - Example repos mostly ready
+- Added some REST examples from other frameworks, as part of "week 17"
 
 **Assignment 2** *(Sat Apr 1, 15:40)*
 - Assignment 2 FAQ updated (not an April Fool's joke)
