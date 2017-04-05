@@ -27,11 +27,11 @@ rather than just trying to "git pull" into it & update it.
 - I am currently enhancing the deployment to include database setup from your SQL script
 - Usage: see the ["Webhooks" writeup](/display/lesson/webhooks) 
 
-**Labs** *(Wed Apr 4, 11:30)*  
-- Lab 5 marking is in progress.
+**Labs** *(Wed Apr 5, 01:30)*  
+- Lab 5 marking completed.
+- Assignment 2 marking is in progress.
 - Lab 6 marking is in the queue.
 - Lab 7 marking is in the queue.
-- Assignment 2 marking is in the queue.
 
 **Important**  
 Some of you have been deleting your team repos or organizations as you move
