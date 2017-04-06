@@ -11,6 +11,17 @@ If you forked the starter, then resynch with it. If you copied the starter,
 then download the updated one, and merge `controllers/Order.php`, `controllers/Shopping.php`,
 `models/Order.php` and `views/*` into your lab 8 projects.
 
+- Some of you have encountered an error trying to add a new menu item in the front-end CRUD.  
+A suggestion: instead of
+
+    return ! empty($result);
+
+try
+
+    if (isset($result->error))
+			return false;
+		else
+			return true;
 
 **Assignment 2** *(Sat Apr 1, 15:40)*
 - Assignment 2 FAQ updated (not an April Fool's joke)
