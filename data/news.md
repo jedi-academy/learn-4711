@@ -6,6 +6,7 @@ though, open until Thursday morning.
 It asks for any questions you would like addressed during the review
 lecture, as well as for your opinion about the course hub
 and "flipped learning".  
+Note: this is not for marks.
 
 I will do my best to answer or address any review questions
 submitted before midnight tonight (Monday), either in the
