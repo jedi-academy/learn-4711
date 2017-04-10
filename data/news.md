@@ -1,48 +1,28 @@
-**Week 12** *(Tue Apr 4, 13:15)*  
-- Lesson posted. 
-- Example repos mostly ready
-- Added some REST examples from other frameworks, as part of "week 17"
+**Week 13** *(Mon Apr 10, 08:30)*  
+No online reading for this week.  
 
-- Corrected the lab 8 starter ... I originally posted one version too old, sorry.  
-Updated: Crud & Shopping controllers, Order model, and some views.  
-These do not impact what you have to change, but they will make it easier
-to test if you made all the front-end model changes needed :)  
-If you forked the starter, then resynch with it. If you copied the starter,
-then download the updated one, and merge `controllers/Order.php`, `controllers/Shopping.php`,
-`models/Order.php` and `views/*` into your lab 8 projects.
+I have posted a [survey](https://learn.bcit.ca//d2l/lms/survey/user/attempt/survey_start_frame.d2l?si=266881&ou=360899)
+though, open until Thursday morning.
+It asks for any questions you would like addressed during the review
+lecture, as well as for your opinion about the course hub
+and "flipped learning".  
 
+I will do my best to answer or address any review questions
+submitted before midnight tonight (Monday), either in the
+survey results or in class.
 
-**Assignment 2** *(Sat Apr 1, 15:40)*
-- Assignment 2 FAQ updated (not an April Fool's joke)
-- The [server-test](https://github.com/jim-parry/server-test) app is in place, but it is having issues
-connecting to the PRC server running on the same box, in a different
-sub-domain. If you want to play with it, you will have to download
-and run it from your system (after adjusting the config/database.php for your
-system).
+I will be reviewing assignment 2 with each team during lab this week, and
+you will have the opportunity to complete course evaluations.
 
-**Assignment 3** *(Thu Apr 6, 11:30)*  
+**Assignment 3** *(Mon Apr 10, 08:30)*  
 
 I do not plan to post a third assignment - I don't see that your learning or
 sanity would be positively affected by it.
 
-Something I am seeing with this week's lab is more of a "copy/paste/pray"
-strategy, with many of the resulting issues resolvable by reading
-and absorbing the writeup, the `restful` package readme, and/or the
-example "ferries" repos that I showed in class.
+No one has asked to pursue an optional assignment 3.
 
-I plan to review assignment 2 in lab next week, with each of the teams.
-
-If any teams or individuals would like to pursue the originally planned
-assignment 3, on an optional basis, let me know!
-
-**Deployment Server** *(Sat Mar 25, 11:45)*  
-- The [test deployment server](http://deployer.jlparry.com/) seems to be sorta working.
-I need to tweak the deployment script so that it recreates your deployment folder,
-rather than just trying to "git pull" into it & update it.
-- I am currently enhancing the deployment to include database setup from your SQL script
-- Usage: see the ["Webhooks" writeup](/display/lesson/webhooks) 
-
-**Labs** *(Thu Apr 6, 11:30)*  
+**Labs** *(Mon Apr 10, 08:30)*  
 - Assignment 2 marking is in progress.
-- Lab 6 marking is in the queue.
+- Lab 6 marking is in progress.
 - Lab 7 marking is in the queue.
+- Lab 8 marking is in the queue.
