@@ -135,9 +135,9 @@ Course organizer for Comp4711
     <week num="13">
         <topic>Review</topic>
         <outcomes>2.1, 2.2, 2.3</outcomes>
-        <lesson name="week13" icon="read" active="n">Survey results (the survey 
+        <lesson name="week13" icon="read">Survey results (the survey 
             link is in the "news" above).</lesson>
-        <lesson name="final"  active="n">Final Exam Review</lesson>
+        <lesson name="final" >Final Exam Review</lesson>
         <!--		<lesson name="week13" icon="read" active="n">Survey results</lesson>
         <tutorial name="tut-adv01" active="n">Authentication</tutorial>-->
     </week>

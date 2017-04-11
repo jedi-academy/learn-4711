@@ -2,7 +2,7 @@
 <!--
 Lesson 11a - Exam Review
 -->
-<lesson status="2016fall">
+<lesson status="2017winter">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <!-- Agenda -->
@@ -25,19 +25,19 @@ Lesson 11a - Exam Review
 
     <slide title="1. FINAL EXAM ESSENTIALS" layout="normal" tag="tag1">
         <ul>
-            <li>Date? Fri Dec 16</li>
-            <li>When? 15:30 - 17:30</li>
-            <li>Where? SW1-1205</li>
+            <li>Date? Thu Apr 20</li>
+            <li>When? 08:30 - 10:30</li>
+            <li>Where? NE1-239/242</li>
             <li>How Long? Two hours</li>
             <li>How long minimum? 60 minutes</li>
             <li>Aids: None</li>
         </ul>
         <p>The exam, and its solution, will be posted in the content section on D2L,
-            once I get home on exam day - 18:30ish. 
+            once I get home on exam day - noon-ish. 
             Raise any concerns with the
-            questions or the answers by email, before Saturday morning.
+            questions or the answers by email, before 09:00 the day after the exam.
             I will go through your questions, and amend the solution if
-            appropriate, before getting down to exam marking late Saturday morning.</p>
+            appropriate, before getting down to exam marking.</p>
     </slide>
 
     <slide title="Stress Points" layout="normal">
@@ -82,10 +82,11 @@ Lesson 11a - Exam Review
     <slide title="What Format Will the Exam Have?" layout="normal">
         <p>Last term's breakdown shown in square brackets</p>
         <ul>
-            <li>Multiple choice @1 ... 40-60 [60]</li>
-            <li>Completion @2 ... 10-15 [8]</li>
-            <li>Short answer @ 3 ... 10-15 [8]</li>
-            <li>100 marks in total</li>
+            <li>Multiple choice @1 ... 20-30 [23]</li>
+            <li>Completion @2 ... 10-15 [14]</li>
+            <li>Short answer @ 3-5 ... 10-15 [14]</li>
+            <li>Long answer @ 5-10 ... 2-6 [2]</li>
+            <li>100-120 marks in total</li>
         </ul>
     </slide>
 
@@ -163,7 +164,7 @@ Lesson 11a - Exam Review
             <p>
                 <b>Concepts:</b>
                 <ul>
-                    <li>MVC separation - handling, presentation, collections</li>
+                    <li>MVC separation - request handling, presentation, collections</li>
                     <li>Design patterns - front controller, adapters</li>
                     <li>Loading classes - system, core, app</li>
                     <li>Routing requests - convention, segments</li>
@@ -209,7 +210,6 @@ Lesson 11a - Exam Review
                     <li>View templating</li>
                     <li>Sessions</li>
                     <li>Base model, enhanced base controller</li>
-                    <li>Authentication</li>
                 </ul>
             </p>   
         </div>
@@ -259,7 +259,7 @@ Lesson 11a - Exam Review
                 <ul>
                     <li>XML - tree, processing</li>
                     <li>JSON</li>
-                    <li>RDB?</li>
+                    <li>RDB? Serialized PHP?</li>
                 </ul>
             </p>   
         </div>
@@ -292,7 +292,7 @@ Lesson 11a - Exam Review
             </p>   
         </div>
     </slide>
-    <slide title="B.3 Integration" layout="normal">
+<!--    <slide title="B.3 Integration" layout="normal">
         <p>
             <em>Play securely</em>
         </p>
@@ -319,6 +319,7 @@ Lesson 11a - Exam Review
             </p>   
         </div>
     </slide>
+    -->
     <slide title="C. Collaboration" layout="normal">
         <p>
             <em>Play nice together</em>
@@ -339,7 +340,8 @@ Lesson 11a - Exam Review
                 <ul>
                     <li>Devops</li>
                     <li>Tools &amp; conventions...</li>
-                    <li>Docker, Vagrant...</li>
+                    <li> test deployment server...</li>
+                    <li><em>Docker, Vagrant...</em></li>
                 </ul>
             </p>   
         </div>
