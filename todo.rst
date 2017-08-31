@@ -9,7 +9,7 @@ If anyone feels strongly enough, they can be raised as github issues.
 Course Issues
 *************
 
-- Cross platform installation...
+- Cross platform installation... 
 
 ******************
 Course Suggestions
