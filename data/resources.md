@@ -10,7 +10,7 @@
 ## CodeIgniter
 [CodeIgniter 3](http://www.codeigniter.com) The webapp framework we will use  
 [CodeIgniter Forums](http://forum.codeigniter.com) Support for the CI framework  
-[CodeIgniter IRC Channel](http://webchat.freenode.net/?channels=%23codeigniter&amp;uio=d4%22) Support for the CI framework  
+[CodeIgniter Slack Channel](https://codeigniterchat.slack.com/messages/general/) Support for the CI framework  
 [CodeIgniter Bug Tracker](https://github.com/bcit-ci/CodeIgniter/issues) Bugs reported as Github issues  
 
 ## Other PHP Frameworks
@@ -36,6 +36,11 @@
 [W3Schools](http://www.w3schools.com/php/default.asp) Tutorials   
 [PHP Documentation](http://ca3.php.net/manual/en/) ... from the horse's mouth  
 
+## Testing
+[PHPUnit](https://phpunit.de/) for testing your webapp models and business logic  
+[Nightwatch](http://nightwatchjs.org/) Functional (behavior-driven) testing using nodeJS  
+[CoDeception](http://codeception.com/) Functional (behavior-driven) testing on top of PHPUnit  
+  
 ## Collaboration
 [GIT](http://git-scm.com/downloads) Your GIT client and/or plugin  
 [GitKraken](https://www.gitkraken.com/) The new kid on the block  

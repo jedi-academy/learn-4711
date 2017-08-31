@@ -1,0 +1,4 @@
+[submodule "course-hub"]
+	path = course-hub
+	url = https://github.com/jedi-academy/course-hub
+	branch = master

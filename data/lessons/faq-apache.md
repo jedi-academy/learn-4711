@@ -1,5 +1,5 @@
 # Frequently Asked Questions - Apache
-COMP4711 - BCIT - Winter 2017
+COMP4711 - BCIT - Fall 2017
 
 This FAQ addresses the most common problems encountered
 trying to develop webapps as part of this course.

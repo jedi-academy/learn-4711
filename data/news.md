@@ -1,2 +1,1 @@
-- Lab 8 marking is complete
-- Exam marking is in progress
+Welcome to the Fall 2017 offering of COMP4711 :)

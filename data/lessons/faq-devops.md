@@ -1,5 +1,5 @@
 # Frequently Asked Questions - Devops
-COMP4711 - BCIT - Winter 2017
+COMP4711 - BCIT - Fall 2017
 
 This FAQ addresses the most common problems encountered
 trying to develop webapps as part of this course.
@@ -19,7 +19,12 @@ Vagrant is a tool that sits on top of VirtualBox.
 It makes the runnning VirtualBox easer, and has provision to setup your project
 inside, for testing.
 
-### GPG Signing  
+### Docker container
+
+Docker is an emerging devops processing pipeline manager.
+I don't know enough to help you with it, but plan to experiment.
+
+## GPG Signing  
 
 Some of the students are experiencing signing issues - "gpg failed to sign...".  
 - Workaround: Until we get that resolved, you may use signed-off by messages, but make sure that 
@@ -30,17 +35,12 @@ names and email are the same!
 and I suggest upgrading to the most recent. Not sure if that will solve
 all the problems, but it seems to help.
 
-### Docker container
+## Git deployment
 
-Docker is an emerging devops processing pipeline manager.
-I don't know enough to help you with it, but plan to experiment.
-
-### Git deployment
-
-Still testing this, and working out configuration deatils.
-Once ready, you configure your project on my server, and add
+I have an automatic deployment server that you can use to test your project
+webapp. You configure your project on my server, and add
 a webhook to your github repo.
-Whenever you merge to your team repo, that triggers a git pull on my VPS
+Then, whenever you merge to your team repo, that triggers a git pull on my VPS
 to deploy your webapp for testing :-/
 
 ##Repo Hiccups

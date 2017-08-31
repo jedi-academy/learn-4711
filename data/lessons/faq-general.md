@@ -1,5 +1,5 @@
 # Frequently Asked Questions - General
-COMP4711 - BCIT - Winter 2017
+COMP4711 - BCIT - Fall 2017
 
 This FAQ addresses the most common problems encountered
 trying to develop webapps as part of this course.
@@ -8,7 +8,7 @@ trying to develop webapps as part of this course.
 
 If you send an email from inside D2L, it cannot be responded to.
 D2L is a notification only service, which tries to look like an email service.
-Use your & my real email addresses instead.
+Use your & our real email addresses instead.
 
 If you encounter a problem with your lab, and I ask you to email
 me a zip of the project folder (so we don't mess up your repo) and of

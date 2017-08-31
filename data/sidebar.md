@@ -1,8 +1,12 @@
-## Course Instructor
-Jim Parry  
+## Course Instructors
+**Jim Parry**  
 <jim_parry@bcit.ca>   
-Office hours Tue 12:30-14:20, Wed 11:30-13:20 and Thu 12:30-13:20
-in SW2-124
+Online collaboration; announced first class.  
+In office meeting can be requested Wed or Thu, 10:30-12:20 (SW2-124)
+
+**Michal Aibin**  
+<michal_aibin@bcit.ca>  
+Office hours & location TBA
 
 
 ## Desire2Learn LMS
@@ -25,9 +29,10 @@ in SW2-124
 [Course repo](https://github.com/jedi-academy/learn-4711) - open-sourced, for those who want to look "under the hood"    
 
 ##Assignments
+<!---
 [Assignment 1](/display/assignment/assignment1)  
 [Assignment 1 FAQ](/display/assignment/assignment1faq)  
 [Assignment 2](/display/assignment/assignment2)  
 [Assignment 2 FAQ](/display/assignment/assignment2faq)  
-
+--->
 Links above open in the same window, unless you right-click & open them differently.
