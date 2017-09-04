@@ -6,47 +6,26 @@ Lesson 00 - In-class Only Introduction
     <!-- Activity metadata ... override anything from the course or organizer -->
     
     <!-- The meat of the presentation -->
-    <slide title="Your Instructor" layout="normal">
-        <ul>
-            <li>Jim Parry</li>
-            <li>Day job: BCIT instructor</li>
-            <li>Off campus: webapp developer</li>
-            <li>Full-time: CI geek, Java not so much any more</li>
-            <li>Project Lead, CodeIgniter</li>
-            <li>Office &amp; phone: SW2-124, email instead</li>
-            <li>Email: jim_parry@bcit.ca</li>
-        </ul>
-    </slide>
-
-    <slide title="Changes This Year ..." layout="normal">
-        <p>A few things are changing this term, as a result of some 
-            Learning Initiative workshops and
-            redevelopment during the first half of 2016. These have led to some
-            rethinking of COMP4711 and how it is presented and delivered...</p>
-        <p>These changes were started last term, and continue to be refined this term.</p>
-        <ul>
-            <li>Backwards Design</li>
-            <li>Flipped Learning</li>
-            <li>Flipped LMS</li>
-            <li>"Authentic" assessment</li>
-            <li>Rigorous workflow</li>
-        </ul>
-    </slide>
-
-    <slide title="Backwards Design" layout="normal">
-        <p>It all starts with the "story" behind the course, and what I want
-            you to get out of it ... 
-            what you see as the "course goals" in the course outline.</p>        
-        <p>Working backwards:</p>
-        <ul>
-            <li>The "story" incorporates the "big picture", and stated as well
-                as unstated learning outcomes.</li>
-            <li>From this, determine the real-world "evidence", and how an 
-                employer would assess your abilities.</li>
-            <li>These lead to a clearer expression of the learning outcomes</li>
-            <li>... which need suitable assessments (assignments, exams, etc)</li>
-            <li>... and which lead to a sequence of instruction</li>
-        </ul>
+    <slide title="Your Instructors" layout="normal">
+        <div class="left">
+            <h2>Jim Parry</h2>
+            <ul>
+                <li>Day job: BCIT instructor</li>
+                <li>Off campus: webapp developer</li>
+                <li>Full-time: CI geek, Java not so much any more</li>
+                <li>Project Lead, CodeIgniter</li>
+                <li>Contact: SW2-124, email instead</li>
+                <li>Email: jim_parry@bcit.ca</li>
+            </ul>
+        </div>
+        <div class="right">
+            <h2>Michal Aibin</h2>
+            <ul>
+                <li>Day job: BCIT instructor, <br/>ACIT3650 &amp; ACIT3900</li>
+                <li>Interests: Networks, data mining &amp; software engineering</li>
+                <li>Email: maibin@bcit.ca</li>
+            </ul>
+        </div>
     </slide>
 
     <slide title="Course Outcomes" layout="normal">
@@ -56,6 +35,17 @@ Lesson 00 - In-class Only Introduction
             <li>Build distributed capabilities into an MVC web application</li>
             <li>Demonstrate proper team collaboration for webapp development</li>
         </ol>
+    </slide>
+
+    <slide title="Deviating from Normal ..." layout="normal">
+        <p>A few things are different in this course, compared to what
+            you might be used to...</p>
+        <ul>
+            <li>Flipped Learning</li>
+            <li>Flipped LMS</li>
+            <li>"Authentic" assessment</li>
+            <li>Rigorous workflow</li>
+        </ul>
     </slide>
 
     <slide title="Flipped Learning" layout="normal">
@@ -107,13 +97,14 @@ Lesson 00 - In-class Only Introduction
     <slide title="Grading" layout="normal">
         <ul>
             <li>10%: Surveys &amp; lab participation</li>
-            <li>30%: 9 labs</li>
-            <li>40%: 3 assignments</li>
-            <li>20%: Final exam, comprehensive</li>
+            <li>25%: 10 labs</li>
+            <li>30%: 3 assignments</li>
+            <li>10%: investigative report (midterm)</li>
+            <li>25%: Final exam, comprehensive</li>
         </ul>
         <p>Attendance expected, missing more than 2 labs =&gt; U</p>
         <p>Labs: individual or varying pairs, rubric-based assessment</p>
-        <p>Assignments: teams of 2-5, each building on the previous,
+        <p>Assignments: teams of 3-5, each building on the previous,
             rubric-based assessment</p>
     </slide>
 

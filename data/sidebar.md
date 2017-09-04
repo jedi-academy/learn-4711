@@ -5,9 +5,9 @@ Online collaboration; announced first class.
 In office meeting can be requested Wed or Thu, 10:30-12:20 (SW2-124)
 
 **Michal Aibin**  
-<michal_aibin@bcit.ca>  
-Office hours & location TBA
-
+<maibin@bcit.ca>  
+Online collaboration; announced first class.  
+In office meeting can be requested Thu (12:30-13:20) in Burnaby (room TBA).
 
 ## Desire2Learn LMS
 [Calendar](https://learn.bcit.ca/d2l/le/calendar/{ou})  

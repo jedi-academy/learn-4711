@@ -1,6 +1,6 @@
 
 #Lab #1 - Development Environment
-COMP4711 - BCIT - Winter 2017
+COMP4711 - BCIT - Fall 2017
 
 ##Lab Goals
 
@@ -8,7 +8,7 @@ This is a bit of a whirlwind lab, providing a shallow look at a number of things
 
 The goals of this lab are to equip you with a webapp development environment, and to expose you to github and PHP.
 
-There are three tutorials for you to take advantage of, and then this lab exercise to apply them.
+There are two tutorials for you to take advantage of, and then this lab exercise to apply them.
 
 Suggestion: you may want to read the lab and tutorials first, before diving in.
 
@@ -24,21 +24,25 @@ but you need individual submissions.
 Your lab will be completed in a github repository.
 
 Provide a link to your github repository as part of your dropbox submission. 
-Include screenshot(s) sufficient to convince me that you have your environment setup ... your browser window accessing your student list, for instance.
 
-Due: Sunday, Jan 15, 17:30 PST
+Your dropbox submission should contain two files in addition to the above-mentioned link:
+
+- a screenshot of your browser window accessing your webapp (showing the student list)
+- a copy of your virtual host configuration file
+
+Due: Sunday, Sep 10, 17:30 PST
 
 ##Lab Marking Guideline
 
 The lab dropbox has a D2L rubric attached to it, which provides a raw score out of 15.
 That will be scaled so that the lab is out of 10 in the gradebook.
 
-I will be making sure that you have a project, with the proper webapp structure. 
+We will be making sure that you have a project, with the proper webapp structure. 
 It can be a NetBeans project, but doesn't have to be ... in fact, the IDE you use should not be apparent ;p
 
-I will check your github commit history, to see if you appear to using the process properly.
+We will check your github commit history, to see if you appear to using the process properly.
 
-I will be making sure that it runs properly when I deploy the project into my "comp4711" virtual host folder.
+We will be making sure that it runs properly when we deploy the project into our "comp4711" virtual host folder.
 
 
 ##Disclaimer
@@ -50,13 +54,15 @@ Our focus is on "baby steps", that will lead to best practices over the next few
 
 ##Lab Preparation
 
-Three tutorials have been provided, to setup your development environment. 
+Two tutorials have been provided, to setup your development environment. 
 Please make sure you have completed them, if needed, before starting the lab proper.
 
 - [Tutorial 1](/show/tutorial/setup01) XAMPP Installation - if you do not have a web server installed
 - [Tutorial 2](/show/tutorial/setup02) Virtual Hosting Setup - if you don't have virtual hosting setup
-- [Tutorial 3](/show/tutorial/setup03) PHP Crash Course - if you are really nervous about PHP
 
+Note: if you are feeling really uncomfortable about working in PHP, there is a
+document in the reference section of the organizer, comparing PHP and Java.
+ 
 #On to the Lab Itself!
 
 
@@ -426,6 +432,8 @@ I shouldn't have to remind you to comment your code, right? We're all profession
 
 Once done, commit any changes and update your repo.
 
-The lab submission will be a link to your repository, NOT a cloning URL.
-You may have to add a dummy text file, as D2L wasn't accepting submissions
-with text only.
+The text for your lab submission will be a link to your repository, NOT a cloning URL.
+Ask if you are unclear, so that you don't lose a silly mark!
+
+Remember the screenshot and configuration file to submit too, as described way back when.
+

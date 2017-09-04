@@ -6,13 +6,13 @@ Lesson 01a - Introduction
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <slide title="Introduction" layout="normal">
-        <p>This course will help you learn how to develop webapps
+        <p>This course will help you learn how to develop MVC webapps
             using CodeIgniter.</p>
         <p>It presents a comprehensive set of skills, but not all of CI!</p>
         <p>It shows "best practices", but not the only way to
             use the framework.</p>
-        <p>The course assumes you know O-O programming and PHP,
-            and that you have some familiarity with HTML.</p>
+        <p>The course assumes you know O-O programming,
+            and that you have some familiarity with PHP and HTML.</p>
     </slide>
 
     
