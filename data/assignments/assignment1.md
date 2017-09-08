@@ -1,13 +1,13 @@
-#Assignment #1 - Bot Factory Webapp
-COMP4711 - BCIT - Winter 2017
+#Assignment #1 - WACKY Webapp
+COMP4711 - BCIT - Fall 2017
 
 ##Assignments Overview
 
-<img src="/pix/assignments/umbrellacorporation3.png" class="pull-left"/>
+<img src="/pix/assignments/wacky-logo.png" class="pull-right"/>
 The purpose of the assignments, collectively, is to let you apply the techniques 
 from the lessons and tutorials.
-In teams of up to five, you will be building a small but complete webapp, 
-in our case to manage a simple robot factory. 
+In teams of three to five, you will be building a small but complete webapp, 
+in our case to manage flight schedules for a regional airline. 
 
 This will be done in three stages, with specific expectations for each stage. 
 Each stage will be a separate assignment, building on top of the
@@ -19,7 +19,7 @@ The techniques for applying these will be the subject of upcoming lessons and tu
 
 The purpose of this assignment #1 is to get the basic pieces of your webapp 
 in the correct places expected for a CodeIgniter webapp.
-It is to use a mock database (i.e. mock data for any tables), and present
+It is to use a mock database, and present
 mock views (no business logic expected), just like in lab 3.
 
 The important thing here is to get the right pieces in the right places.
@@ -27,15 +27,11 @@ You will add proper functionality "behind" the components in the next two assign
 
 #Backstory
 
-<img src="/pix/assignments/panda.jpg" class="pull-left"/>
-[Umbrella Corporation](http://residentevil.wikia.com/wiki/Umbrella_Corporation) is trying 
-to improve its public image, after an "industrial accident" at its 
-[Raccoon City](http://residentevil.wikia.com/wiki/Raccoon_City) research & development facility.
-The corporation has embarked on a new project, building cute household robots.
-Efforts are coordinated at their new Panda Research Center.
+<img src="/pix/assignments/cartoon-airplane.jpeg" class="pull-left"/>
+The Western Airlines Consortium (WAC) has initiated a Knowledge Yielder (KY) project,
+to make it easy for consumers to find flights within B.C., from one or more
+of the consortium's member airlines.
 
-Umbrella Corp is outsourcing robot assembly to a number of plants worldwide.
-Each COMP4711 team will be building the webapp to support one of these.
 
 ***
 
@@ -106,31 +102,28 @@ for the team, and they will maintain the team repository stored therein.
 Team size should be between 3 and 5. Teams of one or two are **not acceptable**. 
 This is partly about collaboration, after all.
 
-The group sizes have been set to 4, with self-enrolment. 
-That gives a reasonable number of groups to play with.
-Ask me to over-ride that if you have a fifth member.
-
 If a team ends up dysfunctional, a dissenting member may be relegated or
 transferred (depending on your perspective) to a team of my choice.
 
 Team members do not have to be in the same set. It is your responsibility to coordinate
 and collaborate appropriately if such is the case.
+
 Team members do not have to receive the same grade.
 Under-contributing members will will receive a lower mark.
 
 ##Testing & Deployment
 
 The team captain should send me an email, identifying their team group.
-I will reply with a super-secret access code. Use this to login
-to Umbrella Corp's [Panda Center](https://umbrella.jlparry.com/vault) website,
-and configure your plant's repository settings for "head office".
+I will reply with a password for
+ the WAC's [Flight Center](https://flights.jlparry.com/vault) website,
+where you can configure your webapp's settings for "head office".
 
 You will then need to setup a webhook in your team repo settings,
-linking to the corporate [deployment handler](https://umbrella.jlparry.com/deploy).
+linking to the corporate [deployment handler](https://flights.jlparry.com/deploy).
 Each time you merge to the configured branch in your team repo, the
 repo will be automatically pulled and deployed on my server. 
 It will then be accessible for testing through the subdomain with
-your team name, for instance https://tomato.jlparry.com.
+your team name, for instance https://chicken.jlparry.com.
 
 ##Workflow
 
@@ -139,8 +132,8 @@ with GPG-signed commits by team members.
 
 Contributions to the team repository should be by pull request only.
 
-(Not required for this assignment, peer review and issue tracking will
-come into play for assignment 2.)
+(Not required for this assignment, peer review and issue tracking may
+come into play for upcoming assignments.)
 
 All work should be done in your "develop" branch.
 Before the deadline, the CAPTAIN should merge "develop" into "master",
@@ -158,13 +151,16 @@ You may then continue to work towards assignment 2, using your "develop" branch.
 Your assignment will result in a github repository for your team, separate from those for each team
 member.
 
-Submit a readme *text* file, or a submission comment, to the lab dropbox. 
+Submit a readme *text* file, or a submission comment, to the assignment 1 dropbox. 
 It should contain a link to your **team**'s github repository only. 
 I don't need links to the member repositories, as they can be determined
 from the team one. No screenshots are needed, either, as functionality
 will be determined by deploying the webapp on my test system.
 
-Deadline: the end of week 5, i.e. 17:30 Sunday Feb 12th.
+Deadline: the end of week 5, i.e. 17:30 Sunday Oct 8th.
+
+_This gives you ample time to enjoy Thanksgiving dinner and/or the Blade Runner 2049
+opening, if you manage your time properly!_
 
 ##Assignment Marking Guideline
 

@@ -44,7 +44,7 @@ Course organizer for Comp4711
     <week num="4">
         <topic>Routing &amp; Templating</topic>         
         <outcomes>1.2 (routing), 3</outcomes>
-         <!--
+        <!--
        <inlab>#4 Working with controllers</inlab>
         <lesson name="basic02">CI Controllers</lesson>
         <lesson name="week03b" icon="read" >Survey results - controllers (last week)</lesson>
@@ -58,7 +58,7 @@ Course organizer for Comp4711
     <week num="5">
         <topic>Models</topic>
         <outcomes>1.2 (models), 3</outcomes>
-         <!--
+        <!--
        <inlab>Assignment #1 completion</inlab>
         <lesson name="basic03" icon="dothis"  survey="266872">CodeIgniter Models</lesson>
         <lesson name="basic03-more" icon="dothis" survey="266873">Model Pattenrs</lesson>
@@ -77,7 +77,7 @@ Course organizer for Comp4711
         <lesson name="week06" icon="read" >Survey results</lesson>
         <github name="views" link="https://github.com/jedi-academy/example-views" >Examples to support "views" lessons</github> 
         <lesson name="basic69">Views in a Nutshell</lesson>
-        		<assignment name="gallery1" icon="read" active="n">Project gallery</assignment>
+                        <assignment name="gallery1" icon="read" active="n">Project gallery</assignment>
         <lab name="lab05" >Todo List Manager</lab>
         <tutorial name="ci-todo01" >Database and models</tutorial>
         <tutorial name="ci-todo02" >Homepage Features</tutorial>
@@ -155,22 +155,22 @@ Course organizer for Comp4711
     <week num="13">
         <topic>Authentication &amp; Optional Topics</topic>
         <outcomes>2.1, 2.2, 2.3</outcomes>
-         <!--
+        <!--
        <lesson name="week13" icon="read">Survey results (the survey 
             link is in the "news" above).</lesson>
         <lesson name="final" >Final Exam Review</lesson>
-        		<lesson name="week13" icon="read" active="n">Survey results</lesson>
+                        <lesson name="week13" icon="read" active="n">Survey results</lesson>
         <tutorial name="tut-adv01" active="n">Authentication</tutorial>
         -->
     </week>
     <week num="14">
         <topic>Review &amp; Predictions</topic>
         <outcomes>1, 2, 3</outcomes>
-         <!--
+        <!--
        <lesson name="week14" icon="read">Survey results (the survey 
             link is in the "news" above).</lesson>
         <lesson name="final" >Final Exam Review</lesson>
-        		<lesson name="week13" icon="read" active="n">Survey results</lesson>
+                        <lesson name="week13" icon="read" active="n">Survey results</lesson>
         <tutorial name="tut-adv01" active="n">Authentication</tutorial>
         -->
     </week>
@@ -183,7 +183,14 @@ Course organizer for Comp4711
         <tutorial name="setup03">PHP Comparison to Java</tutorial>
         <lesson name="dev04" icon="read" >Gitting Good</lesson>		
         <lesson name="marking" icon="read" >Marking Process</lesson>		
-<!--        <lesson name="webhooks" icon="read" >Webhooks for deployment testing</lesson>		 -->
+        <!--        <lesson name="webhooks" icon="read" >Webhooks for deployment testing</lesson>		 -->
+    </week>
+    <week num="aa">
+        <topic>Assignments</topic>
+<!--        <assignment name="assignment1">Functional Bot Factory</assignment>
+        <assignment name="assignment1faq" icon="read" >Assignment 1 FAQ</assignment> 
+        <assignment name="assignment2">Functional Bot Factory</assignment>
+        <assignment name="assignment3">Functional Bot Factory</assignment> -->
     </week>
     <week num="zz">
         <topic>FAQ</topic>
