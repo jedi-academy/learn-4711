@@ -193,11 +193,12 @@ Course organizer for Comp4711
         <assignment name="assignment3">Functional Bot Factory</assignment> -->
     </week>
     <week num="zz">
-        <topic>FAQ</topic>
+        <topic>FAQs</topic>
         <lesson name="faq-general" icon="read" >FAQ</lesson>		
         <lesson name="faq-apache" icon="read" >FAQ</lesson>		
         <lesson name="faq-devops" icon="read" >FAQ</lesson>		
         <lesson name="faq-ci" icon="read" >FAQ</lesson>		
+        <lesson name="faq-macos" icon="read" >FAQ</lesson>		
     </week>
     <week num="yy">
         <topic>Other Frameworks (FYI)</topic>
