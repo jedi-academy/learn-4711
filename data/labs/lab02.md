@@ -1,6 +1,6 @@
 
 #Lab #2 - Collaborative Workflow
-COMP4711 - BCIT - Winter 2017
+COMP4711 - BCIT - Fall 2017
 
 ##Lab Goals
 

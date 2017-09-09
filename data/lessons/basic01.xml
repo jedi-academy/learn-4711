@@ -5,6 +5,20 @@ Lesson 02 - MVC Framework Introduction
 <lesson status="beta">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
+    <slide title="Preamble" layout="normal">
+        <p>There are two online lessons for week 2, and then the survey to
+            take after reading both of them.</p>    
+        <p>The lessons introduce and explain the key concepts fot
+            MVC frameworks and collaborative workflow, respectively.</p>
+        <p>Are you expected to ask questions during these surveys every week? <br/>
+            Yes. Well, you don't have to ask questions if you don't have any, 
+            nor do you have to provide three responses for each part of a survey. 
+            You can answer "n/a" if you don't have anyquestions.<br/>
+            These surveys give you an opportunity to influence the lecture content &amp; direction; 
+            they help me figure out which parts of the material need better explanation; 
+            and they give me a measure of assurance that the content is being read.</p>
+    </slide>
+    
     <!-- Agenda -->
     <slide title="Agenda" layout="normal">
         <ol>
@@ -25,18 +39,6 @@ Lesson 02 - MVC Framework Introduction
             </li>
         </ol>
     </slide>
-
-
-    <slide title="Setup" layout="normal">
-        <p>This lesson mentions source code files from
-            the <a href="https://github.com/comp4711/example-contacts" target="_blank">
-                Example Contacts
-            </a> demo webapp. You can "play along" by downloading that project first, and extract
-            it locally, so that you can refer to the source files during the lesson.
-        </p>
-    </slide>
-
-    <!-- Normal slides -->
 
     <slide title="Web Tier Basics" layout="normal" tag="{tag0}">
         <p>The simplest view of a web server is that it is a "black box"
@@ -70,14 +72,14 @@ Lesson 02 - MVC Framework Introduction
     <slide title="Fundamental Pattern" layout="normal">
         <div class="left">
             <p>A model is a component acting as a data or
-            database abstraction/adapter. It should be
-            the *only* way you access data.</p>
+                database abstraction/adapter. It should be
+                the *only* way you access data.</p>
             <p>A view is a component to present data, i.e.
-            to create HTML, PDF, or whatever is appropriate.
-            It could be an object, or it could be handled
-            by a script with embedded logic snippets.</p>
+                to create HTML, PDF, or whatever is appropriate.
+                It could be an object, or it could be handled
+                by a script with embedded logic snippets.</p>
             <p>A controller handles usecases, "wiring"
-            together models and views as needed.</p>
+                together models and views as needed.</p>
         </div>
         <div class="right">
             <img class="scale" width="696" height="600" src="/pix/lessons/1-3.png"/>
@@ -87,14 +89,14 @@ Lesson 02 - MVC Framework Introduction
     <slide title="Approach Evolution" layout="normal">
         <div class="left">
             <p>In the beginning (30 years ago), web "pages" were handled individually.
-            Developers used HTML generator tools to create each "page".</p>
+                Developers used HTML generator tools to create each "page".</p>
             <p>Modern practice (10 years ago?) has evolved to the front
-            controller, a single entry point. It bootstraps a framework,
-            which then makes routing decisions appropriately.</p>
+                controller, a single entry point. It bootstraps a framework,
+                which then makes routing decisions appropriately.</p>
             <p>Some frameworks act as a front controller through
-            their server socket handling, constructing suitable
-            objects before passing control to the nominal handlers
-            (eg JSP).</p>
+                their server socket handling, constructing suitable
+                objects before passing control to the nominal handlers
+                (eg JSP).</p>
         </div>
         <div class="right">
             <img class="scale" width="590" height="642" src="/pix/lessons/1-4.png"/>
@@ -105,16 +107,18 @@ Lesson 02 - MVC Framework Introduction
         <p>An MVC framework is one with conventions
             and pre-built components that encourage or enforce
             good programming practices. These frameworks are
-        usually server-side, though some have client-side Javascript
-        components too.</p>
+            usually server-side, though some have client-side Javascript
+            components too.</p>
         <p>CodeIgniter is one such framework.</p>
-        <p>Others include CakePHP, Fat-Free, FuelPHP, Kohana, Laravel, Symfony2, Yii and Zend</p>
+        <p>
+            <a href="https://en.wikipedia.org/wiki/Comparison_of_web_frameworks" target="_blank">Others</a> 
+            include CakePHP, Fat-Free, FuelPHP, Kohana, Laravel, Symfony2, Yii and Zend</p>
         <p>Choose a framework according to its fit with your development
-        practices (design patterns), bundled or easily-incorporated components,
-        and ease of integration with your organization's other IT.</p>
+            practices (design patterns), bundled or easily-incorporated components,
+            and ease of integration with your organization's other IT.</p>
     </slide>
 
-    <slide title="Design Pattern Driven! ***" layout="normal">
+    <slide title="Design Pattern Driven!" layout="normal">
         <div class="left">
             <p>Model-View-Controller is a design pattern.</p>
             <p>It is an "industry-accepted best practice",
@@ -140,7 +144,7 @@ Lesson 02 - MVC Framework Introduction
         </div>
     </slide>
 
-    <slide title="Categorizing MVC Frameworks **" layout="normal">
+    <slide title="Categorizing MVC Frameworks" layout="normal">
         <p>Frameworks come in all sizes.</p>
         <p>They differ in philosophy, scope, management tools
         &amp; included plugins.</p>
@@ -187,10 +191,10 @@ Lesson 02 - MVC Framework Introduction
             <p>CodeIgniter "routes" incoming requests, identifying the
                 appropriate controller to handle each one.</p>
             <p>The controller then uses other CI components, like helpers, 
-                models, libraries, etc, to build what is passed to a view.</p>
-            <p>Many such components are built into CI, and a
+                models, libraries, etc, to build what is passed to a view.
+                Many such components are built into CI, and a
                 developer would normally build their webapp by using or extending these.</p>
-                <p>The diagram to the right is a depiction of the architecture,
+            <p>The diagram to the right is a depiction of the architecture,
                 and it will be elaborated on over the next six or seven lessons.
                 In the meantime, it is a useful visualization of how any
                 such framework could be reasonably architected.</p>
@@ -219,21 +223,21 @@ Lesson 02 - MVC Framework Introduction
         </div>
     </slide>
 
-     <slide title="Other Frameworks" layout="normal">
-        <p>Is there life outside CodeIgniter?</p>
-        <p>Absolutely ... there are a number of frameworks, for a multitude of programming language.
-            The following are open-source, from github alone, based on a search for web frameworks.</p>
+    <slide title="Other Frameworks" layout="normal">
+        <p>Is there life outside CodeIgniter?
+            Absolutely ... there are a number of frameworks, for a multitude of programming languages.
+            From github alone, based on a search for web frameworks.</p>
         <ul>
-            <li>3,845 JavaScript</li>
-            <li>2,248 PHP</li>
-            <li>2,156 Java</li>
-            <li>1,943 Python</li>
-            <li>980 CSS</li>
-            <li>933 HTML</li>
-            <li>781 Ruby</li>
-            <li>629 C#</li>
-            <li>555 Go</li>
-            <li>228 Scala</li>
+            <li>4,406 JavaScript</li>
+            <li>2,485 PHP</li>
+            <li>2,389 Java</li>
+            <li>2,333 Python</li>
+            <li>1,274 HTML</li>
+            <li>1,153 CSS</li>
+            <li>830 C#</li>
+            <li>803 Ruby</li>
+            <li>667 Go</li>
+            <li>245 Scala</li>
         </ul>
     </slide>
 </lesson>

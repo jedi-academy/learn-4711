@@ -17,14 +17,13 @@ Course organizer for Comp4711
     <week num="2">
         <topic>MVC Frameworks</topic>
         <outcomes>1.1 (PHP), 1.2 (basics),3</outcomes>
-        <!--
         <inlab>#2 Project &amp; Process Prep</inlab>
         <lesson name="basic01" icon="dothis">MVC Frameworks</lesson>
-        <lesson name="dev01" icon="dothis">Devops Workflow Concepts</lesson>
-        <lesson name="week02" icon="read">Survey results</lesson>
-        <lab name="lab02">Collaborative Workflow</lab>
+        <lesson name="dev01" icon="dothis" survey="307935">Devops Workflow Concepts</lesson>
+<!--        <lesson name="week02" icon="read">Survey results</lesson>
         <lesson name="dev02" icon="read">Gitflow Workflow Techniques (in lab)</lesson>
         <lesson name="dev03" icon="read">Gitflow Setup Example (in lab)</lesson>
+        <lab name="lab02">Collaborative Workflow</lab>
         <lab name="lab02faq">Lab 2 FAQ</lab>
         -->
     </week>

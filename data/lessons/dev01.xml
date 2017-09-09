@@ -15,12 +15,11 @@ Lesson 02b - Devops Workflow
                 Atlassian</a> has some great tutorials,
             and I am using some of their images here.
         </p>
-        <p>Github itself has some handy guides, on the  
-            <a href="https://guides.github.com/introduction/flow/index.htm" target="_blank">
-                GitHub Flow</a>, for instance, and on  
+        <p>Github itself has some useful guide material, such as  
             <a href="https://guides.github.com/activities/forking/" target="_blank">
                 forking projects</a>.
         </p>
+        <p>Don't forget to complete the online survey after reading this!</p>
     </slide>
 
     <slide title="Centralized Workflow" layout="normal" tag="tag1">
@@ -110,7 +109,7 @@ Lesson 02b - Devops Workflow
             in a distributed fashion.</p>
         <p>Most open source projects use the "gitflow workflow",
             although they may name their branches slightly differently.</p>
-        <p>As a developer, you need to get familiar and comfotable with the
+        <p>As a developer, you need to get familiar and comfortable with the
             workflow used for each of your projects, and you need to learn
             how to overcome common issues (like merge conflicts)
             in your environment.</p>

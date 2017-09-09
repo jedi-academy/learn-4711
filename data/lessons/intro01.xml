@@ -121,6 +121,7 @@ Lesson 01a - Introduction
         </p>
     </slide>
 
+<!--
     <slide title="Web Server Basics" layout="normal">
         <div class="center">
             <img class="scale" width="658" height="173"  src="/pix/lessons/1-1.png"/>
@@ -173,5 +174,6 @@ Lesson 01a - Introduction
             <img class="scale" width="600" height="458" src="/pix/lessons/1-8.png"/>
         </div>
     </slide>
+-->
 
 </lesson>
