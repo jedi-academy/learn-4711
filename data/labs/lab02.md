@@ -1,4 +1,3 @@
-
 #Lab #2 - Collaborative Workflow
 COMP4711 - BCIT - Fall 2017
 
@@ -7,9 +6,73 @@ COMP4711 - BCIT - Fall 2017
 Last week, you setup your development environment.
 This week, building on that experience, you will be practicing collaborative workflow.
 
+#Lab Starter
+
 I have setup a **[starter repository](https://github.com/jedi-academy/starter-quotes)**
- for you to work from, and this lab will walk you through
-setting up a collaborative team and getting underway.
+ for you to work from. This lab will walk you through
+setting up a collaborative team and making a few changes to it.
+
+The starter is a simple (& silly) one page app, showing a grid with mugshots
+of some of the cast of <a href="http://www.imdb.com/title/tt0094012">Spaceballs</a>.
+It provides a great excuse
+to explain a little bit about the pieces in a CodeIgniter app and to enhance
+it in a contrived but controlled fashion :)
+
+<img src="/pix/labs/2/home.png"/>
+
+##What's in the Starter Project?
+
+The project started out as a vanilla CodeIgniter app, and has only a few pieces
+tailored to its purpose.
+
+You will notice three folders in the project:
+
+-   `application` contains the webapp logic (models, views, controllers)
+-   `public`  contains the client-accessible pieces (Javascript, CSS, images)
+-   `system`  contains the CodeIgniter framework itself, which we would not change
+
+The webapp itself consists of a few files:
+
+- `public/index.php` - the front controller; it bootstraps the CodeIgniter framework,
+which then routes and handles the incoming request
+- `application/config/autoload.php` - tells CodeIgniter which components we
+want pre-loaded, namely the `parser` library (for presentation), the `url`
+helper (with some convenient functions), and our `Quotes` model (so that we don't have to explicitly 
+load it in any of our other code)
+- `application/core/MY_Controller.php` - our base controller, i.e. intended superclass
+for most of our controllers
+- `application/controllers/Welcome.php` - our default controller, effectively the
+landing page for the app; all it does is extract some data from our model and pass it
+on to the appropriate view(s); note no HTML or SQL in the controller
+- `application/models/Quotes.php` - our quotes model, namely a container for
+a number of "records", one per cast member; note no HTML or usecase handling in the model
+- `application/views/template.php` - an HTML template for the pages in the app,
+i.e. a shared layout, missing only the "content" for each page; note no PHP or SQL
+in the view
+- `application/views/homepage.php` - the content to be shown as the "meat" of 
+the webapp homepage.
+
+The code is commented, and should be straightforward to follow.
+
+Go ahead, take a look - we'll wait.
+
+##How do I "Run" the Starter Project?
+
+Once you have your own copy of the project locally (later in the lab), and you are
+ready to "run" it, you can do pretty much what we did last week with
+your virtual domain:
+
+- edit your Apache's `conf/extras/httpd-vhost.conf` so that the `comp4711.local`
+virtual domain specifies the `public` folder of your project as its document
+root, *or*
+- add a new virtual domain to your `etc/hosts` file, and setup a new virtual
+domain mapping for it, in `conf/extras/httpd-vhost.conf`, with the document
+root matching the project's public folder
+
+Once Apache is started/restarted, visit `comp4711.local` or the new virtual
+domain, in your browser, and you should see the homepage shown above :)
+
+#Lab Process
 
 ##Lab Teams
 
@@ -34,6 +97,8 @@ one person "driving", and the other(s) "navigating".
 Team members should use their own computer when "driving", to ensure that
 you do not work with the same local repository.
 
+This is **not** meant to be a lab with steps that can be completed in parallel!
+
 Next week's lab will be a team one as well, but with *different* team membership
 and roles!
 
@@ -44,12 +109,10 @@ member.
 
 Submit a readme *text* file, or a submission comment, to the lab dropbox. 
 It should contain a link to your **team**'s github repository. 
+If it is properly setup, I can find the team member repositories through it.
 
-Due: in theory, this should be completed during the lab period,
-which means that the due date should be able to be Friday afternoon,
-to accommodate all sets.  
-I have set the deadline to this Sunday at 17:30, making allowance for hiccups,
-and will adjust future deadlines based on our experiences with this lab.
+Due: I have set the deadline to this Sunday at 17:30, making allowance for hiccups,
+although many of you will indeed complete it during the lab period.
 
 ##Lab Preview/Prep
 
@@ -66,9 +129,14 @@ specifically demonstrates the setup of a team and its repository.
 There is a third reading, **[Gitting Good](/display/lesson/dev04)**, in the reference section in the
 organizer, that will help you with Git naming.
 
+These are not part of the lab - they are provided for those who might be confused
+about the collaborative process we are using, and who would appreciate
+some more context.
+
 #Notes: Synching your repos 
 
-This has proved to be problematic.
+This has proved to be problematic in previous terms, hence a special
+discussion in this lab!
 
 Consider:
 
@@ -90,6 +158,7 @@ If you are working in a feature branch, based on `develop`, and the [team repo]'
 Locally, checkout your `develop` branch, and then merge the changes from
 the [team repo]:
 
+        git checkout develop
 	git pull upstream develop
 
 If you do not have `upstream` already defined as an alias for your [team repo], 
@@ -131,33 +200,46 @@ been updated, and it hopefully will be mergeable.
 
 #The Lab:
 
-##Team Setup
+##1. Team Setup
 
 -    Choose partners
 -    Select one of you to be CAPTAIN
 -    The CAPTAIN should join a D2L group
 -    The MATE(s) should join the same group
--    If the group membership gets messed up, see me to fix it
+-    If the group membership gets messed up, see us in lab to fix it
 
-##Team Repository Setup (CAPTAIN)
+##2. Team Repository Setup (CAPTAIN)
 
--    Create a github organization for your team
--    Fork the lab starter repo into that organization, using a name of your choice
--    Create a new branch "develop"
+-    Create a github organization for your team, with an organization name of your choice
+-    Fork the lab starter repo into that organization, using a repository name of your choice
+-    Create a new branch "develop", in your team repo 
 -    Make "develop" the default branch
 
-##Member Repository Setup (All)
+##3. Member Repository Setup (All)
+
+-    Fork the team repository to your personal github account (including the CAPTAIN)
+-   Make sure you have configured git locally, through your IDE or...
+
+        git config --global user.name <name>
+        git config --global user.email "your_email@example.com"
+
+-    Clone your repository locally, using a name/location of your choice.
+This could be done through your IDE or...
+
+        git clone https://github.com/jedi-academy/starter-quotes.git YOUR_PROJECT_FOLDER
 
 -    Configure your git client to use signing
--    Fork the team repository to your personal github account (including the CAPTAIN)
--    Clone your repository locally, using a name/location of your choice
--    If using an IDE, "git ignore" the IDE's metadata folder, so you don't inflict it on your teammates.
--    Add a virtual domain, "quotes.local", if you want to keep this separate from last week's lab
+-    If supported by your IDE, "git ignore" the IDE's metadata folder, so you don't inflict it on your teammates.
+-    Add a virtual domain, "quotes.local", if you want to keep this separate from last week's lab.
+There is nothing wrong with reusing "comp4711.local", properly mapped, or even
+with each team member choosing to handle this differently.
 -    Map the virtual domain you will use to the "public" folder inside your local repo
 -    Restart Apache
 -    Make sure that your project serves correctly, eg. using http://quotes.local
 
-##Setup Changelog (CAPTAIN)
+_Reality check: Your app should display the original six cast pictures, without errors._
+
+##4. Setup Changelog (CAPTAIN)
 
 -    Working locally...
 -    Add a new file, "changelog.md", in the project root
@@ -171,13 +253,18 @@ been updated, and it hopefully will be mergeable.
 -    On your github repo page, create a pull request to the team repo
 -    On the team repo page, review the PR, and merge it if it looks good
 -    Note: Do not synch your local repo yet!
+- Remember to use markdown formatting for a ".md" file. If unsure if you have done
+it properly, look at your changelog in your repo, through a browser.
 
-##Add New quote (FIRST MATE)
+_Reality check: There should be NO visible difference in the app, when viewed
+in your browser. It should display the original six cast pictures, without errors._
+
+##5. Add New quote (FIRST MATE)
     
 -    Synchronize your repo with the updated team repo
 -    Create a feature branch based off "develop"
 -    Add an avatar image for a new quotation, to /public/pix, using the same dimensions as the others
--    Add a new unique quote entry to the mock database in /application/models/Quotes.php; feel to be creative, but not vulgar
+-    Add a new unique quote entry to the mock database in `/application/models/Quotes.php`; feel free to be creative, but not vulgar
 -    Commit your changes...
 -    Push your changes...
 -    Create a pull request...
@@ -188,59 +275,134 @@ been updated, and it hopefully will be mergeable.
 -    Wait for it...
 -    [CAPTAIN] if ok, you can merge the PR
 
-##Enhance the Tooltip (CAPTAIN)
+_Reality check: Your webapp should now show seven cast member pictures, three per row, with no errors._
 
--   Don't synchronize yet - we want to introduce a merge conflict!
--    In controllers/Welcome,you see an associative array of authors created, to be 
-    passed on to views/homepage. The fields for each author are not all of the 
-    ones defined in models/Quotes, although those are returned by `quotes->all()`.
--    Add an additional field, *what*, to the list in Welcome
--    Add that to the "tooltip" in views/homepage ... "{who}" becomes "{what} ({who})"
--    Save & test. The grid of quotes should show the author's quote
-    and name in brackets, when moused over
--    Commit these...
--    Push these...
--    Create the PR ... Oh no, it can't be merged!
--	**If you did not get an error message, it is likely because your push did not include a changelog item!**
--    Checkout your local develop branch
--    Synch it to upstream
--    Checkout your feature branch
--    Merge your develop branch
--    Resolve the merge conflicts
--    Commit the resolved & updated changes
--    Push your feature branch again
--    Now the PR can be successfully created
--    ... and merged, if you agree with the changes
+##6. Add a Tooltip (SECOND MATE if you have one, else CAPTAIN)
+
+-    Synchronize your repo with the updated team repo
+-    Create a feature branch based off "develop"
+-    In views/homepage, you can see the `img` element that shows a cast member's
+picture:
+
+            <div class="span4"><img src="/pix/{who}.jpg"/></div>
+- Create a "tooltip" for that image, using the "title" attribute, for
+instance
+
+            <div class="span4"><img src="/pix/{who}.jpg" title="{who} plays {role}"/></div>
+
+Notice the substitution fields, that correspond to fields in a mock database
+record.
+-    Save & test. The grid of quotes should show the author's name and role, when moused over
+-    Commit your changes...
+-    Push your changes...
+-    Create a pull request...
+-    [CAPTAIN] Merge the PR, if it looks good
 -    ... you did remember the changelog entry, right?
 
-##Add Random Quote Display (SECOND MATE, FIRST MATE if none)
+_Reality check: Your webapp should *look* the same as it did, but you should
+now see a tooltip when you mouse over a cast member picture._
+
+##7. Add Quote Display (next team member in rotation)
+
+This one gets a bit more involved, because we are going to add
+another entry point to the Welcome controller. To start, we
+will just do that, and formatting the presentation will wait
+until the next step.
 
 -    Synchronzie your develop branch with upstream
--    Create a feature branch for this task
--    Add a random() method to controllers/Welcome. It will be similar to index(), but only
-    needs to choose one of the quote entries, at random. If you build an array of
-    author parameters, the same as index(), but only include the one randomly
-    selected author, you can then reuse the same view fragment.
--    Save & test. Fix as needed
+-    Create another feature branch for this task
+-   Modify `views/homepage/php` so that the image element
+is contained inside an anchor element, with the target set
+to the "show" method of the "Welcome" controller, and passing
+the actor's record key as an additional parameter. This will result in:
+
+        <div class="row">
+            {authors}
+                <div class="span4">
+                        <a href="/welcome/show/{key}">
+                                <img src="/pix/{who}.jpg" title="{who} plays {role}"/>
+                        </a>
+                </div>
+            {/authors}
+        </div>
+-   Once this is done, mousing over an actor's picture will see the mouse
+icon change to a link click icon. Clicking it will result in a 404, because
+we haven't added the handling for it.
+-    Add a show() method to controllers/Welcome. It will be similar to index(), but only
+    needs to the one actor quote. Instead of using Quotes::all() we can use
+Quotes::get(...) to retrieve the right record.
+
+            /**
+             * Show just one actor
+             */
+            public function show($key)
+            {
+                    // this is the view we want shown
+                    $this->data['pagebody'] = 'homepage';
+
+                    // build the list of authors, to pass on to our view
+                    $source = $this->quotes->get($key);
+
+                    // pass on the data to present, as the "authors" view parameter
+                    $this->data['authors'] = $source;
+
+                    $this->render();
+            }
+
+-    Save & test. Ohoh - it broke. We're not done yet, because the `homepage` view expects
+an array of author records, and we have just the one. We need to add a new view for
+an actor, and we need to fix the view parameters accordingly.
+-   Our new view can start out as a copy of `homepage`, but without the {authors}
+substitution parameter, leaving only the ones for an author record.
+Why don't we call that `actor` ... make `views/actor.php`...
+
+        <div class="row">
+                <div class="span4">
+                        <a href="/welcome/show/{key}">
+                                <img src="/pix/{who}.jpg" title="{who} plays {role}"/>
+                        </a>
+                </div>
+        </div>
+-   And we need to modify the controller's show() method to just pass the
+actor record fields as view parameters. We also need to cast the record
+as an array, since we get an object back. This can be handled by the following change:
+
+		// pass on the data to present, adding the author record's fields
+		$this->data = array_merge($this->data, (array) $source);
+
+- Don't forget to change the view file we want to use now.
+
+        		$this->data['pagebody'] = 'actor';
+- You should now see a page with just the one actor when you click on their picture
+on the homepage. The result isn't perfect, as the picture still has a tooltip, and
+links to the page being displayed, but we can fix that in the next step.
 -    Add a suitable changelog entry
 -    Commit these...
 -    Push these...
 -    Create the PR ... 
 -    [CAPTAIN] you know the drill...
     
-###Just a note: 
+##8. Format the Quote Display (next team member in rotation)
 
-	I did not provide any instructions for invoking the random quote, doh! 
-	You can see/test the results with the URL "quotes.local/welcome/random",
-	substituting the virtual domain you are using for the lab.
-	If your .htaccess isn't working properly, you would have to use the URL
-	"quotes.local/index.php/welcome/random".
+-    Synchronzie your develop branch with upstream
+-    Create another feature branch for this task
+-    We have all of the actor's record fields available - it is up to use how to format them.
+You can have a bit of fun with this, showing the actor, their role, their mugshots, and of
+course the quote field. 
+Or you could wimp out and replace `viewa/actor.php` with something like...
 
-##Team Synch
+-    Either way, fix, save & test. Repeat as needed
+-    Add a suitable changelog entry
+-    Commit these...
+-    Push these...
+-    Create the PR ... 
+-    [CAPTAIN] you know the drill...
+    
+##9. Team Synch
 
 -    The team members should synch their develop branches with the team repo
 
-##Lab Conclusion (CAPTAIN)
+##10. Lab Conclusion (CAPTAIN)
 
 -    Tidy up any loose ends in the repo
 -    Merge the develop branch into the master branch, in the team repo

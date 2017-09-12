@@ -4,6 +4,15 @@ COMP4711 - BCIT - Fall 2017
 This FAQ addresses the most common problems encountered
 trying to develop webapps as part of this course.
 
+##CIT GIT server
+The CIT GitLab server that I mentioned to a few students in class
+is at https://git.cit.bcit.ca
+
+Feel free to register for an account there, using your my.bcit.ca email
+address, if you are concerned about personal information stored on
+servers outside our control.
+
+
 ##Email Cautions
 
 If you send an email from inside D2L, it cannot be responded to.
