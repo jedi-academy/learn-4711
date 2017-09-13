@@ -55,13 +55,19 @@ Lesson 02 - MVC Framework Introduction
         </div>
     </slide>
 
-    <slide title="Web Server Basics" layout="normal">
+    <slide title="Web Server Basics **" layout="normal">
         <div class="left">
-            <p>A richer view of a web server suggests that it is itself a framework.</p>
-            <p>Incoming requests are encapsulated, as are the responses.</p>
+            <p>A richer view of a web server suggests that it is itself a framework.
+                Incoming requests are encapsulated, as are the responses.</p>
             <p>Developers use a framework running on the web server.
                 It provides an API for developers to build web components,
                 and to access data stored locally or on its own server.</p>
+                <p>
+                    <i>Collection of object models provided through the web server:
+                part of the API for working in that environment, eg server framework.
+                Collection of object models provided by third parties,
+                to speed your development and enhance security/consistency:
+                the MVC framework !</i></p>
         </div>
         <div class="right">
             <br/>
@@ -69,7 +75,7 @@ Lesson 02 - MVC Framework Introduction
         </div>
     </slide>
 
-    <slide title="Fundamental Pattern" layout="normal">
+    <slide title="Fundamental Pattern ***" layout="normal">
         <div class="left">
             <p>A model is a component acting as a data or
                 database abstraction/adapter. It should be
@@ -80,6 +86,7 @@ Lesson 02 - MVC Framework Introduction
                 by a script with embedded logic snippets.</p>
             <p>A controller handles usecases, "wiring"
                 together models and views as needed.</p>
+            <p><i>MVC is all about "separation of concerns" !</i></p>
         </div>
         <div class="right">
             <img class="scale" width="696" height="600" src="/pix/lessons/1-3.png"/>
@@ -103,7 +110,7 @@ Lesson 02 - MVC Framework Introduction
         </div>
     </slide>
 
-    <slide title="Frameworks" layout="normal" tag="tag1">
+    <slide title="Frameworks *" layout="normal" tag="tag1">
         <p>An MVC framework is one with conventions
             and pre-built components that encourage or enforce
             good programming practices. These frameworks are
@@ -116,13 +123,14 @@ Lesson 02 - MVC Framework Introduction
         <p>Choose a framework according to its fit with your development
             practices (design patterns), bundled or easily-incorporated components,
             and ease of integration with your organization's other IT.</p>
+        <p><i>Common ones? Best one? Yes !</i></p>
     </slide>
 
-    <slide title="Design Pattern Driven!" layout="normal">
+    <slide title="Design Pattern Driven! **" layout="normal">
         <div class="left">
-            <p>Model-View-Controller is a design pattern.</p>
-            <p>It is an "industry-accepted best practice",
-                that says that it is good to keep separate concerns
+            <p>Model-View-Controller is a design pattern,
+                i.e. an "industry-accepted best practice".
+                MVC, in particular, that says that it is good to keep separate concerns
                 apart from each other.</p>
             <p>CodeIgniter has base classes for models and controllers,
                 and it has components to build presentation content
@@ -140,7 +148,7 @@ Lesson 02 - MVC Framework Introduction
                 <li>Intercepting filter (hooks)</li>
                 <li>Active record (model)</li>
             </ul>
-
+            <p><i>Check out <a href="http://www.corej2eepatterns.com/">Core J2EE Patterns</a> for more info!</i></p>
         </div>
     </slide>
 

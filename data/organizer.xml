@@ -200,7 +200,6 @@ Course organizer for Comp4711
     </week>
     <week num="yy">
         <topic>Other Frameworks (FYI)</topic>
-        <!--
         <lesson name="basic01-other" icon="read" >Other MVC Framework Examples</lesson>
         <lesson name="other-routing" icon="read">Routing examples from  other frameworks</lesson>
         <lesson name="other-models" icon="read" >Model examples from  other frameworks</lesson>
@@ -208,7 +207,6 @@ Course organizer for Comp4711
         <lesson name="other-views" icon="read" >View examples from  other frameworks</lesson>
         <lesson name="other-forms" icon="read" >Form examples from  other frameworks</lesson> 
         <lesson name="other-rest" icon="read" >REST examples from  other frameworks</lesson> 
-        -->
     </week>
     <week num="xx">
         <topic>Supplementary Reading FYI</topic>
