@@ -1,3 +1,10 @@
+**Lab 1 rubric :(**  
+A little hiccup with the lab 1 rubric was uncovered - I got the points wrong :(
+It was 0/1/3/4 and should hae been 0/1/2/3.
+
+We have handled this as best we can, but it means that the feedback / grade
+isn't quite as proper as I would have liked :-/
+
 **Week 2** (Mon 11:30)  
 - posted lab 2
 - general FAQ updated, with link to CIT GitLab server
