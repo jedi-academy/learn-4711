@@ -133,6 +133,12 @@ These are not part of the lab - they are provided for those who might be confuse
 about the collaborative process we are using, and who would appreciate
 some more context.
 
+###Lab Prep Notes
+
+If you do the suggested prep readings, they are meant t be "read" and closed. They are intended
+to give you a better feel for the lab, and are not meant to be
+followed as part of the lab. Those steps follow below!
+
 #Notes: Synching your repos 
 
 This has proved to be problematic in previous terms, hence a special
@@ -226,7 +232,7 @@ been updated, and it hopefully will be mergeable.
 -    Clone your repository locally, using a name/location of your choice.
 This could be done through your IDE or...
 
-        git clone https://github.com/jedi-academy/starter-quotes.git YOUR_PROJECT_FOLDER
+        git clone [your team repo's cloning URL] YOUR_PROJECT_FOLDER
 
 -    Configure your git client to use signing
 -    If supported by your IDE, "git ignore" the IDE's metadata folder, so you don't inflict it on your teammates.
