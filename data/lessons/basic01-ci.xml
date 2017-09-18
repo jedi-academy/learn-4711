@@ -38,8 +38,8 @@ Lesson 02 - MVC Framework Introduction
         <p>This lesson mentions source code files from
             the <a href="https://github.com/jedi-academy/example-contacts" target="_blank">
                 Example Contacts
-            </a> demo webapp. Please download that project first, and extract
-            it locally, so that you can refer to the source files during the lesson.
+            </a> demo webapp. You are welcome to download that project first, and extract
+            it locally, if you wish to refer to the source files during the lesson.
         </p>
         <p>If you want to run the demo app on your system, you will need to
             setup a MySQL database, <code>comp4711</code>, using the SQL script inside the
@@ -82,8 +82,8 @@ Lesson 02 - MVC Framework Introduction
     </slide>
 
     <slide title="Class Loader" layout="normal">
-        <p>CodeIgniter has its own class loader.</p>
-        <p>It uses the folder structure to locate classes (per MVC)</p>
+        <p>CodeIgniter has its own <a href="https://www.codeigniter.com/user_guide/libraries/loader.html">class loader</a>, 
+        which uses the folder structure to locate classes (per MVC)</p>
         <pre><code>
     $this->load->model('customers');
     $this->customers->get(...);
@@ -93,7 +93,7 @@ Lesson 02 - MVC Framework Introduction
             <code>$customer = new \MyTeam\Models\Entities\Customer</code></p>
             <p>The loader enforces naming conventions too.
             For instance, you will find that classes and their source files 
-            are expected to follow the "UCfirst" convention.</p>
+            are expected to follow the "UCfirst" convention (case sensitivity alert!).</p>
     </slide>
 
     <slide title="Routing" layout="normal">
@@ -131,6 +131,11 @@ Lesson 02 - MVC Framework Introduction
             <p>An example is shown to the right. The specific
                 database engine has been abstracted, so your
                 logic works with different data stores.</p>
+                <p>The example also illustrates 
+                <a href="https://en.wikipedia.org/wiki/Method_chaining">method chaining</a>. 
+                Each of the query builder methods
+                returns "itself", so that the resulting code
+                block might look more like a familiar SQL statement.</p>                    
         </div>
         <div class="right">
             <pre>
@@ -152,7 +157,8 @@ Lesson 02 - MVC Framework Introduction
 
     <slide title="Model Classes" layout="normal">
         <div class="left">
-            <p>In CodeIgniter, models are classes that extend CI_Model.</p>
+            <p>In CodeIgniter, models are classes that extend CI_Model
+                (essentially a "marker" class).</p>
             <p>Each data source, eg. RDB table, usually has its own model.</p>
             <p>A common practice is to use a "heavy model" philosophy,
                 where the bulk of business logic is inside model classes,
@@ -195,6 +201,8 @@ $customer->setPhone('555-1234'); // change something in the entity
 $customers->update($customer); // save the entity back in the collection 
             </pre></code>
             </p>
+            <p>CI does not have a "collection framework", like Java, 
+                but PHP's associative array behaves very much like a java.util.Map</p>
     </slide>
 
  
@@ -228,9 +236,18 @@ $customers->update($customer); // save the entity back in the collection
     </slide>
 
     <slide title="App Controllers" layout="normal">
-        <p>Each of your webapp controllers builds on your base controller.</p>
-        <p>Normally, each usecase has its own controller.</p>
-        <p>Additionally, controllers or subcontrollers are used for services.</p>
+        <p>Normally, each usecase has its own controller. Subusecases will
+        often be additional entry point methods inside such a controller.
+        For instance, <code>conrollers/Order</code> could be a controller
+        to handle ordering requests, with an <code>index</code> method to handle
+        the landing page for ordering, an <code>add</code> method to add an item
+        to an order, and a <code>checkout</code> method to initiate the checking
+        out process.
+        </p>
+        <p>These usecase controllers would normally build on your base controller.</p>
+        <p>Additionally, controllers or subcontrollers are used for services,
+            such as handling AJAX requests, or for implementing a REST api
+            for functionality exposed to trading partners.</p>
         <p>An upcoming lesson will explore controllers in more detail!</p>
     </slide>
 
@@ -238,7 +255,7 @@ $customers->update($customer); // save the entity back in the collection
         <p>URLs are segment based, with the pattern "example.com/class/function/parm1/parm2".</p>
         <p>The <code>index()</code> method is the default handler function, while other public
             methods are treated as sub-controllers.</p>
-        <p>Parameters are passed positionally.</p>
+        <p>Parameters in this case are passed positionally.</p>
         <p>An example: given the URI "/products/shoes/sandals/123", the segments could
             be interpreted as the controller (Products), method inside it (shoes), and
             then two parameters passed to that method (sandals and 123).</p>
@@ -267,8 +284,8 @@ $customers->update($customer); // save the entity back in the collection
                 for instance a web page.</p>
             <p>Views are stored inside the application, inside
                 <code>application/views</code>, because they are intended
-                to have logic in them. If an app has a pure HTML view
-                fragment, it could go inside <code>public</code>, and it would
+                to to be processed by the framework. If an app has a pure HTML view
+                fragment, it could go inside <code>public</code>, and it would then
                 keep its <code>html</code> filename extension.
             </p>
         </div>
@@ -278,7 +295,7 @@ $customers->update($customer); // save the entity back in the collection
         </div>
     </slide>
 
-    <slide title="View Templates **" layout="normal">
+    <slide title="View Templates" layout="normal">
         <p>A normal practice is to build a view template, 
             which wraps the "real" webpage body, whose name is 
             passed as a parameter; this is managed by the base controller.</p>
@@ -290,7 +307,7 @@ $customers->update($customer); // save the entity back in the collection
         <p>See <code>application/views/_template</code></p>
     </slide>
 
-    <slide title="View Fragments **" layout="normal">
+    <slide title="View Fragments" layout="normal">
         <p>Each of your view fragments would then be stored in its own file, 
             using the substitution fields for passed parameters.</p>
         <p>A view fragment provides a portion or piece of a complete
@@ -299,6 +316,9 @@ $customers->update($customer); // save the entity back in the collection
             You could think of a view fragment as a panel in a mashup</p>
         <p>Substitution fields are enclosed in braces inside your view file.</p>
         <p>See <code>application/views/homepage</code></p>
+        <p>The template mentioned on the previous slide would then provide
+        more of an "assembly" role, with each part of the resulting
+        webpage provided through a separate view fragment.</p>
     </slide>
 
     <slide title="View Usage" layout="normal">
@@ -319,7 +339,7 @@ $customers->update($customer); // save the entity back in the collection
         <p>A "view templating" approach: <code>$this->render()</code> 
         invokes the base controller's "render" method, which uses the template parser 
         to assemble the "meat" of an HTML page, and then injects that into a view "template" file.</p>
-        <p>Most developers choose *one* of plain views, the template parser, or an 
+        <p>Most developers choose *one* of (a) plain views, (b) the template parser, or (c) an 
             external templating engine for all their HTML output. 
             Some choose different renderers for different parts of their app.</p>
     </slide>
