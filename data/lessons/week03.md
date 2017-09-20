@@ -3,164 +3,153 @@
 Responses for each of the two surveys follow, with the number of similar
 responses denoted by a value after the question, if appropriate.
 
-There were 46 responders.
-
-I have interpreted and aggregated results, in hopefully an appropriate fashion.
+There were 30 responders.
 
 ##WEEK 3 – CODEIGNITER OVERVIEW
 			
-###What are topics from the lesson that *you* feel need more or better explanation?			
+###Which CodeIgniter topics do you feel need more or better explanation?
 
-- Can you go over the query builder?	5 _Week 5 - models_
-- entities vs collections	4  
-_Think database modeling - an entity is a single object or row in a DB table, while
-a collection is a group of related entities, for instance a table itself._
-- How to set up SQL for demo app	4  
-_`application/config/database`, lines 79-81, are where you specify the username, password
-and name of the database to use.  
-Using phpMyadmin (for instance), create a database with that name (`comp4711`),
-select it, and then use the phpmyadmin "import" command, choosing
-"data/contacts.sql" as the data source._
-- View Fragments	4  
-_I will elaborate in lecture; coming in week 6_
-- Models	3  _Data encapsulation ... week 5_
-- View Templates	3  
-_I will elaborate in lecture; coming in week 6_
-- Views and view templating	3  
-_I will elaborate in lecture; coming in week 6_
-- .htaccess configuration	2  
-_If you **really** want to configure an htaccess file for a specific situation,
-I suggest one of the [online guides](http://www.htaccess-guide.com/). I can help, but do not proclaim to be an expert!_
-- I'm not really sure how the UFfirst convection actually works	2  
-_UCfirst means that the first letter of a name is capitalized, and the rest
-are lower case. Contrast this with CamelCase or snakeCase.  
-In the case of CI, classes are expected to be named folliwing UCfirst, and
-stored in files with matching UCfirst names._
-- Property injection	2  
-_This is a simple form of [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection).
+- Controllers	4  
+_A controller is a class that handles an incoming request.  
+Banana::index() would handle `/banana`, and Banana::yellow() would handle `/banana/yellow`.  
+More coming next week._
+- Error Handling	4  
+_Errors are handled in many ways ... request errors, form validation errors,
+authentication errors, logic errors ... this is a broad topic/question.  
+I will point out suitable error handling when we address each of the above._
+- Property Injection	4  
+*This is a simple form of [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection).
 For instance, CI creates (injects) properties in your controller for all the CI components
 loaded during bootstrap, as well as any that you load. Similar properties are injected
-into your models._
-- Views	2 _Week 6_
-- App controllers  _Next presentation?_	
-- Class Loader	  
-*The [CodeIgniter component](https://www.codeigniter.com/user_guide/libraries/loader.html) that finds and instantiates "stuff".*
-- Collections	 
-_CI does not have a "collection framework", like Java, but PHP's associative array
-behaves very much like a java.util.Map_
-- Config file configuration	 
-_Files inside `application/config`, each of which holds key/value pairs used to
-configure the operation of one of CI's components._
-- Controllers and how they are used	_Next lesson today_
-- Creating branches and switching between them	 
-_Off topic for this lesson. Are the Git cheat sheet & command list (in the resources section) helpful?_
-- Entities vs Controllers	 
-_Hmm. On the surface, entities and controllers have nothing to do with each other.  
-However, REST principles suggest that a RESTful service can/should be implemented
-by a different controller for each resource (such as entities). Week 12_
-- Git Bash needs to be explained better.	 
-_Off topic for this lesson. Are the Git cheat sheet & command list (in the resources section) helpful?_
-- Going over CRUD again would be very useful	 
-_CRUD == acronym for standard database operations - create, read, update and delete.  
-What is missing form this?_
-- How is the URI segment and controllers folder give CI the ability to route requests by convention?	 
-_The **convention** is that the first segment names a controller, the second a method, and so on.
-This is built into CI without having to configure anything additional.
-More on this in week 4 :)_
-- How to connect database with model (config)	 _Week 5. I am going to stick with 
-mock databases until then._
-- How to construct the different parts of MVC needs better explanation. Although I assume it will be come clear after the next lab/lecture.	 
-_Weeks 3, 5 and 6 **are** the MVC parts, while routing (next week) addresses how
-we can influence which controller CI might choose to handle some requests._
-- I feel we should have been told that the Netbeans extension we were encouraged to use would not work for this lab.	 
-_I wasn't aware that there was an issue. Ask me in lab._
-- In regards to config files for components. Is it possible to map a config file to a set of user specified components?	 
-_You can have config files for any purpose you like.  
-Further, you can have environment-specific config files, which is the intended
-way to handle different credentials between development and production._
-- More on controllers (but it's mentioned that more on controller will come later)	_Next lesson_
-- More visual diagrams to illustrate the ideas	 
-_I included a number of screenshots and code examples.
-What would benefit from more or different visuals?_
-- On slide 8, can you explain more about the and heavy model business logic?	  
-_A "heavy model" refers to the practice, within MVC, of concentrating business logiv
+into your models.*
+- Views	4  
+_A view is a PHP script intended to be or be incorporated in the HTTP response body.
+More in week 6_
+- Helpers	3  
+_Helpers are global functions available to your classes.
+You would normally group related ones into one source file._
+- Query Builder	3  
+_CI's O-O abstraction for building RDB queries. You can use SQL queries directly,
+though not considered as elegant. More in week 5._
+- Active Record design pattern	2 *[Design pattern](https://en.wikipedia.org/wiki/Active_record_pattern)
+originally from Ruby-on-Rails*
+- CI Webapp	2  _Literally, a webapp built using the CodeIgniter framework._
+- Models	2  _Data source abstractions. More in week 5._
+- Security	2  _Hmm - loaded question, which means many things at many levels.
+Normal interpretations of this could be authentication (addressed in week 13),
+or data sanitizing (addressed in weeks 6 & 7)._
+- Support Components	2  _The bundled CI classes._
+- View vs View Templating	2  _View templating is *one* strategy that can be used in views._
+- ancillary classes	_Support components?_
+- auto-loading resource	_Specifying components to automatically load as part of request handling_
+- Automating testing	_Usually refers to unit testing as part of continuous integration_
+- Base Model	_Intended superclass for most (all?) of your models_
+- caching	_CI support component which provides time-to-live based persistence._
+- Class Loader: when do we use it?	_CI uses it automatically, to locate and instantiate classes._
+- common functions	_Pre-built helpers bundled with CI. See system/helpers_
+- Controller & Model	_Controller provides request handling logic, retrieving or passing data to models._
+- Controller Methods	_Public methods are usually entry points, while private methods are worker or support methods._
+- Does the Controller only handle the scripts and javascript of the application?	  
+_A controller doesn't "handle" scripts or javascript. It is implemented using PHP,
+a scripting language with O-O extensions. It is not directly related to javascript ... that
+is something served from your document root.  
+Javascript, client-side, might make an AJAX request to the app - that request would
+be handled by a controller._
+- Entities	_Think ERDs._
+- Entity vs Collections	_Think ERDs._
+- Folder structure and how to separate files for models, views, controllers _In class demo_
+- Good controllers design	_MVC. Seriously, name methods appropriately,
+and avoid direct database access or HTML output._
+- handling ajax requests in controllers	_Week 4_
+- handling passing parameters using 'get' and 'post'	  
+_CI extracts those automatically. "get" parameters are passed as URL segments
+and made available to controller methods as possitional parameters.
+Post parameters are exposed through CI's Input class.
+Both *can* be accessed through other CI helper components.
+Query parameters are discouraged.
+More coming next week._
+- Heavy model	
+_A "heavy model" refers to the practice, within MVC, of concentrating business logic
 in your model classes, instead of in your controller classes (which would be a
 "heavy controller" practice). The intent is to reduce duplication of code,
 and provide guidance for a good spot to put it._
-- Personally, I feel like we need a lot more practice/explanation on the database config/setup part. In tern 1, we did a lot of the sql query statements but very little (or not even) thought on setting up a db to the app/project.	 
-_Week 5 :)_
-- Some example of routing requests to see how other frameworks handle routing vs CI	 _Week 5_
-- Support compoments	_Yes... ask me in class if I don't make it clearer._
-- The Query Builder's syntax isn't a bit funny	  
-*Are you referring to [method chaining](https://en.wikipedia.org/wiki/Method_chaining)? That is a common practice that CodeIgniter uses too.  
-If not, your question or point isn't clear.*
-- the template parser of ci	_This is just a taste. Coming in lab and week 6_
-- This doesn't really need explanation, but you made a typo on slide 27 "needs to be modified to CORRECT reference your system folder."	 _Fixed, thanks._
-- what is codeIgniter?	  _I am interpreting this as a trolling question._
-- What is entity-level modelling?	_Data modeling ... refer to previous database courses, 3721, etc.
-It is outside of a framework; frameworks provide pre-build components to make it 
-easier for you to implement your modeling._
-- What to do after a wrong commit		 
-_Off topic for this lesson. Are the Git cheat sheet & command list (in the resources section) helpful?_
-- You say noramally each use case has it's own controller. What are some situations where they wouldn't? (slide 13)  
-_If a usecase (shopping) has related subusecases (find new product, view shopping cart, checkout, etc),
-you could implement these as separate controllers, **or** you could implement this
-as one `Shopping` controller, with different methods to implement each subusecase.  
-This will be part of an upcoming lab :)_
-			
-###Are there other, related, questions that you would like addressed in class?			
-
-- Are there conventions for naming models/view/controllers?  
-_Yes. Universally agreed to? No.  
+- How the view interacts with the controllers	_There is no "interaction" in the conventional
+sense. A view can contain hyperlinks, which would be handled by controllers.  
+Any "interactivity" would come from client-side Javascript issuing AJAX requests._
+- How to avoid hard-coded URLs in source code	_Use relative URLs and let Apache and/or the
+browser resolve them. There are some URL helper functions if you need
+to create a fully-qualified URL._
+- how to set up and use the model?	_This week's lab should help.
+More detail coming in week 5._
+- If sessions were implemented, where in MVC would we implement it?	
+_Sessions, if enabled, would be considered part of the infrastructure.
+They would normally be accessed in controllers. _
+- if you show us the way setting CodeIgniter with MVC model like tutorial would be one of the praticle ways to get students understand clearly	  
+_This week's lab_
+- In the example code, "Welcome.php" is a controller, but it extends 'Application', and the controllers in core folder extends 'CI_Controller'. What is the difference?	
+_In class demo this week_
+- Integrating plugins or helpers	  _Week 9,_
+- Is it possible to call a function from the View?	_It is possible, but frowned on._
+- Is there a convention to avoid Controller method confusion? What happens if there is a collision?	_Understanding the routing order. Next week's class._
+- Libraries	_Support classes that aren't controllers or models. This could be any kind of useful abstraction._
+- Libraries: What sorts of libraries can we import? Where is the this->load->ibrary('whatever') method implemented, the controller?	  
+_You can use libraries bundled with CI (`system/libraries`) or ones that you write yourself (`application/libraries`). You can even integrate
+third party libraries (usually assdembled in "packages"). More in week 9.  
+Libraries are usually loaded in your controller, yes._
+- More info about Controller. Can a view use multiple Controllers?	  
+_A view does not "use" any controller. It might have links back to the server-side
+app, and CI might handle any of those links using a controller or subcontroller,
+depending on the routing rules you setup.  
+Multiple controllers can reference (load?) the same view._
+- MVC in relationship to CI	_In class demo_
+- php	_This *isn't* a PHP course ... that just happens to be the programming language
+we are using. It is similar enough to Java that I would not expect major problems.
+What are you having trouble with?_
+- profiler	*CI has [profiling](https://www.codeigniter.com/user_guide/general/profiling.html) 
+and a [Benchmark class](https://www.codeigniter.com/user_guide/libraries/benchmark.html). 
+I don't plan to address those in the course.*
+- Project Files	_In class demo_
+- Query builder methods - I don't understand what is being selected in the code example	
+*The [query builder](https://www.codeigniter.com/user_guide/database/query_builder.html) 
+methods generally correspond to SQL verbs/clauses.*
+- Routing	_Week 4_
+- Routing/Routing conventions	_Week 4_
+- Session Library	_Coming in week 7_
+- subcontrollers	_Next week, as well as answer above_
+- The Model stores the data of the application, would the database connection be made within the Model?	  
+_The database connection is made in configuration, and the model accesses it._
+- Third party library using e.g. bootstrap	_Week 9. btw, Bootstrap is a client-side
+framework, and you would integrate that into your view files._
+- Using URI for routing requests. (example)	_Next week_
+- View pages syntax	_Literally, HTML source files with a `.php` extension, so that
+PHP elements, template parser substitutions, and possibly even template engine directives,
+can be handled server-side._
+- view parser and fragment	_In class demo, and week 6._
+- View Templating	_In class demo, and week 6._
+- Views and models	_In class demo, and weeks 5 & 6._
+- What are the coding conventions?  
+_Source files: UC first for classes, underscores for separators.
+Yes, this is dated ... see CodeIgniter 4!  
+Controller naming conventions? Yes. Universally agreed to? No.  
 Suggestion: usecase-driven, or customer-centric, or SEO-friendly.
 _
-- Can you nest base controllers?  
-_If you mean Work extends a Shopping Controller, which in turn extends a base
-controller, then yes. It is a bit kludgey with CI3, but doable.
-This will be coming up when we use the CI-starter-3._
-- Can you open CodeIgniter in lecture while doing the lecture?  
-_I presume you mean an IDE with  CI app open? Yes!_
-- Ci controller _Next lesson_
-- convention Vs explicit routing rules? Few examples _Week 4_
-- Database connections  _Week 5_
-- How exactly do support components make things easier and more convenient?  
-_Less that you have to build yourself ... standard RAD practice!_
-- How to build a view fragment _Week 6_
-- How to build a view template _Week 6_
-- Is any database compatible with CodeIgniter or just SQL ones?  
-_CI's database abstraction is built around relational databases.
-There may be third party implementations, but stock CI does not support
-object databases, hierarchical databses, document databases,
-distributed databases or search engine databases._
-- Is it better to have more models?  
-_That depends! Table data gateway design pattern suggests one model
-per RDB table; data mapper design pattern suggests one model per
-O-O class subtree; maybe the answer is then yes - some table models,
-some entity models, some data mapper models._
-- It'd really helpful for us if you could do a demo on setting up to a database.  _Week 5_
-- More php  _What do you need to know? This isn't a course on PHP; it uses it
-because it is so close to Java._
-- Most popular framework's routing practices?  _Week 4_
-- What are the benefits of models?  _Seriously? Models are **how** we as programmers
-encapsulate data._
-- what does injection of code or properties mean?   
-_See above, about projecty injection. Be aware that code injection usually
-has negative connotations._
-- What is heavy model?  _See above_
-- what would an example of a pure html view fragment be  
-_A .php file inside your `application/views` that contained only
-HTML ... no PHP, substitution parameters, and no layout engine
-directives._
-- Why are Javascript libraries not well-supported in CI?  
+- When to make collections instead of just entities	_Week 5_
+- Why are other JavaScript libraries not supported or well supported?	  
 _That was a conscious decision back when, that Javascript would be
 client-side and out-of-scope. CI recognizes AJAX requests, which
 could come from Javascript, but it makes no attempt to 
-incorporate any expectations ro assumptions about what
+incorporate any expectations or assumptions about what
 is running on the client ... except not to trust the originator
 of any request :-/  
 Of the other frameworks, I have heard good things about Yii's
 support of JS frameworks._
-- why is a "heavy model" philosophy common practice?  
-_It is a design pattern, i.e. an industry-accepted best practice to
-solve common programming/design problems._
-
+- why is there an index.html in almost every folder, should there not only be one html entry point?	 
+_That is a legacy project organization decision side-effect. The original
+expectation was that `index.php` would be in  the project root, and
+the `index.html` files are there to prevent code access with a
+mis-configured server. You might have also noted the snippet of
+code at the top of files ... `defined('BASEPATH') OR exit('No direct script access allowed');`;
+that is there for the same reason.  
+We avoid that by setting the document root to `public`, and moving `index.php`
+inside there._
+- working with database	 _Week 5_
