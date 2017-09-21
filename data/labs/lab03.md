@@ -1,6 +1,6 @@
 
 #Lab #3 - Website Conversion
-COMP4711 - BCIT - Winter 2017
+COMP4711 - BCIT - Fall 2017
 
 ##Lab Goals
 
@@ -59,6 +59,16 @@ I will be looking at the features in your submitted webapp, to see if you
 succeeded at enhancing it per spec, in spite of the process; and I will
 be looking at the repository, its forks, and commit history, to
 determine how well you followed the collaboration process.
+
+#Lab Demo
+
+We have a [demo project](https://github.com/jedi-academy/demo-retrodiner-winter2016) to show you, illustrating the lab steps.
+
+It shows the conversion of a "retro diner" static website into a CodeIgniter app,
+with branches corresponding to each of the steps in this lab.
+
+You might find it useful as a comparison while working through the lab.
+
 
 #The Lab:
 
@@ -129,10 +139,13 @@ side of the commit history, beside your commits.
 -    Commit &amp; push your feature branch (you did remember to use one, right?) and submit a pull request to the team repo
 -    [CAPTAIN] if ok, you can merge the PR
 -   Make sure that the contribution is being properly attributed.
-    
-##Lab Conclusion (CAPTAIN)
+ 
+##Lab Conclusion
 
--    Tidy up any loose ends in the repo
--    Merge the develop branch into the master branch, in the team repo
--    You are ready to submit the repo link to your dropbox for the lab
+-     (CAPTAIN) Merge the develop branch into the master branch, in the team repo.
+Your team repo should then have only the master and develop branches, even with each other.
+-    (ALL) Tidy up any loose ends in the repos.
+This means synching each team members repos to the team one, and removing
+any merged branches, which are no longer needed.
+-     (CAPTAIN) You are ready to submit the team repo link to your dropbox for the lab
 
