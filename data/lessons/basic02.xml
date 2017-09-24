@@ -140,7 +140,7 @@ Lesson 02 - Controllers
         </div>
     </slide>
 
-    <slide title="3. Getting Input **" layout="normal" tag="tag3">
+    <slide title="3. Getting Input" layout="normal" tag="tag3">
         <p>Your controller normally gets data passed as positional
             parameters in the URL.</p>
         <p>For instance, if your method looks like...<br/>

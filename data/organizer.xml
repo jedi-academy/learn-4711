@@ -41,9 +41,8 @@ Course organizer for Comp4711
         <topic>Routing &amp; Templating</topic>         
         <outcomes>1.2 (routing), 3</outcomes>
        <inlab>#4 Working with controllers</inlab>
-        <lesson name="basic02" icon="dothis">CI Controllers (Draft)</lesson>
-        <lesson name="basic06" icon="dothis">Routing (Draft)</lesson>
-        <lesson name="basic07" icon="read">Advanced Routing (Draft)</lesson>
+        <lesson name="basic02" icon="dothis" survey="310080">CI Controllers</lesson>
+        <lesson name="basic06">Routing</lesson>
         <!--
         <lesson name="week04" icon="read">Survey results - routing</lesson>
         <lab name="lab04">Working With Controllers &amp; Routing</lab>
@@ -207,7 +206,8 @@ Course organizer for Comp4711
     </week>
     <week num="xx">
         <topic>Supplementary Reading FYI</topic>
-        <!--
+         <lesson name="basic07" icon="read">Advanced Routing</lesson>
+       <!--
         <lesson name="basic04-leftovers"  icon="read">Other Form Techniques</lesson>
         <lesson name="xml01"  icon="read">XML Basics (Optional Refresher)</lesson>
         <lesson name="xml02"  icon="read">Constraining XML (Optional)</lesson>
