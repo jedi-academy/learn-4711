@@ -35,6 +35,16 @@ names and email are the same!
 and I suggest upgrading to the most recent. Not sure if that will solve
 all the problems, but it seems to help.
 
+## Automatic GPG signing
+
+You can sign individual commits or set a global git option to sign all commits. To sign an individual commit, add the -S option…
+
+    $ git commit -S -m "Signed commit"
+
+Or, to sign all commits, set the option in your global git config…
+
+    $ git config --global commit.gpgsign true
+
 ## Git deployment
 
 I have an automatic deployment server that you can use to test your project
