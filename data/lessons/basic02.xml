@@ -62,7 +62,7 @@ Lesson 02 - Controllers
         </div>
     </slide>
 
-    <slide title="Types of Controllers" layout="normal">
+    <slide title="Types of Controllers **" layout="normal">
         <div class="left">
             <p>There are three common types of controllers:</p>
             <ul>
@@ -107,7 +107,7 @@ Lesson 02 - Controllers
         </div>
     </slide>
 
-    <slide title="Segment Based Naming" layout="normal">
+    <slide title="Segment Based Naming ***" layout="normal">
         <div class="left">
             <p>URLs are segment based.</p>
             <p>For instance, the URL <code>example.com/class/function/parm1/parm2</code>
@@ -175,7 +175,7 @@ Lesson 02 - Controllers
             
     </slide>
 
-    <slide title="Getting Input Other Ways" layout="normal">
+    <slide title="Getting Input Other Ways **" layout="normal">
         <p>It is *possible* to enable query strings, so that
             input could be passed in the URL as query parameters
             (<code>controller?a=...&amp;b=...</code>), but

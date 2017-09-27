@@ -30,7 +30,7 @@ Course organizer for Comp4711
         <topic>CodeIgniter &amp; Controllers</topic>         
         <outcomes>1.2 (controllers), 3</outcomes>
         <inlab>#3 Website conversion</inlab>
-        <lesson name="basic01-ci" icon="dothis" survey="309676">CodeIgniter Overview</lesson>
+        <lesson name="basic01-ci" icon="dothis">CodeIgniter Overview</lesson>
         <lesson name="week03" icon="read" >Survey results - overview</lesson>
        <lab name="lab03">Website Conversion</lab>
         <tutorial name="ci-basic01">Static to Trivial CI Website Conversion</tutorial>
