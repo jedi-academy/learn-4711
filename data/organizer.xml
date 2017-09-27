@@ -43,9 +43,9 @@ Course organizer for Comp4711
        <inlab>#4 Working with controllers</inlab>
         <lesson name="basic02" icon="dothis" survey="310080">CI Controllers</lesson>
         <lesson name="basic06">Routing</lesson>
+       <lesson name="week04" icon="read">Survey results - routing</lesson>
         <!--
-        <lesson name="week04" icon="read">Survey results - routing</lesson>
-        <lab name="lab04">Working With Controllers &amp; Routing</lab>
+         <lab name="lab04">Working With Controllers &amp; Routing</lab>
         <tutorial name="ci-normal01">Controllers and Routing</tutorial>
         -->
     </week>
