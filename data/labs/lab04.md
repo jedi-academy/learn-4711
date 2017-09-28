@@ -126,7 +126,8 @@ fork it, read what Github has to say about
 - You are responsible for the integrity of your team repo.
 - Commits in any PR **must** be GPG-signed. Reject the PR if not (close with a comment)
 - PRs must conform to your team style conventions (whatever they are), at a minimum
-reasonable source code formatting. Check out each PR before merging, using the
+reasonable source code formatting. 
+[Check out each PR](https://help.github.com/articles/checking-out-pull-requests-locally/) before merging, using the
 command line directions when you look at a PR on github. Comment on any that
 don't conform, and insist the team member fix things before considering the PR again.
 - Make sure that the PR doesn't break anything, and in fact works as intended.
