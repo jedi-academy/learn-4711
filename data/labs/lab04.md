@@ -269,7 +269,7 @@ segment "i" to the `Golf` controller
 - Add a routing rule to `config/routes.php`, which remaps any request with the 
 word "banana" in it, to the `Golf` controller, but using our own code
 
-        $route['bananas/rule] = function($fruit,$verb) {
+        $route['bananas/rule'] = function($fruit,$verb) {
             return 'golf';
         };
 
@@ -282,12 +282,14 @@ that can be easily implemented
 - This will be a controller found by convention, but with an unexpected result
 - Make the target link `/india`
 -   We want to return an image, instead of an HTML page
+- Make a `data` folder inside your project root (so, not inside public).
+Copy an image there.
 -   The controller should extend CI_Controller, and not Application
 -   The handling should explicitly set the returned content type,
 and then copy the contents of an image file
 
-        // what will this reference?
-        $source = '../../public/data/logo.png'; 
+        // The following should be a relative link to your image file above
+        $source = '../data/logo.png'; 
         // note that we could have referenced an image anywhere on our system
             
         // set the mime type for that image (jpeg, png, etc)
