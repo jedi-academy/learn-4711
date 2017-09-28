@@ -32,7 +32,7 @@ Course organizer for Comp4711
         <inlab>#3 Website conversion</inlab>
         <lesson name="basic01-ci" icon="dothis">CodeIgniter Overview</lesson>
         <lesson name="week03" icon="read" >Survey results - overview</lesson>
-       <lab name="lab03">Website Conversion</lab>
+        <lab name="lab03">Website Conversion</lab>
         <tutorial name="ci-basic01">Static to Trivial CI Website Conversion</tutorial>
         <tutorial name="ci-basic02">Trivial CI to Basic CI Website Conversion</tutorial>
         <tutorial name="ci-basic03">Basic CI to Good CI Website Conversion</tutorial>
@@ -40,19 +40,17 @@ Course organizer for Comp4711
     <week num="4">
         <topic>Routing &amp; Templating</topic>         
         <outcomes>1.2 (routing), 3</outcomes>
-       <inlab>#4 Working with controllers</inlab>
+        <inlab>#4 Working with controllers</inlab>
         <lesson name="basic02" icon="dothis" survey="310080">CI Controllers</lesson>
         <lesson name="basic06">Routing</lesson>
-       <lesson name="week04" icon="read">Survey results - routing</lesson>
-        <!--
-         <lab name="lab04">Working With Controllers &amp; Routing</lab>
-        <tutorial name="ci-normal01">Controllers and Routing</tutorial>
-        -->
+        <lesson name="week04" icon="read">Survey results - routing</lesson>
+        <lab name="lab04">Working With Controllers &amp; Routing</lab>
+<!--        <tutorial name="ci-normal01">Controllers and Routing</tutorial> -->
     </week>
     <week num="5">
         <topic>Models</topic>
         <outcomes>1.2 (models), 3</outcomes>
-       <inlab>Assignment #1 completion</inlab>
+        <inlab>Assignment #1 completion</inlab>
         <lesson name="basic03" icon="dothis">CodeIgniter Models (Draft)</lesson>
         <lesson name="basic03-more" icon="dothis">Model Patterns (Draft)</lesson>
         <!--
@@ -181,7 +179,7 @@ Course organizer for Comp4711
     </week>
     <week num="aa">
         <topic>Assignments</topic>
-<!--        <assignment name="assignment1">Functional Bot Factory</assignment>
+        <!--        <assignment name="assignment1">Functional Bot Factory</assignment>
         <assignment name="assignment1faq" icon="read" >Assignment 1 FAQ</assignment> 
         <assignment name="assignment2">Functional Bot Factory</assignment>
         <assignment name="assignment3">Functional Bot Factory</assignment> -->
@@ -206,8 +204,8 @@ Course organizer for Comp4711
     </week>
     <week num="xx">
         <topic>Supplementary Reading FYI</topic>
-         <lesson name="basic07" icon="read">Advanced Routing</lesson>
-       <!--
+        <lesson name="basic07" icon="read">Advanced Routing</lesson>
+        <!--
         <lesson name="basic04-leftovers"  icon="read">Other Form Techniques</lesson>
         <lesson name="xml01"  icon="read">XML Basics (Optional Refresher)</lesson>
         <lesson name="xml02"  icon="read">Constraining XML (Optional)</lesson>
