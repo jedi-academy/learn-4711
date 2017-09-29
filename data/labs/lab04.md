@@ -257,7 +257,7 @@ i.e. `controllers/bravo/Welcome::index()`
 - Add a routing rule to `config/routes.php`, which remaps any request with the first
 segment "i" to the `Golf` controller
 
-        $route['i/(:any)'] = 'golf';
+        $route['i/.*'] = 'golf';
 
 -   This will be handled by `controllers/Golf::index()`
 - The body of that method should invoke the inherited show method, with the key "6"

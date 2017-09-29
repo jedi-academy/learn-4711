@@ -1,4 +1,5 @@
-**Week 4** (Thu 07:00)  
+**Week 4** (Thu 22:30)  
+- Corrected the target for the "golf" controller task
 - Added PR checkout link to Captain responsibilities, in lab 4
 - Lab 4 posted
 - Don't forget about the examples from other frameworks ("Week 19" in the organizer),
