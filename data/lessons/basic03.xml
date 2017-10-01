@@ -12,9 +12,6 @@ Lesson 03 - Models
                 <a href="#{tag3}">CodeIgniter Models</a>
             </li>
             <li>
-                <a href="#{tag4}">Component Models</a>
-            </li>
-            <li>
                 <a href="#{tag5}">Object Relational Mapping</a>
             </li>
             <li>
@@ -186,59 +183,7 @@ Lesson 03 - Models
 		the database driver: no SQL needed.</p>
     </slide>
 
-    <slide title="2. COMPONENT MODELS" layout="normal" tag="tag4">
-        <p>Component models encapsulate entities with classes that
-            follow well-known conventions.</p>
-        <p>The best known component model is the JavaBean, originally
-            from Sun Microsystems.</p>
-        <p>PHP does not have a similar convention, but many
-            enterprise developers will assume that you know it,
-            and possibly that you will try to follow it where practical.</p>
-    </slide>
-
-    <slide title="JavaBeans" layout="normal" tag="tag4">
-        <p>JavaBean rules, in a nutshell:</p>
-        <ul>
-            <li>No argument constructor</li>
-            <li>Private fields</li>
-            <li>Public accessor methods, a.k.a. getters</li>
-            <li>Public mutator methods, a.k.a. setters</li>
-        </ul>
-        <p>Common JavaBean practices:</p>
-        <ul>
-            <li>Convenience constructors</li>
-            <li>Equality testing, <code>equals(object)</code></li>
-            <li>Text representation, <code>toString()</code></li>
-        </ul>
-    </slide>
-
-    <slide title="Component Model Diagrams" layout="normal">
-        <div class="left">
-            <p>Here is a typical UML class diagram showing some related entity models.</p>
-        </div>
-        <div class="right">
-            <br/>
-            <img class="scale" width="400" height="407" src="/pix/lessons/4/4-5.png"/>
-        </div>
-    </slide>
-
-    <slide title="Enterprise Component Model" layout="normal">
-        <div class="left">
-            <p>Building on JavaBeans, Enterprise JavaBeans provide a much more
-                robust set of conventions, including the ability to handle
-                persistence.</p>
-            <p>Without getting too carried away, the EJB inheritance hierarchy
-                is shown to the right.</p>
-            <p>Why do you care? Because many enterprise systems assume a similar
-                infrastructure in webapps they work with or interact with.</p>
-        </div>
-        <div class="right">
-            <br/>
-            <img class="scale" width="650" height="443" src="/pix/lessons/4/4-6.png"/>
-        </div>
-    </slide>
-
-    <slide title="3. OBJECT-RELATIONAL MAPPING" layout="normal" tag="tag5">
+    <slide title="2. OBJECT-RELATIONAL MAPPING" layout="normal" tag="tag5">
         <div class="left">
             <p>
                 <a href="http://en.wikipedia.org/wiki/Object-relational_mapping" 
@@ -294,7 +239,7 @@ Lesson 03 - Models
         </p>
     </slide>
 
-    <slide title="4. DATABASE UTILITIES" layout="normal" tag="tag6">
+    <slide title="3. DATABASE UTILITIES" layout="normal" tag="tag6">
         <p>CodeIgniter has two classes specifically to manipulate databases.</p>
         <p>The <a href="http://www.codeigniter.com/userguide3/database/forge.html" 
                   target="_blank">Database Forge</a> class 
@@ -329,7 +274,7 @@ Lesson 03 - Models
 			for our work.</p>
     </slide>
 
-    <slide title="5. SUGGESTED MODEL CONVENTIONS" layout="normal" tag="tag7">
+    <slide title="4. SUGGESTED MODEL CONVENTIONS" layout="normal" tag="tag7">
         <p>Use entity-related naming!</p>
         <p>Use the plural of an entity name for a table &amp; model name.
             An example would be the <code>Posts</code> model for
@@ -344,7 +289,7 @@ Lesson 03 - Models
             be loaded. Namespaces (coming in CI4) address this issue.</p>
     </slide>
 
-    <slide title="6. DATABASE CONFIGURATION" layout="normal" tag="tag8">
+    <slide title="5. DATABASE CONFIGURATION" layout="normal" tag="tag8">
         <div class="left">
             <p>Your database access is configured by settings in 
                 <code>application/config/database.php</code>, or

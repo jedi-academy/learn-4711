@@ -14,6 +14,12 @@ Lesson 03 - Models
             <li>
                 <a href="#{tag2}">Kinds of Models</a>
             </li>
+            <li>
+                <a href="#{tag4}">Component Models</a>
+            </li>
+            <li>
+                <a href="#{tag3}">Model Practices</a>
+            </li>
         </ol>
     </slide>
 
@@ -172,7 +178,59 @@ Lesson 03 - Models
     </slide>
 
 
-    <slide title="2. Models Can Be Used For... ?" layout="normal">
+    <slide title="3. COMPONENT MODELS" layout="normal" tag="tag4">
+        <p>Component models encapsulate entities with classes that
+            follow well-known conventions.</p>
+        <p>The best known component model is the JavaBean, originally
+            from Sun Microsystems.</p>
+        <p>PHP does not have a similar convention, but many
+            enterprise developers will assume that you know it,
+            and possibly that you will try to follow it where practical.</p>
+    </slide>
+
+    <slide title="JavaBeans" layout="normal" tag="tag4">
+        <p>JavaBean rules, in a nutshell:</p>
+        <ul>
+            <li>No argument constructor</li>
+            <li>Private fields</li>
+            <li>Public accessor methods, a.k.a. getters</li>
+            <li>Public mutator methods, a.k.a. setters</li>
+        </ul>
+        <p>Common JavaBean practices:</p>
+        <ul>
+            <li>Convenience constructors</li>
+            <li>Equality testing, <code>equals(object)</code></li>
+            <li>Text representation, <code>toString()</code></li>
+        </ul>
+    </slide>
+
+    <slide title="Component Model Diagrams" layout="normal">
+        <div class="left">
+            <p>Here is a typical UML class diagram showing some related entity models.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="400" height="407" src="/pix/lessons/4/4-5.png"/>
+        </div>
+    </slide>
+
+    <slide title="Enterprise Component Model" layout="normal">
+        <div class="left">
+            <p>Building on JavaBeans, Enterprise JavaBeans provide a much more
+                robust set of conventions, including the ability to handle
+                persistence.</p>
+            <p>Without getting too carried away, the EJB inheritance hierarchy
+                is shown to the right.</p>
+            <p>Why do you care? Because many enterprise systems assume a similar
+                infrastructure in webapps they work with or interact with.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="650" height="443" src="/pix/lessons/4/4-6.png"/>
+        </div>
+    </slide>
+
+    <slide title="4. MODEL PRACTICES" layout="normal" tag="tag3">
         <p>Models can be used to encapsulate many
             different sources of data, as you will see in the
             next few slides :)</p>
