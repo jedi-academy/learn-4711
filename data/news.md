@@ -1,4 +1,5 @@
-**Week 5** (Sun 08:00)  
+**Week 5** (Wed 03:30)  
+- Survey results posted, together with "nutshell" presentation for class.
 - posted week 5 readings & enabled its survey - closes Tues at 21:00
 - two lessons this week: "CodeIgniter Models" (intended to be more
 practical) and "Model Patterns" (intended to be more conceptual).

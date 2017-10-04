@@ -15,7 +15,9 @@ Models in a Nutshell
                 <li>business logic (per usecases)</li>
                 <li>validation (per usecases)</li>
             </ul>
-            <p><strong>Models are unavoidable!</strong></p>
+            <p>
+                <strong>Models are unavoidable!</strong>
+            </p>
         </div>
         <div class="right">
             <img src="/pix/lessons/nutshell/nuts1.png"/>
@@ -75,8 +77,10 @@ Models in a Nutshell
                 <li>over-reliance on RDB</li>
                 <li>different term interpretations</li>
             </ul>
-            <p><strong>PHP isn't perfect, but its low entry barrier
-                makes it a suitable choice for most webapps!</strong></p>
+            <p>
+                <strong>PHP isn't perfect, but its low entry barrier
+                    makes it a suitable choice for most webapps!</strong>
+            </p>
 
         </div>
         <div class="right">
@@ -159,12 +163,30 @@ Models in a Nutshell
         </div>
         <div class="right">
             <p>A real-world example: <a href="https://flysystem.thephpleague.com/"
-                                         target="_blank">FlySystem</a>. While not database specific,
+                                        target="_blank">FlySystem</a>. While not database specific,
                 it illustrates using adapters to persist stuff in
                 a variety of different ways!</p>
             <img src="/pix/lessons/nutshell/nuts11.png"/>
         </div>
     </slide>
 
+    <slide title="What Could Go Wrong?" layout="normal">
+        <div class="left">
+            <p>Models simply "are", as in that is the name we give to
+                encapsulations of data or data sources.  
+                A "bad" model is anything resulting from </p>
+            <ul>
+                <li>poor entity choices (data modeling in 2714)</li>
+                <li>poor design class choices (usecase realization in 3711)</li>
+                <li>poor implementation choices
+                    (bad smells in refactoring)</li>
+                <li>improper or incomplete error checking (data validation
+                    or lack of cleansing in a framework)</li>
+            </ul>
+        </div>
+        <div class="right">
+            <img src="/pix/lessons/nutshell/7cc.jpg"/>
+        </div>
+    </slide>
 
 </lesson>

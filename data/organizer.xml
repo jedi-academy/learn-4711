@@ -53,9 +53,9 @@ Course organizer for Comp4711
         <inlab>Assignment #1 completion</inlab>
         <lesson name="basic03" icon="dothis">CodeIgniter Models (Practical)</lesson>
         <lesson name="basic03-more" icon="dothis" survey="310589">Model Patterns (Concepts)</lesson>
-        <!--
         <lesson name="week05" icon="read">Survey results - models</lesson>
         <lesson name="basic68">Models in a Nutshell</lesson>
+        <!--
         <assignment name="assignment1">Basic Webapp</assignment>
         <assignment name="assignment1faq" icon="read" >Assignment 1 FAQ</assignment> 
         -->
