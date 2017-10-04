@@ -55,10 +55,6 @@ Course organizer for Comp4711
         <lesson name="basic03-more" icon="dothis" survey="310589">Model Patterns (Concepts)</lesson>
         <lesson name="week05" icon="read">Survey results - models</lesson>
         <lesson name="basic68">Models in a Nutshell</lesson>
-        <!--
-        <assignment name="assignment1">Basic Webapp</assignment>
-        <assignment name="assignment1faq" icon="read" >Assignment 1 FAQ</assignment> 
-        -->
     </week>
     <week num="6">
         <topic>Views</topic>
@@ -179,6 +175,8 @@ Course organizer for Comp4711
     </week>
     <week num="aa">
         <topic>Assignments</topic>
+        <assignment name="assignment1">Basic Webapp</assignment>
+        <assignment name="assignment1faq" icon="read" >Assignment 1 FAQ</assignment> 
         <!--        <assignment name="assignment1">Functional Bot Factory</assignment>
         <assignment name="assignment1faq" icon="read" >Assignment 1 FAQ</assignment> 
         <assignment name="assignment2">Functional Bot Factory</assignment>

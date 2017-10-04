@@ -4,7 +4,7 @@ COMP4711 - BCIT - Fall 2017
 ##Assignments Overview
 
 <img src="/pix/assignments/wacky-logo.png" class="pull-right"/>
-The purpose of the assignments, collectively, is to let you apply the techniques 
+The purpose of the assignments, collectively, is to have you apply the techniques 
 from the lessons and tutorials.
 In teams of three to five, you will be building a small but complete webapp, 
 in our case to manage flight schedules for a regional airline. 
@@ -32,72 +32,66 @@ The Western Airlines Consortium (WAC) has initiated a Knowledge Yielder (KY) pro
 to make it easy for consumers to find flights within B.C., from one or more
 of the consortium's member airlines.
 
+WAC has 26 member airlines, operating out of 57 airports in B.C.
+See the [WACKY server](https://wacky.jlparry.com) help page for directions
+to see these.
 
-***
+WAC wants to make it easier for consumers to book flights between any two
+of their airports, and for member airlines to collaborate to do so.
 
-##Cute household robots
+The three implementation phases for this project:
 
-<img src="/download/bots/a.jpg" width="80" height="100" class="pull-left"/>
-Umbrella Corp currently produces six robot models, each designated by a single letter.
-There are three lines of robots - household, butler and companion
-bots, in order of perceived value and increasing price.
-Models `A` through `L` have been reserved for household bots, `M` through `V` for butler
-bots, and `W` through `Z` for companion bots.
-Not needed, but you might be interested in the [collection of bots](/download/bots.zip)
-pictures.  
+###Planning & Mock Database (Assignment 1)
 
-***
+Each member will select their fleet of airplanes, and come up with
+an initial set of scheduled flights. Their webapp will simply
+present their data.
 
-<img src="/download/parts/a1.jpeg"  width="80" height="31" class="pull-left"/>
-Robots come in three pieces - top (with head and manipulator appendages), torso
-(for essential fluids and computational components) and bottom (with propulsion
-mechanisms). Each piece has a two-letter designation - the bot model (`a`-`z`)
-and the part (`1`-`3`). You should grab the [collection of parts](/download/parts.zip)
-pictures to use in your app.
+###Own Flight Booking (Assignment 2)
 
-***
+Member airlines will build an online booking ability, for their
+flights. The app will be made more robust through unit and
+functional testing.
 
-<img src="/download/parts/b2.jpeg" width="80" height="31" class="pull-left"/>
-Each plant has an inventory of robot parts, specializes in making one piece for 
-a designated robot model, and can ship unneeded parts or assembled robots
-to Umbrella's Panda Research Center, for credit.
+###Consortium Flight Booking (Assignment #3)
 
-***
+Each airline app will be able to pull data from the other
+airlines, to offer consumers an end-to-end booking
+ability. Apps will need to implement services to inter-operate.
 
-<img src="/download/parts/c3.jpeg" width="80" height="31" class="pull-left"/>
-Each robot piece, or assembled robot, has a Certificate of Authenticity (CA) code, issued by Umbrella
-Corp. When a plant buys parts from the research center, each comes with its own CA.
-When a plant sells parts or robots, they surrender the CA(s) for each of the pieces.
-Practically speaking, each CA will be a 6-8 hex digit code, which can be verified
-through head office.
+##Business Rules
 
-##Commerce
+Your fleet can consist of any number and kind of recognized
+airplanes, subject to a budget limit of $10M.
+Your app will not be load-tested as part of assignment 1,
+and you can change your fleet for later assignments.
 
-Ultimately, each plant hopes to make a "profit" through its collaboration with
-Umbrella Corp. Umbrella keeps track of the credits that each plant has earned,
-and which are available to spend on more parts. Head office tracks all of these,
-and will prevent transactions for which a plant does have sufficient credits on hand.
+Your flight schedule is the same regardless of the day of the week.
+You want to make sure that each airport in your "network" is
+visited at least twice a day. This could be one plane making a
+complete circuit twice a day, or each of three planes making a
+two return trips to one your "network" destinations, or any combination.
 
-At the beginning of a "business day", balances will be reset to a standard starting point.
-A plant can buy boxes of parts ($100 for ten), to use to assemble bots in-house.
-Completed bots can be sold to Umbrella, at pre-determined prices ($25/50 for household bot,
-$50/100 for a butler bot, $100/200 for a companion bot, and $25 for a "motley" bot).
+There are some restrictions on your schedule:
 
-The higher prices, if two are shown, apply if the three parts are for the same model.
-The lower prices are for parts from the same line of robots, but not the same model.
-A "motley" bot is one where the parts do not come from the same line of robots.
-
-Plants can also return unwanted parts to head office, for a credit of $5 each
-(after the 50% restocking charge).
-
-These transactions are not enabled for assignment 1 - they will be part of assignment 2.
-They might inform your UX design, however.
+- no departures before 08:00
+- no landings after 22:00
+- minimum 30 minutes between a plane's landing and any subsequent
+departure
+- all of your fleet must be back at your airline base by the end
+of the day
+- flight times need to be reasonable, based on distance between
+airports, airplane cruising speed, and a 10 minute buffer added
+to each flight in order to reach cruising/landing speed and altitude
 
 #Process
 
 ##Assignment Teams
 
-Choose teammates, and select a CAPTAIN. They will create a Github organization
+Choose teammates and sign up for one of the available project teams
+on D2L.
+
+Select a CAPTAIN. They will create a Github organization
 for the team, and they will maintain the team repository stored therein.
 Team size should be between 3 and 5. Teams of one or two are **not acceptable**. 
 This is partly about collaboration, after all.
@@ -115,12 +109,12 @@ Under-contributing members will will receive a lower mark.
 
 The team captain should send me an email, identifying their team group.
 I will reply with a password for
- the WAC's [Flight Center](https://flights.jlparry.com/vault) website,
-where you can configure your webapp's settings for "head office".
+ the WAC's [Flight Center](https://wacky.jlparry.com/vault) website,
+where you can configure your webapp's settings for automated deployment for testing.
 
 You will then need to setup a webhook in your team repo settings,
-linking to the corporate [deployment handler](https://flights.jlparry.com/deploy).
-Each time you merge to the configured branch in your team repo, the
+linking to the WAC [deployment handler](https://deployer.jlparry.com/please).
+Each time you push/merge to the configured branch in your team repo, the
 repo will be automatically pulled and deployed on my server. 
 It will then be accessible for testing through the subdomain with
 your team name, for instance https://chicken.jlparry.com.
@@ -140,7 +134,10 @@ Before the deadline, the CAPTAIN should merge "develop" into "master",
 and tag the master as a release, i.e. version 1.0.
 
 If you create design or other documentation that would contribute to
-the project, save it in the "docs" folder of your team repository.
+the project, save it in a "docs" folder of your team repository.  
+If you have text data that you wish to keep within your project,
+put it in a "data" dolfer, which my script will ensure is writable
+when deployed.
 
 My marking assistant script will pull your repository's **master** branch,
 and only it, for grading. 
@@ -173,114 +170,103 @@ even if some of them have different raw scores because of their rubric.
 Your webapp doesn't have to be "world-class" or even necessarily "real", 
 but it needs sufficient complexity to be dynamic, personalized and scaleable/integrated.
 
-The theme this term is a "robot plant", as outlined in the Backstory earlier. 
-Each of the teams will have a separate "business",
-which keeps track of the robot pieces or assembled bots in their plant.
+The theme this term is "air travel bookings", as outlined in the Backstory earlier. 
+Each of the teams will have their own webapp,
+keeping track of the fleet of planes and the scheduled flights for an airline.
 
-You are free to name your plant or team, just not offensively.
+You are free to name your airline (not offensively), incorporating your team
+name in it.
 
 ##Your Data
 
-There are three kinds of data to keep track of:
+There are two kinds of data to keep track of at this point:
 
-- **Parts** - the individual robot pieces you have on hand. Each will have a unique
-identifier, a robot part code (eg A3), a Certificate of Authenticity (CA) code, 
-plant built at, and date & time built. 
-From the piece's code,
-you can determine the robot line and model, and which kind of piece this is.
-- **Robots** - the list of assembled robots you have on hand, that you haven't
-shipped to the research center yet. Each will need a unique identifier, and
-composition information (the identifiers of the pieces that make us this robot).
-- **History** - a record of your activity since the plant was opened or
-reopened. This would include purchases, assemblies, and shipments; and the date & 
-time of each transaction.
+- **Fleet** - the planes that make up your airline's fleet.  
+You will need a unique identifier for each airplane, and the kind of
+plane it is. Any other information is up to you.
 
-You might choose to model these as one "table", or many "tables". You might decide to eliminate
-duplicate fields. You might decide to use a flat file to store these, instead
-of a database table. Your call. For this assignment, "storage" is a moot point, 
-as you are to provide mock data in your model classes.
+- **Flights** - the list of scheduled flights, each of which has
+a unique alphanumeric identifier (again, starting with the first letter of your team name).
+Minimum data for a flight? Departure airport and time, arrival airport & time.
+
+At this point, we are trusting you to come up with reasonable flight times.
+The next assignment will see some rigor added, for correctness :)
+
+Your unique identifiers should be alphanumeric, starting with the same first letter
+as your team name, to minimize confusion. Airplane and airport codes come
+from WAC itself, which provides relevant properties for each type of airplane.
+
+
+You might choose to model the above as one "table", or many "tables". You might decide to eliminate
+duplicate fields, or to add redundant fields. You might ultimately decide to use a flat file to store these, instead
+of a database table - if you are given the choice :-/ For this assignment, "storage" is a moot point, 
+as you are to provide **mock data** in your model classes.
 
 
 Do NOT use a relational database for this assignment. Instead, build mock
-data, the same as was done in the starter-quotes repository you used in week 2.
+data, the same as was done in the starter-quotes repository you used earlier in lab.
 
-You want to have a half-dozen or so items for the mock data for each of your models,
-so that the webapp gives a sense of how the working version might look. 
+You *could* satisfy the business requirements with a single plane in
+your fleet, making two circle trips a day. I suspect you might be better
+served by planning 2 or 3 planes, each of which was kept
+relatively busy. Upcoming assignments will have ways for your airline to earn "money",
+and the more flights you have, the more earning opportunities there will be. 
+Don't stress over this - try to get things off on the right foot.
 
 ##Your Usecases
 
-User roles will be introduced in assignment #2. There are four planned, and they 
-form the basis of the pages to build for this assignment: 
-guest, worker, supervisor, and boss.
-Each of these roles will have a webpage, to help them do their job better.
-There is no authentication for this assignment - the roles are mentioned
-to help give you a better understanding
+This is an "all show - no go" kind of webapp, and the term "usecase" feels
+horribly overkill.
 
-Your webapp will have four mandatory pages: home, parts, assembly, and history.
+Your webapp will have three mandatory visible pages: home, fleet, and schedule.
 
 ###Homepage
 
 Your webapp **homepage** is meant to be a dashboard of sorts, and eventually
 the only page that a guest would able to see.  
-Data to show: # of parts on hand, # assembled bots, $ spent, #earned
 
-###Parts page
+Data to show: # of planes in your fleet, # flights scheduled on any day,
+and the names of your base airport and those that you fly to.  
 
-The **parts** page (for workers) should show all the parts currently on hand, ordered
-reasonably (piece type?) in a grid with images.
-Show the model & line as either a tooltip for the image, or underneath each.
+The next assignment will add the # of bookings, and $ spent/earned.
+You don't have any data for that, but are welcome to provide for these in your page
+layout.
 
-Clicking on a part should show the complete data you have for that part, including
-CA, date made or acquired, etc. This would suit a subcontoller and
-secondary page for just one piece.
+Have a menu/navbar/links to reach the other two pages.
 
-###Assembly page
+You are welcome to change your default controller (instead of Welcome),
+but make sure that any links back to your homepage are of the form `/`, without
+mentioning the name of your home controller.
 
-The **assembly** page (for supervisors) lets a user select the pieces that 
-they would like combined to make a complete bot, the pieces that they
-consider unwanted and would like to return, or the assembled bot(s) that they
-would like to ship to head office.
+###Fleet page
 
-This could be accommodated by presenting all the parts you have,
-with a checkbox beside each. The "returning" could then
-be handled by selecting all unwanted parts and clicking a
-"return to head office" button. Assembly could be affected
-by selected one of each type of part, and clicking a 
-"build it" button.
+The **fleet** page should show all the airplanes in your fleet, ordered
+reasonably, presented as a grid or table.
 
-You don't need functionality behind the two action buttons for
-this assignment, but the upcoming functionality will likely
-influence your layout.
+You don't need to show all data for a plane on this page ... 
+clicking on a plane's identifier should trigger a separate page with everything
+you can determine or show for that plane. This would suit a subcontoller and
+secondary view for just the one plane.
 
-###History page
+###Flights page
 
-The **history** page (for bosses) should show a list of your plant's history
-transactions. Plan for this list being sortable and paginated
-come assignment 2.
+The **flights** page should show all your flights in a table.
+
+Have this include at least the aircraft code and the departure and arrival community names.
+
+Add a tooltip or mouse over showing details for each of these in a mouse-over pop.
+
+Need inspiration? http://www.yvr.ca/en/passengers/flights/departing-flights
+
 
 ###About page?
 
-If a team of four, and you want to add an "about" page, feel free to do so. 
-If a team of five, an "about" page is expected.
+If you want to add an "about" page, feel free to do so. 
 
 If you do have one, I suggest clear wording to inform the user that this
 is an academic project, and not related to, or endorsed by, any similar
 business from the real world.
 
-
-##Webapp Sitemap
-
-Your webapp would suit having a primary navbar with menu items for the
-homepage and each of the other pages/usecases.
-
-Some of the usecases will involve additional pages/subpages. 
-The webapp complexity does not warrant having a secondary navbar.
-In such cases, a "Back" button on any subpages would suffice.
-
-You will note that there has been no mention of authentication, with
-login and logout menu items. That is on purpose.
-This will be coming with one of the latter assignments. Don't complicate
-the current one with it!
 
 ##Your Presentation
 
@@ -317,36 +303,28 @@ have to build for this bleep-bleep assignment?
 
 You will have some configuration, probably `config/autoload` and `config/config`.
 
-You will have **four/five controllers**, with any subcontrollers implemented as
+You will have **three or four controllers**, with any subcontrollers implemented as
 methods. You can split these further in assignment 2 refactoring, if that
 makes sense then.
 You can use the base controller from the CI starter, just like in lab 3.
 
-You will probably have **three models**, with mock data. These will probably only have a couple
+You will probably have **two models**, with your mock data. These will probably only have a couple
 of methods each at the moment: one to retrieve all the data and one to
-retrieve a specific record.
+retrieve a specific record. 
+
+You might want a model to hold data that comes from WAC. That could be manually extracted
+right now, or ...?
 
 
-You will have a **view template**, and possibly **view fragments** for the header, footer
+You will have a **view template**, and probably **view fragments** for the header, footer
 and navbar (if not part of the header). Yes, this implies a consistent
 layout for the whole app, at this point.
-You will have view fragments, at least one for each of the usecases and
-subusecases.
-
-Don't despair! Get one of the usecase controllers done, and the others will be similar.
-Get one main model done, and the others will be similar.
-Get one usecase view sorted out, with its view fragments, and the others
-will be similar. Each team member could become the "specialist" for
-a given kind of component :)
+You will have view fragments, to support the pages above.
 
 This could mean one of the team members piloting a controller, view
 or model, and then the others doing the same thing for the others.
 Alternately, you could assign workload according to component type.
 
-In other words, the expected workload for each member is 1 model,
-1 controller, and the view fragments needed to support these.
-There would be shared stuff and infrastructure, but that can be divided
-between the team members.
 
 Phew!
 
