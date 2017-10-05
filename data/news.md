@@ -1,4 +1,5 @@
-**Week 5** (Wed 20:45)
+**Week 5** (Thu 10:00)
+- Adding questions to the FAQ, from lab
 - Corrected assignment 1 details.  
 - Assignment details posted in "week 17"
 - Survey results posted, together with "nutshell" presentation for class.

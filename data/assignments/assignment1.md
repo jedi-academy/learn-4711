@@ -105,6 +105,9 @@ and collaborate appropriately if such is the case.
 Team members do not have to receive the same grade.
 Under-contributing members will will receive a lower mark.
 
+**NOTE:** I didn't setup the groups on D2L properly :(
+Have your lab instructor add you to the group you choose.
+
 ##Testing & Deployment
 
 The team captain should send me an email, identifying their team group.
