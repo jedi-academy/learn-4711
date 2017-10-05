@@ -196,12 +196,13 @@ Your unique identifiers should be alphanumeric, starting with the same first let
 as your team name, to minimize confusion. Airplane and airport codes come
 from WAC itself, which provides relevant properties for each type of airplane.
 
-
 You might choose to model the above as one "table", or many "tables". You might decide to eliminate
 duplicate fields, or to add redundant fields. You might ultimately decide to use a flat file to store these, instead
 of a database table - if you are given the choice :-/ For this assignment, "storage" is a moot point, 
 as you are to provide **mock data** in your model classes.
 
+You are welcome to create models for the data from the WACKY server, but not required to.
+If you don't, you will need to incorporate some of the data from there into your own models.
 
 Do NOT use a relational database for this assignment. Instead, build mock
 data, the same as was done in the starter-quotes repository you used earlier in lab.
@@ -218,7 +219,8 @@ Don't stress over this - try to get things off on the right foot.
 This is an "all show - no go" kind of webapp, and the term "usecase" feels
 horribly overkill.
 
-Your webapp will have three mandatory visible pages: home, fleet, and schedule.
+Your webapp will have three mandatory visible pages: home, fleet, and schedule;
+and one service controller, `Info`.
 
 ###Homepage
 
@@ -266,6 +268,14 @@ If you want to add an "about" page, feel free to do so.
 If you do have one, I suggest clear wording to inform the user that this
 is an academic project, and not related to, or endorsed by, any similar
 business from the real world.
+
+###Info
+
+This is to be a "RESTish" service controller, returning your model data in JSON format, 
+on demand.
+
+The "fleet" subcontroller, accessible as "/info/fleet", shall return the data content
+of your "fleet" model. The "flights" subcontroller shall do the same for your flights model.
 
 
 ##Your Presentation
