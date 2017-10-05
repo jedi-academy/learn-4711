@@ -1,4 +1,5 @@
-**Week 5** (Thu 10:00)
+**Week 5** (Thu 10:40)
+- Edited the assignment writeup, for clarity
 - Adding questions to the FAQ, from lab
 - Corrected assignment 1 details.  
 - Assignment details posted in "week 17"

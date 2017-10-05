@@ -105,22 +105,27 @@ and collaborate appropriately if such is the case.
 Team members do not have to receive the same grade.
 Under-contributing members will will receive a lower mark.
 
-**NOTE:** I didn't setup the groups on D2L properly :(
-Have your lab instructor add you to the group you choose.
-
 ##Testing & Deployment
 
-The team captain should send me an email, identifying their team group.
+The team captain should send me an email, identifying their team group
+name and composition.
 I will reply with a password for
  the WAC's [Flight Center](https://wacky.jlparry.com/vault) website,
 where you can configure your webapp's settings for automated deployment for testing.
 
-You will then need to setup a webhook in your team repo settings,
+You will then need to setup a webhook in your team repo settings on github,
 linking to the WAC [deployment handler](https://deployer.jlparry.com/please).
 Each time you push/merge to the configured branch in your team repo, the
 repo will be automatically pulled and deployed on my server. 
 It will then be accessible for testing through the subdomain with
 your team name, for instance https://chicken.jlparry.com.
+
+Test the webhook, and the airline subdomain.
+
+##Repo setup
+
+The CAPTAIN should setup the team repo, with an appropriate starter,
+before team members fork it. Think of labs 3 & 4!
 
 ##Workflow
 
