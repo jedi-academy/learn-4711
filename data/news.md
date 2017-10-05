@@ -1,4 +1,5 @@
-**Week 5** (Wed 13:00)  
+**Week 5** (Wed 20:45)
+- Corrected assignment 1 details.  
 - Assignment details posted in "week 17"
 - Survey results posted, together with "nutshell" presentation for class.
 - posted week 5 readings & enabled its survey - closes Tues at 21:00
