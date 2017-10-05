@@ -43,7 +43,7 @@ The three implementation phases for this project:
 
 ###Planning & Mock Database (Assignment 1)
 
-Each member will select their fleet of airplanes, and come up with
+Each member airline will select their fleet of airplanes, and come up with
 an initial set of scheduled flights. Their webapp will simply
 present their data.
 
