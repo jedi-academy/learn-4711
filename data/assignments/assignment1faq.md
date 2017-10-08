@@ -35,6 +35,36 @@ or conventional views. Just remember that PHP script in your view files will cos
 
 Suggestion: http://www.geodatasource.com/developers/php
 
+## How do we interpret the data fields from WACKY/info/...?
+
+###airlines ... 26 of them, corresponding to D2L groups
+
+- id: unique identifier, corresponds to group name in D2L
+- base: airport identifier; your airline's base airport
+- dest1, dest2, dest3: airport identifiers; the only places you are allowed to fly to
+
+###airports ... the BC airports with IATA codes; some have an airline based there
+
+- id: unique identifier; referenced by other data
+- community: common name of the municipality where this airport is
+- airport: proper name of the airport
+- region: one of 9 regions in the province, per EnvBC; think of it like zones for future fare calcs
+- coordinates: latitude & longitude, encoded
+- runway: paved runway length, in metres
+- airline: identifier of airline based at this airport
+
+###airplanes ... a hand-picked set of airplanes you are allowed to buy for your fleet
+
+- id: unique identifier, within allowed types
+- manufacturer: who makes this
+- model: manufacturer model code or description
+- price: airplane cost, in $ thousands
+- seats: # of passenger seats
+- reach: airplane flight range, in kms
+- cruise: average cruising speed, in kph
+- takeoff: minimum runway length needed, in metres
+- hourly: hourly operating cost, in $
+
 ##Getting model data
 
 Q: Do i need to provide functions for retrieving individual flights and airplanes from the fleet?

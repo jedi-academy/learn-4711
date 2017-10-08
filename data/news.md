@@ -1,4 +1,10 @@
-**Week 5** (Wed 20:45)
+**Week 6** (Sun 08:00)
+- reading & survey posted
+
+**Week 5** (Sun 08:00)
+- More FAQ Q&A added
+- Edited the assignment writeup, for clarity
+- Adding questions to the FAQ, from lab
 - Corrected assignment 1 details.  
 - Assignment details posted in "week 17"
 - Survey results posted, together with "nutshell" presentation for class.
