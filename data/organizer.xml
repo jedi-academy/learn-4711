@@ -52,7 +52,7 @@ Course organizer for Comp4711
         <outcomes>1.2 (models), 3</outcomes>
         <inlab>Assignment #1 completion</inlab>
         <lesson name="basic03" icon="dothis">CodeIgniter Models (Practical)</lesson>
-        <lesson name="basic03-more" icon="dothis" survey="310589">Model Patterns (Concepts)</lesson>
+        <lesson name="basic03-more" icon="dothis">Model Patterns (Concepts)</lesson>
         <lesson name="week05" icon="read">Survey results - models</lesson>
         <lesson name="basic68">Models in a Nutshell</lesson>
     </week>
@@ -60,11 +60,11 @@ Course organizer for Comp4711
         <topic>Views</topic>
         <outcomes>1.2 (views), 3</outcomes>
         <inlab>#5 Views</inlab>
-        <lesson name="basic04-basics"  icon="dothis" >View Basics (Draft)</lesson>
-        <!--
-        <lesson name="week06" icon="read" >Survey results</lesson>
+        <lesson name="basic04-basics"  icon="dothis"  survey="311818">View Basics</lesson>
         <github name="views" link="https://github.com/jedi-academy/example-views" >Examples to support "views" lessons</github> 
+        <!--
         <lesson name="basic69">Views in a Nutshell</lesson>
+        <lesson name="week06" icon="read" >Survey results</lesson>
                         <assignment name="gallery1" icon="read" active="n">Project gallery</assignment>
         <lab name="lab05" >Todo List Manager</lab>
         <tutorial name="ci-todo01" >Database and models</tutorial>

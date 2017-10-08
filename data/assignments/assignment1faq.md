@@ -35,3 +35,29 @@ or conventional views. Just remember that PHP script in your view files will cos
 
 Suggestion: http://www.geodatasource.com/developers/php
 
+##Getting model data
+
+Q: Do i need to provide functions for retrieving individual flights and airplanes from the fleet?
+
+A: If your models are patterned after the Quotes model from lab 4, that has all() & get() methods to retrieve individual collection elements.
+
+##Controller types
+
+Q: in some of the labs we extended Application as opposed to CI_Controller, what is the difference between the two?
+
+A: A controller extending Application is a "normal" one, i.e. intended to return a 
+webpage using view templating. A controller extending CI_Controller is anything else, 
+i.e. a controller not intended to return a webpage
+
+##RESTish controller methods
+
+Q:  I'm reading the requirements and it says that info should be a controller with subcontrollers for airplanes that return the data as JSON.
+
+In the notes it says that "index() is the default handler and other public methods 
+are treated as subcontrollers".  Does this mean that under the Info controller, 
+I should have methods for `fleet()` and `flights()`and so forth?  
+
+A: Yes
+
+In the case of the RESTish controller for the assignment, that controller's index() 
+method is not used. I would have it return a "403" kind of message, i.e. not allowed on its own
