@@ -62,10 +62,9 @@ Course organizer for Comp4711
         <inlab>#5 Views</inlab>
         <lesson name="basic04-basics"  icon="dothis"  survey="311818">View Basics</lesson>
         <github name="views" link="https://github.com/jedi-academy/example-views" >Examples to support "views" lessons</github> 
-        <!--
         <lesson name="basic69">Views in a Nutshell</lesson>
         <lesson name="week06" icon="read" >Survey results</lesson>
-                        <assignment name="gallery1" icon="read" active="n">Project gallery</assignment>
+        <!--
         <lab name="lab05" >Todo List Manager</lab>
         <tutorial name="ci-todo01" >Database and models</tutorial>
         <tutorial name="ci-todo02" >Homepage Features</tutorial>

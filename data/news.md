@@ -1,4 +1,7 @@
-**Week 6** (Sun 08:00)
+**Week 6** (Wed 08:30)
+- survey results posted
+- nutshell presentation added
+- reminder: other frameworks' view examples in "week 19"
 - reading & survey posted
 
 **Week 5** (Sun 08:00)
