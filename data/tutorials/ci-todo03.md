@@ -168,7 +168,7 @@ and we should replace the priority code with the appropriate name...
 
     // substitute the priority name
     foreach ($undone as $task)
-        $task->priority = $this->app->priority($this->priority);
+        $task->priority = $this->app->priority($task->priority);
 
 The objects need to be converted to associative arrays, to use as view parameters...
 
