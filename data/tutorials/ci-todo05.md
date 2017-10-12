@@ -1,5 +1,5 @@
 #Job 5 - Help Wanted Page Features
-_Part of COMP4711 Lab 5, Winter 2017_
+_Part of COMP4711 Lab 5, Fall 2017_
 
 We want to use a markdown file for the content of this page, 
 so that even a pointy-haired boss could
@@ -26,7 +26,9 @@ file, or else you will need to explicitly load it in your controller or in the b
 controller.
 
     ...
-    $autoload['libraries'] = array('parser', 'database', 'parsedown');
+    $autoload['libraries'] = array(..., 'parsedown');
+
+"..." is whatever was there before :-/
 
 #B. Write a help wanted ad
 
@@ -45,7 +47,7 @@ Here is mine, as an example (and **only** an example):
 
     Contact me via PM at 123-456-7890.
 
-Make sure that yours includes some formatting (at least 1 heading,
+Make sure that yours includes some markdown formatting (at least 1 heading,
 some bold & italics).
 
 #C. Add a controller

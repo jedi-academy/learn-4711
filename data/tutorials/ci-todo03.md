@@ -1,6 +1,6 @@
 #Job 3 - Ordered List Page Features
 
-_Part of COMP4711 Lab 5, Winter 2017_
+_Part of COMP4711 Lab 5, Fall 2017_
 
 We want to present a two-column layout, with the left side showing
 tasks ordered by priority (high to low), and the right side showing
@@ -34,6 +34,9 @@ window sizes and stacked at smaller window sizes.
 
 #B. Make a controller for this page
 
+Change the menu link for "Work" to refer to "/views".
+This is in `applicaiton/config/config.php`.
+
 We need a controller to load this view. It will start out similar to
 our original `Welcome`, but named `Views` to match the navbar link.
 
@@ -65,6 +68,8 @@ better feel for the layout.
 
 And we get... ohoh, the same thing as before !?
 
+Note: the bug in question might have been accidentally fixed in your starter :-/
+
 We uncovered a bug in the base controller :(
 
 Inside `Application:render()`, we had 
@@ -80,7 +85,7 @@ Fix this, and... ??
 <img class="scale" src="/pix/tutorials/todo/54.png"/>
 
 The two bits of text should be side by side, but I had issues with the CSS
-styling for that, and we'll have to live with stacked.
+styling for that, and we may have to live with stacked.
 
 Having two panels in the layout is a natural case for having
 each panel rendered by a separate method in our controller.
@@ -123,11 +128,6 @@ Here's a start:
         return $this->parser->parse('by_priority',$parms,true);
     }
 
-<div class="alert alert-info">
-The prioritized task panel is coming up full width, and I cannot see why :(
-I am moving on - life is too short! Perhaps one of you can see what I am doing wrong.
-</div>
-
 We need to extract the outstanding tasks, order tham by 
 priority, and pass those as a view parameter.
 
@@ -168,7 +168,7 @@ and we should replace the priority code with the appropriate name...
 
     // substitute the priority name
     foreach ($undone as $task)
-        $task->priority = $this->priorities->get($task->priority)->name;
+        $task->priority = $this->app->priority($this->priority);
 
 The objects need to be converted to associative arrays, to use as view parameters...
 
@@ -218,7 +218,7 @@ We will need to add a method inside `models/Tasks.php`...
 
         // substitute the category name, for sorting
         foreach ($undone as $task)
-            $task->group = $this->groups->get($task->group)->name;
+            $task->group = $this->app->group($task->group);
 
         // order them by category
         usort($undone, "orderByCategory");

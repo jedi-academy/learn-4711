@@ -64,13 +64,13 @@ Course organizer for Comp4711
         <github name="views" link="https://github.com/jedi-academy/example-views" >Examples to support "views" lessons</github> 
         <lesson name="basic69">Views in a Nutshell</lesson>
         <lesson name="week06" icon="read" >Survey results</lesson>
-        <!--
         <lab name="lab05" >Todo List Manager</lab>
         <tutorial name="ci-todo01" >Database and models</tutorial>
         <tutorial name="ci-todo02" >Homepage Features</tutorial>
         <tutorial name="ci-todo03" >Ordered List Page Features</tutorial>
         <tutorial name="ci-todo05" >Help Wanted Page Features</tutorial>
-        -->
+         <!--
+       -->
     </week>
     <week num="7">
         <topic>Forms Handling</topic>

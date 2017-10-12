@@ -1,14 +1,14 @@
 #Job 2 - Homepage Features
 
-_Part of COMP4711 Lab 5, Winter 2017_
+_Part of COMP4711 Lab 5, Fall 2017_
 
 <div class="alert alert-info">
-This assumes that you have already setup your repo and database properly, per Job 1.
+This assumes that you have already setup your repo and "database" properly, per Job 1.
 </div>
 
 #Preview
 
-We have the beginnings of our webapp, and a database, but there is no functionality
+We have the beginnings of our webapp, and a collection to work with, but there is no functionality
 behind the scenes. This tutorial will have us setup the homepage.
 
 The "views" lesson showed a multiple layout image:
@@ -105,6 +105,7 @@ Try it. You can play with the styling if you want the message to stand out more.
 
 <img class="scale" src="/pix/tutorials/todo/51.png"/>
 
+ 
 #C. Our homepage - details
 
 We want to add the latest five tasks. Those will be the last five in the tasks table.
@@ -162,7 +163,7 @@ Perhaps not the best practice, but we can substitute the
 priority code's name for its value...
 
     foreach(array_reverse($tasks) as $task) {
-        $task->priority = $this->priorities->get($task->priority)->name;
+        $task->priority = $this->app->priority();
         $display_tasks[] = (array) $task;
         ...
 
