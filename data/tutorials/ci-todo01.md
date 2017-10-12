@@ -63,7 +63,7 @@ I suggest naming models after the "tables", which would usually mean
 the plural of the entity name that a "table" pertains to. 
 For this lab, that suggests `application/models/Tasks.php` ...
 
-    class Flags extends CSV_Model {
+    class Tasks extends CSV_Model {
 
             public function __construct()
             {
