@@ -82,8 +82,7 @@ Views - Form Handling
             <code>$this->load->view("bob/p01");</code>
         </div>
         <div class="right">
-            <pre>
-                <code>
+            In the view:<pre><code>
 &lt;h2&gt;Build Your Coffee &lt;img src="/images/logo.png"/&gt;&lt;/h2&gt;
 &lt;form method="post" action="/generating/showme"&gt;
     Your name: &lt;input type="text" name="name"/&gt;&lt;br/&gt;
@@ -107,7 +106,7 @@ Views - Form Handling
                 <a href="http://www.codeigniter.com/user_guide/helpers/html_helper.html" target="_blank">HTML helper</a>, 
                 which could simplify the
                 view a bit, but it doesn't do much for our code.</p>
-            <pre>
+            In the controller:<pre>
                 <code>
 $this->load->helper('html');
 $parms = array(
@@ -119,7 +118,7 @@ $this->parser->parse("bob/p02", $parms);
             <p>Note that we are now using the template parser, for substitutions.</p>
         </div>
         <div class="right">
-            <pre>
+            In the view:<pre>
                 <code>
                     {heading}
 &lt;form method="post" action="/generating/showme"&gt;
@@ -144,7 +143,7 @@ $this->parser->parse("bob/p02", $parms);
                 too, which let's us
                 have a substantially simpler view (shown below),
                 at the expense of code complexity (shown right).</p>
-            <pre>
+            In the view:<pre>
                 <code>
 {heading}
 {theform}
@@ -152,7 +151,7 @@ $this->parser->parse("bob/p02", $parms);
             </pre>
         </div>
         <div class="right">
-            <pre>
+            In the controller:<pre>
                 <code>
 $this->load->helper(['html', 'form']);
 $forming = form_open("/generating/showme");
@@ -181,7 +180,7 @@ $forming .= form_checkbox('opt3', true, true) . ' Ketchup' . br();
                 <code>$starter</code> object to work with, in
                 all of the forms.
             That could be used inside a controller, as an array:</p>
-            <pre>
+            In the controller:<pre>
                 <code>
 $record = (array) $this->starter;
 $recordParms = array(
@@ -198,7 +197,7 @@ $this->parser->parse("bob/p05", $parms);
             </pre>
         </div>
         <div class="right">
-            <pre>
+            In the view:<pre>
                 <code>
 &lt;form method="post" action="/generating/showme"&gt;
     Your name: &lt;input type="text" name="name" value="{name}"/&gt;&lt;br/&gt;
@@ -220,7 +219,7 @@ $this->parser->parse("bob/p05", $parms);
         <div class="left">
             <p>The data could also be used, inside our controller,
                 as an object. The view would not change</p>
-            <pre>
+            In the controller:<pre>
                 <code>
 $record = $this->starter;
 // make view parms for it
@@ -239,7 +238,7 @@ $this->parser->parse("bob/p05", $parms);
             </pre>
         </div>
         <div class="right">
-            <pre>
+            In the view:<pre>
                 <code>
 &lt;form method="post" action="/generating/showme"&gt;
     Your name: &lt;input type="text" name="name" value="{name}"/&gt;&lt;br/&gt;
@@ -261,7 +260,7 @@ $this->parser->parse("bob/p05", $parms);
         <div class="left">
             <p>What does it look like when we use the Form helper
                 to build fields to pass as view parameters?</p>
-            <pre>
+            In the controller:<pre>
                 <code>
 $record = $this->starter;
 $parms = array(
@@ -279,7 +278,7 @@ $parms = array(
             </pre>
         </div>
         <div class="right">
-            <pre>
+            In the view:<pre>
                 <code>
 {heading}
 
@@ -302,7 +301,7 @@ $parms = array(
             <p>You might feel that the form helper is a bit clunky.
                 You could always use a custom form helper
                 (addressed in more detail next week)...</p>
-            <pre>
+            In the controller:<pre>
                 <code>
 $record = $this->starter;
 $parms = array(
@@ -318,7 +317,7 @@ $parms = array(
             </pre>
         </div>
         <div class="right">
-            <pre>
+            In the view:<pre>
                 <code>
 {heading}
 

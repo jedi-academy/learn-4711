@@ -60,7 +60,7 @@ Course organizer for Comp4711
         <topic>Views</topic>
         <outcomes>1.2 (views), 3</outcomes>
         <inlab>#5 Views</inlab>
-        <lesson name="basic04-basics"  icon="dothis"  survey="311818">View Basics</lesson>
+        <lesson name="basic04-basics"  icon="dothis" >View Basics</lesson>
         <github name="views" link="https://github.com/jedi-academy/example-views" >Examples to support "views" lessons</github> 
         <lesson name="basic69">Views in a Nutshell</lesson>
         <lesson name="week06" icon="read" >Survey results</lesson>
@@ -76,8 +76,8 @@ Course organizer for Comp4711
         <topic>Forms Handling</topic>
         <outcomes>1.2 (views), 3</outcomes>
         <inlab>#6 Model CRUD Prep</inlab>
-        <lesson name="basic04-forms" icon="dothis">Creating Forms (Draft)</lesson>
-        <lesson name="basic04-handling" icon="dothis">Handling Form Data (Draft)</lesson>
+        <lesson name="basic04-forms" icon="dothis">Creating Forms</lesson>
+        <lesson name="basic04-handling" icon="dothis" survey="312548">Handling Form Data</lesson>
         <!--
         <lesson name="week08" icon="read">Survey results</lesson>
         <lab name="lab06">Building Out Our TODO List</lab>
@@ -201,8 +201,8 @@ Course organizer for Comp4711
     <week num="xx">
         <topic>Supplementary Reading FYI</topic>
         <lesson name="basic07" icon="read">Advanced Routing</lesson>
-        <!--
         <lesson name="basic04-leftovers"  icon="read">Other Form Techniques</lesson>
+        <!--
         <lesson name="xml01"  icon="read">XML Basics (Optional Refresher)</lesson>
         <lesson name="xml02"  icon="read">Constraining XML (Optional)</lesson>
         <lesson name="xml04" icon="read">Data Representation Conversions</lesson>

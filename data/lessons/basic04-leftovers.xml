@@ -274,8 +274,8 @@ $output = $crud->render();
     <slide title="Shopping Cart" layout="normal">
         <div class="left">
             <p>CodeIgniter has a Shopping Cart class, but it
-                is deprecated, i.e. not supported and planned to be
-                removed in the next major framework update.
+                is deprecated (i.e. not supported) and 
+                removed from the framework.
             </p>
         <p>There is no single shopping cart package that works for everyone,
             and you are better off looking at alternatives, such as

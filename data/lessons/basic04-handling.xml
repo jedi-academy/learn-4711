@@ -57,7 +57,7 @@ Views - Form Handling
                 built in the handling constructor.</p>
         </div>
         <div class="right">
-            <pre>
+            In our controller, but normally a model thing:<pre>
                 <code>
                     // a record object to work with
                     $starter = new stdClass();
@@ -92,7 +92,7 @@ Views - Form Handling
             the <code>$_POST</code> superglobal, which gives access
             to the form fields. This would look something like...
         </p>
-        <pre>
+        In the controller:<pre>
             <code>
                 $record = new stdClass();
                 $record->name = $_POST['name'];
@@ -115,7 +115,7 @@ Views - Form Handling
             data whether it came from a form or was part of the URL.
             This would look something like...
         </p>
-        <pre>
+        In the controller:<pre>
             <code>
                 $record = new stdClass();
                 $record->name = $this->input->post('name');
@@ -139,7 +139,7 @@ Views - Form Handling
                 are no errors.</p>
         </div>
         <div class="right">
-            <pre>
+            In the controller:<pre>
                 <code>
                     $errors = array();
                     if (empty($record->name))
@@ -162,7 +162,7 @@ Views - Form Handling
             <p>It would be nice to format them, perhaps color-coded.
                 and/or attached somehow to the
                 offending fields. Not part of this lesson!</p>
-            <pre>
+            In the controller:<pre>
                 <code>
                     $booboos = '';
                     if (!empty($errors)) {
@@ -189,7 +189,7 @@ Views - Form Handling
                 Form Validation class</a> for this purpose.
             You set up rules, and then invoke the validator.
         </p>
-        <pre>
+        In the controller:<pre>
             <code>
                 $errors = array();
 
@@ -214,7 +214,7 @@ Views - Form Handling
             you can write your own rules, like the one below.
             It would be used for the third rule on the preceding slide.
         </p>
-        <pre>
+        In the controller:<pre>
             <code>
                 function need1($str) {
                 $record = $this->record;
@@ -246,7 +246,7 @@ Views - Form Handling
                 either a file system or a database session driver. 
                 If using a database, the SQL to create this is in the
                 user guide, referenced above.</p>
-            <pre>
+            In config/database:<pre>
                 <code>
                     $config['sess_driver'] = 'files';
                     $config['sess_cookie_name'] = 'ci_session';
@@ -390,7 +390,7 @@ Views - Form Handling
     </slide>
 
     <slide title="Data Transfer Buffer Example" layout="normal">
-        <p>In-class demo from the <a href="https://github.com/jedi-academy/umbrella" target="_blank">deployment server</a>
+        <p>In-class demo from the <a href="https://github.com/jedi-academy/wacky" target="_blank">deployment server</a>
             repository :)</p>
         <p>The Vault controller in this app demonstrates use of the data transfer buffer, 
             form validation, and error handling :)</p>
