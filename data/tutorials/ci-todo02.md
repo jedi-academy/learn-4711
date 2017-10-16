@@ -105,6 +105,8 @@ Try it. You can play with the styling if you want the message to stand out more.
 
 <img class="scale" src="/pix/tutorials/todo/51.png"/>
 
+Note: the screenshot shows 14 remaining jobs, but I messed up the data a teeny bit
+and there are only 13 left :-/
  
 #C. Our homepage - details
 
@@ -163,7 +165,7 @@ Perhaps not the best practice, but we can substitute the
 priority code's name for its value...
 
     foreach(array_reverse($tasks) as $task) {
-        $task->priority = $this->app->priority();
+        $task->priority = $this->app->priority($task->priority);
         $display_tasks[] = (array) $task;
         ...
 
