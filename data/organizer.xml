@@ -79,6 +79,7 @@ Course organizer for Comp4711
         <lesson name="basic04-forms" icon="dothis">Creating Forms</lesson>
         <lesson name="basic04-handling" icon="dothis" survey="312548">Handling Form Data</lesson>
         <lesson name="week07" icon="read">Survey results</lesson>
+        <lesson name="view-practices">View best practices?</lesson>
 <!-- <lab name="lab06">Building Out Our TODO List Manager</lab>
         <tutorial name="ci-todo04" >Maintenance List</tutorial>
         <tutorial name="ci-todo06">Pagination</tutorial>
