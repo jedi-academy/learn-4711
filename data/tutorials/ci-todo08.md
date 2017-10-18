@@ -1,116 +1,110 @@
 #Building Out the TODO List
-_Part of COMP4711 Lab 7, Winter 2017_
+_Part of COMP4711 Lab 6, Fall 2017_
 
-#Job 8 - Use an RDB for Sessions
+#Job 8 - Provide for completing work
 
-Last lab, you setup sessions, using the file system for storage.
-Many of you experienced issues or hassles with folder permissions,
-an all too common problem.
+The TODO app "work" page is interesting, in that it shows
+some of the important outstanding todo items, by priority and by
+category. We are going to add the ability to "complete" these.
 
-We'll switch that over to an RDB table, which is the usual approach
-with a high volume site. Part of the Session library writeup in
-CodeIgniter (which you of course read last week) is a section
-on [using an RDB for session storage](https://www.codeigniter.com/user_guide/libraries/sessions.html#database-driver).
+We will add checkboxes in front of each task description,
+and a button on the bottom of the page to trigger
+updating the status of any checked tasks to "complete".
 
-##8.1 Create the session table
+We will accomplish this job without using Caboose for the new fields,
+and we will do the next job using Caboose, so you can better see
+some of the differences.
 
-Here comes the first change to our database. When we are done here,
-we will make a new SQL dump.
+##8.1 Make the task list into a form
 
-The easiest way to do this, with an existing database, is to 
-copy & paste the DDL from the user guide, into the SQL tab of phpMyAdmin.
+We will do this for the "by priority" list.
+You can do the same for the "by category" list if
+you choose.
 
-    CREATE TABLE IF NOT EXISTS `ci_sessions` (
-            `id` varchar(128) NOT NULL,
-            `ip_address` varchar(45) NOT NULL,
-            `timestamp` int(10) unsigned DEFAULT 0 NOT NULL,
-            `data` blob NOT NULL,
-            KEY `ci_sessions_timestamp` (`timestamp`)
-    );
-    ALTER TABLE ci_sessions ADD PRIMARY KEY (id);
+In `application/views/by_priority.php` ADD an opening `form`
+element before the `table`:
 
-<img class="scale" src="/pix/tutorials/todo/71.png"/>
+    <form method='POST' action='{completer}'>
 
-##8.2 Configure your app for it
+and ADD a `submit` button and closing `form` tag after the
+end of the `table`:
 
-Inside `application/config/config.php`, the session configuration is specified
-in a block starting about line 380. We need to change two of the settings.
+	<input type='submit' value='Complete checked tasks'/>
+    </form>
 
-Specify that we want to store session data in an RDB, by *modifying*
-the relevant line:
+Note that I provided for the "action" associated with the form to be
+passed as a substitution parameter. It would be better if the
+checkboxes and submit button only show for a user with the
+"Owner" role, but we will use that strategy in the next job.
 
-    $config['sess_driver'] = 'database';
+We can set this parameter inside `Views::makePrioritizedPanel()`,
+just before returning the rendered view fragment...
 
-And specify the name of the table we created for this purpose, again
-by *modifying* the existing setting line:
+    // INSERT the next two lines
+    $role = $this->session->userdata('userrole');
+    $parms['completer'] = ($role == ROLE_OWNER) ? '/views/complete' : '#';
+    return $this->parser->parse('by_priority', $parms, true);
 
-    $config['sess_save_path'] = 'ci_sessions';
+It defaults to a hash sign (no action) unless the user is "logged in"
+as an owner.
+Right now, this will blow up because we need to add the handling method :-/
+
+Testing this uncovered a defect in last week's work: the `_menubar` view
+linked to the `Roles` controller with lowercase role names, which
+don't match the role name constants we had defined. Oops.
+
+Fix this by changing the relevant `_menubar` lines:
+
+        <!-- MODIFY these lines in your _menubar fragment -->
+        <li><a href="/roles/actor/Guest">Guest</a></li>
+        <li><a href="/roles/actor/Owner">Owner</a></li>
 
 
-If you reload any page in your app, you should see no difference.
-Most importantly, nothing should break.
+##8.4 Complete the tasks
 
-Actually, if your app was giving you errors because of folder
-permissions, you should no longer experience those.
+Inside our completion handler,we can flesh out the `complete()` method...
 
-##8.3 Create a SQL dump for your database
+    // find the associated task
+    // THIS is the "more coming" mentioned above
+    $taskid = substr($key,4);
+    $task = $this->tasks->get($taskid);
+    $task->status = 2; // complete
+    $this->tasks->update($task);
 
-In order to share your revised database with your teammates, use
-the "Export" feature of phpMyAdmin to save a copy of the database
-schema and data.
+We can now complete tasks, if we are the owner :)
+Non-owner requests are ignored.
 
-Select the database in the left sidebar of the phpMyAdmin page, and then
-click on the "Export" tab.
+Hmm - remember I said we need to be paranoid, server-side?
+What if a guest entered the completion URL manually?
 
-Choose the "Custom" radio button to see the available options.
+Let's add a couple of lines of code, at the beginning of
+`complete()`, to block that kind of hack ...
 
-<img class="scale" src="/pix/tutorials/todo/72.png"/>
+    $role = $this->session->userdata('userrole');
+    if ($role != ROLE_OWNER) redirect('/views');
 
-In the "Output" section, I recommend that you **do not** choose "gzipped" compression,
-as it caused issues for a number of teams in lab. Use the compression
-option "None".
+If you want to make sure you have ended up at the same point as the above directions, here is
+the complete `complete` method :-/
 
-<img class="scale" src="/pix/tutorials/todo/73.png"/>
+	// complete flagged items
+	function complete() {
+		$role = $this->session->userdata('userrole');
+		if ($role != ROLE_OWNER) redirect('/work');
+		
+		// loop over the post fields, looking for flagged tasks
+		foreach($this->input->post() as $key=>$value) {
+			if (substr($key,0,4) == 'task') {
+				// find the associated task
+				$taskid = substr($key,4);
+				$task = $this->tasks->get($taskid);
+				$task->status = 2; // complete
+				$this->tasks->update($task);
+			}
+		}
+		$this->index();
+	}
 
-In the "Object creation options" section, **do select** the "Add DROP TABLE..."
-statement, so that the dump will replace tables when imported on another
-system.
-
-Do **not** select the "Add CREATE DATABSE..." statement option, as that
-imposes your database name on the system where the SQL dump will be
-imported.
-
-<img class="scale" src="/pix/tutorials/todo/74.png"/>
-
-When you click "go", save the SQL dump inside the `data` folder of your project.
-
-<img class="scale" src="/pix/tutorials/todo/75.png"/>
-
-Make sure it is the only SQL dump in that folder, so there is no question
-about which of two or more dumps might be the proper one to use.
-
-##8.4 Importing the SQL dump...
-
-When your teammates synch their local repository with the team repo
-(once this job has been merged into it), they would select the database
-they are using, in the left sidebar of phpMyAdmin, then select the "Import"
-tab of phpMyAdmin, to trigger importing the SQL dump into it.
-
-Any existing tables with the same name will be replaced, and any new tables added.
-
-Caution: some of the teams get an "invalid charset" error when they try to import
-the SQL dump. In that case, you may find that you need to drop all of your existing tables inside
-your `todo` database before importing the SQL dump.
-
-If you delete a table, and then do a SQL dump, importing the SQL dump
-on another system will not delete the table there. You need to inform
-teammates that they need to drop all the tables in their database before
-importing the updated SQL dump.
-
-Side note: CodeIgniter's [Migration class](https://www.codeigniter.com/user_guide/libraries/migration.html)
-provides a tool for you to update databases in place, without destroying
-any existing data on the target system. It is out-of-scope for this course :(
-
+Try it - switch between guest & owner, & try to complete a couple of items.
 
 <div class="alert alert-info">
 Synch, commit, push, merge, synch ... you know the drill.

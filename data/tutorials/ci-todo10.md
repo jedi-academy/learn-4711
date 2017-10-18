@@ -1,162 +1,203 @@
 #Building Out the TODO List
-_Part of COMP4711 Lab 7, Winter 2017_
+_Part of COMP4711 Lab 6, Fall 2017_
 
-#Job 10 - Provide for completing work
+#Job 10 - Task Item Maintenance (Finally)
 
-The TODO app "work" page is interesting, in that it shows
-some of the important outstanding todo items, by priority and by
-category. We are going to add the ability to "complete" these.
+Think back to the presentation on the data transfer object design pattern.
 
-We will add checkboxes in front of each task description,
-and a button on the bottom of the page to trigger
-updating the status of any checked tasks to "complete".
+Adding and editing are very similar, with the former starting with an empty item
+and the latter starting with an existing item. In both cases, we present the
+item for editing, and then handle the submitted form, updating the todo tasks
+table if there were no errors.
 
-We will accomplish this job without using Caboose for the new fields,
-and we will do the next job using Caboose, so you can better see
-some of the differences.
+Let's use the `task` session variable to hold our DTO.
 
-##10.1 Make the task list into a form
+We will need the following methods in `Mtce`:
+- `add` to create a new empty record and save it as our DTO, with an empty ID
+- `edit` to retrieve an existing task & save it as our DTO
+- `showit` to build an HTML form for the current DTO (a private internal method)
+- `submit` to handle form submission, validation & DB updating
+- `cancel` to throw away the current DTO
+- `delete` to delete the current task
 
-We will do this for the "by priority" list.
-You can do the same for the "by category" list if
-you choose.
+#10.1 Task validation rules
 
-In `application/views/by_priority.php` ADD an opening `form`
-element before the `table`:
+We need some rules for validating a task.
 
-    <form method='POST' action='{completer}'>
+Let's add some, in `models/Tasks.php':
 
-and ADD a `submit` button and closing `form` tag after the
-end of the `table`:
-
-	<input type='submit' value='Complete checked tasks'/>
-    </form>
-
-Note that I provided for the "action" associated with the form to be
-passed as a substitution parameter. It would be better if the
-checkboxes and submit button only show for a user with the
-"Owner" role, but we will use that strategy in the next job.
-
-We can set this parameter inside `Views::makePrioritizedPanel()`,
-just before returning the rendered view fragment...
-
-    // INSERT the next two lines
-    $role = $this->session->userdata('userrole');
-    $parms['completer'] = ($role == ROLE_OWNER) ? '/views/complete' : '#';
-    return $this->parser->parse('by_priority', $parms, true);
-
-It defaults to a hash sign (no action) unless the user is "logged in"
-as an owner.
-Right now, this will blow up because we need to add the handling method :-/
-
-Testing this uncovered a defect in last week's work: the `_menubar` view
-linked to the `Roles` controller with lowercase role names, which
-don't match the role name constants we had defined. Oops.
-
-Fix this by changing the relevant `_menubar` lines:
-
-        <!-- MODIFY these lines in your _menubar fragment -->
-        <li><a href="/roles/actor/Guest">Guest</a></li>
-        <li><a href="/roles/actor/Owner">Owner</a></li>
-
-
-##10.2 Start completion handling
-
-The `Views` controller produces the two ordered tasks lists.
-We will have checkboxes beside each todo item, and we want to give
-them unique names, for instance `taskxx`, where `xx` is the task ID.
-
-If these are incorporated into an HTML form, then the handling method
-will need to check for any such fields in the post parameters,
-and change the status of the associated task items to "complete".
-
-We could do this with a suitable method inside the `Views` controller,
-per the substitution parameter in the previous step ...
-
-    // complete flagged items
-    function complete() {
-            // loop over the post fields, looking for flagged tasks
-            foreach($this->input->post() as $key=>$value) {
-                    if (substr($key,0,4) == 'task') {
-                            // find the associated task
-                            // MORE COMING HERE
-                    }
-            }
-            $this->index();
-    }
-
-##10.3 Add checkboxes
-
-We need to give the completion handler something to do.
-Specifically, we need to add checkboxes to the task list.
-
-Let's add a column for them, in the `by_priority` view.
-
-We can provide an empty column for this in the table headings...
-
-    <th>Id</th>
-    <th></th>   <!-- INSERT this line -->
-    <th>Task</th>
-
-and then we can add a checkbox control, using "raw HTML",
-with provision to name it appropriately.
-
-    <td>{id}</td>
-    <!-- INSERT the line below -->
-    <td><input type='checkbox' name='task{id}'/></td>
-    <td>{task}</td>
-
-Our task list now shows completion checkboxes, as well as the link
-to the completion handling method (which is only enabled
-for the owner).
-
-<img class="scale" src="/pix/tutorials/todo/76.png"/>
-
-##10.4 Complete the tasks
-
-Inside our completion handler,we can flesh out the `complete()` method...
-
-    // find the associated task
-    // THIS is the "more coming" mentioned above
-    $taskid = substr($key,4);
-    $task = $this->tasks->get($taskid);
-    $task->status = 2; // complete
-    $this->tasks->update($task);
-
-We can now complete tasks, if we are the owner :)
-Non-owner requests are ignored.
-
-Hmm - remember I said we need to be paranoid, server-side?
-What if a guest entered the completion URL manually?
-
-Let's add a couple of lines of code, at the beginning of
-`complete()`, to block that kind of hack ...
-
-    $role = $this->session->userdata('userrole');
-    if ($role != ROLE_OWNER) redirect('/views');
-
-If you want to make sure you have ended up at the same point as the above directions, here is
-the complete `complete` method :-/
-
-	// complete flagged items
-	function complete() {
-		$role = $this->session->userdata('userrole');
-		if ($role != ROLE_OWNER) redirect('/work');
-		
-		// loop over the post fields, looking for flagged tasks
-		foreach($this->input->post() as $key=>$value) {
-			if (substr($key,0,4) == 'task') {
-				// find the associated task
-				$taskid = substr($key,4);
-				$task = $this->tasks->get($taskid);
-				$task->status = 2; // complete
-				$this->tasks->update($task);
-			}
-		}
-		$this->index();
+	// provide form validation rules
+	public function rules()
+	{
+		$config = array(
+			['field' => 'task', 'label' => 'TODO task', 'rules' => 'alpha_numeric_spaces|max_length[64]'],
+			['field' => 'priority', 'label' => 'Priority', 'rules' => 'integer|less_than[4]'],
+			['field' => 'size', 'label' => 'Task size', 'rules' => 'integer|less_than[4]'],
+			['field' => 'group', 'label' => 'Task group', 'rules' => 'integer|less_than[5]'],
+		);
+		return $config;
 	}
 
-Try it - switch between guest & owner, & try to complete a couple of items.
+These aren't exhaustive, but you get the idea.
+
+##10.2 Add `Mtce::add()`
+
+Our `add` needs to create an empty record, set it as the DTO, and proceed to
+`showit`.
+
+	// Initiate adding a new task
+	public function add()
+	{
+		$task = $this->tasks->create();
+		$this->session->set_userdata('task', $task);
+		$this->showit();
+	}
+
+That looks too easy.
+
+##10.3 Add `Mtce::edit()`
+
+	// initiate editing of a task
+	public function edit($id = null)
+	{
+		if ($id == null)
+			redirect('/mtce');
+		$task = $this->tasks->get($id);
+		$this->session->set_userdata('task', $task);
+		$this->showit();
+	}
+
+That wasn't much harder.
+
+##10.4 Show TODO item being worked with
+
+Here things get a bit more complicated. Fortunately, we have the
+Caboose to help us, handling the heavy-lifting of building
+suitably styled form fields.
+
+The convention that I use (not a CI one) is to have the form
+fields named the same as the table columns, to have a view parameter
+with the same name, but prefixed with an "f", for the form field;
+and to have any buttons needed named after the button function
+but with a "z" in front of the view parameter name.
+
+The fields are constructed using formfield helper methods, from the
+Caboose package.
+
+Here's what that would look like:
+
+	// Render the current DTO
+	private function showit()
+	{
+		$task = $this->session->userdata('task');
+		$this->data['id'] = $task->id;
+		foreach ($this->priorities->all() as $record)
+		{
+			$priparms[$record->id] = $record->name;
+		}
+		$fields = array(
+			'ftask' => makeTextField('Task description', 'task', $task->task, 'Work', "What needs to be done?"),
+			'fpriority' => makeComboBox('Priority', 'priority', $task->priority, $priparms, "How important is this task?"),
+			'zsubmit' => makeSubmitButton('Update the TODO task', "Click on home or <back> if you don't want to change anything!", 'btn-success'),
+		);
+		$this->data = array_merge($this->data, $fields);
+
+		$this->data['pagebody'] = 'itemedit';
+		$this->render();
+	}
+
+And the `views/itemedit.php` would be something like...
+
+	<h1>Task # {id}</h1>
+	<form role="form" action="/mtce/submit" method="post">
+		{ftask}
+		{fpriority}
+		{zsubmit}
+	</form>
+	
+This isn't complete ... that is coming as Job 11b!
+
+##10.5 Handle form submission
+
+	// handle form submission
+	public function submit()
+	{
+		// setup for validation
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules($this->tasks->rules());
+
+		// retrieve & update data transfer buffer
+		$task = (array) $this->session->userdata('task');
+		$task = array_merge($task, $this->input->post());
+		$task = (object) $task;  // convert back to object
+		$this->session->set_userdata('task', (object) $task);
+
+		// validate away
+		if ($this->form_validation->run())
+		{
+			if (empty($task->id))
+			{
+				$this->tasks->add($task);
+				$this->alert('Task ' . $task->id . ' added', 'success');
+			} else
+			{
+				$this->tasks->update($task);
+				$this->alert('Task ' . $task->id . ' updated', 'success');
+			}
+		} else
+		{
+			$this->alert('<strong>Validation errors!<strong><br>' . validation_errors(), 'danger');
+		}
+		$this->showit();
+	}
+
+<div class="alert alert-info">
+Oops - I forgot to fix the handling logic so that it would
+either add or update a task, depending on the task id.
+The correction is included above :-/
+</div>
+
+Try it :) Add a couple of todo tasks, and edit another couple :)
+
+
+##10.6 Handle canceling
+
+Cheesy, but we can add a couple of links to the bottom of `itemedit`, to use for requesting
+an edit cancellation or deletion.
+
+    <a href="/mtce/cancel"><input type="button" value="Cancel the current edit"/></a>
+    <a href="/mtce/delete"><input type="button" value="Delete this todo item"/></a>
+
+<img class="scale" src="/pix/tutorials/todo/79.png"/>
+
+Handling a cancellation is straightforward:
+
+	// Forget about this edit
+	function cancel() {
+		$this->session->unset_userdata('task');
+		redirect('/mtce');
+	}
+
+Try it :)
+
+##10.7 Handle deletion
+
+Deletion is equally straightforward:
+
+	// Delete this item altogether
+	function delete()
+	{
+		$dto = $this->session->userdata('task');
+		$task = $this->tasks->get($dto->id);
+		$this->tasks->delete($task->id);
+		$this->session->unset_userdata('task');
+		redirect('/mtce');
+	}
+
+Try it :)
+
+##Phew
+
 
 <div class="alert alert-info">
 Synch, commit, push, merge, synch ... you know the drill.

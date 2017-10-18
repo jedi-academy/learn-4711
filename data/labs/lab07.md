@@ -76,12 +76,7 @@ The third & fourth rely on the first two, and the fifth relies on the fourth job
 
 - [Job 8 - USE RDB for Sessions](/display/tutorial/ci-todo08)
 - [Job 9 - Integrate the Caboose package](/display/tutorial/ci-todo09)
-- [Job 10 - Beef up the Homepage](/display/tutorial/ci-todo10)
-- [Job 11 - Beef up the maintenance page](/display/tutorial/ci-todo11)
-- [Job 12 - Add item maintenance (finally)](/display/tutorial/ci-todo12)
-- [Job 11b - Polish the item maintenance](/display/tutorial/ci-todo11b)
-
-Job 11b makes Job 11 comparable to the others :)
+- add unit testing?
 
 #Wrapup (Are We Done Yet?)
 

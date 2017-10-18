@@ -1,26 +1,21 @@
-#Lab #6 - Building Out Our TODO List
-COMP4711 - BCIT - Winter 2017
+#Lab #6 - Building Out Our TODO List Manager
+COMP4711 - BCIT - Fall 2017
 
 ##Lab Goals
 
 The purpose of this lab is to "build out" our TODO list webapp
 from last lab,
-by adding some role-based CRUD and making the list functional.
+by adding some role-based CRUD and making the list more functional.
 
-The lab will build on the last one (lab 5). If your lab 5 is good, then continue 
-to use it. If you are not happy with it, you may use the
-[TODO 2 starter](https://github.com/jedi-academy/starter-todo2), 
-which is the state yours should have ended up in last week.
+The lab will build on the last one (lab 5). If your lab 5 has issues,
+they should be fixed before starting this lab.
 
 We will continue to use gitflow workflow. That means proper branching (master/develop), 
 completing new work in feature branches, and good commit comments.
 
 ##Lab Teams & Repo
 
-Use the same "Lab 5" team as for the last lab, unless you were a team of one.
-If the latter applies, you need to find a classmate who did not join
-a team for the last lab, or combine with an existing team of two.
-See me in lab if this applies to you.
+Use the same "Lab 5" team as for the last lab.
 
 ##Lab Submission
 
@@ -32,9 +27,7 @@ It should contain a link to your **team**'s github repository.
 Note: this is not a cloning URL, and I do not need links to the individual
 team member repos.
 
-Due: in theory, this should be completed during the lab period,
-but some teams will need a bit more time.  
-I have set the deadline to this Sunday at 17:30.
+Due: this Sunday at 17:30.
 
 ##Lab Marking Guideline
 
@@ -44,26 +37,33 @@ even if some of them have different raw scores because of their rubric.
 
 ##Process
 
+We will continue to use gitflow workflow. That means proper branching (master/develop, 
+with "develop" merged into "master" just before completion and submission),
+completing new work in feature branches (which are throwaway branches, named
+"feature/xxx" and merged into "develop" once acceptable), and good commit comments
+(to provide a sense of what was done, from looking at the commit history).
+
 You should already have a team and repo, with suitable roles for the team
 members. I don't think you need more direction on this :-/
-
-Make sure that you **merge your develop branch into your master** at the end of the lab.
 
 ##Github repository
 
 In your github repo, make sure that everything has been merged into your
 *master* branch before starting this lab, so that your *develop* branch
-is "clean".
+is "clean". 
 
 ##Your jobs
 
-There are four jobs to do to complete the lab. I suggest that you switch
+There are seven small jobs to do to complete the lab. I suggest that you switch
 team members for each.
 
 - [Job 4 - Maintenance list](/display/tutorial/ci-todo04)
 - [Job 6 - Pagination](/display/tutorial/ci-todo06)
 - [Job 7 - User roles](/display/tutorial/ci-todo07)
-- Job 8 - Item maintenance ... next week, the easy way
+- [Job 10 - Add "completion" to the Homepage](/display/tutorial/ci-todo10)
+- [Job 11 - Beef up the maintenance page](/display/tutorial/ci-todo11)
+- [Job 12 - Add item maintenance (finally)](/display/tutorial/ci-todo12)
+- [Job 11b - Polish the item maintenance](/display/tutorial/ci-todo11b)
 
 Yes, the job #'s seem strange, but they carry on from lab 5 :-/
 
@@ -72,8 +72,6 @@ Yes, the job #'s seem strange, but they carry on from lab 5 :-/
 <div class="alert alert-info">
 Captain: assuming that everyone on the team agrees that
 you have completed the lab, prepare for submission.
-
-Note: SQL dump not needed, as no DB changes were made this lab.
 
 It is now time
 to merge the develop branch into the master branch,

@@ -1,202 +1,115 @@
 #Building Out the TODO List
-_Part of COMP4711 Lab 7, Winter 2017_
+_Part of COMP4711 Lab 7, Fall 2017_
 
-#Job 12 - Task Item Maintenance (Finally)
+#Job 11 - Use an RDB for Sessions
 
-Think back to the presentation on the data transfer object design pattern.
+Last lab, you setup sessions, using the file system for storage.
+Many of you experienced issues or hassles with folder permissions,
+an all too common problem.
 
-Adding and editing are very similar, with the former starting with an empty item
-and the latter starting with an existing item. In both cases, we present the
-item for editing, and then handle the submitted form, updating the todo tasks
-table if there were no errors.
+We'll switch that over to an RDB table, which is the usual approach
+with a high volume site. Part of the Session library writeup in
+CodeIgniter (which you of course read last week) is a section
+on [using an RDB for session storage](https://www.codeigniter.com/user_guide/libraries/sessions.html#database-driver).
 
-Let's use the `task` session variable to hold our DTO.
+##8.1 Create the session table
 
-We will need the following methods in `Mtce`:
-- `add` to create a new empty record and save it as our DTO, with an empty ID
-- `edit` to retrieve an existing task & save it as our DTO
-- `showit` to build an HTML form for the current DTO (a private internal method)
-- `submit` to handle form submission, validation & DB updating
-- `cancel` to throw away the current DTO
-- `delete` to delete the current task
+Here comes the first change to our database. When we are done here,
+we will make a new SQL dump.
 
-#12.1 Task validation rules
+The easiest way to do this, with an existing database, is to 
+copy & paste the DDL from the user guide, into the SQL tab of phpMyAdmin.
 
-We need some rules for validating a task.
+    CREATE TABLE IF NOT EXISTS `ci_sessions` (
+            `id` varchar(128) NOT NULL,
+            `ip_address` varchar(45) NOT NULL,
+            `timestamp` int(10) unsigned DEFAULT 0 NOT NULL,
+            `data` blob NOT NULL,
+            KEY `ci_sessions_timestamp` (`timestamp`)
+    );
+    ALTER TABLE ci_sessions ADD PRIMARY KEY (id);
 
-Let's add some, in `models/Tasks.php':
+<img class="scale" src="/pix/tutorials/todo/71.png"/>
 
-	// provide form validation rules
-	public function rules()
-	{
-		$config = array(
-			['field' => 'task', 'label' => 'TODO task', 'rules' => 'alpha_numeric_spaces|max_length[64]'],
-			['field' => 'priority', 'label' => 'Priority', 'rules' => 'integer|less_than[4]'],
-			['field' => 'size', 'label' => 'Task size', 'rules' => 'integer|less_than[4]'],
-			['field' => 'group', 'label' => 'Task group', 'rules' => 'integer|less_than[5]'],
-		);
-		return $config;
-	}
+##8.2 Configure your app for it
 
-These aren't exhaustive, but you get the idea.
+Inside `application/config/config.php`, the session configuration is specified
+in a block starting about line 380. We need to change two of the settings.
 
-##12.2 Add `Mtce::add()`
+Specify that we want to store session data in an RDB, by *modifying*
+the relevant line:
 
-Our `add` needs to create an empty record, set it as the DTO, and proceed to
-`showit`.
+    $config['sess_driver'] = 'database';
 
-	// Initiate adding a new task
-	public function add()
-	{
-		$task = $this->tasks->create();
-		$this->session->set_userdata('task', $task);
-		$this->showit();
-	}
+And specify the name of the table we created for this purpose, again
+by *modifying* the existing setting line:
 
-That looks too easy.
-
-##12.3 Add `Mtce::edit()`
-
-	// initiate editing of a task
-	public function edit($id = null)
-	{
-		if ($id == null)
-			redirect('/mtce');
-		$task = $this->tasks->get($id);
-		$this->session->set_userdata('task', $task);
-		$this->showit();
-	}
-
-That wasn't much harder.
-
-##12.4 Show TODO item being worked with
-
-Here things get a bit more complicated. Fortunately, we have the
-Caboose to help us, handling the heavy-lifting of building
-suitably styled form fields.
-
-The convention that I use (not a CI one) is to have the form
-fields named the same as the table columns, to have a view parameter
-with the same name, but prefixed with an "f", for the form field;
-and to have any buttons needed named after the button function
-but with a "z" in front of the view parameter name.
-
-The fields are constructed using formfield helper methods, from the
-Caboose package.
-
-Here's what that would look like:
-
-	// Render the current DTO
-	private function showit()
-	{
-		$task = $this->session->userdata('task');
-		$this->data['id'] = $task->id;
-		foreach ($this->priorities->all() as $record)
-		{
-			$priparms[$record->id] = $record->name;
-		}
-		$fields = array(
-			'ftask' => makeTextField('Task description', 'task', $task->task, 'Work', "What needs to be done?"),
-			'fpriority' => makeComboBox('Priority', 'priority', $task->priority, $priparms, "How important is this task?"),
-			'zsubmit' => makeSubmitButton('Update the TODO task', "Click on home or <back> if you don't want to change anything!", 'btn-success'),
-		);
-		$this->data = array_merge($this->data, $fields);
-
-		$this->data['pagebody'] = 'itemedit';
-		$this->render();
-	}
-
-And the `views/itemedit.php` would be something like...
-
-	<h1>Task # {id}</h1>
-	<form role="form" action="/mtce/submit" method="post">
-		{ftask}
-		{fpriority}
-		{zsubmit}
-	</form>
-	
-This isn't complete ... that is coming as Job 11b!
-
-##12.5 Handle form submission
-
-	// handle form submission
-	public function submit()
-	{
-		// setup for validation
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules($this->tasks->rules());
-
-		// retrieve & update data transfer buffer
-		$task = (array) $this->session->userdata('task');
-		$task = array_merge($task, $this->input->post());
-		$task = (object) $task;  // convert back to object
-		$this->session->set_userdata('task', (object) $task);
-
-		// validate away
-		if ($this->form_validation->run())
-		{
-			if (empty($task->id))
-			{
-				$this->tasks->add($task);
-				$this->alert('Task ' . $task->id . ' added', 'success');
-			} else
-			{
-				$this->tasks->update($task);
-				$this->alert('Task ' . $task->id . ' updated', 'success');
-			}
-		} else
-		{
-			$this->alert('<strong>Validation errors!<strong><br>' . validation_errors(), 'danger');
-		}
-		$this->showit();
-	}
-
-<div class="alert alert-info">
-Oops - I forgot to fix the handling logic so that it would
-either add or update a task, depending on the task id.
-The correction is included above :-/
-</div>
-
-Try it :) Add a couple of todo tasks, and edit another couple :)
+    $config['sess_save_path'] = 'ci_sessions';
 
 
-##12.6 Handle canceling
+If you reload any page in your app, you should see no difference.
+Most importantly, nothing should break.
 
-Cheesy, but we can add a couple of links to the bottom of `itemedit`, to use for requesting
-an edit cancellation or deletion.
+Actually, if your app was giving you errors because of folder
+permissions, you should no longer experience those.
 
-    <a href="/mtce/cancel"><input type="button" value="Cancel the current edit"/></a>
-    <a href="/mtce/delete"><input type="button" value="Delete this todo item"/></a>
+##8.3 Create a SQL dump for your database
 
-<img class="scale" src="/pix/tutorials/todo/79.png"/>
+In order to share your revised database with your teammates, use
+the "Export" feature of phpMyAdmin to save a copy of the database
+schema and data.
 
-Handling a cancellation is straightforward:
+Select the database in the left sidebar of the phpMyAdmin page, and then
+click on the "Export" tab.
 
-	// Forget about this edit
-	function cancel() {
-		$this->session->unset_userdata('task');
-		redirect('/mtce');
-	}
+Choose the "Custom" radio button to see the available options.
 
-Try it :)
+<img class="scale" src="/pix/tutorials/todo/72.png"/>
 
-##12.7 Handle deletion
+In the "Output" section, I recommend that you **do not** choose "gzipped" compression,
+as it caused issues for a number of teams in lab. Use the compression
+option "None".
 
-Deletion is equally straightforward:
+<img class="scale" src="/pix/tutorials/todo/73.png"/>
 
-	// Delete this item altogether
-	function delete()
-	{
-		$dto = $this->session->userdata('task');
-		$task = $this->tasks->get($dto->id);
-		$this->tasks->delete($task->id);
-		$this->session->unset_userdata('task');
-		redirect('/mtce');
-	}
+In the "Object creation options" section, **do select** the "Add DROP TABLE..."
+statement, so that the dump will replace tables when imported on another
+system.
 
-Try it :)
+Do **not** select the "Add CREATE DATABSE..." statement option, as that
+imposes your database name on the system where the SQL dump will be
+imported.
 
-##Phew
+<img class="scale" src="/pix/tutorials/todo/74.png"/>
+
+When you click "go", save the SQL dump inside the `data` folder of your project.
+
+<img class="scale" src="/pix/tutorials/todo/75.png"/>
+
+Make sure it is the only SQL dump in that folder, so there is no question
+about which of two or more dumps might be the proper one to use.
+
+##8.4 Importing the SQL dump...
+
+When your teammates synch their local repository with the team repo
+(once this job has been merged into it), they would select the database
+they are using, in the left sidebar of phpMyAdmin, then select the "Import"
+tab of phpMyAdmin, to trigger importing the SQL dump into it.
+
+Any existing tables with the same name will be replaced, and any new tables added.
+
+Caution: some of the teams get an "invalid charset" error when they try to import
+the SQL dump. In that case, you may find that you need to drop all of your existing tables inside
+your `todo` database before importing the SQL dump.
+
+If you delete a table, and then do a SQL dump, importing the SQL dump
+on another system will not delete the table there. You need to inform
+teammates that they need to drop all the tables in their database before
+importing the updated SQL dump.
+
+Side note: CodeIgniter's [Migration class](https://www.codeigniter.com/user_guide/libraries/migration.html)
+provides a tool for you to update databases in place, without destroying
+any existing data on the target system. It is out-of-scope for this course :(
 
 
 <div class="alert alert-info">

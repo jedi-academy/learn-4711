@@ -1,6 +1,6 @@
 #Views - Making the Maintenance page
 
-_Part of COMP4711 Lab 6, Winter 2017_
+_Part of COMP4711 Lab 6, Fall 2017_
 
 #Job 7 - Simple User Roles
 

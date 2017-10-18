@@ -45,7 +45,7 @@ Course organizer for Comp4711
         <lesson name="basic06">Routing</lesson>
         <lesson name="week04" icon="read">Survey results - routing</lesson>
         <lab name="lab04">Working With Controllers &amp; Routing</lab>
-<!--        <tutorial name="ci-normal01">Controllers and Routing</tutorial> -->
+        <!--        <tutorial name="ci-normal01">Controllers and Routing</tutorial> -->
     </week>
     <week num="5">
         <topic>Models</topic>
@@ -69,26 +69,31 @@ Course organizer for Comp4711
         <tutorial name="ci-todo02" >Homepage Features</tutorial>
         <tutorial name="ci-todo03" >Ordered List Page Features</tutorial>
         <tutorial name="ci-todo05" >Help Wanted Page Features</tutorial>
-         <!--
-       -->
+        <!--
+        -->
     </week>
     <week num="7">
         <topic>Forms Handling</topic>
         <outcomes>1.2 (views), 3</outcomes>
-        <inlab>#6 Model CRUD Prep</inlab>
+        <inlab>#6 Model CRUD</inlab>
         <lesson name="basic04-forms" icon="dothis">Creating Forms</lesson>
         <lesson name="basic04-handling" icon="dothis" survey="312548">Handling Form Data</lesson>
         <lesson name="week07" icon="read">Survey results</lesson>
         <lesson name="view-practices">View best practices?</lesson>
-<!-- <lab name="lab06">Building Out Our TODO List Manager</lab>
+        <!--
+        <lab name="lab06">Building Out Our TODO List Manager</lab>
         <tutorial name="ci-todo04" >Maintenance List</tutorial>
         <tutorial name="ci-todo06">Pagination</tutorial>
         <tutorial name="ci-todo07">User Roles</tutorial>
--->
-            </week>
+        <tutorial name="ci-todo08">Provide for Completing Work</tutorial>
+        <tutorial name="ci-todo09">Role-specific Maintenance List</tutorial>
+        <tutorial name="ci-todo10">Todo Item Maintenance (finally)</tutorial>
+        <tutorial name="ci-todo11">Polish the Item Maintenance</tutorial>
+        -->
+    </week>
     <week num="8">
         <topic>Midterm exam week</topic>
-<!--        <lab name="report">Investigative report</lab> -->
+        <!--        <lab name="report">Investigative report</lab> -->
     </week>
     <week num="9">
         <topic>Building on CodeIgniter</topic>
@@ -98,13 +103,9 @@ Course organizer for Comp4711
         <lesson name="week09" icon="read">Survey results</lesson>
         <lesson name="basic70">Addins in a Nutshell</lesson>
         <lab name="lab07">Completing Our TODO List Build Out.</lab>
-        <tutorial name="ci-todo08">Use RDB for sessions</tutorial>
-        <tutorial name="ci-todo09">Install the Caboose Package</tutorial>
-        <tutorial name="ci-todo10">Provide for Completing Work</tutorial>
-        <tutorial name="ci-todo11">Role-specific Maintenance List</tutorial>
-        <tutorial name="ci-todo12">Todo Item Maintenance (finally)</tutorial>
-        <tutorial name="ci-todo11b">Polish the Item Maintenance</tutorial>
-        <assignment name="assignment2">Functional Bot Factory</assignment>
+        <tutorial name="ci-todo12">Use RDB for sessions</tutorial>
+        <tutorial name="ci-todo13">Install the Caboose Package</tutorial>
+       <assignment name="assignment2">Functional Bot Factory</assignment>
         <assignment name="assignment2faq" icon="read" >Assignment 2 FAQ</assignment> 
         -->
     </week>
@@ -141,7 +142,7 @@ Course organizer for Comp4711
         -->
     </week>
     <week num="13">
-        <topic>Authentication &amp; Optional Topics</topic>
+        <topic>Optional / Advanced Topics</topic>
         <outcomes>2.1, 2.2, 2.3</outcomes>
         <!--
        <lesson name="week13" icon="read">Survey results (the survey 
