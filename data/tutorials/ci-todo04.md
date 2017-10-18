@@ -1,9 +1,9 @@
 #Views - Making the Maintenance page
 
-_Part of COMP4711 Lab 6, Winter 2017_
+_Part of COMP4711 Lab 6, Fall 2017_
 
 <div class="alert alert-info">
-This assumes that you have completed lab 5, or that you are working with the second starter repo.
+This assumes that you have completed lab 5!
 </div>
 
 
@@ -26,7 +26,7 @@ to the list view.
 Let's tackle the view assembly first. You won't be able to properly test the changes 
 until mentioned, as they are inter-related.
 
-Copy `views/by_category.php` to `views\itemlist.php'. It is a good starting point.
+Copy `views/by_category.php` to `views/itemlist.php'. It is a good starting point.
 
 We should display "Status" instead of "Category", and we don't need a header.
 Reflecting these minor changes, your `itemlist` should look like:

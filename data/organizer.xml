@@ -78,16 +78,16 @@ Course organizer for Comp4711
         <inlab>#6 Model CRUD Prep</inlab>
         <lesson name="basic04-forms" icon="dothis">Creating Forms</lesson>
         <lesson name="basic04-handling" icon="dothis" survey="312548">Handling Form Data</lesson>
-        <!--
-        <lesson name="week08" icon="read">Survey results</lesson>
-        <lab name="lab06">Building Out Our TODO List</lab>
+        <lesson name="week07" icon="read">Survey results</lesson>
+<!-- <lab name="lab06">Building Out Our TODO List Manager</lab>
         <tutorial name="ci-todo04" >Maintenance List</tutorial>
         <tutorial name="ci-todo06">Pagination</tutorial>
         <tutorial name="ci-todo07">User Roles</tutorial>
-        -->
-    </week>
+-->
+            </week>
     <week num="8">
         <topic>Midterm exam week</topic>
+<!--        <lab name="report">Investigative report</lab> -->
     </week>
     <week num="9">
         <topic>Building on CodeIgniter</topic>

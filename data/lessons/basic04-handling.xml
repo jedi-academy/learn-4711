@@ -105,6 +105,7 @@ Views - Form Handling
                 $record->message = $_POST['message'];
             </code>
         </pre>
+        **DANGER**
     </slide>
 
     <slide title="Handling Input Using CodeIgniter (q02)" layout="normal">

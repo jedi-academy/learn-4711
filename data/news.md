@@ -1,4 +1,5 @@
-**Week 7** (Mon 13:15)
+**Week 7** (Wed 01:45)
+- survey results posted
 - reading & survey posted; as well as "leftovers" in the FYI organizer section ("week 20")
 
 **Week 6** (Thu 07:10)
