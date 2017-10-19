@@ -80,7 +80,6 @@ Course organizer for Comp4711
         <lesson name="basic04-handling" icon="dothis" survey="312548">Handling Form Data</lesson>
         <lesson name="week07" icon="read">Survey results</lesson>
         <lesson name="view-practices">View best practices?</lesson>
-        <!--
         <lab name="lab06">Building Out Our TODO List Manager</lab>
         <tutorial name="ci-todo04" >Maintenance List</tutorial>
         <tutorial name="ci-todo06">Pagination</tutorial>
@@ -89,11 +88,12 @@ Course organizer for Comp4711
         <tutorial name="ci-todo09">Role-specific Maintenance List</tutorial>
         <tutorial name="ci-todo10">Todo Item Maintenance (finally)</tutorial>
         <tutorial name="ci-todo11">Polish the Item Maintenance</tutorial>
+        <!--
         -->
     </week>
     <week num="8">
         <topic>Midterm exam week</topic>
-        <!--        <lab name="report">Investigative report</lab> -->
+<!--        <lab name="report">Investigative report</lab>-->
     </week>
     <week num="9">
         <topic>Building on CodeIgniter</topic>

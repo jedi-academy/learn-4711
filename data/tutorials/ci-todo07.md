@@ -44,8 +44,8 @@ Following the Bootstrap docs, we could end up with...
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">User Role<b class="caret"></b></a>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                      <li><a href="/roles/actor/guest">Guest</a></li>
-                      <li><a href="/roles/actor/owner">Owner</a></li>
+                      <li><a href="/roles/actor/Guest">Guest</a></li>
+                      <li><a href="/roles/actor/Owner">Owner</a></li>
           </ul>
         </li>	
     </ul>
@@ -100,7 +100,7 @@ stuff between repo copies.
 
 Then enable sessions in `application/config/autoload.php` ...
 
-    $autoload['libraries'] = array('parser', 'database', 'parsedown','session');
+    $autoload['libraries'] = array('parser', 'parsedown','session');
 
 It looks like it works (doesn't blow up) when you test, right?. How do we know for sure?
 

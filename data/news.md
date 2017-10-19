@@ -1,4 +1,5 @@
-**Week 7** (Wed 12:50)
+**Week 7** (Thu 03:20)
+- posted lab 6 for this week
 - added some "best practices?" :-/
 - survey results posted
 - reading & survey posted; as well as "leftovers" in the FYI organizer section ("week 20")

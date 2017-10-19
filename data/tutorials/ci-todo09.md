@@ -16,13 +16,10 @@ the edit function for that item
 - Delete will be deferred to the editing, i.e. only allow deleting an item
 if the full item details are displayed.
 
-NOTE: If you haven't already done so, change the links in `views/_menubar.php`
-so that the roles are capitalized, eg "/roles/actor/Owner".
-
 ##9.1 New item button
 
 We can add a new item link  to the right of the pagination nav by editing
-ever so slightly the `Mtce::page()` method.
+ever so slightly the `Mtce::page()` method, i.e. `mtce/page`.
 
 We don't want HTML inside our controller, so let's add a new `itemadd` view,
 which contains the link or button (however we style it) to the pagination substitution
@@ -49,13 +46,14 @@ It doesn't link to a real controller method yet - that will be part of the next 
 
 
 Hmm - the new button shows up below the pagination nav ... a styling error to fix.
+It looks ugly, on its own line, but we're not designers, right?
 
 
 ##9.2 Make the Task ID a link
 
 We have a view fragment to show a single item in the task list, `oneitem`.
 Let's make a comparable one to show for an owner, the only
-difference being that the ID should be shown as a link to `Mtce::edit`.
+difference being that the ID should be shown as a link to `Mtce::edit()`.
 
 Copy `oneitem` to `oneitemx` & fix it:
 
@@ -66,7 +64,7 @@ Copy `oneitem` to `oneitemx` & fix it:
 	<td>{status}</td>
     </tr>
 
-Modify `Mtce::show_page` to choose the correct view fragment to style 
+Modify `Mtce::show_page()` to choose the correct view fragment to style 
 the task list row...
 
     // INSERT the next three lines. The fourth is already there

@@ -10,11 +10,13 @@ This assumes that you have completed lab 5!
 #Job 4 - Maintenance List
 
 We have some ordered & excerpted lists of the todo items already, but they're not quite
-appropriate for maintenance (we want task id sequence), and we want to use
-view fragments for each item, for flexibility.
+appropriate for maintenance (we want task id sequence, and to show all tasks).
+We also want to use view fragments for each task, for flexibility coming up.
 
-Lab 5 left us with a `Mtce` controller, with placeholder content.
-Let's fix that :)
+Lab 5 looked like it left us with a "Maintenance" controller, but it was really
+just linking to the home page.
+
+Let's fix that, and get ready for maintenance!
 
 ##4.1 Basic item list
 
@@ -46,8 +48,10 @@ Reflecting these minor changes, your `itemlist` should look like:
             {/display_tasks}	
     </table>
 
-The `index` method of our `Mtce` controller can then be fleshed out a bit,
-drawing on the code in `Views` as an example, but simplifying.
+Add a menu configuration entry for "Maintenance", linking to "/mtce".
+We can then create a `Mtce` controller to respond to it...
+
+We can draw on the code in `Views` as an example, but simplifying.
 
     class Mtce extends Application {
 
@@ -59,7 +63,7 @@ drawing on the code in `Views` as an example, but simplifying.
                     // substitute the status name
                     foreach ($tasks as $task)
                             if (!empty($task->status))
-                                    $task->status = $this->statuses->get($task->status)->name;
+                                    $task->status = $this->app->status($task->status);
 
                     // convert the array of task objects into an array of associative objects		
                     foreach ($tasks as $task)

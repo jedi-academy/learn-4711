@@ -67,13 +67,16 @@ That looks too easy.
 		$this->showit();
 	}
 
-That wasn't much harder.
+That wasn't much harder. Notice the difference: one creates a task
+record with empty fields, while the other retrieves an existing
+task record with fields set from the persistent data.
+In both cases, the task record is saved as the "task" item
+in our session.
 
 ##10.4 Show TODO item being worked with
 
-Here things get a bit more complicated. Fortunately, we have the
-Caboose to help us, handling the heavy-lifting of building
-suitably styled form fields.
+Here things get a bit more complicated. Fortunately, we have CodeIgniter's
+`form` helper to make things a bit easier.
 
 The convention that I use (not a CI one) is to have the form
 fields named the same as the table columns, to have a view parameter
@@ -81,30 +84,32 @@ with the same name, but prefixed with an "f", for the form field;
 and to have any buttons needed named after the button function
 but with a "z" in front of the view parameter name.
 
-The fields are constructed using formfield helper methods, from the
-Caboose package.
+The fields are constructed using form helper functions.
 
 Here's what that would look like:
 
 	// Render the current DTO
 	private function showit()
 	{
+ 		$this->load->helper('form');
 		$task = $this->session->userdata('task');
 		$this->data['id'] = $task->id;
-		foreach ($this->priorities->all() as $record)
-		{
-			$priparms[$record->id] = $record->name;
-		}
+
+		// if no errors, pass an empty message
+		if ( ! isset($this->data['error']))
+			$this->data['error'] = '';
+
 		$fields = array(
-			'ftask' => makeTextField('Task description', 'task', $task->task, 'Work', "What needs to be done?"),
-			'fpriority' => makeComboBox('Priority', 'priority', $task->priority, $priparms, "How important is this task?"),
-			'zsubmit' => makeSubmitButton('Update the TODO task', "Click on home or <back> if you don't want to change anything!", 'btn-success'),
+			'ftask'		 => form_label('Task description') . form_input('task', $task->task),
+			'fpriority'	 => form_label('Priority') . form_dropdown('priority', $this->app->priority(), $task->priority),
+			'zsubmit'	 => form_submit('submit', 'Update the TODO task'),
 		);
 		$this->data = array_merge($this->data, $fields);
 
 		$this->data['pagebody'] = 'itemedit';
 		$this->render();
 	}
+
 
 And the `views/itemedit.php` would be something like...
 
@@ -114,8 +119,21 @@ And the `views/itemedit.php` would be something like...
 		{fpriority}
 		{zsubmit}
 	</form>
-	
-This isn't complete ... that is coming as Job 11b!
+        {error}
+
+This isn't complete ... that is coming as Job 11!
+
+##Oops - found another bug in core/Memory_Model
+
+The `highest` method should look like:
+
+	// Determine the highest key used
+	function highest()
+	{
+		end($this->_data);
+		return key($this->_data);
+	}
+
 
 ##10.5 Handle form submission
 
@@ -137,6 +155,7 @@ This isn't complete ... that is coming as Job 11b!
 		{
 			if (empty($task->id))
 			{
+                                $task->id = $this->tasks->highest() + 1;
 				$this->tasks->add($task);
 				$this->alert('Task ' . $task->id . ' added', 'success');
 			} else
@@ -151,11 +170,15 @@ This isn't complete ... that is coming as Job 11b!
 		$this->showit();
 	}
 
-<div class="alert alert-info">
-Oops - I forgot to fix the handling logic so that it would
-either add or update a task, depending on the task id.
-The correction is included above :-/
-</div>
+And we need an `alert` method (referenced above) to build an error or other message (ugly for now):
+
+
+	// build a suitable error mesage
+	private function alert($message) {
+		$this->load->helper('html');		
+		$this->data['error'] = heading($message,3);
+	}
+
 
 Try it :) Add a couple of todo tasks, and edit another couple :)
 
@@ -166,7 +189,6 @@ Cheesy, but we can add a couple of links to the bottom of `itemedit`, to use for
 an edit cancellation or deletion.
 
     <a href="/mtce/cancel"><input type="button" value="Cancel the current edit"/></a>
-    <a href="/mtce/delete"><input type="button" value="Delete this todo item"/></a>
 
 <img class="scale" src="/pix/tutorials/todo/79.png"/>
 
@@ -183,6 +205,12 @@ Try it :)
 ##10.7 Handle deletion
 
 Deletion is equally straightforward:
+
+To the bottom of `itemedit`:
+
+    <a href="/mtce/delete"><input type="button" value="Delete this todo item"/></a>
+
+And to `Mtce`:
 
 	// Delete this item altogether
 	function delete()

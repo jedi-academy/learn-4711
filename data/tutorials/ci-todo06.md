@@ -54,7 +54,7 @@ which takes the tasks to display as a parameter...
 		foreach ($tasks as $task)
 		{
 			if (!empty($task->status))
-				$task->status = $this->statuses->get($task->status)->name;
+				$task->status = $this->app->status($task->status);
 			$result .= $this->parser->parse('oneitem', (array) $task, true);
 		}
 		$this->data['display_tasks'] = $result;
@@ -75,7 +75,7 @@ so that we extract only the tasks of interest.
 ##6.2 Item page extraction
 
 Let's make a `page` method, with the desired page # as a parameter.
-This is intended to be callable from the browser.
+This is intended to be callable from the browser, so it will be public.
 
 It will need to extract `items_per-page` tasks, from the proper starting point.
 
@@ -113,7 +113,8 @@ Do you see what's coming? Our `index` method can be simplified even further:
 		$this->page(1);
 	}
 
-Everything should still work, with the output being pretty much the same as before.
+Everything should still work, with the output being pretty much the same as before,
+but only showing a single "page" of tasks.
 
 ##6.3 Pagination navigation
 
