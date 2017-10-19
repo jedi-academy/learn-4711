@@ -20,6 +20,53 @@ We will need the following methods in `Mtce`:
 - `cancel` to throw away the current DTO
 - `delete` to delete the current task
 
+#10.0 Bug fix :(
+
+Students working on this have uncovered another bug in my code - I am so fired!!
+
+If you did the original 10.1 through 10.5, and added a new task, it
+would be added without all the properties set, specifically the group,
+priority and size. This would trigger an "undefined index" PHP error
+when the list of maintenance items was redisplayed.
+
+The fix is to beef up `models/App` so that it provides default values
+for any missing properties.
+
+To do this, replace the `App` work methods with
+
+    public function flag($which = null) {
+	return isset($which) ?
+		(isset($this->flags[$which]) ? $this->flags[$which] : '') :
+		$this->flags;
+    }
+
+    public function group($which = null) {
+	return isset($which) ?
+		(isset($this->groups[$which]) ? $this->groups[$which] : 'Unknown') :
+		$this->groups;
+    }
+
+    public function priority($which = null) {
+	return isset($which) ?
+		(isset($this->priorities[$which]) ? $this->priorities[$which] : 'Unknown') :
+		$this->priorities;
+    }
+
+    public function size($which = null) {
+	return isset($which) ?
+		(isset($this->sizes[$which]) ? $this->sizes[$which] : 'Unknown') :
+		$this->sizes;
+    }
+
+    public function status($which = null) {
+	return isset($which) ?
+		(isset($this->statuses[$which]) ? $this->statuses[$which] : '') :
+		$this->statuses;
+    }
+
+Sorry!
+
+
 #10.1 Task validation rules
 
 We need some rules for validating a task.

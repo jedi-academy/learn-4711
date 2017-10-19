@@ -95,6 +95,9 @@ it last week :)
 
 Note 2: a working version of this is deployed at https://todo.jlparry.com :-/
 
+Note 3: The UX/UI for our item maintenance is pretty tragic,
+but our focus is on functionality.
+
 #Wrapup
 
 <div class="alert alert-info">

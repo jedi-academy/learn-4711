@@ -1,4 +1,5 @@
-**Week 7** (Thu too early)
+**Week 7** (Thu 11:50)
+- Added note #10.0 to lab 6 job 10, to harden `models/App` & avoid PHP errors
 - report story posted
 - posted lab 6 for this week
 - added some "best practices?" :-/
