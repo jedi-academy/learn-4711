@@ -93,7 +93,7 @@ Course organizer for Comp4711
     </week>
     <week num="8">
         <topic>Midterm exam week</topic>
-<!--        <lab name="report">Investigative report</lab>-->
+        <lab name="report">Investigative report</lab>
     </week>
     <week num="9">
         <topic>Building on CodeIgniter</topic>

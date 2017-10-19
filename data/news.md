@@ -1,4 +1,5 @@
-**Week 7** (Thu 03:20)
+**Week 7** (Thu too early)
+- report story posted
 - posted lab 6 for this week
 - added some "best practices?" :-/
 - survey results posted
