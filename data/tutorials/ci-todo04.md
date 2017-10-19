@@ -114,7 +114,7 @@ the actual output for those tasks instead, in our controller...
     // substitute the status name
     foreach ($tasks as $task)
             if (!empty($task->status))
-                    $task->status = $this->statuses->get($task->status)->name;
+                                    $task->status = $this->app->status($task->status);
 
     // build the task presentation output
     $result = '';	// start with an empty array		
