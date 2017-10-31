@@ -98,7 +98,7 @@ Course organizer for Comp4711
     <week num="9">
         <topic>Building on CodeIgniter</topic>
         <outcomes>1.3, 3</outcomes>
-        <lesson name="basic05"  icon="dothis">Building on CodeIgniter (Draft)</lesson>
+        <lesson name="basic05"  icon="dothis">Building on CodeIgniter</lesson>
         <!--
         <lesson name="week09" icon="read">Survey results</lesson>
         <lesson name="basic70">Addins in a Nutshell</lesson>

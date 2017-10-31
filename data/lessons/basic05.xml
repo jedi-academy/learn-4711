@@ -185,7 +185,7 @@ Lesson 06 - Helpers & Addons
     <slide title="Extending Built-In Libraries" layout="normal">
         <p>In application/libraries/MY_Foo.php: <br/>
             <code>
-                class MY_Foo extends CI_Foo {
+                class MY_Foo extends CI_Foo {<br/>
 &#160;&#160;function a() {...}<br/>
 &#160;&#160;function b() {...}
                 }</code>
@@ -215,8 +215,8 @@ Lesson 06 - Helpers & Addons
         <p>But ... they involve CSS, Javascript &amp; often initialization</p>
         <p>
             <b>Caboose</b> is a library that manages these frameworks &amp; widgets</p>
-        <p>For reference, you can find it inside a previous
-            <a href="https://github.com/jedi-academy/starter-caboose-winter2016">github repository</a>
+        <p>For reference, you can find it inside a 
+            <a href="https://github.com/jedi-academy/package-caboose">github repository</a> :)
         </p>
     </slide>
 
@@ -422,10 +422,8 @@ Lesson 06 - Helpers & Addons
         <p>The <b>Formfields</b> helper is a collection of functions, 
             and corresponding view fragments, 
             to deal with the styling of HTML form fields.</p>
-        <p>You saw this helper last week, and it is also inside
-            the 
-            <a href="https://github.com/jedi-academy/starter-caboose-winter2016">github repository</a>
-            mentioned for the Caboose library.</p>
+        <p>This helper was hinted at last week, and is actually
+            part of the Caboose package.</p>
         <p>Each function builds a standard array of view parameters, and 
             then invokes the template parser to style the form field for 
             the CSS/JS framework(s) you are using.</p>
@@ -523,18 +521,6 @@ Lesson 06 - Helpers & Addons
         <p>Treat this notion of packages as CodeIgniter-specific.</p>
     </slide>
 
-
-    <slide title="Caboose as a Package" layout="normal">
-        <div class="left">
-            <p>Hmmmmmmmm - the 
-                <a href="https://github.com/jedi-academy/starter-caboose-winter2016">Caboose package</a>.
-                It even includes the formfield helper :)
-            </p>
-        </div>
-        <div class="right">
-            <code>$autoload['packages'] = array(APPPATH.'third_party/caboose',...);</code>
-        </div>
-    </slide>
 
     <slide title="5. DEPENDENCY MANAGEMENT" layout="normal" tag="tag5">
         <div class="left">
