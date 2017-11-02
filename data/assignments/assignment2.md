@@ -1,28 +1,31 @@
-#Assignment #2 - Functional Bot Factory Webapp
-COMP4711 - BCIT - Winter 2017
+#Assignment #2 - Standalone Webapp for WACKY
+COMP4711 - BCIT - Fall 2017
 
 <div class="alert alert-success">
-Refer to the "online" [PRC API Guide](http://umbrella.jlparry.com/help) for the most proper
-and most recently updated API guide for the umbrella server!
-
-I have updated the relevant references in this document to reflect the changes.
+Work in progress - will be revised for clarity as needed.
 </div>
 
-##Assignment Overview & Goals
+##Assignment Overview & Goals - Own Flight Booking
 
 The purpose of the assignments, collectively, is to let you apply the techniques 
 from the lessons and tutorials.
 As previously decribed, you are building a small but complete webapp, 
-to manage a simple robot factory. 
+in our case to manage flight schedules for a regional airline.
 Refer to assignment one for business logic descriptions.
 
 The purpose of this assignment (#2) is to add functionality to the mockup pieces
-from assignment #1, using a real (not mock) database and connecting to the
-[Panda Research Center](https://umbrella.jlparry.com/) (PRC) for live data.
+from assignment #1, using real (not mock) data persistance and connecting to the
+[WACKY server](https://wacky.jlparry.com/) for live data.
+
+The tasks for this assignment are to build:
+- proper entity models for your fleet and flights
+- unit testing for these, invoked through continuous integration
+- role-based maintenance for these
+- flight search capability, for your flights only
 
 #Process
 
-##Assignment Teams
+###Assignment Teams
 
 You have project teams already, and should stick with them.
 If any team membership changes are desired, see me.
@@ -30,38 +33,29 @@ If any team membership changes are desired, see me.
 Team members do not have to receive the same grade.
 Under-contributing members will will receive a lower mark.
 
-##Workflow
+###Workflow
 
 Continue to use gitflow workflow, with proper branching and GPG-signed commits.
 
-##Testing & Deployment
+###Testing & Deployment
 
-The [test & deployment server](/display/lesson/webhooks) is available for those groups
-who wish to test their code in a "production" environment.
-This is optional, for your benefit, and does not contribute to marks.
+The [test & deployment server](/display/lesson/webhooks) is available to test your 
+code in a "production" environment.
 
-If you do use it, your running (or not) webapp will be visible to everyone.
-You can see what other teams are doing, and vice-versa.
-
-<div class="alert alert-danger">
-Avoid the test deployment server for now, until I confirm
-that the database setup has been tested.
-</div>
-
-##Assignment Submission
+###Assignment Submission
 
 Your assignment will result in a team repository on Github.
 Your dropbox submission should be or include a link to your team's repository
 (not its cloning URL).
 
-Due date: Sunday Mar 26, 17:30.
+Due date: Sunday Nov 12, 23:30.
 
-##Assignment Marking Guideline
+###Assignment Marking Guideline
 
-A marking rubric will be attached to the assignment dropboxes, similar to 
+A marking rubric will be attached to the assignment dropbox, similar to 
 those used for labs. 
 
-##Changelog
+###Changelog
 
 Do provide a changelog, showing the components that are different for this
 assignment compared to the previous one. Group the components by component
@@ -77,162 +71,108 @@ The subsections here address your data, and then each of your usecases (pages).
 ##Your Data
 
 You have provided mock data for assignment 1. 
-Put this into appropriate tables in a MySQL database for assignment 2.
+Create CSV files for your data, in your project's `data` folder.
+This folder will need to be world-writeable (suggested permissions of 755).
+Use the core models from lab 5/6 for persistence.
 
-It is up to you how you wish to track "history" - that could be one table,
-or it could be separate history tables for each kind of activity.
+The data files will be the initial state of your app's data for testing,
+and will be replaced from your repository each time you deploy.
+Be careful of this when you are testing locally, as any local changes
+will be pushed to the repository unless you `git ignore` the data folder.
 
-The "live" data to use will be retrieved from the [Umbrella server](https://umbrella.jlparry.com), 
+It might be a good idea for all team members, except the one "in charge"
+of the data, to git ignore their local data folder. I am not sure
+if this will work as expected - we might have to experiment.
+
+The W.A.C. "live" data to use (airport codes, etc) will be retrieved from the 
+[WACKY server](https://wacky.jlparry.com), 
 per directions that follow.
 
-The SQL dump in your repository should be a known starting point, suitable for test data.
-The mock data from assignment 1 could be good for this.
+##Models
+
+You previously had models for your fleet and flight schedule, and possibly
+one to retrieve shared data from the WACKY server.
+
+Add entity models for a single plane and for a flight, and make sure that
+you have a model to retrieve shared data from the WACKY server.
+
+The entity models will be similar to what you build for lab 7.
 
 ##User Roles
 
-I suggest a menu dropdown to switch between user roles, as with labs 5-7.
-
+I suggest a menu dropdown to switch between user roles, as with labs 5-6.
 You do not need authentication for this assignment.
+
+Note: I may provide some tutorial material during week 10, so that
+you can add simple authentication if desired. This would block
+other students from changing your data :)
+
+Add the current user role selection/display to the navbar, like we did in lab.
+
+##Sessions
+
+You will need sessions enabled, to store your data transfer buffers
+for maintenance and for flight booking data.
+
+Use file-based sessions, and configure yours to use `/tmp` as the writeable
+folder. You may have to create this on your system, and you will
+need to ensure that its permissions are appropriate. 
+
+#Usecases
 
 ##Homepage (dashboard)
 
 Your homepage contains a dashboard of sorts.
 
-The page data should now be provided or calculated from your database.
+The displayed data should now be provided or calculated from your database.
 
 This page is accessible to any user role (a.k.a. "Guest").
 
-##Parts page
+##Flight bookings
 
-Previous: The **parts** page (for the "Worker" role) should show all the parts currently on hand, ordered
-reasonably (piece type?) in a grid with images.
-Show the model & line as either a tooltip for the image, or underneath each.
+Add flight bookings, either to your homepage, or as a separate page.
 
-Clicking on a part should show the complete data you have for that part, including
-CA, date made or acquired, etc. This would suit a subcontoller and
-secondary page for just one piece.
+This should have a dropdown to select departure and destination airports, with yours
+being the choices to choose from.
 
-Add a "Build more parts" button or link to the page, which would be handled by:
+Given a selection, build & display a list of applicable bookings to select from,
+in the general style of flightcentre.ca (but simpler, to suit your data).
+A flight may have up to three legs, eg Vancouver - Prince George, or Vancouver -
+Kamloops + Kamloops - Fort St John + Fort St John - Prince George.
+The flights should be supported by your data.
 
-- request any newly built parts for this factory, from the Panda Resarch
-center's `/work/mybuilds` endpoint. That service will return an array
-of parts certificates, in JSON format
-- add each of these to your parts table
-- Update the appropriate history table(s)
+##Fleet page
 
-Add a "Buy parts" button or link to the page, which would be handled by:
+In assignment 1, the **fleet** page showed all the airplanes in your fleet, ordered
+reasonably, presented as a grid or table.
 
-- request a box of random parts for you to use, from the Panda Resarch
-center's `/work/buybox` endpoint. That service will return an array
-of parts certificates, in JSON format
-- PRC will deduct the purchase price from your cash balance
-- add each of these to your parts table
-- Update the appropriate history table(s)
+Make sure the plane identifiers link to a plane data page.
 
-##Assembly page
+If the user role is "Admin", then the plane data page should show editable
+fields, and there should be an "Add..." button or link on the fleet page.
 
-Previous: The **assembly** page (for the "Supervisor" role) lets a user select the pieces that 
-they would like combined to make a complete bot, the pieces that they
-consider unwanted and would like to return, or the assembled bot(s) that they
-would like to ship to head office.
+You are welcome to use Javascript widgets to improve the user experience
+or validate the data, but that is not expected.
 
-Provide a way to select the set of parts needed to construct a complete bot.
+You MUST provide server-side validation for submitted data.
 
-Add an "Assemble it" button or link, which would be handled by:
+##Flights page
 
-- validate the selected parts, to make sure there is one of each needed for a complete bot
-- add a record to your "robots" table, with the chosen parts
-- remove the parts from the "parts" table
-- update the history table(s)
+In assignment 1, the **flights** page showed all the flights in your schedule, ordered
+reasonably, presented as a grid or table.
 
-Optional: For added fun & excitement, you are welcome to add some "AI" to this page,
-for instance suggesting a combination of parts that would result in the
-highest selling price.
+Make sure the flight identifiers link to a plane data page.
 
-##History page
+If the user role is "Admin", then the plane data page should show editable
+fields, and there should be an "Add..." button or link on the fleet page.
 
-Previous: The **history** page (for bosses) should show a list of your plant's history
-transactions. 
+You are welcome to use Javascript widgets to improve the user experience
+or validate the data, but that is not expected.
 
-This list should now be paginated. You can use 20/25 records per page,
-or provide for that being something the "Boss" can configure.
+You MUST provide server-side validation for submitted data.
 
-The history list should provide for flexible ordering, by date/time or by robot model.
-I suggest a dropdown for this, although links could work just as well.
 
-The list should be filterable, by robot series or robot model.
-You could use a dropdown for these, or provide radio buttons or checkboxes 
-to select the output. A dropdown would result in a "cleaner" UI.
-
-##Manage page
-
-This is for the "Boss" role :)
-
-There are several features appropriate for this page, handled by tabs or perhaps
-by separate panels:
-
-- Provide a button or link to "Reboot" your plant. It should send a message to the
-Panda Research Center's `/work/rebootme`, and get an `Ok` response or a self-explanatory error message.
-On successful "reboot", empty your inventory & history - you are starting from scratch
-again, with the appropriate starting balance for a new plant.
-
-- Provide a mini-form for registering with the PRC. You will need your plant name, which
-can be saved as a configuration setting inside your app, and your secret token, which
-should not be stored anywhere inside your app or repo. Send a message to  PRC's
-`/work/registerme/team/token` endpoint; it will return an appropriate message.
-Substitute your team name and token, of course.  
-This will establish a session on PRC. If yours closes, you will need to re-register.
-
-- If you use a control table to save key/value pairs for configuring or managing
-your app, provide a way to display/edit these. For instance, 
-this could include settings that influence any AI
-you have for suggesting bots to build, or it could include the base URL
-for the PRC, to avoid hard-coding it.
-
-- Finally, here is where you can sell assembled bot to the PRC. Present a list
-of the ones you have built, with suitable links to sell them to the PRC one at a time,
-namely `/work/buymybot/part1/part2/part3`, where parts 1 through 3 are the tokens
-for the three parts that make up your bot. The server will respond with `Ok` or `Nak`
-with a self-explanatory error message. If "Ok", you can remove the bot from your database.
-The PRC will automatically credit your account balance.
-
-##Debugging
-
-How do you determine if your app's view of the world matches reality?
-
-There are a few PRC server endpoints that you might find helpful:
-
-- `/info/whoami` will return who the PRC thinks you are
-
-- `/info/verify/token` will return the data known about a part, identified
-by its token
-
-- `/info/scoop/plant` will return the data known about a plant, identified by
-its name; if the plant is not
-specified, it default to the one associated with your PRC session
-
-- `/info/job/plant` will return the part a plant is building; if the plant is not
-specified, it default to the one associated with your PRC session
-
-- `/work/goodbye` will destroy your session on the PRC server, and your plant will then need
-to "register" again (through the "Manage" page)
-
-The first two of these endpoints will work from anywhere, while the last two
-may have to run on the same machine as your server.
-
-You could make testing easier by building these into your "Boss" page,
-possibly with a textfield to prompt for a token or plant.
-
-##Webapp Navigation
-
-Your frontend webapp would suit having a primary navbar with now five/six items: 
-one for the
-homepage and one for each of the usecases, including the new "Manage" page.
-
-Optional: If you want a bit more of a challenge, change the navbar to show only
-the pages accessible to the current user role.
-
-##Webapp Constraints
+#Webapp Constraints
 
 Same as before...
 
@@ -240,10 +180,5 @@ Same as before...
 - You are welcome to use a third party templating engine, but without PHP in your view.
 - Remember the golden rules, especially case sensitivity!
 
-##Your Code
-
 Just a reminder: code like professionals :)
 
-##Parting Notes
-
-I will maintain an FAQ on the course hub, as needed.

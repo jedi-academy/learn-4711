@@ -1,16 +1,9 @@
-#Lab #7 - Completing Our TODO List Buildout
-COMP4711 - BCIT - Winter 2017
+#Lab #7 - Unit Testing for Our TODO List Manager
+COMP4711 - BCIT - Fall 2017
 
 ##Lab Goals
 
-The purpose of this lab is to finish the "build out" of our TODO List webapp,
-by adding some role-based CRUD for todo item maintenance.
-The lab will also give us an excuse to incorporate some outside components,
-
-This lab will build on the last one (lab 6). If your lab 6 is good, then continue 
-to use it. If you are not happy with it, you may use the
-[TODO 3 starter](https://github.com/jedi-academy/starter-todo3), 
-which is the state yours should have ended up in at the end of the last lab.
+The purpose of this lab is to add unit testing to our TODO List webapp.
 
 We will continue to use gitflow workflow. That means proper branching (master/develop, 
 with "develop" merged into "master" just before completion and submission),
@@ -36,13 +29,11 @@ It should contain a link to your **team**'s github repository.
 Note: this is not a cloning URL, and I do not need links to the individual
 team member repos.
 
-Due: in theory, this should be completed during the lab period,
-but some teams will need a bit more time.  
-I have set the deadline to this coming Sunday at 17:30.
+Due: this coming Sunday at 17:30.
 
 ##Lab Marking Guideline
 
-A marking rubric is attached to the lab 7 dropboxes, similar to our
+A marking rubric will be attached to the lab 7 dropboxes, similar to our
 earlier labs. The labs will be weighted equally in the marks worksheet,
 even if some of them have different raw scores because of their rubric.
 
@@ -61,40 +52,46 @@ is "clean".
 
 ##Starting Point
 
-Your repository from last week should have a user role (stored in a session),
-a controller to toggle the role between "user" and "admin", and a menu
-maintenance controller, which displays an appropriate title message depending on the user role.
-
-Use the same database as last lab, to start with. The first job will see it enhanced a bit.
+Your repository from last week should have role-based maintenance
+and persistent data, which will be our starting point..
 
 ##Your jobs
 
-The big job this lab is setting up CRUD for the todo items, with a model to support that.
+1. Install composer on each team member's system ...
+https://getcomposer.org/doc/00-intro.md
 
-There are five jobs for this lab. The first and second can be done at the same time.
-The third & fourth rely on the first two, and the fifth relies on the fourth job.
+2. Install phpunit on each team member's system ...
+https://phpunit.de/manual/6.4/en/installation.html
 
-- [Job 8 - USE RDB for Sessions](/display/tutorial/ci-todo08)
-- [Job 9 - Integrate the Caboose package](/display/tutorial/ci-todo09)
-- add unit testing?
+3. Build a Task entity class, with setter methods for each property.
 
-#Wrapup (Are We Done Yet?)
+    This class should have "magic" setters (`__set`), so that 
+    you should not need to change anything else that uses tasks already :)
+    This comes from http://php.net/manual/en/language.oop5.magic.php
 
-<div class="alert alert-info">
-Captain: assuming that everyone on the team agrees that
-you have completed the lab, prepare for submission.
+    I am working on an example or base entity class for this, but it is not ready 
+    yet.
 
-Make a SQL dump of your database, with the option to drop any existing
-tables. Put that in the <code>data</code> folder of your
-project, and delete the original starter SQL from that folder.
-The first job in this lab will help you with that.
+4. Add a `tests` folder to your repo. It will hold the unit test classes
+and a bootstrap file (`public/index.php` renamed to `Bootstrap.php`
 
-Make sure that your source code is formatted with proper indentation, for
-improved readability. In NetBeans, this would be done by `alt-shift-F`
-with a source file open and selected.
+5. Add a `phpunit.xml.dist` to the root of your project ...
+https://gist.github.com/slav123/554d0a4ce91c8a0a68fe
 
-It is now time
-to merge the develop branch into the master branch,
-and submit a link to the dropbox!!
-</div>
+6. Add a `TaskTest` class to verify that your task entity accepts
+property values that meet the form validation rules, and
+rejects ones that don't.
+
+    See https://gist.github.com/slav123/f4014b4f3a6366de19eb for an example
+
+7. Add a `TaskListTest` class to verify that your collection of tasks
+has more uncompleted tasks than completed ones. This is an arbitrary business rule
+which is an excuse to have more than one test.
+
+8. Make sure that you can run and pass the unit tests, and generate the code
+coverage report, in a git ignored subfolder inside `tests`.
+
+9. Add a `travis-ci` configuration file to your repo, enabling unit tests
+as poart of every PR submitted.
+
 
