@@ -74,7 +74,7 @@ https://phpunit.de/manual/6.4/en/installation.html
         class Entity extends CI_Model {
 
             // If this class has a setProp method, use it, else modify the property directly
-            public __set($key, $value) {
+            public function __set($key, $value) {
                 // if a set* method exists for this key, 
                 // use that method to insert this value. 
                 // For instance, setName(...) will be invoked by $object->name = ...
