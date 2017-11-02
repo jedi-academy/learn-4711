@@ -69,8 +69,28 @@ https://phpunit.de/manual/6.4/en/installation.html
     you should not need to change anything else that uses tasks already :)
     This comes from http://php.net/manual/en/language.oop5.magic.php
 
-    I am working on an example or base entity class for this, but it is not ready 
-    yet.
+Here is an example of this ...
+
+        class Entity extends CI_Model {
+
+            // If this class has a setProp method, use it, else modify the property directly
+            public __set($key, $value) {
+                // if a set* method exists for this key, 
+                // use that method to insert this value. 
+                // For instance, setName(...) will be invoked by $object->name = ...
+                // and setLastName(...) for $object->last_name = 
+                $method = 'set' . str_replace(' ', '', ucwords(str_replace(['-', '_'], ' ', $key)));
+                if (method_exists($this, $method))
+                {
+                        $this->$method($value);
+                        return $this;
+                }
+
+                // Otherwise, just set the property value directly.
+                $this->$key = $value;
+                return $this;
+            }
+        }
 
 4. Add a `tests` folder to your repo. It will hold the unit test classes
 and a bootstrap file (`public/index.php` renamed to `Bootstrap.php`
