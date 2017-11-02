@@ -69,7 +69,7 @@ https://phpunit.de/manual/6.4/en/installation.html
     you should not need to change anything else that uses tasks already :)
     This comes from http://php.net/manual/en/language.oop5.magic.php
 
-Here is an example of this ...
+    Here is an example of this ...
 
         class Entity extends CI_Model {
 
@@ -112,6 +112,6 @@ which is an excuse to have more than one test.
 coverage report, in a git ignored subfolder inside `tests`.
 
 9. Add a `travis-ci` configuration file to your repo, enabling unit tests
-as poart of every PR submitted.
+as part of every PR submitted.
 
 
