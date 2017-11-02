@@ -114,4 +114,22 @@ coverage report, in a git ignored subfolder inside `tests`.
 9. Add a `travis-ci` configuration file to your repo, enabling unit tests
 as part of every PR submitted.
 
+#Enterprisey Patterns
 
+The reason we are doing the unit testing, is to make sure
+that we have robust entity models, regardless of the
+origin of data. The drawing below illustrates that.
+
+<img src="/pix/labs/entities.svg" width="800"/>
+
+Form validation rules are used for validation, as part of handling
+submitted forms.
+
+Schema validation, with a separate `.xsd` file, is used
+for validating incoming XML requests to a RESTful
+or XML-RPC endpoint.
+
+Our entity classes are the last line of defense, and
+might be on a different server in a large enough enterprise.
+We do not want to trust the other system components
+that feed us data.
