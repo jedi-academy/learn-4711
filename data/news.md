@@ -1,3 +1,9 @@
+**Assignment 2** (Wed 01:30)
+- I have vetted the assignment writeup, and added such
+clarifications as I felt were warranted.
+- The assignment has four main jobs, and teams of four or five -
+sounds like a good match to me :)
+
 **Week 10** (Tue 16:30)
 - XML materials posted
 - I encourage you to read the two presentations, but am not
@@ -14,12 +20,4 @@ specs/explanation this evening!
 - survey results posted
 - reading & survey posted; I've set the closing time for the survey at
 10:00pm, in case you want to go trick or treating :-/
-
-**Week 7** (Thu 11:50)
-- Added note #10.0 to lab 6 job 10, to harden `models/App` & avoid PHP errors
-- report story posted
-- posted lab 6 for this week
-- added some "best practices?" :-/
-- survey results posted
-- reading & survey posted; as well as "leftovers" in the FYI organizer section ("week 20")
 

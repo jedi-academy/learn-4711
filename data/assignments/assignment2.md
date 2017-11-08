@@ -1,10 +1,6 @@
 #Assignment #2 - Standalone Webapp for WACKY
 COMP4711 - BCIT - Fall 2017
 
-<div class="alert alert-success">
-Work in progress - will be revised for clarity as needed.
-</div>
-
 ##Assignment Overview & Goals - Own Flight Booking
 
 The purpose of the assignments, collectively, is to let you apply the techniques 
@@ -40,7 +36,7 @@ Continue to use gitflow workflow, with proper branching and GPG-signed commits.
 ###Testing & Deployment
 
 The [test & deployment server](/display/lesson/webhooks) is available to test your 
-code in a "production" environment.
+code in a "production" environment, as you did for assignment 1.
 
 ###Assignment Submission
 
@@ -64,7 +60,7 @@ type (controllers, models, etc).
 #Features
 
 From assignment 1, you have a target theme, layout and planned MVC components.
-You should stick with those, unless otherwise suggested by me in the assignment 1 feedback.
+You should stick with those, unless otherwise suggested by us in the assignment 1 feedback.
 
 The subsections here address your data, and then each of your usecases (pages).
 
@@ -86,7 +82,8 @@ if this will work as expected - we might have to experiment.
 
 The W.A.C. "live" data to use (airport codes, etc) will be retrieved from the 
 [WACKY server](https://wacky.jlparry.com), 
-per directions that follow.
+per the "API writeup" accessed through the question mark link, on the top right of
+the WACKY server navbar.
 
 ##Models
 
@@ -98,6 +95,20 @@ you have a model to retrieve shared data from the WACKY server.
 
 The entity models will be similar to what you build for lab 7.
 
+Business rules to enforce, for entities, are the same as for assignment 1, with the clarification
+that **recognized airplanes** are ones in the data from the WACKY server.
+
+<div class="alert alert-success">
+I am working on a [CodeIgniter3.1-starter4](https://github.com/jedi-academy/CodeIgniter3.1-starter4) repo, 
+which provides an Entity model
+base class, and updates the collection classes to use one if they are
+appropriately configured. Consider this experimental, but it
+should prove informative in any case.
+
+I would not suggest cloning ot forking this repo, but instead looking at its
+`core` folder for helpful stuff.
+</div>
+
 ##User Roles
 
 I suggest a menu dropdown to switch between user roles, as with labs 5-6.
@@ -105,9 +116,25 @@ You do not need authentication for this assignment.
 
 Note: I may provide some tutorial material during week 10, so that
 you can add simple authentication if desired. This would block
-other students from changing your data :)
+other students from changing your data :) 
+This may not be an issue, if your test data is redeployed automatically.  
+Let me know if you would like this.
 
 Add the current user role selection/display to the navbar, like we did in lab.
+
+##Unit Testing
+
+As you did in lab 7, provide for unit testing of your models.
+
+In the case of the entity classes, this will ensure that your
+classes accept good data and reject bad data.
+
+In the case of the collection classes, things get a bit trickier.
+You want to test that your collection data is acceptable:
+- all planes conform to the rules (kinds of planes, value of fleet)
+- all flights conform to the rules (home to meet curfew, travelling
+only to places you are allowed to)
+
 
 ##Sessions
 
