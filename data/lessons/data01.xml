@@ -279,10 +279,10 @@ $doc-&gt;load('abc.xml');</code></pre>
     <slide title="3. XML STRATEGIES" layout="normal" tag="tag3">
         <p>The opening slide for this lesson showed "Magic" between
         a client and a server. XML *isn't* that magic, but it is
-        used for data representation within much of that "Magic". 
+        used for data representation within much of that "magic". 
         It would be used during
-        message exchanges bewteen components in the
-        "sistributed system layer" below.</p>
+        message exchanges between components in the
+        "distributed system layer" below.</p>
            <br/>
             <img class="scale" src="/pix/lessons/x/x06.png"/>          
     </slide>

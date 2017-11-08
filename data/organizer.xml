@@ -112,10 +112,10 @@ Course organizer for Comp4711
     <week num="10">
         <topic>Representation Glue - XML &amp; JSON</topic>
         <outcomes>2.1</outcomes>
-        <!--
         <lesson name="data01" icon="dothis" >X M L</lesson>
         <lesson name="data02"  icon="dothis" >J S O N</lesson>
-        <lesson name="week10" icon="read">Survey results</lesson>
+         <!--
+       <lesson name="week10" icon="read">Survey results</lesson>
         <github name="xml" link="https://github.com/jedi-academy/example-xml">XML Examples</github>
         <github name="dataglue" link="https://github.com/jedi-academy/example-glue-data">Processing XML &amp; JSON (W.I.P.)</github>
         -->
@@ -204,10 +204,10 @@ Course organizer for Comp4711
         <topic>Supplementary Reading FYI</topic>
         <lesson name="basic07" icon="read">Advanced Routing</lesson>
         <lesson name="basic04-leftovers"  icon="read">Other Form Techniques</lesson>
-        <!--
         <lesson name="xml01"  icon="read">XML Basics (Optional Refresher)</lesson>
         <lesson name="xml02"  icon="read">Constraining XML (Optional)</lesson>
         <lesson name="xml04" icon="read">Data Representation Conversions</lesson>
+        <!--
         <lesson name="advanced02"  icon="read">XML-RPC</lesson>
         <github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" >XML-RPC Examples</github>
         <lesson name="advanced04" icon="read">AJAX</lesson>
