@@ -1,5 +1,6 @@
 **Assignment 2** (Fri 15:30)
 - I have started a FAQ for the assignment - see section 17 in the organizer
+- Added some travis-ci links in the devops FAQ
 - I have vetted the assignment writeup, and added such
 clarifications as I felt were warranted.
 - The assignment has four main jobs, and teams of four or five -
@@ -13,6 +14,3 @@ presentation will be more helpful
 - there are some more detailed presentations in the 
 "Supplementary reading" section at the bottom of the organizer
 - no "lab" this week - you are working on assignment 2
-- speaking of assignment 2, I need to make sure I have appropriate
-specs/explanation this evening!
-

@@ -4,6 +4,21 @@ COMP4711 - BCIT - Fall 2017
 This FAQ addresses the most common problems encountered
 trying to develop webapps as part of this course.
 
+##Unit testing with Travis-CI
+
+A few of you had problems getting travis-ci to work correctly,
+and my lab writeup didn't say how to do it.
+
+Here are some links I found helpful:
+- https://ocramius.github.io/blog/automated-code-coverage-check-for-github-pull-requests-with-travis/
+- http://www.geekyboy.com/archives/908
+- https://lint.travis-ci.org/pdtechintegration/CI
+- https://stackoverflow.com/questions/42467256/trouble-running-phpunit-in-travis-build
+- https://stackoverflow.com/questions/30280278/phpunit-no-tests-execute-on-travis-ci
+
+Remember: you want to run unit testing, and you want the code coverage
+report for your models.
+
 ##Webapp testbed
 
 It is possible to setup a testbed that closely matches
