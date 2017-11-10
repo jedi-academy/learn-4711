@@ -100,8 +100,8 @@ Course organizer for Comp4711
         <outcomes>1.3, 3</outcomes>
         <lesson name="basic05"  icon="dothis" survey="314138">Building on CodeIgniter</lesson>
         <lesson name="week09" icon="read">Survey results</lesson>
-         <lab name="lab07">Unit testing for our Todo list manager</lab>
-       <!--
+        <lab name="lab07">Unit testing for our Todo list manager</lab>
+        <!--
        <lesson name="basic70">Addins in a Nutshell</lesson>
          <tutorial name="ci-todo12">Use RDB for sessions</tutorial>
         <tutorial name="ci-todo13">Install the Caboose Package</tutorial>
@@ -176,6 +176,7 @@ Course organizer for Comp4711
         <assignment name="assignment1">Basic Webapp</assignment>
         <assignment name="assignment1faq" icon="read" >Assignment 1 FAQ</assignment> 
         <assignment name="assignment2">Standalone Webapp</assignment>
+        <assignment name="assignment2faq" icon="read" >Assignment 2 FAQ</assignment> 
         <!-- 
         <assignment name="assignment3">Functional Bot Factory</assignment> -->
     </week>
