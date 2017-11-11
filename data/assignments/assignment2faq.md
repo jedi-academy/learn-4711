@@ -15,3 +15,8 @@ You do need to ensure that your fleet of planes is valid, i.e. all legitimate ty
 
 You do need to ensure that your collection of flight segments is valid, i.e. between legitimate airports, and only those that your airline is allowed to fly to/from; all planes "home" overnight, etc.
 
+##How much time between flights?
+
+Q: If a person needs to go from point a->b->c, and they arrive at b at 1130, and the flight from b->c departs at 1130, is that a valid flight? or do customers need the minimum of 30 minutes between flights as well? 
+
+A: Allow 30 minutes for a connecting flight. If a person arrives at "b" at 11:30, they would not be able to book a connecting flight until 12:00.
