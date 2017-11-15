@@ -120,10 +120,8 @@ Course organizer for Comp4711
     <week num="11">
         <topic>Transport Glue - HTTP</topic>
         <outcomes>2.1, 2.2</outcomes>
-        <!--
         <lesson name="net01" icon="dothis">Transport Glue</lesson>
-        <lesson name="week11" icon="read" active="n">Survey results</lesson>
-                        <github name="example-simplexml" link="https://github.com/jedi-academy/example-simplexml-winter2016" active="n">SimpleXML Examples</github>
+<!--        <github name="example-simplexml" link="https://github.com/jedi-academy/example-simplexml-winter2016" >SimpleXML Examples</github>
         <lab name="lab08" active="n">Finishing Our Diner Build-out</lab>
         <tutorial name="xml-xml02" active="n">Handle Sales Orders With XML</tutorial>
         -->

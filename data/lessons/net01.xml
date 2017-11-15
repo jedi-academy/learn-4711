@@ -72,7 +72,7 @@ JSON Basics
         <div class="left">
             <p>Messages are exchanged between socket endpoints.</p>
             <p>Some protocols provide for two-way messaging,
-            with a persisten connection, while others provide
+            with a persistent connection, while others provide
             for a single response to each request, with
             the sockets being closed thereafter.</p>
         </div>
