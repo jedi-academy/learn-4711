@@ -83,3 +83,43 @@ At this point, your webapp should behave exactly
 as it did last week, complete with maintenance,
 the only difference being the way it is persisted.
  
+##Decisions!
+
+###What if I prefer a different structure?
+
+Element-centric:
+
+    <stuff>
+        <item>
+            <prop1>kjh</prop1>
+            <prop2>asfdasdf</prop2>
+        </item>
+        <item>
+            ...
+        </item>
+    </stuff>
+
+Attribute-centric:
+
+    <stuff>
+        <item prop1="kjh">asfdasdf</item>
+        <item prop1="...">...    </item>
+    </stuff>
+
+Attribute-centric may make more sense to you, which is fine.
+The only hiccup is that it isn't easily generalized, and instead of
+
+    class Stuff extends XML_Model {
+    }
+
+... you would end up with
+
+    class Stuff extends Memory_Model {
+        public function __construct(...) {...}
+        public function load() {...}
+        piblic function store() {...}
+    }
+
+##What if I want to use DOMDocument instead of SimpleXMLElement?
+
+Go for it. That decision only afects load() & store().
