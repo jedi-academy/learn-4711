@@ -34,8 +34,10 @@ even if some of them have different raw scores because of their rubric.
 
 ### 1. Create XML data
 
-Create an CML document, `data/tasks.xml`, to hold the same
+Create an XML document, `data/tasks.xml`, to hold the same
 kind of data as your existing CSV file.
+Add half a dozen of your todo tasks, basically converting them
+from the CSV file.
 
 Looking at the different strategies, an element-centric
 approach would suit our data best.
