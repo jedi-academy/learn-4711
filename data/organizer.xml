@@ -101,13 +101,6 @@ Course organizer for Comp4711
         <lesson name="basic05"  icon="dothis" survey="314138">Building on CodeIgniter</lesson>
         <lesson name="week09" icon="read">Survey results</lesson>
         <lab name="lab07">Unit testing for our Todo list manager</lab>
-        <!--
-       <lesson name="basic70">Addins in a Nutshell</lesson>
-         <tutorial name="ci-todo12">Use RDB for sessions</tutorial>
-        <tutorial name="ci-todo13">Install the Caboose Package</tutorial>
-       <assignment name="assignment2">Functional Bot Factory</assignment>
-        <assignment name="assignment2faq" icon="read" >Assignment 2 FAQ</assignment> 
-        -->
     </week>
     <week num="10">
         <topic>Representation Glue - XML &amp; JSON</topic>
@@ -121,10 +114,8 @@ Course organizer for Comp4711
         <topic>Transport Glue - HTTP</topic>
         <outcomes>2.1, 2.2</outcomes>
         <lesson name="net01" icon="dothis">Transport Glue</lesson>
-<!--        <github name="example-simplexml" link="https://github.com/jedi-academy/example-simplexml-winter2016" >SimpleXML Examples</github>
-        <lab name="lab08" active="n">Finishing Our Diner Build-out</lab>
-        <tutorial name="xml-xml02" active="n">Handle Sales Orders With XML</tutorial>
-        -->
+        <github name="example-simplexml" link="https://github.com/jedi-academy/example-simplexml-winter2016" >SimpleXML Examples</github>
+        <lab name="lab08">A Taste of XML</lab>
     </week>
     <week num="12">
         <topic>Application Glue - REST</topic>
@@ -132,7 +123,7 @@ Course organizer for Comp4711
         <!--
         <lesson name="advanced03" icon="dothis" survey="266882">REST</lesson>
         <lesson name="week12" icon="read">Survey results</lesson>
-        <lab name="lab08">REST</lab>
+        <lab name="lab09">REST Client & Server</lab>
         <tutorial name="tut-adv02">Decoupling Our Diner</tutorial>
         -->
     </week>
@@ -144,6 +135,7 @@ Course organizer for Comp4711
             link is in the "news" above).</lesson>
         <lesson name="final" >Final Exam Review</lesson>
                         <lesson name="week13" icon="read" active="n">Survey results</lesson>
+        <lab name="lab10">Simple Authentication</lab>
         <tutorial name="tut-adv01" active="n">Authentication</tutorial>
         -->
     </week>

@@ -1,7 +1,7 @@
 **Week 11** (Tue 23:15)  
 This week's lesson is posted. There is no survey for it.
 
-Working on this week's lab.
+Lab 8 posted :)
 
 **Assignment 2** (Fri 15:30)
 - I have started a FAQ for the assignment - see section 17 in the organizer
