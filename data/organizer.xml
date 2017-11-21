@@ -98,7 +98,7 @@ Course organizer for Comp4711
     <week num="9">
         <topic>Building on CodeIgniter</topic>
         <outcomes>1.3, 3</outcomes>
-        <lesson name="basic05"  icon="dothis" survey="314138">Building on CodeIgniter</lesson>
+        <lesson name="basic05"  icon="dothis">Building on CodeIgniter</lesson>
         <lesson name="week09" icon="read">Survey results</lesson>
         <lab name="lab07">Unit testing for our Todo list manager</lab>
     </week>
@@ -120,8 +120,8 @@ Course organizer for Comp4711
     <week num="12">
         <topic>Application Glue - REST</topic>
         <outcomes>2.1, 2.3</outcomes>
+        <lesson name="advanced03" icon="dothis" survey="316052">REST</lesson>
         <!--
-        <lesson name="advanced03" icon="dothis" survey="266882">REST</lesson>
         <lesson name="week12" icon="read">Survey results</lesson>
         <lab name="lab09">REST Client & Server</lab>
         <tutorial name="tut-adv02">Decoupling Our Diner</tutorial>

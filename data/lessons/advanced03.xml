@@ -33,15 +33,15 @@ Lesson 10 - Role-Based Access Control
         <div class="left">
             <p>A distributed system is one in which the components are
                 conceptually or literally on different servers.</p>
-                <p>These can be arranged formally or informally.</p>
+            <p>These can be arranged formally or informally.</p>
             <br/>
             <img class="scale" src="/pix/lessons/y/01.png"/>
         </div>
         <div class="right">
             <p>A more formal arrangement affords the opportunity for
-            more rigorous security between external and internal
-            components, which will influence connection
-            technology choices.</p>
+                more rigorous security between external and internal
+                components, which will influence connection
+                technology choices.</p>
             <img class="scale" src="/pix/lessons/y/02.gif"/>
         </div>
     </slide>
@@ -59,11 +59,11 @@ Lesson 10 - Role-Based Access Control
         </div>
         <div class="right">
             <p>When two components are connected, one is usually consuming
-            data or a service provided by or managed by another.</p>
+                data or a service provided by or managed by another.</p>
             <img class="scale" src="/pix/lessons/y/03.png"/>
             <p>Of course, a component can be both a client (for some
-            services) and a server (for other services).</p>
-         </div>
+                services) and a server (for other services).</p>
+        </div>
     </slide>
 
     <slide title="Remote Procedure Calls (RPC)" layout="normal" >
@@ -73,13 +73,13 @@ Lesson 10 - Role-Based Access Control
         </div>
         <div class="right">
             <p>With a conventional Remote Procedure Call technique,
-            like XML-RPC, arguments for a remote procedure are
-            converted into a transportable data format, and sent to the RPC
-            server. The data structure is dictated by the remote method's signature.</p>
+                like XML-RPC, arguments for a remote procedure are
+                converted into a transportable data format, and sent to the RPC
+                server. The data structure is dictated by the remote method's signature.</p>
             <p> The arguments are extracted remotely, and passed to
-            the appropriate method of the handling object there.
+                the appropriate method of the handling object there.
                 The reverse process is used to return results or
-            an error/fault message.</p>
+                an error/fault message.</p>
         </div>
     </slide>
 
@@ -186,49 +186,49 @@ Lesson 10 - Role-Based Access Control
         <p>This sounds wonderful, no? What could possibly go wrong?</p>
         <p>The biggest problem is that there is no REST standard.</p>
         <p>Different developers, large and small, have chosen to interpret
-        the REST philosophy differently or only partially, with confusing
-        and/or conflicting implementations and expectations.</p>
+            the REST philosophy differently or only partially, with confusing
+            and/or conflicting implementations and expectations.</p>
         <p>The industry consensus is, that conforming to two or more
-        of the REST principles, fully or partially, entitles you
-        to claim to be "RESTful".</p>
+            of the REST principles, fully or partially, entitles you
+            to claim to be "RESTful".</p>
         <p>Examples follow :)</p>
     </slide>
 
     <slide title="RESTful Routing" layout="normal">
         <p>Some have chosen to elaborate on REST URLs,
-        adding parameters or using the plural vs singular
-        of a resource name.</p>
-           <img class="scale" src="/pix/lessons/y/14.jpg"/>
-     </slide>
+            adding parameters or using the plural vs singular
+            of a resource name.</p>
+        <img class="scale" src="/pix/lessons/y/14.jpg"/>
+    </slide>
 
     <slide title="RESTful Pagination" layout="normal">
         <p>REST doesn't provide guidance for pagination through
-        large data sets.</p>
+            large data sets.</p>
         <p>Some developers have chosen to add pagination parameters
-        (eg ?page=x).</p>
+            (eg ?page=x).</p>
         <p>Some developers have chosen to provide a "Load more results" button,
-        or to automatically load more results as you scroll to the
-        bottom of a webpage. These hide how the pagination
-        is being handled.</p>
+            or to automatically load more results as you scroll to the
+            bottom of a webpage. These hide how the pagination
+            is being handled.</p>
     </slide>
 
     <slide title="RESTful Data Formats" layout="normal">
         <p>Some developers have chosen to allow only JSON
-        data to be exchanged. Lookup JSON-REST (hehe).</p>
-        <p>Most developers have chosen to handle only JSON
-        or XML data exchange, considering the other formats
-        unsafe (JSONP) or not well supported (CSV).</p>
+            data to be exchanged. Lookup JSON-REST (hehe).</p>
+        <p>Many developers have chosen to handle only JSON
+            or XML data exchange, considering the other formats
+            unsafe (JSONP) or not well supported (CSV).</p>
     </slide>
 
     <slide title="RESTful Endpoints" layout="normal">
         <p>Some developers have chosen subdomains for their
-        endpoints, which suits microservices. An example would
+            endpoints, which suits microservices. An example would
             be <code>tickets.movies.com</code>
         </p>
         <p>Other developers have chosen a subordinate
-        URI segment as a REST endpoint, eg <code>movies.com/tickets</code>.
-        Sadly, some developers understand this to mean that the "tickets"
-        REST service is a form of "HMVC" :-/</p>
+            URI segment as a REST endpoint, eg <code>movies.com/tickets</code>.
+            Sadly, some developers understand this to mean that the "tickets"
+            REST service is a form of "HMVC" :-/</p>
         <p>Some developers have chosen multiple endpoints for what is
             intended to be a single REST service, eg. <code>movies.com/ticket</code> and
             <code>movies.com/tickets</code>
@@ -239,7 +239,7 @@ Lesson 10 - Role-Based Access Control
         <p>The desired data format could be specified in your HTTP request header, like
             <code>Accept: application/xml</code>, and similarly your provided data
             <code>Content-Type: application/xml</code>. 
-        Valid types: application/json, application/xml, application/xhtml+xml</p>
+            Valid types: application/json, application/xml, application/xhtml+xml</p>
         <p>The desired data format could be implied in your request URL, like
             <code>/product/123.json</code>
         </p>
@@ -250,7 +250,28 @@ Lesson 10 - Role-Based Access Control
         <p>REST does not provide enough guidance.</p>
     </slide>
 
-   <slide title="RESTful Confusion" layout="normal" >
+    <slide title="RESTful Services" layout="normal" >
+        <div class="left">
+            <p>Just when you thought it was safe to venture in the waters...</p>
+            <p>Some major players have decided to offer REST service
+                endpoints for their RPC or SOA services.</p>
+            <ul>
+                <li>URL segments can be significant</li>
+                <li>only POST requests accepted</li>
+                <li>content negotiation</li>
+                <li>only JSON &amp; XML supported</li>
+            </ul>
+        </div>
+        <div class="right">
+            <p>Say what? They are using RESTish techniques for
+                service controllers, and not for resource controllers?</p>
+            <p>Or worse, they are using RESTish for both resources
+                and services.</p>
+            <p>Yup - makes you want to cry.</p>
+        </div>       
+    </slide>
+
+    <slide title="RESTful Confusion" layout="normal" >
         <div class="left">
             <p>Oh dear, this isn't very helpful!</p>
             <p>Nope.</p>
@@ -287,7 +308,7 @@ Lesson 10 - Role-Based Access Control
 
     <slide title="CodeIgniter RESTful Client" layout="normal">
         <p>Adapted from Phil Sturgeon's REST client, all format conversion is 
-        automatically handled by the REST layer, though you can tailor it.</p>
+            automatically handled by the REST layer, though you can tailor it.</p>
         <code>
             <pre>
                 // Load the library
@@ -307,15 +328,15 @@ Lesson 10 - Role-Based Access Control
 
     <slide title="CodeIgniter RESTful Server" layout="normal">
         <p>Adapted from Phil Sturgeon's REST server, all format conversion is 
-        automatically handled by the REST layer, and incoming
+            automatically handled by the REST layer, and incoming
             requests are automatically mapped to the appropriate method.</p>
         <code>
             <pre>
                 class Service extends Rest_controller {
 
                 function index_get() {
-                    ...
-                    $this->response($assoc_array,$http_code);
+                ...
+                $this->response($assoc_array,$http_code);
                 }
 
                 function index_post() { ... }
@@ -326,7 +347,7 @@ Lesson 10 - Role-Based Access Control
         </code>
     </slide>
 
-   <slide title="CodeIgniter Solution #2" layout="normal">
+    <slide title="CodeIgniter Solution #2" layout="normal">
         <p>Map requests by HTTP type</p>
         <ul>
             <li>$route['product']['get'] = 'product/get';</li>
@@ -336,44 +357,67 @@ Lesson 10 - Role-Based Access Control
         </ul>
         <p>This does not address format conversions, nor does it clarify other REST issues :(</p>
         <p>You would still need to deal with data format conversions, and you would
-        need to provide sets of HTTP-verb based routing rules for each "service".</p>
+            need to provide sets of HTTP-verb based routing rules for each "service".</p>
+          
+    </slide>
+
+    <slide title="CodeIgniter Solution #3" layout="normal">
+        <p>POST only, with clever client requests</p>
+        <ul>
+            <li>[curl](http://php.net/manual/en/book.curl.php)</li>
+            <li>[php-http](https://github.com/php-http)</li>
+            <li>[guzzle](http://docs.guzzlephp.org/en/stable/)</li>
+            <li>[Unirest](http://unirest.io/php.html)</li>
+        </ul>
+        <p>This does not address format conversions, nor does it clarify other REST issues :(</p>
+        <p>You would still need to deal with data format conversions, but
+            you would not have to worry about incoming HTTP verbs.</p>
           
     </slide>
 
     <slide title="5. REST ISSUES" layout="normal" tag="tag5">
         
-            <ul>
-                <li>Anyone/everyone can claim to be RESTful!</li>
-               <li>No guidance on large data / pagination</li>
-               <li>No guidance on filtering parameters handling</li>
-               <li>“Extensions” to formats (eg “PHP”)</li>
-               <li>Some formats have issues (JSONP, CSV)</li>
-               <li>Seeing through the hype (Web 3.0000...)</li>
-            </ul>
+        <ul>
+            <li>Anyone/everyone can claim to be RESTful!</li>
+            <li>No guidance on large data / pagination</li>
+            <li>No guidance on filtering parameters handling</li>
+            <li>“Extensions” to formats (eg “PHP”)</li>
+            <li>Some formats have issues (JSONP, CSV)</li>
+            <li>Seeing through the hype (Web 3.0000...)</li>
+        </ul>
  
     </slide>
 
-   <slide title="REST Misuses" layout="normal">
+    <slide title="REST Misuses" layout="normal">
         <p>These are the common misuses I see with RESTful services:</p>
         <ul>
             <li>REST controllers (endpoints) may identify a resource
-            (eg Users) or they may identify a service (eg GeoLocation)</li>
+                (eg Users) or they may identify a service (eg GeoLocation)</li>
             <li>If (mis)used for a service API, it is typical
-            to use HTTP verbs to denote changes or not, and/or the scope
-            of changes, upon successful handling of the request</li>
+                to use HTTP verbs to denote changes or not, and/or the scope
+                of changes, upon successful handling of the request</li>
             <li>Many services provide for data to be passed as key/value
-            pairs (POST-style), and they claim to be RESTful if those
-            key/value pairs can be JSON or XML encoded</li>
+                pairs (POST-style), and they claim to be RESTful if those
+                key/value pairs can be JSON or XML encoded</li>
             <li>Many services interpret the "state transfer" as only needing
-            anything that has changed, 
+                anything that has changed, 
                 i.e. more PATCH-oriented than POST-oriented.</li>                
             <li>In the cases above, if the endpoints map to an API,
-            and only GET and POST are supported, but the data format
-            is flexible, does this make the service RESTish?
-            and would then "resource controllers" be truly RESTful?</li>
+                and only GET and POST are supported, but the data format
+                is flexible, does this make the service RESTish?
+                and would then "resource controllers" be truly RESTful?</li>
         </ul>
     </slide>
 
+    <slide title="Application glue makes total sense now" layout="normal" >
+        <ul>
+            <li>XML-RPC is like a Jeep</li>
+            <li>SOA(P) is like a highly automated luxury car</li>
+            <li>Microservices are like ride-hailing, with a one city block limit</li>
+            <li>REST is like a DIY car, built from kits or parts that claim to fit together</li>
+        </ul>
+        <p>Yup, makes sense to me :-/</p>
+    </slide>
     <slide title="REST - DO YOU CARE?" layout="normal" >
         <p>“REST” displacing XML-RPC and SOAP</p>
         <p>Social networking APIs becoming reliant on it (or company interpretations of it)</p>
@@ -382,3 +426,4 @@ Lesson 10 - Role-Based Access Control
     </slide>
 
 </lesson>
+
