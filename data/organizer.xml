@@ -197,10 +197,11 @@ Course organizer for Comp4711
         <lesson name="xml01"  icon="read">XML Basics (Optional Refresher)</lesson>
         <lesson name="xml02"  icon="read">Constraining XML (Optional)</lesson>
         <lesson name="xml04" icon="read">Data Representation Conversions</lesson>
-        <!--
+        <lesson name="net02"  icon="read">Emitting HTTP requests</lesson>
         <lesson name="advanced02"  icon="read">XML-RPC</lesson>
         <github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" >XML-RPC Examples</github>
         <lesson name="advanced04" icon="read">AJAX</lesson>
+<!--
         <lesson name="advanced01" icon="read">Authentication</lesson>
                 <lesson name="social1" active="n">Social Networking (optional, coming)</lesson>
         <lesson name="social2" active="n">Social Integration (optional, coming)</lesson>
