@@ -124,7 +124,7 @@ Course organizer for Comp4711
         <lesson name="week12" icon="read">Survey results</lesson>
         <github name="package-restful" link="https://github.com/jedi-academy/package-restful" >REST implementation I use</github>
         <lab name="notlab09">REST Client &amp; Server?</lab>
-<!--
+<!-- 
          <tutorial name="tut-adv02">Making Our RESTful Server</tutorial>
         <tutorial name="tut-adv03">Making Our RESTful Client</tutorial>
 -->
