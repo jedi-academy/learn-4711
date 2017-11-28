@@ -1,9 +1,10 @@
-**Week 12** (Thu 07:25)  
-This week's lab won't be happening as intended - see the lab writeup :(
+**Week 13** (Tue 15:30)  
+My topic this week is "authentication", but I am
+redoing my earlier material to make more sense.
+It won't be ready in a timely enough manner for
+a survey, so you are off the hook this week :-/
 
-This week's lesson is posted. There is a survey for it, as I suspect
-you might have some questions :-/
-
-Survey results have been posted, and a couple of repo links added.
+The new material won't be posted until I am "happy"
+with it, which I expect to be later Tues evening.
 
 

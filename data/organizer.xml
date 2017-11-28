@@ -123,28 +123,27 @@ Course organizer for Comp4711
         <lesson name="advanced03" icon="dothis" survey="316052">REST</lesson>
         <lesson name="week12" icon="read">Survey results</lesson>
         <github name="package-restful" link="https://github.com/jedi-academy/package-restful" >REST implementation I use</github>
-        <lab name="notlab09">REST Client &amp; Server?</lab>
-<!-- 
-         <tutorial name="tut-adv02">Making Our RESTful Server</tutorial>
-        <tutorial name="tut-adv03">Making Our RESTful Client</tutorial>
--->
-     </week>
+    </week>
     <week num="13">
-        <topic>Optional / Advanced Topics</topic>
+        <topic>Authentication</topic>
         <outcomes>2.1, 2.2, 2.3</outcomes>
-        <!--
-       <lesson name="week13" icon="read">Survey results (the survey 
+<!--  
+        <lesson name="advanced01">Authentication</lesson>
+        <lesson name="week13" icon="read">Survey results (the survey 
             link is in the "news" above).</lesson>
-        <lesson name="final" >Final Exam Review</lesson>
-                        <lesson name="week13" icon="read" active="n">Survey results</lesson>
+        <lab name="notlab09">REST Client &amp; Server?</lab>
+        <tutorial name="tut-adv02">Making Our RESTful Server</tutorial>
+        <tutorial name="tut-adv03">Making Our RESTful Client</tutorial>
         <lab name="lab10">Simple Authentication</lab>
-        <tutorial name="tut-adv01" active="n">Authentication</tutorial>
+        <tutorial name="tut-adv01">Authentication</tutorial>
         -->
     </week>
     <week num="14">
         <topic>Review &amp; Predictions</topic>
         <outcomes>1, 2, 3</outcomes>
         <!--
+        <lesson name="final" >Final Exam Review</lesson>
+                        <lesson name="week13" icon="read" active="n">Survey results</lesson>
        <lesson name="week14" icon="read">Survey results (the survey 
             link is in the "news" above).</lesson>
         <lesson name="final" >Final Exam Review</lesson>
@@ -161,7 +160,6 @@ Course organizer for Comp4711
         <tutorial name="setup03">PHP Comparison to Java</tutorial>
         <lesson name="dev04" icon="read" >Gitting Good</lesson>		
         <lesson name="marking" icon="read" >Marking Process</lesson>		
-        <!--        <lesson name="webhooks" icon="read" >Webhooks for deployment testing</lesson>		 -->
     </week>
     <week num="aa">
         <topic>Assignments</topic>
@@ -170,7 +168,7 @@ Course organizer for Comp4711
         <assignment name="assignment2">Standalone Webapp</assignment>
         <assignment name="assignment2faq" icon="read" >Assignment 2 FAQ</assignment> 
         <!-- 
-        <assignment name="assignment3">Functional Bot Factory</assignment> -->
+        <assignment name="assignment3">Distributed Webapp</assignment> -->
     </week>
     <week num="zz">
         <topic>FAQs</topic>
@@ -201,10 +199,5 @@ Course organizer for Comp4711
         <lesson name="advanced02"  icon="read">XML-RPC</lesson>
         <github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" >XML-RPC Examples</github>
         <lesson name="advanced04" icon="read">AJAX</lesson>
-<!--
-        <lesson name="advanced01" icon="read">Authentication</lesson>
-                <lesson name="social1" active="n">Social Networking (optional, coming)</lesson>
-        <lesson name="social2" active="n">Social Integration (optional, coming)</lesson>
-        -->
     </week>
 </organizer>
