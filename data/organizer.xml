@@ -127,10 +127,8 @@ Course organizer for Comp4711
     <week num="13">
         <topic>Authentication</topic>
         <outcomes>2.1, 2.2, 2.3</outcomes>
-<!--  
         <lesson name="advanced01">Authentication</lesson>
-        <lesson name="week13" icon="read">Survey results (the survey 
-            link is in the "news" above).</lesson>
+<!--  
         <lab name="notlab09">REST Client &amp; Server?</lab>
         <tutorial name="tut-adv02">Making Our RESTful Server</tutorial>
         <tutorial name="tut-adv03">Making Our RESTful Client</tutorial>
