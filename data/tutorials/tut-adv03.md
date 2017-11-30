@@ -106,7 +106,8 @@ We just need to replace the "..." with the appropriate REST client code:
             $this->_data =  $this->rest->get('/job');
 
 	// rebuild the field names from the first object
-	$this->_fields = array_keys($this->_data[0]);
+        $one = aray_values((array) $this->_data);
+	$this->_fields = array_keys((array)$one);
 
 
 Try it - After making this change, your CRUD page should still show a list of todo items,
