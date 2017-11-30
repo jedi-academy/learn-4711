@@ -1,4 +1,6 @@
-**Week 13** (Thu 06:50)  
+**Week 13** (Thu 14:10)  
+Oops - fixed missing load() code in client-side tutorial step 5.
+
 You've got lab :)
 I removed the authentication part I had planned - I will make that available as
 a demo instead of for marks.

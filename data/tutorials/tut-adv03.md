@@ -105,6 +105,10 @@ We just need to replace the "..." with the appropriate REST client code:
             $this->rest->option(CURLOPT_PORT, REST_PORT);
             $this->_data =  $this->rest->get('/job');
 
+	// rebuild the field names from the first object
+	$this->_fields = array_keys($this->_data[0]);
+
+
 Try it - After making this change, your CRUD page should still show a list of todo items,
 except they are coming from the backend server.
 
