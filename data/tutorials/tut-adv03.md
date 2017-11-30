@@ -11,7 +11,7 @@ Remove the CSV or XML file containing your todo items, in your `data` folder.
 There are no changes to the UI, or the controllers.
 
 We will be modifying our <code>Tasks</code> model to make calls to the
-backend instead retrieving data locally.
+backend instead of retrieving data locally.
 
 ##3. Frontend Package
 
@@ -43,11 +43,10 @@ will work on your system as well as mine :)
 ps - use the <code>Ferryschedule</code> model from the example-ferries-server repo
 as a guide.
 
-We need to load the REST support goodies, in our constructor...
+We need to load the REST support goodies; add them to your existing
+`config/autoload`...
 
-    //*** Explicitly load the REST libraries. 
-    $this->load->library(['curl', 'format', 'rest']);
-
+    $autoload['libraries'] = array(..., 'curl', 'format', 'rest');
 
 You will notice a common pattern: instead of making a database call, like
 
@@ -91,53 +90,54 @@ to work "across the net".
 
 ##5. Tasks::load()
 
-Let's copy/paste the needed methods from <code>Memory_Model</code>,
-so that we have a base point to work from. We just then need to "fix" each one.
+The `load()` method looks like this to begin with:
 
-Our model's **all()** method is one aspect of CRUD retrieving.
+    // load the $this->_data array
+    ...
 
-It starts out as
+	// rebuild the keys table
+	$this->reindex();
 
-	// Return all records as an array of objects
-	function all()
-	{
-		$this->db->order_by($this->_keyField, 'asc');
-		$query = $this->db->get($this->_tableName);
-		return $query->result();
-	}
+We just need to replace the "..." with the appropriate REST client code:
 
-Translating that into a REST call gives...
-
-	// Return all records as an array of objects
-	function all()
-	{
+	// load our data from the REST backend
             $this->rest->initialize(array('server' => REST_SERVER));
             $this->rest->option(CURLOPT_PORT, REST_PORT);
-            return $this->rest->get('/maintenance');
-	}
+            $this->_data =  $this->rest->get('/job');
 
-Try it - After making this change, your CRUD page should still show a list of menu items,
+Try it - After making this change, your CRUD page should still show a list of todo items,
 except they are coming from the backend server.
 
-##12. Menu::get($key)
+##6. Tasks::store()
 
-Our model's **get($key)** method is another aspect of CRUD retrieving,
-for a single record.
+Oh no - we have a CRUD disconnect. Storing an entire collection is not one of the standard CRUD methods,
+the way we have implemented our memory model. We have two choices -
+add a "store" method to our backend, or dive a bit
+deeper into our existing model to find code that should work
+across the net.
 
-It starts out as
+The latter is a "better" approach. 
 
-	// Retrieve an existing DB record as an object
+We should modify our store() method so that it doesn't do anything,
+forcing us to do CRUD properly.
+
+	protected function store()
+	{
+	}
+
+Now we can translate each of the CRUD methods inherited from Memory_Model
+to work with our backend.
+
+##7. Tasks::get()
+
+Our model's **get($key)** method is one of the CRUD functions that needs to be adapted.
+
+It starts out, in Memory_Model, as
+
+	// Retrieve an existing collection record as an object
 	function get($key, $key2 = null)
 	{
-		$this->rest->initialize(array('server' => REST_SERVER));
-		$this->rest->option(CURLOPT_PORT, REST_PORT);
-		$result = $this->rest->get('maintenance');
-		return $result;
-		$this->db->where($this->_keyField, $key);
-		$query = $this->db->get($this->_tableName);
-		if ($query->num_rows() < 1)
-			return null;
-		return $query->row();
+		return (isset($this->_data[$key])) ? $this->_data[$key] : null;
 	}
 
 Translating that into REST calls gives...
@@ -147,52 +147,16 @@ Translating that into REST calls gives...
 	{
             $this->rest->initialize(array('server' => REST_SERVER));
             $this->rest->option(CURLOPT_PORT, REST_PORT);
-            return $this->rest->get('/maintenance/item/id/' . $key);
+            return $this->rest->get('/job/' . $key);
 	}
 
-The URL we ask for has the menu item key added to it, but the rest looks the
-same.
+The URL we ask for has the todo item key added to it, but the rest looks the
+same as our earlier plan.
 
 Try it - After making this change, clicking on an item to edit it should
 bring up the item fields, but coming from the backend server.
 
-##13. Menu::create()
-
-Our model's **create()** method is not part of CRUD, but instead a convenience
-method intended to return an empty record, with properties per the database
-table.
-
-It starts out as
-
-	// Create a new data object.
-	// Only use this method if intending to create an empty record and then
-	// populate it.
-	function create()
-	{
-		$names = $this->db->list_fields($this->_tableName);
-		$object = new StdClass;
-		foreach ($names as $name)
-			$object->$name = "";
-		return $object;
-	}
-
-There is no translation possible.
-We will have to fake it for now, by hacing an array of properties to inject
-as fields :(
-
-	// Create a new data object.
-	// Only use this method if intending to create an empty record and then
-	// populate it.
-	function create()
-	{
-		$names = ['id','name','description','price','picture','category'];
-		$object = new StdClass;
-		foreach ($names as $name)
-			$object->$name = "";
-		return $object;
-	}
-
-##14. Menu::delete()
+##8. Tasks::delete()
 
 Our model's **delete($key)** method is a standard CRUD capability :)
 
@@ -201,8 +165,11 @@ It starts out as
 	// Delete a record from the DB
 	function delete($key, $key2 = null)
 	{
-		$this->db->where($this->_keyField, $key);
-		$object = $this->db->delete($this->_tableName);
+		if (isset($this->_data[$key]))
+		{
+			unset($this->_data[$key]);
+			$this->store();
+		}
 	}
 
 
@@ -213,59 +180,28 @@ That gets translated to the appropriate HTTP method.
 	{
             $this->rest->initialize(array('server' => REST_SERVER));
             $this->rest->option(CURLOPT_PORT, REST_PORT);
-            return $this->rest->delete('/maintenance/item/id/' . $key);
+            $this->rest->delete('/job/' . $key);
+            $this->load(); // because the "database" might have changed
 	}
 
-##15. Menu::exists($key)
+##9. Tasks::update($record)
 
-Our model's **exists($key)** method is not a standard CRUD capability,
-but we can fake it.
+Our model's **update($record)** method is a standard CRUD capability as well.
 
 It starts out as
 
-	// Determine if a key exists
-	function exists($key, $key2 = null)
-	{
-		$this->db->where($this->_keyField, $key);
-		$query = $this->db->get($this->_tableName);
-		if ($query->num_rows() < 1)
-			return false;
-		return true;
-	}
-
-Here is one (expensive) way to possibly handle this:
-
-	// Determine if a key exists
-	function exists($key, $key2 = null)
-	{
-            $this->rest->initialize(array('server' => REST_SERVER));
-            $this->rest->option(CURLOPT_PORT, REST_PORT);
-            $result = $this->rest->get('/maintenance/item/id/' . $key);
-            return ! empty($result);
-	}
-
-##16. Menu::update($record)
-
-Our model's **update($record)** method is a standard CRUD capability,
-but we can fake it :)
-
-It starts out as
-
-	// Update a record in the DB
+	// Update a record in the collection
 	function update($record)
 	{
-		// convert object to associative array, if needed
-		if (is_object($record))
+		// convert object from associative array, if needed
+		$record = (is_array($record)) ? (object) $record : $record;
+		// update the collection appropriately
+		$key = $record->{$this->_keyfield};
+		if (isset($this->_data[$key]))
 		{
-			$data = get_object_vars($record);
-		} else
-		{
-			$data = $record;
+			$this->_data[$key] = $record;
+			$this->store();
 		}
-		// update the DB table appropriately
-		$key = $data[$this->_keyField];
-		$this->db->where($this->_keyField, $key);
-		$object = $this->db->update($this->_tableName, $data);
 	}
 
 And the translation... 
@@ -275,31 +211,27 @@ And the translation...
 	{
             $this->rest->initialize(array('server' => REST_SERVER));
             $this->rest->option(CURLOPT_PORT, REST_PORT);
-            $retrieved = $this->rest->put('/maintenance/item/id/' . $record['code'], $record);
- 	}
+            $key = $record->{$this->_keyfield};
+            $retrieved = $this->rest->put('/job/' . $key, $record);
+            $this->load(); // because the "database" might have changed
+	}
 
 
-##17. Menu::add($record)
+##10. Tasks::add($record)
 
-Our model's **add($$record)** method is also a standard CRUD capability,
-but we can fake it :)
+Our model's **add($$record)** method is also a standard CRUD capability.
 
 It starts out as
 
-	// Add a record to the DB
+	// Add a record to the collection
 	function add($record)
 	{
-		// convert object to associative array, if needed
-		if (is_object($record))
-		{
-			$data = get_object_vars($record);
-		} else
-		{
-			$data = $record;
-		}
+		// convert object from associative array, if needed
+		$record = (is_array($record)) ? (object) $record : $record;
+
 		// update the DB table appropriately
-		$key = $data[$this->_keyField];
-		$object = $this->db->insert($this->_tableName, $data);
+		$key = $record->{$this->_keyfield};
+		$this->_data[$key] = $record;
 	}
 
 And the translation...
@@ -309,14 +241,20 @@ And the translation...
 	{
             $this->rest->initialize(array('server' => REST_SERVER));
             $this->rest->option(CURLOPT_PORT, REST_PORT);
-            $retrieved = $this->rest->post('/maintenance/item/id/' . $record['code'], $record);
+            $key = $record->{$this->_keyfield};
+            $retrieved = $this->rest->post('/job/' . $key, $record);
+            $this->load(); // because the "database" might have changed
  	}
 
-##18. Are We There Yet?
+##11. Are We There Yet?
 
-Barring hiccups, yes we are there.
+Barring hiccups, yes we are there. Delete the tasks data in your front-end app!
 
 This isn't the only way to split an app apart, but it works well for CRUD :)
+
+Our implementation is shy on error handling, and would **not** be recommended
+for any sort of production or heavy duty application, but it should serve
+to illustrate REST.
 
 In case you haven't gathered, there is a lot of flexibility, and a number of 
 ways you can claim to be "RESTful"!!

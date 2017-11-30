@@ -1,4 +1,4 @@
-#Tutorial tut-adv02 - Making Our RESTful Resource Controller
+#Tutorial tut-adv01 - Adding Authentication to Our App
 COMP4711 - BCIT - Fall 2017
 
 Don't forget to setup a virtual host mapping "backend.local" to this app.
@@ -7,20 +7,16 @@ Don't forget to setup a virtual host mapping "backend.local" to this app.
 
 Delete all controllers except <code>Welcome</code>.
 
-We need all our models, and the base for them (`application/core`).
+We need all our models.
 
-Simplify the base controller - it just needs its constructor; we don't need to render anything.
-We _could_ get rid of it, but it is safer to keep it in case it proves useful later.
-
-We need to keep `views/errors`, as that is part of CodeIgniter, but we can remove all
-the other PHP files in the `views` folder, except `homepage.php`.
+Simplify the base controller and <code>views/template</code> appropriately.
+We don't need to render anything.
 
 ##2. Backend UI
 
-Replace the contents of `views/homepage.php` with a message to the effect that
-this is a server webapp.
-
-Modify `controllers/Welcome` to display the modified homepage view.
+Modify the <code>Welcome</code> controller to spit out a suitable
+message, in case anyone asks for the app directly. Use the <code>example-ferries-server</code> 
+as a guide.
 
 ##3. Backend Package
 
@@ -37,8 +33,6 @@ Create a new controller, <code>Job</code>, starting with the example server's <c
 controller.
 
 Yours will load the <code>Tasks</code> model, not the ferryschedules, of course.
-You can actually safely omit explicitly loading the model, since it is already
-specified in `config/autoload`.
 
 We will need to implement methods for each of the main HTTP types expected
 for each of your controller's "apparent" methods.
@@ -54,20 +48,14 @@ requests (eg. "product/") deal with the aggregate, and to use a real method
 (eg. "product/item/123")
 for individual entities.
 
-We need to add a routing rule to pass any segment after "job" as a
-parameter to the `index()` method, which would not normally take a parameter.
+We need to add a routing rule for this
 
-    $route['job/(:any)'] = 'job/index/$1';
+    $route['job/$1'] = 'job/index/$1';
+OR ...
 
-##5. Add CRUD method stubs
 
-`Job` is intended to be a resource controller, with the intended
-action handled by a suitable HTTP message. The `Rest_Controller`
-in the "restful" package does this by mapping incoming
-requests to same-named methods with the HTTP verb appended,
-separated by an underscore.
 
-A good starting point for the CRUD methods for `Job`  would be
+A good starting point (though not necessary) would be
 
 	// Handle an incoming GET - cRud
 	function index_get($key=null)
@@ -97,17 +85,15 @@ Incoming calls are automatically mapped to the correct method, as specified
 above. The package readme has more explanation.
 
 
-##6. Job::index_get()
+##5. Job::index_get()
 
 This is the "read" aspect of CRUD.
 
 We can check for the existence of a "code" parameter, and return just that one item
 if the parameter is provided, or else all of them.
 
-Note that we are just routing the incoming request to an existing model method!
-
     // Handle an incoming GET ... return a menu item or all of them
-    function index_get($key=null)
+    function index_get($id=null)
     {
         if (!$key)
         {
@@ -129,10 +115,10 @@ all of the menu items. "backend/job/6" should show you donut data
 This works because browser requests are sent as HTTP GETs.
 
 
-##6b. Specifying response format
+##5b. Specifying response format
 
 In <code>application/third_party_restful/config/rest.php</code>, you
-can change the default response format. Experiment with the different
+can change the default response format. Experiement with the different
 choices, and pick the one you are most comfortable with. This may end
 up being handy later, for debugging.
 
@@ -141,12 +127,11 @@ The package readme explains more alternatives :)
 Now, all we have to do is call this properly, from our client. That's coming.
 
 
-##7. Adding a new todo item
+##6. Adding a new todo item
 
 This will be, you guessed it, the <code>index_post()</code> method.
 
-The item ID is passed as part of the URL, i.e. a POST to "job/77" would contain
-the state of item #77 in the HTTP message payload.
+If the item ID is passed in the payload, eg POST to "/job" ...
 
     // Handle an incoming POST - add a new todo item
     function index_post($key=null)
@@ -158,11 +143,11 @@ the state of item #77 in the HTTP message payload.
 
 We can't test this directly, but we can be ready.
 
-##8. And the other CRUD parts?
+##7. And the other CRUD parts?
 
 Do the same thing for updates...
 
-    // Handle an incoming PUT - update a todo item
+    // Handle an incoming PUT - update a menu item
     function index_put($key=null)
     {
         $record = array_merge(array('id' => $key), $this->_put_args);
@@ -170,10 +155,7 @@ Do the same thing for updates...
         $this->response(array('ok'), 200);
     }
 
-Note that we need to get at the PUT arguments a bit differently,
-as they are not put into a PHP superglobal for us.
-
-And similarly for incoming DELETE requests ...
+And the same for incoming DELETE requests ...
 
     // Handle an incoming DELETE - delete a todo item
     function item_delete($key=null)
@@ -186,7 +168,13 @@ You'll notice that we are just mapping requests to the appropriate "real"
 code. Our <code>Tasks</code> model doesn't change, and our REST controller
 doesn't get more complicated than this!
 
-##9. Are We There Yet?
+There is a hiccup, though. Some of what we want to do on the front-end
+isn't just CRUD, for instance getting validation rules.
+That would suit an RPC call instead of a RESTful call, if we wanted that
+to come from the backend model, and that is a job
+for another day. We will leave those in the frontend for now.
 
-Barring hiccups, the backend should be ready for business - CRUD business,
-in any case.
+
+##8. Are We There Yet?
+
+Barring hiccups, the backend should be ready for business.

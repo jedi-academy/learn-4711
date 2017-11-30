@@ -5,29 +5,29 @@ COMP4711 - BCIT - Fall 2017
 
 The purpose of this lab is to take a working webapp, 
 the Todo List Manager, and split it into two
-parts which talk to each other using RESTful distributed system techniques.
+parts which talk to each other using RESTful distributed system conventions.
 
 We will continue to use gitflow workflow. That means proper branching (master/develop), 
 completing new work in feature branches, and good commit comments.
 
 ##Lab Teams
 
-I have setup a new set of "Lab09/10" teams of two for this,
+I have setup a new set of "Lab09" teams of two for this,
 to give you an opportunity to switch partners if you like. You may partner with the
 same person as the earlier labs, if you like, but don't have to.
 
 If your set has an odd number of members who show up to lab, I can override-add
 you to a team. Alternately, you are welcome to have a team of one.
 
-This lab really suits a team of two, each wotking on either the client or the server. 
-If your team has theree members, then one of them will have to contribute to both the
+This lab really suits a team of two, each wotking on either the frontend or the backend. 
+If your team has three members, then one of them will have to contribute to both the
 client and the server, to spread the work out fairly.
 
 ##Lab Submission
 
 This lab will result in **two** github repositories for your team, one 
 for each "side" of the distributed webapp. Do not reuse earlier repositories, but feel free to use an
-existing github organization if your team makeup hasn't changed.
+existing github organization if appropriate.
 
 Submit a readme *text* file, or a submission comment, to the lab dropbox. 
 It should contain a link to each of the team repositories for the lab,
@@ -55,7 +55,7 @@ The data representation for persistance doesn't matter, and you don't need unit 
 This lab is about a distributed system, regardless of the data format or 
 the model's correctness.
 
-Create your two repositories, initially "empty", and **copy** the contents of the earlier
+Create your two repositories, initially "empty", and **copy**, to each, the contents of the earlier
 repo that you have chosen as a starter. Make sure that branching is setup,
 with a "clean" *develop*, before any team members fork the repos.
 
@@ -64,16 +64,20 @@ Just to be clear: the two repositories will start out identical except for their
 ##Examples?
 
 The example-ferries-... repositories in the Jedi Academy organization provide
-an example of what we are doing here.
+an example of what we are doing here. These would be the
+[standalone](https://github.com/jedi-academy/example-ferries-standalone) one, 
+the [frontend](https://github.com/jedi-academy/example-ferries-client) one,
+and the [backend](https://github.com/jedi-academy/example-ferries-server) one.
 
-Additionally, you will find there a package-restful repo, with the goodies we
+Additionally, you will find there a [RESTful package repo](https://github.com/jedi-academy/package-restful), 
+with the goodies we
 will need for "distributed glue".
 
 ##Planning
 
 Let's plan a few things before we start modifying code.
 
-Your starting app(s) manages todo items, with changes made through the Views
+Your starting app(s) manage(s) todo items, with changes made through the Views
 controller (completion) and the Mtce controller (maintenance).
 These use a <code>Tasks</code> model to manage the persistent data.
 
@@ -111,25 +115,18 @@ model will work with the real "database" for todo items.
 
 ##Your jobs
 
-There are two tutorials for this - one for the [backend](/display/tutorial/tut-adv02)
-and one for the [frontend](/display/tutorial/tut-adv03).
+There are two tutorials for this:
+- making a [RESTful resource controller](/display/tutorial/tut-adv02) for the backend
+- [adapting the frontend](/display/tutorial/tut-adv03) to use the backend
+
 Divvy up the work accordingly.
 
-Notrice anything funny?
-We are calling our RESTful server a resource controller
+
 #Wrapup (Are We Done Yet?)
 
 <div class="alert alert-info">
 Captain(s): assuming that everyone on the team agrees that
 you have completed the lab, prepare for submission.
-
-In each of your repos, make a SQL dump of that app's database, with the option to drop any existing
-tables. Put that in the <code>data</code> folder of the respective projects, 
-and delete the original starter SQL from that folder.
-
-There should be only one SQL file in your data folder,
-so that my marking script isn't confused about what has to be
-setup to mark your lab.
 
 It is now time
 to merge the develop branch into the master branch,

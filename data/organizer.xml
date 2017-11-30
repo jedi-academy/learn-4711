@@ -128,11 +128,10 @@ Course organizer for Comp4711
         <topic>Authentication</topic>
         <outcomes>2.1, 2.2, 2.3</outcomes>
         <lesson name="advanced01">Authentication</lesson>
-<!--  
-        <lab name="notlab09">REST Client &amp; Server?</lab>
+        <lab name="lab09">RESTish with Authentication</lab>
         <tutorial name="tut-adv02">Making Our RESTful Server</tutorial>
         <tutorial name="tut-adv03">Making Our RESTful Client</tutorial>
-        <lab name="lab10">Simple Authentication</lab>
+<!--
         <tutorial name="tut-adv01">Authentication</tutorial>
         -->
     </week>
@@ -142,15 +141,10 @@ Course organizer for Comp4711
         <!--
         <lesson name="final" >Final Exam Review</lesson>
                         <lesson name="week13" icon="read" active="n">Survey results</lesson>
-       <lesson name="week14" icon="read">Survey results (the survey 
-            link is in the "news" above).</lesson>
-        <lesson name="final" >Final Exam Review</lesson>
-                        <lesson name="week13" icon="read" active="n">Survey results</lesson>
-        <tutorial name="tut-adv01" active="n">Authentication</tutorial>
         -->
     </week>
     <week num="15">
-        <topic>Final Exam Week</topic>
+        <topic>Final Exam - Weds Dec 13, 15:30-17:30 in SW3-1710</topic>
     </week>
     <week num="zz">
         <topic>REFERENCE</topic>
