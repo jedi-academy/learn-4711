@@ -1,6 +1,11 @@
 #Tutorial tut-adv03 - Making Our RESTful Client
 COMP4711 - BCIT - Fall 2017
 
+<div class="alert alert-danger">
+The original REST requests below referred to the endpoint <code>/job</code>.
+The leading slash in the reference is unneeded, and may cause issues.
+</div>
+
 
 ##1. Frontend "Database" Setup
 
@@ -22,6 +27,13 @@ This is basically downloading it, copying/merging so that the
 code is in the proper place.
 
 Don't forget to autoload the package in your <code>config/autoload</code>.
+
+<div class="alert alert-danger">
+The restful package needed its Curl::put method updated, to properly
+pass parameters between client and server. Make sure that your
+local copy is up-to-date in your app! The <code>package-restful</code> repo was
+updated 2017.12.01 at 11:00.
+</div>
 
 ##4. Down to Work
 
@@ -103,12 +115,16 @@ We just need to replace the "..." with the appropriate REST client code:
 	// load our data from the REST backend
             $this->rest->initialize(array('server' => REST_SERVER));
             $this->rest->option(CURLOPT_PORT, REST_PORT);
-            $this->_data =  $this->rest->get('/job');
+            $this->_data =  $this->rest->get('job');
 
 	// rebuild the field names from the first object
-        $one = aray_values((array) $this->_data);
-	$this->_fields = array_keys((array)$one);
+        $one = array_values((array) $this->_data);
+	$this->_fields = array_keys((array)$one[0]);
 
+<div class="alert alert-danger">
+The original code snippet above was missing the three lines to rebuild
+the field names.
+</div>
 
 Try it - After making this change, your CRUD page should still show a list of todo items,
 except they are coming from the backend server.
@@ -152,7 +168,7 @@ Translating that into REST calls gives...
 	{
             $this->rest->initialize(array('server' => REST_SERVER));
             $this->rest->option(CURLOPT_PORT, REST_PORT);
-            return $this->rest->get('/job/' . $key);
+            return $this->rest->get('job/' . $key);
 	}
 
 The URL we ask for has the todo item key added to it, but the rest looks the
@@ -185,7 +201,7 @@ That gets translated to the appropriate HTTP method.
 	{
             $this->rest->initialize(array('server' => REST_SERVER));
             $this->rest->option(CURLOPT_PORT, REST_PORT);
-            $this->rest->delete('/job/' . $key);
+            $this->rest->delete('job/' . $key);
             $this->load(); // because the "database" might have changed
 	}
 
@@ -217,7 +233,7 @@ And the translation...
             $this->rest->initialize(array('server' => REST_SERVER));
             $this->rest->option(CURLOPT_PORT, REST_PORT);
             $key = $record->{$this->_keyfield};
-            $retrieved = $this->rest->put('/job/' . $key, $record);
+            $retrieved = $this->rest->put('job/' . $key, $record);
             $this->load(); // because the "database" might have changed
 	}
 
@@ -247,7 +263,7 @@ And the translation...
             $this->rest->initialize(array('server' => REST_SERVER));
             $this->rest->option(CURLOPT_PORT, REST_PORT);
             $key = $record->{$this->_keyfield};
-            $retrieved = $this->rest->post('/job/' . $key, $record);
+            $retrieved = $this->rest->post('job/' . $key, $record);
             $this->load(); // because the "database" might have changed
  	}
 

@@ -31,6 +31,14 @@ code is in the proper place.
 
 Don't forget to autoload the package in your <code>config/autoload</code>.
 
+<div class="alert alert-danger">
+The restful package needed its Curl::put method updated, to properly
+pass parameters between client and server. Make sure that your
+local copy is up-to-date in your app! The <code>package-restful</code> repo was
+updated 2017.12.01 at 11:00.
+</div>
+
+
 ##4. Setup Your RESTful controller
 
 Create a new controller, <code>Job</code>, starting with the example server's <code>Ports</code>
@@ -176,7 +184,7 @@ as they are not put into a PHP superglobal for us.
 And similarly for incoming DELETE requests ...
 
     // Handle an incoming DELETE - delete a todo item
-    function item_delete($key=null)
+    function index_delete($key=null)
     {
         $this->tasks->delete($key);
         $this->response(array('ok'), 200);
@@ -185,6 +193,10 @@ And similarly for incoming DELETE requests ...
 You'll notice that we are just mapping requests to the appropriate "real"
 code. Our <code>Tasks</code> model doesn't change, and our REST controller
 doesn't get more complicated than this!
+
+<div class="alert alert-danger">
+The original code snippet above incorrectly referred to the method <code>item_delete</code>.
+</div>
 
 ##9. Are We There Yet?
 
