@@ -120,7 +120,7 @@ Course organizer for Comp4711
     <week num="12">
         <topic>Application Glue - REST</topic>
         <outcomes>2.1, 2.3</outcomes>
-        <lesson name="advanced03" icon="dothis" survey="316052">REST</lesson>
+        <lesson name="advanced03" icon="dothis">REST</lesson>
         <lesson name="week12" icon="read">Survey results</lesson>
         <github name="package-restful" link="https://github.com/jedi-academy/package-restful" >REST implementation I use</github>
     </week>
@@ -131,16 +131,15 @@ Course organizer for Comp4711
         <lab name="lab09">RESTish with Authentication</lab>
         <tutorial name="tut-adv02">Making Our RESTful Server</tutorial>
         <tutorial name="tut-adv03">Making Our RESTful Client</tutorial>
-<!--
+        <!--
         <tutorial name="tut-adv01">Authentication</tutorial>
         -->
     </week>
     <week num="14">
         <topic>Review &amp; Predictions</topic>
         <outcomes>1, 2, 3</outcomes>
-        <!--
-        <lesson name="final" >Final Exam Review</lesson>
-                        <lesson name="week13" icon="read" active="n">Survey results</lesson>
+        <lesson name="final" survey="317368" icon="dothis">Final Exam Review</lesson>
+        <!--                        <lesson name="week13" icon="read" active="n">Survey results</lesson>
         -->
     </week>
     <week num="15">
@@ -191,5 +190,6 @@ Course organizer for Comp4711
         <lesson name="advanced02"  icon="read">XML-RPC</lesson>
         <github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" >XML-RPC Examples</github>
         <lesson name="advanced04" icon="read">AJAX</lesson>
+        <lesson name="future" icon="readme">Jim's Crystal Ball</lesson>
     </week>
 </organizer>
