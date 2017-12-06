@@ -139,8 +139,7 @@ Course organizer for Comp4711
         <topic>Review &amp; Predictions</topic>
         <outcomes>1, 2, 3</outcomes>
         <lesson name="final" survey="317368" icon="dothis">Final Exam Review</lesson>
-        <!--                        <lesson name="week13" icon="read" active="n">Survey results</lesson>
-        -->
+        <lesson name="week14" icon="read">Survey results</lesson>
     </week>
     <week num="15">
         <topic>Final Exam - Weds Dec 13, 15:30-17:30 in SW3-1710</topic>
