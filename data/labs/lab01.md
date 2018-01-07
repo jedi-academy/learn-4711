@@ -1,6 +1,6 @@
 
 #Lab #1 - Development Environment
-COMP4711 - BCIT - Fall 2017
+COMP4711 - BCIT - Winter 2018
 
 ##Lab Goals
 
@@ -18,6 +18,11 @@ This is an individual lab - you each want your development environment working!
 
 There is merit to working in parallel with a partner from your set, for support,
 but you need individual submissions.
+
+## G I T
+
+Throughout this lab, and indeed this course, frequent mention is made of
+"github repositories".
 
 ##Lab Submission
 

@@ -6,14 +6,13 @@ Course organizer for Comp4711
     <week num="1">
         <topic>Introduction to MVC Webapps</topic>
         <outcomes>1.1 (server), 3.2</outcomes>
-<!--
         <inlab>#1 Development setup</inlab>
         <lesson name="intro00">Course Introduction</lesson>
         <lesson name="intro01" >Introduction</lesson>
-        <lab name="lab01">Development Environment</lab>
+<!--        <lab name="lab01">Development Environment</lab>
         <tutorial name="setup01">XAMPP Installation</tutorial>
         <tutorial name="setup02">Virtual Hosting Setup</tutorial>
--->
+        -->
     </week>
     <week num="2">
         <topic>MVC Frameworks</topic>

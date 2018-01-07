@@ -2,7 +2,7 @@
 <!--
 Lesson 00 - In-class Only Introduction
 -->
-<lesson status="v1.2">
+<lesson status="v1.3">
     <!-- Activity metadata ... override anything from the course or organizer -->
     
     <!-- The meat of the presentation -->
@@ -10,20 +10,27 @@ Lesson 00 - In-class Only Introduction
         <div class="left">
             <h2>Jim Parry</h2>
             <ul>
-                <li>Day job: BCIT instructor</li>
-                <li>Off campus: webapp developer</li>
+                <li>Day job: BCIT instructor; ACIT3620</li>
+                <li>Off campus: webapp developer, for fun and sometimes profit</li>
                 <li>Full-time: CI geek, Java not so much any more</li>
+                <li>Interests: Coffee</li>
                 <li>Project Lead, CodeIgniter</li>
                 <li>Contact: SW2-124, email instead</li>
                 <li>Email: jim_parry@bcit.ca</li>
             </ul>
         </div>
         <div class="right">
-            <h2>Michal Aibin</h2>
+            <h3>Michal Aibin</h3>
             <ul>
-                <li>Day job: BCIT instructor, <br/>ACIT3650 &amp; ACIT3900</li>
+                <li>Day job: BCIT instructor, <br/>ACIT2520 &amp; ACIT4900</li>
                 <li>Interests: Networks, data mining &amp; software engineering</li>
                 <li>Email: maibin@bcit.ca</li>
+            </ul>
+            <h3>Arron Ferguson</h3>
+            <ul>
+                <li>Day job: BCIT instructor, <br/>COMP1536</li>
+                <li>Interests: Computational Creativity</li>
+                <li>Email: arron_ferguson@bcit.ca</li>
             </ul>
         </div>
     </slide>
@@ -51,8 +58,9 @@ Lesson 00 - In-class Only Introduction
     <slide title="Flipped Learning" layout="normal">
         <p>Weekly readings will be assigned, starting with the second week, 
             following somewhat of a "flipped" learning model. </p> 
-        <p>You are to read these lessons and answer a D2L survey, 
-            by the evening before that week's lecture. 
+        <p>You then have the opportunity to complete a D2L survey, 
+            by the evening before that week's lecture,
+            providing questions to answer in class. 
             This gives me a chance to adjust the lecture, 
             and to address issues important to you.
         </p>
@@ -85,21 +93,41 @@ Lesson 00 - In-class Only Introduction
             <li>Code examples or starter projects all shared as 
                 <a href="https://github.com/jedi-academy" target="_blank">Github 
                     repositories</a>, to be forked/downloaded.</li>
-            <li>Labs/walkthroughs done individually or in pairs, on github; 
+            <li>Labs/walkthroughs done individually or in pairs, on github(?!); 
                 readme (with a link to your repo) is all that is submitted to a 
                 D2L dropbox, with a deep link to the dropbox on the course hub.</li>
-            <li>Assignments done in teams, on github; readme (with links) 
+            <li>Assignments done in teams, on github(?!); readme (with links) 
                 is submitted to D2L dropbox</li>
             <li>Labs start: this week (after lecture)</li>
         </ul>
     </slide>
 
+    <slide title="GIT Repositories" layout="normal">
+        <p>Throughout this lab, and indeed this course, frequent mention is made of
+            "github repositories". The course hub, and *all* of the starter and example projects
+            are stored on github.com.</p>
+        <p>
+            <b>This is an off-campus resource, and the BCIT privacy policies
+                apply.</b>
+        </p>
+        <p>Your work is to be completed in a public GIT repository,
+            but you have choices for this:
+            <ul>
+                <li>Use github.com voluntarily, possibly with an alias account name
+                    if you have privacy concerns</li>
+                <li>Use git.cit.bcit.ca, a Gitlab server on campus</li>
+                <li>Use bitbucket.com or the GIT server of your choice</li>
+            </ul>
+        </p>        
+        <p>Whenever you read the term "github repository" in connection
+            with your work, interpret that as whatever *public* GIT repository you are using!</p>
+    </slide>
+
     <slide title="Grading" layout="normal">
         <ul>
-            <li>10%: Surveys &amp; lab participation</li>
-            <li>25%: 10 labs</li>
-            <li>30%: 3 assignments</li>
-            <li>10%: investigative report (midterm)</li>
+            <li>10%: lab participation</li>
+            <li>40%: 10 labs</li>
+            <li>25%: 2 assignments</li>
             <li>25%: Final exam, comprehensive</li>
         </ul>
         <p>Attendance expected, missing more than 2 labs =&gt; U</p>
