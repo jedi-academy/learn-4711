@@ -9,10 +9,9 @@ Course organizer for Comp4711
         <inlab>#1 Development setup</inlab>
         <lesson name="intro00">Course Introduction</lesson>
         <lesson name="intro01" >Introduction</lesson>
-<!--        <lab name="lab01">Development Environment</lab>
+        <lab name="lab01">Development Environment</lab>
         <tutorial name="setup01">XAMPP Installation</tutorial>
-        <tutorial name="setup02">Virtual Hosting Setup</tutorial>
-        -->
+        <tutorial name="setup02">Virtual Hosting Setup</tutorial>       
     </week>
     <week num="2">
         <topic>MVC Frameworks</topic>

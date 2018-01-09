@@ -12,7 +12,7 @@ There are two tutorials for you to take advantage of, and then this lab exercise
 
 Suggestion: you may want to read the lab and tutorials first, before diving in.
 
-##Lab Teams
+##Lab Teams?
 
 This is an individual lab - you each want your development environment working!
 
@@ -22,7 +22,17 @@ but you need individual submissions.
 ## G I T
 
 Throughout this lab, and indeed this course, frequent mention is made of
-"github repositories".
+"github repositories". Interpret this as a generic term.
+
+You may use the GIT repository of your choice, for
+instance [BitBucket](https://bitbucket.org/) or our [Gitlab server](https://git.cit.bcit.ca/users/sign_in), 
+**but** you are
+responsible for synching yours with any starters I provide on [Github]()
+and **you** need to worry about synching your team repositories with
+teammates dor upcoming labs and assignments.
+
+Any GIT repository you use must be public, so that we have access
+for marking.
 
 ##Lab Submission
 
@@ -35,7 +45,7 @@ Your dropbox submission should contain two files in addition to the above-mentio
 - a screenshot of your browser window accessing your webapp (showing the student list)
 - a copy of your virtual host configuration file
 
-Due: Sunday, Sep 10, 17:30 PST
+Due: Sunday, Jan 14, 17:30 PST
 
 ##Lab Marking Guideline
 
@@ -49,6 +59,24 @@ We will check your github commit history, to see if you appear to using the proc
 
 We will be making sure that it runs properly when we deploy the project into our "comp4711" virtual host folder.
 
+##CAUTION re Case Sensitivity
+
+Your app may be tested on a Linux machine. If that is the case (pun intended),
+then case sensitivity is paramount. A file named "student.php" will not be
+seen as "Student.php". Your app will blow up, and you will "be fired".
+See the "Golden Rules" in the "Reference" tab of the organizer.
+
+This is a trivial thing to fix, but a show stopper for a deployed webapp,
+hence the harsh penalty.
+
+If you do this multiple times in the same webapp, and we get tired of having
+to rename files just to get the app running, we might be grumpy and "fire you" for
+each instance, meaning that five such simple things to fix could cost you
+all the marks for a lab or assignment, at 20% off each. Our supply
+of sympathy and understanding is limited, and may run out :'(
+
+This is, historically, the single biggest mistake made by COMP4711 students,
+and indeed by webapp newb developers worldwide.
 
 ##Disclaimer
 
@@ -74,6 +102,8 @@ document in the reference section of the organizer, comparing PHP and Java.
 ##Install Git
 
 Make sure that you have Git installed on your system, for instance from the [git-scm](http://git-scm.com/downloads) site.
+Note that this is independent of the GIT server you use.
+
 <img class="scale" src="/pix/labs/1/1-1b.png"/>
 
 ##Install Git Toolbar?
