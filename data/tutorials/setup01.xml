@@ -308,12 +308,6 @@ Tutorial 01a - XAMPP installation
         <div class="left">
             <p>I do not have step-by-step directions or screenshots for installing XAMPP on
             MacOSX :(</p>
-            <p>One of the course trial users (thank you, Don Myers) suggested 
-                using <a href="https://www.mamp.info/en/">MAMP</a>
-            as an alternative to XAMPP, and he provided some screenshots for that.
-            Unfortunately, the free version of MAMP does not support virtual hosting,
-                so I have not included those screenshots here until I can
-                figure out a work-around.</p>
         </div>
         <div class="right">
          </div>
