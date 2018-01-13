@@ -2,23 +2,9 @@
 <!--
 Lesson 02 - MVC Framework Introduction
 -->
-<lesson status="beta">
+<lesson status="1.3">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
-    <slide title="Preamble" layout="normal">
-        <p>There are two online lessons for week 2, and then the survey to
-            take after reading both of them.</p>    
-        <p>The lessons introduce and explain the key concepts fot
-            MVC frameworks and collaborative workflow, respectively.</p>
-        <p>Are you expected to ask questions during these surveys every week? <br/>
-            Yes. Well, you don't have to ask questions if you don't have any, 
-            nor do you have to provide three responses for each part of a survey. 
-            You can answer "n/a" if you don't have anyquestions.<br/>
-            These surveys give you an opportunity to influence the lecture content &amp; direction; 
-            they help me figure out which parts of the material need better explanation; 
-            and they give me a measure of assurance that the content is being read.</p>
-    </slide>
-    
     <!-- Agenda -->
     <slide title="Agenda" layout="normal">
         <ol>
@@ -63,9 +49,9 @@ Lesson 02 - MVC Framework Introduction
                 It provides an API for developers to build web components,
                 and to access data stored locally or on its own server.</p>
                 <p>
-                    <i>Collection of object models provided through the web server:
+                    <i>Object models provided through the web server:
                 part of the API for working in that environment, eg server framework.
-                Collection of object models provided by third parties,
+                Object models provided by third parties,
                 to speed your development and enhance security/consistency:
                 the MVC framework !</i></p>
         </div>
@@ -123,7 +109,7 @@ Lesson 02 - MVC Framework Introduction
         <p>Choose a framework according to its fit with your development
             practices (design patterns), bundled or easily-incorporated components,
             and ease of integration with your organization's other IT.</p>
-        <p><i>Common ones? Best one? Yes !</i></p>
+        <p><i>Which is most common or the best one? Yes !</i></p>
     </slide>
 
     <slide title="Design Pattern Driven! **" layout="normal">
@@ -218,13 +204,6 @@ Lesson 02 - MVC Framework Introduction
                 and it is <a href="https://github.com/bcit-ci/codeigniter-website">open-sourced</a>:)</p>
             <p>Many major corporations have used CodeIgniter, whether internally or public-facing: 
                 Uber, Apple, Telus</p>
-            <p>Some other sites built with CodeIgniter, in no specific order:
-                https://www.daniweb.com/,
-                http://www.fsw.edu/, 
-                http://creditflux.com/,
-                http://www.la-commanderie.be/
-            </p>
-            
         </div>
         <div class="right">
             <img class="scale" width="600" height="458" src="/pix/lessons/1-8.png"/>
@@ -236,16 +215,16 @@ Lesson 02 - MVC Framework Introduction
             Absolutely ... there are a number of frameworks, for a multitude of programming languages.
             From github alone, based on a search for web frameworks.</p>
         <ul>
-            <li>4,406 JavaScript</li>
-            <li>2,485 PHP</li>
-            <li>2,389 Java</li>
-            <li>2,333 Python</li>
-            <li>1,274 HTML</li>
-            <li>1,153 CSS</li>
-            <li>830 C#</li>
-            <li>803 Ruby</li>
-            <li>667 Go</li>
-            <li>245 Scala</li>
+            <li>4,816 JavaScript</li>
+            <li>2,680 PHP</li>
+            <li>2,624 Python</li>
+            <li>2,607 Java</li>
+            <li>1,513 HTML</li>
+            <li>1,251 CSS</li>
+            <li>931 C#</li>
+            <li>847 Ruby</li>
+            <li>712 Go</li>
+            <li>293 Typescript</li>
         </ul>
     </slide>
 </lesson>

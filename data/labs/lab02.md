@@ -1,5 +1,5 @@
 #Lab #2 - Collaborative Workflow
-COMP4711 - BCIT - Fall 2017
+COMP4711 - BCIT - Winter 2018
 
 ##Lab Goals
 
@@ -116,8 +116,8 @@ although many of you will indeed complete it during the lab period.
 
 ##Lab Preview/Prep
 
-There are two readings linked to in the organizer for this week, that will help orient you
-to what we will be doing in lab. They are not exact copies of what we will do, but
+There are three readings linked to in the organizer's "Reference" section, 
+that you might find helpful. They are not exact copies of what we will do, but
 similar.
 
 The first, **[Gitflow Workflow Techniques](/show/lesson/dev02)**, 
@@ -126,8 +126,7 @@ is a pictorial walkthrough of a similar process.
 The second, **[Gitflow Setup Example](/show/lesson/dev02)**, 
 specifically demonstrates the setup of a team and its repository.
 
-There is a third reading, **[Gitting Good](/display/lesson/dev04)**, in the reference section in the
-organizer, that will help you with Git naming.
+The third, **[Gitting Good](/display/lesson/dev04)**, will help you with Git naming.
 
 These are not part of the lab - they are provided for those who might be confused
 about the collaborative process we are using, and who would appreciate
@@ -135,7 +134,7 @@ some more context.
 
 ###Lab Prep Notes
 
-If you do the suggested prep readings, they are meant t be "read" and closed. They are intended
+If you do the suggested prep readings, they are meant to be "read" and closed. They are intended
 to give you a better feel for the lab, and are not meant to be
 followed as part of the lab. Those steps follow below!
 
@@ -422,8 +421,8 @@ A marking rubric has been attached to the lab 2 dropboxes, similar to our
 first lab. The labs will be weighted equally in the marks worksheet,
 even if some of them have different raw scores because of their rubric.
 
-I will be looking at the features in your submitted webapp, to see if you
-succeeded at enhancing it per spec, in spite of the process; and I will
+We will be looking at the features in your submitted webapp, to see if you
+succeeded at enhancing it per spec, in spite of the process; and we will
 be looking at the repository, its forks, and commit history, to
 determine how well you followed the collaboration process.
 

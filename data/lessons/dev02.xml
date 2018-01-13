@@ -61,6 +61,7 @@ Lesson 02b - Devops Workflow
 
     <slide title="Tell NetBeans to Add a Signoff" layout="normal">
         <div class="left">
+            <p>If using NetBeans...</p>
             <p>In Tools/Options/Team, set the Git open to
                 "Add Signed-off-by line to any commit message automatically.</p>
             <p> Many projects insist that submitted code be "signed", so they
@@ -68,7 +69,7 @@ Lesson 02b - Devops Workflow
             <p>This signoff might be acceptable for many projects, but some 
                 will insist that commits be "digitally signed". 
                 <a href="http://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work" target="_blank">
-                    This process</a> is more involved than you need for our purposes.</p>
+                    That process</a> is more involved than you need for our purposes.</p>
         </div>
         <div class="right">
             <br/>
