@@ -17,8 +17,8 @@ Course organizer for Comp4711
         <topic>MVC Frameworks</topic>
         <outcomes>1.1 (PHP), 1.2 (basics),3</outcomes>
         <inlab>#2 Project &amp; Process Prep</inlab>
-        <lesson name="basic01" icon="dothis">MVC Frameworks</lesson>
-        <lesson name="dev01" icon="dothis">Devops Workflow Concepts</lesson>
+        <lesson name="basic01" icon="dothis" survey="328582">MVC Frameworks</lesson>
+        <lesson name="dev01" icon="dothis" survey="328583">Devops Workflow Concepts</lesson>
         <lab name="lab02">Collaborative Workflow</lab>
     </week>
     <week num="3">
