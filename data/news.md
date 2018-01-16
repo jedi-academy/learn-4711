@@ -12,3 +12,5 @@ you can use to tell me which parts of the material need better explanation.
 The surveys close 9pm Monday.
 
 This week's lab is about collaborative workflow.
+
+Survey results have been processed, and results presented.
