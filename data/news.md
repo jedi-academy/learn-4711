@@ -14,3 +14,5 @@ The surveys close 9pm Monday.
 This week's lab is about collaborative workflow.
 
 Survey results have been processed, and results presented.
+
+A reminder for set COMP4S ... lab tomorrow has been moved to 10:30-12:30, but still in SE12-320.
