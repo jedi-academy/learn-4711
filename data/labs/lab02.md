@@ -231,7 +231,7 @@ been updated, and it hopefully will be mergeable.
 -    Clone your repository locally, using a name/location of your choice.
 This could be done through your IDE or...
 
-        git clone [your team repo's cloning URL] YOUR_PROJECT_FOLDER
+        git clone [YOUR repo's cloning URL] YOUR_PROJECT_FOLDER
 
 -    Configure your git client to use signing
 -    If supported by your IDE, "git ignore" the IDE's metadata folder, so you don't inflict it on your teammates.
