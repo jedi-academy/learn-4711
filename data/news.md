@@ -1,5 +1,11 @@
-**Week 1**  
-Welcome to COMP4711 :)
+**Week 3**  
+This week's lesson is an overview of CodeIgniter.
+
+A survey has been posted for any questions for me to address in class.
+The survey closes at 9pm Monday.
+
+I have also enabled the "Other frameworks" section in the organizer, with
+examples.
 
 **Week 2**  
 There are two short presentations for week 2, which
@@ -15,4 +21,6 @@ This week's lab is about collaborative workflow.
 
 Survey results have been processed, and results presented.
 
-A reminder for set COMP4S ... lab tomorrow has been moved to 10:30-12:30, but still in SE12-320.
+**Week 1**  
+Welcome to COMP4711 :)
+
