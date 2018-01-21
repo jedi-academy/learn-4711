@@ -25,15 +25,15 @@ Course organizer for Comp4711
     <week num="3">
         <topic>CodeIgniter &amp; Controllers</topic>         
         <outcomes>1.2 (controllers), 3</outcomes>
-                 <inlab>#3 Website conversion</inlab>
-                <lesson name="basic01-ci" icon="dothis" survey="329257">CodeIgniter Overview</lesson>
+        <inlab>#3 Website conversion</inlab>
+        <lesson name="basic01-ci" icon="dothis" survey="329257">CodeIgniter Overview</lesson>
         <!--
                <lesson name="week03" icon="read" >Survey results - overview</lesson>
-                <lab name="lab03">Website Conversion</lab>
-                <tutorial name="ci-basic01">Static to Trivial CI Website Conversion</tutorial>
-                <tutorial name="ci-basic02">Trivial CI to Basic CI Website Conversion</tutorial>
-                <tutorial name="ci-basic03">Basic CI to Good CI Website Conversion</tutorial>
         -->
+        <lab name="lab03">Website Conversion</lab>
+        <tutorial name="ci-basic01">Static to Trivial CI Website Conversion</tutorial>
+        <tutorial name="ci-basic02">Trivial CI to Basic CI Website Conversion</tutorial>
+        <tutorial name="ci-basic03">Basic CI to Good CI Website Conversion</tutorial>
     </week>
     <week num="4">
         <topic>Routing &amp; Templating</topic>         
@@ -180,13 +180,13 @@ Course organizer for Comp4711
     </week>
     <week num="yy">
         <topic>Other Frameworks (FYI)</topic>
-                <lesson name="basic01-other" icon="read" >Other MVC Framework Examples</lesson>
-                <lesson name="other-routing" icon="read">Routing examples from  other frameworks</lesson>
-                <lesson name="other-models" icon="read" >Model examples from  other frameworks</lesson>
-                <lesson name="other-controllers" icon="read" >Controller examples from other frameworks</lesson>
-                <lesson name="other-views" icon="read" >View examples from  other frameworks</lesson>
-                <lesson name="other-forms" icon="read" >Form examples from  other frameworks</lesson> 
-                <lesson name="other-rest" icon="read" >REST examples from  other frameworks</lesson> 
+        <lesson name="basic01-other" icon="read" >Other MVC Framework Examples</lesson>
+        <lesson name="other-routing" icon="read">Routing examples from  other frameworks</lesson>
+        <lesson name="other-models" icon="read" >Model examples from  other frameworks</lesson>
+        <lesson name="other-controllers" icon="read" >Controller examples from other frameworks</lesson>
+        <lesson name="other-views" icon="read" >View examples from  other frameworks</lesson>
+        <lesson name="other-forms" icon="read" >Form examples from  other frameworks</lesson> 
+        <lesson name="other-rest" icon="read" >REST examples from  other frameworks</lesson> 
     </week>
     <week num="xx">
         <topic>Supplementary Reading FYI</topic>

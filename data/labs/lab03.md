@@ -1,6 +1,6 @@
 
 #Lab #3 - Website Conversion
-COMP4711 - BCIT - Fall 2017
+COMP4711 - BCIT - Winter 2018
 
 ##Lab Goals
 
@@ -47,7 +47,7 @@ member.
 Submit a readme *text* file, or a submission comment, to the lab dropbox. 
 It should contain a link to your **team**'s github repository. 
 
-Due: this Sunday at 17:30.
+Due: Sunday at 17:30.
 
 ##Lab Marking Guideline
 
@@ -55,8 +55,8 @@ A marking rubric has been attached to the lab 3 dropboxes, similar to our
 first lab. The labs will be weighted equally in the marks worksheet,
 even if some of them have different raw scores because of their rubric.
 
-I will be looking at the features in your submitted webapp, to see if you
-succeeded at enhancing it per spec, in spite of the process; and I will
+We will be looking at the features in your submitted webapp, to see if you
+succeeded at enhancing it per spec, in spite of the process; and we will
 be looking at the repository, its forks, and commit history, to
 determine how well you followed the collaboration process.
 

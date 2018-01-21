@@ -58,8 +58,8 @@ select it, and then use the phpmyadmin "import" command, choosing
 			your MySQL password if you commit and push the project
 			as it sits. Oh no!!!!!</p>
 		<p>For now, <code>git ignore</code> the database configuration
-			file, <code>config/database.php</code>. I will override
-			that one file with settings that work on my system, for testing,
+			file, <code>config/database.php</code>. We will override
+			that one file with settings that work on our system, for testing,
 			and you will not be compromising security. Phew!
 		</p>
 		<p>Later in the course, I will show you how to securely have
