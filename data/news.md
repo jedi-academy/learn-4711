@@ -3,9 +3,6 @@ This week's lesson is an overview of CodeIgniter.
 I have also enabled the "Other frameworks" section in the organizer, with
 examples.
 
-A survey has been posted for any questions for me to address in class.
-The survey closes at 9pm Monday.
-
 This week's lab has been posted.
 
 **Week 2**  

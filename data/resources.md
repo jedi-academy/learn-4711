@@ -45,7 +45,8 @@
 [GIT](http://git-scm.com/downloads) Your GIT client and/or plugin  
 [GitKraken](https://www.gitkraken.com/) The new kid on the block  
 [SourceTree](https://www.sourcetreeapp.com/) GIT IDE for Windows or Mac  
-[GitHub Education](https://education.github.com/)  They even have a GitHub [cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf)
+[GitHub Education](https://education.github.com/)  They even have a GitHub [cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf)  
+[keep a changelog](http://keepachangelog.com/en/1.0.0/) Guidelines for sanity  
 
 ## Cheat Sheets
 [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)  
