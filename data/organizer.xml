@@ -23,7 +23,7 @@ Course organizer for Comp4711
         <lesson name="week02" icon="read" >Survey results - MVC &amp; workflow</lesson>
     </week>
     <week num="3">
-        <topic>CodeIgniter &amp; Controllers</topic>         
+        <topic>CodeIgniter Overview</topic>         
         <outcomes>1.2 (controllers), 3</outcomes>
         <inlab>#3 Website conversion</inlab>
         <lesson name="basic01-ci" icon="dothis">CodeIgniter Overview</lesson>
@@ -33,16 +33,16 @@ Course organizer for Comp4711
         <tutorial name="ci-basic03">Basic CI to Good CI Website Conversion</tutorial>
     </week>
     <week num="4">
-        <topic>Routing &amp; Templating</topic>         
+        <topic>Controllers &amp; Routing</topic>         
         <outcomes>1.2 (routing), 3</outcomes>
+        <inlab>#4 Working with controllers</inlab>
+        <lesson name="basic02" icon="dothis" survey="330037">CI Controllers</lesson>
+        <lesson name="basic06">Routing</lesson>
+        <lab name="lab04">Working With Controllers &amp; Routing</lab>
         <!--
-                <inlab>#4 Working with controllers</inlab>
-                <lesson name="basic02" icon="dothis">CI Controllers</lesson>
-                <lesson name="basic06">Routing</lesson>
-                <lesson name="week04" icon="read">Survey results - routing</lesson>
-                <lab name="lab04">Working With Controllers &amp; Routing</lab>
+                  <lesson name="week04" icon="read">Survey results - routing</lesson>
+           <tutorial name="ci-normal01">Controllers and Routing</tutorial>
         -->
-        <!--        <tutorial name="ci-normal01">Controllers and Routing</tutorial> -->
     </week>
     <week num="5">
         <topic>Models</topic>
@@ -71,6 +71,12 @@ Course organizer for Comp4711
                 <tutorial name="ci-todo05" >Help Wanted Page Features</tutorial>
         -->
     </week>
+    <week num="8">
+        <topic>Midterm exam week</topic>
+        <!--
+               <lab name="report">Investigative report</lab>
+        -->
+    </week>
     <week num="7">
         <topic>Forms Handling</topic>
         <outcomes>1.2 (views), 3</outcomes>
@@ -88,12 +94,6 @@ Course organizer for Comp4711
         <tutorial name="ci-todo09">Role-specific Maintenance List</tutorial>
         <tutorial name="ci-todo10">Todo Item Maintenance (finally)</tutorial>
         <tutorial name="ci-todo11">Polish the Item Maintenance</tutorial>
-        -->
-    </week>
-    <week num="8">
-        <topic>Midterm exam week</topic>
-        <!--
-               <lab name="report">Investigative report</lab>
         -->
     </week>
     <week num="9">

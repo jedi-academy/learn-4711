@@ -1,6 +1,6 @@
 
 #Lab #4 - Working With Controllers & Routing
-COMP4711 - BCIT - Fall 2017
+COMP4711 - BCIT - Winter 2018
 
 ##Lab Goals
 

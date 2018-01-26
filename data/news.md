@@ -1,18 +1,9 @@
-**Week 3**  
-This week's lesson is an overview of CodeIgniter.
-I have also enabled the "Other frameworks" section in the organizer, with
-examples.
+**Week 4**  
+This week, we take a closer look at CodeIgniter
+controllers and routing. The first lesson would suit
+reading ahead, and there is a survey for it if you have
+questions.
 
-This week's lab has been posted.
+This week's lab has also been posted.
 
-**Week 2**  
-There are two short presentations for week 2, which
-introduce the key concepts for MVC frameworks and collaborative workflow, respectively.
-The number of asterisks in a slide's title denote emphasis, based on previous
-student feedback.
-
-This week's lab is about collaborative workflow.
-
-**Week 1**  
-Welcome to COMP4711 :)
 
