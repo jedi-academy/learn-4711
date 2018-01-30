@@ -36,24 +36,18 @@ Course organizer for Comp4711
         <topic>Controllers &amp; Routing</topic>         
         <outcomes>1.2 (routing), 3</outcomes>
         <inlab>#4 Working with controllers</inlab>
-        <lesson name="basic02" icon="dothis" survey="330037">CI Controllers</lesson>
+        <lesson name="basic02" icon="dothis">CI Controllers</lesson>
         <lesson name="basic06">Routing</lesson>
         <lab name="lab04">Working With Controllers &amp; Routing</lab>
-        <!--
-                  <lesson name="week04" icon="read">Survey results - routing</lesson>
-           <tutorial name="ci-normal01">Controllers and Routing</tutorial>
-        -->
+        <lesson name="week04" icon="read">Survey results - signing</lesson>
     </week>
     <week num="5">
         <topic>Models</topic>
         <outcomes>1.2 (models), 3</outcomes>
-        <!--
-              <inlab>Assignment #1 completion</inlab>
-               <lesson name="basic03" icon="dothis">CodeIgniter Models (Practical)</lesson>
-               <lesson name="basic03-more" icon="dothis">Model Patterns (Concepts)</lesson>
-               <lesson name="week05" icon="read">Survey results - models</lesson>
-               <lesson name="basic68">Models in a Nutshell</lesson>
-        -->
+        <inlab>Assignment #1 completion</inlab>
+        <lesson name="basic03" icon="read">CodeIgniter Models (Practical)</lesson>
+        <lesson name="basic03-more" icon="read">Model Patterns (Concepts)</lesson>
+        <lesson name="basic68">Models in a Nutshell</lesson>
     </week>
     <week num="6">
         <topic>Views</topic>
@@ -158,8 +152,11 @@ Course organizer for Comp4711
     </week>
     <week num="aa">
         <topic>Assignments</topic>
+        <assignment name="assignment1">Basic Webapp DRAFT</assignment>
+        <assignment name="assignment1backstory">The Backstory DRAFT</assignment>
+        <assignment name="assignment1process">Process DRAFT</assignment>
+        <assignment name="assignment1features">Features DRAFT</assignment>
         <!--
-        <assignment name="assignment1">Basic Webapp</assignment>
         <assignment name="assignment1faq" icon="read" >Assignment 1 FAQ</assignment> 
         <assignment name="assignment2">Standalone Webapp</assignment>
         <assignment name="assignment2faq" icon="read" >Assignment 2 FAQ</assignment> 

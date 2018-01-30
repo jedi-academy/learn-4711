@@ -4,6 +4,10 @@ controllers and routing. The first lesson would suit
 reading ahead, and there is a survey for it if you have
 questions.
 
-This week's lab has also been posted.
+Lab 4 has been posted.
 
+The assignment 1 DRAFT has been posted, in the "Assignments" section of the organizer.
 
+**Week 5**
+Reading & presentation posted.  
+Lab will be spent completing the assignment.
