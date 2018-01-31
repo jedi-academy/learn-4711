@@ -269,9 +269,11 @@ segment "i" to the `Golf` controller
 - Add a routing rule to `config/routes.php`, which remaps any request with the 
 word "banana" in it, to the `Golf` controller, but using our own code
 
-        $route['bananas/rule'] = function($fruit,$verb) {
+        $route['bananas/rule'] = function() {
             return 'golf';
         };
+
+**Oops - there are no matches, so the closure function doesn't need parameters.**
 
 - Yes, this is lame, but my mind is not coming up with a good example
 that can be easily implemented
