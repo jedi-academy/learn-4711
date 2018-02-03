@@ -1,8 +1,6 @@
 #Assignment #1 - Backstory
 COMP4711 - BCIT - Winter 2018
 
-#DRAFT DRAFT DRAFT 
-
 #Backstory
 
 It is often a challenge to choose the right set of gear or accessories

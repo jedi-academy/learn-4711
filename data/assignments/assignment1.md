@@ -18,8 +18,6 @@ The techniques for applying these will be the subject of upcoming lessons and tu
 
 The purpose of this assignment #1 is to get the basic pieces of your webapp 
 in the correct places expected for a CodeIgniter webapp.
-It is to use a mock database, and present
-mock views (no business logic expected), just like in lab 3.
 
 The important thing here is to get the right pieces in the right places.
 You will add proper functionality "behind" the components in the next assignment.
@@ -34,3 +32,26 @@ and provides some examples to inspire you.
 expectations for the assignment.
 - The [features](/display/assignment/assignment1features) writeup explains the app
 features expected for this assignment.
+
+##Recipe
+
+Once you have read the supporting documents, here is a checklist for completing
+the assignment:
+
+- Setup your team
+    - captain, mates, D2L group, team repo, readme with team agreement
+- Plan your project
+    - accessorization scenario, models needed, view mockups
+- Choose your CI starter
+    - starter1 for no frills, starter2 adds base controller, starter3 adds base RDB model with CRUD, 
+        starter4 adds document model with CRUD (discussed in class this week)
+- Build your models
+    - categories, accessories, sets
+- Build your controllers
+    - welcome, catalog, info
+- Build your views
+    - template, common elements, set display, catalog list
+- Test like crazy
+    - take advantage of the test deployment server
+- Cleanup
+    - readme, changelog, commented code, cruft gone, all synched

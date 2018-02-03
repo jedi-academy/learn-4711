@@ -1,8 +1,6 @@
 #Assignment #1 - Process
 COMP4711 - BCIT - Winter 2018
 
-#DRAFT DRAFT DRAFT 
-
 #Process
 
 ##Assignment Teams
