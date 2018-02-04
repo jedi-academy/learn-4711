@@ -152,10 +152,10 @@ Course organizer for Comp4711
     </week>
     <week num="aa">
         <topic>Assignments</topic>
-        <assignment name="assignment1">Basic Webapp DRAFT</assignment>
-        <assignment name="assignment1backstory">The Backstory DRAFT</assignment>
-        <assignment name="assignment1process">Process DRAFT</assignment>
-        <assignment name="assignment1features">Features DRAFT</assignment>
+        <assignment name="assignment1">Basic Webapp</assignment>
+        <assignment name="assignment1backstory">The Backstory</assignment>
+        <assignment name="assignment1process">Process</assignment>
+        <assignment name="assignment1features">Features</assignment>
         <!--
         <assignment name="assignment1faq" icon="read" >Assignment 1 FAQ</assignment> 
         <assignment name="assignment2">Standalone Webapp</assignment>
