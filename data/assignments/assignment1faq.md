@@ -54,3 +54,70 @@ collection
 - yes, I am sorry it is so simple
 - yes, the same works if your model extends RDB_Model and is backed by an RDB
 - Seriously? seriously.
+
+## How why do we set up a webhook? Why do we want to?
+
+The captains are sending me an email with their team name, and I respond with
+a password for the test deployment server.
+
+Open the [test deployment server](https://bling.jlparry.com/) in your browser.
+You will see a list of the potential teams, with github avatars for those
+who have setup their account.
+
+The top navbar has three links: 
+- home (clicking on the site name), 
+- help (the question mark icon), which may contain useful info at some point
+- login (the "enter" icon), which is where you login using your team name
+and the password I provided in my email response to the captain
+
+Once logged in, your team name is shown to the left of the help icon in the
+navbar. Clicking it brings you to your configuration settings.
+
+Provide your "organization" and "repository" names. Leave the "branch to deploy" at "develop"
+and don't worry about an "external website".
+
+Note the [endpoint link](https://deployer.jlparry.com/please) at the top of this settings form.
+You need to configure a webhook in your team repo for this.
+
+- Open your team repo on github
+- Choose the "Settings" tab in the repo navbar
+- Choose the "Webhooks" link in the left sidebar
+- Click the "Add webhook" button
+- in the webhook settings, use the above endpoint link as the "Payload URL" for this webhook,
+choose "application/json" as the content type, select individual events "push" and "pull request"
+(for merges)
+- save or update your settings
+
+Open your webhook settings again, and scroll to the bottom - you will see "recent deliveries", most recent at the top.
+There should be one, the "ping" sent when you updated your settings.
+It will have a green checkmark to the left if your payload URL is valid.
+
+Click on the "response" tab to see the result from the test server.
+It should echo your org/repo name and then "Ok".
+If it doesn't, the test server doesn't recognize you.
+
+Fix things and you are good to go.
+
+###Why do you want to do this?
+
+Every time you push to your team repo, or merge a pull request, a notification
+will be sent to the test server, which will then pull the current version
+of your repo and deploy it as the URL xxx.jlparry.com, where "xxx" is your team name.
+
+Bam!
+
+Push or merge, and seconds later your site is deployed for testing :D
+You may want to delegate someone from the team (or the captain, since they have so
+little to do) to check all the possible pages and links on your site, to make sure
+you don't have any case sensitivity or other unexpected issues.
+
+Do you have to use this? Absolutely not!
+
+Using it runs the risk of exposing what your site looks like to the rest of the world,
+most specifically your classmates! They can't find out your repo from it,
+but it wouldn't be hard to track it down if the naming is obvious and if it forks the academy starter.
+
+This is just another tool you can use to test correct behavior of your app.
+
+Note: if we run your site and get any 404s (eg wrong filename case), each of them could
+cost you 20% of the assignment mark. Harsh, but these are preventable show-stoppers.
