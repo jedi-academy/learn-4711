@@ -1,93 +1,56 @@
 #Assignment #1 - FAQ
-COMP4711 - BCIT - Fall 2017
+COMP4711 - BCIT - Winter 2018
 
 ## Do we need a database?
 
-**No**. The data you work with will be 
-"mock data" that you create.
-
-There should be **no relational database** used for this assignment.
-I want to defer that discussion until we have addressed models and views
-in class and lab.
-
-Put even stronger, my marking script will not setup a database for your app
-to use!
-
-Looking forward, my plan is to not allow your apps to use a relational
-database at all!
+**No**. In fact, it is expressly not allowed :-/
 
 ## Is there a repository that you fork to start the project?  
 
-No.
+You *could* fork the [starter4](https://github.com/jedi-academy/CodeIgniter3.1-starter4) that I used for demo in class.
+If you do so, PLEASE rename your team repo ... having 20 "starter4" repos isn't helpful
+when we look at them.
 
-I suggest you create an empty team repo, and *download* either the CI starter2 
-or starter3 to add to it, like you did for lab 3.
+Alternately, you could download the starter and copy it into your empty project folder.
 
-I do not recommend forking any of the CI starters, but *if* you do, remember to rename them!
+Forking it has the advantage of being to take advantage of any updates to it, while
+copying it had the advantage of not being bound to it.
 
-You only need starter2 for assignment 1, but you will find starter3 adds MY_Model, 
-which *might* in assignment 2, depending on how the RDB strategy evolves.
+##How do we synchronize with the starter if we forked it?
 
-You don't *have* to use the template parser. You could use a third party templating engine
-or conventional views. Just remember that PHP script in your view files will cost you marks.
+Two choices:
 
-## How do we calculate distance between two airports?
+1) The captain could make a PR from the academy starter (forked by the team repo) into the develop branch of the team repo.
+This would all be done on github.
 
-Suggestion: http://www.geodatasource.com/developers/php
+2) Synch your team repo with the academy one.
+ 
+You already have remote aliases `origin` and `upstream`.
+Add one for the academy starter, for instance
 
-## How do we interpret the data fields from WACKY/info/...?
+    git add remote academy https://github.com/jedi-academy/CodeIgniter3.1-starter4.git
 
-###airlines ... 26 of them, corresponding to D2L groups
+Then, the captain would ...
 
-- id: unique identifier, corresponds to group name in D2L
-- base: airport identifier; your airline's base airport
-- dest1, dest2, dest3: airport identifiers; the only places you are allowed to fly to
+    git checkout develop
+    git merge academy master
+    git push upstream develop
+    git push origin develop
 
-###airports ... the BC airports with IATA codes; some have an airline based there
+And then the team members would resynch with the team repo.
 
-- id: unique identifier; referenced by other data
-- community: common name of the municipality where this airport is
-- airport: proper name of the airport
-- region: one of 9 regions in the province, per EnvBC; think of it like zones for future fare calcs
-- coordinates: latitude & longitude, encoded
-- runway: paved runway length, in metres
-- airline: identifier of airline based at this airport
+##How do we use CSV_Model?
 
-###airplanes ... a hand-picked set of airplanes you are allowed to buy for your fleet
+I have updated the readme in the starter4 repo, with a bit of an explanation.
 
-- id: unique identifier, within allowed types
-- manufacturer: who makes this
-- model: manufacturer model code or description
-- price: airplane cost, in $ thousands
-- seats: # of passenger seats
-- reach: airplane flight range, in kms
-- cruise: average cruising speed, in kph
-- takeoff: minimum runway length needed, in metres
-- hourly: hourly operating cost, in $
-
-##Getting model data
-
-Q: Do i need to provide functions for retrieving individual flights and airplanes from the fleet?
-
-A: If your models are patterned after the Quotes model from lab 4, that has all() & get() methods to retrieve individual collection elements.
-
-##Controller types
-
-Q: in some of the labs we extended Application as opposed to CI_Controller, what is the difference between the two?
-
-A: A controller extending Application is a "normal" one, i.e. intended to return a 
-webpage using view templating. A controller extending CI_Controller is anything else, 
-i.e. a controller not intended to return a webpage
-
-##RESTish controller methods
-
-Q:  I'm reading the requirements and it says that info should be a controller with subcontrollers for airplanes that return the data as JSON.
-
-In the notes it says that "index() is the default handler and other public methods 
-are treated as subcontrollers".  Does this mean that under the Info controller, 
-I should have methods for `fleet()` and `flights()`and so forth?  
-
-A: Yes
-
-In the case of the RESTish controller for the assignment, that controller's index() 
-method is not used. I would have it return a "403" kind of message, i.e. not allowed on its own
+If you have a `class Fruits` that `extends CSV_Model`...
+- you never call its `load()` method ... that is done automatically
+when the model is loaded
+- you never call its `store()` method ... that is done automatically
+any time the model is changed through one of its mutator methods
+- what you do do is call the `DataMapper` methods that it implements,
+to get stuff our of its collection or to modify or add stuff to the
+collection
+- yes, I am sorry it is so simple
+- yes, the same works if your model extends RDB_Model and is backed by an RDB
+- Seriously? seriously.

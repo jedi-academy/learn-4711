@@ -1,3 +1,13 @@
+**Assignment 1**
+
+I have updated the starter4 repo ... actually removed some code that should
+have been experimental (I got carried away, sorry).
+
+I added an assignment FAQ, in the "assignments" tab below,
+with more notes about using models.
+
+Webhook setup coming very shortly.
+
 **Week 5**
 Reading & presentation posted. I will be talking about models in class, 
 and lab will be spent completing the assignment.
