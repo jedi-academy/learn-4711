@@ -1,10 +1,14 @@
+**Week 6**  
+Reading & presentation posted. 
+Next week's lab will be posted after the assignment deadline.
+
 **Assignment 1**
 
 I have updated the starter4 repo ... actually removed some code that should
 have been experimental (I got carried away, sorry).
 
-I added an assignment FAQ, in the "assignments" tab below,
-with more notes about using models.
+The assignment FAQ, in the "assignments" tab below,
+is being updated regularly, as more questions come in.
 
 
 **Week 5**
@@ -12,13 +16,3 @@ Reading & presentation posted. I will be talking about models in class,
 and lab will be spent completing the assignment.
 
 The assignment 1 writeup has been fleshed out.
-
-**Week 4**  
-This week, we take a closer look at CodeIgniter
-controllers and routing. The first lesson would suit
-reading ahead, and there is a survey for it if you have
-questions.
-
-Lab 4 has been posted.
-
-The assignment 1 DRAFT has been posted, in the "Assignments" section of the organizer.

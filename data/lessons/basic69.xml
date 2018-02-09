@@ -90,7 +90,7 @@ Views in a Nutshell
             <img class="scale" src="/pix/lessons/bob/cssmug.jpg"/>
         </div>
     </slide>
-
+<!--
     <slide title="What Else Do You Want to Know?" layout="normal">
         <div class="left">
             <ul>
@@ -106,5 +106,5 @@ Views in a Nutshell
             <img class="scale" src="/pix/lessons/bob/787576-gandalf.jpg"/>
         </div>
     </slide>
-
+-->
 </lesson>

@@ -52,11 +52,11 @@ Course organizer for Comp4711
     <week num="6">
         <topic>Views</topic>
         <outcomes>1.2 (views), 3</outcomes>
+        <inlab>#5 Views</inlab>
+        <lesson name="basic04-basics"  icon="read" >View Basics</lesson>
+        <github name="views" link="https://github.com/jedi-academy/example-views" >Examples to support "views" lessons</github> 
+        <lesson name="basic69">Views in a Nutshell</lesson>
         <!--
-                <inlab>#5 Views</inlab>
-                <lesson name="basic04-basics"  icon="dothis" >View Basics</lesson>
-                <github name="views" link="https://github.com/jedi-academy/example-views" >Examples to support "views" lessons</github> 
-                <lesson name="basic69">Views in a Nutshell</lesson>
                 <lesson name="week06" icon="read" >Survey results</lesson>
                 <lab name="lab05" >Todo List Manager</lab>
                 <tutorial name="ci-todo01" >Database and models</tutorial>
