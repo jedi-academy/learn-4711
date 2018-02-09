@@ -273,3 +273,13 @@ a single line of code
 of reformatting PRs; it is not "real work" if you hit a three-finger combination
 (ctrl-alt-f) then commit, and expect your "contribution" of hundreds or thousands of lines
 changed to be taken seriously.
+
+## Are we allow to use pure php functions for example, fgetcsv() to read csv file?
+
+You could.  
+You would then not need to use `CSV_Model`, which reads the CSV automatically when instantiated.  
+You might then need to extend `CI_Model` or `Memory_Model`, depending on your strategy.  
+You would only use something like `fgetcsv` inside a model.
+
+Bottom line: CI does not preclude the use of PHP functions, but **I** insist that
+these only be used where appropriate according to MVC.
