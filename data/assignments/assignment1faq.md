@@ -121,3 +121,70 @@ This is just another tool you can use to test correct behavior of your app.
 
 Note: if we run your site and get any 404s (eg wrong filename case), each of them could
 cost you 20% of the assignment mark. Harsh, but these are preventable show-stoppers.
+
+## Is there an easier way to visualize simple models?
+
+Use [relational notation](http://databasemanagement.wikia.com/wiki/Relational_Notation).
+In the examples below, I have added asterisks to "key fields", which would normally
+be underlined following the convention.
+
+For instance, the menu items described in the starter4 readme could be expressed as
+
+    MENUITEMS(id*,name,category,price)
+
+And a complete 3 model/table?
+
+    CATEGORIES(catid*,catname)
+    MENUITEMS(id*,name,category,price)
+    ORDER(orderid*,item*,menucode)
+
+And what would the data for that look like?
+
+categories.csv:
+
+    catid,catname
+    M,entrees
+    S,sides
+    D,drinks
+
+menuitems.csv:
+
+    id,name,category,price
+    BM,Big Mac,entree,5.25
+    MF,Medium fried,side,2.00
+    LF,Large fries,side,3.00
+
+orders.csv:
+
+    orderid,item,menucode
+    1,1,BM
+    1,2,MF
+    2,1,LF
+
+The above shows order #1 for a Big Mac & medium fries, and order #2 for a large fries.
+
+What if we want order properties - can we use four collections?
+
+Certainly, perhaps something like
+
+    CATEGORIES(catid*,catname)
+    MENUITEMS(id*,name,category,price)
+    ORDER(id*,name)
+    ORDERITEMS(orderid*,item*,menucode)
+
+And the order data for something like this could be...
+
+orders.csv:
+
+    id,name
+    1,Jim
+    2,George
+
+orderitems.csv:
+
+    orderid,item,menucode
+    1,1,BM
+    1,2,MF
+    2,1,LF
+
+This would tell us that Jim ordered a Big Mac & fries, and that George ordered a large fries.
