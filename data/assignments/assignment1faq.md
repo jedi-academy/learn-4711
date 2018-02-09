@@ -188,3 +188,88 @@ orderitems.csv:
     2,1,LF
 
 This would tell us that Jim ordered a Big Mac & fries, and that George ordered a large fries.
+
+## Is it fine for me to be accepting PRs of incomplete features?
+
+_The intent is that other contributors can see what is in progress, eg. how a controller is suppose to work with their view._
+
+As long as in-progress changes do not "break" a running app, that is fine. 
+Each set of changes should be a separate PR, however. 
+It is not like you are building the ultimate PR, and can accept it in stages.
+
+Real world (a): incomplete PRs would not be accepted. 
+Instead, anyone interested in their impact would follow the command line instructions 
+below the "merge" button, and clone the PR locally. 
+They would then comment on the PR, or they could even makes changes locally, 
+and "push" them to the PR - which would end up in the form of a PR itself, 
+to the branch the originator is working on :-/
+
+Real world (b): if something is going to take more than one PR, 
+then create a feature branch for it in the team repo, 
+and have members contribute PRs to that feature branch. 
+Only when the team level feature branch is complete would you merge the 
+feature branch into the main develop branch, all at the team level,
+and you would then delete the feature branch.
+
+## Is it mandatory to create "issues" for each problem in the team repo? 
+
+_We've decided what we need to do; therefore, didn't see much of a need to create the issues on github._
+
+Issues are not mandatory. It is a tool - it's up to the team whether to use it.
+
+Real world (a): Bug reports would benefit from being reported as "issues".
+If you are strict about that, then you can use "issues" as a
+quality control  analytic ... frequency of reporting, time to resolve, etc.
+
+Real world (b): if there are a bunch of work packages that have not been
+assigned, then issues are a great way to let the team know what needs doing,
+if they finish their current tasks early.
+
+## Should I reject PRs from contributors who do not update the changelog?
+
+_I've rejected PRs from contributor's because they keep forgetting to document 
+the changes to the changelog (if I accept the PRs without documented changelogs 
+I believe I lose marks as the captain?)_
+
+The answer depends on the strategy you have chosen...
+
+1) If you are using the changelog as a chronological record of work done,
+then yes it makes sense to have changelog updates as part of a PR.
+Hopefully, that would prevent trivial PRs (to boost ones commit count and apparent contribution).
+
+2) If you are using the changelog to highlight, by area, what is different from
+the previous "release", then it only needs updating if something is added
+to the project, or if something is modified for the first time.
+
+In both above cases, common sense should prevail. Fixing a typo in
+a comment hardly warrants a changelog entry, but renaming a controller
+definitely would.
+
+Will it cost you marks as captain if you don't? We are looking for good
+practices and consistency. If the changelog on submission looks good,
+we are not likely to drill into its history to see if fractions of
+a mark should be deducted. If the changelog is horrible, and all because
+of one teeny commit at the end, out of hundreds, we will likely judge its
+quality by its final state. Ouch! The good news - marks are shared by
+all team members (unless there is uneven contribution), so you get to
+share the "love" with your teammates :-/
+
+## How is contribution measured?
+
+The normal ways of measuring contribution:
+
+1) looking at the "contributors" page, where verified or recognized-by-github
+contributors are shown
+
+2) checking the commit history, looking for excessive or absent members; this
+is a good place to make sure commits are signed, too
+
+3) diving deeper into PRs or commits or members who seem to have an excess of
+small commits. Eg. 1: 200 lines added, 199 lines removed = net of 1 and not 399 units of work!
+Eg. 2: we will call BS on a 10 line change that is submitted as 10 commits, each one for
+a single line of code
+
+4) we pay special attention to members whose sole or major contribution consists
+of reformatting PRs; it is not "real work" if you hit a three-finger combination
+(ctrl-alt-f) then commit, and expect your "contribution" of hundreds or thousands of lines
+changed to be taken seriously.
