@@ -56,14 +56,12 @@ Course organizer for Comp4711
         <lesson name="basic04-basics"  icon="read" >View Basics</lesson>
         <github name="views" link="https://github.com/jedi-academy/example-views" >Examples to support "views" lessons</github> 
         <lesson name="basic69">Views in a Nutshell</lesson>
-        <!--
-                <lesson name="week06" icon="read" >Survey results</lesson>
-                <lab name="lab05" >Todo List Manager</lab>
-                <tutorial name="ci-todo01" >Database and models</tutorial>
-                <tutorial name="ci-todo02" >Homepage Features</tutorial>
-                <tutorial name="ci-todo03" >Ordered List Page Features</tutorial>
-                <tutorial name="ci-todo05" >Help Wanted Page Features</tutorial>
-        -->
+        <lab name="lab05" >Todo List Manager</lab>
+        <tutorial name="ci-todo01" >Database and models</tutorial>
+        <tutorial name="ci-todo02" >Homepage Features</tutorial>
+        <tutorial name="ci-todo03" >Ordered List Page Features</tutorial>
+        <tutorial name="ci-todo04" >Maintenance List</tutorial>
+        <tutorial name="ci-todo05" >Help Wanted Page Features</tutorial>
     </week>
     <week num="8">
         <topic>Midterm exam week</topic>
@@ -81,7 +79,6 @@ Course organizer for Comp4711
         <lesson name="week07" icon="read">Survey results</lesson>
         <lesson name="view-practices">View best practices?</lesson>
         <lab name="lab06">Building Out Our TODO List Manager</lab>
-        <tutorial name="ci-todo04" >Maintenance List</tutorial>
         <tutorial name="ci-todo06">Pagination</tutorial>
         <tutorial name="ci-todo07">User Roles</tutorial>
         <tutorial name="ci-todo08">Provide for Completing Work</tutorial>

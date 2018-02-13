@@ -1,6 +1,6 @@
 #Job 3 - Ordered List Page Features
 
-_Part of COMP4711 Lab 5, Fall 2017_
+_Part of COMP4711 Lab 5, Winter 2018_
 
 We want to present a two-column layout, with the left side showing
 tasks ordered by priority (high to low), and the right side showing
@@ -84,9 +84,6 @@ Fix this, and... ??
 
 <img class="scale" src="/pix/tutorials/todo/54.png"/>
 
-The two bits of text should be side by side, but I had issues with the CSS
-styling for that, and we may have to live with stacked.
-
 Having two panels in the layout is a natural case for having
 each panel rendered by a separate method in our controller.
 We have already extracted the complete list of tasks, and can pass that
@@ -159,7 +156,7 @@ brace:
             return 0;
     }
 
-inside `makePrioritizedPanel`, we can now perform this sort...
+inside `makePrioritizedPanel`, after extracting the undone tasks, we can now perform this sort...
 
     // order them by priority
     usort($undone, "orderByPriority");
@@ -191,7 +188,7 @@ you have seen over the last few weeks :) Your results should look something like
 #E. Flesh out the categorized view
 
 The categorized task panel can be handled very similarly, but let's put the logic
-inside out `Tasks` model, so you can see the difference.
+inside our `Tasks` model, so you can see the difference.
 
 Remember how the `makePrioritized` method was getting a bit long? Here is the 
 `makeCategorizedPanel` method, with the bulk of the logic inside a model...

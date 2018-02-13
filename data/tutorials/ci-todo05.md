@@ -1,5 +1,5 @@
 #Job 5 - Help Wanted Page Features
-_Part of COMP4711 Lab 5, Fall 2017_
+_Part of COMP4711 Lab 5, Winter 2018_
 
 We want to use a markdown file for the content of this page, 
 so that even a pointy-haired boss could

@@ -1,10 +1,6 @@
 #Views - Making the Maintenance page
 
-_Part of COMP4711 Lab 6, Fall 2017_
-
-<div class="alert alert-info">
-This assumes that you have completed lab 5!
-</div>
+_Part of COMP4711 Lab 5, Winter 2018_
 
 
 #Job 4 - Maintenance List
@@ -31,7 +27,7 @@ until mentioned, as they are inter-related.
 Copy `views/by_category.php` to `views/itemlist.php'. It is a good starting point.
 
 We should display "Status" instead of "Category", and we don't need a header.
-Reflecting these minor changes, your `itemlist` should look like:
+Reflecting on these minor changes, your `itemlist` should look like:
 
     <table class="table">
             <tr>
@@ -131,6 +127,10 @@ There is no change in the output, but it is being constructed differently.
 
 This change will let us choose a different item view template if
 the current user is allowed to make changes.
+
+Note: we are not **doing** any maintenance, but we have set the
+stage for it in the next lab. It is an excuse to explore
+a different view construction technique :)
 
 <div class="alert alert-info">
 Synch, commit, push, merge, synch ... you know the drill.

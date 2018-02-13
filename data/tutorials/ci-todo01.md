@@ -1,6 +1,6 @@
 #Job 1 - Database & Models
 
-_Part of COMP4711 Lab 5, Fall 2017_
+_Part of COMP4711 Lab 5, Winter 2018_
 
 <div class="alert alert-info">
 This assumes that you have already setup your team repo properly, per the lab writeup.
@@ -16,7 +16,7 @@ which you are already familiar with from COMP1536. If you would prefer to use or
 explore a different framework to achieve the same end, 
 [Foundation](http://foundation.zurb.com/) or 
 [Kube](https://imperavi.com/kube/)
-are acceptable alternatives. If you do that, however, I am not in a position to offer assistance.
+are acceptable alternatives. If you do that, however, we may not be in a position to offer assistance.
 
 ##Info: Sitemap
 

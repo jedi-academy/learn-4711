@@ -1,5 +1,5 @@
 #Lab #5 - Todo List (Working With Models & Views)  
-COMP4711 - BCIT - Fall 2017
+COMP4711 - BCIT - Winter 2018
 
 ##Lab Goals
 
@@ -16,7 +16,7 @@ with some task data to work with.
 It has a homepage with no real content, and disabled navbar links to additional
 pages that will be completed as part of this lab or the next.
 
-If curious, it was based on CodeIgniter3.1-starter3 from the Jedi Academy.
+If curious, it was based on CodeIgniter3.1-starter4 from the Jedi Academy.
 
 ##Lab Teams
 
@@ -58,7 +58,7 @@ up a github organization and repo, with suitable roles for the team
 members. I don't think you need more direction on this :-/
 
 Make sure that you merge your develop branch into your master at the end of the lab,
-so you can keep working on the webapp next week even if I haven't finished
+so you can keep working on the webapp next week even if we haven't finished
 with the lab 5 feedback.
 
 ##Github repository
@@ -76,12 +76,13 @@ to deal with each step.
 
 ##Starter repo notes
 
-The starter project for this lab has had significant changes made to its base
+Compared to previous labs, the starter project for this lab has had significant changes made to its base
 model classes, pursuant to what we talked about in class.
 The `MY_Model` class is now a reference implementation of the `DataMapper`
 interface, which has been extracted to its own source file.
-The intended class for you to use, for RDB persistence, would be
-`RDB_Model`.
+
+The intended class for you to use, for RDB persistence, would now be
+`RDB_Model` instead of MY_Model. **This is FYI, as we will not be using an RDB.**
 
 There is another implementation of that interface, `Memory_Model`, which
 does the same collection manipulation, but working with an in-memory array.
@@ -92,17 +93,11 @@ with this week is `CSV_Model`, which persists data as a CSV file.
 
 Over the weeks to come, we can add additional persistence subclasses as
 appropriate, for instance `XML_Model` or `JSON_Model`. Usage of these
-is the same, because of the shared `DataMapper` interface.
+will be the same, because of the shared `DataMapper` interface.
 
 The names above, apart from `MY_Model`, do not follow CodeIgniter naming
 conventions, but they are usable because they are pulled in from
 `MY_Model`, which does. 
-
-I mentioned substantial changes, right? That means that there could be bugs
-in the base model implementation. If so, I will correct the starter, and
-your team captain will need to resynch the team repo's master branch with
-the updated starter! That will then need to trickle down to the team
-member repos and your develop branch!
 
 One last change I made in the starter repo, was to add `application/models/App`,
 as a holder for the lookup codes used in the Todo list app. It has felt funny
@@ -116,7 +111,7 @@ team members for each.
 - [Job 1 - Database and models](/display/tutorial/ci-todo01)
 - [Job 2 - Homepage Features](/display/tutorial/ci-todo02)
 - [Job 3 - Ordered List Page Features](/display/tutorial/ci-todo03)
-- Job 4 - Maintenance Page Features -- deferred to next week
+- [Job 4 - Maintenance Page Prep](/display/tutorial/ci-todo04)
 - [Job 5 - Help Wanted Page Features](/display/tutorial/ci-todo05)
 
 

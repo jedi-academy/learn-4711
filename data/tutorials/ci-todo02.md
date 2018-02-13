@@ -1,6 +1,6 @@
 #Job 2 - Homepage Features
 
-_Part of COMP4711 Lab 5, Fall 2017_
+_Part of COMP4711 Lab 5, Winter 2018_
 
 <div class="alert alert-info">
 This assumes that you have already setup your repo and "database" properly, per Job 1.
@@ -26,21 +26,26 @@ Out-of-the-box, our base controller is setup for view templating:
 
     function render($template = 'template')
     {
+        $this->data['menubar'] = $this->parser->parse('_menubar', $this->config->item('menu_choices'),true);
         $this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
         $this->parser->parse('template', $this->data);
     }
 
 It provides for a layout, as a "$template" parameter. 
-Let's use that layout template parameter, defaulting to the value
+We will use that layout template parameter, defaulting to the value
 'template' if not expressly provided. The templating will be no different
 than the original, unless we over-ride the parameter in one of our
 controllers.
 
-Let us make our rendering more
+The supplied base controller also builds a navbar, using settings
+from `application/config/config.php`, similar to what you have seen
+in earlier labs.
+
+Let's make our rendering more
 flexible, by only using the 'pagebody' fragment if we haven't already
 built the content to used in a layout.
 
-These two enhancements will leave our base controller's `render`
+This enhancements will leave our base controller's `render`
 method looking like:
 
     function render($template = 'template')
@@ -105,8 +110,6 @@ Try it. You can play with the styling if you want the message to stand out more.
 
 <img class="scale" src="/pix/tutorials/todo/51.png"/>
 
-Note: the screenshot shows 14 remaining jobs, but I messed up the data a teeny bit
-and there are only 13 left :-/
  
 #C. Our homepage - details
 
