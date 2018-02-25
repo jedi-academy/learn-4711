@@ -1,3 +1,7 @@
+**FWIW
+
+Our [Jedi Academy](https://github.com/jedi-academy) has [competition](https://www.the-force-academy.com/en/)?
+
 **Week 6**  
 Reading & presentation posted. 
 This week's lab has been posted.
