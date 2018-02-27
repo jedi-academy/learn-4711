@@ -2,7 +2,7 @@
 <!--
 Lesson 06 - Helpers & Addons
 -->
-<lesson status="v1.1">
+<lesson status="v1.2">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <!-- Agenda -->
@@ -34,7 +34,7 @@ Lesson 06 - Helpers & Addons
             to your webapp's usecases. These include controllers,
             models and views, naturally. You have also used some helpers and 
             libraries, either built-in (such as the form validation library)
-            or added from other sources (such as the formfields helper).</p>
+            or added from other sources.</p>
         <p>In this lesson, we shall take a closer look at libraries and helpers,
             and at some of the other ways to build on the framework
             to make a better webapp.</p>
@@ -149,9 +149,9 @@ Lesson 06 - Helpers & Addons
                 or they can be autoloaded in <code>application/config/autoload.php</code>,
                 for instance <code>$autoload['libraries'] = array('parser');</code>.
             </p>
-            <p>Library functions are O-O.</p>
+            <p>Library "functions" are O-O.</p>
             <p>The image to the right shows the libraries built-in to CodeIgniter.
-                Some of the names show in blue - those use app-configured drivers
+                Some of the names show in blue - those have app-configured adapters
                 to do their thing using different tools, such as file or database
                 persistence for sessions.</p>
                 
@@ -568,6 +568,7 @@ Lesson 06 - Helpers & Addons
     </slide>
 
     <slide title="Gimme More!" layout="normal">
+        <div class="left">
         <p>Check the User Guide ...</p>
         <ul>
             <li>
@@ -580,6 +581,24 @@ Lesson 06 - Helpers & Addons
                 <a href="http://www.codeigniter.com/userguide3/libraries/loader.html" target="_blank">Packages</a>
             </li>
         </ul>
+       </div>
+        <div class="right">
+        <p>Outside of the framework itself ...</p>
+        <ul>
+            <li>
+                The CI forums, the CI wiki (big reader beware caution), Google, packageist.org, github.com
+            </li>
+            <li>
+                <a href="https://codecanyon.net/tags/codeigniter" target="_blank">CodeCanyon</a>
+            </li>
+            <li>
+                <a href="https://forum.codeigniter.com/forum-13.html" target="_blank">Suggestions on the forum</a>
+            </li>
+            <li>
+                <a href="https://github.com/codeigniter-id/awesome-codeigniter" target="_blank">curated list of addins</a>
+            </li>
+        </ul>
+       </div>
     </slide>
     
 </lesson>
