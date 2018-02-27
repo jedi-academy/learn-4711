@@ -391,7 +391,7 @@ Views - Form Handling
     </slide>
 
     <slide title="Data Transfer Buffer Example" layout="normal">
-        <p>In-class demo from the <a href="https://github.com/jedi-academy/wacky" target="_blank">deployment server</a>
+        <p>In-class demo from the <a href="https://github.com/jedi-academy/bling" target="_blank">deployment server</a>
             repository :)</p>
         <p>The Vault controller in this app demonstrates use of the data transfer buffer, 
             form validation, and error handling :)</p>

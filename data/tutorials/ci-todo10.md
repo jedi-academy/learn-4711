@@ -1,5 +1,5 @@
 #Building Out the TODO List
-_Part of COMP4711 Lab 6, Fall 2017_
+_Part of COMP4711 Lab 6, Fall 2018_
 
 #Job 10 - Task Item Maintenance (Finally)
 
@@ -71,7 +71,7 @@ Sorry!
 
 We need some rules for validating a task.
 
-Let's add some, in `models/Tasks.php':
+Let's add some, in `models/Tasks.php`:
 
 	// provide form validation rules
 	public function rules()
@@ -169,18 +169,6 @@ And the `views/itemedit.php` would be something like...
         {error}
 
 This isn't complete ... that is coming as Job 11!
-
-##Oops - found another bug in core/Memory_Model
-
-The `highest` method should look like:
-
-	// Determine the highest key used
-	function highest()
-	{
-		end($this->_data);
-		return key($this->_data);
-	}
-
 
 ##10.5 Handle form submission
 

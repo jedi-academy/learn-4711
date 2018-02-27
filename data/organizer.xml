@@ -63,20 +63,18 @@ Course organizer for Comp4711
         <tutorial name="ci-todo04" >Maintenance List</tutorial>
         <tutorial name="ci-todo05" >Help Wanted Page Features</tutorial>
     </week>
-    <week num="8">
+    <week num="7">
         <topic>Midterm exam week</topic>
         <!--
                <lab name="report">Investigative report</lab>
         -->
     </week>
-    <week num="7">
+    <week num="8">
         <topic>Forms Handling</topic>
         <outcomes>1.2 (views), 3</outcomes>
-        <!--
         <inlab>#6 Model CRUD</inlab>
-        <lesson name="basic04-forms" icon="dothis">Creating Forms</lesson>
-        <lesson name="basic04-handling" icon="dothis" survey="312548">Handling Form Data</lesson>
-        <lesson name="week07" icon="read">Survey results</lesson>
+        <lesson name="basic04-forms" >Creating Forms</lesson>
+        <lesson name="basic04-handling" >Handling Form Data</lesson>
         <lesson name="view-practices">View best practices?</lesson>
         <lab name="lab06">Building Out Our TODO List Manager</lab>
         <tutorial name="ci-todo06">Pagination</tutorial>
@@ -85,7 +83,6 @@ Course organizer for Comp4711
         <tutorial name="ci-todo09">Role-specific Maintenance List</tutorial>
         <tutorial name="ci-todo10">Todo Item Maintenance (finally)</tutorial>
         <tutorial name="ci-todo11">Polish the Item Maintenance</tutorial>
-        -->
     </week>
     <week num="9">
         <topic>Building on CodeIgniter</topic>

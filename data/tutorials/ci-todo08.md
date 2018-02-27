@@ -1,5 +1,5 @@
 #Building Out the TODO List
-_Part of COMP4711 Lab 6, Fall 2017_
+_Part of COMP4711 Lab 6, Fall 2018_
 
 #Job 8 - Provide for completing work
 
@@ -141,20 +141,6 @@ the complete `complete` method :-/
 
 
 Try it - switch between guest & owner, & try to complete a couple of items.
-
-<div class="alert alert-warning">
-Another chore: 
-</div>
-
-Line 161 of core/Memory_Model reads  
-
-		`$key = $data->{$this->_keyfield};`
-
-and it should read  
-
-		`$key = $record->{$this->_keyfield};`
-
-Oops :-/
 
 <div class="alert alert-info">
 Synch, commit, push, merge, synch ... you know the drill.

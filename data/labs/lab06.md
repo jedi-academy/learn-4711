@@ -1,5 +1,5 @@
 #Lab #6 - Building Out Our TODO List Manager
-COMP4711 - BCIT - Fall 2017
+COMP4711 - BCIT - Winter 2018
 
 ##Lab Goals
 
@@ -20,7 +20,7 @@ these practices :)
 
 ##Lab Teams & Repo
 
-Use the same "Lab 5" team as for the last lab.
+Use the same "Lab 5-7" team as for the last lab.
 
 ##Lab Submission
 
@@ -29,10 +29,10 @@ Your lab will result in an updated github repository for your team.
 Submit a readme *text* file, or a submission comment, to the lab dropbox. 
 It should contain a link to your **team**'s github repository. 
 
-Note: this is not a cloning URL, and I do not need links to the individual
+**Note:** this is not a cloning URL, and I do not need links to the individual
 team member repos.
 
-Due: Sunday Oct22 by 17:30.
+Due: Sunday Mar 4 by 17:30.
 
 ##Lab Marking Guideline
 
@@ -49,36 +49,11 @@ is "clean".
 At the end of the lab, you will merge *develop* into *master* again, to
 reflect the new deployable webapp state.
 
-##Chore - fix my Bootstrap mistake from lab 5
-
-Before diving in to this lab, there is one chore we need to take care of.
-
-In the secondary template used for lab 5, I asked you to use Bootstrap3
-attributes to style the categorized and prioritized lists into
-two columns. That didn't work very well, did it?
-
-The workaround for this is to use the proper Bootstrap2 attributes
-in our template:
-
-       <div class="span6">
-            {leftside}
-        </div>
-        <div class="span6">
-            {rightside}
-        </div>
-
-
-You *could* change the templates to use Bootstrap3, by pulling
-in the Bootstrap3 CSS and Javascript files from their CDN,
-and then adjusting the styling to suit that. The workaround above
-is easier for now!
-
 ##Your jobs
 
-There are seven small jobs to do to complete the lab. I suggest that you switch
+There are six small jobs to do to complete the lab. I suggest that you switch
 team members for each.
 
-- [Job 4 - Maintenance list](/display/tutorial/ci-todo04)
 - [Job 6 - Pagination](/display/tutorial/ci-todo06)
 - [Job 7 - User roles](/display/tutorial/ci-todo07)
 - [Job 8 - Add "completion" to the Homepage](/display/tutorial/ci-todo08)
@@ -90,12 +65,9 @@ Some of the jobs can be done in parallel, but you would end up
 with some team members familiar with some of the techniques but
 not all of them.
 
-Note: Job 5 was purposefully left out of the above list, since you completed
-it last week :)
+Note: a working version of this is deployed at https://todo.jlparry.com :-/
 
-Note 2: a working version of this is deployed at https://todo.jlparry.com :-/
-
-Note 3: The UX/UI for our item maintenance is pretty tragic,
+Note 2: The UX/UI for our item maintenance is pretty tragic,
 but our focus is on functionality.
 
 #Wrapup

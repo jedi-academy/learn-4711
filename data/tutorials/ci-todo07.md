@@ -1,6 +1,5 @@
-#Views - Making the Maintenance page
-
-_Part of COMP4711 Lab 6, Fall 2017_
+#Views - Making the Maintenance page  
+_Part of COMP4711 Lab 6, Fall 2018_
 
 #Job 7 - Simple User Roles
 
