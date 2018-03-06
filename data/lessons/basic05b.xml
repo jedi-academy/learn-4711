@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Lesson 06 - Helpers & Addons
+-->
+<lesson status="v1.3">
+    <!-- Activity metadata ... override anything from the course or organizer -->
+
+    <!-- Agenda -->
+    <slide title="Agenda" layout="normal">
+        <ol>
+            <li>
+                <a href="#{tag2}">Example Library - Caboose</a>
+            </li>
+            <li>
+                <a href="#{tag3}">Example Helper - Formfields</a>
+            </li>
+        </ol>
+    </slide>
+
+
+    <!-- Normal slides -->
+
+    <slide title="Caboose - a Sample CodeIgniter Library" layout="normal" tag="tag2">
+        <p>
+            <i>Here is an <b>example</b> library, to help your understanding.</i>
+        </p>
+        <p>Plain HTML doesn't cut it in your views :(</p>
+        <p>CSS frameworks improve presentation substantially :)</p>
+        <p>But ... they involve CSS, Javascript &amp; often initialization</p>
+        <p>
+            <b>Caboose</b> is a library that manages these frameworks &amp; widgets</p>
+        <p>For reference, you can find it inside a 
+            <a href="https://github.com/jedi-academy/package-caboose">github repository</a> :)
+        </p>
+    </slide>
+
+    <slide title="Frameworks &amp; Widgets" layout="normal">
+        <p>In the context of presentation, a framework is a complete set of 
+            CSS and/or Javascript files that provide styling and behaviour
+            for your webpages. Examples include 
+            <a href="http://getbootstrap.com/" target="_blank">BootStrap</a> or 
+            <a href="http://jquery.com/" target="_blank">jQuery</a>.</p>
+        <p>These can be deployed from a content distribution network
+            or as part of your webapp. If they are pervasive in your webapp,
+            you would normally add links to them in your master template,
+            so they are referenced on every page.</p>
+        <p>
+            <b>Caboose</b> solves the problem of managing the individual
+            add-on components, referred to as "widgets",
+            or frameworks that are only used on some of your pages.</p>
+    </slide>
+
+    <slide title="Caboose Perspective" layout="normal">
+        <p>What Caboose assumes to be a managed widget...</p>
+        <ul>
+            <li>Zero or more CSS files, to be included in your page's 
+                <code>&lt;head&gt;</code>
+            </li>
+            <li>Zero or more javascript files, to be included just before 
+                <code>&lt;/body&gt;</code>
+            </li>
+            <li>An optional component template, holding a javascript 
+                snippet needed to initialize the library/widget</li>
+        </ul>
+    </slide>
+
+    <slide title="Caboose Assumptions" layout="normal">
+        <p>Caboose assumes that you will store the bits and pieces for a
+            component in specific subfolders, <code>assets/css</code> and 
+            <code>assets/js</code> in your webapp's document root.</p>
+        <p>It further assumes that you will tailor any needed
+            widget initialization using a parser template inside your
+            <code>view/components</code> folder.</p>
+    </slide>
+
+    <slide title="Caboose Configuration" layout="normal">
+        <div class="left">
+            <p>Components recognized by Caboose are defined in its
+                <code>$components</code> array, using names of your choice.
+            </p>
+            <p>Each component name references an array of settings for that component.</p>
+            <p>
+                The <code>css</code> and <code>js</code> settings can themselves contain an array of filenames
+                to include, if appropriate.</p>
+        </div>
+        <div class="right">
+            <p>Configuration for a sample datepicker component:</p>
+            <code>
+                $components = array(<br/>
+&#160;&#160;...<br/>
+&#160;&#160;'time' =&gt; array(<br/>
+&#160;&#160;&#160;&#160;'css' =&gt; 'bootstrap-timepicker.css',<br/>
+&#160;&#160;&#160;&#160;'js' =&gt; 'bootstrap-timepicker.js',<br/>
+&#160;&#160;&#160;&#160;'template' =&gt; 'time'<br/>
+&#160;&#160;),<br/>
+                ...);                
+            </code>
+        </div>
+    </slide>
+
+    <slide title="Caboose Usage - Field Level" layout="normal">
+        <div class="left">
+            <p>Once the library is loaded, you basically tell it
+                whenever you need to use a component...<br/>
+                <code>$this-&gt;caboose-&gt;needed('whatever','fieldname');</code>
+            </p>
+            <p>"whatever" is the name of the widget, and "fieldname" is
+                the ID of a component to be bound to that widget.</p>
+            <p>The library will keep track of all of the widgets referenced,
+                and generate/accumulate the needed Javascript initialization
+                for each of them.</p>
+        </div>
+        <div class="right">
+            <p>An example, inside a controller method that will result
+                in a webpage with a datepicker that we want associated
+                with the input text field "asof_date":</p>
+            <code>
+                $this-&gt;caboose-&gt;needed('time','asof_date');
+            </code>
+        </div>
+    </slide>
+
+    <slide title="Caboose Usage - Page Level " layout="normal">
+        <div class="left">
+            <p>The Caboose class has three methods to return the constructed
+                HTML/Javascript. In my base controller's <code>render()</code>, 
+                I use these to set view parameters:</p>
+            <code>
+                // convert Caboose output into view parameters<br/>
+                $this-&gt;data['caboose_styles'] = $this-&gt;caboose-&gt;styles();<br/>
+                $this-&gt;data['caboose_scripts'] = $this-&gt;caboose-&gt;scripts();<br/>
+                $this-&gt;data['caboose_trailings'] = $this-&gt;caboose-&gt;trailings();
+            </code>
+        </div>
+        <div class="right">
+            <p>Inside my master template, I include those view parameters:</p>
+            <code>
+&lt;html&gt;<br/>
+&#160;&#160;&lt;head&gt;<br/>
+&#160;&#160;&#160;&#160;...<br/>
+&#160;&#160;&#160;&#160;{caboose_styles}<br/>
+&#160;&#160;&lt;/head&gt;<br/>
+&#160;&#160;&lt;body&gt;<br/>
+&#160;&#160;&#160;&#160;...<br/>
+&#160;&#160;&#160;&#160;{caboose_scripts}<br/>
+&#160;&#160;&#160;&#160;{caboose_trailings}<br/>
+&#160;&#160;&lt;/body&gt;<br/>
+&lt;/html&gt;
+            </code>
+        </div>
+    </slide>
+
+    <slide title="Caboose Notes" layout="normal">
+        <p>The Caboose library *is* a library, but there are
+            some awkward things you might have noticed:</p>
+        <ul>
+            <li>Configuration is done inside the class. Wouldn't it be 
+                better to handle this inside a config file?
+                That would make the library more generalized.</li>
+            <li>The library relies on some view fragments in
+                the <code>views</code> folder. This means we have
+                several places in our webapp to change :(</li>
+            <li>What if we wanted to store our assets somewhere 
+                other than in <code>assets</code>? Shouldn't
+                that be a variable, constant, or configuration item?</li>
+        </ul>
+        <p>Hmmmm - do you remember mention of something that would
+            let us bundle related classes, configuration and views?</p>
+    </slide>
+
+    <slide title="Formfields - a Sample CodeIgniter Helper" layout="normal" tag="tag3">
+        <p>The <b>Formfields</b> helper is a collection of functions, 
+            and corresponding view fragments, 
+            to deal with the styling of HTML form fields.</p>
+        <p>This helper was hinted at last week, and is actually
+            part of the Caboose package.</p>
+        <p>Each function builds a standard array of view parameters, and 
+            then invokes the template parser to style the form field for 
+            the CSS/JS framework(s) you are using.</p>
+        <p>So what? This adds a layer of abstraction, so that
+            you don't worry about form styling in your controller logic.
+            Further, should you wish to switch CSS or Javascript 
+            frameworks, all you have to do is update your set
+            of view fragments :)</p>
+    </slide>
+
+    <slide title="Formfields Usage" layout="normal">
+        <div class="left">
+            <p>How do we use a helper like this? In your controller,
+                you could construct the HTML for a given textfield
+                something like...</p>
+            <code>
+                $data['fuserid'] = makeTextField('Userid', "userid", <br/>
+&#160;&#160;&#160;&#160;$member-&gt;userid,<br/>
+&#160;&#160;&#160;&#160;"Login ID for this member", 10, 10);            
+            </code>
+        </div>
+        <div class="right">
+            <p>To use the result in your view, it might look something like...</p>
+            <code>
+&lt;fieldset id="group3"&gt;<br/>
+&#160;&#160;&lt;legend&gt;(b) Listing Details&lt;/legend&gt;<br/>
+&#160;&#160;{fuserid}<br/>
+&#160;&#160;{fbiz_email}<br/>
+&#160;&#160;{fxdesc_web}<br/>
+&lt;/fieldset&gt;            
+            </code>
+        </div>
+    </slide>
+
+    <slide title="Formfields Helper - So What?" layout="normal">
+        <p>Separated control logic from presentation</p>
+        <p>Our views are *much* simpler, and do not have to involve PHP,
+            Javascript, or customization!</p>
+        <p>Change the view fragments to suit the framework(s) you want 
+            to use (use the caboose, luke)</p>
+        <p>Add function/view fragment pairs to suit your application</p>
+    </slide>
+    
+</lesson>

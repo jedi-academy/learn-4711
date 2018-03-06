@@ -1,5 +1,5 @@
 #Lab #7 - Unit Testing for Our TODO List Manager
-COMP4711 - BCIT - Fall 2017
+COMP4711 - BCIT - Winter 2018
 
 ##Lab Goals
 
@@ -13,14 +13,14 @@ completing new work in feature branches (which are throwaway branches, named
 
 ##Lab Teams
 
-Use the same "Lab 5/6" team as for the last lab, unless you were a team of one.
+Use the same "Lab 5-7" team as for the last lab, unless you were a team of one.
 If the latter applies, you need to find a classmate who did not join
 a team for the last lab, or combine with an existing team of two.
 See me in lab if this applies to you.
 
 ##Lab Submission
 
-This lab will result in a github repository for your team, as well as one for each team
+This lab will result in an updated github repository for your team, as well as one for each team
 member. You are welcome to use the same repository as last lab, if you are building on it.
 
 Submit a readme *text* file, or a submission comment, to the lab dropbox. 
@@ -57,13 +57,26 @@ and persistent data, which will be our starting point..
 
 ##Your jobs
 
-1. Install composer on each team member's system ...
-https://getcomposer.org/doc/00-intro.md
-
-2. Install phpunit on each team member's system ...
+1. Install phpunit on each team member's system ...
 https://phpunit.de/manual/6.4/en/installation.html
 
-3. Build a Task entity class, with setter methods for each property.
+    If you use [composer](https://getcomposer.org/)
+    to install it, doing so inside a project lets you use a different
+    version of PHPUnit for different projects, while installing
+    the tool as a composer dependency in your user account gives
+    you the same version of PHPUnit for all your projects.
+
+    If the first case, you would run it as `vendor/phpunit` from your
+    project root, and in the latter, you would run it as `phpunit` 
+    from your project root :-/
+
+    If you are using a global PHPUnit instance, make sure it is compatible
+    with the version your lab instructor is running. Jim, for instance,
+    has version 6.1.3 installed. If you are using a project instance
+    of PHPUnit, make sure that is clear in your readme, so that
+    we do a composer update before testing your code.
+
+2. Build a Task entity class, with setter methods for each property.
 
     This class should have "magic" setters (`__set`), so that 
     you should not need to change anything else that uses tasks already :)
@@ -92,27 +105,48 @@ https://phpunit.de/manual/6.4/en/installation.html
             }
         }
 
-4. Add a `tests` folder to your repo. It will hold the unit test classes
+    The lab 5 starter has `application/core/Entity.php`, which might be useful as a starting point.
+
+    Note that PHP entity classes differ from JavaBeans: 
+    - in PHP, use a getter method if you want to over-ride the visibility
+    of an attribute (eg `getDateofbirth()` where the `dataofbirth` attribute is private), 
+    or to infer an attribute (eg `getAge()`, where the value returned is calculated from the date of birth)
+    - in PHP, you only need setters if you want to enforce some business or
+    validation rules; you can still assign values directly (eg `$customer->name = 'George');`,
+    but any setter method will be automatically invoked
+    - variable visibility rules still apply, so that a private attribute `$customer->name` can
+    only be referenced through a magic getter or setter, but not directly otherwise
+    - Java programmers: you are not in Kansas anymore!
+
+3. Add a `tests` folder to your repo. It will hold the unit test classes
 and a bootstrap file (`public/index.php` renamed to `Bootstrap.php`
 
-5. Add a `phpunit.xml.dist` to the root of your project ...
+4. Add a `phpunit.xml.dist` to the root of your project ...
 https://gist.github.com/slav123/554d0a4ce91c8a0a68fe
 
-6. Add a `TaskTest` class to verify that your task entity accepts
+5. Add a `TaskTest` class to verify that your task entity accepts
 property values that meet the form validation rules, and
 rejects ones that don't.
 
     See https://gist.github.com/slav123/f4014b4f3a6366de19eb for an example
 
-7. Add a `TaskListTest` class to verify that your collection of tasks
+    Translation: add setter methods for any property you want to apply a rule
+    to, and make sure that you have appropriate methods in your test case.
+
+6. Add a `TaskListTest` class to verify that your collection of tasks
 has more uncompleted tasks than completed ones. This is an arbitrary business rule
 which is an excuse to have more than one test.
 
-8. Make sure that you can run and pass the unit tests, and generate the code
+    Translation: add test case methods, with meaningful names, that do not
+    necessarily correspond one-to-one with object properties.
+
+7. Make sure that you can run and pass the unit tests, and generate the code
 coverage report, in a git ignored subfolder inside `tests`.
 
-9. Add a `travis-ci` configuration file to your repo, enabling unit tests
-as part of every PR submitted.
+8. Add a `travis-ci` configuration file to your repo, enabling unit tests
+as part of every PR submitted. You might want to check the
+[Travis CI Getting Started](https://docs.travis-ci.com/user/getting-started/) guide. 
+In fact, each team member should read this!
 
 #Enterprisey Patterns
 
