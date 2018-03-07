@@ -1,6 +1,8 @@
 **Week 9**  
 Materials & lab posted.
 
+Working on a unit testing tutorial. In-progress version is in place.
+
 **week 8**  
 Materials posted.
 

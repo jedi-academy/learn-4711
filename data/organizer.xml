@@ -90,6 +90,7 @@ Course organizer for Comp4711
         <lesson name="basic05">Building on CodeIgniter</lesson>
         <lesson name="basic05b"  icon="read">Example Library &amp; Helper</lesson>
         <lab name="lab07">Unit testing for our Todo list manager</lab>
+        <tutorial name="ci-unit">Unit Testing Primer</tutorial>
     </week>
     <week num="10">
         <topic>Representation Glue - XML &amp; JSON</topic>

@@ -1,6 +1,11 @@
 #Lab #7 - Unit Testing for Our TODO List Manager
 COMP4711 - BCIT - Winter 2018
 
+<div class="alert alert-info">
+    I have (or am in the middle of) put together a unit testing primer to help.
+    See the organizer.
+</div>
+
 ##Lab Goals
 
 The purpose of this lab is to add unit testing to our TODO List webapp.
@@ -55,57 +60,16 @@ is "clean".
 Your repository from last week should have role-based maintenance
 and persistent data, which will be our starting point..
 
+Install  [composer](https://getcomposer.org/)
+on each of your systems.
+
 ##Your jobs
 
-1. Install phpunit on each team member's system ...
-https://phpunit.de/manual/6.4/en/installation.html
-
-    If you use [composer](https://getcomposer.org/)
-    to install it, doing so inside a project lets you use a different
-    version of PHPUnit for different projects, while installing
-    the tool as a composer dependency in your user account gives
-    you the same version of PHPUnit for all your projects.
-
-    If the first case, you would run it as `vendor/phpunit` from your
-    project root, and in the latter, you would run it as `phpunit` 
-    from your project root :-/
-
-    If you are using a global PHPUnit instance, make sure it is compatible
-    with the version your lab instructor is running. Jim, for instance,
-    has version 6.1.3 installed. If you are using a project instance
-    of PHPUnit, make sure that is clear in your readme, so that
-    we do a composer update before testing your code.
+1. Install PHPUnit 6 in the project root. See the unit testing primer.
 
 2. Build a Task entity class, with setter methods for each property.
 
-    This class should have "magic" setters (`__set`), so that 
-    you should not need to change anything else that uses tasks already :)
-    This comes from http://php.net/manual/en/language.oop5.magic.php
-
-    Here is an example of this ...
-
-        class Entity extends CI_Model {
-
-            // If this class has a setProp method, use it, else modify the property directly
-            public function __set($key, $value) {
-                // if a set* method exists for this key, 
-                // use that method to insert this value. 
-                // For instance, setName(...) will be invoked by $object->name = ...
-                // and setLastName(...) for $object->last_name = 
-                $method = 'set' . str_replace(' ', '', ucwords(str_replace(['-', '_'], ' ', $key)));
-                if (method_exists($this, $method))
-                {
-                        $this->$method($value);
-                        return $this;
-                }
-
-                // Otherwise, just set the property value directly.
-                $this->$key = $value;
-                return $this;
-            }
-        }
-
-    The lab 5 starter has `application/core/Entity.php`, which might be useful as a starting point.
+     Again, see the unit testing primer!
 
     Note that PHP entity classes differ from JavaBeans: 
     - in PHP, use a getter method if you want to over-ride the visibility
@@ -121,14 +85,11 @@ https://phpunit.de/manual/6.4/en/installation.html
 3. Add a `tests` folder to your repo. It will hold the unit test classes
 and a bootstrap file (`public/index.php` renamed to `Bootstrap.php`
 
-4. Add a `phpunit.xml.dist` to the root of your project ...
-https://gist.github.com/slav123/554d0a4ce91c8a0a68fe
+4. Add a `phpunit.xml` to the root of your project ...
 
 5. Add a `TaskTest` class to verify that your task entity accepts
 property values that meet the form validation rules, and
 rejects ones that don't.
-
-    See https://gist.github.com/slav123/f4014b4f3a6366de19eb for an example
 
     Translation: add setter methods for any property you want to apply a rule
     to, and make sure that you have appropriate methods in your test case.
