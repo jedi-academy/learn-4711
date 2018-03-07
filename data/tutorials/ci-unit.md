@@ -75,11 +75,11 @@ appropriate to the kind of persistence you plan to use.
 Our basic entity model could be
 
     class Fruit extends Entity {
-        protected $id;
-        protected $name;
-        protected $color;
-        protected $weight;
-        protected $picker;
+	public $id;
+	public $name;
+	public $color;
+	public $weight;
+	public $picker;
     }
 
 Normally, we would expect that the `Fruitbowl` would hold a collection of
@@ -117,11 +117,11 @@ which we don't care about.
 Here is an enhanced version of our entity class, with some arbitrary rules:
 
     public class Fruit extends Entity {
-        protected $id;
-        protected $name;
-        protected $color;
-        protected $weight;
-        protected $picker;
+	public $id;
+	public $name;
+	public $color;
+	public $weight;
+	public $picker;
 
         // insist that an ID be present
         public function setId($value) {
