@@ -25,6 +25,45 @@ This tutorial demonstrates unit testing in a CodeIgniter webapp.
 The techniques used are not the only possible way to handle these,
 but they are reasonable, and should be familiar to Java programmers.
 
+<div class="alert alert-danger">
+Solved the problem with exceptions not being generated - it turns out that
+the PHP magic methods are only invoked if a property is not externally
+visible. Setting the property scope to "public" kinda hooped that.
+Setting the scope to "private" or "protected" will trigger the
+PHP magic setter, BUT we then need a magic getter too, inside `Entity`,
+shown below.
+
+Sorry for the confusion :'(
+</div>
+
+##The Entity class
+
+`application/core/Entity`, with the missing magic getter:
+
+    class Entity extends CI_Model {
+
+        // If this class has a setProp method, use it, else modify the property directly
+        public function __set($key, $value) {
+            $method = 'set' . str_replace(' ', '', ucwords(str_replace(['-', '_'], ' ', $key)));
+
+            if (method_exists($this, $method))
+            {
+                $this->$method($value);
+
+                return $this;
+            }
+
+            // Otherwise, just set the property value directly.
+            $this->$key = $value;
+
+            return $this;
+        }
+
+        public function __get($key) {
+            return $this->$key;
+        }
+    }
+
 ##Preparation - Composer
 
 This tutorial assumes that you have Composer installed,
@@ -117,40 +156,48 @@ which we don't care about.
 Here is an enhanced version of our entity class, with some arbitrary rules:
 
     public class Fruit extends Entity {
-	public $id;
-	public $name;
-	public $color;
-	public $weight;
-	public $picker;
+	protected $id;
+	protected $name;
+	protected $color;
+	protected $weight;
+	protected $picker;
 
-        // insist that an ID be present
-        public function setId($value) {
-            if (empty($value))
-                throw new Exception('An Id must have a value');
-        }
+    // insist that an ID be present
+    public function setId($value) {
+	if (empty($value))
+	    throw new InvalidArgumentException('An Id must have a value');
+	$this->id = $value;
+	return $this;
+    }
 
-        // insist that a Name be present and no longer than 30 characters
-        public function setName($value) {
-            if (empty($value))
-                throw new Exception('A Name cannot be empty');
-            if (strlen($value) > 30)
-                throw new Exception('A Name cannot be longer than 30 characters');
-        }
+    // insist that a Name be present and no longer than 30 characters
+    public function setName($value) {
+	if (empty($value))
+	    throw new Exception('A Name cannot be empty');
+	if (strlen($value) > 30)
+	    throw new Exception('A Name cannot be longer than 30 characters');
+	$this->name = $value;
+	return $this;
+    }
 
-        // insist that a Color be one of yellow, red or green
-        public function setColor($value) {
-            $allowed = ['yellow', 'red', 'green'];
-            if (! in_array($value, $allowed))
-                throw new Exception('A color must be one we like');
-        }
+    // insist that a Color be one of yellow, red or green
+    public function setColor($value) {
+	$allowed = ['yellow', 'red', 'green'];
+	if (!in_array($value, $allowed))
+	    throw new Exception('A color must be one we like');
+	$this->color = $value;
+	return $this;
+    }
 
-        // insist that a Weight be a positive number, and less than 1000 (grams)
-        public function setWeight($value) {
-            if (! is_numeric($value))
-                throw new Exception('Weight must be numeric');
-            if ($value > 1000)
-                throw new Exception('A fruit cannot weigh more than 1kg');
-        }
+    // insist that a Weight be a positive number, and less than 1000 (grams)
+    public function setWeight($value) {
+	if (!is_numeric($value))
+	    throw new Exception('Weight must be numeric');
+	if ($value > 1000)
+	    throw new Exception('A fruit cannot weigh more than 1kg');
+	$this->weight = $value;
+	return $this;
+    }
 
     }
 
@@ -197,7 +244,7 @@ resulting in something like
 There is some HTML shown before the test results - the output
 from the default controller. A proper approach would use
 the CI unit test support classes to avoid this, but
-no time to figure that out at the moment :(
+we don't want to worry about that for this lab :(
 
 ##Test the collection
 
@@ -300,6 +347,47 @@ enforcement is working as expected. If you combine those in one
 method, and the first test fails, then the second test won't be attempted.
 
 Here are some test methods that could be added:
+
+        function testSetup() {
+            $this->assertEquals(1, $this->item->id);
+            $this->assertEquals('Banana', $this->item->name);
+            $this->assertEquals('yellow', $this->item->color);
+            $this->assertEquals(100, $this->item->weight);
+        }
+
+        function testValidId() {
+            $expected = 123;
+            $this->item->id = $expected;
+            $this->assertEquals($expected, $this->item->id);
+        }
+
+        /**
+         * This is an alternate way to assert that an exception should occur
+         * @expectedException InvalidArgumentException
+         */
+        function testInvalidId() {
+    //	$this->expectException('InvalidArgumentException');
+            $this->item->id = null;
+        }
+
+        function testNamePresent() {
+            $expected = "George";
+            $this->item->name = $expected;
+            $this->assertEquals($expected, $this->item->name);
+        }
+
+        function testNameAbsent() {
+            $badvalue = "";
+            $this->expectException(Exception::class);
+            $this->item->name = $badvalue; // this should croak
+        }
+
+        function testNameTooLong() {
+            $badvalue = "George Paul John Ringo Henry Tom Dick";
+            $this->expectException('Exception');
+            $this->item->name = $badvalue; // this should croak
+        }
+
 
 
 Testing notes:
