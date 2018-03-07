@@ -194,7 +194,10 @@ resulting in something like
     Time: 27 ms, Memory: 4.00MB
     No tests executed!
 
-There is also some HTML shown, which I haven't figured out how to surpress yet :-/
+There is some HTML shown before the test results - the output
+from the default controller. A proper approach would use
+the CI unit test support classes to avoid this, but
+no time to figure that out at the moment :(
 
 ##Test the collection
 
@@ -284,6 +287,21 @@ Test the `Fruit` class with `tests/application/models/FruitTest`:
 
     }
 
+We need to add tests to enforce the same validation rules that
+form validation does, and perhaps then some.
+Why do we need this in addition to form validation? because data
+might come from different sources, and not just through the app's
+front-end.
+
+Add a separate method for each test done. For instance, that a property
+is present, and that it has a maximum length, it would be better
+to make a separate method for each, to prove that your rule
+enforcement is working as expected. If you combine those in one
+method, and the first test fails, then the second test won't be attempted.
+
+Here are some test methods that could be added:
+
+
 Testing notes:
 
 - the tests shown are just one way to test, and not necessarily the best or the most
@@ -293,6 +311,47 @@ but definitely want to know if the code blows up!
 
 Run the unit tests, and we should see...
 
-#Out of steam
+    ...
+    FAILURES!
+    Tests: 6, Assertions: 6, Failures: 5.
 
-Time for a hot toddy & bed; will pick this up in the morning!
+Hmm - we shouldn't see this! I have a bug in my tests to fix!!
+
+##Code Coverage
+
+Code coverage gives us assurance that all the sousrce code is being exercised 
+as part of unit testing. "Git ignore" the `tests/build` 
+folder, to keep the repo clean.
+
+You need to make sure that xdebug is installed for your PHP.
+
+We can trigger code coverage data collection with a `logging` configuration element
+in our PHPUnit configuration file, and trigger the reporting through
+additional directives there too, resulting in something like...
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <phpunit bootstrap="tests/Bootstrap.php"
+             backupGlobals="false"
+             colors="true"
+             convertErrorsToExceptions="true"
+             convertNoticesToExceptions="true"
+             convertWarningsToExceptions="true"
+             stopOnError="false"
+             stopOnFailure="false"
+             stopOnIncomplete="false"
+             stopOnSkipped="false"
+    >
+        <testsuites>
+            <testsuite name="My Test Suite">
+                <directory>./tests/application</directory>
+            </testsuite>
+        </testsuites>
+        <logging>
+            <log type="coverage-clover" target="build/logs/clover.xml"/>
+        </logging>
+    </phpunit>
+
+Note: the above isn't working properly, and my cold is fogging my thinking,
+making it super awkward to figure out why.
+
+I will return to this once feeling better, sorry.
