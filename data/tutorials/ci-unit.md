@@ -407,15 +407,25 @@ Hmm - we shouldn't see this! I have a bug in my tests to fix!!
 
 ##Code Coverage
 
-Code coverage gives us assurance that all the sousrce code is being exercised 
-as part of unit testing. "Git ignore" the `tests/build` 
+**Note**: I forgot about this after I was feeling somewhat better :-/
+Fixed now!
+
+Code coverage gives us assurance that all the source code is being exercised 
+as part of unit testing. "Git ignore" the `tests/coverage` 
 folder, to keep the repo clean.
 
 You need to make sure that xdebug is installed for your PHP.
 
-We can trigger code coverage data collection with a `logging` configuration element
-in our PHPUnit configuration file, and trigger the reporting through
-additional directives there too, resulting in something like...
+Apart from that, we need a `whitelist` element in our `phpunit.xml`,
+to specify which parts of our app we want code coverage for.
+
+We trigger code coverage with a `logging` element, providing for
+logging code coverage data and then generating the report(s).
+
+All will end up inside the `tests/coverage` folder, which I suggested
+git ignoring above, so you don't inflict this on your teamnmates.
+
+The resulting `phpunit.xml` would look like...
 
     <?xml version="1.0" encoding="UTF-8"?>
     <phpunit bootstrap="tests/Bootstrap.php"
@@ -434,12 +444,30 @@ additional directives there too, resulting in something like...
                 <directory>./tests/application</directory>
             </testsuite>
         </testsuites>
+        <filter>
+            <whitelist processUncoveredFilesFromWhitelist="true">
+                <directory suffix=".php">application/models</directory>
+            </whitelist>
+        </filter>
         <logging>
-            <log type="coverage-clover" target="build/logs/clover.xml"/>
+            <log type="coverage-clover" target="tests/coverage/clover.xml"/>
+            <log type="coverage-html" target="tests/coverage/report" lowUpperBound="35" highLowerBound="70"/>
+             <log type="coverage-text" target="tests/coverage/coverage.txt" showUncoveredFiles="false"/>
         </logging>
     </phpunit>
 
-Note: the above isn't working properly, and my cold is fogging my thinking,
-making it super awkward to figure out why.
+Code coverage will be determined every time you unit test. Try it out! 
+You should see results along the lines of ...
 
-I will return to this once feeling better, sorry.
+    PHPUnit 6.1.3 by Sebastian Bergmann and contributors.
+
+    ....................                                              20 / 20 (100%)
+
+    Time: 222 ms, Memory: 12.00MB
+
+    OK (20 tests, 27 assertions)
+
+    Generating code coverage report in Clover XML format ... done
+
+    Generating code coverage report in HTML format ... done
+
