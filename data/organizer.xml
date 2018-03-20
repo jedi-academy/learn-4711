@@ -95,12 +95,11 @@ Course organizer for Comp4711
     <week num="10">
         <topic>Representation Glue - XML &amp; JSON</topic>
         <outcomes>2.1</outcomes>
-        <!--
-              <lesson name="data01" icon="dothis" >X M L</lesson>
-               <lesson name="data02"  icon="dothis" >J S O N</lesson>
-               <github name="xml" link="https://github.com/jedi-academy/example-xml">XML Examples</github>
-               <github name="dataglue" link="https://github.com/jedi-academy/example-glue-data">Processing XML &amp; JSON (W.I.P.)</github>
-        -->
+        <lesson name="data01" >X M L</lesson>
+        <lesson name="data02" >J S O N</lesson>
+        <github name="xml" link="https://github.com/jedi-academy/example-xml">XML Examples</github>
+        <github name="dataglue" link="https://github.com/jedi-academy/example-glue-data">Processing XML &amp; JSON (W.I.P.)</github>
+        <lab name="lab08">A Taste of XML</lab>
     </week>
     <week num="11">
         <topic>Transport Glue - HTTP</topic>
@@ -108,7 +107,6 @@ Course organizer for Comp4711
         <!--
               <lesson name="net01" icon="dothis">Transport Glue</lesson>
                <github name="example-simplexml" link="https://github.com/jedi-academy/example-simplexml-winter2016" >SimpleXML Examples</github>
-               <lab name="lab08">A Taste of XML</lab>
         -->
     </week>
     <week num="12">
@@ -176,18 +174,19 @@ Course organizer for Comp4711
         <lesson name="other-rest" icon="read" >REST examples from  other frameworks</lesson> 
     </week>
     <week num="xx">
-        <topic>Supplementary Reading FYI</topic>
+        <topic>Supplementary Reading (FYI)</topic>
+        <lesson name="unit-testing" icon="read">More about unit testing</lesson>
+        <lesson name="basic07" icon="read">Advanced Routing</lesson>
+        <lesson name="basic04-leftovers"  icon="read">Other Form Techniques</lesson>
+        <lesson name="xml01"  icon="read">XML Basics (Optional Refresher)</lesson>
+        <lesson name="xml02"  icon="read">Constraining XML (Optional)</lesson>
+        <lesson name="xml04" icon="read">Data Representation Conversions</lesson>
+        <lesson name="net02"  icon="read">Emitting HTTP requests</lesson>
+        <lesson name="advanced02"  icon="read">XML-RPC</lesson>
+        <github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" >XML-RPC Examples</github>
+        <lesson name="advanced04" icon="read">AJAX</lesson>
         <!--
-                <lesson name="basic07" icon="read">Advanced Routing</lesson>
-                <lesson name="basic04-leftovers"  icon="read">Other Form Techniques</lesson>
-                <lesson name="xml01"  icon="read">XML Basics (Optional Refresher)</lesson>
-                <lesson name="xml02"  icon="read">Constraining XML (Optional)</lesson>
-                <lesson name="xml04" icon="read">Data Representation Conversions</lesson>
-                <lesson name="net02"  icon="read">Emitting HTTP requests</lesson>
-                <lesson name="advanced02"  icon="read">XML-RPC</lesson>
-                <github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" >XML-RPC Examples</github>
-                <lesson name="advanced04" icon="read">AJAX</lesson>
-                <lesson name="future" icon="readme">Jim's Crystal Ball</lesson>
+        <lesson name="future" icon="readme">Jim's Crystal Ball</lesson>
         -->
     </week>
 </organizer>
