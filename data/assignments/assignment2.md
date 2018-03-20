@@ -1,23 +1,23 @@
-#Assignment #2 - Standalone Webapp for WACKY
-COMP4711 - BCIT - Fall 2017
+#Assignment #2 - Completed Accessorize Webapp 
+COMP4711 - BCIT - Winter 2018
 
-##Assignment Overview & Goals - Own Flight Booking
+##Assignment Overview & Goals - Accessorize
 
 The purpose of the assignments, collectively, is to let you apply the techniques 
 from the lessons and tutorials.
 As previously decribed, you are building a small but complete webapp, 
-in our case to manage flight schedules for a regional airline.
+in our case to accessorize the gear for a person or vehicle.
 Refer to assignment one for business logic descriptions.
 
-The purpose of this assignment (#2) is to add functionality to the mockup pieces
-from assignment #1, using real (not mock) data persistance and connecting to the
-[WACKY server](https://wacky.jlparry.com/) for live data.
+The purpose of this assignment (#2) is to add functionality to the "mockup" pieces
+from assignment #1, using real (not mock) data persistance and 
+fleshing out the usecases.
 
 The tasks for this assignment are to build:
-- proper entity models for your fleet and flights
+- proper entity models for your categories, accessories, and sets of gear
 - unit testing for these, invoked through continuous integration
 - role-based maintenance for these
-- flight search capability, for your flights only
+- role-bases customization of a set of gear
 
 #Process
 
@@ -44,7 +44,7 @@ Your assignment will result in a team repository on Github.
 Your dropbox submission should be or include a link to your team's repository
 (not its cloning URL).
 
-Due date: Sunday Nov 12, 23:30.
+Due date: Sunday Apr 8, 23:30.
 
 ###Assignment Marking Guideline
 
@@ -60,30 +60,32 @@ type (controllers, models, etc).
 #Features
 
 From assignment 1, you have a target theme, layout and planned MVC components.
-You should stick with those, unless otherwise suggested by us in the assignment 1 feedback.
+You could stick with those, if they make sense for the usecases.
+If in doubt, ask your lab instructor.
 
 The subsections here address your data, and then each of your usecases (pages).
 
 ##Your Data
 
-You have provided mock data for assignment 1. 
-Create CSV files for your data, in your project's `data` folder.
-This folder will need to be world-writeable (suggested permissions of 755).
-Use the core models from lab 5/6 for persistence.
+Stuff gets "real" now. You need models for categories, not hard-coded categories.
+You need accessories that belong to each category.
+You need sets of gear, namely a group of accessories, at most one from each category.
+Some might be pre-built, for testing convenience, but they need to be customizable.
 
-The data files will be the initial state of your app's data for testing,
-and will be replaced from your repository each time you deploy.
-Be careful of this when you are testing locally, as any local changes
-will be pushed to the repository unless you `git ignore` the data folder.
+Each accessory will need its own image, the name of which is a property of an accessory,
+so that you can re-construct the appearance of any set, not through pre-rendered
+images.
 
-It might be a good idea for all team members, except the one "in charge"
-of the data, to git ignore their local data folder. I am not sure
-if this will work as expected - we might have to experiment.
+Your data must be in a folder inside your project but outside of `public`.
+Your images should be in a subfolder inside `public`, though it is possible to
+hide them outside it for security.
 
-The W.A.C. "live" data to use (airport codes, etc) will be retrieved from the 
-[WACKY server](https://wacky.jlparry.com), 
-per the "API writeup" accessed through the question mark link, on the top right of
-the WACKY server navbar.
+If you want to have a known set of data for testing, it might be an idea
+to keep a copy of that separate from the "real data". The "real data" folder would be git ignored,
+while the "test data" folder would be explicitly part of your git-managed
+repo.
+
+
 
 ##Models
 
@@ -98,16 +100,7 @@ The entity models will be similar to what you build for lab 7.
 Business rules to enforce, for entities, are the same as for assignment 1, with the clarification
 that **recognized airplanes** are ones in the data from the WACKY server.
 
-<div class="alert alert-success">
-I am working on a [CodeIgniter3.1-starter4](https://github.com/jedi-academy/CodeIgniter3.1-starter4) repo, 
-which provides an Entity model
-base class, and updates the collection classes to use one if they are
-appropriately configured. Consider this experimental, but it
-should prove informative in any case.
 
-I would not suggest cloning ot forking this repo, but instead looking at its
-`core` folder for helpful stuff.
-</div>
 
 ##User Roles
 
