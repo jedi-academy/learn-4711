@@ -98,14 +98,15 @@ Course organizer for Comp4711
         <lesson name="data01" >X M L</lesson>
         <lesson name="data02" >J S O N</lesson>
         <github name="xml" link="https://github.com/jedi-academy/example-xml">XML Examples</github>
+        <github name="example-simplexml" link="https://github.com/jedi-academy/example-simplexml-winter2016" >SimpleXML Examples</github>
         <lab name="lab08">A Taste of XML</lab>
+        <lab name="lab08faq">Helpful notes for the lab</lab>
     </week>
     <week num="11">
         <topic>Transport Glue - HTTP</topic>
         <outcomes>2.1, 2.2</outcomes>
         <!--
               <lesson name="net01" icon="dothis">Transport Glue</lesson>
-               <github name="example-simplexml" link="https://github.com/jedi-academy/example-simplexml-winter2016" >SimpleXML Examples</github>
         -->
     </week>
     <week num="12">
