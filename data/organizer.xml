@@ -148,8 +148,8 @@ Course organizer for Comp4711
         <assignment name="assignment1process">Process</assignment>
         <assignment name="assignment1features">Features</assignment>
         <assignment name="assignment1faq" icon="read" >Assignment 1 FAQ</assignment> 
-        <!--
         <assignment name="assignment2">Completed Webapp</assignment>
+        <!--
         <assignment name="assignment2faq" icon="read" >Assignment 2 FAQ</assignment> 
         <assignment name="assignment3">Distributed Webapp</assignment> -->
         -->

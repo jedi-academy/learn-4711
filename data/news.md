@@ -1,3 +1,8 @@
+**Assignment 2**  
+A draft of assignment 2 has been posted, in the "assignments" section 
+of the organizer. Please take a gander, and let me know if anything needs clarifying,
+thanks.
+
 **Week 10**  
 Week 10 materials & lab 8 posted.
 
