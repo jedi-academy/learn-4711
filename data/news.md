@@ -1,7 +1,11 @@
+**Week 11**  
+Ready to roll :)
+
 **Assignment 2**  
 A draft of assignment 2 has been posted, in the "assignments" section 
-of the organizer. Please take a gander, and let me know if anything needs clarifying,
-thanks.
+of the organizer. 
+
+There being no questions, consider the draft finalized.
 
 **Week 10**  
 Week 10 materials & lab 8 posted.

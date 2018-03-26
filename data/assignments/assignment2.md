@@ -1,8 +1,6 @@
 #Assignment #2 - Completed Accessorize Webapp 
 COMP4711 
 
-#D R A F T ... questions to me, please!
-
 ##Assignment Overview & Goals - Accessorize
 
 The purpose of the assignments, collectively, is to let you apply the techniques 
