@@ -152,7 +152,7 @@ to above with the notion of a "set of gear" model.
 ##Sessions
 
 You will need sessions enabled, to store your data transfer buffers
-for maintenance and for flight booking data.
+for maintenance.
 
 Use file-based sessions, and configure yours to use `/tmp` as the writeable
 folder. You may have to create this on your system, and you will
