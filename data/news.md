@@ -1,24 +1,13 @@
-**Week 11**  
-Ready to roll :)
+**Week 12**  
+The material was posted last week. No changes.
 
-**Assignment 2**  
-A draft of assignment 2 has been posted, in the "assignments" section 
-of the organizer. 
+Lab period this week will be used to help you work on your assignment.
 
-There being no questions, consider the draft finalized.
+**Week 13** 
+Next week, I plan to say a few words about authentication, and provide a review.
 
-**Week 10**  
-Week 10 materials & lab 8 posted.
+Of potential interest, I link to some tutorial material on building a RESTful
+client & server, with role-based-access-control. This is optional!
 
-I added some notes about unit testing, in the supplementary section of the
-organizer, for those interested.
-
-**Planning**  
-Lab 8 will be the last "regular" lab.  
-We will spend the next two weeks helping you with assignment 2.
-Its writeup is in draft form, and should be finalized tonight.  
-Week 13 will have lab to address questions you have, in particular
-about last term's final exam.
-
-There have been a few questions come up about this week's lab, and I have collected
-them in a `lab08faq     ` in the week 10 section of the organizer.
+I suggest that you try last term's final exam, for practice, and ask for any
+needed clarificaiton during the lab period.
