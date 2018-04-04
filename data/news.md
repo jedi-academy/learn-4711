@@ -1,3 +1,8 @@
+
+Note: I fixed the link for the authentication tutorial, part of week 13, for those interested.
+
+The REST lab is an EXAMPLE only, for those students interested. Nothing has to be handed in!
+
 **Week 12**  
 The material was posted last week. No changes.
 
