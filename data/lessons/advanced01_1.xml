@@ -2,7 +2,7 @@
 <!--
 Lesson 10 - Role-Based Access Control
 -->
-<lesson status="1.1">
+<lesson status="1.2">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <slide title="Role-Based Access Control..." layout="normal" >
@@ -15,6 +15,7 @@ Lesson 10 - Role-Based Access Control
         <p>Role-Based Access Control is the most common technique 
             to secure access to different parts of a webapp.
         </p>
+        <p></p>
     </slide>
 
     <!-- Agenda -->
@@ -24,7 +25,7 @@ Lesson 10 - Role-Based Access Control
                 <a href="#{tag1}">The Theory</a>
             </li>
             <li>
-                <a href="#{tag2}">The Practice</a>
+                <a href="#{tag2}">The Practice **</a>
             </li>
             <li>
                 <a href="#{tag3}">CodeIgniter Choices</a>
@@ -36,12 +37,13 @@ Lesson 10 - Role-Based Access Control
                 <a href="#{tag5}">CI Authorization</a>
             </li>
             <li>
-                <a href="#{tag6}">CI Access Control</a>
+                <a href="#{tag6}">CI Access Control **</a>
             </li>
             <li>
                 <a href="#{tag7}">CI Alternatives</a>
             </li>
         </ol>
+        <p>We are not going to dive into all of this, just the starred sections above.</p>
     </slide>
 
 

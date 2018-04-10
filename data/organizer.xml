@@ -117,6 +117,7 @@ Course organizer for Comp4711
         <topic>Review and ...</topic>
         <outcomes>2.1, 2.2, 2.3</outcomes>
         <lesson name="advanced01_1" >R B A C</lesson>
+        <lesson name="final" >Final Exam Review</lesson>
         <lab name="lab09">EXAMPLE: RESTish with Authentication</lab>
         <tutorial name="tut-adv02">Making Our RESTful Server</tutorial>
         <tutorial name="tut-adv03">Making Our RESTful Client</tutorial>

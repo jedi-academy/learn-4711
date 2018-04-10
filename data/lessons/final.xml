@@ -2,7 +2,7 @@
 <!--
 Lesson 11a - Exam Review
 -->
-<lesson status="2017fall">
+<lesson status="2018winter">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <!-- Agenda -->
@@ -25,11 +25,11 @@ Lesson 11a - Exam Review
 
     <slide title="1. FINAL EXAM ESSENTIALS" layout="normal" tag="tag1">
         <ul>
-            <li>Date? Wed Dec 13</li>
-            <li>When? 15:30 - 17:30</li>
-            <li>Where? SW03-1710</li>
-            <li>How Long? Two hours</li>
-            <li>How long minimum? 60 minutes</li>
+            <li>Date? Wed aPR 18</li>
+            <li>When? 12:45 - 14:15</li>
+            <li>Where? sw01-1205</li>
+            <li>How Long? 1.5 hours</li>
+            <li>How long minimum? 45 minutes</li>
             <li>Aids: None</li>
         </ul>
         <p>The exam, and its solution, will be posted in the content section on D2L,
@@ -82,11 +82,11 @@ Lesson 11a - Exam Review
     <slide title="What Format Will the Exam Have?" layout="normal">
         <p>Last term's breakdown shown in square brackets</p>
         <ul>
-            <li>Multiple choice @1 ... 20-40 [30]</li>
-            <li>Completion @2 ... 5-15 [6]</li>
-            <li>Short answer @ 3 ... 5-15 [6]</li>
-            <li>Long answer @ 10 ... 2-5 [4]</li>
-            <li>about 100 marks in total [100]</li>
+            <li>Multiple choice @1 ... 20-40 [25]</li>
+            <li>Completion @2 ... 5-15 [17]</li>
+            <li>Short answer @ 3 ... 5-15 [7]</li>
+            <li>Long answer @ 10 ... none [2]</li>
+            <li>about 90 marks in total [100]</li>
         </ul>
     </slide>
 
@@ -392,6 +392,7 @@ Lesson 11a - Exam Review
                     <li>Master/develop branches</li>
                     <li>Feature branches</li>
                     <li>Synching</li>
+                    <li>GPG signing</li>
                 </ul>
             </p>   
         </div>
