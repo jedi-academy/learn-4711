@@ -167,8 +167,9 @@ Course organizer for Comp4711
         <lesson name="other-forms" icon="read" >Form examples from  other frameworks</lesson> 
         <lesson name="other-rest" icon="read" >REST examples from  other frameworks</lesson> 
     </week>
-    <week num="xx">
+<week num="xx">
         <topic>Supplementary Reading (FYI)</topic>
+<!--
         <lesson name="unit-testing" icon="read">More about unit testing</lesson>
         <lesson name="basic07" icon="read">Advanced Routing</lesson>
         <lesson name="basic04-leftovers"  icon="read">Other Form Techniques</lesson>
@@ -180,7 +181,6 @@ Course organizer for Comp4711
         <github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" >XML-RPC Examples</github>
         <lesson name="advanced04" icon="read">AJAX</lesson>
         <lesson name="advanced01" >Authentication Principles</lesson>
-        <!--
         <lesson name="future" icon="readme">Jim's Crystal Ball</lesson>
         -->
     </week>
