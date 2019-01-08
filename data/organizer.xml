@@ -6,9 +6,9 @@ Course organizer for Comp4711
     <week num="1">
         <topic>Introduction to MVC Webapps</topic>
         <outcomes>1.1 (server), 3.2</outcomes>
-        <inlab>#1 Development setup</inlab>
         <lesson name="intro00">Course Introduction</lesson>
         <lesson name="intro01" >Introduction</lesson>
+        <lab name="lab00">Team Introduction</lab>
         <lab name="lab01">Development Environment</lab>
         <tutorial name="setup01">XAMPP Installation</tutorial>
         <tutorial name="setup02">Virtual Hosting Setup</tutorial>       
@@ -16,115 +16,136 @@ Course organizer for Comp4711
     <week num="2">
         <topic>MVC Frameworks</topic>
         <outcomes>1.1 (PHP), 1.2 (basics),3</outcomes>
-        <inlab>#2 Project &amp; Process Prep</inlab>
-        <lesson name="basic01" icon="dothis">MVC Frameworks</lesson>
-        <lesson name="dev01" icon="dothis">Devops Workflow Concepts</lesson>
-        <lab name="lab02">Collaborative Workflow</lab>
-        <lesson name="week02" icon="read" >Survey results - MVC &amp; workflow</lesson>
+        <!--
+         <lesson name="basic01" icon="dothis">MVC Frameworks</lesson>
+                <lesson name="dev01" icon="dothis">Devops Workflow Concepts</lesson>
+                <lab name="lab02">Collaborative Workflow</lab>
+                <lesson name="week02" icon="read" >Survey results - MVC &amp; workflow</lesson>
+        -->
     </week>
     <week num="3">
-        <topic>CodeIgniter Overview</topic>         
-        <outcomes>1.2 (controllers), 3</outcomes>
-        <inlab>#3 Website conversion</inlab>
-        <lesson name="basic01-ci" icon="dothis">CodeIgniter Overview</lesson>
-        <lab name="lab03">Website Conversion</lab>
-        <tutorial name="ci-basic01">Static to Trivial CI Website Conversion</tutorial>
-        <tutorial name="ci-basic02">Trivial CI to Basic CI Website Conversion</tutorial>
-        <tutorial name="ci-basic03">Basic CI to Good CI Website Conversion</tutorial>
+        <topic>Collaborative Workflow</topic>         
+        <outcomes>3.1, 3.2</outcomes>
+        <!--
+               <inlab>#3 Website conversion</inlab>
+               <lesson name="basic01-ci" icon="dothis">CodeIgniter Overview</lesson>
+               <lab name="lab03">Website Conversion</lab>
+               <tutorial name="ci-basic01">Static to Trivial CI Website Conversion</tutorial>
+               <tutorial name="ci-basic02">Trivial CI to Basic CI Website Conversion</tutorial>
+               <tutorial name="ci-basic03">Basic CI to Good CI Website Conversion</tutorial>
+        -->
     </week>
     <week num="4">
         <topic>Controllers &amp; Routing</topic>         
         <outcomes>1.2 (routing), 3</outcomes>
-        <inlab>#4 Working with controllers</inlab>
-        <lesson name="basic02" icon="dothis">CI Controllers</lesson>
-        <lesson name="basic06">Routing</lesson>
-        <lab name="lab04">Working With Controllers &amp; Routing</lab>
-        <lesson name="week04" icon="read">Survey results - signing</lesson>
+        <!--
+                <inlab>#4 Working with controllers</inlab>
+                <lesson name="basic02" icon="dothis">CI Controllers</lesson>
+                <lesson name="basic06">Routing</lesson>
+                <lab name="lab04">Working With Controllers &amp; Routing</lab>
+                <lesson name="week04" icon="read">Survey results - signing</lesson>
+        -->
     </week>
     <week num="5">
-        <topic>Models</topic>
-        <outcomes>1.2 (models), 3</outcomes>
-        <inlab>Assignment #1 completion</inlab>
-        <lesson name="basic03" icon="read">CodeIgniter Models (Practical)</lesson>
-        <lesson name="basic03-more" icon="read">Model Patterns (Concepts)</lesson>
-        <lesson name="basic68">Models in a Nutshell</lesson>
+        <topic>Responses</topic>
+        <outcomes>1.2, 3</outcomes>
+        <!--
+               <inlab>Assignment #1 completion</inlab>
+                <lesson name="basic03" icon="read">CodeIgniter Models (Practical)</lesson>
+                <lesson name="basic03-more" icon="read">Model Patterns (Concepts)</lesson>
+                <lesson name="basic68">Models in a Nutshell</lesson>
+        -->
     </week>
     <week num="6">
-        <topic>Views</topic>
-        <outcomes>1.2 (views), 3</outcomes>
-        <inlab>#5 Views</inlab>
-        <lesson name="basic04-basics"  icon="read" >View Basics</lesson>
-        <github name="views" link="https://github.com/jedi-academy/example-views" >Examples to support "views" lessons</github> 
-        <lesson name="basic69">Views in a Nutshell</lesson>
-        <lab name="lab05" >Todo List Manager</lab>
-        <tutorial name="ci-todo01" >Database and models</tutorial>
-        <tutorial name="ci-todo02" >Homepage Features</tutorial>
-        <tutorial name="ci-todo03" >Ordered List Page Features</tutorial>
-        <tutorial name="ci-todo04" >Maintenance List</tutorial>
-        <tutorial name="ci-todo05" >Help Wanted Page Features</tutorial>
+        <topic>Relational Models</topic>
+        <outcomes>1.2 (models)</outcomes>
+        <!--
+                <inlab>#5 Views</inlab>
+                <lesson name="basic04-basics"  icon="read" >View Basics</lesson>
+                <github name="views" link="https://github.com/jedi-academy/example-views" >Examples to support "views" lessons</github> 
+                <lesson name="basic69">Views in a Nutshell</lesson>
+                <lab name="lab05" >Todo List Manager</lab>
+                <tutorial name="ci-todo01" >Database and models</tutorial>
+                <tutorial name="ci-todo02" >Homepage Features</tutorial>
+                <tutorial name="ci-todo03" >Ordered List Page Features</tutorial>
+                <tutorial name="ci-todo04" >Maintenance List</tutorial>
+                <tutorial name="ci-todo05" >Help Wanted Page Features</tutorial>
+        -->
     </week>
     <week num="7">
-        <topic>Midterm exam week</topic>
+        <topic>Entities</topic>
         <!--
                <lab name="report">Investigative report</lab>
         -->
     </week>
     <week num="8">
-        <topic>Forms Handling</topic>
+        <topic>Non-relational models</topic>
         <outcomes>1.2 (views), 3</outcomes>
-        <inlab>#6 Model CRUD</inlab>
-        <lesson name="basic04-forms" >Creating Forms</lesson>
-        <lesson name="basic04-handling" >Handling Form Data</lesson>
-        <lesson name="view-practices">View best practices?</lesson>
-        <lab name="lab06">Building Out Our TODO List Manager</lab>
-        <tutorial name="ci-todo06">Pagination</tutorial>
-        <tutorial name="ci-todo07">User Roles</tutorial>
-        <tutorial name="ci-todo08">Provide for Completing Work</tutorial>
-        <tutorial name="ci-todo09">Role-specific Maintenance List</tutorial>
-        <tutorial name="ci-todo10">Todo Item Maintenance (finally)</tutorial>
-        <tutorial name="ci-todo11">Polish the Item Maintenance</tutorial>
+        <!--
+               <inlab>#6 Model CRUD</inlab>
+               <lesson name="basic04-forms" >Creating Forms</lesson>
+               <lesson name="basic04-handling" >Handling Form Data</lesson>
+               <lesson name="view-practices">View best practices?</lesson>
+               <lab name="lab06">Building Out Our TODO List Manager</lab>
+               <tutorial name="ci-todo06">Pagination</tutorial>
+               <tutorial name="ci-todo07">User Roles</tutorial>
+               <tutorial name="ci-todo08">Provide for Completing Work</tutorial>
+               <tutorial name="ci-todo09">Role-specific Maintenance List</tutorial>
+               <tutorial name="ci-todo10">Todo Item Maintenance (finally)</tutorial>
+               <tutorial name="ci-todo11">Polish the Item Maintenance</tutorial>
+        -->
     </week>
     <week num="9">
-        <topic>Building on CodeIgniter</topic>
-        <outcomes>1.3, 3</outcomes>
-        <lesson name="basic05">Building on CodeIgniter</lesson>
-        <lesson name="basic05b"  icon="read">Example Library &amp; Helper</lesson>
-        <lab name="lab07">Unit testing for our Todo list manager</lab>
-        <tutorial name="ci-unit">Unit Testing Primer</tutorial>
+        <topic>Representation Glue - XML</topic>
+        <outcomes>2.1, 2.2</outcomes>
+        <!--
+              <lesson name="basic05">Building on CodeIgniter</lesson>
+               <lesson name="basic05b"  icon="read">Example Library &amp; Helper</lesson>
+               <lab name="lab07">Unit testing for our Todo list manager</lab>
+               <tutorial name="ci-unit">Unit Testing Primer</tutorial>
+        -->
     </week>
     <week num="10">
-        <topic>Representation Glue - XML &amp; JSON</topic>
+        <topic>Representation Glue - JSON</topic>
         <outcomes>2.1</outcomes>
-        <lesson name="data01" >X M L</lesson>
-        <lesson name="data02" >J S O N</lesson>
-        <github name="xml" link="https://github.com/jedi-academy/example-xml">XML Examples</github>
-        <github name="example-simplexml" link="https://github.com/jedi-academy/example-simplexml-winter2016" >SimpleXML Examples</github>
-        <lab name="lab08">A Taste of XML</lab>
-        <lab name="lab08faq">Helpful notes for the lab</lab>
+        <!--
+              <lesson name="data01" >X M L</lesson>
+               <lesson name="data02" >J S O N</lesson>
+               <github name="xml" link="https://github.com/jedi-academy/example-xml">XML Examples</github>
+               <github name="example-simplexml" link="https://github.com/jedi-academy/example-simplexml-winter2016" >SimpleXML Examples</github>
+               <lab name="lab08">A Taste of XML</lab>
+               <lab name="lab08faq">Helpful notes for the lab</lab>
+        -->
     </week>
     <week num="11">
         <topic>Transport Glue - HTTP</topic>
         <outcomes>2.1, 2.2</outcomes>
-        <lesson name="net01" >Transport Glue</lesson>
+        <!--
+               <lesson name="net01" >Transport Glue</lesson>
+        -->
     </week>
     <week num="12">
         <topic>Application Glue - REST</topic>
         <outcomes>2.1, 2.3</outcomes>
-        <lesson name="advanced03" >REST</lesson>
-        <github name="package-restful" link="https://github.com/jedi-academy/package-restful" >REST implementation I use</github>
+        <!--
+              <lesson name="advanced03" >REST</lesson>
+               <github name="package-restful" link="https://github.com/jedi-academy/package-restful" >REST implementation I use</github>
+        -->
     </week>
     <week num="13">
-        <topic>Review and ...</topic>
-        <outcomes>2.1, 2.2, 2.3</outcomes>
-        <lesson name="advanced01_1" >R B A C</lesson>
-        <lesson name="final" >Final Exam Review</lesson>
-        <lab name="lab09">EXAMPLE: RESTish with Authentication</lab>
-        <tutorial name="tut-adv02">Making Our RESTful Server</tutorial>
-        <tutorial name="tut-adv03">Making Our RESTful Client</tutorial>
-        <tutorial name="tut-adv01">Authentication</tutorial>
+        <topic>Authentication</topic>
+        <outcomes>1, 2, 3</outcomes>
+        <!--
+               <lesson name="advanced01_1" >R B A C</lesson>
+               <lesson name="final" >Final Exam Review</lesson>
+               <lab name="lab09">EXAMPLE: RESTish with Authentication</lab>
+               <tutorial name="tut-adv02">Making Our RESTful Server</tutorial>
+               <tutorial name="tut-adv03">Making Our RESTful Client</tutorial>
+               <tutorial name="tut-adv01">Authentication</tutorial>
+        -->
     </week>
     <week num="14">
-        <topic>Final Exam</topic>
+        <topic>Final Exam Week</topic>
     </week>
     <week num="zz">
         <topic>REFERENCE</topic>
@@ -135,55 +156,43 @@ Course organizer for Comp4711
         <lesson name="dev04" icon="read" >Gitting Good</lesson>		
         <lesson name="marking" icon="read" >Marking Process</lesson>		
     </week>
-    <week num="aa">
-        <topic>Assignments</topic>
-        <assignment name="assignment1">Basic Webapp</assignment>
-        <assignment name="assignment1backstory">The Backstory</assignment>
-        <assignment name="assignment1process">Process</assignment>
-        <assignment name="assignment1features">Features</assignment>
-        <assignment name="assignment1faq" icon="read" >Assignment 1 FAQ</assignment> 
-        <assignment name="assignment2">Completed Webapp</assignment>
-        <!--
-        <assignment name="assignment2faq" icon="read" >Assignment 2 FAQ</assignment> 
-        <assignment name="assignment3">Distributed Webapp</assignment> -->
-        -->
-    </week>
-    <week num="zz">
-        <topic>FAQs</topic>
-        <lesson name="faq-general" icon="read" >FAQ</lesson>		
-        <lesson name="faq-apache" icon="read" >FAQ</lesson>		
-        <lesson name="faq-devops" icon="read" >FAQ</lesson>		
-        <lesson name="faq-ci" icon="read" >FAQ</lesson>		
-        <lesson name="faq-macos" icon="read" >FAQ</lesson>		
-        -->
-    </week>
+    <!--
+<week num="zz">
+    <topic>FAQs</topic>
+    <lesson name="faq-general" icon="read" >FAQ</lesson>		
+    <lesson name="faq-apache" icon="read" >FAQ</lesson>		
+    <lesson name="faq-devops" icon="read" >FAQ</lesson>		
+    <lesson name="faq-ci" icon="read" >FAQ</lesson>		
+    <lesson name="faq-macos" icon="read" >FAQ</lesson>		
+</week>
+    -->
     <week num="yy">
         <topic>Other Frameworks (FYI)</topic>
- <!--
-       <lesson name="basic01-other" icon="read" >Other MVC Framework Examples</lesson>
-        <lesson name="other-routing" icon="read">Routing examples from  other frameworks</lesson>
-        <lesson name="other-models" icon="read" >Model examples from  other frameworks</lesson>
-        <lesson name="other-controllers" icon="read" >Controller examples from other frameworks</lesson>
-        <lesson name="other-views" icon="read" >View examples from  other frameworks</lesson>
-        <lesson name="other-forms" icon="read" >Form examples from  other frameworks</lesson> 
-        <lesson name="other-rest" icon="read" >REST examples from  other frameworks</lesson> 
-         -->
-   </week>
-<week num="xx">
-        <topic>Supplementary Reading (FYI)</topic>
-<!--
-        <lesson name="unit-testing" icon="read">More about unit testing</lesson>
-        <lesson name="basic07" icon="read">Advanced Routing</lesson>
-        <lesson name="basic04-leftovers"  icon="read">Other Form Techniques</lesson>
-        <lesson name="xml01"  icon="read">XML Basics (Optional Refresher)</lesson>
-        <lesson name="xml02"  icon="read">Constraining XML (Optional)</lesson>
-        <lesson name="xml04" icon="read">Data Representation Conversions</lesson>
-        <lesson name="net02"  icon="read">Emitting HTTP requests</lesson>
-        <lesson name="advanced02"  icon="read">XML-RPC</lesson>
-        <github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" >XML-RPC Examples</github>
-        <lesson name="advanced04" icon="read">AJAX</lesson>
-        <lesson name="advanced01" >Authentication Principles</lesson>
-        <lesson name="future" icon="readme">Jim's Crystal Ball</lesson>
+        <!--
+      <lesson name="basic01-other" icon="read" >Other MVC Framework Examples</lesson>
+       <lesson name="other-routing" icon="read">Routing examples from  other frameworks</lesson>
+       <lesson name="other-models" icon="read" >Model examples from  other frameworks</lesson>
+       <lesson name="other-controllers" icon="read" >Controller examples from other frameworks</lesson>
+       <lesson name="other-views" icon="read" >View examples from  other frameworks</lesson>
+       <lesson name="other-forms" icon="read" >Form examples from  other frameworks</lesson> 
         -->
+        <lesson name="other-rest" icon="read" >REST examples from  other frameworks</lesson> 
     </week>
+    <!--
+    <week num="xx">
+    <topic>Supplementary Reading (FYI)</topic>
+     <lesson name="unit-testing" icon="read">More about unit testing</lesson>
+     <lesson name="basic07" icon="read">Advanced Routing</lesson>
+     <lesson name="basic04-leftovers"  icon="read">Other Form Techniques</lesson>
+     <lesson name="xml01"  icon="read">XML Basics (Optional Refresher)</lesson>
+     <lesson name="xml02"  icon="read">Constraining XML (Optional)</lesson>
+     <lesson name="xml04" icon="read">Data Representation Conversions</lesson>
+     <lesson name="net02"  icon="read">Emitting HTTP requests</lesson>
+     <lesson name="advanced02"  icon="read">XML-RPC</lesson>
+     <github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" >XML-RPC Examples</github>
+     <lesson name="advanced04" icon="read">AJAX</lesson>
+     <lesson name="advanced01" >Authentication Principles</lesson>
+     <lesson name="future" icon="readme">Jim's Crystal Ball</lesson>
+    </week>
+    -->
 </organizer>

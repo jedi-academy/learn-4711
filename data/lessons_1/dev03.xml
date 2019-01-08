@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Lesson dev02 - working with github
+-->
+<lesson status="alpha">
+    <!-- Agenda -->
+
+    <!-- Normal slides -->
+    <slide title="Lesson Goals" layout="normal">
+        <p>This short lesson explains how a project team would use Github for a shared repository.</p>
+        <p>Don't forget the 
+            <a href="https://www.atlassian.com/git/tutorials/comparing-workflows" target="_blank">
+                Atlassian</a> and 
+            <a href="https://guides.github.com/introduction/flow/index.htm" target="_blank">
+                GitHub</a> 
+            <a href="https://guides.github.com/activities/forking/" target="_blank">
+                tutorials</a>.
+        </p>
+        <p>The scenario: Mick, Keith and Charlie are going to collaborate on
+            a project to build a webapp showcasing quotes from famous rock stars.</p>
+    </slide>
+
+    <slide title="Agenda" layout="normal">
+        <ol>
+            <li>
+                <a href="#{tag1}">Organize</a>
+            </li>
+            <li>
+                <a href="#{tag2}">Play</a>
+            </li>
+            <li>
+                <a href="#{tag3}">Contribute</a>
+            </li>
+            <li>
+                <a href="#{tag4}">Collaborate</a>
+            </li>
+            <li>
+                <a href="#{tag5}">Accommodate</a>
+            </li>
+        </ol>
+    </slide>
+    
+    <slide title="Organize" layout="normal" tag="tag1">
+        <div class="left">
+            <p>Each team member has their own github account.
+                These are <code>mick</code>, <code>keith</code> and <code>charlie</code>.
+            </p>
+            <p>Each team member has installed the <code>git</code> client on their
+                machine, or else they are using an O/S platform that has this built-in.</p>
+            <p>Each team member has configured their user name and email address
+                for git signing purposes</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="648" height="54" src="/pix/tutorials/2/2-1.png"/>
+            <br/>
+            <br/>
+            <img class="scale" width="630" height="170" src="/pix/tutorials/2/2-2.png"/>
+        </div>
+    </slide>
+
+    <slide title="Check Your IDE" layout="normal">
+        <div class="left">
+            <p>Each team member is using an IDE or editor that supports git.</p>
+            <p>Each member has installed any useful plugins, for instance the Git toolbar and
+                the script to show the current branch, in NetBeans.</p>
+            <p>Each team member has configured their IDE to automatically
+                sign their work.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="600" height="407" src="/pix/tutorials/2/2-3.png"/>
+        </div>
+    </slide>
+
+    <slide title="Create Your Organization" layout="normal">
+        <div class="left">
+            <p>Mick is the team leader. He needs to create an "organization" to
+                use as a container for any projects the team wishes to collaborate on.</p>
+            <p>The organization name is usually derived from the team name.
+                Mick will use <code>rolling-stones</code> as their organization name.
+            </p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="1008" height="461" src="/pix/lessons/d2/d2-1.png"/>
+        </div>
+    </slide>
+
+    <slide title="Join the Party" layout="normal">
+        <div class="left">
+            <p>Mick will then invite each of the team members to join the organization.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="1005" height="522" src="/pix/lessons/d2/d2-2.png"/>
+        </div>
+    </slide>
+
+    <slide title="Create Your Project" layout="normal">
+        <div class="left">
+            <p>Mick needs to create a repository inside the <code>rolling-stones</code>
+                organization, to share with the team members.</p>
+            <p>For this project, he will use the repository name <code>rock-quotes</code>.
+                It will be public, so we don't have to pay, and he will have an initial README,
+                .gitignore, and license.</p>
+            <p>Only the maintainer of the official repository, Mick, can update it.
+                That may include updates that break team member's repos, but that is "their"
+                problem.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="617" height="499" src="/pix/lessons/d2/d2-3.png"/>
+        </div>
+    </slide>
+
+    <slide title="Initial State" layout="normal">
+        <div class="left">
+            <p>The <code>rock-quotes</code> repository will start out pretty empty,
+                and with a <code>master</code> branch.
+            </p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="1019" height="638" src="/pix/lessons/d2/d2-4.png"/>
+        </div>
+    </slide>
+
+    <slide title="Initial Setup" layout="normal">
+        <div class="left">
+            <p>Before anyone forks the project, Mick should get its initial state
+                corrected. He should create a <code>develop</code> branch, and
+                set the new branch as the default.
+            </p>
+            <p>The intent is that all work be done on the <code>develop</code>
+                branch, with that being merged into the <code>master</code> branch
+                only when the resulting codebase is in a stable state, for
+                instance with a new release.
+            </p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="505" height="300" src="/pix/lessons/d2/d2-5.png"/>
+            <br/>
+            <img class="scale" width="508" height="266" src="/pix/lessons/d2/d2-6.png"/>
+        </div>
+
+    </slide>
+
+    <slide title="Fork the Shared Repository" layout="normal">
+        <div class="left">
+            <p>Each team member should now fork the shared repository,
+                from <code>https://github.com/rolling-stones/rock-quotes</code>,
+                inside their personal repository.
+            </p>
+            <p>Each team member will have their own project repository,
+                derived from the shared one.
+            </p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="507" height="314" src="/pix/lessons/d2/d2-7.png"/>
+            <br/>
+            <img class="scale" width="450" height="133" src="/pix/lessons/d2/d2-8.png"/>
+        </div>
+    </slide>
+
+    <slide title="Some Useful Labels" layout="normal">
+<!--        <div class="left">-->
+            <p>Anything produced by a team member will end up in their
+                repository until it is merged into the shared one.
+                Until then, the member's repository is considered "ahead" of
+                the shared one.</p>
+            <p>If the shared repository contains other members' work that has not been merged
+                into a team member's repository, their repository is considered
+                "behind" the shared one.</p>
+            <p>
+                If the two repositories match, then the member's is said to be "even" with the shared one.</p>
+            <p>A member's repository can be both ahead of and behind the shared one,
+                for different pieces of code.</p>
+<!--          </div>
+        <div class="right">
+            <br/>
+          <img class="scale" width="537" height="400" src="/pix/lessons/d2/d2-7.png"/>
+            <br/>
+            <img class="scale" width="537" height="400" src="/pix/lessons/d2/d2-8.png"/>
+        </div>
+-->    </slide>
+
+</lesson>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Lesson 02b - Devops Workflow
+-->
+<lesson status="1.3">
+    <!-- Activity metadata ... override anything from the course or organizer -->
+
+    <!-- Agenda -->
+
+    <!-- Normal slides -->
+    <slide title="Lesson Goals" layout="normal">
+        <p>This short lesson introduces some project workflow concepts.</p>
+        <p>
+            <a href="https://www.atlassian.com/git/tutorials/comparing-workflows" target="_blank">
+                Atlassian</a> has some great tutorials,
+            and I am using some of their images here.
+        </p>
+        <p>Github itself has some useful guide material, such as  
+            <a href="https://guides.github.com/activities/forking/" target="_blank">
+                forking projects</a>.
+        </p>
+        <p>Don't forget to complete the online survey after reading this!</p>
+    </slide>
+
+    <slide title="Centralized Workflow" layout="normal" tag="tag1">
+        <div class="left">
+            <p>With a centralized workflow, all the developers on a project
+                share a central repository.</p>
+            <p>They clone the repository locally, but they all publish
+                changes to the shared repository.</p>
+            <p>There is no locking or ownership, so this is problematic if someone else changes a file you are working on.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="800" height="406" src="/pix/lessons/2/2-21.png"/>
+        </div>
+    </slide>
+
+    <slide title="Branching Workflow" layout="normal">
+        <div class="left">
+            <p>Following a branching workflow means that all feature development
+                takes place in dedicated branches, other than "master".</p>
+            <p>Once a feature is complete, its branch would then be merged
+                into the "master" branch.</p>
+            <p>Fixing an issue is considered a mini-feature, and would 
+                be handled in its own (short-lived) branch.</p>
+            <p>This is better than a centralized repository, but there can still be conflicts.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="800" height="219" src="/pix/lessons/2/2-22.png"/>
+        </div>
+    </slide>
+
+    <slide title="Gitflow Workflow" layout="normal">
+        <div class="left">
+            <p>Gitflow workflow is a strict branching model convention.</p>
+            <p>You have two main branches, "master" and "develop".
+                The "master" branch is always release-ready, and is usually tagged
+                with a release version number.</p>
+            <p>All development is done on the "develop" branch, which is merged
+                into the "master" branch to form a new release.
+                If you only deploy from the "master" branch, conflicts don't affect it.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="800" height="323" src="/pix/lessons/2/2-23.png"/>
+        </div>
+    </slide>
+
+    <slide title="Forking Workflow" layout="normal">
+        <div class="left">
+            <p>With the forking workflow, there is a main repository,
+                and each developer "forks" it to make their
+                own server-side repository, which is then cloned locally.</p>
+            <p>Developers push code changes to their own repository,
+                and trigger a pull request when they are ready to merge
+                their changes into the official repository.</p>
+            <p>Only the maintainer of the official repository can update it.
+                They may include updates that break your repo, but that is "your"
+                problem.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="800" height="444" src="/pix/lessons/2/2-24.png"/>
+        </div>
+    </slide>
+
+    <slide title="Gitflow Workflow Checklist" layout="normal">
+        <div class="left">
+            <ol>
+                <li>Fork a github project</li>
+                <li>Clone your fork locally</li>
+                <li>Create a topic branch</li>
+                <li>Commit changes to your branch</li>
+                <li>Push your changes to your fork</li>
+                <li>Send a pull request to the original project</li>
+            </ol>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="537" height="400" src="/pix/lessons/2/2-25.png"/>
+        </div>
+    </slide>
+
+    <slide title="Isn't This Overkill?" layout="normal">
+        <p>These workflows have evolved after much experience
+            having multiple developers collaborate on software,
+            in a distributed fashion.</p>
+        <p>Most open source projects use the "gitflow workflow",
+            although they may name their branches slightly differently.</p>
+        <p>As a developer, you need to get familiar and comfortable with the
+            workflow used for each of your projects, and you need to learn
+            how to overcome common issues (like merge conflicts)
+            in your environment.</p>
+    </slide>
+ 
+    <slide title="Gitflow Gotchas" layout="normal">
+        <p>Gitflow is not the only workflow possible, and it is not
+        without problems...</p>
+        <ul>
+            <li>Merge conflicts - when two people update the same stuff</li>
+            <li>Synchronization - when your project gets hopelessly out of
+            synch with the team's</li>
+            <li>Unhelpful commit messages - what/who broke something</li>
+            <li>Unhelpful pull request descriptions - has something already been done</li>
+            <li>Misusing issues - premature closing</li>
+            <li>Properly attributing work done - not just for marks</li>
+        </ul>
+    </slide>
+ 
+    <slide title="Gitflow Adoption" layout="normal">
+        <p>This sounds terrible. Do any real-world projects use gitflow?</p>
+        <p>Many do, though often with their own slant. 
+            The following are from github alone, based on their branch naming.</p>
+       <div class="left">
+        <ul>
+            <li>accord-net - master, development, then releases</li>
+            <li>cakephp - master &amp; releases</li>
+            <li>codeigniter - master, develop &amp; releases</li>
+            <li>cygnite - master &amp; dev</li>
+            <li>fuelphp - release masters</li>
+            <li>kerisy - master &amp; releases</li>
+        </ul>
+        </div>
+        <div class="right">
+         <ul>
+            <li>laravel - master &amp; releases (5.3, 5.4 etc)</li>
+            <li>mpapierski - master &amp; develop</li>
+            <li>phalcon - master &amp; releases</li>
+            <li>signumsoftware - master &amp; releases</li>
+            <li>symfony - master &amp; releases</li>
+            <li>vaadin - master &amp; releases (7.7)</li>
+            <li>yii - master &amp; release</li>
+        </ul>
+        </div>
+    </slide>
+
+</lesson>

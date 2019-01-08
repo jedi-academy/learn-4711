@@ -1,6 +1,6 @@
 
 #Lab #1 - Development Environment
-COMP4711 - BCIT - Winter 2019
+COMP4711 - BCIT - Winter 2018
 
 ##Lab Goals
 
@@ -29,10 +29,9 @@ instance [BitBucket](https://bitbucket.org/) or our [Gitlab server](https://git.
 **but** you are
 responsible for synching yours with any starters I provide on [Github]()
 and **you** need to worry about synching your team repositories with
-teammates for upcoming labs and assignments.
+teammates dor upcoming labs and assignments.
 
-Any GIT repository you use must be public, or else you need to invite me as a collaborator,
-so that I have access
+Any GIT repository you use must be public, so that we have access
 for marking.
 
 ##Lab Submission
@@ -46,33 +45,34 @@ Your dropbox submission should contain two files in addition to the above-mentio
 - a screenshot of your browser window accessing your webapp (showing the student list)
 - a copy of your virtual host configuration file
 
-Due: Sunday, Jan 13, 17:30 PST
+Due: Sunday, Jan 14, 17:30 PST
 
 ##Lab Marking Guideline
 
 The lab dropbox has a D2L rubric attached to it, which provides a raw score out of 15.
 That will be scaled so that the lab is out of 10 in the gradebook.
 
-I will be making sure that you have a project, with the proper webapp structure. 
+We will be making sure that you have a project, with the proper webapp structure. 
 It can be a NetBeans project, but doesn't have to be ... in fact, the IDE you use should not be apparent ;p
 
-I will check your github commit history, to see if you appear to using the process properly.
+We will check your github commit history, to see if you appear to using the process properly.
 
-I will be making sure that it runs properly when we deploy the project into my "comp4711" virtual host folder.
+We will be making sure that it runs properly when we deploy the project into our "comp4711" virtual host folder.
 
 ##CAUTION re Case Sensitivity
 
-Your app will be tested on a Linux machine. Case sensitivity is paramount. 
-A file named "student.php" will not be
+Your app may be tested on a Linux machine. If that is the case (pun intended),
+then case sensitivity is paramount. A file named "student.php" will not be
 seen as "Student.php". Your app will blow up, and you will "be fired".
+See the "Golden Rules" in the "Reference" tab of the organizer.
 
 This is a trivial thing to fix, but a show stopper for a deployed webapp,
 hence the harsh penalty.
 
-If you do this multiple times in the same webapp, and I get tired of having
-to rename files just to get the app running, I might be grumpy and "fire you" for
+If you do this multiple times in the same webapp, and we get tired of having
+to rename files just to get the app running, we might be grumpy and "fire you" for
 each instance, meaning that five such simple things to fix could cost you
-all the marks for a lab or assignment, at 20% off each. My supply
+all the marks for a lab or assignment, at 20% off each. Our supply
 of sympathy and understanding is limited, and may run out :'(
 
 This is, historically, the single biggest mistake made by COMP4711 students,
@@ -139,6 +139,12 @@ For a description, I suggest something like "COMP4711 lab 1". I left mine blank 
 <img class="scale" src="/pix/labs/1/1-1.png"/>
 
 ###Repository Properties
+
+Your repository should be public, so that my marking scripts can pull its contents
+for me to look at. A private repository is not a viable option.
+
+You could gain a small measure of privacy by creating an account on our [GitLab server](https://git.cit.bcit.ca),
+and creating your public repositories there.
 
 Do initialize the repository with a readme file. Changing this will give us an excuse to make sure our IDE is properly configured.
 
@@ -254,8 +260,7 @@ pushed to it.
 
 ##Webapp Plan
 
-We're going to make a student class, with some properties (surname, first name, 
-a set of email addresses, and a set of grades) and some methods (report contact info, calculate grades average).
+We're going to make a student class, with some properties (surname, first name, a set of email addresses, and a set of grades) and some methods (report contact info, calculate grades average).
 
 We will instantiate a few students, and put them into an associative array that we then order and report.
 

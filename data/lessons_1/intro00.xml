@@ -2,26 +2,44 @@
 <!--
 Lesson 00 - In-class Only Introduction
 -->
-<lesson status="v2">
+<lesson status="v1.3">
     <!-- Activity metadata ... override anything from the course or organizer -->
     
     <!-- The meat of the presentation -->
-    <slide title="Your Instructor" layout="normal">
+    <slide title="Your Instructors" layout="normal">
+        <div class="left">
             <h2>Jim Parry</h2>
             <ul>
-                <li>Day job: BCIT instructor; ACIT2420 and ACIT4850 too</li>
+                <li>Day job: BCIT instructor; ACIT3620</li>
                 <li>Off campus: webapp developer, for fun and sometimes profit</li>
-                <li>Interests: open source cat herder (Project Lead, CodeIgniter)</li>
-                <li>Contact: DTC-617, email instead</li>
+                <li>Full-time: CI geek, Java not so much any more</li>
+                <li>Interests: Coffee</li>
+                <li>Project Lead, CodeIgniter</li>
+                <li>Contact: SW2-124, email instead</li>
                 <li>Email: jim_parry@bcit.ca</li>
             </ul>
-     </slide>
+        </div>
+        <div class="right">
+            <h3>Michal Aibin</h3>
+            <ul>
+                <li>Day job: BCIT instructor, <br/>ACIT2520 &amp; ACIT4900</li>
+                <li>Interests: Networks, data mining &amp; software engineering</li>
+                <li>Email: maibin@bcit.ca</li>
+            </ul>
+            <h3>Arron Ferguson</h3>
+            <ul>
+                <li>Day job: BCIT instructor, <br/>COMP1536</li>
+                <li>Interests: Computational Creativity</li>
+                <li>Email: arron_ferguson@bcit.ca</li>
+            </ul>
+        </div>
+    </slide>
 
     <slide title="Course Outcomes" layout="normal">
         <p>See the "course goals" section in the course outline.</p>
         <ol>
-            <li>Build a robust RESTful webapp backend, to complement your option projects</li>
-            <li>Demonstrate proper usage of distributed system glue</li>
+            <li>Build a moderate MVC web application using a suitable framework</li>
+            <li>Build distributed capabilities into an MVC web application</li>
             <li>Demonstrate proper team collaboration for webapp development</li>
         </ol>
     </slide>
@@ -36,7 +54,32 @@ Lesson 00 - In-class Only Introduction
             <li>Rigorous workflow</li>
         </ul>
     </slide>
-  <slide title="Our Course Hub" layout="normal">
+
+    <slide title="Flipped Learning" layout="normal">
+        <p>Weekly readings will be assigned, starting with the second week, 
+            following somewhat of a "flipped" learning model. </p> 
+        <p>You then have the opportunity to complete a D2L survey, 
+            by the evening before that week's lecture,
+            providing questions to answer in class. 
+            This gives me a chance to adjust the lecture, 
+            and to address issues important to you.
+        </p>
+        <p>This is not a fully "flipped" model, which would have the lectures
+            totally online, and which would have face-to-face sessions be seminars only.</p>
+			
+    </slide>
+
+    <slide title="Flipped LMS" layout="normal">
+        <p>Desire2Learn (D2L) is a very comprehensive Learning Management System (LMS).</p>
+        <p>It is both flexible and inflexible at the same time, and expects content
+            to be re-expressed inside its awkward &amp; clunky confines.</p>
+        <p>A flipped LMS, on the other hand, lives independently of D2L, and is
+            whatever suits the tech-savvyness of the instructor. These are typically
+            open-source, flat file driven, and stored/collaborated on, using
+            an online repository.</p>
+    </slide>
+
+    <slide title="Our Course Hub" layout="normal">
         <h2>
             <a href="https://comp4711.jlparry.com" target="_blank">COMP4711 
                 Course Hub</a>
@@ -73,20 +116,19 @@ Lesson 00 - In-class Only Introduction
                 <li>Use github.com voluntarily, possibly with an alias account name
                     if you have privacy concerns</li>
                 <li>Use git.cit.bcit.ca, a Gitlab server on campus</li>
-                <li>Use a private repo on bitbucket.com or the GIT server of your choice,
-                and add me as a collaborator</li>
+                <li>Use bitbucket.com or the GIT server of your choice</li>
             </ul>
         </p>        
         <p>Whenever you read the term "github repository" in connection
-            with your work, interpret that as whatever GIT repository you are using!</p>
+            with your work, interpret that as whatever *public* GIT repository you are using!</p>
     </slide>
 
     <slide title="Grading" layout="normal">
         <ul>
             <li>10%: lab participation</li>
             <li>40%: 10 labs</li>
-            <li>30%: 3 assignments</li>
-            <li>20%: Final exam, comprehensive</li>
+            <li>25%: 2 assignments</li>
+            <li>25%: Final exam, comprehensive</li>
         </ul>
         <p>Attendance expected, missing more than 2 labs =&gt; U</p>
         <p>Labs: individual or varying pairs, rubric-based assessment</p>
@@ -102,7 +144,7 @@ Lesson 00 - In-class Only Introduction
         <p>Per the dayschool <a href="http://www.bcit.ca/study/programs/550rdiplt#courses" target="_blank">program matrix</a>:</p>
         <ul>
             <li>Somewhat proficient: O-O programming, O-O analysis and design (patterns!)</li>
-            <li>Assumed: English, basic math, basic relational database, 
+            <li>Assumed: English, computer literacy, basic math, basic relational database, 
                 basic networks, basic algorithms, basic HTML/CSS</li>
             <li>Motivated, committed</li>
             <li>Bonus: PHP, github, FOSS</li>

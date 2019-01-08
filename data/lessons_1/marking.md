@@ -1,5 +1,5 @@
 #Marking Process
-COMP4711 - BCIT - Winter 2019
+COMP4711 - BCIT - Winter 2017
 
 I thought I would share with you the marking scripts that I use
 for submissions.
@@ -110,7 +110,7 @@ Once we start using an RDB, I switch to the following script.
 
 You probably notice a couple of differences from the first script!
 
-I can pull a specific branch, or even a specific commit inside that branch
+I can pull a specific branch, or even a specific oommit inside that branch
 (in case you keep working past the deadline).
 
 This script also populates a Mysql database for you, with a name of my choosing.
@@ -146,16 +146,16 @@ An example of this config...
 
 ## Remote Deployment
 
-I have a remote deployment server, such that you can configure
-a webhook for your repo, connected to an endpoint on my server. 
+I am experimenting with remote deployment, such that you can configure
+a webhook for your repo, connected to an endpoint on my server. With a
+bit of luck, it might be ready for your assignment 1, but more likely your assignment 2.
+
 When a webhook event is triggered, and if that event is a merge for
 the appropriate branch of a monitored repo, my app will
 generate a configuration file and run a script similar to the long one above.
 
 This is for testing your projects in a real (and Linux) setting.
-
-If we opt to use it for this instance of the course,
-each team will receive a "key" that they can use to access a project
+Each team will receive a "key" that they can use to access a project
 configuration page on my server. You will specify the name of the repo
 to monitor, and the branch for which a merge will trigger the
 deployment.
@@ -165,3 +165,14 @@ This way, you can use it to test your `develop` branch, until ready to test your
 
 Once the assignment deadline arrives, I will disable the event handling
 and pull all of your `master` branches for deployment on my server.
+
+There will be a page cross-listing all of the projects, so that you can
+see what your classmates are up to :)
+
+I am deploying this course hub using git, but manually - it is the guinea
+pig for the above script.
+
+One hiccup - I am still working on getting Composer working properly
+on my server, so any Composer dependencies will have to be resolved
+in your repo for the moment. That means not git ignoring the `vendor` folder
+(assuming that is where you install them).

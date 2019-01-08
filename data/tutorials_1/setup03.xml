@@ -144,12 +144,12 @@ Tutorial 01c - PHP Sidetrip
 
     <slide title="PHP Array Declaration" layout="normal">
         <p>Arrays can be declared ahead of time, but don't have to be...<br/>
-            $grades = [];</p>
+            $grades = array();</p>
         <p>Arrays can be declared and initialized at the same time...<br/>
-            $grades = [50, 40, 123, 50];<br/>
+            $grades = array(50, 40, 123, 50);<br/>
             with a special syntax for key/value pairs...<br/>
-            $grades = ['first' =&gt; 50, 'second' =&gt; 40, 
-            'last' =&gt; 'passed!'];</p>
+            $grades = array('first' =&gt; 50, 'second' =&gt; 40, 
+            'last' =&gt; 'passed!');</p>
     </slide>
 
     <slide title="PHP Resources" layout="normal">

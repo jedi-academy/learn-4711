@@ -1,18 +1,8 @@
 ## Course Instructors
 **Jim Parry**  
 <jim_parry@bcit.ca>   
+Office: DTC-617  
 Online collaboration; announced first class.  
-In office meeting can be requested Tue 12:30-14:20 or Wed 09:30-10:20 or 12:30-13:20 (SW2-124)
-
-**Michal Aibin**  
-<maibin@bcit.ca>  
-Online collaboration; announced first class.  
-In office meeting can be requested Thu (12:30-13:20) in Burnaby (room TBA).
-
-**Arron Ferguson**  
-<arron_ferguson@bcit.ca>  
-Online collaboration; announced first class.  
-In office meeting can be requested ....
 
 ## Desire2Learn LMS
 [Calendar](https://learn.bcit.ca/d2l/le/calendar/{ou})  

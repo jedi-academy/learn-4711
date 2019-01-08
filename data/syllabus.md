@@ -4,14 +4,14 @@
 School: School of Computing and Academic Studies  
 Program: Computer Systems Technology  
 Course Credits: 3  
-Start Date: January 08, 2018  
-End Date: April 20, 2018  
+Start Date: January 07, 2019  
+End Date: April 19, 2019  
 Total Hours: 45  
 Total Weeks: 15  
 Hours/Weeks: 3  
 Delivery Type: Lecture  
 Prerequisites: COMP 2510 or COMP 2526  
-CRN: 47992  
+CRN: 86101  
 
 ## Course description
 This course provides the students with an opportunity to develop a software 
@@ -23,16 +23,16 @@ representation, structure and transport.
 
 ## Course goals
 This course is about webapp development, using best practices.  
-In small teams, the students will build a moderate MVC webapp in three phases, 
-each building on the previous one.  
+In small teams, the students will build a robust RESTful webapp backend, 
+to complement their option projects.  
 The teams will collaborate using a shared code repository and gitflow workflow, 
 with appropriate supporting tools.  
 
 *Detailed learning outcomes*:  
 1  Build a moderate MVC web application using a suitable framework.  
 	1.1  Setup a suitable webapp development environment  
-	1.2  Build a basic MVC webapp  
-	1.3  Build a moderately complex webapp  
+	1.2  Build a basic RESTish webapp backend  
+	1.3  Build a moderately complex RESTful webapp backend  
 2  Build distributed capabilities into an MVC web application  
 	2.1  Use common representation protocols for distributed systems  
 	2.2  Use common transport protocols for distributed systems  
@@ -50,16 +50,23 @@ Upon successful completion of this course, the student will be able to:
 ## Evaluation criteria
 Quizzes & participation - 10% ... Readings & lab attendance (motivation)  
 Labs - 40% ... 10 walkthrough labs (guidance)  
-Assignments - 25% ... 2 assignments (practice)  
-Final exam - 25% ... Multiple choice, short & long answer (assessment)
+Assignments - 30% ... 2-3 assignments (practice)  
+Final exam - 20% ... Multiple choice, short & long answer (assessment)
 
 ## Attendance requirements
 Students missing more than two labs will receive an Unsatisfactory grade in the course, and fail.
 
 ## Learning resources
-* PHP and HTML/CSS aware editor; eg [NetBeans 8](http://www.netbeans.org) or [PhpStorm](http://www.jetbrains.com/phpstorm)  
-* AMP (Apache + MySQL + PHP) server environment, suitable for the student's platform; eg  [xAMP stack](http://bitnami.com)  
-* CodeIgniter 3 webapp framework, [free download[(http://codeigniter.com)  
+Open-source tool set, including  
+- AMP (Apache + MySQL + PHP7) server environment, suitable for the student's platform; 
+    eg [xAMP stack](https://bitnami.com/stacks/infrastructure)
+- PHP and HTML/CSS aware editor, eg [NetBeans 8](https://netbeans.org/downloads/8.2/),
+    [NetBeans 10](https://netbeans.apache.org/download/nb100/nb100.html)  or 
+    [PhpStorm](https://jetbrains.com/phpstorm) , 
+    or text editor, eg. [Sublime 3](https://www.sublimetext.com/3)
+- [Composer](https://getcomposer.org) , PHP dependency manager
+- CodeIgniter 4 webapp framework [starter project](https://packagist.org/packages/codeigniter4/appstarter)
+- [MongoDB](https://www.mongodb.com) document database
 
 ## Course specific requirements
 
@@ -68,18 +75,19 @@ The expectation is that a student will spend one hour on the assigned reading an
 related quiz/questionnaire, and two hours collaborating on their assignment(s).
 
 Weekly readings will be assigned, starting with the second week, following a 
-"flipped" learning model. Students are to read these lessons and answer a 
-survey/quiz/questionnaire, by the evening before that week's "lecture". 
-The "lecture" will address unclear topics, per the students' responses, 
-and discuss industry issues relevant to that week's topics.
+"flipped" learning model. The readings are in place of a textbook.
+Students are to encouraged to read these lessons ahead of time, and have the 
+opportunity to complete a weekly survey by the evening before that
+week's lecture. Survey responses are used to tailor the lecture to 
+address unclear topics.
 
-Some labs are individual, while others will use pair programming. 
+Most labs will use pair programming, though some will be individual. 
 Most of these labs will have starter projects, on github. 
 The usual submission, if needed, will be a readme file in a D2L dropbox, 
-containing a link to the students' git repository they used to complete the work. 
-Lab grading will be by rubric, and the two members of a pair do not have to 
-receive the same grade. Lab work is meant to be completed during the lab period, 
-with time available to apply the lab's outomes to the students' assignments.
+containing a link to the students' github repository they used to complete the work. 
+Lab grading will be by rubric, and the two members of a pair do not have to r
+eceive the same grade. Lab work is meant to be completed during the lab period, with
+time available to apply the lab's outcomes to the students' assignments.
 
 Assignments will be completed in student-selected project teams of 3-5 members. 
 The same team will be used for all assignments. If a student does not have a team, 
@@ -99,28 +107,31 @@ and survey/quiz/questionnaire completion, should those fall during the excused
 period. Missed readings or lab work will need to be made up by the student.
 
 ## Course schedule
+
 **Week & Material Covered**  
-1 Introduction to MVC  Webapps  
+1 Introduction to MVC Webapps  
 2 MVC Frameworks  
-3 CodeIgniter & Controllers  
-4 Routing & Templating    
-5 Models   
-6 Views   
-7 Midterm exam week (none for this course)  
-8 Forms Handling  
-9 Building on CodeIgniter  
-10 Representation Glue - XML & JSON  
-11 Transport Glue - HTTP  
+3 Collaborative Workflow  
+4 Controllers & Routing  
+5 Responses  
+6 Relational Models  
+7 Entities  
+8 Non-relational models  
+9 Representation Glue - XML  
+10 Representation Glue - JSON  
+11 Transport Glue  
 12 Application Glue - REST  
-13 Authentication & Review  
-15 Final Exam Week  
+13 Authentication  
+14 Final exam week
 
 This course does not have a midterm. Students may request an individual or team interview with the instructor.  
 Refer to the organizer on the course hub home page for more detailed schedule information.  
 
 ## Assignments
-1 – Basic webapp - End of week 5  
-2 – Moderate webapp- End of week 10  
+1 – RESTish backend - Create and access model data, with JSON data exchange (End of week 5)  
+2 – RESTful resource - Full model CRUD, supporting JSON data exchange (End of week 9)  
+3 - RESTful API service - Add service API, with XML support added to CRUD (End of week 13)  
+
 
 ## BCIT policy
 The following statements are in accordance with the BCIT Policies 5101, 5102, 5104, and 7507, and their accompanying procedures. To review these policies and procedures please click on the links below.

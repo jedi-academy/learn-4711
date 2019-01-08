@@ -2,8 +2,6 @@
 
 Most of the frameworks claim to "do" REST, though their interpretations differ.
 
-**Note:** This was last updated in 2018, and needs revisiting.
-
 ## CakePHP
 
 Cake's resource configuration maps incoming requests to controller methods:
