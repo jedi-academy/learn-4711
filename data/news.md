@@ -1,4 +1,4 @@
-**"Office Hours **
+**"Office Hours"**
 
 Some of you were asking about office hour availability, as out schedules don't seem to mesh well.
 I am happy to set up a D2L virtual classroom instance, or a zoom video conference,
