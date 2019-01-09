@@ -20,6 +20,6 @@ Online collaboration; announced first class.
 
 ##Course Related
 [Course outline]({outline})  
-[Slack team](https://comp4711.slack.com) - for notifications & FAQ  
+[Slack team](https://comp4711-winter2019.slack.com) - for notifications & FAQ  
 [Course repo](https://github.com/jedi-academy/learn-4711) - open-sourced, for those who want to look "under the hood"    
 
