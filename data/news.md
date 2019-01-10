@@ -1,3 +1,9 @@
+**Lab 1 note**  
+
+In the <DocumentRoot> element of Apache's configuration file, `httpd.conf`, the
+AllowOverride setting needs to be `AllowOverride All`, if yours came with it
+set to `None`. I should have mentioned this in the writeup, sorry.
+
 **"Office Hours"**
 
 Some of you were asking about office hour availability, as out schedules don't seem to mesh well.
