@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Lesson 02b - Devops Workflow
--->
-<lesson status="1.3">
+<lesson status="1.4">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <!-- Agenda -->
@@ -129,31 +126,4 @@ Lesson 02b - Devops Workflow
         </ul>
     </slide>
  
-    <slide title="Gitflow Adoption" layout="normal">
-        <p>This sounds terrible. Do any real-world projects use gitflow?</p>
-        <p>Many do, though often with their own slant. 
-            The following are from github alone, based on their branch naming.</p>
-       <div class="left">
-        <ul>
-            <li>accord-net - master, development, then releases</li>
-            <li>cakephp - master &amp; releases</li>
-            <li>codeigniter - master, develop &amp; releases</li>
-            <li>cygnite - master &amp; dev</li>
-            <li>fuelphp - release masters</li>
-            <li>kerisy - master &amp; releases</li>
-        </ul>
-        </div>
-        <div class="right">
-         <ul>
-            <li>laravel - master &amp; releases (5.3, 5.4 etc)</li>
-            <li>mpapierski - master &amp; develop</li>
-            <li>phalcon - master &amp; releases</li>
-            <li>signumsoftware - master &amp; releases</li>
-            <li>symfony - master &amp; releases</li>
-            <li>vaadin - master &amp; releases (7.7)</li>
-            <li>yii - master &amp; release</li>
-        </ul>
-        </div>
-    </slide>
-
 </lesson>

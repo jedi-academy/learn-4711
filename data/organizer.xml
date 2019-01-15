@@ -14,20 +14,17 @@ Course organizer for Comp4711
         <tutorial name="setup02">Virtual Hosting Setup</tutorial>       
     </week>
     <week num="2">
-        <topic>MVC Frameworks</topic>
+        <topic>Collaborative Workflow</topic>
+        <outcomes>3.1, 3.2</outcomes>
+        <lesson name="dev01" icon="dothis">Devops Workflow Concepts</lesson>
+        <lab name="lab02">Collaborative Workflow</lab>
+     </week>
+    <week num="3">
+        <topic>MVC Frameworks</topic>         
         <outcomes>1.1 (PHP), 1.2 (basics),3</outcomes>
         <!--
          <lesson name="basic01" icon="dothis">MVC Frameworks</lesson>
-                <lesson name="dev01" icon="dothis">Devops Workflow Concepts</lesson>
-                <lab name="lab02">Collaborative Workflow</lab>
-                <lesson name="week02" icon="read" >Survey results - MVC &amp; workflow</lesson>
-        -->
-    </week>
-    <week num="3">
-        <topic>Collaborative Workflow</topic>         
-        <outcomes>3.1, 3.2</outcomes>
-        <!--
-               <inlab>#3 Website conversion</inlab>
+              <inlab>#3 Website conversion</inlab>
                <lesson name="basic01-ci" icon="dothis">CodeIgniter Overview</lesson>
                <lab name="lab03">Website Conversion</lab>
                <tutorial name="ci-basic01">Static to Trivial CI Website Conversion</tutorial>
@@ -151,10 +148,12 @@ Course organizer for Comp4711
         <topic>REFERENCE</topic>
         <lesson name="intro02" icon="read" >Golden Rules</lesson>
         <tutorial name="setup03">PHP Comparison to Java</tutorial>
-        <lesson name="dev02" icon="read">Gitflow Workflow Techniques</lesson>
         <lesson name="dev03" icon="read">Gitflow Setup Example</lesson>
-        <lesson name="dev04" icon="read" >Gitting Good</lesson>		
+        <lesson name="dev04" icon="read" >Gitting Good - Best Practices</lesson>		
+    <!--
+        <lesson name="dev02" icon="read">Gitflow Workflow Techniques</lesson>
         <lesson name="marking" icon="read" >Marking Process</lesson>		
+    -->
     </week>
     <!--
 <week num="zz">

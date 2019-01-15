@@ -45,6 +45,7 @@
 ## PHP
 - [W3Schools](http://www.w3schools.com/php/default.asp) Tutorials   
 - [PHP Documentation](http://ca3.php.net/manual/en/) ... from the horse's mouth  
+- [Working With Arrays - Learning PHP](https://www.oreilly.com/library/view/learning-php/9781491933565/ch04.html) ... a chapter excerpt from an O'Reilly Safari book
 
 ## Testing
 - [PHPUnit](https://phpunit.de/) for testing your webapp models and business logic  
