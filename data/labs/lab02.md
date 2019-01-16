@@ -5,6 +5,22 @@ COMP4711 - BCIT - Winter 2019
 
 This week, you will be practicing collaborative workflow.
 
+## UPDATE
+
+I am pleased with the progress I observed in lab :)
+
+If your team has "got" the signing, branching, and meaningful titles
+for these and commits down pat; then I am happy to consider your "round 2"
+sufficient and will mark it. You would then not have to do round 3.
+
+If your team feels they can improve, or wants the practice, then by all
+means continue with round 3 as originally written up!
+
+Either way, you still need something in the dropbox, i.e. a link, so
+that I can respond with feedback and a grade.
+
+I didn't setup the dropbox originally, and have fixed that.
+The new ("proper") dropbox also has a marking rubric.
 
 ## Lab Process
 
