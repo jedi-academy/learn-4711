@@ -1,3 +1,11 @@
+## Planned System Outage!
+
+The institute electricals are being worked on this weekend, and D2L may be
+unavailable Fri 23:30 - Sat 07:30 and Sat 23:30 - Sun 23:00.
+
+I have adjusted the dropbox deadlines to Sun 23:30 to accommodate this.  
+Don't leave things until the last minute!
+
 ### Week 2 - Jan 12
 
 I am swapping the planned lesson order (2 and 3), so that we can focus on just
