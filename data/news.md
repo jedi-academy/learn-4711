@@ -15,6 +15,8 @@ Some of you were asking about my availability for office hours or consultation..
 I am willing to give D2L's virtual classroom a go, this Thursday (Jan 17),
 from 13:30-14:30. Join me through the D2L link, and we'll see how it works :)
 
+**Added some FAQ notes in the week 2 tab**
+
 ### Lab 1 note  
 
 In the "DocumentRoot" element of Apache's configuration file (`httpd.conf`), the
