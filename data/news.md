@@ -1,12 +1,8 @@
-## Planned System Outage!
+## Week 3 - Jan 22
 
-The institute electricals are being worked on this weekend, and D2L may be
-unavailable Fri 23:30 - Sat 07:30 and Sat 23:30 - Sun 23:00.
+We're going to take a shallow dive into MVC and what a framework does for you :)
 
-I have adjusted the dropbox deadlines to Sun 23:30 to accommodate this.  
-Don't leave things until the last minute!
-
-### Week 2 - Jan 12
+### Week 2 - Jan 15
 
 I am swapping the planned lesson order (2 and 3), so that we can focus on just
 the one thing this week: collaborative workflow. We want a solid base moving forward.

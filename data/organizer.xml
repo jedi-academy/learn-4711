@@ -19,10 +19,12 @@ Course organizer for Comp4711
         <lesson name="dev01" icon="dothis">Devops Workflow Concepts</lesson>
         <lab name="lab02">Collaborative Workflow</lab>
         <lab name="lab02faq">Some lab notes</lab>
-     </week>
+    </week>
     <week num="3">
         <topic>MVC Frameworks</topic>         
         <outcomes>1.1 (PHP), 1.2 (basics),3</outcomes>
+        <lesson name="seminar03" icon="dothis">CodeIgniter Introduction</lesson>
+        <lab name="lab03">CodeIgniter Project Introduction</lab>
         <!--
          <lesson name="basic01" icon="dothis">MVC Frameworks</lesson>
               <inlab>#3 Website conversion</inlab>
@@ -151,10 +153,10 @@ Course organizer for Comp4711
         <tutorial name="setup03">PHP Comparison to Java</tutorial>
         <lesson name="dev03" icon="read">Gitflow Setup Example</lesson>
         <lesson name="dev04" icon="read" >Gitting Good - Best Practices</lesson>		
-    <!--
-        <lesson name="dev02" icon="read">Gitflow Workflow Techniques</lesson>
-        <lesson name="marking" icon="read" >Marking Process</lesson>		
-    -->
+        <!--
+            <lesson name="dev02" icon="read">Gitflow Workflow Techniques</lesson>
+            <lesson name="marking" icon="read" >Marking Process</lesson>		
+        -->
     </week>
     <!--
 <week num="zz">
