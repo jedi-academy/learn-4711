@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lesson status="v3.0">
+
+    <slide title="Routing" layout="normal">
+        <p>Routing is the <b>process</b> of determining how to handle an incoming
+            request. This can be done by explicit configuration, or "by
+            convention".</p>
+        <p>All frameworks support routing by <b>configuration</b>.
+            CodeIgniter can also handle routing by <b>convention</b>,
+            with controllers expected to be found inside
+            <code>app/Controllers</code>
+            without additional or specific configuration.</p>
+        <p>Routing is essential to a framework. Many frameworks
+            were started by figuring out the routing first, and then
+            by designing and building components to support the
+            routing and the "controllers" that would be the result
+            of "doing" the routing.</p>
+    </slide>
+
+    <!-- Agenda -->
+    <slide title="Agenda" layout="normal">
+        <ol>
+            <li>
+                <a href="#{tag1}">Different Perspectives</a>
+            </li>
+            <li>
+                <a href="#{tag2}">CodeIgniter Routing</a>
+            </li>
+            <li>
+                <a href="#{tag3}">Routing Rules</a>
+            </li>
+        </ol>
+    </slide>
+
+
+    <slide title="1. #URIsMatter" layout="normal" tag="tag1">
+        <p>The form of a URI matters. It means different
+            things in different contexts, as shown on the next
+            few slides.</p>
+        <p>The "generally accepted best practice" is to try to
+            configure a webapp so that URIs are "SEO-friendly".
+            That means they don't include the front controller
+            (index.php) in their name, and that anything
+            intended to identify a "resource" is part of
+            the URI and not the query string.</p>
+    </slide>
+
+
+    <slide title="Apache View of URIs" layout="normal" >
+        <p>Apache needs to know either what to return for a request
+            (eg. the contents of a named file) or what object to
+            execute in response to a request (eg. index.php).
+        </p>
+        <table>
+            <tr>
+                <th>URI</th>
+                <th>Object</th>
+            </tr>
+            <tr>
+                <td>
+                    <code>/stuff</code>
+                </td>
+                <td>The file "stuff" in the document root</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/stuff</code> with "index.php" injected</td>
+                <td>The "index.php" script in the document root</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/index.php/stuff</code>
+                </td>
+                <td>The "index.php" script in the document root</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/index.php?c=stuff</code>
+                </td>
+                <td>The "index.php" script in the document root</td>
+            </tr>
+        </table>
+        <p>If the file or object is not found, Apache returns a 404.</p>
+        <p>With an appropriate <code>.htaccess</code>, the "index.php"
+            can be hidden from your users, yet Apache still does the right thing.</p>
+    </slide>
+
+    <slide title="CodeIgniter View of URIs" layout="normal"  tag="tag1">
+        <p>CodeIgniter needs to know which controller and method to
+            execute in response to a request (eg. Stuff::hithere.php).
+        </p>
+        <table>
+            <tr>
+                <th>URI</th>
+                <th>Object</th>
+            </tr>
+            <tr>
+                <td>
+                    <code>/stuff</code>
+                </td>
+                <td>If the file "stuff" exists in the document root,
+                    Apache handles the request.</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/stuff</code> with "index.php" injected</td>
+                <td>Invoke the "index" method of the "Stuff" controller.</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/index.php/stuff</code>
+                </td>
+                <td>Invoke the "index" method of "Stuff" controller.</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/index.php?c=stuff</code>
+                </td>
+                <td>Invoke the "index" method of "Stuff" controller.
+                    This assumes proper configuration.</td>
+            </tr>
+        </table>
+
+    </slide>
+
+    <slide title="SEO View of URIs" layout="normal"  tag="tag1">
+        <p>Search engines need to know the "resource" to
+            associate with a request
+        </p>
+        <table>
+            <tr>
+                <th>URI</th>
+                <th>Object</th>
+            </tr>
+            <tr>
+                <td>
+                    <code>/stuff</code>
+                </td>
+                <td>"stuff"</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/stuff</code> with "index.php" injected</td>
+                <td>"stuff"</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/index.php/stuff</code>
+                </td>
+                <td>index.php.stuff</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/index.php?c=stuff</code>
+                </td>
+                <td>index.php</td>
+            </tr>
+        </table>
+        <p>If the request returns a 404, the search engine will treat
+            the content as unavailable.</p>
+        <p>Only if you hide "index.php" or provide appropriate
+            routing, will SEO engines associate the correct
+            "resource" with your content.</p>
+    </slide>
+
+    <slide title="2. CodeIgniter Routing" layout="normal" tag="tag2">
+        <p>To do routing, CodeIgniter...</p>
+        <ol>
+            <li>splits the URI into segments</li>
+            <li>if the first segment is a folder identifier,
+                drill down into it and repeat</li>
+            <li>run through the routing rules, looking for a match</li>
+            <li>treat the first segment as a controller name; bail if not</li>
+            <li>if we have a controller, treat the second segment as a method
+                name, defaulting to "index"</li>
+            <li>if no segments, look for a default controller in
+                the "current" folder</li>
+            <li>if still not resolved, trigger a CI 404.</li>
+        </ol>
+                
+    </slide>
+    
+    <slide title="Default Controllers" layout="normal">
+        <p>One of the CodeIgniter configuration settings, in
+            <code>app/Config/Routes.php</code>, is for the
+            "default controller" ...<br/>
+            <code>$routes->setDefaultController('Welcome');</code>
+        </p>
+        <p>This applies only if the first URI segment appears to identify a subfolder
+            inside <code>app/Controllers</code>, and no routing rule 
+            matches the incoming request; or if there is no controller
+            segment in the URI.
+        </p>
+        <p>In such a case, the incoming request is interpreted with the "default
+            controller" value added to the end, identifying the expected controller.</p>
+        <p>If CodeIgniter can still not determine the appropriate controller to handle
+            the request, it will return a CodeIgniter 404 error page.</p>
+    </slide>
+
+    <slide title="3. Routing Rules" layout="normal" tag="tag3">
+        <p>
+            Routing rules are configured in <code>app/Config/Routes.php</code>
+        </p>
+        <p>There is an incredible amount of flexibility with 
+            <a href="https://codeigniter4.github.io/CodeIgniter4/incoming/routing.html" target="_blank">routing</a>, 
+            but we only need a implified subset.</p>
+        <p>
+            <code>app/Controllers/Ordering.php</code> can define a normal controller or landing
+            page for the customer ordering process, without having to define a route</p>
+        <p>
+            <code>app/Controllers/api/Book.php</code> might provide an API service controller
+            for placing orders, without having to define a route.
+        </p>
+        <p>
+            <code>app/Controllers/Orders.php</code> can define a resource controller for orders,
+            with a <a href="https://codeigniter4.github.io/CodeIgniter4/incoming/routing.html#resource-routes">resource routing</a> 
+            rule: <code>$routes->resource('orders');</code>
+        </p>
+    </slide>
+
+</lesson>

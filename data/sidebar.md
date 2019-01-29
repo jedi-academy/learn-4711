@@ -2,7 +2,7 @@
 **Jim Parry**  
 <jim_parry@bcit.ca>   
 Office: DTC-617  
-Online collaboration; announced first class.  
+Online collaboration: zoom conferences as needed.
 
 ## Desire2Learn LMS
 [Calendar](https://learn.bcit.ca/d2l/le/calendar/{ou})  

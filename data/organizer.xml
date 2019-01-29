@@ -25,26 +25,13 @@ Course organizer for Comp4711
         <outcomes>1.1 (PHP), 1.2 (basics),3</outcomes>
         <lesson name="seminar03" icon="dothis">CodeIgniter Introduction</lesson>
         <lab name="lab03">CodeIgniter Project Introduction</lab>
-        <!--
-         <lesson name="basic01" icon="dothis">MVC Frameworks</lesson>
-              <inlab>#3 Website conversion</inlab>
-               <lesson name="basic01-ci" icon="dothis">CodeIgniter Overview</lesson>
-               <lab name="lab03">Website Conversion</lab>
-               <tutorial name="ci-basic01">Static to Trivial CI Website Conversion</tutorial>
-               <tutorial name="ci-basic02">Trivial CI to Basic CI Website Conversion</tutorial>
-               <tutorial name="ci-basic03">Basic CI to Good CI Website Conversion</tutorial>
-        -->
     </week>
     <week num="4">
         <topic>Controllers &amp; Routing</topic>         
         <outcomes>1.2 (routing), 3</outcomes>
-        <!--
-                <inlab>#4 Working with controllers</inlab>
-                <lesson name="basic02" icon="dothis">CI Controllers</lesson>
-                <lesson name="basic06">Routing</lesson>
-                <lab name="lab04">Working With Controllers &amp; Routing</lab>
-                <lesson name="week04" icon="read">Survey results - signing</lesson>
-        -->
+        <lesson name="controllers" icon="dothis">CI Controllers</lesson>
+        <lesson name="routing">Routing</lesson>
+        <lab name="lab04">Working With Controllers &amp; Routing</lab>
     </week>
     <week num="5">
         <topic>Responses</topic>
@@ -55,7 +42,8 @@ Course organizer for Comp4711
                 <lesson name="basic03-more" icon="read">Model Patterns (Concepts)</lesson>
                 <lesson name="basic68">Models in a Nutshell</lesson>
         -->
-    </week>
+         <assignment name="assignment1">RESTish Backend</assignment>
+   </week>
     <week num="6">
         <topic>Relational Models</topic>
         <outcomes>1.2 (models)</outcomes>
@@ -153,32 +141,23 @@ Course organizer for Comp4711
         <tutorial name="setup03">PHP Comparison to Java</tutorial>
         <lesson name="dev03" icon="read">Gitflow Setup Example</lesson>
         <lesson name="dev04" icon="read" >Gitting Good - Best Practices</lesson>		
+        <lesson name="faq-apache" icon="read" >FAQ</lesson>		
         <!--
             <lesson name="dev02" icon="read">Gitflow Workflow Techniques</lesson>
             <lesson name="marking" icon="read" >Marking Process</lesson>		
         -->
     </week>
-    <!--
-<week num="zz">
-    <topic>FAQs</topic>
-    <lesson name="faq-general" icon="read" >FAQ</lesson>		
-    <lesson name="faq-apache" icon="read" >FAQ</lesson>		
-    <lesson name="faq-devops" icon="read" >FAQ</lesson>		
-    <lesson name="faq-ci" icon="read" >FAQ</lesson>		
-    <lesson name="faq-macos" icon="read" >FAQ</lesson>		
-</week>
-    -->
     <week num="yy">
         <topic>Other Frameworks (FYI)</topic>
-        <!--
-      <lesson name="basic01-other" icon="read" >Other MVC Framework Examples</lesson>
-       <lesson name="other-routing" icon="read">Routing examples from  other frameworks</lesson>
-       <lesson name="other-models" icon="read" >Model examples from  other frameworks</lesson>
-       <lesson name="other-controllers" icon="read" >Controller examples from other frameworks</lesson>
-       <lesson name="other-views" icon="read" >View examples from  other frameworks</lesson>
-       <lesson name="other-forms" icon="read" >Form examples from  other frameworks</lesson> 
-        -->
+        <lesson name="basic01-other" icon="read" >Other MVC Framework Examples</lesson>
+        <lesson name="other-controllers" icon="read" >Controller examples from other frameworks</lesson>
+        <lesson name="other-routing" icon="read">Routing examples from  other frameworks</lesson>
         <lesson name="other-rest" icon="read" >REST examples from  other frameworks</lesson> 
+        <!--
+        <lesson name="other-models" icon="read" >Model examples from  other frameworks</lesson>
+        <lesson name="other-views" icon="read" >View examples from  other frameworks</lesson>
+        <lesson name="other-forms" icon="read" >Form examples from  other frameworks</lesson> 
+        -->
     </week>
     <!--
     <week num="xx">

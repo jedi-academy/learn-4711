@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lesson status="v2.0">
+    <!-- Activity metadata ... override anything from the course or organizer -->
+
+    <!-- Agenda -->
+    <slide title="Agenda" layout="normal">
+        <ol>
+            <li>
+                <a href="#{tag1}">Overview</a>
+            </li>
+            <li>
+                <a href="#{tag2}">Controller Basics</a>
+            </li>
+            <li>
+                <a href="#{tag3}">Getting Input</a>
+            </li>
+            <li>
+                <a href="#{tag4}">Using Stuff</a>
+            </li>
+        </ol>
+    </slide>
+
+
+    <!-- Normal slides -->
+
+    <slide title="1. Overview" layout="normal" tag="tag1">
+        <p>Controllers are a key component of the MVC design pattern.</p>
+        <p>CodeIgniter controllers are normally found in the 
+            <code>app/Controllers</code> folder.</p>
+    </slide>
+
+    <slide title="Remember REST?" layout="normal">
+        <div>
+            <p>REST is an architectural style or philosophy, not a standard.</p>
+            <ul>
+                <li>Map resources (not usecases) to URLs</li>
+                <li>Map CRUD usecases to HTTP types</li>
+                <li>Pass all needed data (representational state)</li>
+                <li>Accept or deliver multiple formats (XML, JSON, JSONP, CSV, XHTML, text)</li>
+            </ul>
+            <p>"Routing" maps these to a single controller for each resource,
+                with specified methods, and with resource identifiers
+                as method parameters.</p>
+        </div>    
+    </slide>
+
+    <slide title="Key Controller Abstractions" layout="normal">
+        <div class="left">
+            <p>The key abstractions for CI controllers:</p>
+            <ul>
+                <li>its <a href="https://codeigniter4.github.io/CodeIgniter4/incoming/request.html" target="_blank">request</a> property encapsulates an HTTP request</li>
+                <li>its <a href="https://codeigniter4.github.io/CodeIgniter4/outgoing/response.html" target="_blank">response</a> property encapsulates an HTTP response</li>
+                <li>its <a href="https://codeigniter4.github.io/CodeIgniter4/general/logging.html" target="_blank">logger</a> property wraps an activity/error log</li>
+                <li>CI's <a href="https://codeigniter4.github.io/CodeIgniter4/database/index.html" target="_blank">Database</a> and 
+                    <a href="https://codeigniter4.github.io/CodeIgniter4/libraries/sessions.html" target="_blank">Session</a> modules encapsulate container storage</li>
+                <li>CI provides libraries &amp; helpers to encapsulate or wrap common web components</li>
+                <li>Of course, you add your own or third party models, libraries and packages</li>
+            </ul>       
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="720" height="288" src="/pix/lessons/3/3-arch.png"/>
+        </div>
+    </slide>
+
+    <slide title="Types of Controllers" layout="normal">
+        <div class="left">
+            <p>There are three common types of controllers:</p>
+            <ul>
+                <li>A <b>normal</b> or "regular" controller is expected to return a webpage
+                    to the browser.</li>
+                <li>A <b>utility</b> controller is expected to return a file 
+                    or perhaps a specially formatted data structure.</li>
+                <li>A <b>service</b> controller is expected to implement the
+                    server side of some distributed system protocol (eg. REST).</li>
+            </ul>
+            <p>Many service controllers are RESTful, but not all.
+                An API service controller, for instance, often only handles GET and POST requests.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="445" height="330" src="/pix/lessons/3/3-2.png"/>
+        </div>
+    </slide>
+
+    <slide title="2. Controller Basics" layout="normal" tag="tag2">
+        <div class="left">
+            <p>Controllers are found in the <code>app/Controllers</code> folder.
+                Controllers can also be in nested subfolders underneath that.</p>
+            <p>There is a default controller, <code>Home</code>, in any folder.
+                This default can be changed, if you like.</p>
+        </div>
+        <div class="right">
+            <p>A controller is referenced by its lower-case name.
+                The URL <code>comp4711.local/product</code> is a reference
+                to the <code>Product</code> controller.</p>
+            <p>If that same controller were in a subfolder, 
+                <code>app/Controllers/inventory</code>, then
+                it would referenced in a URL as <code>comp4711.local/inventory/product</code>.
+            </p>
+            <p>If "orders" was a subfolder, then the URL 
+                <code>comp4711.local/orders</code> would be a reference
+                to the <code>app/Controllers/orders/Home</code> controller.
+            </p>
+        </div>
+    </slide>
+
+    <slide title="Segment Based Naming" layout="normal">
+        <div class="left">
+            <p>URLs are segment based.</p>
+            <p>For instance, the URL <code>example.com/class/function/parm1/parm2</code>
+                is meant to be interpreted as a reference to the <code>function</code>
+                method inside the <code>class</code> controller, with two positional
+                parameters, <code>parm1</code> and <code>parm2</code>,
+                passed to the method invocation.</p>
+            <p>You can't normally pass parameters to a controller's <code>index</code>
+                method. It is *possible* to do so, with some clever routing rules,
+                but that is beyond our scope.</p>
+        </div>
+        <div class="right">
+            <p>You need to be careful with your selection of controller class
+                and method names, or the handling of a request by CodeIgniter
+                might not be what you expect!</p>
+            <p>For example, the URL <code>/apple/banana/pear</code> *could*
+                be resolved by any of the following:
+                <ul>
+                    <li>
+                        <code>Apple::banana(pear)</code> or</li>
+                    <li>
+                        <code>apple/Banana::pear()</code> or</li>
+                    <li>
+                        <code>apple/banana/Pear::index()</code> or</li>
+                    <li>
+                        <code>apple/banana/pear/Home::index()</code> 
+                    </li>
+                </ul>
+            </p>
+        </div>
+    </slide>
+
+    <slide title="3. Getting Input" layout="normal" tag="tag3">
+        <p>Your controller normally gets data passed as positional
+            parameters in the URL.</p>
+        <p>For instance, if your method looks like...<br/>
+            <code>function order($item,$quantity) {...}</code>
+            <br/>
+            then the URL <br/>
+            <code>.../order/apple/1</code>
+            <br/>
+            will result in <code>$item</code> having the value 
+            <code>"apple"</code> and 
+            <code>$quantity</code> having the value <code>1</code>
+            inside your method.
+        </p>
+    </slide>
+
+    <slide title="Getting Input From a Form" layout="normal">
+        <p>If you are processing an HTML form, then the
+            form fields are accessed inside your handling method
+            by using <a href="https://codeigniter4.github.io/CodeIgniter4/incoming/incomingrequest.html#retrieving-input"
+                        target="_blank">request</a> methods.
+        </p>
+        <p>Note that fields are referenced according to their "name" 
+            attribute, and not their "id" attribute.</p>
+            
+    </slide>
+
+    <slide title="4. Using Stuff" layout="normal" tag="tag4">
+        <p>"Stuff" is a highly technical term, in this context meaning
+            any support component that comes with CodeIgniter or that you created.</p>
+        <p>Stuff includes models, libraries, helpers, drivers,
+            and configuration settings.</p>
+        <p>A slide for each of these follows, with a simple introduction.
+            Each of the kinds of support component is addressed, in more
+            detail, in upcoming lessons.</p>
+    </slide>
+
+    <slide title="Finding Stuff" layout="normal">
+        <p>CodeIgniter "stuff" is normally accessed through static accessor
+            methods in <code>Config\Services</code>.
+        </p>
+        <p>You can specify your choices instead, by changing appropriate
+            configuration files, or by over-riding the accessor methods
+            in <code>app/Config/Services</code>.
+        </p>
+        <p>Anything not handled this way (like models) is instantiated, using its
+            namespaced class name.</p>
+    </slide>
+
+
+    <slide title="Controller, Revisited" layout="normal">
+        <p>So, putting the previous slides together gives the
+            following steps (checklist?) for each controller's handling method:
+        </p>
+        <ol>
+            <li>Load any needed components</li>
+            <li>Extract input parameters</li>
+            <li>Access your model(s)</li>
+            <li>Validate and process your input, updating any models</li>
+            <li>Build view parameters array</li>
+            <li>Load the proper response view or template</li>
+        </ol>
+    </slide>
+
+
+</lesson>
