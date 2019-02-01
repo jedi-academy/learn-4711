@@ -2,6 +2,14 @@
 
 Controllers and routing, woohoo!
 
+UPDATES:
+
+- Some of the students are encountering "Whoops" error messages when testing
+their backend, even though their code looks reasonable. I am investigating.
+- It has become apparent that the CI4 User Guide section on routing isn't
+as helpful as it should be, and I am working on that too.
+
+
 ## Week 3 - Jan 22
 
 We're going to take a shallow dive into MVC and what a framework does for you :)

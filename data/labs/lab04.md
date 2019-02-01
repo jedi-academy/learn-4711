@@ -72,6 +72,7 @@ Your data should have 3-4 records for each "model".
 
 For each model, add a [resource route](https://codeigniter4.github.io/CodeIgniter4/incoming/routing.html#resource-routes).
 
+
 ### Resource controllers
 
 For each resource, add a controller of the same name, with methods per resource routing.
@@ -82,10 +83,39 @@ to make it easy to return data, or failure responses.
 Implement each controller's ``index()`` and ``show()`` methods, properly.
 The other resource methods should return errors.
 
+**UPDATE:**
+
+The resource routing implies that a resource controller will have seven methods: index(), new(), edit($id),
+show($id), create(), update($id), and delete($id).
+
+The only ones practical to test at this point are those innvoked by an HTTP GET.
+
 ### Testing
 
 Make the "app" testable, with links sufficient to demonstrate compliance (i.e. all
 possible responses) on either a landing page or the homepage.
+
+**UPDATE:**
+
+It is not practical to trigger the create, update & delete methods, as they are only 
+routed to for the post, patch, put & delete HTTP verbs. Don't worry about them.
+Next week, I will show you how to handle that :)
+
+Your testing links need to be ones that are routed by the resource routing.
+In the case of a "students" resource, those would be "students", "students/new",
+"students/abc/edit", and "students/abc". "abc" refers to the identifier of a specific student.
+
+Your new() and edit($id) methods do not need to be implemented, but they
+should fail gracefully, eg using ``return $this->fail('Not implemented',418);``.
+
+Your other methods should fail too, but we don't have a convenient way of testing that :-/
+
+**NOTE 2:**
+
+Some of you are getting browser errors when testing your basic methods, as the responses
+are being returned as XML. That is not what I expected, and I am investigating.
+JSON should be the default.
+
 
 ### Collaboration
 
