@@ -1,3 +1,10 @@
+## Week 5 - Feb 5
+
+We have some work to do on routing & responding,
+paying attention to case sensitivity & what works.
+
+You should start on assignment 1, if you haven't already done so.
+
 ## Week 4 - Jan 29
 
 Controllers and routing, woohoo!
@@ -8,7 +15,6 @@ UPDATES:
 their backend, even though their code looks reasonable. I am investigating.
 - It has become apparent that the CI4 User Guide section on routing isn't
 as helpful as it should be, and I am working on that too.
-
 
 ## Week 3 - Jan 22
 

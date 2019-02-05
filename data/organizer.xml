@@ -36,14 +36,9 @@ Course organizer for Comp4711
     <week num="5">
         <topic>Responses</topic>
         <outcomes>1.2, 3</outcomes>
-        <!--
-               <inlab>Assignment #1 completion</inlab>
-                <lesson name="basic03" icon="read">CodeIgniter Models (Practical)</lesson>
-                <lesson name="basic03-more" icon="read">Model Patterns (Concepts)</lesson>
-                <lesson name="basic68">Models in a Nutshell</lesson>
-        -->
-         <assignment name="assignment1">RESTish Backend</assignment>
-   </week>
+        <lesson name="responses">Building Responses</lesson>
+        <assignment name="assignment1">RESTish Backend</assignment>
+    </week>
     <week num="6">
         <topic>Relational Models</topic>
         <outcomes>1.2 (models)</outcomes>
