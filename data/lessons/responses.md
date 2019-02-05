@@ -15,7 +15,7 @@ the project folder, and that should end up as the root of a repository.
 
 If started with the "devstarter", you want to refresh some of your `app/Config` files
 from `vendor/codeigniter4/codeigniter4/app/Config`: Autoload, Filters, Modules,
-Paths, Servies and Toolbar.
+Paths, Services and Toolbar.
 
 ## What We Have So Far
 
@@ -43,12 +43,12 @@ Not of of you are doing this, and I see varying degrees of success.
 
 Group; repo; starter; index(); show($id)
 
-1; cartaroomlab04; dev; var_dump (X); object (Y) -> xml
+1; cartaroomlab04; dev; object (Y); var_dump (X) -> xml
 15; team-twenty-four; dev; boom; boom (case sensitivity) ... s/b HTML view (X); object (?)
-3; comp4711cartaroomlab004; dev; boom; boom (case sensitivity) ... s/b obj; obj array 
+3; comp4711cartaroomlab004; dev; boom; boom (case sensitivity) ... s/b obj array; obj  
 4; lab4-cst; dev; boom ... need to update config; x; x
-5; carlotoni; dev; ...
-6; illiterate-pizzamen; dev; ...
+5; carlotoni; dev; boom; boom (case sensitivity)... need to update config; findAll; find --> xml <--
+6; illiterate-pizzamen; dev; findAll(Y); find (Y) -> xml <--
 8; fitwalk-william; CI3.1 (X)
     
 ## Response Formatter
