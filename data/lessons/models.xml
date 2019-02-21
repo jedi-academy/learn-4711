@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Lesson 03 - Models
--->
 <lesson status="v1.1">
-    <!-- Activity metadata ... override anything from the course or organizer -->
 
     <!-- Agenda -->
     <slide title="Agenda" layout="normal">

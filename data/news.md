@@ -1,3 +1,11 @@
+## Week 6 (real) - Feb 21
+
+Models, models, models
+
+## Week 6 - Feb 12
+
+Snow day :(
+
 ## Week 5 - Feb 5
 
 We have some work to do on routing & responding,
@@ -15,22 +23,6 @@ UPDATES:
 their backend, even though their code looks reasonable. I am investigating.
 - It has become apparent that the CI4 User Guide section on routing isn't
 as helpful as it should be, and I am working on that too.
-
-## Week 3 - Jan 22
-
-We're going to take a shallow dive into MVC and what a framework does for you :)
-
-### Week 2 - Jan 15
-
-I am swapping the planned lesson order (2 and 3), so that we can focus on just
-the one thing this week: collaborative workflow. We want a solid base moving forward.
-
-
-### Lab 1 note  
-
-In the "DocumentRoot" element of Apache's configuration file (`httpd.conf`), the
-AllowOverride setting needs to be `AllowOverride All`, if yours came with it
-set to `None`. I should have mentioned this in the writeup, sorry.
 
 ### "Office Hours"
 
