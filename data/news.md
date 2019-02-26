@@ -1,3 +1,7 @@
+## Week 7 - Feb 26
+
+Entities- who needs them?
+
 ## Week 6 (real) - Feb 21
 
 Models, models, models

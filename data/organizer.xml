@@ -44,18 +44,11 @@ Course organizer for Comp4711
         <outcomes>1.2 (models)</outcomes>
         <lesson name="models" >Models</lesson>
         <lab name="lab05" >Models with Presenter</lab>
-        <!--
-                <inlab>#5 Views</inlab>
-                <github name="views" link="https://github.com/jedi-academy/example-views" >Examples to support "views" lessons</github> 
-                <lesson name="basic69">Views in a Nutshell</lesson>
-                <tutorial name="ci-todo02" >Homepage Features</tutorial>
-                <tutorial name="ci-todo03" >Ordered List Page Features</tutorial>
-                <tutorial name="ci-todo04" >Maintenance List</tutorial>
-                <tutorial name="ci-todo05" >Help Wanted Page Features</tutorial>
-        -->
-    </week>
+     </week>
     <week num="7">
         <topic>Entities</topic>
+       <lesson name="entities" >Entities</lesson>
+        <lab name="lab05walkthrough" >Lab walkthrough</lab>
     </week>
     <week num="8">
         <topic>Non-relational models</topic>
