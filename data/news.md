@@ -2,6 +2,10 @@
 
 Entities- who needs them?
 
+**Update**: This is [the repo](/download/playful.zip) we built in class today, as far as we got.
+I will complete it later this evening, and maybe tidy it up a bit  so I am
+not as embarrassed by the UI (or lack thereof).
+
 ## Week 6 (real) - Feb 21
 
 Models, models, models
