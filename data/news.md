@@ -1,3 +1,8 @@
+## Week 8 - Mar 5
+
+We're going to take a look at document databases today, and will
+have time for any last minute lab 5 assistance.
+
 ## Week 7 - Feb 26
 
 Entities- who needs them?

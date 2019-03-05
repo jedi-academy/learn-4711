@@ -44,28 +44,19 @@ Course organizer for Comp4711
         <outcomes>1.2 (models)</outcomes>
         <lesson name="models" >Models</lesson>
         <lab name="lab05" >Models with Presenter</lab>
-     </week>
+    </week>
     <week num="7">
         <topic>Entities</topic>
-       <lesson name="entities" >Entities</lesson>
+        <lesson name="entities" >Entities</lesson>
         <lab name="lab05walkthrough" >Lab walkthrough</lab>
     </week>
     <week num="8">
         <topic>Non-relational models</topic>
-        <outcomes>1.2 (views), 3</outcomes>
-        <!--
-               <inlab>#6 Model CRUD</inlab>
-               <lesson name="basic04-forms" >Creating Forms</lesson>
-               <lesson name="basic04-handling" >Handling Form Data</lesson>
-               <lesson name="view-practices">View best practices?</lesson>
-               <lab name="lab06">Building Out Our TODO List Manager</lab>
-               <tutorial name="ci-todo06">Pagination</tutorial>
-               <tutorial name="ci-todo07">User Roles</tutorial>
-               <tutorial name="ci-todo08">Provide for Completing Work</tutorial>
-               <tutorial name="ci-todo09">Role-specific Maintenance List</tutorial>
-               <tutorial name="ci-todo10">Todo Item Maintenance (finally)</tutorial>
-               <tutorial name="ci-todo11">Polish the Item Maintenance</tutorial>
-        -->
+        <lesson name="documents" >Document Models</lesson>
+        <tutorial name="mongodb">MongoDB</tutorial>
+    </week>
+    <week num="8.5">
+        <topic>Spring break</topic>
     </week>
     <week num="9">
         <topic>Representation Glue - XML</topic>
@@ -102,18 +93,6 @@ Course organizer for Comp4711
         <!--
               <lesson name="advanced03" >REST</lesson>
                <github name="package-restful" link="https://github.com/jedi-academy/package-restful" >REST implementation I use</github>
-        -->
-    </week>
-    <week num="13">
-        <topic>Authentication</topic>
-        <outcomes>1, 2, 3</outcomes>
-        <!--
-               <lesson name="advanced01_1" >R B A C</lesson>
-               <lesson name="final" >Final Exam Review</lesson>
-               <lab name="lab09">EXAMPLE: RESTish with Authentication</lab>
-               <tutorial name="tut-adv02">Making Our RESTful Server</tutorial>
-               <tutorial name="tut-adv03">Making Our RESTful Client</tutorial>
-               <tutorial name="tut-adv01">Authentication</tutorial>
         -->
     </week>
     <week num="14">
