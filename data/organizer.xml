@@ -55,39 +55,21 @@ Course organizer for Comp4711
         <lesson name="documents" >Document Models</lesson>
         <tutorial name="mongodb">MongoDB</tutorial>
     </week>
-    <week num="8.5">
-        <topic>Spring break</topic>
-    </week>
     <week num="9">
-        <topic>Representation Glue - XML</topic>
-        <outcomes>2.1, 2.2</outcomes>
-        <!--
-              <lesson name="basic05">Building on CodeIgniter</lesson>
-               <lesson name="basic05b"  icon="read">Example Library &amp; Helper</lesson>
-               <lab name="lab07">Unit testing for our Todo list manager</lab>
-               <tutorial name="ci-unit">Unit Testing Primer</tutorial>
-        -->
+        <topic>Representation Glue - XML &amp; JSON</topic>
+        <lesson name="xml_json" >X M L &amp; J S O N</lesson>
+        <github name="xml" link="https://github.com/jedi-academy/example-xml">XML Examples</github>
+        <github name="example-simplexml" link="https://github.com/jedi-academy/example-simplexml-winter2016" >SimpleXML Examples</github>
+        <lab name="lab06">A Taste of XML</lab>
     </week>
     <week num="10">
-        <topic>Representation Glue - JSON</topic>
-        <outcomes>2.1</outcomes>
-        <!--
-              <lesson name="data01" >X M L</lesson>
-               <lesson name="data02" >J S O N</lesson>
-               <github name="xml" link="https://github.com/jedi-academy/example-xml">XML Examples</github>
-               <github name="example-simplexml" link="https://github.com/jedi-academy/example-simplexml-winter2016" >SimpleXML Examples</github>
-               <lab name="lab08">A Taste of XML</lab>
-               <lab name="lab08faq">Helpful notes for the lab</lab>
-        -->
-    </week>
-    <week num="11">
         <topic>Transport Glue - HTTP</topic>
         <outcomes>2.1, 2.2</outcomes>
         <!--
                <lesson name="net01" >Transport Glue</lesson>
         -->
     </week>
-    <week num="12">
+    <week num="11">
         <topic>Application Glue - REST</topic>
         <outcomes>2.1, 2.3</outcomes>
         <!--
@@ -95,7 +77,15 @@ Course organizer for Comp4711
                <github name="package-restful" link="https://github.com/jedi-academy/package-restful" >REST implementation I use</github>
         -->
     </week>
-    <week num="14">
+    <week num="12">
+        <topic>Review &amp; Assignment Completion</topic>
+        <outcomes>2.1, 2.3</outcomes>
+        <!--
+              <lesson name="advanced03" >REST</lesson>
+               <github name="package-restful" link="https://github.com/jedi-academy/package-restful" >REST implementation I use</github>
+        -->
+    </week>
+    <week num="13">
         <topic>Final Exam Week</topic>
     </week>
     <week num="zz">
@@ -105,6 +95,7 @@ Course organizer for Comp4711
         <lesson name="dev03" icon="read">Gitflow Setup Example</lesson>
         <lesson name="dev04" icon="read" >Gitting Good - Best Practices</lesson>		
         <lesson name="faq-apache" icon="read" >FAQ</lesson>		
+        <lesson name="xml04"  icon="read">Converting between XML and JSON</lesson>
         <!--
             <lesson name="dev02" icon="read">Gitflow Workflow Techniques</lesson>
             <lesson name="marking" icon="read" >Marking Process</lesson>		
@@ -130,7 +121,6 @@ Course organizer for Comp4711
      <lesson name="basic04-leftovers"  icon="read">Other Form Techniques</lesson>
      <lesson name="xml01"  icon="read">XML Basics (Optional Refresher)</lesson>
      <lesson name="xml02"  icon="read">Constraining XML (Optional)</lesson>
-     <lesson name="xml04" icon="read">Data Representation Conversions</lesson>
      <lesson name="net02"  icon="read">Emitting HTTP requests</lesson>
      <lesson name="advanced02"  icon="read">XML-RPC</lesson>
      <github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" >XML-RPC Examples</github>

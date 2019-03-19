@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+XML representation of todo list, with context-sensitive element names;
+use attribute-centric approach
+-->
+<todolist>
+    <todoitem id="1" priority="3" size="2" group="2" deadline="20170219" status="1">COMP1234 assignment</todoitem>
+    <todoitem id="2" priority="2" size="2" group="1" status="2">Mow the lawn</todoitem>
+    <todoitem id="3" priority="2" size="2" group="1">Wash the car</todoitem>
+    <todoitem id="4" priority="1" size="2" group="1">Paint the fence</todoitem>
+    <todoitem id="5" priority="3" size="3" group="2">Study for midterms</todoitem>
+    <todoitem id="6" priority="1" size="2" group="4">Intramural hockey game</todoitem>
+    <todoitem id="7" priority="3" size="3" group="4">Canucks hockey game</todoitem>
+    <todoitem id="8" priority="2" size="1" group="3">Buy steel-toed boots</todoitem>
+    <todoitem id="9" priority="1" size="3" group="3" status="2">Learn French</todoitem>
+    <todoitem id="10" priority="2" size="1" group="4">Hit the gym</todoitem>
+    <todoitem id="11" priority="3" size="1" group="1">Pay bills</todoitem>
+    <todoitem id="12" priority="2" size="1" group="1">Meet George</todoitem>
+    <todoitem id="13" priority="2" size="1" group="1" flag="1">Buy milk &amp; bread</todoitem>
+    <todoitem id="14" priority="1" size="3" group="1" status="2">Read War &amp; Peace</todoitem>
+    <todoitem id="15" priority="1" size="4" group="1" status="2">Organize the study</todoitem>
+</todolist>

@@ -4,7 +4,7 @@ XML Basics
 -->
 <lesson status="2.1">
 
-    <slide title="X M L" layout="normal" >
+    <slide title="1. X M L" layout="normal" >
         <div class="left">
             <p>
                 <strong>X M L</strong> - eXtensible Markup Language -
@@ -21,31 +21,7 @@ XML Basics
         </div>
     </slide>
 
-    <!-- Agenda -->
-    <slide title="Agenda" layout="normal">
-        <ol>
-            <li>
-                <a href="#{tag1}">Data Represention with XML</a>
-            </li>
-            <li>
-                <a href="#{tag2}">Constraining XML Data</a>
-            </li>
-            <li>
-                <a href="#{tag3}">XML Strategies</a>
-            </li>
-            <li>
-                <a href="#{tag4}">XML Tools</a>
-            </li>
-            <li>
-                <a href="#{tag5}">Why XML Matters</a>
-            </li>
-        </ol>
-    </slide>
-
-
-    <!-- Normal slides -->
-
-    <slide title="1. DATA REPRESENTATION WITH XML" layout="normal" tag="tag1">
+     <slide title="1.1 DATA REPRESENTATION WITH XML" layout="normal" tag="tag1">
         <div class="left">
             <p>XML provides conventions for marking up text to
             denote a tree-like structure of nested
@@ -77,42 +53,6 @@ XML Basics
             <p>XML excerpt: <code>&lt;customer&gt;George&lt;/customer&gt;</code></p>
             <p>These excerpts come from "order" files inside the <code>orders</code> 
             folder in the examples repo.</p>
-        </div>
-    </slide>
-
-    <slide title="HTML vs HTML" layout="normal">
-        <div class="left">
-            <p>There is an HTML standard, but the browser
-                developers have chosen to extend it,
-                with vendor-specific attributes and with
-                different liberal interpretation of closing
-                element tags.</p>
-            <p>Not an issue with XML, which addresses data representation
-                and not presentation.</p>
-        </div>
-        <div class="right">
-            <p>Html excerpt which "deals" with IE: <pre><code>&lt;!--[if IE]&gt;
-    &lt;marquee&gt;Jim's Rockin' Joint&lt;/marquee&gt;
-&lt;![endif]--&gt;
-</code></pre></p>        
-            <p>To be fair, HTML has evolved so that most vendor-specific
-            stuff is handled through CSS, per the CSS spec or per "CSS hacks".
-            The HTML *can be* relatively clean.</p>
-        </div>
-    </slide>
-
-    <slide title="HTML vs CSS" layout="normal">
-        <div class="left">
-            <p>Most CSS frameworks require that HTML pages make
-                extensive use of the <code>class</code> or
-                <code>id</code> attributes, attached to webpage
-                elements.</p>
-            <p>The browser result looks good, but the CSS
-            additions to the HTML don't add to the semantic value :(</p>
-        </div>
-        <div class="right">
-            <br/>
-            <img class="scale" src="/pix/lessons/x/x12.png"/>          
         </div>
     </slide>
 
@@ -175,7 +115,7 @@ INSERT INTO `Orderitems` (`order`, `line`, `item`, `quantity`, `size`) VALUES
         </div>
     </slide>
 
-   <slide title="2. CONSTRAINING XML DATA" layout="normal" tag="tag2">
+   <slide title="1.2. CONSTRAINING XML DATA" layout="normal" tag="tag2">
         <p>XML suits data representation better than HTML, because
         of the structure and element names, that add semantic meaning
         or intent.</p>
@@ -276,7 +216,7 @@ $doc-&gt;load('abc.xml');</code></pre>
         </ul>
     </slide>
     
-    <slide title="3. XML STRATEGIES" layout="normal" tag="tag3">
+    <slide title="1.3. XML STRATEGIES" layout="normal" tag="tag3">
         <p>The opening slide for this lesson showed "Magic" between
         a client and a server. XML *isn't* that magic, but it is
         used for data representation within much of that "magic". 
@@ -323,7 +263,7 @@ $doc-&gt;load('abc.xml');</code></pre>
         </ul>
     </slide>
 
-    <slide title="4. XML TOOLS" layout="normal" tag="tag4">
+    <slide title="1.4. XML TOOLS" layout="normal" tag="tag4">
         <p>There are a number of tools common in the XML world...</p>
         <ul>
             <li>Extensible stylesheets (XSL) can be used to transform XML data,
@@ -339,7 +279,7 @@ $doc-&gt;load('abc.xml');</code></pre>
         </ul>
     </slide>
 
-    <slide title="5. WHY XML MATTERS" layout="normal" tag="tag5">
+    <slide title="1.5. WHY XML MATTERS" layout="normal" tag="tag5">
         <p>XML rocks because:</p>
         <ul>
             <li>Backbone of distributed systems</li>
@@ -349,5 +289,152 @@ $doc-&gt;load('abc.xml');</code></pre>
             <li>Still on employers' skills sought list</li>
         </ul>
     </slide>
+
+    <slide title="2. J S O N" layout="normal" >
+        <div class="left">
+            <p>
+                <strong>J S O N</strong> - JavaScript Object Notation -
+                is one of the representational "glue" technologies for
+                building webapps, particularly distributed ones.</p>
+            <p>It provides a rich data structure, and plays
+                nicely with client-side (AJAX) service requests.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/x/x01.jpg"/>
+        </div>
+    </slide>
+
+    <slide title="2.1 DATA REPRESENTATION WITH JSON" layout="normal" tag="tag1">
+        <div class="left">
+            <p>JSON provides another technique to represent data structures.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/x/xmlpic.png"/>          
+        </div>
+    </slide>
+
+    <slide title="JSON vs HTML?" layout="normal">
+        <div class="left">
+            <p>HTML and JSON came from the same browser world,
+                but that is the extent of the association between them.
+                The two conventions bear no resembance to each other.</p>
+            <p>JSON data is created and manipulated by Javascript code,
+                and is not meant to convey any document structure
+                or presentation choices.</p>
+            <p>JSON looks most like a PHP associative array
+                (server-side), with as much semantic meaning.</p>                    
+        </div>
+        <div class="right">
+            <p>JSON object: <code>{ "code": "burger", "qty": "1", "price": "5.00" }</code></p>        
+            <p>PHP array: <code>[ "code" => "burger", "qty" => 1, "price" => 5.00 }</code></p>
+        </div>
+    </slide>
+
+    <slide title="JSON vs RDB" layout="normal" >
+        <div class="left">
+            <p>JSON supports a rich, tree-like model for data.
+                Data relationships that would require separate
+                tables in the RDB world can be managed through
+                a single JSON document.</p>
+            <p>JSON is document-centric rather than record-centric, and
+                would normally be discussed in the context of a non-relational database.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/x/slide_23.jpg"/>          
+        </div>
+    </slide>
+
+     <slide title="2.2. CONSTRAINING JSON DATA" layout="normal" tag="tag2">
+        <div class="left">
+        <p>JSON itself is typeless, like PHP. The "type" of a property is
+        whatever is assigned to it.</p>
+        <p>There is a proposal for a JSON Schema, but it is a draft.</p>
+        <p>The <a href="http://json-schema.org/">json-schema organization</a> 
+        has a tool you can use in the meantime. You need to remember
+        that it is not a standard.</p>
+       </div>
+        <div class="right">
+            <p>MongoDB provides the capability to validate documents during 
+                updates and insertions. Validation rules are specified on a 
+                per-collection basis using the "validator" option, which takes 
+                a document that specifies the validation rules or expressions.</p>
+                <pre><code>validator: { $or:
+      [
+         { phone: { $type: "string" } },
+         { email: { $regex: /@mongodb\.com$/ } },
+         { status: { $in: [ "Unknown", "Incomplete" ] } }
+      ]
+   }</code></pre>
+         </div>
+    </slide>
+
+    <slide title="2.3. JSON STRATEGIES" layout="normal" tag="tag3">
+        <div class="left">
+            <p>The opening slide for this lesson showed "Magic" between
+                a client and a server. JSON *isn't* that magic, but it is
+                used for data representation within much of that "Magic",
+                specifically between the user's browser and your webapp.</p>
+                <p>It is also possible to have a thin translation layer
+                in front of services, to transform incoming requests
+                into JSON notation or to transform responses into
+                JSON notation for intended consumption using
+                AJAX-enabled code client-side.</p>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" src="/pix/lessons/x/x08.png"/>          
+        </div>
+    </slide>
+
+    <slide title="JSON as the Payload" layout="normal" >
+        <p>Many services explicitly use JSON formatted data structures as 
+            *one* way to format the payload or response
+            of an HTTP message.</p>
+        <ul>
+            <li>AJAX</li>
+            <li>RESTful services (one payload option)</li>
+        </ul>
+    </slide>
+
+   <slide title="JSON for Configuration" layout="normal" >
+        <p>Some services and frameworks use JSON formatted configuration files,
+            eliminating the need for an RDB, and being more "friendly"
+            than XML.</p>
+    </slide>
+
+    <slide title="2.4. WHY JSON MATTERS" layout="normal" tag="tag4">
+        <p>JSON rocks because:</p>
+        <ul>
+            <li>It is simple and has multiple platform support</li>
+            <li>Rich data structures</li>
+            <li>Its notation is "modern"</li>
+            <li>On employers' skills sought list</li>
+        </ul>
+    </slide>
+
+    <slide title="3. WORKING WITH XML" layout="normal" tag="tag4">
+        <p>Some aspects of XML:</p>
+        <ul>
+            <li><a href="/data/tasks.xml">As emitted from MySQL</a> (ew)</li>
+            <li><a href="/data/tasks1.xml">One way of looking at the same data</a></li>
+            <li><a href="/data/tasks3.xml">Having an ID with each item</a></li>
+            <li><a href="/data/tasks4.xml">Very task-centric</a></li>
+        </ul>
+    </slide>
+
+    <slide title="SimpleXML" layout="normal" tag="tag4">
+        <p>Your friend, albeit strange compared to other programming languages.</p>
+        <ul>
+            <li>SimpleXML is a "resource", i.e. a wrapper for a libxml DOM</li>
+            <li>Treat it as an object to access properties (child elements)</li>
+            <li>Treat it as an associative array to access attributes of an element</li>
+            <li>Treat it as an ordered array to access further nested child elements</li>
+            <li>It gives you iterable SimpleElement results ... foreach and casting needed</li>
+        </ul>
+    </slide>
+
 
 </lesson>

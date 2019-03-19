@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+XML representation of todo list, with context-sensitive element names
+-->
+<todolist>
+    <todoitem>
+        <id>1</id>
+        <task>COMP1234 assignment</task>
+        <priority>3</priority>
+        <size>2</size>
+        <group>2</group>
+        <deadline>20170219</deadline>
+        <status>1</status>
+        <flag></flag>
+    </todoitem>
+    <todoitem>
+        <id>2</id>
+        <task>Mow the lawn</task>
+        <priority>2</priority>
+        <size>2</size>
+        <group>1</group>
+        <deadline></deadline>
+        <status>2</status>
+        <flag></flag>
+    </todoitem>
+    <todoitem>
+        <id>3</id>
+        <task>Wash the car</task>
+        <priority>2</priority>
+        <size>2</size>
+        <group>1</group>
+        <deadline></deadline>
+        <status></status>
+        <flag></flag>
+    </todoitem>
+    <todoitem>
+        <id>4</id>
+        <task>Paint the fence</task>
+        <priority>1</priority>
+        <size>2</size>
+        <group>1</group>
+        <deadline></deadline>
+        <status></status>
+        <flag></flag>
+    </todoitem>
+    <todoitem>
+        <id>5</id>
+        <task>Study for midterms</task>
+        <priority>3</priority>
+        <size>3</size>
+        <group>2</group>
+        <deadline></deadline>
+        <status></status>
+        <flag></flag>
+    </todoitem>
+    <todoitem>
+        <id>6</id>
+        <task>Intramural hockey game</task>
+        <priority>1</priority>
+        <size>2</size>
+        <group>4</group>
+        <deadline></deadline>
+        <status></status>
+        <flag></flag>
+    </todoitem>
+    <todoitem>
+        <id>7</id>
+        <task>Canucks hockey game</task>
+        <priority>3</priority>
+        <size>3</size>
+        <group>4</group>
+        <deadline></deadline>
+        <status></status>
+        <flag></flag>
+    </todoitem>
+    <todoitem>
+        <id>8</id>
+        <task>Buy steel-toed boots</task>
+        <priority>2</priority>
+        <size>1</size>
+        <group>3</group>
+        <deadline></deadline>
+        <status></status>
+        <flag></flag>
+    </todoitem>
+    <todoitem>
+        <id>9</id>
+        <task>Learn French</task>
+        <priority>1</priority>
+        <size>3</size>
+        <group>3</group>
+        <deadline></deadline>
+        <status>2</status>
+        <flag></flag>
+    </todoitem>
+    <todoitem>
+        <id>10</id>
+        <task>Hit the gym</task>
+        <priority>2</priority>
+        <size>1</size>
+        <group>4</group>
+        <deadline></deadline>
+        <status></status>
+        <flag></flag>
+    </todoitem>
+    <todoitem>
+        <id>11</id>
+        <task>Pay bills</task>
+        <priority>3</priority>
+        <size>1</size>
+        <group>1</group>
+        <deadline></deadline>
+        <status></status>
+        <flag></flag>
+    </todoitem>
+    <todoitem>
+        <id>12</id>
+        <task>Meet George</task>
+        <priority>2</priority>
+        <size>1</size>
+        <group>1</group>
+        <deadline></deadline>
+        <status></status>
+        <flag></flag>
+    </todoitem>
+    <todoitem>
+        <id>13</id>
+        <task>Buy milk &amp; bread</task>
+        <priority>2</priority>
+        <size>1</size>
+        <group>1</group>
+        <deadline></deadline>
+        <status></status>
+        <flag>1</flag>
+    </todoitem>
+    <todoitem>
+        <id>14</id>
+        <task>Read War &amp; Peace</task>
+        <priority>1</priority>
+        <size>3</size>
+        <group>1</group>
+        <deadline></deadline>
+        <status>2</status>
+        <flag></flag>
+    </todoitem>
+    <todoitem>
+        <id>15</id>
+        <task>Organize the study</task>
+        <priority>1</priority>
+        <size>4</size>
+        <group>1</group>
+        <deadline></deadline>
+        <status>2</status>
+        <flag></flag>
+    </todoitem>
+</todolist>

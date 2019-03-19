@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+XML representation of todo list, with context-sensitive element names;
+using "id" attribute as a "key" equivalent
+-->
+<todolist>
+    <todoitem id="1">
+        <task>COMP1234 assignment</task>
+        <priority>3</priority>
+        <size>2</size>
+        <group>2</group>
+        <deadline>20170219</deadline>
+        <status>1</status>
+    </todoitem>
+    <todoitem id="2">
+        <task>Mow the lawn</task>
+        <priority>2</priority>
+        <size>2</size>
+        <group>1</group>
+        <status>2</status>
+    </todoitem>
+    <todoitem id="3">
+        <task>Wash the car</task>
+        <priority>2</priority>
+        <size>2</size>
+        <group>1</group>
+    </todoitem>
+    <todoitem id="4">
+        <task>Paint the fence</task>
+        <priority>1</priority>
+        <size>2</size>
+        <group>1</group>
+    </todoitem>
+    <todoitem id="5">
+        <task>Study for midterms</task>
+        <priority>3</priority>
+        <size>3</size>
+        <group>2</group>
+    </todoitem>
+    <todoitem id="6">
+        <task>Intramural hockey game</task>
+        <priority>1</priority>
+        <size>2</size>
+        <group>4</group>
+    </todoitem>
+    <todoitem id="7">
+        <task>Canucks hockey game</task>
+        <priority>3</priority>
+        <size>3</size>
+        <group>4</group>
+    </todoitem>
+    <todoitem id="8">
+        <task>Buy steel-toed boots</task>
+        <priority>2</priority>
+        <size>1</size>
+        <group>3</group>
+    </todoitem>
+    <todoitem id="9">
+        <task>Learn French</task>
+        <priority>1</priority>
+        <size>3</size>
+        <group>3</group>
+        <status>2</status>
+    </todoitem>
+    <todoitem id="10">
+        <task>Hit the gym</task>
+        <priority>2</priority>
+        <size>1</size>
+        <group>4</group>
+    </todoitem>
+    <todoitem id="11">
+        <task>Pay bills</task>
+        <priority>3</priority>
+        <size>1</size>
+        <group>1</group>
+    </todoitem>
+    <todoitem id="12">
+        <task>Meet George</task>
+        <priority>2</priority>
+        <size>1</size>
+        <group>1</group>
+    </todoitem>
+    <todoitem id="13">
+        <task>Buy milk &amp; bread</task>
+        <priority>2</priority>
+        <size>1</size>
+        <group>1</group>
+        <flag>1</flag>
+    </todoitem>
+    <todoitem id="14">
+        <task>Read War &amp; Peace</task>
+        <priority>1</priority>
+        <size>3</size>
+        <group>1</group>
+        <status>2</status>
+    </todoitem>
+    <todoitem id="15">
+        <task>Organize the study</task>
+        <priority>1</priority>
+        <size>4</size>
+        <group>1</group>
+        <status>2</status>
+    </todoitem>
+</todolist>

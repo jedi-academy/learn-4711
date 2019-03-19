@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.6.3
+- https://www.phpmyadmin.net
+-
+- Host: localhost
+- Generation Time: Mar 13, 2017 at 10:44 AM
+- Server version: 5.7.13
+- PHP Version: 7.0.8
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="todo" collation="utf8_general_ci" charset="utf8">
+            <pma:table name="tasks">
+                CREATE TABLE `tasks` (
+                  `id` int(2) NOT NULL AUTO_INCREMENT,
+                  `task` varchar(22) DEFAULT NULL,
+                  `priority` int(1) DEFAULT NULL,
+                  `size` int(1) DEFAULT NULL,
+                  `group` int(1) DEFAULT NULL,
+                  `deadline` varchar(8) DEFAULT NULL,
+                  `status` varchar(1) DEFAULT NULL,
+                  `flag` varchar(1) DEFAULT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'todo'
+    -->
+    <database name="todo">
+        <!-- Table tasks -->
+        <table name="tasks">
+            <column name="id">1</column>
+            <column name="task">COMP1234 assignment</column>
+            <column name="priority">3</column>
+            <column name="size">2</column>
+            <column name="group">2</column>
+            <column name="deadline">20170219</column>
+            <column name="status">1</column>
+            <column name="flag"></column>
+        </table>
+        <table name="tasks">
+            <column name="id">2</column>
+            <column name="task">Mow the lawn</column>
+            <column name="priority">2</column>
+            <column name="size">2</column>
+            <column name="group">1</column>
+            <column name="deadline"></column>
+            <column name="status">2</column>
+            <column name="flag"></column>
+        </table>
+        <table name="tasks">
+            <column name="id">3</column>
+            <column name="task">Wash the car</column>
+            <column name="priority">2</column>
+            <column name="size">2</column>
+            <column name="group">1</column>
+            <column name="deadline"></column>
+            <column name="status"></column>
+            <column name="flag"></column>
+        </table>
+        <table name="tasks">
+            <column name="id">4</column>
+            <column name="task">Paint the fence</column>
+            <column name="priority">1</column>
+            <column name="size">2</column>
+            <column name="group">1</column>
+            <column name="deadline"></column>
+            <column name="status"></column>
+            <column name="flag"></column>
+        </table>
+        <table name="tasks">
+            <column name="id">5</column>
+            <column name="task">Study for midterms</column>
+            <column name="priority">3</column>
+            <column name="size">3</column>
+            <column name="group">2</column>
+            <column name="deadline"></column>
+            <column name="status"></column>
+            <column name="flag"></column>
+        </table>
+        <table name="tasks">
+            <column name="id">6</column>
+            <column name="task">Intramural hockey game</column>
+            <column name="priority">1</column>
+            <column name="size">2</column>
+            <column name="group">4</column>
+            <column name="deadline"></column>
+            <column name="status"></column>
+            <column name="flag"></column>
+        </table>
+        <table name="tasks">
+            <column name="id">7</column>
+            <column name="task">Canucks hockey game</column>
+            <column name="priority">3</column>
+            <column name="size">3</column>
+            <column name="group">4</column>
+            <column name="deadline">20170305</column>
+            <column name="status"></column>
+            <column name="flag"></column>
+        </table>
+        <table name="tasks">
+            <column name="id">8</column>
+            <column name="task">Buy steel-toed boots</column>
+            <column name="priority">2</column>
+            <column name="size">1</column>
+            <column name="group">3</column>
+            <column name="deadline"></column>
+            <column name="status"></column>
+            <column name="flag"></column>
+        </table>
+        <table name="tasks">
+            <column name="id">9</column>
+            <column name="task">Learn French</column>
+            <column name="priority">1</column>
+            <column name="size">3</column>
+            <column name="group">3</column>
+            <column name="deadline">20161231</column>
+            <column name="status">2</column>
+            <column name="flag"></column>
+        </table>
+        <table name="tasks">
+            <column name="id">10</column>
+            <column name="task">Hit the gym</column>
+            <column name="priority">2</column>
+            <column name="size">1</column>
+            <column name="group">4</column>
+            <column name="deadline"></column>
+            <column name="status"></column>
+            <column name="flag"></column>
+        </table>
+        <table name="tasks">
+            <column name="id">11</column>
+            <column name="task">Pay bills</column>
+            <column name="priority">3</column>
+            <column name="size">1</column>
+            <column name="group">1</column>
+            <column name="deadline"></column>
+            <column name="status"></column>
+            <column name="flag"></column>
+        </table>
+        <table name="tasks">
+            <column name="id">12</column>
+            <column name="task">Meet George</column>
+            <column name="priority">2</column>
+            <column name="size">1</column>
+            <column name="group">1</column>
+            <column name="deadline"></column>
+            <column name="status"></column>
+            <column name="flag"></column>
+        </table>
+        <table name="tasks">
+            <column name="id">13</column>
+            <column name="task">Buy milk &amp; bread</column>
+            <column name="priority">2</column>
+            <column name="size">1</column>
+            <column name="group">1</column>
+            <column name="deadline"></column>
+            <column name="status"></column>
+            <column name="flag">1</column>
+        </table>
+        <table name="tasks">
+            <column name="id">14</column>
+            <column name="task">Read War &amp; Peace</column>
+            <column name="priority">1</column>
+            <column name="size">3</column>
+            <column name="group">1</column>
+            <column name="deadline"></column>
+            <column name="status">2</column>
+            <column name="flag"></column>
+        </table>
+        <table name="tasks">
+            <column name="id">15</column>
+            <column name="task">Organize the study</column>
+            <column name="priority">1</column>
+            <column name="size">4</column>
+            <column name="group">1</column>
+            <column name="deadline"></column>
+            <column name="status">2</column>
+            <column name="flag"></column>
+        </table>
+    </database>
+</pma_xml_export>
