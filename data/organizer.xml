@@ -68,6 +68,7 @@ Course organizer for Comp4711
         <lesson name="net01" >Transport glue</lesson>
         <lesson name="net02" icon="read">Traditional emitting HTTP requests</lesson>
         <lesson name="net03">CodeIgniter 4 emitting HTTP requests</lesson>
+        <lab name="lab07">Transport glue</lab>
     </week>
     <week num="11">
         <topic>Application Glue - REST</topic>
