@@ -1,5 +1,5 @@
-#Emitting HTTP Requests
-COMP4711 - BCIT - Fall 2017
+# Emitting HTTP Requests Traditionally
+COMP4711 - BCIT - Winter 2019
 
 Here are some examples of different ways to emit HTTP requests
 
@@ -30,7 +30,7 @@ Although we *could* do an HTTP POST awkwardly
       return $response;
     }
 
-##cURL (old school)
+## cURL (old school)
 
 The built-in [cURL library](http://php.net/manual/en/book.curl.php) has been around forever, evident in its clunky
 interface.
@@ -84,7 +84,7 @@ Things could go wrong, in which case we need to deal with the error...
 		echo "Error String:".curl_error($ch);
 	}
 
-##Guzzle (the usual)
+## Guzzle (the usual)
 
 [Guzzle](http://docs.guzzlephp.org/en/stable/) is a popular
 "package" to simplify HTTP request emission.
@@ -119,7 +119,7 @@ or
     $request = new Request('PUT', 'http://httpbin.org/put');
     $response = $client->send($request, ['timeout' => 2]);
 
-##UniRest (the new kid)
+## UniRest (the new kid)
 
 [UniRest](http://unirest.io/php.html) is another similar package.
 
