@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lesson status="2.0">
+    <!-- Activity metadata ... override anything from the course or organizer -->
+
+    <slide title="Request header" layout="normal" tag="tag1">
+        <p>Plain:</p>
+        <code>Accept: text/html</code>    
+        <p>Content negotiation:</p>
+        <code>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</code>
+    </slide>
+
+    <slide title="As part of URL" layout="normal" >
+        <p>Add an appropriate suffix to the end of the URL</p>
+        <code>https://example.com/products/1232.xml</code><br/>
+        <code>https://example.com/products/1232.json</code><br/>
+        <code>https://example.com/products/1232.yaml</code>
+    </slide>
+
+    <slide title="As query parameter" layout="normal" >
+        <p>Add an appropriate query parameter to the end of the URL</p>
+        <code>https://example.com/products/1232?format=xml</code><br/>
+        <code>https://example.com/products/1232?format=json</code><br/>
+        <code>https://example.com/products/1232?format=yaml</code>
+    </slide>
+
+</lesson>

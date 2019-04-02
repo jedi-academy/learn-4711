@@ -73,18 +73,13 @@ Course organizer for Comp4711
     <week num="11">
         <topic>Application Glue - REST</topic>
         <outcomes>2.1, 2.3</outcomes>
-        <!--
-              <lesson name="advanced03" >REST</lesson>
-               <github name="package-restful" link="https://github.com/jedi-academy/package-restful" >REST implementation I use</github>
-        -->
-    </week>
+             <lesson name="advanced01" >Authentication</lesson>
+             <lesson name="advanced04" >Response Formatting</lesson>
+        <assignment name="assignment2">RESTful Backend</assignment>
+   </week>
     <week num="12">
         <topic>Review &amp; Assignment Completion</topic>
         <outcomes>2.1, 2.3</outcomes>
-        <!--
-              <lesson name="advanced03" >REST</lesson>
-               <github name="package-restful" link="https://github.com/jedi-academy/package-restful" >REST implementation I use</github>
-        -->
     </week>
     <week num="13">
         <topic>Final Exam Week</topic>
@@ -97,10 +92,6 @@ Course organizer for Comp4711
         <lesson name="dev04" icon="read" >Gitting Good - Best Practices</lesson>		
         <lesson name="faq-apache" icon="read" >FAQ</lesson>		
         <lesson name="xml04"  icon="read">Converting between XML and JSON</lesson>
-        <!--
-            <lesson name="dev02" icon="read">Gitflow Workflow Techniques</lesson>
-            <lesson name="marking" icon="read" >Marking Process</lesson>		
-        -->
     </week>
     <week num="yy">
         <topic>Other Frameworks (FYI)</topic>
@@ -114,20 +105,4 @@ Course organizer for Comp4711
         <!--
         -->
     </week>
-    <!--
-    <week num="xx">
-    <topic>Supplementary Reading (FYI)</topic>
-     <lesson name="unit-testing" icon="read">More about unit testing</lesson>
-     <lesson name="basic07" icon="read">Advanced Routing</lesson>
-     <lesson name="basic04-leftovers"  icon="read">Other Form Techniques</lesson>
-     <lesson name="xml01"  icon="read">XML Basics (Optional Refresher)</lesson>
-     <lesson name="xml02"  icon="read">Constraining XML (Optional)</lesson>
-     <lesson name="net02"  icon="read">Emitting HTTP requests</lesson>
-     <lesson name="advanced02"  icon="read">XML-RPC</lesson>
-     <github name="xml" link="https://github.com/jedi-academy/example-xmlrpc" >XML-RPC Examples</github>
-     <lesson name="advanced04" icon="read">AJAX</lesson>
-     <lesson name="advanced01" >Authentication Principles</lesson>
-     <lesson name="future" icon="readme">Jim's Crystal Ball</lesson>
-    </week>
-    -->
 </organizer>

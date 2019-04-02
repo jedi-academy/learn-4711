@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lesson status="2.0">
+    <!-- Activity metadata ... override anything from the course or organizer -->
+
+    <slide title="Authentication in a Nutshell" layout="normal" >
+        <p>Authentication usually refers to the strategies and
+            techniques used to ensure that only authorized
+            users access sensitive functionality in a webapp.</p>
+        <p>CodeIgniter purposefully does not include provision
+            for authentication, relying instead on third-party
+            packages.</p>
+        <p>Role-Based Access Control is the most common technique 
+            to secure access to different parts of a webapp.
+        </p>
+    </slide>
+
+    <!-- Agenda -->
+    <slide title="Agenda" layout="normal">
+        <ol>
+            <li>
+                <a href="#{tag1}">The Theory</a>
+            </li>
+            <li>
+                <a href="#{tag2}">The Practice</a>
+            </li>
+            <li>
+                <a href="#{tag3}">The Story</a>
+            </li>
+            <li>
+                <a href="#{tag4}">REST?</a>
+            </li>
+        </ol>
+    </slide>
+
+
+    <!-- Normal slides -->
+
+    <slide title="1. THE THEORY" layout="normal" tag="tag1">
+        <div class="left">
+            <p>Security normally involves four facets:</p>
+            <ul>
+                <li>Authentication - who is this?</li>
+                <li>Authorization - what can they do?</li>
+                <li>Access - enforcing the above</li>
+                <li>Audit - what did they do?</li>
+            </ul>
+        </div>
+        <div class="right">
+            <br/>
+            <img class="scale" width="426" height="407" src="/pix/lessons/10/10-1.png"/>
+        </div>    
+    </slide>
+
+    <slide title="Two Fundamental Security Models" layout="normal" >
+        <div class="left">
+            <p>Identity authorities</p>
+            <ul>
+                <li>Operating system</li>
+                <li>Active Directory</li>
+                <li>Certificate authority</li>
+                <li>OpenID</li>
+            </ul>
+            <br/>
+            <img class="scale" width="284" height="175" src="/pix/lessons/10/10-16.png"/>
+        </div>
+        <div class="right">
+            <p>Federations of trust</p>
+            <ul>
+                <li>Kerberos</li>
+                <li>OAuth (Facebook, Google)</li>
+                <li>OpenID ...</li>
+            </ul>
+            <br/>
+            <img class="scale" width="287" height="160" src="/pix/lessons/10/10-17.png"/>
+        </div>    
+    </slide>
+
+    <slide title="One Underlying Notion" layout="normal" >
+        <div class="left">
+            <p>
+                <b>Principal</b>: a person, organization or app;
+                identifiable</p>
+            <p>Principal objects are stored in a
+                managed database, with appropriate
+                access restrictions</p>
+            <p>A principal has credentials, trusted to
+                the extent that the grantor is</p>
+            <p>A principal has one or roles assigned, and
+                used as the basis for access control</p>
+        </div>
+        <div class="right">
+            <p>
+                <i>Think of this as an entity with identity</i>
+            </p>
+            <br/>
+            <img class="scale" width="400" src="/pix/lessons/10/10-21.jpg"/>
+        </div>    
+    </slide>
+
+    <slide title="2. THE PRACTICE" layout="normal" tag="tag2">
+        <ul>
+            <li>Authenticate somehow</li>
+            <li>Extract authorization from the user object or policy configuration</li>
+            <li>Enforce roles on access</li>
+            <li>Log as needed</li>
+        </ul>
+    </slide>
+
+    <slide title="Authentication Choices" layout="normal" >
+        <div class="left">
+            <p>Knowledge-based</p>
+            <img class="scale" width="443" height="190" src="/pix/lessons/10/10-3.png"/>
+            <p>Client-generated OTP</p>
+            <img class="scale" width="442" height="189" src="/pix/lessons/10/10-5.png"/>
+        </div>
+        <div class="right">
+            <p>Server-Generated OTP</p>
+            <img class="scale" width="443" height="190" src="/pix/lessons/10/10-4.png"/>
+            <p>Out-of-band</p>
+            <img class="scale" width="443" height="188" src="/pix/lessons/10/10-6.png"/>
+        </div>    
+    </slide>
+
+    <slide title="Authorization Choices" layout="normal" >
+        <div class="left">
+            <img class="scale" width="400" height="244" src="/pix/lessons/10/10-8.png"/>
+        </div>
+        <div class="right">
+            <p>Boils down to access control list (ACL). Other possibilities
+                (eg UCL) are possible.</p>
+        </div>    
+    </slide>
+
+    <slide title="Access Control Choices" layout="normal" >
+        <div class="left">
+            <ul>
+                <li>Declarative (stored as policy or configuration data) vs 
+                    Programmatic (rules coded into access control points in
+                    components)</li>
+                <li>Hook (intercept request and redirect if inappropriate) vs 
+                    Explicit (make decision as part of request handler)</li>
+                <li>User &amp; authorization data in session - so you don't
+                    have to revalidate continuously</li>
+            </ul>
+        </div>
+        <div class="right">
+            <img class="scale" width="400" src="/pix/lessons/10/10-13.png"/>
+        </div>    
+    </slide>
+
+    <slide title="3. THE STORY" layout="normal" tag="tag3">
+        <p>Our story has a cast of five:</p>
+        <table>
+            <tr width="20%">
+                <img src="/pix/lessons/10/luke.png" title="Luke, customer wanting to buy a lightsaber"/>
+            </tr>
+            <tr width="20%">
+                <img src="/pix/lessons/10/han.png" title="Han, storekeeper at the cantina"/>
+            </tr>
+            <tr width="20%">
+                <img src="/pix/lessons/10/leia.png" title="Leia, customer relations for the cantina"/>
+            </tr>
+            <tr width="20%">
+                <img src="/pix/lessons/10/darth.png" title="Darth, Imperial credit"/>
+            </tr>
+            <tr width="20%">
+                <img src="/pix/lessons/10/obiwan.png" title="Obi Wan, lightsaber owner"/>
+            </tr>
+        </table>
+    </slide>
+
+    <slide title="The Basic Story" layout="normal" >
+        <div class="left">
+            <p>Luke expects to be able to shop, with cash,
+            without having to identify himself.</p>
+        </div>
+        <div class="right">
+            <img class="scale" width="600" src="/pix/lessons/10/story-basic.png"/>
+        </div>    
+    </slide>
+
+    <slide title="The Normal Story" layout="normal" >
+        <div class="left">
+            <p>Luke expects to be able to shop, 
+            possibly having to identify himself.</p>
+            <p>Han, however, needs to use some judgement -
+            is Luke old enough to buy a lightsaber?
+            He will probably want to see some ID he trusts.</p>
+            <p>Could Luke get away with fake ID?</p>
+        </div>
+        <div class="right">
+            <img class="scale" width="600" src="/pix/lessons/10/story-normal.png"/>
+        </div>    
+    </slide>
+
+    <slide title="Internal Authentication" layout="normal" >
+        <div class="left">
+            <p>Luke wants to shop, and expects to have to show ID.</p>
+            <p>The store trusts their internal ID, and will
+                want to see and verify that. New customers can register.</p>
+                <p>This suits an internal identity authority,
+                such as Active Directory.</p>
+        </div>
+        <div class="right">
+            <img class="scale" height="600" src="/pix/lessons/10/story-internal.png"/>
+        </div>    
+    </slide>
+
+    <slide title="External Authentication" layout="normal" >
+        <div class="left">
+            <p>Luke wants to shop, and expects to have to show ID.</p>
+            <p>The store uses a trusted external authority
+                to verify Luke's credentials.</p>
+                <p>This is a good example for OpenID,
+                    or for some shared tools like Microsoft accounts
+                    or Google accounts.</p>
+        </div>
+        <div class="right">
+            <img class="scale" height="600" src="/pix/lessons/10/story-external.png"/>
+        </div>    
+    </slide>
+
+    <slide title="Owner Approval" layout="normal" >
+        <div class="left">
+            <p>Luke wants to shop, but Obi Wan wants to vet
+                any purchaser.</p>
+            <p>The store needs to check with Obi Wan,
+                possibly not in real time.</p>
+                <p>This is a good example for OAuth.</p>
+        </div>
+        <div class="right">
+            <img class="scale" height="600" src="/pix/lessons/10/story-owner-approval.png"/>
+        </div>    
+    </slide>
+
+    <slide title="Can These Handle Pre-Approvals?" layout="normal" >
+        <div class="left">
+            <p>Luke needs to ask Obi Wan's permission,
+                in order to buy one of his lightsabers.
+            </p>
+            <p>I show him presenting this permission,
+            together with credentials, to an external
+            agency that can then give him a token
+            good for buying one of something from
+            an appropriate store.</p>
+                <p>This is an example of OAuth's
+                    <a href="https://tools.ietf.org/html/rfc6749#section-4.1">authorization code grant flow</a>.
+               </p>
+        </div>
+        <div class="right">
+            <img class="scale" height="600" src="/pix/lessons/10/story-tokens.png"/>
+        </div>    
+    </slide>
+
+    <slide title="What About Integrations" layout="normal" >
+        <div class="left">
+            <p>Luke just wants to shop.</p>
+            <p>The cantina wants him to login using a social
+                media account, perhaps so they can slurp
+                as much data about him as they can, or
+                even so they can spam his friends list :-O.</p>
+                <p>This is a good example for OpenID
+                    plus OAuth, or even Facebook Connect.
+                 You have probably seen this yourself, using Paypal to pay for
+                online purchases - there is a bunch of redirecting going on.</p>
+        </div>
+        <div class="right">
+            <img class="scale" height="600" src="/pix/lessons/10/story-social.png"/>
+        </div>    
+    </slide>
+
+    <slide title="4. REST??" layout="normal" tag="tag4">
+        <p>How does REST fit into all this?</p>
+        <p>All the different resource managers or authorities
+            provide for integrations between apps, eg.
+            <a href="https://api.slack.com/web">Slack</a>, for example, 
+            automatically pushing a message to a channel when
+            commits are pushed to a Github repo.</p>
+        <p>Surely, this is REST or RESTful or RESTish, right?
+            They're all looking for it in their job ads!</p>
+   </slide>
+    <slide title="REST Really!" layout="normal" tag="tag4">
+        
+        <p>A typical example:
+            Slack's Web API is a collection of HTTP RPC-style methods, 
+            all with URLs in the form <i>https://slack.com/api/METHOD_FAMILY.method</i>.<br/>
+            <b>While it's not a REST API, those familiar with REST should be at home with its foundations in HTTP.</b>
+        </p>
+
+        <p>RPC? Hmmmmm. Parameters can be passed as query parameters, POST parameters, or a mixture.
+            POST parameters can be passed as x-www-form-urlencoded or json - you need to specify
+            which you are using in the content-type HTTP header.
+        </p>
+        <p>Any API keys or tokens needed to consume such services are passed as
+            additional header parameters ... Authorization, token, client-id, or...</p>
+    </slide>
+
+    <slide title="And credentials?" layout="normal" tag="tag4">
+        
+        <p>Some services (Google, Facebook) have an API key sent as a query parameter :(</p>
+            <img class="scale" src="/pix/lessons/10/google-maps2.png"/>
+    </slide>
+    <slide title="Better credentials?" layout="normal" tag="tag4">
+        
+        <p>Some have authentication sent as headers, using TLS</p>
+             <img class="scale" src="/pix/lessons/10/rest1.png"/>
+    </slide>
+
+    <slide title="Best credentials?" layout="normal" tag="tag4">
+        
+        <p>Others provide for multiple conventions to send credentials as headers.</p>
+        <p>
+            <code>Auth-Email cURL (example)<br/>
+
+curl -X GET "https://api.cloudflare.com/client/v4/zones/cd7d0123e3012345da9420df9514dad0" \
+     -H "Content-Type:application/json" \
+     -H "X-Auth-Key:1234567893feefc5f0q5000bfo0c38d90bbeb" \
+     -H "X-Auth-Email:example@example.com"<br/><br/>
+
+User-Service cURL (example)<br/>
+
+curl -X GET "https://api.cloudflare.com/client/v4/zones/cd7d0123e3012345da9420df9514dad0" \
+     -H "Content-Type:application/json" \
+     -H "X-Auth-User-Service-Key:v1.0-e24fd090c02efcfecb4de8f4ff246fd5c75b48946fdf0ce26c59f91d0d90797b-cfa33fe60e8e34073c149323454383fc9005d25c9b4c502c2f063457ef65322eade065975001a0b4b4c591c5e1bd36a6e8f7e2d4fa8a9ec01c64c041e99530c2-07b9efe0acd78c82c8d9c690aacb8656d81c369246d7f996a205fe3c18e9254a"`</code>
+        </p>
+   </slide>
+
+
+</lesson>

@@ -1,3 +1,10 @@
+## Week 11 - Apr 1
+
+Application glue today ... how do we influence service/API behaviour?
+
+No lab to submit - you want to start assignment 3!  
+We need to talk about assignment 3, to boot!!
+
 ## Week 10 - Mar 26
 
 Transport glue is the topic of the week.
