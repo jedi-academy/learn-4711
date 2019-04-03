@@ -1,4 +1,4 @@
-#Assignment #2/3 - DRAFT RESTful Backend DRAFT
+# Assignment #2 - Front-end App using RESTful Backend  
 COMP4711 
 
 ## Assignments Overview
@@ -21,8 +21,17 @@ be spotty, and you may have to explain how your project achieves the assignment 
 The purpose of this assignment #2 is to provide a RESTful resource and a RESTful
 service, with a front-end suitable for exercising them. 
 
-This was to be for your option project, but that needs to be revisited. ??
+Per our discussion in class, my understanding is that each team wants to build
+something useful for showing off their option project.
 
+Each team will build a front-end and a back-end, i.e. apps that run in
+separate instances on their systen, with different ports and possibly
+different host aliases.
+
+Your front-end will likely have some CRUD component(s), which use
+the resource endpoint of your backend, and some usecase-focused
+pages, which demonstrate/protype yourt option project, using
+the backend API endpoints to request data processing and persistence.
 
 ## Recipe
 
@@ -35,7 +44,7 @@ Here is a checklist for completing the assignment:
     (4-8 fields per record, 6-12 records in all)
 - For each resource, have a resource routing to a resource controller...
     - which uses the equivalent of the API response trait
-    - implements all methods of ResourceController
+    - implements all methods of the CI4's ResourceController
 - For each API endpoint, a suitable controller implementing the API
 - Make it testable - here's where the exercising front-end comes in.
     It should look like the kind of project you are building
@@ -43,13 +52,17 @@ Here is a checklist for completing the assignment:
     - doesn't have to be home or landing page, but could be
 - Follow good gitflow workflow
 - Cleanup
-    - readme, changelog?, commented code!, cruft gone, all synched
+    - readme, commented code!, cruft gone, all synched
+
 
 ## Assignment submission
 
-Submit a link to your team repo for this project, to the dropbox.
-It will have a rubric attached.
+Your submission should be in the form of a readme, with links
+to the repo(s) holding your project, and an explanation of
+what I need to know to instal and run your apps.
 
-Due date: Thurs, Apr 11, 23:30 ?? 
+The assignment will be graded out of 30, so weighted more than the first one.
 
-Presentation/demo??
+We have a dropbox setup, and it will shortly have a rubric to guide you.
+
+Due date: Thurs, Apr 11, 23:30
