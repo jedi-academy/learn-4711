@@ -1,9 +1,14 @@
-## Week 11 - Apr 1
+## Week 12 - Apr 9
+
+Final exam review & any help I can offer for you assignment
+completion.
+
+## Week 11 - Apr 2
 
 Application glue today ... how do we influence service/API behaviour?
 
-No lab to submit - you want to start assignment 3!  
-We need to talk about assignment 3, to boot!!
+No lab to submit - you want to start assignment 2!  
+We need to talk about assignment 2, to boot!!
 
 Update: Last year's exam has been posted to the content section on D2L.
 

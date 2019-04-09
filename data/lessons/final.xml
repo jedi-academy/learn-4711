@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Lesson 11a - Exam Review
--->
-<lesson status="2018winter">
+
+<lesson status="2019winter">
     <!-- Activity metadata ... override anything from the course or organizer -->
 
     <!-- Agenda -->
@@ -25,11 +23,11 @@ Lesson 11a - Exam Review
 
     <slide title="1. FINAL EXAM ESSENTIALS" layout="normal" tag="tag1">
         <ul>
-            <li>Date? Wed aPR 18</li>
-            <li>When? 12:45 - 14:15</li>
-            <li>Where? sw01-1205</li>
-            <li>How Long? 1.5 hours</li>
-            <li>How long minimum? 45 minutes</li>
+            <li>Date? Fri Apr 12</li>
+            <li>When? 11:30 - 13:30</li>
+            <li>Where? DTC-645</li>
+            <li>How Long? 2 hours</li>
+            <li>How long minimum? 60 minutes</li>
             <li>Aids: None</li>
         </ul>
         <p>The exam, and its solution, will be posted in the content section on D2L,
@@ -44,7 +42,7 @@ Lesson 11a - Exam Review
         <ul>
             <li>You do not have to pass the final exam to pass the course.</li>
             <li>You do not have to pass the aggregate of the midterm and the final
-                exam to pass the course.</li>
+                exam to pass the course (especially with no midterm!).</li>
             <li>There are no makeup provisions should you have a bad or 
                 failing grade in the course.</li>
         </ul>
@@ -55,26 +53,27 @@ Lesson 11a - Exam Review
             <p>MVC Webapp</p>
             <ul>
                 <li>Webapp dev environment ... 5%</li>
-                <li>Basic MVC app... 20%</li>
-                <li>Moderate MVC app … 15%</li>
-            </ul>
-            <p>Distributed Webapp</p>
-            <ul>
-                <li>XML &amp; JSON... 10%</li>
-                <li>REST ... 10%</li>
-                <li>Integration ... 10%</li>
+                <li>REST and resources ... 10%</li>
+                <li>Framework basics... 10%</li>
+                <li>Controllers and routing... 10%</li>
+                <li>Data modeling ... 10%</li>
             </ul>
         </div>
         <div class="right">
+            <p>Distributed Webapp</p>
+            <ul>
+                <li>Representation ... 10%</li>
+                <li>Transport ... 10%</li>
+                <li>API ... 10%</li>
+            </ul>
             <p>Collaboration</p>
             <ul>
                 <li>Workflow process ... 15%</li>
-                <li>Team repositories ... 15%</li>
+                <li>Team repositories ... 10%</li>
             </ul>
             <br/>
             <p>
-                <em>These are guidelines only, and not a guarantee of an exact
-                    marks breakdown!</em>
+                <em>Guidelines only!</em>
             </p>
         </div>
     </slide>
@@ -82,11 +81,10 @@ Lesson 11a - Exam Review
     <slide title="What Format Will the Exam Have?" layout="normal">
         <p>Last term's breakdown shown in square brackets</p>
         <ul>
-            <li>Multiple choice @1 ... 20-40 [25]</li>
-            <li>Completion @2 ... 5-15 [17]</li>
-            <li>Short answer @ 3 ... 5-15 [7]</li>
-            <li>Long answer @ 10 ... none [2]</li>
-            <li>about 90 marks in total [100]</li>
+            <li>Multiple choice @1 ... 20-50 [40]</li>
+            <li>Completion @2 ... 5-15 [10]</li>
+            <li>Short answer @ 3 ... 5-15 [10]</li>
+            <li>about 100 marks in total [90]</li>
         </ul>
     </slide>
 
@@ -98,7 +96,7 @@ Lesson 11a - Exam Review
             practical explanation/definition of the topic, 
             followed by the key concepts and then the key
             techniques relevant to that topic.</p>
-        <p>The final exam is comprehensive, i..e addressing
+        <p>The final exam is comprehensive, i.e. addressing
             all of the material covered in the course.</p>
     </slide>
 
@@ -123,8 +121,8 @@ Lesson 11a - Exam Review
                 <ul>
                     <li>O-O design</li>
                     <li>XAMPP</li>
-                    <li>CodeIgniter 3</li>
-                    <li>Project starter(s)</li>
+                    <li>CodeIgniter 4</li>
+                    <li>Composer project starter(s)</li>
                 </ul>
             </p>   
         </div>
@@ -150,13 +148,38 @@ Lesson 11a - Exam Review
                 <ul>
                     <li>XAMPP</li>
                     <li>Virtual Hosting</li>
-                    <li>CodeIgniter</li>
+                    <li>CodeIgniter 4</li>
                     <li>Cross platform</li>
                 </ul>
             </p>   
         </div>
     </slide>
-    <slide title="A.2 Basic MVC App" layout="normal">
+    <slide title="A.2 REST and Resources" layout="normal">
+        <p>
+            <em>Philosophy</em>
+        </p>
+        <div class="left">
+            <p>
+                <b>Concepts:</b>
+                <ul>
+                    <li>Architectures</li>
+                    <li>Microservices</li>
+                    <li>Philosophy</li>
+                </ul>
+            </p>
+        </div>
+        <div class="right">
+            <p>
+                <b>Techniques:</b>
+                <ul>
+                    <li>Resource naming</li>
+                    <li>HTTP verb support</li>
+                    <li>Adapters or connectors</li>
+                </ul>
+            </p>   
+        </div>
+    </slide>
+    <slide title="A.3 Frameworks" layout="normal">
         <p>
             <em>Fundamentals</em>
         </p>
@@ -164,9 +187,9 @@ Lesson 11a - Exam Review
             <p>
                 <b>Concepts:</b>
                 <ul>
-                    <li>MVC separation - request handling, presentation, collections</li>
-                    <li>Design patterns - front controller, adapters</li>
-                    <li>Loading classes - system, core, app</li>
+                    <li>Architectures</li>
+                    <li>RPC</li>
+                    <li>Loading classes - system vs app</li>
                     <li>Routing requests - convention, segments</li>
                     <li>Data resource encapsulation</li>
                 </ul>
@@ -176,18 +199,43 @@ Lesson 11a - Exam Review
             <p>
                 <b>Techniques:</b>
                 <ul>
-                    <li>CodeIgniter super object</li>
-                    <li>CI Controller, Model, view</li>
-                    <li>CI Loader &amp; rules</li>
-                    <li>CI libraries &amp; helpers</li>
-                    <li>Base controller</li>
-                    <li>Mock data or RDB</li>
-                    <li>Database driver &amp; query builder</li>
-                </ul>
+                    <li>Routing</li>
+                    <li>APIs</li>
+                    <li>Opinionated APIs</li>
+                    <li>Bundled modules</li>
+                     <li>RDB abstraction &amp; query builder</li>
+                    <li>ORM?</li>
+               </ul>
             </p>   
         </div>
     </slide>
-    <slide title="A.3 Moderate MVC App" layout="normal">
+    <slide title="A.4 Controllers and routing" layout="normal">
+        <p>
+            <em>Directing Traffic</em>
+        </p>
+        <div class="left">
+            <p>
+                <b>Concepts:</b>
+                <ul>
+                    <li>Resources</li>
+                    <li>APIs</li>
+                    <li>Sitemap from usecases</li>
+                    <li>Hooks &amp; routing rules</li>
+                </ul>
+            </p>
+        </div>
+        <div class="right">
+            <p>
+                <b>Techniques:</b>
+                <ul>
+                    <li>Routing rules</li>
+                    <li>Closures</li>
+                    <li>CI Routing by convention</li>
+                 </ul>
+            </p>   
+        </div>
+    </slide>
+     <slide title="A.5 DRY" layout="normal">
         <p>
             <em>Exploit or build on the framework</em>
         </p>
@@ -210,6 +258,8 @@ Lesson 11a - Exam Review
                     <li>View templating</li>
                     <li>Sessions</li>
                     <li>Base model, enhanced base controller</li>
+                    <li>Filters</li>
+                    <li>Authentication?</li>
                 </ul>
             </p>   
         </div>
@@ -235,6 +285,7 @@ Lesson 11a - Exam Review
                 <ul>
                     <li>Client-server components (toolkit)</li>
                     <li>Wise choices</li>
+                    <li>REST vs RPC</li>
                 </ul>
             </p>   
         </div>
@@ -341,7 +392,9 @@ Lesson 11a - Exam Review
                     <li>Devops</li>
                     <li>Tools &amp; conventions...</li>
                     <li> test deployment server...</li>
-                    <li><em>Docker, Vagrant...</em></li>
+                    <li>
+                        <em>Docker, Vagrant...</em>
+                    </li>
                 </ul>
             </p>   
         </div>

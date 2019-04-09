@@ -73,13 +73,14 @@ Course organizer for Comp4711
     <week num="11">
         <topic>Application Glue - REST</topic>
         <outcomes>2.1, 2.3</outcomes>
-             <lesson name="advanced01" >Authentication</lesson>
-             <lesson name="advanced04" >Response Formatting</lesson>
+        <lesson name="advanced01" >Authentication</lesson>
+        <lesson name="advanced04" >Response Formatting</lesson>
         <assignment name="assignment2">RESTful Backend</assignment>
-   </week>
+    </week>
     <week num="12">
         <topic>Review &amp; Assignment Completion</topic>
         <outcomes>2.1, 2.3</outcomes>
+        <lesson name="final" >Final exam review</lesson>
     </week>
     <week num="13">
         <topic>Final Exam Week</topic>
